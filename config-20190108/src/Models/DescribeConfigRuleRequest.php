@@ -14,18 +14,18 @@ class DescribeConfigRuleRequest extends Model
     public $configRuleId;
 
     /**
-     * @var bool
-     */
-    public $multiAccount;
-
-    /**
      * @var int
      */
     public $memberId;
+
+    /**
+     * @var bool
+     */
+    public $multiAccount;
     protected $_name = [
         'configRuleId' => 'ConfigRuleId',
-        'multiAccount' => 'MultiAccount',
         'memberId'     => 'MemberId',
+        'multiAccount' => 'MultiAccount',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DescribeConfigRuleRequest extends Model
         if (null !== $this->configRuleId) {
             $res['ConfigRuleId'] = $this->configRuleId;
         }
-        if (null !== $this->multiAccount) {
-            $res['MultiAccount'] = $this->multiAccount;
-        }
         if (null !== $this->memberId) {
             $res['MemberId'] = $this->memberId;
+        }
+        if (null !== $this->multiAccount) {
+            $res['MultiAccount'] = $this->multiAccount;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DescribeConfigRuleRequest extends Model
         if (isset($map['ConfigRuleId'])) {
             $model->configRuleId = $map['ConfigRuleId'];
         }
-        if (isset($map['MultiAccount'])) {
-            $model->multiAccount = $map['MultiAccount'];
-        }
         if (isset($map['MemberId'])) {
             $model->memberId = $map['MemberId'];
+        }
+        if (isset($map['MultiAccount'])) {
+            $model->multiAccount = $map['MultiAccount'];
         }
 
         return $model;

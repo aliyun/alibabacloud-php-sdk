@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class groupedResourceCounts extends Model
 {
     /**
-     * @var groupedResourceCountList[]
-     */
-    public $groupedResourceCountList;
-
-    /**
      * @var string
      */
     public $groupByKey;
+
+    /**
+     * @var groupedResourceCountList[]
+     */
+    public $groupedResourceCountList;
     protected $_name = [
-        'groupedResourceCountList' => 'GroupedResourceCountList',
         'groupByKey'               => 'GroupByKey',
+        'groupedResourceCountList' => 'GroupedResourceCountList',
     ];
 
     public function validate()
@@ -30,6 +30,9 @@ class groupedResourceCounts extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->groupByKey) {
+            $res['GroupByKey'] = $this->groupByKey;
+        }
         if (null !== $this->groupedResourceCountList) {
             $res['GroupedResourceCountList'] = [];
             if (null !== $this->groupedResourceCountList && \is_array($this->groupedResourceCountList)) {
@@ -38,9 +41,6 @@ class groupedResourceCounts extends Model
                     $res['GroupedResourceCountList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->groupByKey) {
-            $res['GroupByKey'] = $this->groupByKey;
         }
 
         return $res;
@@ -54,6 +54,9 @@ class groupedResourceCounts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GroupByKey'])) {
+            $model->groupByKey = $map['GroupByKey'];
+        }
         if (isset($map['GroupedResourceCountList'])) {
             if (!empty($map['GroupedResourceCountList'])) {
                 $model->groupedResourceCountList = [];
@@ -62,9 +65,6 @@ class groupedResourceCounts extends Model
                     $model->groupedResourceCountList[$n++] = null !== $item ? groupedResourceCountList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['GroupByKey'])) {
-            $model->groupByKey = $map['GroupByKey'];
         }
 
         return $model;

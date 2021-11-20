@@ -14,18 +14,18 @@ class GetDiscoveredResourceCountsRequest extends Model
     public $groupByKey;
 
     /**
-     * @var bool
-     */
-    public $multiAccount;
-
-    /**
      * @var int
      */
     public $memberId;
+
+    /**
+     * @var bool
+     */
+    public $multiAccount;
     protected $_name = [
         'groupByKey'   => 'GroupByKey',
-        'multiAccount' => 'MultiAccount',
         'memberId'     => 'MemberId',
+        'multiAccount' => 'MultiAccount',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class GetDiscoveredResourceCountsRequest extends Model
         if (null !== $this->groupByKey) {
             $res['GroupByKey'] = $this->groupByKey;
         }
-        if (null !== $this->multiAccount) {
-            $res['MultiAccount'] = $this->multiAccount;
-        }
         if (null !== $this->memberId) {
             $res['MemberId'] = $this->memberId;
+        }
+        if (null !== $this->multiAccount) {
+            $res['MultiAccount'] = $this->multiAccount;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class GetDiscoveredResourceCountsRequest extends Model
         if (isset($map['GroupByKey'])) {
             $model->groupByKey = $map['GroupByKey'];
         }
-        if (isset($map['MultiAccount'])) {
-            $model->multiAccount = $map['MultiAccount'];
-        }
         if (isset($map['MemberId'])) {
             $model->memberId = $map['MemberId'];
+        }
+        if (isset($map['MultiAccount'])) {
+            $model->multiAccount = $map['MultiAccount'];
         }
 
         return $model;

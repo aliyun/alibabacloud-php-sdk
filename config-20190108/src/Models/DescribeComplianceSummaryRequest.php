@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeComplianceSummaryRequest extends Model
 {
     /**
-     * @var bool
-     */
-    public $multiAccount;
-
-    /**
      * @var int
      */
     public $memberId;
+
+    /**
+     * @var bool
+     */
+    public $multiAccount;
     protected $_name = [
-        'multiAccount' => 'MultiAccount',
         'memberId'     => 'MemberId',
+        'multiAccount' => 'MultiAccount',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeComplianceSummaryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->multiAccount) {
-            $res['MultiAccount'] = $this->multiAccount;
-        }
         if (null !== $this->memberId) {
             $res['MemberId'] = $this->memberId;
+        }
+        if (null !== $this->multiAccount) {
+            $res['MultiAccount'] = $this->multiAccount;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeComplianceSummaryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MultiAccount'])) {
-            $model->multiAccount = $map['MultiAccount'];
-        }
         if (isset($map['MemberId'])) {
             $model->memberId = $map['MemberId'];
+        }
+        if (isset($map['MultiAccount'])) {
+            $model->multiAccount = $map['MultiAccount'];
         }
 
         return $model;

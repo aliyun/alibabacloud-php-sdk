@@ -16,22 +16,22 @@ class remediationTemplates extends Model
     /**
      * @var string
      */
+    public $templateDefinition;
+
+    /**
+     * @var string
+     */
     public $templateIdentifier;
 
     /**
      * @var string
      */
     public $templateName;
-
-    /**
-     * @var string
-     */
-    public $templateDefinition;
     protected $_name = [
         'remediationType'    => 'RemediationType',
+        'templateDefinition' => 'TemplateDefinition',
         'templateIdentifier' => 'TemplateIdentifier',
         'templateName'       => 'TemplateName',
-        'templateDefinition' => 'TemplateDefinition',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class remediationTemplates extends Model
         if (null !== $this->remediationType) {
             $res['RemediationType'] = $this->remediationType;
         }
+        if (null !== $this->templateDefinition) {
+            $res['TemplateDefinition'] = $this->templateDefinition;
+        }
         if (null !== $this->templateIdentifier) {
             $res['TemplateIdentifier'] = $this->templateIdentifier;
         }
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
-        }
-        if (null !== $this->templateDefinition) {
-            $res['TemplateDefinition'] = $this->templateDefinition;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class remediationTemplates extends Model
         if (isset($map['RemediationType'])) {
             $model->remediationType = $map['RemediationType'];
         }
+        if (isset($map['TemplateDefinition'])) {
+            $model->templateDefinition = $map['TemplateDefinition'];
+        }
         if (isset($map['TemplateIdentifier'])) {
             $model->templateIdentifier = $map['TemplateIdentifier'];
         }
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
-        }
-        if (isset($map['TemplateDefinition'])) {
-            $model->templateDefinition = $map['TemplateDefinition'];
         }
 
         return $model;

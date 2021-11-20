@@ -9,24 +9,14 @@ use AlibabaCloud\Tea\Model;
 class deliveryChannels extends Model
 {
     /**
-     * @var int
+     * @var bool
      */
-    public $status;
+    public $configurationItemChangeNotification;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $deliveryChannelName;
-
-    /**
-     * @var string
-     */
-    public $deliveryChannelId;
-
-    /**
-     * @var string
-     */
-    public $deliveryChannelType;
+    public $configurationSnapshot;
 
     /**
      * @var string
@@ -36,12 +26,17 @@ class deliveryChannels extends Model
     /**
      * @var string
      */
-    public $description;
+    public $deliveryChannelCondition;
 
     /**
      * @var string
      */
-    public $deliveryChannelCondition;
+    public $deliveryChannelId;
+
+    /**
+     * @var string
+     */
+    public $deliveryChannelName;
 
     /**
      * @var string
@@ -49,14 +44,14 @@ class deliveryChannels extends Model
     public $deliveryChannelTargetArn;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $configurationSnapshot;
+    public $deliveryChannelType;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $configurationItemChangeNotification;
+    public $description;
 
     /**
      * @var bool
@@ -67,19 +62,24 @@ class deliveryChannels extends Model
      * @var string
      */
     public $oversizedDataOSSTargetArn;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
-        'status'                              => 'Status',
-        'deliveryChannelName'                 => 'DeliveryChannelName',
-        'deliveryChannelId'                   => 'DeliveryChannelId',
-        'deliveryChannelType'                 => 'DeliveryChannelType',
-        'deliveryChannelAssumeRoleArn'        => 'DeliveryChannelAssumeRoleArn',
-        'description'                         => 'Description',
-        'deliveryChannelCondition'            => 'DeliveryChannelCondition',
-        'deliveryChannelTargetArn'            => 'DeliveryChannelTargetArn',
-        'configurationSnapshot'               => 'ConfigurationSnapshot',
         'configurationItemChangeNotification' => 'ConfigurationItemChangeNotification',
+        'configurationSnapshot'               => 'ConfigurationSnapshot',
+        'deliveryChannelAssumeRoleArn'        => 'DeliveryChannelAssumeRoleArn',
+        'deliveryChannelCondition'            => 'DeliveryChannelCondition',
+        'deliveryChannelId'                   => 'DeliveryChannelId',
+        'deliveryChannelName'                 => 'DeliveryChannelName',
+        'deliveryChannelTargetArn'            => 'DeliveryChannelTargetArn',
+        'deliveryChannelType'                 => 'DeliveryChannelType',
+        'description'                         => 'Description',
         'nonCompliantNotification'            => 'NonCompliantNotification',
         'oversizedDataOSSTargetArn'           => 'OversizedDataOSSTargetArn',
+        'status'                              => 'Status',
     ];
 
     public function validate()
@@ -89,41 +89,41 @@ class deliveryChannels extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->deliveryChannelName) {
-            $res['DeliveryChannelName'] = $this->deliveryChannelName;
-        }
-        if (null !== $this->deliveryChannelId) {
-            $res['DeliveryChannelId'] = $this->deliveryChannelId;
-        }
-        if (null !== $this->deliveryChannelType) {
-            $res['DeliveryChannelType'] = $this->deliveryChannelType;
-        }
-        if (null !== $this->deliveryChannelAssumeRoleArn) {
-            $res['DeliveryChannelAssumeRoleArn'] = $this->deliveryChannelAssumeRoleArn;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->deliveryChannelCondition) {
-            $res['DeliveryChannelCondition'] = $this->deliveryChannelCondition;
-        }
-        if (null !== $this->deliveryChannelTargetArn) {
-            $res['DeliveryChannelTargetArn'] = $this->deliveryChannelTargetArn;
+        if (null !== $this->configurationItemChangeNotification) {
+            $res['ConfigurationItemChangeNotification'] = $this->configurationItemChangeNotification;
         }
         if (null !== $this->configurationSnapshot) {
             $res['ConfigurationSnapshot'] = $this->configurationSnapshot;
         }
-        if (null !== $this->configurationItemChangeNotification) {
-            $res['ConfigurationItemChangeNotification'] = $this->configurationItemChangeNotification;
+        if (null !== $this->deliveryChannelAssumeRoleArn) {
+            $res['DeliveryChannelAssumeRoleArn'] = $this->deliveryChannelAssumeRoleArn;
+        }
+        if (null !== $this->deliveryChannelCondition) {
+            $res['DeliveryChannelCondition'] = $this->deliveryChannelCondition;
+        }
+        if (null !== $this->deliveryChannelId) {
+            $res['DeliveryChannelId'] = $this->deliveryChannelId;
+        }
+        if (null !== $this->deliveryChannelName) {
+            $res['DeliveryChannelName'] = $this->deliveryChannelName;
+        }
+        if (null !== $this->deliveryChannelTargetArn) {
+            $res['DeliveryChannelTargetArn'] = $this->deliveryChannelTargetArn;
+        }
+        if (null !== $this->deliveryChannelType) {
+            $res['DeliveryChannelType'] = $this->deliveryChannelType;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->nonCompliantNotification) {
             $res['NonCompliantNotification'] = $this->nonCompliantNotification;
         }
         if (null !== $this->oversizedDataOSSTargetArn) {
             $res['OversizedDataOSSTargetArn'] = $this->oversizedDataOSSTargetArn;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -137,41 +137,41 @@ class deliveryChannels extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['DeliveryChannelName'])) {
-            $model->deliveryChannelName = $map['DeliveryChannelName'];
-        }
-        if (isset($map['DeliveryChannelId'])) {
-            $model->deliveryChannelId = $map['DeliveryChannelId'];
-        }
-        if (isset($map['DeliveryChannelType'])) {
-            $model->deliveryChannelType = $map['DeliveryChannelType'];
-        }
-        if (isset($map['DeliveryChannelAssumeRoleArn'])) {
-            $model->deliveryChannelAssumeRoleArn = $map['DeliveryChannelAssumeRoleArn'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['DeliveryChannelCondition'])) {
-            $model->deliveryChannelCondition = $map['DeliveryChannelCondition'];
-        }
-        if (isset($map['DeliveryChannelTargetArn'])) {
-            $model->deliveryChannelTargetArn = $map['DeliveryChannelTargetArn'];
+        if (isset($map['ConfigurationItemChangeNotification'])) {
+            $model->configurationItemChangeNotification = $map['ConfigurationItemChangeNotification'];
         }
         if (isset($map['ConfigurationSnapshot'])) {
             $model->configurationSnapshot = $map['ConfigurationSnapshot'];
         }
-        if (isset($map['ConfigurationItemChangeNotification'])) {
-            $model->configurationItemChangeNotification = $map['ConfigurationItemChangeNotification'];
+        if (isset($map['DeliveryChannelAssumeRoleArn'])) {
+            $model->deliveryChannelAssumeRoleArn = $map['DeliveryChannelAssumeRoleArn'];
+        }
+        if (isset($map['DeliveryChannelCondition'])) {
+            $model->deliveryChannelCondition = $map['DeliveryChannelCondition'];
+        }
+        if (isset($map['DeliveryChannelId'])) {
+            $model->deliveryChannelId = $map['DeliveryChannelId'];
+        }
+        if (isset($map['DeliveryChannelName'])) {
+            $model->deliveryChannelName = $map['DeliveryChannelName'];
+        }
+        if (isset($map['DeliveryChannelTargetArn'])) {
+            $model->deliveryChannelTargetArn = $map['DeliveryChannelTargetArn'];
+        }
+        if (isset($map['DeliveryChannelType'])) {
+            $model->deliveryChannelType = $map['DeliveryChannelType'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['NonCompliantNotification'])) {
             $model->nonCompliantNotification = $map['NonCompliantNotification'];
         }
         if (isset($map['OversizedDataOSSTargetArn'])) {
             $model->oversizedDataOSSTargetArn = $map['OversizedDataOSSTargetArn'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

@@ -16,7 +16,7 @@ class evaluationResultQualifier extends Model
     /**
      * @var string
      */
-    public $resourceType;
+    public $configRuleId;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class evaluationResultQualifier extends Model
     /**
      * @var string
      */
-    public $resourceId;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $configRuleId;
+    public $resourceId;
 
     /**
      * @var string
@@ -41,15 +41,15 @@ class evaluationResultQualifier extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $resourceType;
     protected $_name = [
         'configRuleArn'  => 'ConfigRuleArn',
-        'resourceType'   => 'ResourceType',
-        'configRuleName' => 'ConfigRuleName',
-        'resourceId'     => 'ResourceId',
         'configRuleId'   => 'ConfigRuleId',
-        'resourceName'   => 'ResourceName',
+        'configRuleName' => 'ConfigRuleName',
         'regionId'       => 'RegionId',
+        'resourceId'     => 'ResourceId',
+        'resourceName'   => 'ResourceName',
+        'resourceType'   => 'ResourceType',
     ];
 
     public function validate()
@@ -62,23 +62,23 @@ class evaluationResultQualifier extends Model
         if (null !== $this->configRuleArn) {
             $res['ConfigRuleArn'] = $this->configRuleArn;
         }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
+        if (null !== $this->configRuleId) {
+            $res['ConfigRuleId'] = $this->configRuleId;
         }
         if (null !== $this->configRuleName) {
             $res['ConfigRuleName'] = $this->configRuleName;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
-        }
-        if (null !== $this->configRuleId) {
-            $res['ConfigRuleId'] = $this->configRuleId;
         }
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -95,23 +95,23 @@ class evaluationResultQualifier extends Model
         if (isset($map['ConfigRuleArn'])) {
             $model->configRuleArn = $map['ConfigRuleArn'];
         }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
+        if (isset($map['ConfigRuleId'])) {
+            $model->configRuleId = $map['ConfigRuleId'];
         }
         if (isset($map['ConfigRuleName'])) {
             $model->configRuleName = $map['ConfigRuleName'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
-        }
-        if (isset($map['ConfigRuleId'])) {
-            $model->configRuleId = $map['ConfigRuleId'];
         }
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;

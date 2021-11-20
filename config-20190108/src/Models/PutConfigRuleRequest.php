@@ -11,6 +11,11 @@ class PutConfigRuleRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $configRuleId;
 
     /**
@@ -29,24 +34,19 @@ class PutConfigRuleRequest extends Model
     public $inputParameters;
 
     /**
-     * @var string
+     * @var int
      */
-    public $sourceOwner;
+    public $memberId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $sourceIdentifier;
+    public $multiAccount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $sourceDetailMessageType;
-
-    /**
-     * @var string
-     */
-    public $sourceMaximumExecutionFrequency;
+    public $riskLevel;
 
     /**
      * @var string
@@ -59,39 +59,39 @@ class PutConfigRuleRequest extends Model
     public $scopeComplianceResourceTypes;
 
     /**
-     * @var int
+     * @var string
      */
-    public $riskLevel;
+    public $sourceDetailMessageType;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $sourceIdentifier;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $multiAccount;
+    public $sourceMaximumExecutionFrequency;
 
     /**
-     * @var int
+     * @var string
      */
-    public $memberId;
+    public $sourceOwner;
     protected $_name = [
+        'clientToken'                     => 'ClientToken',
         'configRuleId'                    => 'ConfigRuleId',
         'configRuleName'                  => 'ConfigRuleName',
         'description'                     => 'Description',
         'inputParameters'                 => 'InputParameters',
-        'sourceOwner'                     => 'SourceOwner',
-        'sourceIdentifier'                => 'SourceIdentifier',
-        'sourceDetailMessageType'         => 'SourceDetailMessageType',
-        'sourceMaximumExecutionFrequency' => 'SourceMaximumExecutionFrequency',
+        'memberId'                        => 'MemberId',
+        'multiAccount'                    => 'MultiAccount',
+        'riskLevel'                       => 'RiskLevel',
         'scopeComplianceResourceId'       => 'ScopeComplianceResourceId',
         'scopeComplianceResourceTypes'    => 'ScopeComplianceResourceTypes',
-        'riskLevel'                       => 'RiskLevel',
-        'clientToken'                     => 'ClientToken',
-        'multiAccount'                    => 'MultiAccount',
-        'memberId'                        => 'MemberId',
+        'sourceDetailMessageType'         => 'SourceDetailMessageType',
+        'sourceIdentifier'                => 'SourceIdentifier',
+        'sourceMaximumExecutionFrequency' => 'SourceMaximumExecutionFrequency',
+        'sourceOwner'                     => 'SourceOwner',
     ];
 
     public function validate()
@@ -101,6 +101,9 @@ class PutConfigRuleRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->configRuleId) {
             $res['ConfigRuleId'] = $this->configRuleId;
         }
@@ -113,17 +116,14 @@ class PutConfigRuleRequest extends Model
         if (null !== $this->inputParameters) {
             $res['InputParameters'] = $this->inputParameters;
         }
-        if (null !== $this->sourceOwner) {
-            $res['SourceOwner'] = $this->sourceOwner;
+        if (null !== $this->memberId) {
+            $res['MemberId'] = $this->memberId;
         }
-        if (null !== $this->sourceIdentifier) {
-            $res['SourceIdentifier'] = $this->sourceIdentifier;
+        if (null !== $this->multiAccount) {
+            $res['MultiAccount'] = $this->multiAccount;
         }
-        if (null !== $this->sourceDetailMessageType) {
-            $res['SourceDetailMessageType'] = $this->sourceDetailMessageType;
-        }
-        if (null !== $this->sourceMaximumExecutionFrequency) {
-            $res['SourceMaximumExecutionFrequency'] = $this->sourceMaximumExecutionFrequency;
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
         if (null !== $this->scopeComplianceResourceId) {
             $res['ScopeComplianceResourceId'] = $this->scopeComplianceResourceId;
@@ -131,17 +131,17 @@ class PutConfigRuleRequest extends Model
         if (null !== $this->scopeComplianceResourceTypes) {
             $res['ScopeComplianceResourceTypes'] = $this->scopeComplianceResourceTypes;
         }
-        if (null !== $this->riskLevel) {
-            $res['RiskLevel'] = $this->riskLevel;
+        if (null !== $this->sourceDetailMessageType) {
+            $res['SourceDetailMessageType'] = $this->sourceDetailMessageType;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->sourceIdentifier) {
+            $res['SourceIdentifier'] = $this->sourceIdentifier;
         }
-        if (null !== $this->multiAccount) {
-            $res['MultiAccount'] = $this->multiAccount;
+        if (null !== $this->sourceMaximumExecutionFrequency) {
+            $res['SourceMaximumExecutionFrequency'] = $this->sourceMaximumExecutionFrequency;
         }
-        if (null !== $this->memberId) {
-            $res['MemberId'] = $this->memberId;
+        if (null !== $this->sourceOwner) {
+            $res['SourceOwner'] = $this->sourceOwner;
         }
 
         return $res;
@@ -155,6 +155,9 @@ class PutConfigRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['ConfigRuleId'])) {
             $model->configRuleId = $map['ConfigRuleId'];
         }
@@ -167,17 +170,14 @@ class PutConfigRuleRequest extends Model
         if (isset($map['InputParameters'])) {
             $model->inputParameters = $map['InputParameters'];
         }
-        if (isset($map['SourceOwner'])) {
-            $model->sourceOwner = $map['SourceOwner'];
+        if (isset($map['MemberId'])) {
+            $model->memberId = $map['MemberId'];
         }
-        if (isset($map['SourceIdentifier'])) {
-            $model->sourceIdentifier = $map['SourceIdentifier'];
+        if (isset($map['MultiAccount'])) {
+            $model->multiAccount = $map['MultiAccount'];
         }
-        if (isset($map['SourceDetailMessageType'])) {
-            $model->sourceDetailMessageType = $map['SourceDetailMessageType'];
-        }
-        if (isset($map['SourceMaximumExecutionFrequency'])) {
-            $model->sourceMaximumExecutionFrequency = $map['SourceMaximumExecutionFrequency'];
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
         if (isset($map['ScopeComplianceResourceId'])) {
             $model->scopeComplianceResourceId = $map['ScopeComplianceResourceId'];
@@ -185,17 +185,17 @@ class PutConfigRuleRequest extends Model
         if (isset($map['ScopeComplianceResourceTypes'])) {
             $model->scopeComplianceResourceTypes = $map['ScopeComplianceResourceTypes'];
         }
-        if (isset($map['RiskLevel'])) {
-            $model->riskLevel = $map['RiskLevel'];
+        if (isset($map['SourceDetailMessageType'])) {
+            $model->sourceDetailMessageType = $map['SourceDetailMessageType'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['SourceIdentifier'])) {
+            $model->sourceIdentifier = $map['SourceIdentifier'];
         }
-        if (isset($map['MultiAccount'])) {
-            $model->multiAccount = $map['MultiAccount'];
+        if (isset($map['SourceMaximumExecutionFrequency'])) {
+            $model->sourceMaximumExecutionFrequency = $map['SourceMaximumExecutionFrequency'];
         }
-        if (isset($map['MemberId'])) {
-            $model->memberId = $map['MemberId'];
+        if (isset($map['SourceOwner'])) {
+            $model->sourceOwner = $map['SourceOwner'];
         }
 
         return $model;

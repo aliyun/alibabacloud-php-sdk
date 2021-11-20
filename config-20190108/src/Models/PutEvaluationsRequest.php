@@ -11,15 +11,15 @@ class PutEvaluationsRequest extends Model
     /**
      * @var string
      */
-    public $resultToken;
+    public $evaluations;
 
     /**
      * @var string
      */
-    public $evaluations;
+    public $resultToken;
     protected $_name = [
-        'resultToken' => 'ResultToken',
         'evaluations' => 'Evaluations',
+        'resultToken' => 'ResultToken',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class PutEvaluationsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resultToken) {
-            $res['ResultToken'] = $this->resultToken;
-        }
         if (null !== $this->evaluations) {
             $res['Evaluations'] = $this->evaluations;
+        }
+        if (null !== $this->resultToken) {
+            $res['ResultToken'] = $this->resultToken;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class PutEvaluationsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResultToken'])) {
-            $model->resultToken = $map['ResultToken'];
-        }
         if (isset($map['Evaluations'])) {
             $model->evaluations = $map['Evaluations'];
+        }
+        if (isset($map['ResultToken'])) {
+            $model->resultToken = $map['ResultToken'];
         }
 
         return $model;

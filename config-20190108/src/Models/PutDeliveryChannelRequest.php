@@ -16,6 +16,16 @@ class PutDeliveryChannelRequest extends Model
     /**
      * @var string
      */
+    public $deliveryChannelAssumeRoleArn;
+
+    /**
+     * @var string
+     */
+    public $deliveryChannelCondition;
+
+    /**
+     * @var string
+     */
     public $deliveryChannelId;
 
     /**
@@ -26,22 +36,12 @@ class PutDeliveryChannelRequest extends Model
     /**
      * @var string
      */
-    public $deliveryChannelType;
-
-    /**
-     * @var string
-     */
     public $deliveryChannelTargetArn;
 
     /**
      * @var string
      */
-    public $deliveryChannelAssumeRoleArn;
-
-    /**
-     * @var string
-     */
-    public $deliveryChannelCondition;
+    public $deliveryChannelType;
 
     /**
      * @var string
@@ -54,12 +54,12 @@ class PutDeliveryChannelRequest extends Model
     public $status;
     protected $_name = [
         'clientToken'                  => 'ClientToken',
-        'deliveryChannelId'            => 'DeliveryChannelId',
-        'deliveryChannelName'          => 'DeliveryChannelName',
-        'deliveryChannelType'          => 'DeliveryChannelType',
-        'deliveryChannelTargetArn'     => 'DeliveryChannelTargetArn',
         'deliveryChannelAssumeRoleArn' => 'DeliveryChannelAssumeRoleArn',
         'deliveryChannelCondition'     => 'DeliveryChannelCondition',
+        'deliveryChannelId'            => 'DeliveryChannelId',
+        'deliveryChannelName'          => 'DeliveryChannelName',
+        'deliveryChannelTargetArn'     => 'DeliveryChannelTargetArn',
+        'deliveryChannelType'          => 'DeliveryChannelType',
         'description'                  => 'Description',
         'status'                       => 'Status',
     ];
@@ -74,23 +74,23 @@ class PutDeliveryChannelRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->deliveryChannelAssumeRoleArn) {
+            $res['DeliveryChannelAssumeRoleArn'] = $this->deliveryChannelAssumeRoleArn;
+        }
+        if (null !== $this->deliveryChannelCondition) {
+            $res['DeliveryChannelCondition'] = $this->deliveryChannelCondition;
+        }
         if (null !== $this->deliveryChannelId) {
             $res['DeliveryChannelId'] = $this->deliveryChannelId;
         }
         if (null !== $this->deliveryChannelName) {
             $res['DeliveryChannelName'] = $this->deliveryChannelName;
         }
-        if (null !== $this->deliveryChannelType) {
-            $res['DeliveryChannelType'] = $this->deliveryChannelType;
-        }
         if (null !== $this->deliveryChannelTargetArn) {
             $res['DeliveryChannelTargetArn'] = $this->deliveryChannelTargetArn;
         }
-        if (null !== $this->deliveryChannelAssumeRoleArn) {
-            $res['DeliveryChannelAssumeRoleArn'] = $this->deliveryChannelAssumeRoleArn;
-        }
-        if (null !== $this->deliveryChannelCondition) {
-            $res['DeliveryChannelCondition'] = $this->deliveryChannelCondition;
+        if (null !== $this->deliveryChannelType) {
+            $res['DeliveryChannelType'] = $this->deliveryChannelType;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -113,23 +113,23 @@ class PutDeliveryChannelRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['DeliveryChannelAssumeRoleArn'])) {
+            $model->deliveryChannelAssumeRoleArn = $map['DeliveryChannelAssumeRoleArn'];
+        }
+        if (isset($map['DeliveryChannelCondition'])) {
+            $model->deliveryChannelCondition = $map['DeliveryChannelCondition'];
+        }
         if (isset($map['DeliveryChannelId'])) {
             $model->deliveryChannelId = $map['DeliveryChannelId'];
         }
         if (isset($map['DeliveryChannelName'])) {
             $model->deliveryChannelName = $map['DeliveryChannelName'];
         }
-        if (isset($map['DeliveryChannelType'])) {
-            $model->deliveryChannelType = $map['DeliveryChannelType'];
-        }
         if (isset($map['DeliveryChannelTargetArn'])) {
             $model->deliveryChannelTargetArn = $map['DeliveryChannelTargetArn'];
         }
-        if (isset($map['DeliveryChannelAssumeRoleArn'])) {
-            $model->deliveryChannelAssumeRoleArn = $map['DeliveryChannelAssumeRoleArn'];
-        }
-        if (isset($map['DeliveryChannelCondition'])) {
-            $model->deliveryChannelCondition = $map['DeliveryChannelCondition'];
+        if (isset($map['DeliveryChannelType'])) {
+            $model->deliveryChannelType = $map['DeliveryChannelType'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

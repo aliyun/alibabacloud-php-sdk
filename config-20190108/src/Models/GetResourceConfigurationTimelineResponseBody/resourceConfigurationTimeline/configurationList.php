@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class configurationList extends Model
 {
     /**
-     * @var string
-     */
-    public $tags;
-
-    /**
      * @var int
      */
     public $accountId;
@@ -21,27 +16,7 @@ class configurationList extends Model
     /**
      * @var string
      */
-    public $resourceEventType;
-
-    /**
-     * @var string
-     */
     public $availabilityZone;
-
-    /**
-     * @var string
-     */
-    public $resourceType;
-
-    /**
-     * @var string
-     */
-    public $resourceCreateTime;
-
-    /**
-     * @var string
-     */
-    public $region;
 
     /**
      * @var string
@@ -56,24 +31,49 @@ class configurationList extends Model
     /**
      * @var string
      */
+    public $region;
+
+    /**
+     * @var string
+     */
+    public $resourceCreateTime;
+
+    /**
+     * @var string
+     */
+    public $resourceEventType;
+
+    /**
+     * @var string
+     */
     public $resourceId;
 
     /**
      * @var string
      */
     public $resourceName;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
+
+    /**
+     * @var string
+     */
+    public $tags;
     protected $_name = [
-        'tags'               => 'Tags',
         'accountId'          => 'AccountId',
-        'resourceEventType'  => 'ResourceEventType',
         'availabilityZone'   => 'AvailabilityZone',
-        'resourceType'       => 'ResourceType',
-        'resourceCreateTime' => 'ResourceCreateTime',
-        'region'             => 'Region',
         'captureTime'        => 'CaptureTime',
         'configurationDiff'  => 'ConfigurationDiff',
+        'region'             => 'Region',
+        'resourceCreateTime' => 'ResourceCreateTime',
+        'resourceEventType'  => 'ResourceEventType',
         'resourceId'         => 'ResourceId',
         'resourceName'       => 'ResourceName',
+        'resourceType'       => 'ResourceType',
+        'tags'               => 'Tags',
     ];
 
     public function validate()
@@ -83,26 +83,11 @@ class configurationList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
-        }
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
-        if (null !== $this->resourceEventType) {
-            $res['ResourceEventType'] = $this->resourceEventType;
-        }
         if (null !== $this->availabilityZone) {
             $res['AvailabilityZone'] = $this->availabilityZone;
-        }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->resourceCreateTime) {
-            $res['ResourceCreateTime'] = $this->resourceCreateTime;
-        }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
         }
         if (null !== $this->captureTime) {
             $res['CaptureTime'] = $this->captureTime;
@@ -110,11 +95,26 @@ class configurationList extends Model
         if (null !== $this->configurationDiff) {
             $res['ConfigurationDiff'] = $this->configurationDiff;
         }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
+        }
+        if (null !== $this->resourceCreateTime) {
+            $res['ResourceCreateTime'] = $this->resourceCreateTime;
+        }
+        if (null !== $this->resourceEventType) {
+            $res['ResourceEventType'] = $this->resourceEventType;
+        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
 
         return $res;
@@ -128,26 +128,11 @@ class configurationList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
-        }
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
-        if (isset($map['ResourceEventType'])) {
-            $model->resourceEventType = $map['ResourceEventType'];
-        }
         if (isset($map['AvailabilityZone'])) {
             $model->availabilityZone = $map['AvailabilityZone'];
-        }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['ResourceCreateTime'])) {
-            $model->resourceCreateTime = $map['ResourceCreateTime'];
-        }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
         }
         if (isset($map['CaptureTime'])) {
             $model->captureTime = $map['CaptureTime'];
@@ -155,11 +140,26 @@ class configurationList extends Model
         if (isset($map['ConfigurationDiff'])) {
             $model->configurationDiff = $map['ConfigurationDiff'];
         }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
+        }
+        if (isset($map['ResourceCreateTime'])) {
+            $model->resourceCreateTime = $map['ResourceCreateTime'];
+        }
+        if (isset($map['ResourceEventType'])) {
+            $model->resourceEventType = $map['ResourceEventType'];
+        }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
 
         return $model;

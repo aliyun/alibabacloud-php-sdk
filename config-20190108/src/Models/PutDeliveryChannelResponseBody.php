@@ -11,15 +11,15 @@ class PutDeliveryChannelResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $deliveryChannelId;
 
     /**
      * @var string
      */
-    public $deliveryChannelId;
+    public $requestId;
     protected $_name = [
-        'requestId'         => 'RequestId',
         'deliveryChannelId' => 'DeliveryChannelId',
+        'requestId'         => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class PutDeliveryChannelResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->deliveryChannelId) {
             $res['DeliveryChannelId'] = $this->deliveryChannelId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class PutDeliveryChannelResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DeliveryChannelId'])) {
             $model->deliveryChannelId = $map['DeliveryChannelId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

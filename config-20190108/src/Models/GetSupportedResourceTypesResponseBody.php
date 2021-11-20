@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetSupportedResourceTypesResponseBody extends Model
 {
     /**
-     * @var string[]
-     */
-    public $resourceTypes;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string[]
+     */
+    public $resourceTypes;
     protected $_name = [
-        'resourceTypes' => 'ResourceTypes',
         'requestId'     => 'RequestId',
+        'resourceTypes' => 'ResourceTypes',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetSupportedResourceTypesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceTypes) {
-            $res['ResourceTypes'] = $this->resourceTypes;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceTypes) {
+            $res['ResourceTypes'] = $this->resourceTypes;
         }
 
         return $res;
@@ -47,13 +47,13 @@ class GetSupportedResourceTypesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['ResourceTypes'])) {
             if (!empty($map['ResourceTypes'])) {
                 $model->resourceTypes = $map['ResourceTypes'];
             }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

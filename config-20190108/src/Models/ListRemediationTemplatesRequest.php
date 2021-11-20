@@ -11,15 +11,15 @@ class ListRemediationTemplatesRequest extends Model
     /**
      * @var string
      */
-    public $remediationType;
+    public $managedRuleIdentifier;
 
     /**
      * @var string
      */
-    public $managedRuleIdentifier;
+    public $remediationType;
     protected $_name = [
-        'remediationType'       => 'RemediationType',
         'managedRuleIdentifier' => 'ManagedRuleIdentifier',
+        'remediationType'       => 'RemediationType',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ListRemediationTemplatesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->remediationType) {
-            $res['RemediationType'] = $this->remediationType;
-        }
         if (null !== $this->managedRuleIdentifier) {
             $res['ManagedRuleIdentifier'] = $this->managedRuleIdentifier;
+        }
+        if (null !== $this->remediationType) {
+            $res['RemediationType'] = $this->remediationType;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ListRemediationTemplatesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RemediationType'])) {
-            $model->remediationType = $map['RemediationType'];
-        }
         if (isset($map['ManagedRuleIdentifier'])) {
             $model->managedRuleIdentifier = $map['ManagedRuleIdentifier'];
+        }
+        if (isset($map['RemediationType'])) {
+            $model->remediationType = $map['RemediationType'];
         }
 
         return $model;

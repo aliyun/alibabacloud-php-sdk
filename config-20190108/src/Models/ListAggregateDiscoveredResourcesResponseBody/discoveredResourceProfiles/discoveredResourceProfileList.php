@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class discoveredResourceProfileList extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $resourceType;
+    public $accountId;
 
     /**
      * @var string
@@ -24,14 +24,9 @@ class discoveredResourceProfileList extends Model
     public $resourceCreationTime;
 
     /**
-     * @var string
-     */
-    public $tags;
-
-    /**
      * @var int
      */
-    public $accountId;
+    public $resourceDeleted;
 
     /**
      * @var string
@@ -46,7 +41,7 @@ class discoveredResourceProfileList extends Model
     /**
      * @var int
      */
-    public $resourceDeleted;
+    public $resourceOwnerId;
 
     /**
      * @var string
@@ -54,20 +49,25 @@ class discoveredResourceProfileList extends Model
     public $resourceStatus;
 
     /**
-     * @var int
+     * @var string
      */
-    public $resourceOwnerId;
+    public $resourceType;
+
+    /**
+     * @var string
+     */
+    public $tags;
     protected $_name = [
-        'resourceType'         => 'ResourceType',
+        'accountId'            => 'AccountId',
         'region'               => 'Region',
         'resourceCreationTime' => 'ResourceCreationTime',
-        'tags'                 => 'Tags',
-        'accountId'            => 'AccountId',
+        'resourceDeleted'      => 'ResourceDeleted',
         'resourceId'           => 'ResourceId',
         'resourceName'         => 'ResourceName',
-        'resourceDeleted'      => 'ResourceDeleted',
-        'resourceStatus'       => 'ResourceStatus',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceStatus'       => 'ResourceStatus',
+        'resourceType'         => 'ResourceType',
+        'tags'                 => 'Tags',
     ];
 
     public function validate()
@@ -77,8 +77,8 @@ class discoveredResourceProfileList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -86,11 +86,8 @@ class discoveredResourceProfileList extends Model
         if (null !== $this->resourceCreationTime) {
             $res['ResourceCreationTime'] = $this->resourceCreationTime;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
-        }
-        if (null !== $this->accountId) {
-            $res['AccountId'] = $this->accountId;
+        if (null !== $this->resourceDeleted) {
+            $res['ResourceDeleted'] = $this->resourceDeleted;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
@@ -98,14 +95,17 @@ class discoveredResourceProfileList extends Model
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
         }
-        if (null !== $this->resourceDeleted) {
-            $res['ResourceDeleted'] = $this->resourceDeleted;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->resourceStatus) {
             $res['ResourceStatus'] = $this->resourceStatus;
         }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
 
         return $res;
@@ -119,8 +119,8 @@ class discoveredResourceProfileList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
@@ -128,11 +128,8 @@ class discoveredResourceProfileList extends Model
         if (isset($map['ResourceCreationTime'])) {
             $model->resourceCreationTime = $map['ResourceCreationTime'];
         }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
-        }
-        if (isset($map['AccountId'])) {
-            $model->accountId = $map['AccountId'];
+        if (isset($map['ResourceDeleted'])) {
+            $model->resourceDeleted = $map['ResourceDeleted'];
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
@@ -140,14 +137,17 @@ class discoveredResourceProfileList extends Model
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
         }
-        if (isset($map['ResourceDeleted'])) {
-            $model->resourceDeleted = $map['ResourceDeleted'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['ResourceStatus'])) {
             $model->resourceStatus = $map['ResourceStatus'];
         }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
 
         return $model;

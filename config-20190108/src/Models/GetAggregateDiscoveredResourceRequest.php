@@ -11,12 +11,7 @@ class GetAggregateDiscoveredResourceRequest extends Model
     /**
      * @var string
      */
-    public $resourceId;
-
-    /**
-     * @var string
-     */
-    public $resourceType;
+    public $aggregatorId;
 
     /**
      * @var string
@@ -26,18 +21,23 @@ class GetAggregateDiscoveredResourceRequest extends Model
     /**
      * @var string
      */
-    public $aggregatorId;
+    public $resourceId;
 
     /**
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
     protected $_name = [
-        'resourceId'      => 'ResourceId',
-        'resourceType'    => 'ResourceType',
-        'region'          => 'Region',
         'aggregatorId'    => 'AggregatorId',
+        'region'          => 'Region',
+        'resourceId'      => 'ResourceId',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceType'    => 'ResourceType',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class GetAggregateDiscoveredResourceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
-        }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
+        if (null !== $this->aggregatorId) {
+            $res['AggregatorId'] = $this->aggregatorId;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
-        if (null !== $this->aggregatorId) {
-            $res['AggregatorId'] = $this->aggregatorId;
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class GetAggregateDiscoveredResourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceId'])) {
-            $model->resourceId = $map['ResourceId'];
-        }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
+        if (isset($map['AggregatorId'])) {
+            $model->aggregatorId = $map['AggregatorId'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
-        if (isset($map['AggregatorId'])) {
-            $model->aggregatorId = $map['AggregatorId'];
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;

@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class scope extends Model
 {
     /**
-     * @var string[]
-     */
-    public $complianceResourceTypes;
-
-    /**
      * @var string
      */
     public $complianceResourceId;
+
+    /**
+     * @var string[]
+     */
+    public $complianceResourceTypes;
     protected $_name = [
-        'complianceResourceTypes' => 'ComplianceResourceTypes',
         'complianceResourceId'    => 'ComplianceResourceId',
+        'complianceResourceTypes' => 'ComplianceResourceTypes',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class scope extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->complianceResourceTypes) {
-            $res['ComplianceResourceTypes'] = $this->complianceResourceTypes;
-        }
         if (null !== $this->complianceResourceId) {
             $res['ComplianceResourceId'] = $this->complianceResourceId;
+        }
+        if (null !== $this->complianceResourceTypes) {
+            $res['ComplianceResourceTypes'] = $this->complianceResourceTypes;
         }
 
         return $res;
@@ -47,13 +47,13 @@ class scope extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ComplianceResourceId'])) {
+            $model->complianceResourceId = $map['ComplianceResourceId'];
+        }
         if (isset($map['ComplianceResourceTypes'])) {
             if (!empty($map['ComplianceResourceTypes'])) {
                 $model->complianceResourceTypes = $map['ComplianceResourceTypes'];
             }
-        }
-        if (isset($map['ComplianceResourceId'])) {
-            $model->complianceResourceId = $map['ComplianceResourceId'];
         }
 
         return $model;

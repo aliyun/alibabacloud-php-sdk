@@ -11,17 +11,22 @@ class DescribeEvaluationResultsRequest extends Model
     /**
      * @var string
      */
-    public $resourceType;
-
-    /**
-     * @var string
-     */
-    public $resourceId;
-
-    /**
-     * @var string
-     */
     public $complianceType;
+
+    /**
+     * @var string
+     */
+    public $configRuleId;
+
+    /**
+     * @var int
+     */
+    public $memberId;
+
+    /**
+     * @var bool
+     */
+    public $multiAccount;
 
     /**
      * @var int
@@ -36,26 +41,21 @@ class DescribeEvaluationResultsRequest extends Model
     /**
      * @var string
      */
-    public $configRuleId;
+    public $resourceId;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $multiAccount;
-
-    /**
-     * @var int
-     */
-    public $memberId;
+    public $resourceType;
     protected $_name = [
-        'resourceType'   => 'ResourceType',
-        'resourceId'     => 'ResourceId',
         'complianceType' => 'ComplianceType',
+        'configRuleId'   => 'ConfigRuleId',
+        'memberId'       => 'MemberId',
+        'multiAccount'   => 'MultiAccount',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
-        'configRuleId'   => 'ConfigRuleId',
-        'multiAccount'   => 'MultiAccount',
-        'memberId'       => 'MemberId',
+        'resourceId'     => 'ResourceId',
+        'resourceType'   => 'ResourceType',
     ];
 
     public function validate()
@@ -65,14 +65,17 @@ class DescribeEvaluationResultsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
-        }
         if (null !== $this->complianceType) {
             $res['ComplianceType'] = $this->complianceType;
+        }
+        if (null !== $this->configRuleId) {
+            $res['ConfigRuleId'] = $this->configRuleId;
+        }
+        if (null !== $this->memberId) {
+            $res['MemberId'] = $this->memberId;
+        }
+        if (null !== $this->multiAccount) {
+            $res['MultiAccount'] = $this->multiAccount;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -80,14 +83,11 @@ class DescribeEvaluationResultsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->configRuleId) {
-            $res['ConfigRuleId'] = $this->configRuleId;
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
         }
-        if (null !== $this->multiAccount) {
-            $res['MultiAccount'] = $this->multiAccount;
-        }
-        if (null !== $this->memberId) {
-            $res['MemberId'] = $this->memberId;
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -101,14 +101,17 @@ class DescribeEvaluationResultsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['ResourceId'])) {
-            $model->resourceId = $map['ResourceId'];
-        }
         if (isset($map['ComplianceType'])) {
             $model->complianceType = $map['ComplianceType'];
+        }
+        if (isset($map['ConfigRuleId'])) {
+            $model->configRuleId = $map['ConfigRuleId'];
+        }
+        if (isset($map['MemberId'])) {
+            $model->memberId = $map['MemberId'];
+        }
+        if (isset($map['MultiAccount'])) {
+            $model->multiAccount = $map['MultiAccount'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -116,14 +119,11 @@ class DescribeEvaluationResultsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['ConfigRuleId'])) {
-            $model->configRuleId = $map['ConfigRuleId'];
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
         }
-        if (isset($map['MultiAccount'])) {
-            $model->multiAccount = $map['MultiAccount'];
-        }
-        if (isset($map['MemberId'])) {
-            $model->memberId = $map['MemberId'];
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;

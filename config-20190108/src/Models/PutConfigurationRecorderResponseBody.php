@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class PutConfigurationRecorderResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var configurationRecorder
      */
     public $configurationRecorder;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'             => 'RequestId',
         'configurationRecorder' => 'ConfigurationRecorder',
+        'requestId'             => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class PutConfigurationRecorderResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->configurationRecorder) {
             $res['ConfigurationRecorder'] = null !== $this->configurationRecorder ? $this->configurationRecorder->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class PutConfigurationRecorderResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ConfigurationRecorder'])) {
             $model->configurationRecorder = configurationRecorder::fromMap($map['ConfigurationRecorder']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

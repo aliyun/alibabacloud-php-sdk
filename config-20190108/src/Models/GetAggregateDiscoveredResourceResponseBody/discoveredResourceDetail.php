@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class discoveredResourceDetail extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $availabilityZone;
+    public $accountId;
 
     /**
      * @var string
      */
-    public $resourceType;
+    public $availabilityZone;
 
     /**
      * @var string
@@ -34,24 +34,14 @@ class discoveredResourceDetail extends Model
     public $resourceCreationTime;
 
     /**
-     * @var string
-     */
-    public $tags;
-
-    /**
      * @var int
      */
-    public $accountId;
+    public $resourceDeleted;
 
     /**
      * @var string
      */
     public $resourceId;
-
-    /**
-     * @var int
-     */
-    public $resourceDeleted;
 
     /**
      * @var string
@@ -62,18 +52,28 @@ class discoveredResourceDetail extends Model
      * @var string
      */
     public $resourceStatus;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
+
+    /**
+     * @var string
+     */
+    public $tags;
     protected $_name = [
+        'accountId'            => 'AccountId',
         'availabilityZone'     => 'AvailabilityZone',
-        'resourceType'         => 'ResourceType',
         'configuration'        => 'Configuration',
         'region'               => 'Region',
         'resourceCreationTime' => 'ResourceCreationTime',
-        'tags'                 => 'Tags',
-        'accountId'            => 'AccountId',
-        'resourceId'           => 'ResourceId',
         'resourceDeleted'      => 'ResourceDeleted',
+        'resourceId'           => 'ResourceId',
         'resourceName'         => 'ResourceName',
         'resourceStatus'       => 'ResourceStatus',
+        'resourceType'         => 'ResourceType',
+        'tags'                 => 'Tags',
     ];
 
     public function validate()
@@ -83,11 +83,11 @@ class discoveredResourceDetail extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
+        }
         if (null !== $this->availabilityZone) {
             $res['AvailabilityZone'] = $this->availabilityZone;
-        }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->configuration) {
             $res['Configuration'] = $this->configuration;
@@ -98,23 +98,23 @@ class discoveredResourceDetail extends Model
         if (null !== $this->resourceCreationTime) {
             $res['ResourceCreationTime'] = $this->resourceCreationTime;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
-        }
-        if (null !== $this->accountId) {
-            $res['AccountId'] = $this->accountId;
+        if (null !== $this->resourceDeleted) {
+            $res['ResourceDeleted'] = $this->resourceDeleted;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
-        }
-        if (null !== $this->resourceDeleted) {
-            $res['ResourceDeleted'] = $this->resourceDeleted;
         }
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
         }
         if (null !== $this->resourceStatus) {
             $res['ResourceStatus'] = $this->resourceStatus;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
 
         return $res;
@@ -128,11 +128,11 @@ class discoveredResourceDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
+        }
         if (isset($map['AvailabilityZone'])) {
             $model->availabilityZone = $map['AvailabilityZone'];
-        }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['Configuration'])) {
             $model->configuration = $map['Configuration'];
@@ -143,23 +143,23 @@ class discoveredResourceDetail extends Model
         if (isset($map['ResourceCreationTime'])) {
             $model->resourceCreationTime = $map['ResourceCreationTime'];
         }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
-        }
-        if (isset($map['AccountId'])) {
-            $model->accountId = $map['AccountId'];
+        if (isset($map['ResourceDeleted'])) {
+            $model->resourceDeleted = $map['ResourceDeleted'];
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
-        }
-        if (isset($map['ResourceDeleted'])) {
-            $model->resourceDeleted = $map['ResourceDeleted'];
         }
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
         }
         if (isset($map['ResourceStatus'])) {
             $model->resourceStatus = $map['ResourceStatus'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
 
         return $model;

@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class groupedResourceCountList extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceCount;
-
-    /**
      * @var string
      */
     public $groupName;
+
+    /**
+     * @var int
+     */
+    public $resourceCount;
     protected $_name = [
-        'resourceCount' => 'ResourceCount',
         'groupName'     => 'GroupName',
+        'resourceCount' => 'ResourceCount',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class groupedResourceCountList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceCount) {
-            $res['ResourceCount'] = $this->resourceCount;
-        }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->resourceCount) {
+            $res['ResourceCount'] = $this->resourceCount;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class groupedResourceCountList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceCount'])) {
-            $model->resourceCount = $map['ResourceCount'];
-        }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['ResourceCount'])) {
+            $model->resourceCount = $map['ResourceCount'];
         }
 
         return $model;

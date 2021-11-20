@@ -16,7 +16,7 @@ class sourceConditions extends Model
     /**
      * @var string
      */
-    public $tips;
+    public $name;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class sourceConditions extends Model
     /**
      * @var string
      */
-    public $name;
+    public $tips;
     protected $_name = [
         'desiredValue' => 'DesiredValue',
-        'tips'         => 'Tips',
-        'operator'     => 'Operator',
         'name'         => 'Name',
+        'operator'     => 'Operator',
+        'tips'         => 'Tips',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class sourceConditions extends Model
         if (null !== $this->desiredValue) {
             $res['DesiredValue'] = $this->desiredValue;
         }
-        if (null !== $this->tips) {
-            $res['Tips'] = $this->tips;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->tips) {
+            $res['Tips'] = $this->tips;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class sourceConditions extends Model
         if (isset($map['DesiredValue'])) {
             $model->desiredValue = $map['DesiredValue'];
         }
-        if (isset($map['Tips'])) {
-            $model->tips = $map['Tips'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Tips'])) {
+            $model->tips = $map['Tips'];
         }
 
         return $model;

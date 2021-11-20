@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiscoveredResourceRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $memberId;
+
+    /**
+     * @var bool
+     */
+    public $multiAccount;
+
+    /**
+     * @var string
+     */
+    public $region;
+
+    /**
      * @var string
      */
     public $resourceId;
@@ -17,27 +32,12 @@ class DescribeDiscoveredResourceRequest extends Model
      * @var string
      */
     public $resourceType;
-
-    /**
-     * @var string
-     */
-    public $region;
-
-    /**
-     * @var bool
-     */
-    public $multiAccount;
-
-    /**
-     * @var int
-     */
-    public $memberId;
     protected $_name = [
+        'memberId'     => 'MemberId',
+        'multiAccount' => 'MultiAccount',
+        'region'       => 'Region',
         'resourceId'   => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'region'       => 'Region',
-        'multiAccount' => 'MultiAccount',
-        'memberId'     => 'MemberId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeDiscoveredResourceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->memberId) {
+            $res['MemberId'] = $this->memberId;
+        }
+        if (null !== $this->multiAccount) {
+            $res['MultiAccount'] = $this->multiAccount;
+        }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
+        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
-        }
-        if (null !== $this->multiAccount) {
-            $res['MultiAccount'] = $this->multiAccount;
-        }
-        if (null !== $this->memberId) {
-            $res['MemberId'] = $this->memberId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeDiscoveredResourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MemberId'])) {
+            $model->memberId = $map['MemberId'];
+        }
+        if (isset($map['MultiAccount'])) {
+            $model->multiAccount = $map['MultiAccount'];
+        }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
+        }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
-        }
-        if (isset($map['MultiAccount'])) {
-            $model->multiAccount = $map['MultiAccount'];
-        }
-        if (isset($map['MemberId'])) {
-            $model->memberId = $map['MemberId'];
         }
 
         return $model;

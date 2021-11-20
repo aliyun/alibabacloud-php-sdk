@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class resourceConfigurationTimeline extends Model
 {
     /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
-     * @var int
-     */
-    public $limit;
-
-    /**
      * @var configurationList[]
      */
     public $configurationList;
@@ -27,11 +17,21 @@ class resourceConfigurationTimeline extends Model
     /**
      * @var int
      */
+    public $limit;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var int
+     */
     public $totalCount;
     protected $_name = [
-        'nextToken'         => 'NextToken',
-        'limit'             => 'Limit',
         'configurationList' => 'ConfigurationList',
+        'limit'             => 'Limit',
+        'nextToken'         => 'NextToken',
         'totalCount'        => 'TotalCount',
     ];
 
@@ -42,12 +42,6 @@ class resourceConfigurationTimeline extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->limit) {
-            $res['Limit'] = $this->limit;
-        }
         if (null !== $this->configurationList) {
             $res['ConfigurationList'] = [];
             if (null !== $this->configurationList && \is_array($this->configurationList)) {
@@ -56,6 +50,12 @@ class resourceConfigurationTimeline extends Model
                     $res['ConfigurationList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->limit) {
+            $res['Limit'] = $this->limit;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -72,12 +72,6 @@ class resourceConfigurationTimeline extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['Limit'])) {
-            $model->limit = $map['Limit'];
-        }
         if (isset($map['ConfigurationList'])) {
             if (!empty($map['ConfigurationList'])) {
                 $model->configurationList = [];
@@ -86,6 +80,12 @@ class resourceConfigurationTimeline extends Model
                     $model->configurationList[$n++] = null !== $item ? configurationList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Limit'])) {
+            $model->limit = $map['Limit'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
