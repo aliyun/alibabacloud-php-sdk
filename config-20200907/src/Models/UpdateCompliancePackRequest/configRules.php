@@ -12,7 +12,12 @@ class configRules extends Model
     /**
      * @var string
      */
-    public $managedRuleIdentifier;
+    public $configRuleId;
+
+    /**
+     * @var string
+     */
+    public $configRuleName;
 
     /**
      * @var configRuleParameters[]
@@ -22,28 +27,23 @@ class configRules extends Model
     /**
      * @var string
      */
-    public $configRuleId;
-
-    /**
-     * @var string
-     */
-    public $configRuleName;
-
-    /**
-     * @var string
-     */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $managedRuleIdentifier;
 
     /**
      * @var int
      */
     public $riskLevel;
     protected $_name = [
-        'managedRuleIdentifier' => 'ManagedRuleIdentifier',
-        'configRuleParameters'  => 'ConfigRuleParameters',
         'configRuleId'          => 'ConfigRuleId',
         'configRuleName'        => 'ConfigRuleName',
+        'configRuleParameters'  => 'ConfigRuleParameters',
         'description'           => 'Description',
+        'managedRuleIdentifier' => 'ManagedRuleIdentifier',
         'riskLevel'             => 'RiskLevel',
     ];
 
@@ -54,8 +54,11 @@ class configRules extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->managedRuleIdentifier) {
-            $res['ManagedRuleIdentifier'] = $this->managedRuleIdentifier;
+        if (null !== $this->configRuleId) {
+            $res['ConfigRuleId'] = $this->configRuleId;
+        }
+        if (null !== $this->configRuleName) {
+            $res['ConfigRuleName'] = $this->configRuleName;
         }
         if (null !== $this->configRuleParameters) {
             $res['ConfigRuleParameters'] = [];
@@ -66,14 +69,11 @@ class configRules extends Model
                 }
             }
         }
-        if (null !== $this->configRuleId) {
-            $res['ConfigRuleId'] = $this->configRuleId;
-        }
-        if (null !== $this->configRuleName) {
-            $res['ConfigRuleName'] = $this->configRuleName;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->managedRuleIdentifier) {
+            $res['ManagedRuleIdentifier'] = $this->managedRuleIdentifier;
         }
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
@@ -90,8 +90,11 @@ class configRules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ManagedRuleIdentifier'])) {
-            $model->managedRuleIdentifier = $map['ManagedRuleIdentifier'];
+        if (isset($map['ConfigRuleId'])) {
+            $model->configRuleId = $map['ConfigRuleId'];
+        }
+        if (isset($map['ConfigRuleName'])) {
+            $model->configRuleName = $map['ConfigRuleName'];
         }
         if (isset($map['ConfigRuleParameters'])) {
             if (!empty($map['ConfigRuleParameters'])) {
@@ -102,14 +105,11 @@ class configRules extends Model
                 }
             }
         }
-        if (isset($map['ConfigRuleId'])) {
-            $model->configRuleId = $map['ConfigRuleId'];
-        }
-        if (isset($map['ConfigRuleName'])) {
-            $model->configRuleName = $map['ConfigRuleName'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['ManagedRuleIdentifier'])) {
+            $model->managedRuleIdentifier = $map['ManagedRuleIdentifier'];
         }
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];

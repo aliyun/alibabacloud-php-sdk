@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateConfigRuleSummaryByRiskLevelResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var configRuleSummaries[]
      */
     public $configRuleSummaries;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'           => 'RequestId',
         'configRuleSummaries' => 'ConfigRuleSummaries',
+        'requestId'           => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class GetAggregateConfigRuleSummaryByRiskLevelResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->configRuleSummaries) {
             $res['ConfigRuleSummaries'] = [];
             if (null !== $this->configRuleSummaries && \is_array($this->configRuleSummaries)) {
@@ -41,6 +38,9 @@ class GetAggregateConfigRuleSummaryByRiskLevelResponseBody extends Model
                     $res['ConfigRuleSummaries'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class GetAggregateConfigRuleSummaryByRiskLevelResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ConfigRuleSummaries'])) {
             if (!empty($map['ConfigRuleSummaries'])) {
                 $model->configRuleSummaries = [];
@@ -65,6 +62,9 @@ class GetAggregateConfigRuleSummaryByRiskLevelResponseBody extends Model
                     $model->configRuleSummaries[$n++] = null !== $item ? configRuleSummaries::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

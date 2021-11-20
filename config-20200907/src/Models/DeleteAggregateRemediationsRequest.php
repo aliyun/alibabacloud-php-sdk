@@ -11,15 +11,15 @@ class DeleteAggregateRemediationsRequest extends Model
     /**
      * @var string
      */
-    public $remediationIds;
+    public $aggregatorId;
 
     /**
      * @var string
      */
-    public $aggregatorId;
+    public $remediationIds;
     protected $_name = [
-        'remediationIds' => 'RemediationIds',
         'aggregatorId'   => 'AggregatorId',
+        'remediationIds' => 'RemediationIds',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteAggregateRemediationsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->remediationIds) {
-            $res['RemediationIds'] = $this->remediationIds;
-        }
         if (null !== $this->aggregatorId) {
             $res['AggregatorId'] = $this->aggregatorId;
+        }
+        if (null !== $this->remediationIds) {
+            $res['RemediationIds'] = $this->remediationIds;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteAggregateRemediationsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RemediationIds'])) {
-            $model->remediationIds = $map['RemediationIds'];
-        }
         if (isset($map['AggregatorId'])) {
             $model->aggregatorId = $map['AggregatorId'];
+        }
+        if (isset($map['RemediationIds'])) {
+            $model->remediationIds = $map['RemediationIds'];
         }
 
         return $model;

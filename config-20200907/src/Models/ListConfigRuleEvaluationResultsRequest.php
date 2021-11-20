@@ -11,12 +11,17 @@ class ListConfigRuleEvaluationResultsRequest extends Model
     /**
      * @var string
      */
+    public $compliancePackId;
+
+    /**
+     * @var string
+     */
     public $complianceType;
 
     /**
      * @var string
      */
-    public $nextToken;
+    public $configRuleId;
 
     /**
      * @var int
@@ -26,18 +31,13 @@ class ListConfigRuleEvaluationResultsRequest extends Model
     /**
      * @var string
      */
-    public $configRuleId;
-
-    /**
-     * @var string
-     */
-    public $compliancePackId;
+    public $nextToken;
     protected $_name = [
-        'complianceType'   => 'ComplianceType',
-        'nextToken'        => 'NextToken',
-        'maxResults'       => 'MaxResults',
-        'configRuleId'     => 'ConfigRuleId',
         'compliancePackId' => 'CompliancePackId',
+        'complianceType'   => 'ComplianceType',
+        'configRuleId'     => 'ConfigRuleId',
+        'maxResults'       => 'MaxResults',
+        'nextToken'        => 'NextToken',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class ListConfigRuleEvaluationResultsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->compliancePackId) {
+            $res['CompliancePackId'] = $this->compliancePackId;
+        }
         if (null !== $this->complianceType) {
             $res['ComplianceType'] = $this->complianceType;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->configRuleId) {
             $res['ConfigRuleId'] = $this->configRuleId;
         }
-        if (null !== $this->compliancePackId) {
-            $res['CompliancePackId'] = $this->compliancePackId;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class ListConfigRuleEvaluationResultsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CompliancePackId'])) {
+            $model->compliancePackId = $map['CompliancePackId'];
+        }
         if (isset($map['ComplianceType'])) {
             $model->complianceType = $map['ComplianceType'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['ConfigRuleId'])) {
             $model->configRuleId = $map['ConfigRuleId'];
         }
-        if (isset($map['CompliancePackId'])) {
-            $model->compliancePackId = $map['CompliancePackId'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class aggregators extends Model
     /**
      * @var int
      */
-    public $aggregatorCreateTimestamp;
+    public $accountId;
 
     /**
      * @var int
@@ -19,9 +19,14 @@ class aggregators extends Model
     public $aggregatorAccountCount;
 
     /**
+     * @var int
+     */
+    public $aggregatorCreateTimestamp;
+
+    /**
      * @var string
      */
-    public $description;
+    public $aggregatorId;
 
     /**
      * @var string
@@ -39,23 +44,18 @@ class aggregators extends Model
     public $aggregatorType;
 
     /**
-     * @var int
-     */
-    public $accountId;
-
-    /**
      * @var string
      */
-    public $aggregatorId;
+    public $description;
     protected $_name = [
-        'aggregatorCreateTimestamp' => 'AggregatorCreateTimestamp',
+        'accountId'                 => 'AccountId',
         'aggregatorAccountCount'    => 'AggregatorAccountCount',
-        'description'               => 'Description',
+        'aggregatorCreateTimestamp' => 'AggregatorCreateTimestamp',
+        'aggregatorId'              => 'AggregatorId',
         'aggregatorName'            => 'AggregatorName',
         'aggregatorStatus'          => 'AggregatorStatus',
         'aggregatorType'            => 'AggregatorType',
-        'accountId'                 => 'AccountId',
-        'aggregatorId'              => 'AggregatorId',
+        'description'               => 'Description',
     ];
 
     public function validate()
@@ -65,14 +65,17 @@ class aggregators extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->aggregatorCreateTimestamp) {
-            $res['AggregatorCreateTimestamp'] = $this->aggregatorCreateTimestamp;
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
         }
         if (null !== $this->aggregatorAccountCount) {
             $res['AggregatorAccountCount'] = $this->aggregatorAccountCount;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->aggregatorCreateTimestamp) {
+            $res['AggregatorCreateTimestamp'] = $this->aggregatorCreateTimestamp;
+        }
+        if (null !== $this->aggregatorId) {
+            $res['AggregatorId'] = $this->aggregatorId;
         }
         if (null !== $this->aggregatorName) {
             $res['AggregatorName'] = $this->aggregatorName;
@@ -83,11 +86,8 @@ class aggregators extends Model
         if (null !== $this->aggregatorType) {
             $res['AggregatorType'] = $this->aggregatorType;
         }
-        if (null !== $this->accountId) {
-            $res['AccountId'] = $this->accountId;
-        }
-        if (null !== $this->aggregatorId) {
-            $res['AggregatorId'] = $this->aggregatorId;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         return $res;
@@ -101,14 +101,17 @@ class aggregators extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AggregatorCreateTimestamp'])) {
-            $model->aggregatorCreateTimestamp = $map['AggregatorCreateTimestamp'];
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
         }
         if (isset($map['AggregatorAccountCount'])) {
             $model->aggregatorAccountCount = $map['AggregatorAccountCount'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['AggregatorCreateTimestamp'])) {
+            $model->aggregatorCreateTimestamp = $map['AggregatorCreateTimestamp'];
+        }
+        if (isset($map['AggregatorId'])) {
+            $model->aggregatorId = $map['AggregatorId'];
         }
         if (isset($map['AggregatorName'])) {
             $model->aggregatorName = $map['AggregatorName'];
@@ -119,11 +122,8 @@ class aggregators extends Model
         if (isset($map['AggregatorType'])) {
             $model->aggregatorType = $map['AggregatorType'];
         }
-        if (isset($map['AccountId'])) {
-            $model->accountId = $map['AccountId'];
-        }
-        if (isset($map['AggregatorId'])) {
-            $model->aggregatorId = $map['AggregatorId'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         return $model;

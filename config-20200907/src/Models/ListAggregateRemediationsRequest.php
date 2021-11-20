@@ -11,15 +11,15 @@ class ListAggregateRemediationsRequest extends Model
     /**
      * @var string
      */
-    public $configRuleIds;
+    public $aggregatorId;
 
     /**
      * @var string
      */
-    public $aggregatorId;
+    public $configRuleIds;
     protected $_name = [
-        'configRuleIds' => 'ConfigRuleIds',
         'aggregatorId'  => 'AggregatorId',
+        'configRuleIds' => 'ConfigRuleIds',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ListAggregateRemediationsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->configRuleIds) {
-            $res['ConfigRuleIds'] = $this->configRuleIds;
-        }
         if (null !== $this->aggregatorId) {
             $res['AggregatorId'] = $this->aggregatorId;
+        }
+        if (null !== $this->configRuleIds) {
+            $res['ConfigRuleIds'] = $this->configRuleIds;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ListAggregateRemediationsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ConfigRuleIds'])) {
-            $model->configRuleIds = $map['ConfigRuleIds'];
-        }
         if (isset($map['AggregatorId'])) {
             $model->aggregatorId = $map['AggregatorId'];
+        }
+        if (isset($map['ConfigRuleIds'])) {
+            $model->configRuleIds = $map['ConfigRuleIds'];
         }
 
         return $model;

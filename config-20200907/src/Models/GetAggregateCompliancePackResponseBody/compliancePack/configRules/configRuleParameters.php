@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class configRuleParameters extends Model
 {
     /**
-     * @var bool
-     */
-    public $required;
-
-    /**
      * @var string
      */
     public $parameterName;
@@ -22,10 +17,15 @@ class configRuleParameters extends Model
      * @var string
      */
     public $parameterValue;
+
+    /**
+     * @var bool
+     */
+    public $required;
     protected $_name = [
-        'required'       => 'Required',
         'parameterName'  => 'ParameterName',
         'parameterValue' => 'ParameterValue',
+        'required'       => 'Required',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class configRuleParameters extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->required) {
-            $res['Required'] = $this->required;
-        }
         if (null !== $this->parameterName) {
             $res['ParameterName'] = $this->parameterName;
         }
         if (null !== $this->parameterValue) {
             $res['ParameterValue'] = $this->parameterValue;
+        }
+        if (null !== $this->required) {
+            $res['Required'] = $this->required;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class configRuleParameters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Required'])) {
-            $model->required = $map['Required'];
-        }
         if (isset($map['ParameterName'])) {
             $model->parameterName = $map['ParameterName'];
         }
         if (isset($map['ParameterValue'])) {
             $model->parameterValue = $map['ParameterValue'];
+        }
+        if (isset($map['Required'])) {
+            $model->required = $map['Required'];
         }
 
         return $model;

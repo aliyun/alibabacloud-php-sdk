@@ -11,21 +11,21 @@ class GetAggregateResourceComplianceByConfigRuleRequest extends Model
     /**
      * @var string
      */
+    public $aggregatorId;
+
+    /**
+     * @var string
+     */
     public $complianceType;
 
     /**
      * @var string
      */
     public $configRuleId;
-
-    /**
-     * @var string
-     */
-    public $aggregatorId;
     protected $_name = [
+        'aggregatorId'   => 'AggregatorId',
         'complianceType' => 'ComplianceType',
         'configRuleId'   => 'ConfigRuleId',
-        'aggregatorId'   => 'AggregatorId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetAggregateResourceComplianceByConfigRuleRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aggregatorId) {
+            $res['AggregatorId'] = $this->aggregatorId;
+        }
         if (null !== $this->complianceType) {
             $res['ComplianceType'] = $this->complianceType;
         }
         if (null !== $this->configRuleId) {
             $res['ConfigRuleId'] = $this->configRuleId;
-        }
-        if (null !== $this->aggregatorId) {
-            $res['AggregatorId'] = $this->aggregatorId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetAggregateResourceComplianceByConfigRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AggregatorId'])) {
+            $model->aggregatorId = $map['AggregatorId'];
+        }
         if (isset($map['ComplianceType'])) {
             $model->complianceType = $map['ComplianceType'];
         }
         if (isset($map['ConfigRuleId'])) {
             $model->configRuleId = $map['ConfigRuleId'];
-        }
-        if (isset($map['AggregatorId'])) {
-            $model->aggregatorId = $map['AggregatorId'];
         }
 
         return $model;

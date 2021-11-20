@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetConfigRuleComplianceByPackResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var configRuleComplianceResult
      */
     public $configRuleComplianceResult;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'                  => 'RequestId',
         'configRuleComplianceResult' => 'ConfigRuleComplianceResult',
+        'requestId'                  => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class GetConfigRuleComplianceByPackResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->configRuleComplianceResult) {
             $res['ConfigRuleComplianceResult'] = null !== $this->configRuleComplianceResult ? $this->configRuleComplianceResult->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class GetConfigRuleComplianceByPackResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ConfigRuleComplianceResult'])) {
             $model->configRuleComplianceResult = configRuleComplianceResult::fromMap($map['ConfigRuleComplianceResult']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

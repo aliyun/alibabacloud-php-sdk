@@ -11,17 +11,17 @@ class CreateAggregatorShrinkRequest extends Model
     /**
      * @var string
      */
+    public $aggregatorAccountsShrink;
+
+    /**
+     * @var string
+     */
     public $aggregatorName;
 
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $aggregatorAccountsShrink;
+    public $aggregatorType;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class CreateAggregatorShrinkRequest extends Model
     /**
      * @var string
      */
-    public $aggregatorType;
+    public $description;
     protected $_name = [
-        'aggregatorName'           => 'AggregatorName',
-        'description'              => 'Description',
         'aggregatorAccountsShrink' => 'AggregatorAccounts',
-        'clientToken'              => 'ClientToken',
+        'aggregatorName'           => 'AggregatorName',
         'aggregatorType'           => 'AggregatorType',
+        'clientToken'              => 'ClientToken',
+        'description'              => 'Description',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class CreateAggregatorShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aggregatorAccountsShrink) {
+            $res['AggregatorAccounts'] = $this->aggregatorAccountsShrink;
+        }
         if (null !== $this->aggregatorName) {
             $res['AggregatorName'] = $this->aggregatorName;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->aggregatorAccountsShrink) {
-            $res['AggregatorAccounts'] = $this->aggregatorAccountsShrink;
+        if (null !== $this->aggregatorType) {
+            $res['AggregatorType'] = $this->aggregatorType;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->aggregatorType) {
-            $res['AggregatorType'] = $this->aggregatorType;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class CreateAggregatorShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AggregatorAccounts'])) {
+            $model->aggregatorAccountsShrink = $map['AggregatorAccounts'];
+        }
         if (isset($map['AggregatorName'])) {
             $model->aggregatorName = $map['AggregatorName'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['AggregatorAccounts'])) {
-            $model->aggregatorAccountsShrink = $map['AggregatorAccounts'];
+        if (isset($map['AggregatorType'])) {
+            $model->aggregatorType = $map['AggregatorType'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['AggregatorType'])) {
-            $model->aggregatorType = $map['AggregatorType'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         return $model;

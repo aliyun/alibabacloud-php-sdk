@@ -11,20 +11,20 @@ class remediationDeleteResults extends Model
     /**
      * @var string
      */
-    public $remediationId;
+    public $errorMessage;
 
     /**
      * @var string
      */
-    public $errorMessage;
+    public $remediationId;
 
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'remediationId' => 'RemediationId',
         'errorMessage'  => 'ErrorMessage',
+        'remediationId' => 'RemediationId',
         'success'       => 'Success',
     ];
 
@@ -35,11 +35,11 @@ class remediationDeleteResults extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->remediationId) {
-            $res['RemediationId'] = $this->remediationId;
-        }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->remediationId) {
+            $res['RemediationId'] = $this->remediationId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -56,11 +56,11 @@ class remediationDeleteResults extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RemediationId'])) {
-            $model->remediationId = $map['RemediationId'];
-        }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['RemediationId'])) {
+            $model->remediationId = $map['RemediationId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

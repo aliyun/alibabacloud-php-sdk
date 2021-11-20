@@ -11,15 +11,15 @@ class UpdateAggregateRemediationResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $remediationId;
 
     /**
      * @var string
      */
-    public $remediationId;
+    public $requestId;
     protected $_name = [
-        'requestId'     => 'RequestId',
         'remediationId' => 'RemediationId',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class UpdateAggregateRemediationResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->remediationId) {
             $res['RemediationId'] = $this->remediationId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class UpdateAggregateRemediationResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['RemediationId'])) {
             $model->remediationId = $map['RemediationId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

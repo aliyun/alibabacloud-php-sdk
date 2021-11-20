@@ -16,16 +16,16 @@ class configRuleCompliances extends Model
     /**
      * @var string
      */
-    public $configRuleName;
+    public $configRuleId;
 
     /**
      * @var string
      */
-    public $configRuleId;
+    public $configRuleName;
     protected $_name = [
         'complianceType' => 'ComplianceType',
-        'configRuleName' => 'ConfigRuleName',
         'configRuleId'   => 'ConfigRuleId',
+        'configRuleName' => 'ConfigRuleName',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class configRuleCompliances extends Model
         if (null !== $this->complianceType) {
             $res['ComplianceType'] = $this->complianceType;
         }
-        if (null !== $this->configRuleName) {
-            $res['ConfigRuleName'] = $this->configRuleName;
-        }
         if (null !== $this->configRuleId) {
             $res['ConfigRuleId'] = $this->configRuleId;
+        }
+        if (null !== $this->configRuleName) {
+            $res['ConfigRuleName'] = $this->configRuleName;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class configRuleCompliances extends Model
         if (isset($map['ComplianceType'])) {
             $model->complianceType = $map['ComplianceType'];
         }
-        if (isset($map['ConfigRuleName'])) {
-            $model->configRuleName = $map['ConfigRuleName'];
-        }
         if (isset($map['ConfigRuleId'])) {
             $model->configRuleId = $map['ConfigRuleId'];
+        }
+        if (isset($map['ConfigRuleName'])) {
+            $model->configRuleName = $map['ConfigRuleName'];
         }
 
         return $model;

@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListAggregatorsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
      * @var int
      */
     public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
     protected $_name = [
-        'nextToken'  => 'NextToken',
         'maxResults' => 'MaxResults',
+        'nextToken'  => 'NextToken',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ListAggregatorsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ListAggregatorsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

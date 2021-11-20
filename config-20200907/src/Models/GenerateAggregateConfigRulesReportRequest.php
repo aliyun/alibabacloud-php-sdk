@@ -11,15 +11,15 @@ class GenerateAggregateConfigRulesReportRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $aggregatorId;
 
     /**
      * @var string
      */
-    public $aggregatorId;
+    public $clientToken;
     protected $_name = [
-        'clientToken'  => 'ClientToken',
         'aggregatorId' => 'AggregatorId',
+        'clientToken'  => 'ClientToken',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GenerateAggregateConfigRulesReportRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
         if (null !== $this->aggregatorId) {
             $res['AggregatorId'] = $this->aggregatorId;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GenerateAggregateConfigRulesReportRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
         if (isset($map['AggregatorId'])) {
             $model->aggregatorId = $map['AggregatorId'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

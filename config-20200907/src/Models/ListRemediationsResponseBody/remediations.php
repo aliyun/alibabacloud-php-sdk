@@ -9,14 +9,34 @@ use AlibabaCloud\Tea\Model;
 class remediations extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $lastSuccessfulInvocationType;
+    public $accountId;
 
     /**
      * @var string
      */
-    public $remediationTemplateId;
+    public $configRuleId;
+
+    /**
+     * @var string
+     */
+    public $invokeType;
+
+    /**
+     * @var string
+     */
+    public $lastSuccessfulInvocationId;
+
+    /**
+     * @var int
+     */
+    public $lastSuccessfulInvocationTime;
+
+    /**
+     * @var string
+     */
+    public $lastSuccessfulInvocationType;
 
     /**
      * @var string
@@ -36,44 +56,24 @@ class remediations extends Model
     /**
      * @var string
      */
+    public $remediationTemplateId;
+
+    /**
+     * @var string
+     */
     public $remediationType;
-
-    /**
-     * @var string
-     */
-    public $lastSuccessfulInvocationId;
-
-    /**
-     * @var int
-     */
-    public $accountId;
-
-    /**
-     * @var string
-     */
-    public $invokeType;
-
-    /**
-     * @var string
-     */
-    public $configRuleId;
-
-    /**
-     * @var int
-     */
-    public $lastSuccessfulInvocationTime;
     protected $_name = [
+        'accountId'                    => 'AccountId',
+        'configRuleId'                 => 'ConfigRuleId',
+        'invokeType'                   => 'InvokeType',
+        'lastSuccessfulInvocationId'   => 'LastSuccessfulInvocationId',
+        'lastSuccessfulInvocationTime' => 'LastSuccessfulInvocationTime',
         'lastSuccessfulInvocationType' => 'LastSuccessfulInvocationType',
-        'remediationTemplateId'        => 'RemediationTemplateId',
         'remediationDynamicParams'     => 'RemediationDynamicParams',
         'remediationId'                => 'RemediationId',
         'remediationSourceType'        => 'RemediationSourceType',
+        'remediationTemplateId'        => 'RemediationTemplateId',
         'remediationType'              => 'RemediationType',
-        'lastSuccessfulInvocationId'   => 'LastSuccessfulInvocationId',
-        'accountId'                    => 'AccountId',
-        'invokeType'                   => 'InvokeType',
-        'configRuleId'                 => 'ConfigRuleId',
-        'lastSuccessfulInvocationTime' => 'LastSuccessfulInvocationTime',
     ];
 
     public function validate()
@@ -83,11 +83,23 @@ class remediations extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
+        }
+        if (null !== $this->configRuleId) {
+            $res['ConfigRuleId'] = $this->configRuleId;
+        }
+        if (null !== $this->invokeType) {
+            $res['InvokeType'] = $this->invokeType;
+        }
+        if (null !== $this->lastSuccessfulInvocationId) {
+            $res['LastSuccessfulInvocationId'] = $this->lastSuccessfulInvocationId;
+        }
+        if (null !== $this->lastSuccessfulInvocationTime) {
+            $res['LastSuccessfulInvocationTime'] = $this->lastSuccessfulInvocationTime;
+        }
         if (null !== $this->lastSuccessfulInvocationType) {
             $res['LastSuccessfulInvocationType'] = $this->lastSuccessfulInvocationType;
-        }
-        if (null !== $this->remediationTemplateId) {
-            $res['RemediationTemplateId'] = $this->remediationTemplateId;
         }
         if (null !== $this->remediationDynamicParams) {
             $res['RemediationDynamicParams'] = $this->remediationDynamicParams;
@@ -98,23 +110,11 @@ class remediations extends Model
         if (null !== $this->remediationSourceType) {
             $res['RemediationSourceType'] = $this->remediationSourceType;
         }
+        if (null !== $this->remediationTemplateId) {
+            $res['RemediationTemplateId'] = $this->remediationTemplateId;
+        }
         if (null !== $this->remediationType) {
             $res['RemediationType'] = $this->remediationType;
-        }
-        if (null !== $this->lastSuccessfulInvocationId) {
-            $res['LastSuccessfulInvocationId'] = $this->lastSuccessfulInvocationId;
-        }
-        if (null !== $this->accountId) {
-            $res['AccountId'] = $this->accountId;
-        }
-        if (null !== $this->invokeType) {
-            $res['InvokeType'] = $this->invokeType;
-        }
-        if (null !== $this->configRuleId) {
-            $res['ConfigRuleId'] = $this->configRuleId;
-        }
-        if (null !== $this->lastSuccessfulInvocationTime) {
-            $res['LastSuccessfulInvocationTime'] = $this->lastSuccessfulInvocationTime;
         }
 
         return $res;
@@ -128,11 +128,23 @@ class remediations extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
+        }
+        if (isset($map['ConfigRuleId'])) {
+            $model->configRuleId = $map['ConfigRuleId'];
+        }
+        if (isset($map['InvokeType'])) {
+            $model->invokeType = $map['InvokeType'];
+        }
+        if (isset($map['LastSuccessfulInvocationId'])) {
+            $model->lastSuccessfulInvocationId = $map['LastSuccessfulInvocationId'];
+        }
+        if (isset($map['LastSuccessfulInvocationTime'])) {
+            $model->lastSuccessfulInvocationTime = $map['LastSuccessfulInvocationTime'];
+        }
         if (isset($map['LastSuccessfulInvocationType'])) {
             $model->lastSuccessfulInvocationType = $map['LastSuccessfulInvocationType'];
-        }
-        if (isset($map['RemediationTemplateId'])) {
-            $model->remediationTemplateId = $map['RemediationTemplateId'];
         }
         if (isset($map['RemediationDynamicParams'])) {
             $model->remediationDynamicParams = $map['RemediationDynamicParams'];
@@ -143,23 +155,11 @@ class remediations extends Model
         if (isset($map['RemediationSourceType'])) {
             $model->remediationSourceType = $map['RemediationSourceType'];
         }
+        if (isset($map['RemediationTemplateId'])) {
+            $model->remediationTemplateId = $map['RemediationTemplateId'];
+        }
         if (isset($map['RemediationType'])) {
             $model->remediationType = $map['RemediationType'];
-        }
-        if (isset($map['LastSuccessfulInvocationId'])) {
-            $model->lastSuccessfulInvocationId = $map['LastSuccessfulInvocationId'];
-        }
-        if (isset($map['AccountId'])) {
-            $model->accountId = $map['AccountId'];
-        }
-        if (isset($map['InvokeType'])) {
-            $model->invokeType = $map['InvokeType'];
-        }
-        if (isset($map['ConfigRuleId'])) {
-            $model->configRuleId = $map['ConfigRuleId'];
-        }
-        if (isset($map['LastSuccessfulInvocationTime'])) {
-            $model->lastSuccessfulInvocationTime = $map['LastSuccessfulInvocationTime'];
         }
 
         return $model;

@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class resourceComplianceTimeline extends Model
 {
     /**
-     * @var string
+     * @var complianceList[]
      */
-    public $nextToken;
+    public $complianceList;
 
     /**
      * @var int
@@ -20,13 +20,13 @@ class resourceComplianceTimeline extends Model
     public $maxResults;
 
     /**
-     * @var complianceList[]
+     * @var string
      */
-    public $complianceList;
+    public $nextToken;
     protected $_name = [
-        'nextToken'      => 'NextToken',
-        'maxResults'     => 'MaxResults',
         'complianceList' => 'ComplianceList',
+        'maxResults'     => 'MaxResults',
+        'nextToken'      => 'NextToken',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class resourceComplianceTimeline extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
         if (null !== $this->complianceList) {
             $res['ComplianceList'] = [];
             if (null !== $this->complianceList && \is_array($this->complianceList)) {
@@ -50,6 +44,12 @@ class resourceComplianceTimeline extends Model
                     $res['ComplianceList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class resourceComplianceTimeline extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
         if (isset($map['ComplianceList'])) {
             if (!empty($map['ComplianceList'])) {
                 $model->complianceList = [];
@@ -77,6 +71,12 @@ class resourceComplianceTimeline extends Model
                     $model->complianceList[$n++] = null !== $item ? complianceList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

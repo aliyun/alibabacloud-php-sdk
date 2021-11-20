@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateAggregatorRequest extends Model
 {
     /**
+     * @var aggregatorAccounts[]
+     */
+    public $aggregatorAccounts;
+
+    /**
      * @var string
      */
     public $aggregatorId;
@@ -22,23 +27,18 @@ class UpdateAggregatorRequest extends Model
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var aggregatorAccounts[]
-     */
-    public $aggregatorAccounts;
+    public $clientToken;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $description;
     protected $_name = [
+        'aggregatorAccounts' => 'AggregatorAccounts',
         'aggregatorId'       => 'AggregatorId',
         'aggregatorName'     => 'AggregatorName',
-        'description'        => 'Description',
-        'aggregatorAccounts' => 'AggregatorAccounts',
         'clientToken'        => 'ClientToken',
+        'description'        => 'Description',
     ];
 
     public function validate()
@@ -48,15 +48,6 @@ class UpdateAggregatorRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->aggregatorId) {
-            $res['AggregatorId'] = $this->aggregatorId;
-        }
-        if (null !== $this->aggregatorName) {
-            $res['AggregatorName'] = $this->aggregatorName;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->aggregatorAccounts) {
             $res['AggregatorAccounts'] = [];
             if (null !== $this->aggregatorAccounts && \is_array($this->aggregatorAccounts)) {
@@ -66,8 +57,17 @@ class UpdateAggregatorRequest extends Model
                 }
             }
         }
+        if (null !== $this->aggregatorId) {
+            $res['AggregatorId'] = $this->aggregatorId;
+        }
+        if (null !== $this->aggregatorName) {
+            $res['AggregatorName'] = $this->aggregatorName;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         return $res;
@@ -81,15 +81,6 @@ class UpdateAggregatorRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AggregatorId'])) {
-            $model->aggregatorId = $map['AggregatorId'];
-        }
-        if (isset($map['AggregatorName'])) {
-            $model->aggregatorName = $map['AggregatorName'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['AggregatorAccounts'])) {
             if (!empty($map['AggregatorAccounts'])) {
                 $model->aggregatorAccounts = [];
@@ -99,8 +90,17 @@ class UpdateAggregatorRequest extends Model
                 }
             }
         }
+        if (isset($map['AggregatorId'])) {
+            $model->aggregatorId = $map['AggregatorId'];
+        }
+        if (isset($map['AggregatorName'])) {
+            $model->aggregatorName = $map['AggregatorName'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         return $model;

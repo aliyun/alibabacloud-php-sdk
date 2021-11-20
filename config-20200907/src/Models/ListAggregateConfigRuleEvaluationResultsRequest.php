@@ -11,17 +11,17 @@ class ListAggregateConfigRuleEvaluationResultsRequest extends Model
     /**
      * @var string
      */
-    public $complianceType;
+    public $aggregatorId;
 
     /**
      * @var string
      */
-    public $nextToken;
+    public $compliancePackId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $maxResults;
+    public $complianceType;
 
     /**
      * @var string
@@ -31,25 +31,25 @@ class ListAggregateConfigRuleEvaluationResultsRequest extends Model
     /**
      * @var int
      */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var int
+     */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $aggregatorId;
-
-    /**
-     * @var string
-     */
-    public $compliancePackId;
     protected $_name = [
-        'complianceType'   => 'ComplianceType',
-        'nextToken'        => 'NextToken',
-        'maxResults'       => 'MaxResults',
-        'configRuleId'     => 'ConfigRuleId',
-        'resourceOwnerId'  => 'ResourceOwnerId',
         'aggregatorId'     => 'AggregatorId',
         'compliancePackId' => 'CompliancePackId',
+        'complianceType'   => 'ComplianceType',
+        'configRuleId'     => 'ConfigRuleId',
+        'maxResults'       => 'MaxResults',
+        'nextToken'        => 'NextToken',
+        'resourceOwnerId'  => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class ListAggregateConfigRuleEvaluationResultsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->complianceType) {
-            $res['ComplianceType'] = $this->complianceType;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
-        if (null !== $this->configRuleId) {
-            $res['ConfigRuleId'] = $this->configRuleId;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
         if (null !== $this->aggregatorId) {
             $res['AggregatorId'] = $this->aggregatorId;
         }
         if (null !== $this->compliancePackId) {
             $res['CompliancePackId'] = $this->compliancePackId;
+        }
+        if (null !== $this->complianceType) {
+            $res['ComplianceType'] = $this->complianceType;
+        }
+        if (null !== $this->configRuleId) {
+            $res['ConfigRuleId'] = $this->configRuleId;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class ListAggregateConfigRuleEvaluationResultsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ComplianceType'])) {
-            $model->complianceType = $map['ComplianceType'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
-        if (isset($map['ConfigRuleId'])) {
-            $model->configRuleId = $map['ConfigRuleId'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
         if (isset($map['AggregatorId'])) {
             $model->aggregatorId = $map['AggregatorId'];
         }
         if (isset($map['CompliancePackId'])) {
             $model->compliancePackId = $map['CompliancePackId'];
+        }
+        if (isset($map['ComplianceType'])) {
+            $model->complianceType = $map['ComplianceType'];
+        }
+        if (isset($map['ConfigRuleId'])) {
+            $model->configRuleId = $map['ConfigRuleId'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

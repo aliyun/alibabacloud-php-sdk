@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteAggregateCompliancePacksResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var operateCompliancePacksResult
      */
     public $operateCompliancePacksResult;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'                    => 'RequestId',
         'operateCompliancePacksResult' => 'OperateCompliancePacksResult',
+        'requestId'                    => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DeleteAggregateCompliancePacksResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->operateCompliancePacksResult) {
             $res['OperateCompliancePacksResult'] = null !== $this->operateCompliancePacksResult ? $this->operateCompliancePacksResult->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DeleteAggregateCompliancePacksResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['OperateCompliancePacksResult'])) {
             $model->operateCompliancePacksResult = operateCompliancePacksResult::fromMap($map['OperateCompliancePacksResult']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

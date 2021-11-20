@@ -11,7 +11,22 @@ class UpdateCompliancePackShrinkRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $compliancePackId;
+
+    /**
+     * @var string
+     */
+    public $compliancePackName;
+
+    /**
+     * @var string
+     */
+    public $configRulesShrink;
 
     /**
      * @var string
@@ -22,22 +37,13 @@ class UpdateCompliancePackShrinkRequest extends Model
      * @var int
      */
     public $riskLevel;
-
-    /**
-     * @var string
-     */
-    public $configRulesShrink;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
-        'compliancePackId'  => 'CompliancePackId',
-        'description'       => 'Description',
-        'riskLevel'         => 'RiskLevel',
-        'configRulesShrink' => 'ConfigRules',
-        'clientToken'       => 'ClientToken',
+        'clientToken'        => 'ClientToken',
+        'compliancePackId'   => 'CompliancePackId',
+        'compliancePackName' => 'CompliancePackName',
+        'configRulesShrink'  => 'ConfigRules',
+        'description'        => 'Description',
+        'riskLevel'          => 'RiskLevel',
     ];
 
     public function validate()
@@ -47,20 +53,23 @@ class UpdateCompliancePackShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->compliancePackId) {
             $res['CompliancePackId'] = $this->compliancePackId;
+        }
+        if (null !== $this->compliancePackName) {
+            $res['CompliancePackName'] = $this->compliancePackName;
+        }
+        if (null !== $this->configRulesShrink) {
+            $res['ConfigRules'] = $this->configRulesShrink;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
-        }
-        if (null !== $this->configRulesShrink) {
-            $res['ConfigRules'] = $this->configRulesShrink;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -74,20 +83,23 @@ class UpdateCompliancePackShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['CompliancePackId'])) {
             $model->compliancePackId = $map['CompliancePackId'];
+        }
+        if (isset($map['CompliancePackName'])) {
+            $model->compliancePackName = $map['CompliancePackName'];
+        }
+        if (isset($map['ConfigRules'])) {
+            $model->configRulesShrink = $map['ConfigRules'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
-        }
-        if (isset($map['ConfigRules'])) {
-            $model->configRulesShrink = $map['ConfigRules'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

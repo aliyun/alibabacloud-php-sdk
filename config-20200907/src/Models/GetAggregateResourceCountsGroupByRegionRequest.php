@@ -11,15 +11,31 @@ class GetAggregateResourceCountsGroupByRegionRequest extends Model
     /**
      * @var string
      */
-    public $resourceType;
+    public $aggregatorId;
+
+    /**
+     * @description 资源夹Id
+     *
+     * @var string
+     */
+    public $folderId;
+
+    /**
+     * @description 资源owner
+     *
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var string
      */
-    public $aggregatorId;
+    public $resourceType;
     protected $_name = [
-        'resourceType' => 'ResourceType',
-        'aggregatorId' => 'AggregatorId',
+        'aggregatorId'    => 'AggregatorId',
+        'folderId'        => 'FolderId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceType'    => 'ResourceType',
     ];
 
     public function validate()
@@ -29,11 +45,17 @@ class GetAggregateResourceCountsGroupByRegionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
         if (null !== $this->aggregatorId) {
             $res['AggregatorId'] = $this->aggregatorId;
+        }
+        if (null !== $this->folderId) {
+            $res['FolderId'] = $this->folderId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -47,11 +69,17 @@ class GetAggregateResourceCountsGroupByRegionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
         if (isset($map['AggregatorId'])) {
             $model->aggregatorId = $map['AggregatorId'];
+        }
+        if (isset($map['FolderId'])) {
+            $model->folderId = $map['FolderId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;

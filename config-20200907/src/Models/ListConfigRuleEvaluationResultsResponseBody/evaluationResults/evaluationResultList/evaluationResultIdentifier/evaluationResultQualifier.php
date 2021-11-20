@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class evaluationResultQualifier extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $resourceOwnerId;
+    public $compliancePackId;
 
     /**
      * @var string
@@ -21,7 +21,7 @@ class evaluationResultQualifier extends Model
     /**
      * @var string
      */
-    public $resourceType;
+    public $configRuleId;
 
     /**
      * @var string
@@ -31,12 +31,12 @@ class evaluationResultQualifier extends Model
     /**
      * @var string
      */
-    public $resourceId;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $configRuleId;
+    public $resourceId;
 
     /**
      * @var string
@@ -44,24 +44,24 @@ class evaluationResultQualifier extends Model
     public $resourceName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $regionId;
+    public $resourceOwnerId;
 
     /**
      * @var string
      */
-    public $compliancePackId;
+    public $resourceType;
     protected $_name = [
-        'resourceOwnerId'  => 'ResourceOwnerId',
-        'configRuleArn'    => 'ConfigRuleArn',
-        'resourceType'     => 'ResourceType',
-        'configRuleName'   => 'ConfigRuleName',
-        'resourceId'       => 'ResourceId',
-        'configRuleId'     => 'ConfigRuleId',
-        'resourceName'     => 'ResourceName',
-        'regionId'         => 'RegionId',
         'compliancePackId' => 'CompliancePackId',
+        'configRuleArn'    => 'ConfigRuleArn',
+        'configRuleId'     => 'ConfigRuleId',
+        'configRuleName'   => 'ConfigRuleName',
+        'regionId'         => 'RegionId',
+        'resourceId'       => 'ResourceId',
+        'resourceName'     => 'ResourceName',
+        'resourceOwnerId'  => 'ResourceOwnerId',
+        'resourceType'     => 'ResourceType',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class evaluationResultQualifier extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->compliancePackId) {
+            $res['CompliancePackId'] = $this->compliancePackId;
         }
         if (null !== $this->configRuleArn) {
             $res['ConfigRuleArn'] = $this->configRuleArn;
         }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
+        if (null !== $this->configRuleId) {
+            $res['ConfigRuleId'] = $this->configRuleId;
         }
         if (null !== $this->configRuleName) {
             $res['ConfigRuleName'] = $this->configRuleName;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
-        }
-        if (null !== $this->configRuleId) {
-            $res['ConfigRuleId'] = $this->configRuleId;
         }
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->compliancePackId) {
-            $res['CompliancePackId'] = $this->compliancePackId;
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class evaluationResultQualifier extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['CompliancePackId'])) {
+            $model->compliancePackId = $map['CompliancePackId'];
         }
         if (isset($map['ConfigRuleArn'])) {
             $model->configRuleArn = $map['ConfigRuleArn'];
         }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
+        if (isset($map['ConfigRuleId'])) {
+            $model->configRuleId = $map['ConfigRuleId'];
         }
         if (isset($map['ConfigRuleName'])) {
             $model->configRuleName = $map['ConfigRuleName'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
-        }
-        if (isset($map['ConfigRuleId'])) {
-            $model->configRuleId = $map['ConfigRuleId'];
         }
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['CompliancePackId'])) {
-            $model->compliancePackId = $map['CompliancePackId'];
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;

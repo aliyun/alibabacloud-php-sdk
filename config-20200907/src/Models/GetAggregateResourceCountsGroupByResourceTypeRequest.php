@@ -11,15 +11,31 @@ class GetAggregateResourceCountsGroupByResourceTypeRequest extends Model
     /**
      * @var string
      */
-    public $region;
+    public $aggregatorId;
+
+    /**
+     * @description 资源文件夹Id
+     *
+     * @var string
+     */
+    public $folderId;
 
     /**
      * @var string
      */
-    public $aggregatorId;
+    public $region;
+
+    /**
+     * @description 资源Owner
+     *
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'region'       => 'Region',
-        'aggregatorId' => 'AggregatorId',
+        'aggregatorId'    => 'AggregatorId',
+        'folderId'        => 'FolderId',
+        'region'          => 'Region',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -29,11 +45,17 @@ class GetAggregateResourceCountsGroupByResourceTypeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aggregatorId) {
+            $res['AggregatorId'] = $this->aggregatorId;
+        }
+        if (null !== $this->folderId) {
+            $res['FolderId'] = $this->folderId;
+        }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
-        if (null !== $this->aggregatorId) {
-            $res['AggregatorId'] = $this->aggregatorId;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -47,11 +69,17 @@ class GetAggregateResourceCountsGroupByResourceTypeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AggregatorId'])) {
+            $model->aggregatorId = $map['AggregatorId'];
+        }
+        if (isset($map['FolderId'])) {
+            $model->folderId = $map['FolderId'];
+        }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
-        if (isset($map['AggregatorId'])) {
-            $model->aggregatorId = $map['AggregatorId'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

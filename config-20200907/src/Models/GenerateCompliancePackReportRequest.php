@@ -11,15 +11,15 @@ class GenerateCompliancePackReportRequest extends Model
     /**
      * @var string
      */
-    public $compliancePackId;
+    public $clientToken;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $compliancePackId;
     protected $_name = [
-        'compliancePackId' => 'CompliancePackId',
         'clientToken'      => 'ClientToken',
+        'compliancePackId' => 'CompliancePackId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GenerateCompliancePackReportRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->compliancePackId) {
-            $res['CompliancePackId'] = $this->compliancePackId;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->compliancePackId) {
+            $res['CompliancePackId'] = $this->compliancePackId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GenerateCompliancePackReportRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CompliancePackId'])) {
-            $model->compliancePackId = $map['CompliancePackId'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['CompliancePackId'])) {
+            $model->compliancePackId = $map['CompliancePackId'];
         }
 
         return $model;

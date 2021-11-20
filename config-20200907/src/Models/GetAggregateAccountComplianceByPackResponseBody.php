@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateAccountComplianceByPackResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var accountComplianceResult
      */
     public $accountComplianceResult;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'               => 'RequestId',
         'accountComplianceResult' => 'AccountComplianceResult',
+        'requestId'               => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class GetAggregateAccountComplianceByPackResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->accountComplianceResult) {
             $res['AccountComplianceResult'] = null !== $this->accountComplianceResult ? $this->accountComplianceResult->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class GetAggregateAccountComplianceByPackResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AccountComplianceResult'])) {
             $model->accountComplianceResult = accountComplianceResult::fromMap($map['AccountComplianceResult']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

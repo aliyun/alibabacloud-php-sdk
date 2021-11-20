@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class evaluationResults extends Model
 {
     /**
-     * @var string
+     * @var evaluationResultList[]
      */
-    public $nextToken;
+    public $evaluationResultList;
 
     /**
      * @var int
@@ -20,13 +20,13 @@ class evaluationResults extends Model
     public $maxResults;
 
     /**
-     * @var evaluationResultList[]
+     * @var string
      */
-    public $evaluationResultList;
+    public $nextToken;
     protected $_name = [
-        'nextToken'            => 'NextToken',
-        'maxResults'           => 'MaxResults',
         'evaluationResultList' => 'EvaluationResultList',
+        'maxResults'           => 'MaxResults',
+        'nextToken'            => 'NextToken',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class evaluationResults extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
         if (null !== $this->evaluationResultList) {
             $res['EvaluationResultList'] = [];
             if (null !== $this->evaluationResultList && \is_array($this->evaluationResultList)) {
@@ -50,6 +44,12 @@ class evaluationResults extends Model
                     $res['EvaluationResultList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class evaluationResults extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
         if (isset($map['EvaluationResultList'])) {
             if (!empty($map['EvaluationResultList'])) {
                 $model->evaluationResultList = [];
@@ -77,6 +71,12 @@ class evaluationResults extends Model
                     $model->evaluationResultList[$n++] = null !== $item ? evaluationResultList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

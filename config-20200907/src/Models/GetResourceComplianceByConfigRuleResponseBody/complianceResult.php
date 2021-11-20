@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class complianceResult extends Model
 {
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
      * @var compliances[]
      */
     public $compliances;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'totalCount'  => 'TotalCount',
         'compliances' => 'Compliances',
+        'totalCount'  => 'TotalCount',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class complianceResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->compliances) {
             $res['Compliances'] = [];
             if (null !== $this->compliances && \is_array($this->compliances)) {
@@ -41,6 +38,9 @@ class complianceResult extends Model
                     $res['Compliances'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class complianceResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['Compliances'])) {
             if (!empty($map['Compliances'])) {
                 $model->compliances = [];
@@ -65,6 +62,9 @@ class complianceResult extends Model
                     $model->compliances[$n++] = null !== $item ? compliances::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class aggregatorAccounts extends Model
 {
     /**
-     * @var string
-     */
-    public $recorderStatus;
-
-    /**
      * @var int
      */
     public $accountId;
+
+    /**
+     * @var string
+     */
+    public $accountName;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class aggregatorAccounts extends Model
     /**
      * @var string
      */
-    public $accountName;
+    public $recorderStatus;
     protected $_name = [
-        'recorderStatus' => 'RecorderStatus',
         'accountId'      => 'AccountId',
-        'accountType'    => 'AccountType',
         'accountName'    => 'AccountName',
+        'accountType'    => 'AccountType',
+        'recorderStatus' => 'RecorderStatus',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class aggregatorAccounts extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->recorderStatus) {
-            $res['RecorderStatus'] = $this->recorderStatus;
-        }
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
+        }
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
         }
         if (null !== $this->accountType) {
             $res['AccountType'] = $this->accountType;
         }
-        if (null !== $this->accountName) {
-            $res['AccountName'] = $this->accountName;
+        if (null !== $this->recorderStatus) {
+            $res['RecorderStatus'] = $this->recorderStatus;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class aggregatorAccounts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RecorderStatus'])) {
-            $model->recorderStatus = $map['RecorderStatus'];
-        }
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
+        }
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
         }
         if (isset($map['AccountType'])) {
             $model->accountType = $map['AccountType'];
         }
-        if (isset($map['AccountName'])) {
-            $model->accountName = $map['AccountName'];
+        if (isset($map['RecorderStatus'])) {
+            $model->recorderStatus = $map['RecorderStatus'];
         }
 
         return $model;

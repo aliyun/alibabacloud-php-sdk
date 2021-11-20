@@ -10,36 +10,6 @@ use AlibabaCloud\Tea\Model;
 class compliancePack extends Model
 {
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var int
-     */
-    public $riskLevel;
-
-    /**
-     * @var string
-     */
-    public $compliancePackId;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var configRules[]
-     */
-    public $configRules;
-
-    /**
-     * @var string
-     */
-    public $compliancePackName;
-
-    /**
      * @var int
      */
     public $accountId;
@@ -52,23 +22,53 @@ class compliancePack extends Model
     /**
      * @var string
      */
+    public $compliancePackId;
+
+    /**
+     * @var string
+     */
+    public $compliancePackName;
+
+    /**
+     * @var string
+     */
     public $compliancePackTemplateId;
+
+    /**
+     * @var configRules[]
+     */
+    public $configRules;
 
     /**
      * @var int
      */
     public $createTimestamp;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var int
+     */
+    public $riskLevel;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'                   => 'Status',
-        'riskLevel'                => 'RiskLevel',
-        'compliancePackId'         => 'CompliancePackId',
-        'description'              => 'Description',
-        'configRules'              => 'ConfigRules',
-        'compliancePackName'       => 'CompliancePackName',
         'accountId'                => 'AccountId',
         'aggregatorId'             => 'AggregatorId',
+        'compliancePackId'         => 'CompliancePackId',
+        'compliancePackName'       => 'CompliancePackName',
         'compliancePackTemplateId' => 'CompliancePackTemplateId',
+        'configRules'              => 'ConfigRules',
         'createTimestamp'          => 'CreateTimestamp',
+        'description'              => 'Description',
+        'riskLevel'                => 'RiskLevel',
+        'status'                   => 'Status',
     ];
 
     public function validate()
@@ -78,17 +78,20 @@ class compliancePack extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
         }
-        if (null !== $this->riskLevel) {
-            $res['RiskLevel'] = $this->riskLevel;
+        if (null !== $this->aggregatorId) {
+            $res['AggregatorId'] = $this->aggregatorId;
         }
         if (null !== $this->compliancePackId) {
             $res['CompliancePackId'] = $this->compliancePackId;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->compliancePackName) {
+            $res['CompliancePackName'] = $this->compliancePackName;
+        }
+        if (null !== $this->compliancePackTemplateId) {
+            $res['CompliancePackTemplateId'] = $this->compliancePackTemplateId;
         }
         if (null !== $this->configRules) {
             $res['ConfigRules'] = [];
@@ -99,20 +102,17 @@ class compliancePack extends Model
                 }
             }
         }
-        if (null !== $this->compliancePackName) {
-            $res['CompliancePackName'] = $this->compliancePackName;
-        }
-        if (null !== $this->accountId) {
-            $res['AccountId'] = $this->accountId;
-        }
-        if (null !== $this->aggregatorId) {
-            $res['AggregatorId'] = $this->aggregatorId;
-        }
-        if (null !== $this->compliancePackTemplateId) {
-            $res['CompliancePackTemplateId'] = $this->compliancePackTemplateId;
-        }
         if (null !== $this->createTimestamp) {
             $res['CreateTimestamp'] = $this->createTimestamp;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -126,17 +126,20 @@ class compliancePack extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
         }
-        if (isset($map['RiskLevel'])) {
-            $model->riskLevel = $map['RiskLevel'];
+        if (isset($map['AggregatorId'])) {
+            $model->aggregatorId = $map['AggregatorId'];
         }
         if (isset($map['CompliancePackId'])) {
             $model->compliancePackId = $map['CompliancePackId'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['CompliancePackName'])) {
+            $model->compliancePackName = $map['CompliancePackName'];
+        }
+        if (isset($map['CompliancePackTemplateId'])) {
+            $model->compliancePackTemplateId = $map['CompliancePackTemplateId'];
         }
         if (isset($map['ConfigRules'])) {
             if (!empty($map['ConfigRules'])) {
@@ -147,20 +150,17 @@ class compliancePack extends Model
                 }
             }
         }
-        if (isset($map['CompliancePackName'])) {
-            $model->compliancePackName = $map['CompliancePackName'];
-        }
-        if (isset($map['AccountId'])) {
-            $model->accountId = $map['AccountId'];
-        }
-        if (isset($map['AggregatorId'])) {
-            $model->aggregatorId = $map['AggregatorId'];
-        }
-        if (isset($map['CompliancePackTemplateId'])) {
-            $model->compliancePackTemplateId = $map['CompliancePackTemplateId'];
-        }
         if (isset($map['CreateTimestamp'])) {
             $model->createTimestamp = $map['CreateTimestamp'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

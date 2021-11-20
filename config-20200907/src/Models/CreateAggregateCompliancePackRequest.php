@@ -12,12 +12,27 @@ class CreateAggregateCompliancePackRequest extends Model
     /**
      * @var string
      */
-    public $compliancePackTemplateId;
+    public $aggregatorId;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
 
     /**
      * @var string
      */
     public $compliancePackName;
+
+    /**
+     * @var string
+     */
+    public $compliancePackTemplateId;
+
+    /**
+     * @var configRules[]
+     */
+    public $configRules;
 
     /**
      * @var string
@@ -28,29 +43,14 @@ class CreateAggregateCompliancePackRequest extends Model
      * @var int
      */
     public $riskLevel;
-
-    /**
-     * @var string
-     */
-    public $aggregatorId;
-
-    /**
-     * @var configRules[]
-     */
-    public $configRules;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
-        'compliancePackTemplateId' => 'CompliancePackTemplateId',
+        'aggregatorId'             => 'AggregatorId',
+        'clientToken'              => 'ClientToken',
         'compliancePackName'       => 'CompliancePackName',
+        'compliancePackTemplateId' => 'CompliancePackTemplateId',
+        'configRules'              => 'ConfigRules',
         'description'              => 'Description',
         'riskLevel'                => 'RiskLevel',
-        'aggregatorId'             => 'AggregatorId',
-        'configRules'              => 'ConfigRules',
-        'clientToken'              => 'ClientToken',
     ];
 
     public function validate()
@@ -60,20 +60,17 @@ class CreateAggregateCompliancePackRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->compliancePackTemplateId) {
-            $res['CompliancePackTemplateId'] = $this->compliancePackTemplateId;
+        if (null !== $this->aggregatorId) {
+            $res['AggregatorId'] = $this->aggregatorId;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->compliancePackName) {
             $res['CompliancePackName'] = $this->compliancePackName;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->riskLevel) {
-            $res['RiskLevel'] = $this->riskLevel;
-        }
-        if (null !== $this->aggregatorId) {
-            $res['AggregatorId'] = $this->aggregatorId;
+        if (null !== $this->compliancePackTemplateId) {
+            $res['CompliancePackTemplateId'] = $this->compliancePackTemplateId;
         }
         if (null !== $this->configRules) {
             $res['ConfigRules'] = [];
@@ -84,8 +81,11 @@ class CreateAggregateCompliancePackRequest extends Model
                 }
             }
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
 
         return $res;
@@ -99,20 +99,17 @@ class CreateAggregateCompliancePackRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CompliancePackTemplateId'])) {
-            $model->compliancePackTemplateId = $map['CompliancePackTemplateId'];
+        if (isset($map['AggregatorId'])) {
+            $model->aggregatorId = $map['AggregatorId'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['CompliancePackName'])) {
             $model->compliancePackName = $map['CompliancePackName'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['RiskLevel'])) {
-            $model->riskLevel = $map['RiskLevel'];
-        }
-        if (isset($map['AggregatorId'])) {
-            $model->aggregatorId = $map['AggregatorId'];
+        if (isset($map['CompliancePackTemplateId'])) {
+            $model->compliancePackTemplateId = $map['CompliancePackTemplateId'];
         }
         if (isset($map['ConfigRules'])) {
             if (!empty($map['ConfigRules'])) {
@@ -123,8 +120,11 @@ class CreateAggregateCompliancePackRequest extends Model
                 }
             }
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
 
         return $model;

@@ -16,16 +16,16 @@ class ListCompliancePackTemplatesRequest extends Model
     /**
      * @var int
      */
-    public $pageSize;
+    public $pageNumber;
 
     /**
      * @var int
      */
-    public $pageNumber;
+    public $pageSize;
     protected $_name = [
         'compliancePackTemplateId' => 'CompliancePackTemplateId',
-        'pageSize'                 => 'PageSize',
         'pageNumber'               => 'PageNumber',
+        'pageSize'                 => 'PageSize',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class ListCompliancePackTemplatesRequest extends Model
         if (null !== $this->compliancePackTemplateId) {
             $res['CompliancePackTemplateId'] = $this->compliancePackTemplateId;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class ListCompliancePackTemplatesRequest extends Model
         if (isset($map['CompliancePackTemplateId'])) {
             $model->compliancePackTemplateId = $map['CompliancePackTemplateId'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

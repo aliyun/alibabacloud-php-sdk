@@ -8,6 +8,10 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Config\V20200907\Models\ActiveAggregateConfigRulesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ActiveAggregateConfigRulesResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\AttachAggregateConfigRuleToCompliancePackRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\AttachAggregateConfigRuleToCompliancePackResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\AttachConfigRuleToCompliancePackRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\AttachConfigRuleToCompliancePackResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateCompliancePackRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateCompliancePackResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateCompliancePackShrinkRequest;
@@ -43,6 +47,10 @@ use AlibabaCloud\SDK\Config\V20200907\Models\DeleteCompliancePacksRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeleteCompliancePacksResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeleteRemediationsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeleteRemediationsResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\DetachAggregateConfigRuleToCompliancePackRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\DetachAggregateConfigRuleToCompliancePackResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\DetachConfigRuleToCompliancePackRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\DetachConfigRuleToCompliancePackResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GenerateAggregateCompliancePackReportRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GenerateAggregateCompliancePackReportResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GenerateAggregateConfigRulesReportRequest;
@@ -199,631 +207,6 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param DeleteAggregateConfigRulesRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DeleteAggregateConfigRulesResponse
-     */
-    public function deleteAggregateConfigRulesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteAggregateConfigRulesResponse::fromMap($this->doRPCRequest('DeleteAggregateConfigRules', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteAggregateConfigRulesRequest $request
-     *
-     * @return DeleteAggregateConfigRulesResponse
-     */
-    public function deleteAggregateConfigRules($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteAggregateConfigRulesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeactiveAggregateConfigRulesRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DeactiveAggregateConfigRulesResponse
-     */
-    public function deactiveAggregateConfigRulesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeactiveAggregateConfigRulesResponse::fromMap($this->doRPCRequest('DeactiveAggregateConfigRules', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeactiveAggregateConfigRulesRequest $request
-     *
-     * @return DeactiveAggregateConfigRulesResponse
-     */
-    public function deactiveAggregateConfigRules($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deactiveAggregateConfigRulesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetAggregateConfigRulesReportRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return GetAggregateConfigRulesReportResponse
-     */
-    public function getAggregateConfigRulesReportWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return GetAggregateConfigRulesReportResponse::fromMap($this->doRPCRequest('GetAggregateConfigRulesReport', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetAggregateConfigRulesReportRequest $request
-     *
-     * @return GetAggregateConfigRulesReportResponse
-     */
-    public function getAggregateConfigRulesReport($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getAggregateConfigRulesReportWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetResourceInventoryResponse
-     */
-    public function getResourceInventoryWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return GetResourceInventoryResponse::fromMap($this->doRPCRequest('GetResourceInventory', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return GetResourceInventoryResponse
-     */
-    public function getResourceInventory()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getResourceInventoryWithOptions($runtime);
-    }
-
-    /**
-     * @param ListAggregateConfigRuleEvaluationResultsRequest $request
-     * @param RuntimeOptions                                  $runtime
-     *
-     * @return ListAggregateConfigRuleEvaluationResultsResponse
-     */
-    public function listAggregateConfigRuleEvaluationResultsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return ListAggregateConfigRuleEvaluationResultsResponse::fromMap($this->doRPCRequest('ListAggregateConfigRuleEvaluationResults', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListAggregateConfigRuleEvaluationResultsRequest $request
-     *
-     * @return ListAggregateConfigRuleEvaluationResultsResponse
-     */
-    public function listAggregateConfigRuleEvaluationResults($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listAggregateConfigRuleEvaluationResultsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListAggregateRemediationsRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ListAggregateRemediationsResponse
-     */
-    public function listAggregateRemediationsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListAggregateRemediationsResponse::fromMap($this->doRPCRequest('ListAggregateRemediations', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListAggregateRemediationsRequest $request
-     *
-     * @return ListAggregateRemediationsResponse
-     */
-    public function listAggregateRemediations($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listAggregateRemediationsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetAggregatorRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetAggregatorResponse
-     */
-    public function getAggregatorWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return GetAggregatorResponse::fromMap($this->doRPCRequest('GetAggregator', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetAggregatorRequest $request
-     *
-     * @return GetAggregatorResponse
-     */
-    public function getAggregator($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getAggregatorWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetResourceComplianceTimelineRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return GetResourceComplianceTimelineResponse
-     */
-    public function getResourceComplianceTimelineWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return GetResourceComplianceTimelineResponse::fromMap($this->doRPCRequest('GetResourceComplianceTimeline', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetResourceComplianceTimelineRequest $request
-     *
-     * @return GetResourceComplianceTimelineResponse
-     */
-    public function getResourceComplianceTimeline($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getResourceComplianceTimelineWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GenerateAggregateConfigRulesReportRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return GenerateAggregateConfigRulesReportResponse
-     */
-    public function generateAggregateConfigRulesReportWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GenerateAggregateConfigRulesReportResponse::fromMap($this->doRPCRequest('GenerateAggregateConfigRulesReport', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GenerateAggregateConfigRulesReportRequest $request
-     *
-     * @return GenerateAggregateConfigRulesReportResponse
-     */
-    public function generateAggregateConfigRulesReport($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->generateAggregateConfigRulesReportWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListAggregateCompliancePacksRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ListAggregateCompliancePacksResponse
-     */
-    public function listAggregateCompliancePacksWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return ListAggregateCompliancePacksResponse::fromMap($this->doRPCRequest('ListAggregateCompliancePacks', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListAggregateCompliancePacksRequest $request
-     *
-     * @return ListAggregateCompliancePacksResponse
-     */
-    public function listAggregateCompliancePacks($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listAggregateCompliancePacksWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListConfigRuleEvaluationResultsRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return ListConfigRuleEvaluationResultsResponse
-     */
-    public function listConfigRuleEvaluationResultsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return ListConfigRuleEvaluationResultsResponse::fromMap($this->doRPCRequest('ListConfigRuleEvaluationResults', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListConfigRuleEvaluationResultsRequest $request
-     *
-     * @return ListConfigRuleEvaluationResultsResponse
-     */
-    public function listConfigRuleEvaluationResults($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listConfigRuleEvaluationResultsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteCompliancePacksRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DeleteCompliancePacksResponse
-     */
-    public function deleteCompliancePacksWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteCompliancePacksResponse::fromMap($this->doRPCRequest('DeleteCompliancePacks', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteCompliancePacksRequest $request
-     *
-     * @return DeleteCompliancePacksResponse
-     */
-    public function deleteCompliancePacks($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteCompliancePacksWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateAggregateRemediationRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return UpdateAggregateRemediationResponse
-     */
-    public function updateAggregateRemediationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateAggregateRemediationResponse::fromMap($this->doRPCRequest('UpdateAggregateRemediation', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateAggregateRemediationRequest $request
-     *
-     * @return UpdateAggregateRemediationResponse
-     */
-    public function updateAggregateRemediation($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateAggregateRemediationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteAggregateCompliancePacksRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DeleteAggregateCompliancePacksResponse
-     */
-    public function deleteAggregateCompliancePacksWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteAggregateCompliancePacksResponse::fromMap($this->doRPCRequest('DeleteAggregateCompliancePacks', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteAggregateCompliancePacksRequest $request
-     *
-     * @return DeleteAggregateCompliancePacksResponse
-     */
-    public function deleteAggregateCompliancePacks($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteAggregateCompliancePacksWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListAggregatorsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListAggregatorsResponse
-     */
-    public function listAggregatorsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return ListAggregatorsResponse::fromMap($this->doRPCRequest('ListAggregators', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListAggregatorsRequest $request
-     *
-     * @return ListAggregatorsResponse
-     */
-    public function listAggregators($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listAggregatorsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateAggregateCompliancePackRequest $tmpReq
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return UpdateAggregateCompliancePackResponse
-     */
-    public function updateAggregateCompliancePackWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new UpdateAggregateCompliancePackShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->configRules)) {
-            $request->configRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateAggregateCompliancePackResponse::fromMap($this->doRPCRequest('UpdateAggregateCompliancePack', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateAggregateCompliancePackRequest $request
-     *
-     * @return UpdateAggregateCompliancePackResponse
-     */
-    public function updateAggregateCompliancePack($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateAggregateCompliancePackWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetAggregateCompliancePackRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return GetAggregateCompliancePackResponse
-     */
-    public function getAggregateCompliancePackWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return GetAggregateCompliancePackResponse::fromMap($this->doRPCRequest('GetAggregateCompliancePack', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetAggregateCompliancePackRequest $request
-     *
-     * @return GetAggregateCompliancePackResponse
-     */
-    public function getAggregateCompliancePack($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getAggregateCompliancePackWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteAggregateRemediationsRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DeleteAggregateRemediationsResponse
-     */
-    public function deleteAggregateRemediationsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteAggregateRemediationsResponse::fromMap($this->doRPCRequest('DeleteAggregateRemediations', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteAggregateRemediationsRequest $request
-     *
-     * @return DeleteAggregateRemediationsResponse
-     */
-    public function deleteAggregateRemediations($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteAggregateRemediationsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GenerateConfigRulesReportRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return GenerateConfigRulesReportResponse
-     */
-    public function generateConfigRulesReportWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GenerateConfigRulesReportResponse::fromMap($this->doRPCRequest('GenerateConfigRulesReport', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GenerateConfigRulesReportRequest $request
-     *
-     * @return GenerateConfigRulesReportResponse
-     */
-    public function generateConfigRulesReport($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->generateConfigRulesReportWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetAggregateResourceComplianceByPackRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return GetAggregateResourceComplianceByPackResponse
-     */
-    public function getAggregateResourceComplianceByPackWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return GetAggregateResourceComplianceByPackResponse::fromMap($this->doRPCRequest('GetAggregateResourceComplianceByPack', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetAggregateResourceComplianceByPackRequest $request
-     *
-     * @return GetAggregateResourceComplianceByPackResponse
-     */
-    public function getAggregateResourceComplianceByPack($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getAggregateResourceComplianceByPackWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteRemediationsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteRemediationsResponse
-     */
-    public function deleteRemediationsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteRemediationsResponse::fromMap($this->doRPCRequest('DeleteRemediations', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteRemediationsRequest $request
-     *
-     * @return DeleteRemediationsResponse
-     */
-    public function deleteRemediations($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteRemediationsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListCompliancePacksRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ListCompliancePacksResponse
-     */
-    public function listCompliancePacksWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return ListCompliancePacksResponse::fromMap($this->doRPCRequest('ListCompliancePacks', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListCompliancePacksRequest $request
-     *
-     * @return ListCompliancePacksResponse
-     */
-    public function listCompliancePacks($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listCompliancePacksWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ActiveAggregateConfigRulesRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -852,488 +235,92 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param GetResourceComplianceByPackRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return GetResourceComplianceByPackResponse
-     */
-    public function getResourceComplianceByPackWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return GetResourceComplianceByPackResponse::fromMap($this->doRPCRequest('GetResourceComplianceByPack', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetResourceComplianceByPackRequest $request
-     *
-     * @return GetResourceComplianceByPackResponse
-     */
-    public function getResourceComplianceByPack($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getResourceComplianceByPackWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return ListResourceOwnerInAllAggregatorResponse
-     */
-    public function listResourceOwnerInAllAggregatorWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return ListResourceOwnerInAllAggregatorResponse::fromMap($this->doRPCRequest('ListResourceOwnerInAllAggregator', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return ListResourceOwnerInAllAggregatorResponse
-     */
-    public function listResourceOwnerInAllAggregator()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listResourceOwnerInAllAggregatorWithOptions($runtime);
-    }
-
-    /**
-     * @param ListCompliancePackTemplatesRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ListCompliancePackTemplatesResponse
-     */
-    public function listCompliancePackTemplatesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return ListCompliancePackTemplatesResponse::fromMap($this->doRPCRequest('ListCompliancePackTemplates', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListCompliancePackTemplatesRequest $request
-     *
-     * @return ListCompliancePackTemplatesResponse
-     */
-    public function listCompliancePackTemplates($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listCompliancePackTemplatesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateRemediationRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return UpdateRemediationResponse
-     */
-    public function updateRemediationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateRemediationResponse::fromMap($this->doRPCRequest('UpdateRemediation', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateRemediationRequest $request
-     *
-     * @return UpdateRemediationResponse
-     */
-    public function updateRemediation($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateRemediationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetAggregateAccountComplianceByPackRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return GetAggregateAccountComplianceByPackResponse
-     */
-    public function getAggregateAccountComplianceByPackWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return GetAggregateAccountComplianceByPackResponse::fromMap($this->doRPCRequest('GetAggregateAccountComplianceByPack', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetAggregateAccountComplianceByPackRequest $request
-     *
-     * @return GetAggregateAccountComplianceByPackResponse
-     */
-    public function getAggregateAccountComplianceByPack($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getAggregateAccountComplianceByPackWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateConfigRuleRequest $tmpReq
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateConfigRuleResponse
-     */
-    public function createConfigRuleWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new CreateConfigRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->inputParameters)) {
-            $request->inputParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->inputParameters, 'InputParameters', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->resourceTypesScope)) {
-            $request->resourceTypesScopeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateConfigRuleResponse::fromMap($this->doRPCRequest('CreateConfigRule', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateConfigRuleRequest $request
-     *
-     * @return CreateConfigRuleResponse
-     */
-    public function createConfigRule($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createConfigRuleWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetAggregateResourceConfigurationTimelineRequest $request
+     * @param AttachAggregateConfigRuleToCompliancePackRequest $request
      * @param RuntimeOptions                                   $runtime
      *
-     * @return GetAggregateResourceConfigurationTimelineResponse
+     * @return AttachAggregateConfigRuleToCompliancePackResponse
      */
-    public function getAggregateResourceConfigurationTimelineWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return GetAggregateResourceConfigurationTimelineResponse::fromMap($this->doRPCRequest('GetAggregateResourceConfigurationTimeline', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetAggregateResourceConfigurationTimelineRequest $request
-     *
-     * @return GetAggregateResourceConfigurationTimelineResponse
-     */
-    public function getAggregateResourceConfigurationTimeline($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getAggregateResourceConfigurationTimelineWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteAggregatorsRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteAggregatorsResponse
-     */
-    public function deleteAggregatorsWithOptions($request, $runtime)
+    public function attachAggregateConfigRuleToCompliancePackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return DeleteAggregatorsResponse::fromMap($this->doRPCRequest('DeleteAggregators', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AttachAggregateConfigRuleToCompliancePackResponse::fromMap($this->doRPCRequest('AttachAggregateConfigRuleToCompliancePack', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DeleteAggregatorsRequest $request
+     * @param AttachAggregateConfigRuleToCompliancePackRequest $request
      *
-     * @return DeleteAggregatorsResponse
+     * @return AttachAggregateConfigRuleToCompliancePackResponse
      */
-    public function deleteAggregators($request)
+    public function attachAggregateConfigRuleToCompliancePack($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteAggregatorsWithOptions($request, $runtime);
+        return $this->attachAggregateConfigRuleToCompliancePackWithOptions($request, $runtime);
     }
 
     /**
-     * @param GenerateResourceInventoryRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return GenerateResourceInventoryResponse
-     */
-    public function generateResourceInventoryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GenerateResourceInventoryResponse::fromMap($this->doRPCRequest('GenerateResourceInventory', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GenerateResourceInventoryRequest $request
-     *
-     * @return GenerateResourceInventoryResponse
-     */
-    public function generateResourceInventory($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->generateResourceInventoryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateRemediationRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateRemediationResponse
-     */
-    public function createRemediationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateRemediationResponse::fromMap($this->doRPCRequest('CreateRemediation', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateRemediationRequest $request
-     *
-     * @return CreateRemediationResponse
-     */
-    public function createRemediation($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createRemediationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetCompliancePackRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetCompliancePackResponse
-     */
-    public function getCompliancePackWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return GetCompliancePackResponse::fromMap($this->doRPCRequest('GetCompliancePack', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetCompliancePackRequest $request
-     *
-     * @return GetCompliancePackResponse
-     */
-    public function getCompliancePack($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getCompliancePackWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetConfigRulesReportResponse
-     */
-    public function getConfigRulesReportWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return GetConfigRulesReportResponse::fromMap($this->doRPCRequest('GetConfigRulesReport', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return GetConfigRulesReportResponse
-     */
-    public function getConfigRulesReport()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getConfigRulesReportWithOptions($runtime);
-    }
-
-    /**
-     * @param GetResourceConfigurationTimelineRequest $request
+     * @param AttachConfigRuleToCompliancePackRequest $request
      * @param RuntimeOptions                          $runtime
      *
-     * @return GetResourceConfigurationTimelineResponse
+     * @return AttachConfigRuleToCompliancePackResponse
      */
-    public function getResourceConfigurationTimelineWithOptions($request, $runtime)
+    public function attachConfigRuleToCompliancePackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
         ]);
 
-        return GetResourceConfigurationTimelineResponse::fromMap($this->doRPCRequest('GetResourceConfigurationTimeline', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return AttachConfigRuleToCompliancePackResponse::fromMap($this->doRPCRequest('AttachConfigRuleToCompliancePack', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetResourceConfigurationTimelineRequest $request
+     * @param AttachConfigRuleToCompliancePackRequest $request
      *
-     * @return GetResourceConfigurationTimelineResponse
+     * @return AttachConfigRuleToCompliancePackResponse
      */
-    public function getResourceConfigurationTimeline($request)
+    public function attachConfigRuleToCompliancePack($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getResourceConfigurationTimelineWithOptions($request, $runtime);
+        return $this->attachConfigRuleToCompliancePackWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetDiscoveredResourceCountsGroupByResourceTypeRequest $request
-     * @param RuntimeOptions                                        $runtime
+     * @param CreateAggregateCompliancePackRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
      *
-     * @return GetDiscoveredResourceCountsGroupByResourceTypeResponse
+     * @return CreateAggregateCompliancePackResponse
      */
-    public function getDiscoveredResourceCountsGroupByResourceTypeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return GetDiscoveredResourceCountsGroupByResourceTypeResponse::fromMap($this->doRPCRequest('GetDiscoveredResourceCountsGroupByResourceType', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetDiscoveredResourceCountsGroupByResourceTypeRequest $request
-     *
-     * @return GetDiscoveredResourceCountsGroupByResourceTypeResponse
-     */
-    public function getDiscoveredResourceCountsGroupByResourceType($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDiscoveredResourceCountsGroupByResourceTypeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateAggregatorRequest $tmpReq
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateAggregatorResponse
-     */
-    public function createAggregatorWithOptions($tmpReq, $runtime)
+    public function createAggregateCompliancePackWithOptions($tmpReq, $runtime)
     {
         Utils::validateModel($tmpReq);
-        $request = new CreateAggregatorShrinkRequest([]);
+        $request = new CreateAggregateCompliancePackShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->aggregatorAccounts)) {
-            $request->aggregatorAccountsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->aggregatorAccounts, 'AggregatorAccounts', 'json');
+        if (!Utils::isUnset($tmpReq->configRules)) {
+            $request->configRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
         }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return CreateAggregatorResponse::fromMap($this->doRPCRequest('CreateAggregator', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAggregateCompliancePackResponse::fromMap($this->doRPCRequest('CreateAggregateCompliancePack', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CreateAggregatorRequest $request
+     * @param CreateAggregateCompliancePackRequest $request
      *
-     * @return CreateAggregatorResponse
+     * @return CreateAggregateCompliancePackResponse
      */
-    public function createAggregator($request)
+    public function createAggregateCompliancePack($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createAggregatorWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListAggregateConfigRulesRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ListAggregateConfigRulesResponse
-     */
-    public function listAggregateConfigRulesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return ListAggregateConfigRulesResponse::fromMap($this->doRPCRequest('ListAggregateConfigRules', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListAggregateConfigRulesRequest $request
-     *
-     * @return ListAggregateConfigRulesResponse
-     */
-    public function listAggregateConfigRules($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listAggregateConfigRulesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GenerateAggregateResourceInventoryRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return GenerateAggregateResourceInventoryResponse
-     */
-    public function generateAggregateResourceInventoryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GenerateAggregateResourceInventoryResponse::fromMap($this->doRPCRequest('GenerateAggregateResourceInventory', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GenerateAggregateResourceInventoryRequest $request
-     *
-     * @return GenerateAggregateResourceInventoryResponse
-     */
-    public function generateAggregateResourceInventory($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->generateAggregateResourceInventoryWithOptions($request, $runtime);
+        return $this->createAggregateCompliancePackWithOptions($request, $runtime);
     }
 
     /**
@@ -1401,264 +388,36 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param StartAggregateConfigRuleEvaluationRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @param CreateAggregatorRequest $tmpReq
+     * @param RuntimeOptions          $runtime
      *
-     * @return StartAggregateConfigRuleEvaluationResponse
+     * @return CreateAggregatorResponse
      */
-    public function startAggregateConfigRuleEvaluationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return StartAggregateConfigRuleEvaluationResponse::fromMap($this->doRPCRequest('StartAggregateConfigRuleEvaluation', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param StartAggregateConfigRuleEvaluationRequest $request
-     *
-     * @return StartAggregateConfigRuleEvaluationResponse
-     */
-    public function startAggregateConfigRuleEvaluation($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->startAggregateConfigRuleEvaluationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GenerateAggregateCompliancePackReportRequest $request
-     * @param RuntimeOptions                               $runtime
-     *
-     * @return GenerateAggregateCompliancePackReportResponse
-     */
-    public function generateAggregateCompliancePackReportWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GenerateAggregateCompliancePackReportResponse::fromMap($this->doRPCRequest('GenerateAggregateCompliancePackReport', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GenerateAggregateCompliancePackReportRequest $request
-     *
-     * @return GenerateAggregateCompliancePackReportResponse
-     */
-    public function generateAggregateCompliancePackReport($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->generateAggregateCompliancePackReportWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetCompliancePackReportRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return GetCompliancePackReportResponse
-     */
-    public function getCompliancePackReportWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return GetCompliancePackReportResponse::fromMap($this->doRPCRequest('GetCompliancePackReport', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetCompliancePackReportRequest $request
-     *
-     * @return GetCompliancePackReportResponse
-     */
-    public function getCompliancePackReport($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getCompliancePackReportWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetResourceComplianceByConfigRuleRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return GetResourceComplianceByConfigRuleResponse
-     */
-    public function getResourceComplianceByConfigRuleWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return GetResourceComplianceByConfigRuleResponse::fromMap($this->doRPCRequest('GetResourceComplianceByConfigRule', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetResourceComplianceByConfigRuleRequest $request
-     *
-     * @return GetResourceComplianceByConfigRuleResponse
-     */
-    public function getResourceComplianceByConfigRule($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getResourceComplianceByConfigRuleWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListResourceEvaluationResultsRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return ListResourceEvaluationResultsResponse
-     */
-    public function listResourceEvaluationResultsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return ListResourceEvaluationResultsResponse::fromMap($this->doRPCRequest('ListResourceEvaluationResults', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListResourceEvaluationResultsRequest $request
-     *
-     * @return ListResourceEvaluationResultsResponse
-     */
-    public function listResourceEvaluationResults($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listResourceEvaluationResultsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateCompliancePackRequest $tmpReq
-     * @param RuntimeOptions              $runtime
-     *
-     * @return UpdateCompliancePackResponse
-     */
-    public function updateCompliancePackWithOptions($tmpReq, $runtime)
+    public function createAggregatorWithOptions($tmpReq, $runtime)
     {
         Utils::validateModel($tmpReq);
-        $request = new UpdateCompliancePackShrinkRequest([]);
+        $request = new CreateAggregatorShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->configRules)) {
-            $request->configRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
+        if (!Utils::isUnset($tmpReq->aggregatorAccounts)) {
+            $request->aggregatorAccountsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->aggregatorAccounts, 'AggregatorAccounts', 'json');
         }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return UpdateCompliancePackResponse::fromMap($this->doRPCRequest('UpdateCompliancePack', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAggregatorResponse::fromMap($this->doRPCRequest('CreateAggregator', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param UpdateCompliancePackRequest $request
+     * @param CreateAggregatorRequest $request
      *
-     * @return UpdateCompliancePackResponse
+     * @return CreateAggregatorResponse
      */
-    public function updateCompliancePack($request)
+    public function createAggregator($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateCompliancePackWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListAggregateResourceEvaluationResultsRequest $request
-     * @param RuntimeOptions                                $runtime
-     *
-     * @return ListAggregateResourceEvaluationResultsResponse
-     */
-    public function listAggregateResourceEvaluationResultsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return ListAggregateResourceEvaluationResultsResponse::fromMap($this->doRPCRequest('ListAggregateResourceEvaluationResults', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListAggregateResourceEvaluationResultsRequest $request
-     *
-     * @return ListAggregateResourceEvaluationResultsResponse
-     */
-    public function listAggregateResourceEvaluationResults($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listAggregateResourceEvaluationResultsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetConfigRuleRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetConfigRuleResponse
-     */
-    public function getConfigRuleWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetConfigRuleResponse::fromMap($this->doRPCRequest('GetConfigRule', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetConfigRuleRequest $request
-     *
-     * @return GetConfigRuleResponse
-     */
-    public function getConfigRule($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getConfigRuleWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeactiveConfigRulesRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DeactiveConfigRulesResponse
-     */
-    public function deactiveConfigRulesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeactiveConfigRulesResponse::fromMap($this->doRPCRequest('DeactiveConfigRules', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeactiveConfigRulesRequest $request
-     *
-     * @return DeactiveConfigRulesResponse
-     */
-    public function deactiveConfigRules($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deactiveConfigRulesWithOptions($request, $runtime);
+        return $this->createAggregatorWithOptions($request, $runtime);
     }
 
     /**
@@ -1695,131 +454,15 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param GetDiscoveredResourceCountsGroupByRegionRequest $request
-     * @param RuntimeOptions                                  $runtime
-     *
-     * @return GetDiscoveredResourceCountsGroupByRegionResponse
-     */
-    public function getDiscoveredResourceCountsGroupByRegionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return GetDiscoveredResourceCountsGroupByRegionResponse::fromMap($this->doRPCRequest('GetDiscoveredResourceCountsGroupByRegion', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetDiscoveredResourceCountsGroupByRegionRequest $request
-     *
-     * @return GetDiscoveredResourceCountsGroupByRegionResponse
-     */
-    public function getDiscoveredResourceCountsGroupByRegion($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDiscoveredResourceCountsGroupByRegionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetAggregateConfigRuleComplianceByPackRequest $request
-     * @param RuntimeOptions                                $runtime
-     *
-     * @return GetAggregateConfigRuleComplianceByPackResponse
-     */
-    public function getAggregateConfigRuleComplianceByPackWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return GetAggregateConfigRuleComplianceByPackResponse::fromMap($this->doRPCRequest('GetAggregateConfigRuleComplianceByPack', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetAggregateConfigRuleComplianceByPackRequest $request
-     *
-     * @return GetAggregateConfigRuleComplianceByPackResponse
-     */
-    public function getAggregateConfigRuleComplianceByPack($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getAggregateConfigRuleComplianceByPackWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetAggregateResourceComplianceByConfigRuleRequest $request
-     * @param RuntimeOptions                                    $runtime
-     *
-     * @return GetAggregateResourceComplianceByConfigRuleResponse
-     */
-    public function getAggregateResourceComplianceByConfigRuleWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return GetAggregateResourceComplianceByConfigRuleResponse::fromMap($this->doRPCRequest('GetAggregateResourceComplianceByConfigRule', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetAggregateResourceComplianceByConfigRuleRequest $request
-     *
-     * @return GetAggregateResourceComplianceByConfigRuleResponse
-     */
-    public function getAggregateResourceComplianceByConfigRule($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getAggregateResourceComplianceByConfigRuleWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetAggregateConfigRuleSummaryByRiskLevelRequest $request
-     * @param RuntimeOptions                                  $runtime
-     *
-     * @return GetAggregateConfigRuleSummaryByRiskLevelResponse
-     */
-    public function getAggregateConfigRuleSummaryByRiskLevelWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return GetAggregateConfigRuleSummaryByRiskLevelResponse::fromMap($this->doRPCRequest('GetAggregateConfigRuleSummaryByRiskLevel', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetAggregateConfigRuleSummaryByRiskLevelRequest $request
-     *
-     * @return GetAggregateConfigRuleSummaryByRiskLevelResponse
-     */
-    public function getAggregateConfigRuleSummaryByRiskLevel($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getAggregateConfigRuleSummaryByRiskLevelWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateConfigRuleRequest $tmpReq
+     * @param CreateConfigRuleRequest $tmpReq
      * @param RuntimeOptions          $runtime
      *
-     * @return UpdateConfigRuleResponse
+     * @return CreateConfigRuleResponse
      */
-    public function updateConfigRuleWithOptions($tmpReq, $runtime)
+    public function createConfigRuleWithOptions($tmpReq, $runtime)
     {
         Utils::validateModel($tmpReq);
-        $request = new UpdateConfigRuleShrinkRequest([]);
+        $request = new CreateConfigRuleShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->inputParameters)) {
             $request->inputParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->inputParameters, 'InputParameters', 'json');
@@ -1831,56 +474,504 @@ class Config extends OpenApiClient
             'body' => Utils::toMap($request),
         ]);
 
-        return UpdateConfigRuleResponse::fromMap($this->doRPCRequest('UpdateConfigRule', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateConfigRuleResponse::fromMap($this->doRPCRequest('CreateConfigRule', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param UpdateConfigRuleRequest $request
+     * @param CreateConfigRuleRequest $request
      *
-     * @return UpdateConfigRuleResponse
+     * @return CreateConfigRuleResponse
      */
-    public function updateConfigRule($request)
+    public function createConfigRule($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateConfigRuleWithOptions($request, $runtime);
+        return $this->createConfigRuleWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetAggregateResourceInventoryRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param CreateRemediationRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return GetAggregateResourceInventoryResponse
+     * @return CreateRemediationResponse
      */
-    public function getAggregateResourceInventoryWithOptions($request, $runtime)
+    public function createRemediationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return GetAggregateResourceInventoryResponse::fromMap($this->doRPCRequest('GetAggregateResourceInventory', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateRemediationResponse::fromMap($this->doRPCRequest('CreateRemediation', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetAggregateResourceInventoryRequest $request
+     * @param CreateRemediationRequest $request
      *
-     * @return GetAggregateResourceInventoryResponse
+     * @return CreateRemediationResponse
      */
-    public function getAggregateResourceInventory($request)
+    public function createRemediation($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getAggregateResourceInventoryWithOptions($request, $runtime);
+        return $this->createRemediationWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetAggregateResourceComplianceTimelineRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @param DeactiveAggregateConfigRulesRequest $request
+     * @param RuntimeOptions                      $runtime
      *
-     * @return GetAggregateResourceComplianceTimelineResponse
+     * @return DeactiveAggregateConfigRulesResponse
      */
-    public function getAggregateResourceComplianceTimelineWithOptions($request, $runtime)
+    public function deactiveAggregateConfigRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeactiveAggregateConfigRulesResponse::fromMap($this->doRPCRequest('DeactiveAggregateConfigRules', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeactiveAggregateConfigRulesRequest $request
+     *
+     * @return DeactiveAggregateConfigRulesResponse
+     */
+    public function deactiveAggregateConfigRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deactiveAggregateConfigRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeactiveConfigRulesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeactiveConfigRulesResponse
+     */
+    public function deactiveConfigRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeactiveConfigRulesResponse::fromMap($this->doRPCRequest('DeactiveConfigRules', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeactiveConfigRulesRequest $request
+     *
+     * @return DeactiveConfigRulesResponse
+     */
+    public function deactiveConfigRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deactiveConfigRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteAggregateCompliancePacksRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DeleteAggregateCompliancePacksResponse
+     */
+    public function deleteAggregateCompliancePacksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteAggregateCompliancePacksResponse::fromMap($this->doRPCRequest('DeleteAggregateCompliancePacks', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAggregateCompliancePacksRequest $request
+     *
+     * @return DeleteAggregateCompliancePacksResponse
+     */
+    public function deleteAggregateCompliancePacks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAggregateCompliancePacksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteAggregateConfigRulesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteAggregateConfigRulesResponse
+     */
+    public function deleteAggregateConfigRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteAggregateConfigRulesResponse::fromMap($this->doRPCRequest('DeleteAggregateConfigRules', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAggregateConfigRulesRequest $request
+     *
+     * @return DeleteAggregateConfigRulesResponse
+     */
+    public function deleteAggregateConfigRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAggregateConfigRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteAggregateRemediationsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteAggregateRemediationsResponse
+     */
+    public function deleteAggregateRemediationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteAggregateRemediationsResponse::fromMap($this->doRPCRequest('DeleteAggregateRemediations', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAggregateRemediationsRequest $request
+     *
+     * @return DeleteAggregateRemediationsResponse
+     */
+    public function deleteAggregateRemediations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAggregateRemediationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteAggregatorsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteAggregatorsResponse
+     */
+    public function deleteAggregatorsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteAggregatorsResponse::fromMap($this->doRPCRequest('DeleteAggregators', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAggregatorsRequest $request
+     *
+     * @return DeleteAggregatorsResponse
+     */
+    public function deleteAggregators($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAggregatorsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCompliancePacksRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteCompliancePacksResponse
+     */
+    public function deleteCompliancePacksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteCompliancePacksResponse::fromMap($this->doRPCRequest('DeleteCompliancePacks', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCompliancePacksRequest $request
+     *
+     * @return DeleteCompliancePacksResponse
+     */
+    public function deleteCompliancePacks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCompliancePacksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteRemediationsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteRemediationsResponse
+     */
+    public function deleteRemediationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DeleteRemediationsResponse::fromMap($this->doRPCRequest('DeleteRemediations', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DeleteRemediationsRequest $request
+     *
+     * @return DeleteRemediationsResponse
+     */
+    public function deleteRemediations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRemediationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DetachAggregateConfigRuleToCompliancePackRequest $request
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return DetachAggregateConfigRuleToCompliancePackResponse
+     */
+    public function detachAggregateConfigRuleToCompliancePackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DetachAggregateConfigRuleToCompliancePackResponse::fromMap($this->doRPCRequest('DetachAggregateConfigRuleToCompliancePack', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DetachAggregateConfigRuleToCompliancePackRequest $request
+     *
+     * @return DetachAggregateConfigRuleToCompliancePackResponse
+     */
+    public function detachAggregateConfigRuleToCompliancePack($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachAggregateConfigRuleToCompliancePackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DetachConfigRuleToCompliancePackRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DetachConfigRuleToCompliancePackResponse
+     */
+    public function detachConfigRuleToCompliancePackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DetachConfigRuleToCompliancePackResponse::fromMap($this->doRPCRequest('DetachConfigRuleToCompliancePack', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DetachConfigRuleToCompliancePackRequest $request
+     *
+     * @return DetachConfigRuleToCompliancePackResponse
+     */
+    public function detachConfigRuleToCompliancePack($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachConfigRuleToCompliancePackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GenerateAggregateCompliancePackReportRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return GenerateAggregateCompliancePackReportResponse
+     */
+    public function generateAggregateCompliancePackReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GenerateAggregateCompliancePackReportResponse::fromMap($this->doRPCRequest('GenerateAggregateCompliancePackReport', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GenerateAggregateCompliancePackReportRequest $request
+     *
+     * @return GenerateAggregateCompliancePackReportResponse
+     */
+    public function generateAggregateCompliancePackReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateAggregateCompliancePackReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GenerateAggregateConfigRulesReportRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return GenerateAggregateConfigRulesReportResponse
+     */
+    public function generateAggregateConfigRulesReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GenerateAggregateConfigRulesReportResponse::fromMap($this->doRPCRequest('GenerateAggregateConfigRulesReport', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GenerateAggregateConfigRulesReportRequest $request
+     *
+     * @return GenerateAggregateConfigRulesReportResponse
+     */
+    public function generateAggregateConfigRulesReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateAggregateConfigRulesReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GenerateAggregateResourceInventoryRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return GenerateAggregateResourceInventoryResponse
+     */
+    public function generateAggregateResourceInventoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GenerateAggregateResourceInventoryResponse::fromMap($this->doRPCRequest('GenerateAggregateResourceInventory', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GenerateAggregateResourceInventoryRequest $request
+     *
+     * @return GenerateAggregateResourceInventoryResponse
+     */
+    public function generateAggregateResourceInventory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateAggregateResourceInventoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GenerateCompliancePackReportRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GenerateCompliancePackReportResponse
+     */
+    public function generateCompliancePackReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GenerateCompliancePackReportResponse::fromMap($this->doRPCRequest('GenerateCompliancePackReport', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GenerateCompliancePackReportRequest $request
+     *
+     * @return GenerateCompliancePackReportResponse
+     */
+    public function generateCompliancePackReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateCompliancePackReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GenerateConfigRulesReportRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GenerateConfigRulesReportResponse
+     */
+    public function generateConfigRulesReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GenerateConfigRulesReportResponse::fromMap($this->doRPCRequest('GenerateConfigRulesReport', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GenerateConfigRulesReportRequest $request
+     *
+     * @return GenerateConfigRulesReportResponse
+     */
+    public function generateConfigRulesReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateConfigRulesReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GenerateResourceInventoryRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GenerateResourceInventoryResponse
+     */
+    public function generateResourceInventoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GenerateResourceInventoryResponse::fromMap($this->doRPCRequest('GenerateResourceInventory', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GenerateResourceInventoryRequest $request
+     *
+     * @return GenerateResourceInventoryResponse
+     */
+    public function generateResourceInventory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateResourceInventoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAggregateAccountComplianceByPackRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return GetAggregateAccountComplianceByPackResponse
+     */
+    public function getAggregateAccountComplianceByPackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
@@ -1888,55 +979,48 @@ class Config extends OpenApiClient
             'query' => $query,
         ]);
 
-        return GetAggregateResourceComplianceTimelineResponse::fromMap($this->doRPCRequest('GetAggregateResourceComplianceTimeline', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetAggregateAccountComplianceByPackResponse::fromMap($this->doRPCRequest('GetAggregateAccountComplianceByPack', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetAggregateResourceComplianceTimelineRequest $request
+     * @param GetAggregateAccountComplianceByPackRequest $request
      *
-     * @return GetAggregateResourceComplianceTimelineResponse
+     * @return GetAggregateAccountComplianceByPackResponse
      */
-    public function getAggregateResourceComplianceTimeline($request)
+    public function getAggregateAccountComplianceByPack($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getAggregateResourceComplianceTimelineWithOptions($request, $runtime);
+        return $this->getAggregateAccountComplianceByPackWithOptions($request, $runtime);
     }
 
     /**
-     * @param UpdateAggregateConfigRuleRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
+     * @param GetAggregateCompliancePackRequest $request
+     * @param RuntimeOptions                    $runtime
      *
-     * @return UpdateAggregateConfigRuleResponse
+     * @return GetAggregateCompliancePackResponse
      */
-    public function updateAggregateConfigRuleWithOptions($tmpReq, $runtime)
+    public function getAggregateCompliancePackWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new UpdateAggregateConfigRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->inputParameters)) {
-            $request->inputParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->inputParameters, 'InputParameters', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->resourceTypesScope)) {
-            $request->resourceTypesScopeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
         ]);
 
-        return UpdateAggregateConfigRuleResponse::fromMap($this->doRPCRequest('UpdateAggregateConfigRule', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAggregateCompliancePackResponse::fromMap($this->doRPCRequest('GetAggregateCompliancePack', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param UpdateAggregateConfigRuleRequest $request
+     * @param GetAggregateCompliancePackRequest $request
      *
-     * @return UpdateAggregateConfigRuleResponse
+     * @return GetAggregateCompliancePackResponse
      */
-    public function updateAggregateConfigRule($request)
+    public function getAggregateCompliancePack($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateAggregateConfigRuleWithOptions($request, $runtime);
+        return $this->getAggregateCompliancePackWithOptions($request, $runtime);
     }
 
     /**
@@ -1969,36 +1053,263 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param CreateAggregateCompliancePackRequest $tmpReq
-     * @param RuntimeOptions                       $runtime
+     * @param GetAggregateConfigRuleRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return CreateAggregateCompliancePackResponse
+     * @return GetAggregateConfigRuleResponse
      */
-    public function createAggregateCompliancePackWithOptions($tmpReq, $runtime)
+    public function getAggregateConfigRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new CreateAggregateCompliancePackShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->configRules)) {
-            $request->configRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
-        }
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return CreateAggregateCompliancePackResponse::fromMap($this->doRPCRequest('CreateAggregateCompliancePack', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAggregateConfigRuleResponse::fromMap($this->doRPCRequest('GetAggregateConfigRule', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CreateAggregateCompliancePackRequest $request
+     * @param GetAggregateConfigRuleRequest $request
      *
-     * @return CreateAggregateCompliancePackResponse
+     * @return GetAggregateConfigRuleResponse
      */
-    public function createAggregateCompliancePack($request)
+    public function getAggregateConfigRule($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createAggregateCompliancePackWithOptions($request, $runtime);
+        return $this->getAggregateConfigRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAggregateConfigRuleComplianceByPackRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return GetAggregateConfigRuleComplianceByPackResponse
+     */
+    public function getAggregateConfigRuleComplianceByPackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetAggregateConfigRuleComplianceByPackResponse::fromMap($this->doRPCRequest('GetAggregateConfigRuleComplianceByPack', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetAggregateConfigRuleComplianceByPackRequest $request
+     *
+     * @return GetAggregateConfigRuleComplianceByPackResponse
+     */
+    public function getAggregateConfigRuleComplianceByPack($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAggregateConfigRuleComplianceByPackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAggregateConfigRuleSummaryByRiskLevelRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return GetAggregateConfigRuleSummaryByRiskLevelResponse
+     */
+    public function getAggregateConfigRuleSummaryByRiskLevelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetAggregateConfigRuleSummaryByRiskLevelResponse::fromMap($this->doRPCRequest('GetAggregateConfigRuleSummaryByRiskLevel', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetAggregateConfigRuleSummaryByRiskLevelRequest $request
+     *
+     * @return GetAggregateConfigRuleSummaryByRiskLevelResponse
+     */
+    public function getAggregateConfigRuleSummaryByRiskLevel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAggregateConfigRuleSummaryByRiskLevelWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAggregateConfigRulesReportRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetAggregateConfigRulesReportResponse
+     */
+    public function getAggregateConfigRulesReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetAggregateConfigRulesReportResponse::fromMap($this->doRPCRequest('GetAggregateConfigRulesReport', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetAggregateConfigRulesReportRequest $request
+     *
+     * @return GetAggregateConfigRulesReportResponse
+     */
+    public function getAggregateConfigRulesReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAggregateConfigRulesReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAggregateResourceComplianceByConfigRuleRequest $request
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return GetAggregateResourceComplianceByConfigRuleResponse
+     */
+    public function getAggregateResourceComplianceByConfigRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetAggregateResourceComplianceByConfigRuleResponse::fromMap($this->doRPCRequest('GetAggregateResourceComplianceByConfigRule', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetAggregateResourceComplianceByConfigRuleRequest $request
+     *
+     * @return GetAggregateResourceComplianceByConfigRuleResponse
+     */
+    public function getAggregateResourceComplianceByConfigRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAggregateResourceComplianceByConfigRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAggregateResourceComplianceByPackRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return GetAggregateResourceComplianceByPackResponse
+     */
+    public function getAggregateResourceComplianceByPackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetAggregateResourceComplianceByPackResponse::fromMap($this->doRPCRequest('GetAggregateResourceComplianceByPack', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetAggregateResourceComplianceByPackRequest $request
+     *
+     * @return GetAggregateResourceComplianceByPackResponse
+     */
+    public function getAggregateResourceComplianceByPack($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAggregateResourceComplianceByPackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAggregateResourceComplianceTimelineRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return GetAggregateResourceComplianceTimelineResponse
+     */
+    public function getAggregateResourceComplianceTimelineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetAggregateResourceComplianceTimelineResponse::fromMap($this->doRPCRequest('GetAggregateResourceComplianceTimeline', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetAggregateResourceComplianceTimelineRequest $request
+     *
+     * @return GetAggregateResourceComplianceTimelineResponse
+     */
+    public function getAggregateResourceComplianceTimeline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAggregateResourceComplianceTimelineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAggregateResourceConfigurationTimelineRequest $request
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return GetAggregateResourceConfigurationTimelineResponse
+     */
+    public function getAggregateResourceConfigurationTimelineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetAggregateResourceConfigurationTimelineResponse::fromMap($this->doRPCRequest('GetAggregateResourceConfigurationTimeline', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetAggregateResourceConfigurationTimelineRequest $request
+     *
+     * @return GetAggregateResourceConfigurationTimelineResponse
+     */
+    public function getAggregateResourceConfigurationTimeline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAggregateResourceConfigurationTimelineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAggregateResourceCountsGroupByRegionRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return GetAggregateResourceCountsGroupByRegionResponse
+     */
+    public function getAggregateResourceCountsGroupByRegionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetAggregateResourceCountsGroupByRegionResponse::fromMap($this->doRPCRequest('GetAggregateResourceCountsGroupByRegion', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetAggregateResourceCountsGroupByRegionRequest $request
+     *
+     * @return GetAggregateResourceCountsGroupByRegionResponse
+     */
+    public function getAggregateResourceCountsGroupByRegion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAggregateResourceCountsGroupByRegionWithOptions($request, $runtime);
     }
 
     /**
@@ -2031,40 +1342,40 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param GetAggregateConfigRuleRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param GetAggregateResourceInventoryRequest $request
+     * @param RuntimeOptions                       $runtime
      *
-     * @return GetAggregateConfigRuleResponse
+     * @return GetAggregateResourceInventoryResponse
      */
-    public function getAggregateConfigRuleWithOptions($request, $runtime)
+    public function getAggregateResourceInventoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return GetAggregateConfigRuleResponse::fromMap($this->doRPCRequest('GetAggregateConfigRule', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAggregateResourceInventoryResponse::fromMap($this->doRPCRequest('GetAggregateResourceInventory', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetAggregateConfigRuleRequest $request
+     * @param GetAggregateResourceInventoryRequest $request
      *
-     * @return GetAggregateConfigRuleResponse
+     * @return GetAggregateResourceInventoryResponse
      */
-    public function getAggregateConfigRule($request)
+    public function getAggregateResourceInventory($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getAggregateConfigRuleWithOptions($request, $runtime);
+        return $this->getAggregateResourceInventoryWithOptions($request, $runtime);
     }
 
     /**
-     * @param GetAggregateResourceCountsGroupByRegionRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * @param GetAggregatorRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return GetAggregateResourceCountsGroupByRegionResponse
+     * @return GetAggregatorResponse
      */
-    public function getAggregateResourceCountsGroupByRegionWithOptions($request, $runtime)
+    public function getAggregatorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
@@ -2072,19 +1383,105 @@ class Config extends OpenApiClient
             'query' => $query,
         ]);
 
-        return GetAggregateResourceCountsGroupByRegionResponse::fromMap($this->doRPCRequest('GetAggregateResourceCountsGroupByRegion', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetAggregatorResponse::fromMap($this->doRPCRequest('GetAggregator', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GetAggregateResourceCountsGroupByRegionRequest $request
+     * @param GetAggregatorRequest $request
      *
-     * @return GetAggregateResourceCountsGroupByRegionResponse
+     * @return GetAggregatorResponse
      */
-    public function getAggregateResourceCountsGroupByRegion($request)
+    public function getAggregator($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getAggregateResourceCountsGroupByRegionWithOptions($request, $runtime);
+        return $this->getAggregatorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetCompliancePackRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetCompliancePackResponse
+     */
+    public function getCompliancePackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetCompliancePackResponse::fromMap($this->doRPCRequest('GetCompliancePack', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetCompliancePackRequest $request
+     *
+     * @return GetCompliancePackResponse
+     */
+    public function getCompliancePack($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCompliancePackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetCompliancePackReportRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetCompliancePackReportResponse
+     */
+    public function getCompliancePackReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetCompliancePackReportResponse::fromMap($this->doRPCRequest('GetCompliancePackReport', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetCompliancePackReportRequest $request
+     *
+     * @return GetCompliancePackReportResponse
+     */
+    public function getCompliancePackReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCompliancePackReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetConfigRuleRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetConfigRuleResponse
+     */
+    public function getConfigRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetConfigRuleResponse::fromMap($this->doRPCRequest('GetConfigRule', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetConfigRuleRequest $request
+     *
+     * @return GetConfigRuleResponse
+     */
+    public function getConfigRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getConfigRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -2139,59 +1536,588 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param StartRemediationRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param RuntimeOptions $runtime
      *
-     * @return StartRemediationResponse
+     * @return GetConfigRulesReportResponse
      */
-    public function startRemediationWithOptions($request, $runtime)
+    public function getConfigRulesReportWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
+        $req = new OpenApiRequest([]);
 
-        return StartRemediationResponse::fromMap($this->doRPCRequest('StartRemediation', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetConfigRulesReportResponse::fromMap($this->doRPCRequest('GetConfigRulesReport', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param StartRemediationRequest $request
-     *
-     * @return StartRemediationResponse
+     * @return GetConfigRulesReportResponse
      */
-    public function startRemediation($request)
+    public function getConfigRulesReport()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->startRemediationWithOptions($request, $runtime);
+        return $this->getConfigRulesReportWithOptions($runtime);
     }
 
     /**
-     * @param GenerateCompliancePackReportRequest $request
+     * @param GetDiscoveredResourceCountsGroupByRegionRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return GetDiscoveredResourceCountsGroupByRegionResponse
+     */
+    public function getDiscoveredResourceCountsGroupByRegionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetDiscoveredResourceCountsGroupByRegionResponse::fromMap($this->doRPCRequest('GetDiscoveredResourceCountsGroupByRegion', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetDiscoveredResourceCountsGroupByRegionRequest $request
+     *
+     * @return GetDiscoveredResourceCountsGroupByRegionResponse
+     */
+    public function getDiscoveredResourceCountsGroupByRegion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDiscoveredResourceCountsGroupByRegionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDiscoveredResourceCountsGroupByResourceTypeRequest $request
+     * @param RuntimeOptions                                        $runtime
+     *
+     * @return GetDiscoveredResourceCountsGroupByResourceTypeResponse
+     */
+    public function getDiscoveredResourceCountsGroupByResourceTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetDiscoveredResourceCountsGroupByResourceTypeResponse::fromMap($this->doRPCRequest('GetDiscoveredResourceCountsGroupByResourceType', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetDiscoveredResourceCountsGroupByResourceTypeRequest $request
+     *
+     * @return GetDiscoveredResourceCountsGroupByResourceTypeResponse
+     */
+    public function getDiscoveredResourceCountsGroupByResourceType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDiscoveredResourceCountsGroupByResourceTypeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetResourceComplianceByConfigRuleRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return GetResourceComplianceByConfigRuleResponse
+     */
+    public function getResourceComplianceByConfigRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetResourceComplianceByConfigRuleResponse::fromMap($this->doRPCRequest('GetResourceComplianceByConfigRule', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetResourceComplianceByConfigRuleRequest $request
+     *
+     * @return GetResourceComplianceByConfigRuleResponse
+     */
+    public function getResourceComplianceByConfigRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getResourceComplianceByConfigRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetResourceComplianceByPackRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetResourceComplianceByPackResponse
+     */
+    public function getResourceComplianceByPackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetResourceComplianceByPackResponse::fromMap($this->doRPCRequest('GetResourceComplianceByPack', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetResourceComplianceByPackRequest $request
+     *
+     * @return GetResourceComplianceByPackResponse
+     */
+    public function getResourceComplianceByPack($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getResourceComplianceByPackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetResourceComplianceTimelineRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetResourceComplianceTimelineResponse
+     */
+    public function getResourceComplianceTimelineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetResourceComplianceTimelineResponse::fromMap($this->doRPCRequest('GetResourceComplianceTimeline', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetResourceComplianceTimelineRequest $request
+     *
+     * @return GetResourceComplianceTimelineResponse
+     */
+    public function getResourceComplianceTimeline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getResourceComplianceTimelineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetResourceConfigurationTimelineRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetResourceConfigurationTimelineResponse
+     */
+    public function getResourceConfigurationTimelineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetResourceConfigurationTimelineResponse::fromMap($this->doRPCRequest('GetResourceConfigurationTimeline', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetResourceConfigurationTimelineRequest $request
+     *
+     * @return GetResourceConfigurationTimelineResponse
+     */
+    public function getResourceConfigurationTimeline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getResourceConfigurationTimelineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetResourceInventoryResponse
+     */
+    public function getResourceInventoryWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return GetResourceInventoryResponse::fromMap($this->doRPCRequest('GetResourceInventory', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return GetResourceInventoryResponse
+     */
+    public function getResourceInventory()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getResourceInventoryWithOptions($runtime);
+    }
+
+    /**
+     * @param ListAggregateCompliancePacksRequest $request
      * @param RuntimeOptions                      $runtime
      *
-     * @return GenerateCompliancePackReportResponse
+     * @return ListAggregateCompliancePacksResponse
      */
-    public function generateCompliancePackReportWithOptions($request, $runtime)
+    public function listAggregateCompliancePacksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return ListAggregateCompliancePacksResponse::fromMap($this->doRPCRequest('ListAggregateCompliancePacks', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListAggregateCompliancePacksRequest $request
+     *
+     * @return ListAggregateCompliancePacksResponse
+     */
+    public function listAggregateCompliancePacks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAggregateCompliancePacksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAggregateConfigRuleEvaluationResultsRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return ListAggregateConfigRuleEvaluationResultsResponse
+     */
+    public function listAggregateConfigRuleEvaluationResultsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return ListAggregateConfigRuleEvaluationResultsResponse::fromMap($this->doRPCRequest('ListAggregateConfigRuleEvaluationResults', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListAggregateConfigRuleEvaluationResultsRequest $request
+     *
+     * @return ListAggregateConfigRuleEvaluationResultsResponse
+     */
+    public function listAggregateConfigRuleEvaluationResults($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAggregateConfigRuleEvaluationResultsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAggregateConfigRulesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListAggregateConfigRulesResponse
+     */
+    public function listAggregateConfigRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return ListAggregateConfigRulesResponse::fromMap($this->doRPCRequest('ListAggregateConfigRules', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListAggregateConfigRulesRequest $request
+     *
+     * @return ListAggregateConfigRulesResponse
+     */
+    public function listAggregateConfigRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAggregateConfigRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAggregateRemediationsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListAggregateRemediationsResponse
+     */
+    public function listAggregateRemediationsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return GenerateCompliancePackReportResponse::fromMap($this->doRPCRequest('GenerateCompliancePackReport', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAggregateRemediationsResponse::fromMap($this->doRPCRequest('ListAggregateRemediations', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param GenerateCompliancePackReportRequest $request
+     * @param ListAggregateRemediationsRequest $request
      *
-     * @return GenerateCompliancePackReportResponse
+     * @return ListAggregateRemediationsResponse
      */
-    public function generateCompliancePackReport($request)
+    public function listAggregateRemediations($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->generateCompliancePackReportWithOptions($request, $runtime);
+        return $this->listAggregateRemediationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAggregateResourceEvaluationResultsRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return ListAggregateResourceEvaluationResultsResponse
+     */
+    public function listAggregateResourceEvaluationResultsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return ListAggregateResourceEvaluationResultsResponse::fromMap($this->doRPCRequest('ListAggregateResourceEvaluationResults', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListAggregateResourceEvaluationResultsRequest $request
+     *
+     * @return ListAggregateResourceEvaluationResultsResponse
+     */
+    public function listAggregateResourceEvaluationResults($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAggregateResourceEvaluationResultsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAggregatorsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListAggregatorsResponse
+     */
+    public function listAggregatorsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return ListAggregatorsResponse::fromMap($this->doRPCRequest('ListAggregators', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListAggregatorsRequest $request
+     *
+     * @return ListAggregatorsResponse
+     */
+    public function listAggregators($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAggregatorsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCompliancePackTemplatesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListCompliancePackTemplatesResponse
+     */
+    public function listCompliancePackTemplatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return ListCompliancePackTemplatesResponse::fromMap($this->doRPCRequest('ListCompliancePackTemplates', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListCompliancePackTemplatesRequest $request
+     *
+     * @return ListCompliancePackTemplatesResponse
+     */
+    public function listCompliancePackTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCompliancePackTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCompliancePacksRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListCompliancePacksResponse
+     */
+    public function listCompliancePacksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return ListCompliancePacksResponse::fromMap($this->doRPCRequest('ListCompliancePacks', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListCompliancePacksRequest $request
+     *
+     * @return ListCompliancePacksResponse
+     */
+    public function listCompliancePacks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCompliancePacksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListConfigRuleEvaluationResultsRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListConfigRuleEvaluationResultsResponse
+     */
+    public function listConfigRuleEvaluationResultsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return ListConfigRuleEvaluationResultsResponse::fromMap($this->doRPCRequest('ListConfigRuleEvaluationResults', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListConfigRuleEvaluationResultsRequest $request
+     *
+     * @return ListConfigRuleEvaluationResultsResponse
+     */
+    public function listConfigRuleEvaluationResults($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listConfigRuleEvaluationResultsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListRemediationsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListRemediationsResponse
+     */
+    public function listRemediationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListRemediationsResponse::fromMap($this->doRPCRequest('ListRemediations', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListRemediationsRequest $request
+     *
+     * @return ListRemediationsResponse
+     */
+    public function listRemediations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRemediationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListResourceEvaluationResultsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListResourceEvaluationResultsResponse
+     */
+    public function listResourceEvaluationResultsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return ListResourceEvaluationResultsResponse::fromMap($this->doRPCRequest('ListResourceEvaluationResults', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListResourceEvaluationResultsRequest $request
+     *
+     * @return ListResourceEvaluationResultsResponse
+     */
+    public function listResourceEvaluationResults($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listResourceEvaluationResultsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListResourceOwnerInAllAggregatorResponse
+     */
+    public function listResourceOwnerInAllAggregatorWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return ListResourceOwnerInAllAggregatorResponse::fromMap($this->doRPCRequest('ListResourceOwnerInAllAggregator', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return ListResourceOwnerInAllAggregatorResponse
+     */
+    public function listResourceOwnerInAllAggregator()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listResourceOwnerInAllAggregatorWithOptions($runtime);
+    }
+
+    /**
+     * @param StartAggregateConfigRuleEvaluationRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return StartAggregateConfigRuleEvaluationResponse
+     */
+    public function startAggregateConfigRuleEvaluationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return StartAggregateConfigRuleEvaluationResponse::fromMap($this->doRPCRequest('StartAggregateConfigRuleEvaluation', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param StartAggregateConfigRuleEvaluationRequest $request
+     *
+     * @return StartAggregateConfigRuleEvaluationResponse
+     */
+    public function startAggregateConfigRuleEvaluation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startAggregateConfigRuleEvaluationWithOptions($request, $runtime);
     }
 
     /**
@@ -2223,31 +2149,128 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param ListRemediationsRequest $request
+     * @param StartRemediationRequest $request
      * @param RuntimeOptions          $runtime
      *
-     * @return ListRemediationsResponse
+     * @return StartRemediationResponse
      */
-    public function listRemediationsWithOptions($request, $runtime)
+    public function startRemediationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return ListRemediationsResponse::fromMap($this->doRPCRequest('ListRemediations', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartRemediationResponse::fromMap($this->doRPCRequest('StartRemediation', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param ListRemediationsRequest $request
+     * @param StartRemediationRequest $request
      *
-     * @return ListRemediationsResponse
+     * @return StartRemediationResponse
      */
-    public function listRemediations($request)
+    public function startRemediation($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listRemediationsWithOptions($request, $runtime);
+        return $this->startRemediationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateAggregateCompliancePackRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpdateAggregateCompliancePackResponse
+     */
+    public function updateAggregateCompliancePackWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateAggregateCompliancePackShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->configRules)) {
+            $request->configRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateAggregateCompliancePackResponse::fromMap($this->doRPCRequest('UpdateAggregateCompliancePack', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAggregateCompliancePackRequest $request
+     *
+     * @return UpdateAggregateCompliancePackResponse
+     */
+    public function updateAggregateCompliancePack($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAggregateCompliancePackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateAggregateConfigRuleRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateAggregateConfigRuleResponse
+     */
+    public function updateAggregateConfigRuleWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateAggregateConfigRuleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->inputParameters)) {
+            $request->inputParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->inputParameters, 'InputParameters', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->resourceTypesScope)) {
+            $request->resourceTypesScopeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateAggregateConfigRuleResponse::fromMap($this->doRPCRequest('UpdateAggregateConfigRule', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAggregateConfigRuleRequest $request
+     *
+     * @return UpdateAggregateConfigRuleResponse
+     */
+    public function updateAggregateConfigRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAggregateConfigRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateAggregateRemediationRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateAggregateRemediationResponse
+     */
+    public function updateAggregateRemediationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateAggregateRemediationResponse::fromMap($this->doRPCRequest('UpdateAggregateRemediation', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAggregateRemediationRequest $request
+     *
+     * @return UpdateAggregateRemediationResponse
+     */
+    public function updateAggregateRemediation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAggregateRemediationWithOptions($request, $runtime);
     }
 
     /**
@@ -2281,5 +2304,102 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAggregatorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCompliancePackRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateCompliancePackResponse
+     */
+    public function updateCompliancePackWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateCompliancePackShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->configRules)) {
+            $request->configRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configRules, 'ConfigRules', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateCompliancePackResponse::fromMap($this->doRPCRequest('UpdateCompliancePack', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCompliancePackRequest $request
+     *
+     * @return UpdateCompliancePackResponse
+     */
+    public function updateCompliancePack($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCompliancePackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateConfigRuleRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateConfigRuleResponse
+     */
+    public function updateConfigRuleWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateConfigRuleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->inputParameters)) {
+            $request->inputParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->inputParameters, 'InputParameters', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->resourceTypesScope)) {
+            $request->resourceTypesScopeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateConfigRuleResponse::fromMap($this->doRPCRequest('UpdateConfigRule', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateConfigRuleRequest $request
+     *
+     * @return UpdateConfigRuleResponse
+     */
+    public function updateConfigRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateConfigRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateRemediationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateRemediationResponse
+     */
+    public function updateRemediationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateRemediationResponse::fromMap($this->doRPCRequest('UpdateRemediation', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateRemediationRequest $request
+     *
+     * @return UpdateRemediationResponse
+     */
+    public function updateRemediation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRemediationWithOptions($request, $runtime);
     }
 }

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class configRules extends Model
 {
     /**
+     * @var configRuleParameters[]
+     */
+    public $configRuleParameters;
+
+    /**
      * @var string
      */
     public $description;
@@ -25,19 +30,14 @@ class configRules extends Model
     public $managedRuleName;
 
     /**
-     * @var configRuleParameters[]
-     */
-    public $configRuleParameters;
-
-    /**
      * @var int
      */
     public $riskLevel;
     protected $_name = [
+        'configRuleParameters'  => 'ConfigRuleParameters',
         'description'           => 'Description',
         'managedRuleIdentifier' => 'ManagedRuleIdentifier',
         'managedRuleName'       => 'ManagedRuleName',
-        'configRuleParameters'  => 'ConfigRuleParameters',
         'riskLevel'             => 'RiskLevel',
     ];
 
@@ -48,15 +48,6 @@ class configRules extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->managedRuleIdentifier) {
-            $res['ManagedRuleIdentifier'] = $this->managedRuleIdentifier;
-        }
-        if (null !== $this->managedRuleName) {
-            $res['ManagedRuleName'] = $this->managedRuleName;
-        }
         if (null !== $this->configRuleParameters) {
             $res['ConfigRuleParameters'] = [];
             if (null !== $this->configRuleParameters && \is_array($this->configRuleParameters)) {
@@ -65,6 +56,15 @@ class configRules extends Model
                     $res['ConfigRuleParameters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->managedRuleIdentifier) {
+            $res['ManagedRuleIdentifier'] = $this->managedRuleIdentifier;
+        }
+        if (null !== $this->managedRuleName) {
+            $res['ManagedRuleName'] = $this->managedRuleName;
         }
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
@@ -81,15 +81,6 @@ class configRules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['ManagedRuleIdentifier'])) {
-            $model->managedRuleIdentifier = $map['ManagedRuleIdentifier'];
-        }
-        if (isset($map['ManagedRuleName'])) {
-            $model->managedRuleName = $map['ManagedRuleName'];
-        }
         if (isset($map['ConfigRuleParameters'])) {
             if (!empty($map['ConfigRuleParameters'])) {
                 $model->configRuleParameters = [];
@@ -98,6 +89,15 @@ class configRules extends Model
                     $model->configRuleParameters[$n++] = null !== $item ? configRuleParameters::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['ManagedRuleIdentifier'])) {
+            $model->managedRuleIdentifier = $map['ManagedRuleIdentifier'];
+        }
+        if (isset($map['ManagedRuleName'])) {
+            $model->managedRuleName = $map['ManagedRuleName'];
         }
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];

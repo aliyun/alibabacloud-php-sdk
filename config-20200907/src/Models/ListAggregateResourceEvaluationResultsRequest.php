@@ -11,22 +11,12 @@ class ListAggregateResourceEvaluationResultsRequest extends Model
     /**
      * @var string
      */
-    public $resourceType;
-
-    /**
-     * @var string
-     */
-    public $resourceId;
+    public $aggregatorId;
 
     /**
      * @var string
      */
     public $complianceType;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
 
     /**
      * @var int
@@ -36,20 +26,30 @@ class ListAggregateResourceEvaluationResultsRequest extends Model
     /**
      * @var string
      */
+    public $nextToken;
+
+    /**
+     * @var string
+     */
     public $region;
 
     /**
      * @var string
      */
-    public $aggregatorId;
+    public $resourceId;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
     protected $_name = [
-        'resourceType'   => 'ResourceType',
-        'resourceId'     => 'ResourceId',
-        'complianceType' => 'ComplianceType',
-        'nextToken'      => 'NextToken',
-        'maxResults'     => 'MaxResults',
-        'region'         => 'Region',
         'aggregatorId'   => 'AggregatorId',
+        'complianceType' => 'ComplianceType',
+        'maxResults'     => 'MaxResults',
+        'nextToken'      => 'NextToken',
+        'region'         => 'Region',
+        'resourceId'     => 'ResourceId',
+        'resourceType'   => 'ResourceType',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class ListAggregateResourceEvaluationResultsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
+        if (null !== $this->aggregatorId) {
+            $res['AggregatorId'] = $this->aggregatorId;
         }
         if (null !== $this->complianceType) {
             $res['ComplianceType'] = $this->complianceType;
         }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
-        if (null !== $this->aggregatorId) {
-            $res['AggregatorId'] = $this->aggregatorId;
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class ListAggregateResourceEvaluationResultsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['ResourceId'])) {
-            $model->resourceId = $map['ResourceId'];
+        if (isset($map['AggregatorId'])) {
+            $model->aggregatorId = $map['AggregatorId'];
         }
         if (isset($map['ComplianceType'])) {
             $model->complianceType = $map['ComplianceType'];
         }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
-        if (isset($map['AggregatorId'])) {
-            $model->aggregatorId = $map['AggregatorId'];
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;

@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class configRuleEvaluationStatus extends Model
 {
     /**
-     * @var string
-     */
-    public $lastErrorCode;
-
-    /**
-     * @var int
-     */
-    public $lastSuccessfulEvaluationTimestamp;
-
-    /**
      * @var int
      */
     public $firstActivatedTimestamp;
@@ -29,9 +19,9 @@ class configRuleEvaluationStatus extends Model
     public $firstEvaluationStarted;
 
     /**
-     * @var int
+     * @var string
      */
-    public $lastSuccessfulInvocationTimestamp;
+    public $lastErrorCode;
 
     /**
      * @var string
@@ -47,15 +37,25 @@ class configRuleEvaluationStatus extends Model
      * @var int
      */
     public $lastFailedInvocationTimestamp;
+
+    /**
+     * @var int
+     */
+    public $lastSuccessfulEvaluationTimestamp;
+
+    /**
+     * @var int
+     */
+    public $lastSuccessfulInvocationTimestamp;
     protected $_name = [
-        'lastErrorCode'                     => 'LastErrorCode',
-        'lastSuccessfulEvaluationTimestamp' => 'LastSuccessfulEvaluationTimestamp',
         'firstActivatedTimestamp'           => 'FirstActivatedTimestamp',
         'firstEvaluationStarted'            => 'FirstEvaluationStarted',
-        'lastSuccessfulInvocationTimestamp' => 'LastSuccessfulInvocationTimestamp',
+        'lastErrorCode'                     => 'LastErrorCode',
         'lastErrorMessage'                  => 'LastErrorMessage',
         'lastFailedEvaluationTimestamp'     => 'LastFailedEvaluationTimestamp',
         'lastFailedInvocationTimestamp'     => 'LastFailedInvocationTimestamp',
+        'lastSuccessfulEvaluationTimestamp' => 'LastSuccessfulEvaluationTimestamp',
+        'lastSuccessfulInvocationTimestamp' => 'LastSuccessfulInvocationTimestamp',
     ];
 
     public function validate()
@@ -65,20 +65,14 @@ class configRuleEvaluationStatus extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lastErrorCode) {
-            $res['LastErrorCode'] = $this->lastErrorCode;
-        }
-        if (null !== $this->lastSuccessfulEvaluationTimestamp) {
-            $res['LastSuccessfulEvaluationTimestamp'] = $this->lastSuccessfulEvaluationTimestamp;
-        }
         if (null !== $this->firstActivatedTimestamp) {
             $res['FirstActivatedTimestamp'] = $this->firstActivatedTimestamp;
         }
         if (null !== $this->firstEvaluationStarted) {
             $res['FirstEvaluationStarted'] = $this->firstEvaluationStarted;
         }
-        if (null !== $this->lastSuccessfulInvocationTimestamp) {
-            $res['LastSuccessfulInvocationTimestamp'] = $this->lastSuccessfulInvocationTimestamp;
+        if (null !== $this->lastErrorCode) {
+            $res['LastErrorCode'] = $this->lastErrorCode;
         }
         if (null !== $this->lastErrorMessage) {
             $res['LastErrorMessage'] = $this->lastErrorMessage;
@@ -88,6 +82,12 @@ class configRuleEvaluationStatus extends Model
         }
         if (null !== $this->lastFailedInvocationTimestamp) {
             $res['LastFailedInvocationTimestamp'] = $this->lastFailedInvocationTimestamp;
+        }
+        if (null !== $this->lastSuccessfulEvaluationTimestamp) {
+            $res['LastSuccessfulEvaluationTimestamp'] = $this->lastSuccessfulEvaluationTimestamp;
+        }
+        if (null !== $this->lastSuccessfulInvocationTimestamp) {
+            $res['LastSuccessfulInvocationTimestamp'] = $this->lastSuccessfulInvocationTimestamp;
         }
 
         return $res;
@@ -101,20 +101,14 @@ class configRuleEvaluationStatus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LastErrorCode'])) {
-            $model->lastErrorCode = $map['LastErrorCode'];
-        }
-        if (isset($map['LastSuccessfulEvaluationTimestamp'])) {
-            $model->lastSuccessfulEvaluationTimestamp = $map['LastSuccessfulEvaluationTimestamp'];
-        }
         if (isset($map['FirstActivatedTimestamp'])) {
             $model->firstActivatedTimestamp = $map['FirstActivatedTimestamp'];
         }
         if (isset($map['FirstEvaluationStarted'])) {
             $model->firstEvaluationStarted = $map['FirstEvaluationStarted'];
         }
-        if (isset($map['LastSuccessfulInvocationTimestamp'])) {
-            $model->lastSuccessfulInvocationTimestamp = $map['LastSuccessfulInvocationTimestamp'];
+        if (isset($map['LastErrorCode'])) {
+            $model->lastErrorCode = $map['LastErrorCode'];
         }
         if (isset($map['LastErrorMessage'])) {
             $model->lastErrorMessage = $map['LastErrorMessage'];
@@ -124,6 +118,12 @@ class configRuleEvaluationStatus extends Model
         }
         if (isset($map['LastFailedInvocationTimestamp'])) {
             $model->lastFailedInvocationTimestamp = $map['LastFailedInvocationTimestamp'];
+        }
+        if (isset($map['LastSuccessfulEvaluationTimestamp'])) {
+            $model->lastSuccessfulEvaluationTimestamp = $map['LastSuccessfulEvaluationTimestamp'];
+        }
+        if (isset($map['LastSuccessfulInvocationTimestamp'])) {
+            $model->lastSuccessfulInvocationTimestamp = $map['LastSuccessfulInvocationTimestamp'];
         }
 
         return $model;

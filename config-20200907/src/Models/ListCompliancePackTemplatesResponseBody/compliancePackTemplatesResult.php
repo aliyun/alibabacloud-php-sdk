@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class compliancePackTemplatesResult extends Model
 {
     /**
-     * @var int
+     * @var compliancePackTemplates[]
      */
-    public $pageSize;
+    public $compliancePackTemplates;
 
     /**
      * @var int
@@ -22,17 +22,17 @@ class compliancePackTemplatesResult extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $pageSize;
 
     /**
-     * @var compliancePackTemplates[]
+     * @var int
      */
-    public $compliancePackTemplates;
+    public $totalCount;
     protected $_name = [
-        'pageSize'                => 'PageSize',
-        'pageNumber'              => 'PageNumber',
-        'totalCount'              => 'TotalCount',
         'compliancePackTemplates' => 'CompliancePackTemplates',
+        'pageNumber'              => 'PageNumber',
+        'pageSize'                => 'PageSize',
+        'totalCount'              => 'TotalCount',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class compliancePackTemplatesResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->compliancePackTemplates) {
             $res['CompliancePackTemplates'] = [];
             if (null !== $this->compliancePackTemplates && \is_array($this->compliancePackTemplates)) {
@@ -59,6 +50,15 @@ class compliancePackTemplatesResult extends Model
                     $res['CompliancePackTemplates'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -72,15 +72,6 @@ class compliancePackTemplatesResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['CompliancePackTemplates'])) {
             if (!empty($map['CompliancePackTemplates'])) {
                 $model->compliancePackTemplates = [];
@@ -89,6 +80,15 @@ class compliancePackTemplatesResult extends Model
                     $model->compliancePackTemplates[$n++] = null !== $item ? compliancePackTemplates::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

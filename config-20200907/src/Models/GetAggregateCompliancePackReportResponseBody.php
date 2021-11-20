@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateCompliancePackReportResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var compliancePackReport
      */
     public $compliancePackReport;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'            => 'RequestId',
         'compliancePackReport' => 'CompliancePackReport',
+        'requestId'            => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class GetAggregateCompliancePackReportResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->compliancePackReport) {
             $res['CompliancePackReport'] = null !== $this->compliancePackReport ? $this->compliancePackReport->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class GetAggregateCompliancePackReportResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CompliancePackReport'])) {
             $model->compliancePackReport = compliancePackReport::fromMap($map['CompliancePackReport']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

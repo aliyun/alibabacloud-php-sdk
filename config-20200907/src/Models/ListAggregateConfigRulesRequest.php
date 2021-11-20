@@ -11,17 +11,12 @@ class ListAggregateConfigRulesRequest extends Model
     /**
      * @var string
      */
-    public $configRuleState;
+    public $aggregatorId;
 
     /**
      * @var string
      */
     public $complianceType;
-
-    /**
-     * @var int
-     */
-    public $riskLevel;
 
     /**
      * @var string
@@ -31,7 +26,12 @@ class ListAggregateConfigRulesRequest extends Model
     /**
      * @var string
      */
-    public $aggregatorId;
+    public $configRuleState;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
 
     /**
      * @var int
@@ -41,15 +41,15 @@ class ListAggregateConfigRulesRequest extends Model
     /**
      * @var int
      */
-    public $pageNumber;
+    public $riskLevel;
     protected $_name = [
-        'configRuleState' => 'ConfigRuleState',
-        'complianceType'  => 'ComplianceType',
-        'riskLevel'       => 'RiskLevel',
-        'configRuleName'  => 'ConfigRuleName',
         'aggregatorId'    => 'AggregatorId',
-        'pageSize'        => 'PageSize',
+        'complianceType'  => 'ComplianceType',
+        'configRuleName'  => 'ConfigRuleName',
+        'configRuleState' => 'ConfigRuleState',
         'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'riskLevel'       => 'RiskLevel',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class ListAggregateConfigRulesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->configRuleState) {
-            $res['ConfigRuleState'] = $this->configRuleState;
+        if (null !== $this->aggregatorId) {
+            $res['AggregatorId'] = $this->aggregatorId;
         }
         if (null !== $this->complianceType) {
             $res['ComplianceType'] = $this->complianceType;
         }
-        if (null !== $this->riskLevel) {
-            $res['RiskLevel'] = $this->riskLevel;
-        }
         if (null !== $this->configRuleName) {
             $res['ConfigRuleName'] = $this->configRuleName;
         }
-        if (null !== $this->aggregatorId) {
-            $res['AggregatorId'] = $this->aggregatorId;
+        if (null !== $this->configRuleState) {
+            $res['ConfigRuleState'] = $this->configRuleState;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class ListAggregateConfigRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ConfigRuleState'])) {
-            $model->configRuleState = $map['ConfigRuleState'];
+        if (isset($map['AggregatorId'])) {
+            $model->aggregatorId = $map['AggregatorId'];
         }
         if (isset($map['ComplianceType'])) {
             $model->complianceType = $map['ComplianceType'];
         }
-        if (isset($map['RiskLevel'])) {
-            $model->riskLevel = $map['RiskLevel'];
-        }
         if (isset($map['ConfigRuleName'])) {
             $model->configRuleName = $map['ConfigRuleName'];
         }
-        if (isset($map['AggregatorId'])) {
-            $model->aggregatorId = $map['AggregatorId'];
+        if (isset($map['ConfigRuleState'])) {
+            $model->configRuleState = $map['ConfigRuleState'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
 
         return $model;

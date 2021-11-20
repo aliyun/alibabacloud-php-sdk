@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class compliancePackTemplates extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $riskLevel;
+    public $compliancePackTemplateId;
 
     /**
      * @var string
      */
-    public $description;
+    public $compliancePackTemplateName;
 
     /**
      * @var configRules[]
@@ -27,18 +27,18 @@ class compliancePackTemplates extends Model
     /**
      * @var string
      */
-    public $compliancePackTemplateName;
+    public $description;
 
     /**
-     * @var string
+     * @var int
      */
-    public $compliancePackTemplateId;
+    public $riskLevel;
     protected $_name = [
-        'riskLevel'                  => 'RiskLevel',
-        'description'                => 'Description',
-        'configRules'                => 'ConfigRules',
-        'compliancePackTemplateName' => 'CompliancePackTemplateName',
         'compliancePackTemplateId'   => 'CompliancePackTemplateId',
+        'compliancePackTemplateName' => 'CompliancePackTemplateName',
+        'configRules'                => 'ConfigRules',
+        'description'                => 'Description',
+        'riskLevel'                  => 'RiskLevel',
     ];
 
     public function validate()
@@ -48,11 +48,11 @@ class compliancePackTemplates extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->riskLevel) {
-            $res['RiskLevel'] = $this->riskLevel;
+        if (null !== $this->compliancePackTemplateId) {
+            $res['CompliancePackTemplateId'] = $this->compliancePackTemplateId;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->compliancePackTemplateName) {
+            $res['CompliancePackTemplateName'] = $this->compliancePackTemplateName;
         }
         if (null !== $this->configRules) {
             $res['ConfigRules'] = [];
@@ -63,11 +63,11 @@ class compliancePackTemplates extends Model
                 }
             }
         }
-        if (null !== $this->compliancePackTemplateName) {
-            $res['CompliancePackTemplateName'] = $this->compliancePackTemplateName;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
-        if (null !== $this->compliancePackTemplateId) {
-            $res['CompliancePackTemplateId'] = $this->compliancePackTemplateId;
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
 
         return $res;
@@ -81,11 +81,11 @@ class compliancePackTemplates extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RiskLevel'])) {
-            $model->riskLevel = $map['RiskLevel'];
+        if (isset($map['CompliancePackTemplateId'])) {
+            $model->compliancePackTemplateId = $map['CompliancePackTemplateId'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['CompliancePackTemplateName'])) {
+            $model->compliancePackTemplateName = $map['CompliancePackTemplateName'];
         }
         if (isset($map['ConfigRules'])) {
             if (!empty($map['ConfigRules'])) {
@@ -96,11 +96,11 @@ class compliancePackTemplates extends Model
                 }
             }
         }
-        if (isset($map['CompliancePackTemplateName'])) {
-            $model->compliancePackTemplateName = $map['CompliancePackTemplateName'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
-        if (isset($map['CompliancePackTemplateId'])) {
-            $model->compliancePackTemplateId = $map['CompliancePackTemplateId'];
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
 
         return $model;

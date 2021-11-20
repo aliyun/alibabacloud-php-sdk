@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class evaluationResultIdentifier extends Model
 {
     /**
-     * @var int
-     */
-    public $orderingTimestamp;
-
-    /**
      * @var evaluationResultQualifier
      */
     public $evaluationResultQualifier;
+
+    /**
+     * @var int
+     */
+    public $orderingTimestamp;
     protected $_name = [
-        'orderingTimestamp'         => 'OrderingTimestamp',
         'evaluationResultQualifier' => 'EvaluationResultQualifier',
+        'orderingTimestamp'         => 'OrderingTimestamp',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class evaluationResultIdentifier extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->orderingTimestamp) {
-            $res['OrderingTimestamp'] = $this->orderingTimestamp;
-        }
         if (null !== $this->evaluationResultQualifier) {
             $res['EvaluationResultQualifier'] = null !== $this->evaluationResultQualifier ? $this->evaluationResultQualifier->toMap() : null;
+        }
+        if (null !== $this->orderingTimestamp) {
+            $res['OrderingTimestamp'] = $this->orderingTimestamp;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class evaluationResultIdentifier extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OrderingTimestamp'])) {
-            $model->orderingTimestamp = $map['OrderingTimestamp'];
-        }
         if (isset($map['EvaluationResultQualifier'])) {
             $model->evaluationResultQualifier = evaluationResultQualifier::fromMap($map['EvaluationResultQualifier']);
+        }
+        if (isset($map['OrderingTimestamp'])) {
+            $model->orderingTimestamp = $map['OrderingTimestamp'];
         }
 
         return $model;

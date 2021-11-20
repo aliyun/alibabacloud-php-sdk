@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class source extends Model
 {
     /**
-     * @var sourceDetails[]
+     * @var string
      */
-    public $sourceDetails;
+    public $identifier;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class source extends Model
     public $owner;
 
     /**
-     * @var string
+     * @var sourceDetails[]
      */
-    public $identifier;
+    public $sourceDetails;
     protected $_name = [
-        'sourceDetails' => 'SourceDetails',
-        'owner'         => 'Owner',
         'identifier'    => 'Identifier',
+        'owner'         => 'Owner',
+        'sourceDetails' => 'SourceDetails',
     ];
 
     public function validate()
@@ -36,6 +36,12 @@ class source extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->identifier) {
+            $res['Identifier'] = $this->identifier;
+        }
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
+        }
         if (null !== $this->sourceDetails) {
             $res['SourceDetails'] = [];
             if (null !== $this->sourceDetails && \is_array($this->sourceDetails)) {
@@ -44,12 +50,6 @@ class source extends Model
                     $res['SourceDetails'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->owner) {
-            $res['Owner'] = $this->owner;
-        }
-        if (null !== $this->identifier) {
-            $res['Identifier'] = $this->identifier;
         }
 
         return $res;
@@ -63,6 +63,12 @@ class source extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Identifier'])) {
+            $model->identifier = $map['Identifier'];
+        }
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
+        }
         if (isset($map['SourceDetails'])) {
             if (!empty($map['SourceDetails'])) {
                 $model->sourceDetails = [];
@@ -71,12 +77,6 @@ class source extends Model
                     $model->sourceDetails[$n++] = null !== $item ? sourceDetails::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Owner'])) {
-            $model->owner = $map['Owner'];
-        }
-        if (isset($map['Identifier'])) {
-            $model->identifier = $map['Identifier'];
         }
 
         return $model;

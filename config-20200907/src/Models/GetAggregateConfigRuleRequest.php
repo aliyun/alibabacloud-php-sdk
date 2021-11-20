@@ -11,15 +11,15 @@ class GetAggregateConfigRuleRequest extends Model
     /**
      * @var string
      */
-    public $configRuleId;
+    public $aggregatorId;
 
     /**
      * @var string
      */
-    public $aggregatorId;
+    public $configRuleId;
     protected $_name = [
-        'configRuleId' => 'ConfigRuleId',
         'aggregatorId' => 'AggregatorId',
+        'configRuleId' => 'ConfigRuleId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetAggregateConfigRuleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->configRuleId) {
-            $res['ConfigRuleId'] = $this->configRuleId;
-        }
         if (null !== $this->aggregatorId) {
             $res['AggregatorId'] = $this->aggregatorId;
+        }
+        if (null !== $this->configRuleId) {
+            $res['ConfigRuleId'] = $this->configRuleId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetAggregateConfigRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ConfigRuleId'])) {
-            $model->configRuleId = $map['ConfigRuleId'];
-        }
         if (isset($map['AggregatorId'])) {
             $model->aggregatorId = $map['AggregatorId'];
+        }
+        if (isset($map['ConfigRuleId'])) {
+            $model->configRuleId = $map['ConfigRuleId'];
         }
 
         return $model;

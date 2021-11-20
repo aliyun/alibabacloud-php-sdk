@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class resourceConfigurationTimeline extends Model
 {
     /**
-     * @var string
+     * @var configurationList[]
      */
-    public $nextToken;
+    public $configurationList;
 
     /**
      * @var int
@@ -20,13 +20,13 @@ class resourceConfigurationTimeline extends Model
     public $maxResults;
 
     /**
-     * @var configurationList[]
+     * @var string
      */
-    public $configurationList;
+    public $nextToken;
     protected $_name = [
-        'nextToken'         => 'NextToken',
-        'maxResults'        => 'MaxResults',
         'configurationList' => 'ConfigurationList',
+        'maxResults'        => 'MaxResults',
+        'nextToken'         => 'NextToken',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class resourceConfigurationTimeline extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
         if (null !== $this->configurationList) {
             $res['ConfigurationList'] = [];
             if (null !== $this->configurationList && \is_array($this->configurationList)) {
@@ -50,6 +44,12 @@ class resourceConfigurationTimeline extends Model
                     $res['ConfigurationList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class resourceConfigurationTimeline extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
         if (isset($map['ConfigurationList'])) {
             if (!empty($map['ConfigurationList'])) {
                 $model->configurationList = [];
@@ -77,6 +71,12 @@ class resourceConfigurationTimeline extends Model
                     $model->configurationList[$n++] = null !== $item ? configurationList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

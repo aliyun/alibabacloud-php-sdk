@@ -21,17 +21,17 @@ class createBy extends Model
     /**
      * @var string
      */
-    public $creatorName;
+    public $creatorId;
 
     /**
      * @var string
      */
-    public $creatorId;
+    public $creatorName;
     protected $_name = [
         'compliancePackId'   => 'CompliancePackId',
         'compliancePackName' => 'CompliancePackName',
-        'creatorName'        => 'CreatorName',
         'creatorId'          => 'CreatorId',
+        'creatorName'        => 'CreatorName',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class createBy extends Model
         if (null !== $this->compliancePackName) {
             $res['CompliancePackName'] = $this->compliancePackName;
         }
-        if (null !== $this->creatorName) {
-            $res['CreatorName'] = $this->creatorName;
-        }
         if (null !== $this->creatorId) {
             $res['CreatorId'] = $this->creatorId;
+        }
+        if (null !== $this->creatorName) {
+            $res['CreatorName'] = $this->creatorName;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class createBy extends Model
         if (isset($map['CompliancePackName'])) {
             $model->compliancePackName = $map['CompliancePackName'];
         }
-        if (isset($map['CreatorName'])) {
-            $model->creatorName = $map['CreatorName'];
-        }
         if (isset($map['CreatorId'])) {
             $model->creatorId = $map['CreatorId'];
+        }
+        if (isset($map['CreatorName'])) {
+            $model->creatorName = $map['CreatorName'];
         }
 
         return $model;

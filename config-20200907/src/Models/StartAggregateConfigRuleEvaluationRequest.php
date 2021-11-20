@@ -11,15 +11,27 @@ class StartAggregateConfigRuleEvaluationRequest extends Model
     /**
      * @var string
      */
-    public $configRuleId;
+    public $aggregatorId;
 
     /**
      * @var string
      */
-    public $aggregatorId;
+    public $compliancePackId;
+
+    /**
+     * @var string
+     */
+    public $configRuleId;
+
+    /**
+     * @var bool
+     */
+    public $revertEvaluation;
     protected $_name = [
-        'configRuleId' => 'ConfigRuleId',
-        'aggregatorId' => 'AggregatorId',
+        'aggregatorId'     => 'AggregatorId',
+        'compliancePackId' => 'CompliancePackId',
+        'configRuleId'     => 'ConfigRuleId',
+        'revertEvaluation' => 'RevertEvaluation',
     ];
 
     public function validate()
@@ -29,11 +41,17 @@ class StartAggregateConfigRuleEvaluationRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aggregatorId) {
+            $res['AggregatorId'] = $this->aggregatorId;
+        }
+        if (null !== $this->compliancePackId) {
+            $res['CompliancePackId'] = $this->compliancePackId;
+        }
         if (null !== $this->configRuleId) {
             $res['ConfigRuleId'] = $this->configRuleId;
         }
-        if (null !== $this->aggregatorId) {
-            $res['AggregatorId'] = $this->aggregatorId;
+        if (null !== $this->revertEvaluation) {
+            $res['RevertEvaluation'] = $this->revertEvaluation;
         }
 
         return $res;
@@ -47,11 +65,17 @@ class StartAggregateConfigRuleEvaluationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AggregatorId'])) {
+            $model->aggregatorId = $map['AggregatorId'];
+        }
+        if (isset($map['CompliancePackId'])) {
+            $model->compliancePackId = $map['CompliancePackId'];
+        }
         if (isset($map['ConfigRuleId'])) {
             $model->configRuleId = $map['ConfigRuleId'];
         }
-        if (isset($map['AggregatorId'])) {
-            $model->aggregatorId = $map['AggregatorId'];
+        if (isset($map['RevertEvaluation'])) {
+            $model->revertEvaluation = $map['RevertEvaluation'];
         }
 
         return $model;

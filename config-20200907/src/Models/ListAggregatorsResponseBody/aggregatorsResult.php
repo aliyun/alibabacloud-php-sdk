@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class aggregatorsResult extends Model
 {
     /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
      * @var aggregators[]
      */
     public $aggregators;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
     protected $_name = [
-        'nextToken'   => 'NextToken',
         'aggregators' => 'Aggregators',
+        'nextToken'   => 'NextToken',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class aggregatorsResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->aggregators) {
             $res['Aggregators'] = [];
             if (null !== $this->aggregators && \is_array($this->aggregators)) {
@@ -41,6 +38,9 @@ class aggregatorsResult extends Model
                     $res['Aggregators'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class aggregatorsResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
         if (isset($map['Aggregators'])) {
             if (!empty($map['Aggregators'])) {
                 $model->aggregators = [];
@@ -65,6 +62,9 @@ class aggregatorsResult extends Model
                     $model->aggregators[$n++] = null !== $item ? aggregators::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

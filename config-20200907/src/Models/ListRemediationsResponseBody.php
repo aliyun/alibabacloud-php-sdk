@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListRemediationsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var remediations[]
      */
     public $remediations;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'remediations' => 'Remediations',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class ListRemediationsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->remediations) {
             $res['Remediations'] = [];
             if (null !== $this->remediations && \is_array($this->remediations)) {
@@ -41,6 +38,9 @@ class ListRemediationsResponseBody extends Model
                     $res['Remediations'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class ListRemediationsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Remediations'])) {
             if (!empty($map['Remediations'])) {
                 $model->remediations = [];
@@ -65,6 +62,9 @@ class ListRemediationsResponseBody extends Model
                     $model->remediations[$n++] = null !== $item ? remediations::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

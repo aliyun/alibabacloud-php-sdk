@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetResourceComplianceByPackResponseBody extends Model
 {
     /**
-     * @var resourceComplianceResult
-     */
-    public $resourceComplianceResult;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var resourceComplianceResult
+     */
+    public $resourceComplianceResult;
     protected $_name = [
-        'resourceComplianceResult' => 'ResourceComplianceResult',
         'requestId'                => 'RequestId',
+        'resourceComplianceResult' => 'ResourceComplianceResult',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class GetResourceComplianceByPackResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceComplianceResult) {
-            $res['ResourceComplianceResult'] = null !== $this->resourceComplianceResult ? $this->resourceComplianceResult->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceComplianceResult) {
+            $res['ResourceComplianceResult'] = null !== $this->resourceComplianceResult ? $this->resourceComplianceResult->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class GetResourceComplianceByPackResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceComplianceResult'])) {
-            $model->resourceComplianceResult = resourceComplianceResult::fromMap($map['ResourceComplianceResult']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceComplianceResult'])) {
+            $model->resourceComplianceResult = resourceComplianceResult::fromMap($map['ResourceComplianceResult']);
         }
 
         return $model;

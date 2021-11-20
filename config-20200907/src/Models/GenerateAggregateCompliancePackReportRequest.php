@@ -11,7 +11,7 @@ class GenerateAggregateCompliancePackReportRequest extends Model
     /**
      * @var string
      */
-    public $compliancePackId;
+    public $aggregatorId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class GenerateAggregateCompliancePackReportRequest extends Model
     /**
      * @var string
      */
-    public $aggregatorId;
+    public $compliancePackId;
     protected $_name = [
-        'compliancePackId' => 'CompliancePackId',
-        'clientToken'      => 'ClientToken',
         'aggregatorId'     => 'AggregatorId',
+        'clientToken'      => 'ClientToken',
+        'compliancePackId' => 'CompliancePackId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GenerateAggregateCompliancePackReportRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->compliancePackId) {
-            $res['CompliancePackId'] = $this->compliancePackId;
+        if (null !== $this->aggregatorId) {
+            $res['AggregatorId'] = $this->aggregatorId;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->aggregatorId) {
-            $res['AggregatorId'] = $this->aggregatorId;
+        if (null !== $this->compliancePackId) {
+            $res['CompliancePackId'] = $this->compliancePackId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GenerateAggregateCompliancePackReportRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CompliancePackId'])) {
-            $model->compliancePackId = $map['CompliancePackId'];
+        if (isset($map['AggregatorId'])) {
+            $model->aggregatorId = $map['AggregatorId'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['AggregatorId'])) {
-            $model->aggregatorId = $map['AggregatorId'];
+        if (isset($map['CompliancePackId'])) {
+            $model->compliancePackId = $map['CompliancePackId'];
         }
 
         return $model;

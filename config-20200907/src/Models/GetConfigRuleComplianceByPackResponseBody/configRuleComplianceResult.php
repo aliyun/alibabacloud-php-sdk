@@ -15,11 +15,6 @@ class configRuleComplianceResult extends Model
     public $compliancePackId;
 
     /**
-     * @var int
-     */
-    public $nonCompliantCount;
-
-    /**
      * @var configRuleCompliances[]
      */
     public $configRuleCompliances;
@@ -27,11 +22,16 @@ class configRuleComplianceResult extends Model
     /**
      * @var int
      */
+    public $nonCompliantCount;
+
+    /**
+     * @var int
+     */
     public $totalCount;
     protected $_name = [
         'compliancePackId'      => 'CompliancePackId',
-        'nonCompliantCount'     => 'NonCompliantCount',
         'configRuleCompliances' => 'ConfigRuleCompliances',
+        'nonCompliantCount'     => 'NonCompliantCount',
         'totalCount'            => 'TotalCount',
     ];
 
@@ -45,9 +45,6 @@ class configRuleComplianceResult extends Model
         if (null !== $this->compliancePackId) {
             $res['CompliancePackId'] = $this->compliancePackId;
         }
-        if (null !== $this->nonCompliantCount) {
-            $res['NonCompliantCount'] = $this->nonCompliantCount;
-        }
         if (null !== $this->configRuleCompliances) {
             $res['ConfigRuleCompliances'] = [];
             if (null !== $this->configRuleCompliances && \is_array($this->configRuleCompliances)) {
@@ -56,6 +53,9 @@ class configRuleComplianceResult extends Model
                     $res['ConfigRuleCompliances'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->nonCompliantCount) {
+            $res['NonCompliantCount'] = $this->nonCompliantCount;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -75,9 +75,6 @@ class configRuleComplianceResult extends Model
         if (isset($map['CompliancePackId'])) {
             $model->compliancePackId = $map['CompliancePackId'];
         }
-        if (isset($map['NonCompliantCount'])) {
-            $model->nonCompliantCount = $map['NonCompliantCount'];
-        }
         if (isset($map['ConfigRuleCompliances'])) {
             if (!empty($map['ConfigRuleCompliances'])) {
                 $model->configRuleCompliances = [];
@@ -86,6 +83,9 @@ class configRuleComplianceResult extends Model
                     $model->configRuleCompliances[$n++] = null !== $item ? configRuleCompliances::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['NonCompliantCount'])) {
+            $model->nonCompliantCount = $map['NonCompliantCount'];
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

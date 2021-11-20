@@ -11,21 +11,21 @@ class operateAggregators extends Model
     /**
      * @var string
      */
+    public $aggregatorId;
+
+    /**
+     * @var string
+     */
     public $errorCode;
 
     /**
      * @var bool
      */
     public $success;
-
-    /**
-     * @var string
-     */
-    public $aggregatorId;
     protected $_name = [
+        'aggregatorId' => 'AggregatorId',
         'errorCode'    => 'ErrorCode',
         'success'      => 'Success',
-        'aggregatorId' => 'AggregatorId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class operateAggregators extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aggregatorId) {
+            $res['AggregatorId'] = $this->aggregatorId;
+        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->aggregatorId) {
-            $res['AggregatorId'] = $this->aggregatorId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class operateAggregators extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AggregatorId'])) {
+            $model->aggregatorId = $map['AggregatorId'];
+        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['AggregatorId'])) {
-            $model->aggregatorId = $map['AggregatorId'];
         }
 
         return $model;

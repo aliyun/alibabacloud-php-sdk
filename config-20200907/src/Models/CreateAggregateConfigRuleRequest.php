@@ -11,17 +11,17 @@ class CreateAggregateConfigRuleRequest extends Model
     /**
      * @var string
      */
-    public $configRuleName;
+    public $aggregatorId;
 
     /**
      * @var string
      */
-    public $description;
+    public $clientToken;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $inputParameters;
+    public $configRuleName;
 
     /**
      * @var string
@@ -31,7 +31,32 @@ class CreateAggregateConfigRuleRequest extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $excludeResourceIdsScope;
+
+    /**
+     * @var mixed[]
+     */
+    public $inputParameters;
+
+    /**
+     * @var string
+     */
     public $maximumExecutionFrequency;
+
+    /**
+     * @var string
+     */
+    public $regionIdsScope;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupIdsScope;
 
     /**
      * @var string[]
@@ -46,27 +71,12 @@ class CreateAggregateConfigRuleRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $sourceIdentifier;
 
     /**
      * @var string
      */
-    public $regionIdsScope;
-
-    /**
-     * @var string
-     */
-    public $excludeResourceIdsScope;
-
-    /**
-     * @var string
-     */
-    public $aggregatorId;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupIdsScope;
+    public $sourceOwner;
 
     /**
      * @var string
@@ -77,33 +87,23 @@ class CreateAggregateConfigRuleRequest extends Model
      * @var string
      */
     public $tagValueScope;
-
-    /**
-     * @var string
-     */
-    public $sourceOwner;
-
-    /**
-     * @var string
-     */
-    public $sourceIdentifier;
     protected $_name = [
+        'aggregatorId'              => 'AggregatorId',
+        'clientToken'               => 'ClientToken',
         'configRuleName'            => 'ConfigRuleName',
-        'description'               => 'Description',
-        'inputParameters'           => 'InputParameters',
         'configRuleTriggerTypes'    => 'ConfigRuleTriggerTypes',
+        'description'               => 'Description',
+        'excludeResourceIdsScope'   => 'ExcludeResourceIdsScope',
+        'inputParameters'           => 'InputParameters',
         'maximumExecutionFrequency' => 'MaximumExecutionFrequency',
+        'regionIdsScope'            => 'RegionIdsScope',
+        'resourceGroupIdsScope'     => 'ResourceGroupIdsScope',
         'resourceTypesScope'        => 'ResourceTypesScope',
         'riskLevel'                 => 'RiskLevel',
-        'clientToken'               => 'ClientToken',
-        'regionIdsScope'            => 'RegionIdsScope',
-        'excludeResourceIdsScope'   => 'ExcludeResourceIdsScope',
-        'aggregatorId'              => 'AggregatorId',
-        'resourceGroupIdsScope'     => 'ResourceGroupIdsScope',
+        'sourceIdentifier'          => 'SourceIdentifier',
+        'sourceOwner'               => 'SourceOwner',
         'tagKeyScope'               => 'TagKeyScope',
         'tagValueScope'             => 'TagValueScope',
-        'sourceOwner'               => 'SourceOwner',
-        'sourceIdentifier'          => 'SourceIdentifier',
     ];
 
     public function validate()
@@ -113,20 +113,35 @@ class CreateAggregateConfigRuleRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aggregatorId) {
+            $res['AggregatorId'] = $this->aggregatorId;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->configRuleName) {
             $res['ConfigRuleName'] = $this->configRuleName;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->inputParameters) {
-            $res['InputParameters'] = $this->inputParameters;
         }
         if (null !== $this->configRuleTriggerTypes) {
             $res['ConfigRuleTriggerTypes'] = $this->configRuleTriggerTypes;
         }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->excludeResourceIdsScope) {
+            $res['ExcludeResourceIdsScope'] = $this->excludeResourceIdsScope;
+        }
+        if (null !== $this->inputParameters) {
+            $res['InputParameters'] = $this->inputParameters;
+        }
         if (null !== $this->maximumExecutionFrequency) {
             $res['MaximumExecutionFrequency'] = $this->maximumExecutionFrequency;
+        }
+        if (null !== $this->regionIdsScope) {
+            $res['RegionIdsScope'] = $this->regionIdsScope;
+        }
+        if (null !== $this->resourceGroupIdsScope) {
+            $res['ResourceGroupIdsScope'] = $this->resourceGroupIdsScope;
         }
         if (null !== $this->resourceTypesScope) {
             $res['ResourceTypesScope'] = $this->resourceTypesScope;
@@ -134,32 +149,17 @@ class CreateAggregateConfigRuleRequest extends Model
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->sourceIdentifier) {
+            $res['SourceIdentifier'] = $this->sourceIdentifier;
         }
-        if (null !== $this->regionIdsScope) {
-            $res['RegionIdsScope'] = $this->regionIdsScope;
-        }
-        if (null !== $this->excludeResourceIdsScope) {
-            $res['ExcludeResourceIdsScope'] = $this->excludeResourceIdsScope;
-        }
-        if (null !== $this->aggregatorId) {
-            $res['AggregatorId'] = $this->aggregatorId;
-        }
-        if (null !== $this->resourceGroupIdsScope) {
-            $res['ResourceGroupIdsScope'] = $this->resourceGroupIdsScope;
+        if (null !== $this->sourceOwner) {
+            $res['SourceOwner'] = $this->sourceOwner;
         }
         if (null !== $this->tagKeyScope) {
             $res['TagKeyScope'] = $this->tagKeyScope;
         }
         if (null !== $this->tagValueScope) {
             $res['TagValueScope'] = $this->tagValueScope;
-        }
-        if (null !== $this->sourceOwner) {
-            $res['SourceOwner'] = $this->sourceOwner;
-        }
-        if (null !== $this->sourceIdentifier) {
-            $res['SourceIdentifier'] = $this->sourceIdentifier;
         }
 
         return $res;
@@ -173,20 +173,35 @@ class CreateAggregateConfigRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AggregatorId'])) {
+            $model->aggregatorId = $map['AggregatorId'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['ConfigRuleName'])) {
             $model->configRuleName = $map['ConfigRuleName'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['InputParameters'])) {
-            $model->inputParameters = $map['InputParameters'];
         }
         if (isset($map['ConfigRuleTriggerTypes'])) {
             $model->configRuleTriggerTypes = $map['ConfigRuleTriggerTypes'];
         }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['ExcludeResourceIdsScope'])) {
+            $model->excludeResourceIdsScope = $map['ExcludeResourceIdsScope'];
+        }
+        if (isset($map['InputParameters'])) {
+            $model->inputParameters = $map['InputParameters'];
+        }
         if (isset($map['MaximumExecutionFrequency'])) {
             $model->maximumExecutionFrequency = $map['MaximumExecutionFrequency'];
+        }
+        if (isset($map['RegionIdsScope'])) {
+            $model->regionIdsScope = $map['RegionIdsScope'];
+        }
+        if (isset($map['ResourceGroupIdsScope'])) {
+            $model->resourceGroupIdsScope = $map['ResourceGroupIdsScope'];
         }
         if (isset($map['ResourceTypesScope'])) {
             if (!empty($map['ResourceTypesScope'])) {
@@ -196,32 +211,17 @@ class CreateAggregateConfigRuleRequest extends Model
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['SourceIdentifier'])) {
+            $model->sourceIdentifier = $map['SourceIdentifier'];
         }
-        if (isset($map['RegionIdsScope'])) {
-            $model->regionIdsScope = $map['RegionIdsScope'];
-        }
-        if (isset($map['ExcludeResourceIdsScope'])) {
-            $model->excludeResourceIdsScope = $map['ExcludeResourceIdsScope'];
-        }
-        if (isset($map['AggregatorId'])) {
-            $model->aggregatorId = $map['AggregatorId'];
-        }
-        if (isset($map['ResourceGroupIdsScope'])) {
-            $model->resourceGroupIdsScope = $map['ResourceGroupIdsScope'];
+        if (isset($map['SourceOwner'])) {
+            $model->sourceOwner = $map['SourceOwner'];
         }
         if (isset($map['TagKeyScope'])) {
             $model->tagKeyScope = $map['TagKeyScope'];
         }
         if (isset($map['TagValueScope'])) {
             $model->tagValueScope = $map['TagValueScope'];
-        }
-        if (isset($map['SourceOwner'])) {
-            $model->sourceOwner = $map['SourceOwner'];
-        }
-        if (isset($map['SourceIdentifier'])) {
-            $model->sourceIdentifier = $map['SourceIdentifier'];
         }
 
         return $model;

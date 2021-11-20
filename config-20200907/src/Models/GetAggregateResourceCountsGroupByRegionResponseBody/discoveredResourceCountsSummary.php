@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class discoveredResourceCountsSummary extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceCount;
-
-    /**
      * @var string
      */
     public $region;
+
+    /**
+     * @var int
+     */
+    public $resourceCount;
     protected $_name = [
-        'resourceCount' => 'ResourceCount',
         'region'        => 'Region',
+        'resourceCount' => 'ResourceCount',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class discoveredResourceCountsSummary extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceCount) {
-            $res['ResourceCount'] = $this->resourceCount;
-        }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+        if (null !== $this->resourceCount) {
+            $res['ResourceCount'] = $this->resourceCount;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class discoveredResourceCountsSummary extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceCount'])) {
-            $model->resourceCount = $map['ResourceCount'];
-        }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+        if (isset($map['ResourceCount'])) {
+            $model->resourceCount = $map['ResourceCount'];
         }
 
         return $model;

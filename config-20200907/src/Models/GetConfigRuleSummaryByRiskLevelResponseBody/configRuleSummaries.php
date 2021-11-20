@@ -11,21 +11,21 @@ class configRuleSummaries extends Model
     /**
      * @var int
      */
-    public $riskLevel;
-
-    /**
-     * @var int
-     */
     public $compliantCount;
 
     /**
      * @var int
      */
     public $nonCompliantCount;
+
+    /**
+     * @var int
+     */
+    public $riskLevel;
     protected $_name = [
-        'riskLevel'         => 'RiskLevel',
         'compliantCount'    => 'CompliantCount',
         'nonCompliantCount' => 'NonCompliantCount',
+        'riskLevel'         => 'RiskLevel',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class configRuleSummaries extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->riskLevel) {
-            $res['RiskLevel'] = $this->riskLevel;
-        }
         if (null !== $this->compliantCount) {
             $res['CompliantCount'] = $this->compliantCount;
         }
         if (null !== $this->nonCompliantCount) {
             $res['NonCompliantCount'] = $this->nonCompliantCount;
+        }
+        if (null !== $this->riskLevel) {
+            $res['RiskLevel'] = $this->riskLevel;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class configRuleSummaries extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RiskLevel'])) {
-            $model->riskLevel = $map['RiskLevel'];
-        }
         if (isset($map['CompliantCount'])) {
             $model->compliantCount = $map['CompliantCount'];
         }
         if (isset($map['NonCompliantCount'])) {
             $model->nonCompliantCount = $map['NonCompliantCount'];
+        }
+        if (isset($map['RiskLevel'])) {
+            $model->riskLevel = $map['RiskLevel'];
         }
 
         return $model;
