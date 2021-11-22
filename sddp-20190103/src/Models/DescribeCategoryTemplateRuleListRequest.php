@@ -14,11 +14,6 @@ class DescribeCategoryTemplateRuleListRequest extends Model
     public $currentPage;
 
     /**
-     * @var int
-     */
-    public $customType;
-
-    /**
      * @var string
      */
     public $lang;
@@ -37,19 +32,12 @@ class DescribeCategoryTemplateRuleListRequest extends Model
      * @var int
      */
     public $status;
-
-    /**
-     * @var int
-     */
-    public $templateId;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'customType'  => 'CustomType',
         'lang'        => 'Lang',
         'pageSize'    => 'PageSize',
         'riskLevelId' => 'RiskLevelId',
         'status'      => 'Status',
-        'templateId'  => 'TemplateId',
     ];
 
     public function validate()
@@ -62,9 +50,6 @@ class DescribeCategoryTemplateRuleListRequest extends Model
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-        if (null !== $this->customType) {
-            $res['CustomType'] = $this->customType;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -76,9 +61,6 @@ class DescribeCategoryTemplateRuleListRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
-        }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
         }
 
         return $res;
@@ -95,9 +77,6 @@ class DescribeCategoryTemplateRuleListRequest extends Model
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-        if (isset($map['CustomType'])) {
-            $model->customType = $map['CustomType'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
@@ -109,9 +88,6 @@ class DescribeCategoryTemplateRuleListRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
-        }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
         }
 
         return $model;
