@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListStackEventsRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $stackId;
+    public $logicalResourceId;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
 
     /**
      * @var int
@@ -24,32 +29,27 @@ class ListStackEventsRequest extends Model
     public $regionId;
 
     /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var string[]
-     */
-    public $status;
-
-    /**
      * @var string[]
      */
     public $resourceType;
 
     /**
+     * @var string
+     */
+    public $stackId;
+
+    /**
      * @var string[]
      */
-    public $logicalResourceId;
+    public $status;
     protected $_name = [
-        'stackId'           => 'StackId',
+        'logicalResourceId' => 'LogicalResourceId',
+        'pageNumber'        => 'PageNumber',
         'pageSize'          => 'PageSize',
         'regionId'          => 'RegionId',
-        'pageNumber'        => 'PageNumber',
-        'status'            => 'Status',
         'resourceType'      => 'ResourceType',
-        'logicalResourceId' => 'LogicalResourceId',
+        'stackId'           => 'StackId',
+        'status'            => 'Status',
     ];
 
     public function validate()
@@ -59,8 +59,11 @@ class ListStackEventsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->stackId) {
-            $res['StackId'] = $this->stackId;
+        if (null !== $this->logicalResourceId) {
+            $res['LogicalResourceId'] = $this->logicalResourceId;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -68,17 +71,14 @@ class ListStackEventsRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
-        if (null !== $this->logicalResourceId) {
-            $res['LogicalResourceId'] = $this->logicalResourceId;
+        if (null !== $this->stackId) {
+            $res['StackId'] = $this->stackId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -92,8 +92,13 @@ class ListStackEventsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StackId'])) {
-            $model->stackId = $map['StackId'];
+        if (isset($map['LogicalResourceId'])) {
+            if (!empty($map['LogicalResourceId'])) {
+                $model->logicalResourceId = $map['LogicalResourceId'];
+            }
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
@@ -101,22 +106,17 @@ class ListStackEventsRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['Status'])) {
-            if (!empty($map['Status'])) {
-                $model->status = $map['Status'];
-            }
-        }
         if (isset($map['ResourceType'])) {
             if (!empty($map['ResourceType'])) {
                 $model->resourceType = $map['ResourceType'];
             }
         }
-        if (isset($map['LogicalResourceId'])) {
-            if (!empty($map['LogicalResourceId'])) {
-                $model->logicalResourceId = $map['LogicalResourceId'];
+        if (isset($map['StackId'])) {
+            $model->stackId = $map['StackId'];
+        }
+        if (isset($map['Status'])) {
+            if (!empty($map['Status'])) {
+                $model->status = $map['Status'];
             }
         }
 

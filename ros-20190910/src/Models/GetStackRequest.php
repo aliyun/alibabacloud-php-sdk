@@ -11,16 +11,6 @@ class GetStackRequest extends Model
     /**
      * @var string
      */
-    public $stackId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $clientToken;
 
     /**
@@ -31,13 +21,23 @@ class GetStackRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $showResourceProgress;
+
+    /**
+     * @var string
+     */
+    public $stackId;
     protected $_name = [
-        'stackId'              => 'StackId',
-        'regionId'             => 'RegionId',
         'clientToken'          => 'ClientToken',
         'outputOption'         => 'OutputOption',
+        'regionId'             => 'RegionId',
         'showResourceProgress' => 'ShowResourceProgress',
+        'stackId'              => 'StackId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class GetStackRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->stackId) {
-            $res['StackId'] = $this->stackId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->outputOption) {
             $res['OutputOption'] = $this->outputOption;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->showResourceProgress) {
             $res['ShowResourceProgress'] = $this->showResourceProgress;
+        }
+        if (null !== $this->stackId) {
+            $res['StackId'] = $this->stackId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class GetStackRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StackId'])) {
-            $model->stackId = $map['StackId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['OutputOption'])) {
             $model->outputOption = $map['OutputOption'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['ShowResourceProgress'])) {
             $model->showResourceProgress = $map['ShowResourceProgress'];
+        }
+        if (isset($map['StackId'])) {
+            $model->stackId = $map['StackId'];
         }
 
         return $model;

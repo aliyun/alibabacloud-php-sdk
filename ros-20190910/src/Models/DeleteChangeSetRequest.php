@@ -11,15 +11,15 @@ class DeleteChangeSetRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $changeSetId;
 
     /**
      * @var string
      */
-    public $changeSetId;
+    public $regionId;
     protected $_name = [
-        'regionId'    => 'RegionId',
         'changeSetId' => 'ChangeSetId',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteChangeSetRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->changeSetId) {
             $res['ChangeSetId'] = $this->changeSetId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteChangeSetRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ChangeSetId'])) {
             $model->changeSetId = $map['ChangeSetId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

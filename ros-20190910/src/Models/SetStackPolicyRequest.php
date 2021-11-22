@@ -11,12 +11,12 @@ class SetStackPolicyRequest extends Model
     /**
      * @var string
      */
-    public $stackId;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $stackId;
 
     /**
      * @var string
@@ -28,8 +28,8 @@ class SetStackPolicyRequest extends Model
      */
     public $stackPolicyURL;
     protected $_name = [
-        'stackId'         => 'StackId',
         'regionId'        => 'RegionId',
+        'stackId'         => 'StackId',
         'stackPolicyBody' => 'StackPolicyBody',
         'stackPolicyURL'  => 'StackPolicyURL',
     ];
@@ -41,11 +41,11 @@ class SetStackPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->stackId) {
-            $res['StackId'] = $this->stackId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->stackId) {
+            $res['StackId'] = $this->stackId;
         }
         if (null !== $this->stackPolicyBody) {
             $res['StackPolicyBody'] = $this->stackPolicyBody;
@@ -65,11 +65,11 @@ class SetStackPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StackId'])) {
-            $model->stackId = $map['StackId'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StackId'])) {
+            $model->stackId = $map['StackId'];
         }
         if (isset($map['StackPolicyBody'])) {
             $model->stackPolicyBody = $map['StackPolicyBody'];

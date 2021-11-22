@@ -11,11 +11,6 @@ class GenerateTemplatePolicyRequest extends Model
     /**
      * @var string
      */
-    public $templateURL;
-
-    /**
-     * @var string
-     */
     public $templateBody;
 
     /**
@@ -26,11 +21,16 @@ class GenerateTemplatePolicyRequest extends Model
     /**
      * @var string
      */
+    public $templateURL;
+
+    /**
+     * @var string
+     */
     public $templateVersion;
     protected $_name = [
-        'templateURL'     => 'TemplateURL',
         'templateBody'    => 'TemplateBody',
         'templateId'      => 'TemplateId',
+        'templateURL'     => 'TemplateURL',
         'templateVersion' => 'TemplateVersion',
     ];
 
@@ -41,14 +41,14 @@ class GenerateTemplatePolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateURL) {
-            $res['TemplateURL'] = $this->templateURL;
-        }
         if (null !== $this->templateBody) {
             $res['TemplateBody'] = $this->templateBody;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->templateURL) {
+            $res['TemplateURL'] = $this->templateURL;
         }
         if (null !== $this->templateVersion) {
             $res['TemplateVersion'] = $this->templateVersion;
@@ -65,14 +65,14 @@ class GenerateTemplatePolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateURL'])) {
-            $model->templateURL = $map['TemplateURL'];
-        }
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateURL'])) {
+            $model->templateURL = $map['TemplateURL'];
         }
         if (isset($map['TemplateVersion'])) {
             $model->templateVersion = $map['TemplateVersion'];

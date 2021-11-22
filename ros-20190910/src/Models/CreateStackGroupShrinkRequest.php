@@ -12,27 +12,12 @@ class CreateStackGroupShrinkRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $administrationRoleName;
 
     /**
      * @var string
      */
-    public $stackGroupName;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $templateBody;
-
-    /**
-     * @var string
-     */
-    public $templateURL;
+    public $autoDeploymentShrink;
 
     /**
      * @var string
@@ -42,22 +27,12 @@ class CreateStackGroupShrinkRequest extends Model
     /**
      * @var string
      */
-    public $administrationRoleName;
+    public $description;
 
     /**
      * @var string
      */
     public $executionRoleName;
-
-    /**
-     * @var string
-     */
-    public $templateId;
-
-    /**
-     * @var string
-     */
-    public $templateVersion;
 
     /**
      * @var parameters[]
@@ -67,32 +42,57 @@ class CreateStackGroupShrinkRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
     public $permissionModel;
 
     /**
      * @var string
      */
-    public $autoDeploymentShrink;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $stackGroupName;
+
+    /**
+     * @var string
+     */
+    public $templateBody;
+
+    /**
+     * @var string
+     */
+    public $templateId;
+
+    /**
+     * @var string
+     */
+    public $templateURL;
+
+    /**
+     * @var string
+     */
+    public $templateVersion;
     protected $_name = [
-        'regionId'               => 'RegionId',
-        'stackGroupName'         => 'StackGroupName',
-        'description'            => 'Description',
-        'templateBody'           => 'TemplateBody',
-        'templateURL'            => 'TemplateURL',
-        'clientToken'            => 'ClientToken',
         'administrationRoleName' => 'AdministrationRoleName',
-        'executionRoleName'      => 'ExecutionRoleName',
-        'templateId'             => 'TemplateId',
-        'templateVersion'        => 'TemplateVersion',
-        'parameters'             => 'Parameters',
-        'resourceGroupId'        => 'ResourceGroupId',
-        'permissionModel'        => 'PermissionModel',
         'autoDeploymentShrink'   => 'AutoDeployment',
+        'clientToken'            => 'ClientToken',
+        'description'            => 'Description',
+        'executionRoleName'      => 'ExecutionRoleName',
+        'parameters'             => 'Parameters',
+        'permissionModel'        => 'PermissionModel',
+        'regionId'               => 'RegionId',
+        'resourceGroupId'        => 'ResourceGroupId',
+        'stackGroupName'         => 'StackGroupName',
+        'templateBody'           => 'TemplateBody',
+        'templateId'             => 'TemplateId',
+        'templateURL'            => 'TemplateURL',
+        'templateVersion'        => 'TemplateVersion',
     ];
 
     public function validate()
@@ -102,35 +102,20 @@ class CreateStackGroupShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->administrationRoleName) {
+            $res['AdministrationRoleName'] = $this->administrationRoleName;
         }
-        if (null !== $this->stackGroupName) {
-            $res['StackGroupName'] = $this->stackGroupName;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->templateBody) {
-            $res['TemplateBody'] = $this->templateBody;
-        }
-        if (null !== $this->templateURL) {
-            $res['TemplateURL'] = $this->templateURL;
+        if (null !== $this->autoDeploymentShrink) {
+            $res['AutoDeployment'] = $this->autoDeploymentShrink;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->administrationRoleName) {
-            $res['AdministrationRoleName'] = $this->administrationRoleName;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->executionRoleName) {
             $res['ExecutionRoleName'] = $this->executionRoleName;
-        }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
-        }
-        if (null !== $this->templateVersion) {
-            $res['TemplateVersion'] = $this->templateVersion;
         }
         if (null !== $this->parameters) {
             $res['Parameters'] = [];
@@ -141,14 +126,29 @@ class CreateStackGroupShrinkRequest extends Model
                 }
             }
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->permissionModel) {
             $res['PermissionModel'] = $this->permissionModel;
         }
-        if (null !== $this->autoDeploymentShrink) {
-            $res['AutoDeployment'] = $this->autoDeploymentShrink;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->stackGroupName) {
+            $res['StackGroupName'] = $this->stackGroupName;
+        }
+        if (null !== $this->templateBody) {
+            $res['TemplateBody'] = $this->templateBody;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->templateURL) {
+            $res['TemplateURL'] = $this->templateURL;
+        }
+        if (null !== $this->templateVersion) {
+            $res['TemplateVersion'] = $this->templateVersion;
         }
 
         return $res;
@@ -162,35 +162,20 @@ class CreateStackGroupShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['AdministrationRoleName'])) {
+            $model->administrationRoleName = $map['AdministrationRoleName'];
         }
-        if (isset($map['StackGroupName'])) {
-            $model->stackGroupName = $map['StackGroupName'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['TemplateBody'])) {
-            $model->templateBody = $map['TemplateBody'];
-        }
-        if (isset($map['TemplateURL'])) {
-            $model->templateURL = $map['TemplateURL'];
+        if (isset($map['AutoDeployment'])) {
+            $model->autoDeploymentShrink = $map['AutoDeployment'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['AdministrationRoleName'])) {
-            $model->administrationRoleName = $map['AdministrationRoleName'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['ExecutionRoleName'])) {
             $model->executionRoleName = $map['ExecutionRoleName'];
-        }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
-        }
-        if (isset($map['TemplateVersion'])) {
-            $model->templateVersion = $map['TemplateVersion'];
         }
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
@@ -201,14 +186,29 @@ class CreateStackGroupShrinkRequest extends Model
                 }
             }
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['PermissionModel'])) {
             $model->permissionModel = $map['PermissionModel'];
         }
-        if (isset($map['AutoDeployment'])) {
-            $model->autoDeploymentShrink = $map['AutoDeployment'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['StackGroupName'])) {
+            $model->stackGroupName = $map['StackGroupName'];
+        }
+        if (isset($map['TemplateBody'])) {
+            $model->templateBody = $map['TemplateBody'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateURL'])) {
+            $model->templateURL = $map['TemplateURL'];
+        }
+        if (isset($map['TemplateVersion'])) {
+            $model->templateVersion = $map['TemplateVersion'];
         }
 
         return $model;

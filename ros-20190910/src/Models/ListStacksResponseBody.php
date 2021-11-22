@@ -12,7 +12,7 @@ class ListStacksResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $pageNumber;
 
     /**
      * @var int
@@ -25,20 +25,20 @@ class ListStacksResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
      * @var stacks[]
      */
     public $stacks;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'totalCount' => 'TotalCount',
+        'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
-        'pageNumber' => 'PageNumber',
         'stacks'     => 'Stacks',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -48,17 +48,14 @@ class ListStacksResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->stacks) {
             $res['Stacks'] = [];
@@ -68,6 +65,9 @@ class ListStacksResponseBody extends Model
                     $res['Stacks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -81,17 +81,14 @@ class ListStacksResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['Stacks'])) {
             if (!empty($map['Stacks'])) {
@@ -101,6 +98,9 @@ class ListStacksResponseBody extends Model
                     $model->stacks[$n++] = null !== $item ? stacks::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

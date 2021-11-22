@@ -13,7 +13,12 @@ class stack extends Model
     /**
      * @var string
      */
-    public $templateDescription;
+    public $description;
+
+    /**
+     * @var bool
+     */
+    public $disableRollback;
 
     /**
      * @var parameters[]
@@ -23,27 +28,7 @@ class stack extends Model
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var bool
-     */
-    public $disableRollback;
-
-    /**
-     * @var string
-     */
-    public $stackName;
-
-    /**
-     * @var int
-     */
-    public $timeoutInMinutes;
-
-    /**
-     * @var mixed[]
-     */
-    public $stackPolicyBody;
+    public $regionId;
 
     /**
      * @var resources[]
@@ -53,17 +38,32 @@ class stack extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $stackName;
+
+    /**
+     * @var mixed[]
+     */
+    public $stackPolicyBody;
+
+    /**
+     * @var string
+     */
+    public $templateDescription;
+
+    /**
+     * @var int
+     */
+    public $timeoutInMinutes;
     protected $_name = [
-        'templateDescription' => 'TemplateDescription',
-        'parameters'          => 'Parameters',
         'description'         => 'Description',
         'disableRollback'     => 'DisableRollback',
-        'stackName'           => 'StackName',
-        'timeoutInMinutes'    => 'TimeoutInMinutes',
-        'stackPolicyBody'     => 'StackPolicyBody',
-        'resources'           => 'Resources',
+        'parameters'          => 'Parameters',
         'regionId'            => 'RegionId',
+        'resources'           => 'Resources',
+        'stackName'           => 'StackName',
+        'stackPolicyBody'     => 'StackPolicyBody',
+        'templateDescription' => 'TemplateDescription',
+        'timeoutInMinutes'    => 'TimeoutInMinutes',
     ];
 
     public function validate()
@@ -73,8 +73,11 @@ class stack extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateDescription) {
-            $res['TemplateDescription'] = $this->templateDescription;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->disableRollback) {
+            $res['DisableRollback'] = $this->disableRollback;
         }
         if (null !== $this->parameters) {
             $res['Parameters'] = [];
@@ -85,20 +88,8 @@ class stack extends Model
                 }
             }
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->disableRollback) {
-            $res['DisableRollback'] = $this->disableRollback;
-        }
-        if (null !== $this->stackName) {
-            $res['StackName'] = $this->stackName;
-        }
-        if (null !== $this->timeoutInMinutes) {
-            $res['TimeoutInMinutes'] = $this->timeoutInMinutes;
-        }
-        if (null !== $this->stackPolicyBody) {
-            $res['StackPolicyBody'] = $this->stackPolicyBody;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resources) {
             $res['Resources'] = [];
@@ -109,8 +100,17 @@ class stack extends Model
                 }
             }
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->stackName) {
+            $res['StackName'] = $this->stackName;
+        }
+        if (null !== $this->stackPolicyBody) {
+            $res['StackPolicyBody'] = $this->stackPolicyBody;
+        }
+        if (null !== $this->templateDescription) {
+            $res['TemplateDescription'] = $this->templateDescription;
+        }
+        if (null !== $this->timeoutInMinutes) {
+            $res['TimeoutInMinutes'] = $this->timeoutInMinutes;
         }
 
         return $res;
@@ -124,8 +124,11 @@ class stack extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateDescription'])) {
-            $model->templateDescription = $map['TemplateDescription'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['DisableRollback'])) {
+            $model->disableRollback = $map['DisableRollback'];
         }
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
@@ -136,20 +139,8 @@ class stack extends Model
                 }
             }
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['DisableRollback'])) {
-            $model->disableRollback = $map['DisableRollback'];
-        }
-        if (isset($map['StackName'])) {
-            $model->stackName = $map['StackName'];
-        }
-        if (isset($map['TimeoutInMinutes'])) {
-            $model->timeoutInMinutes = $map['TimeoutInMinutes'];
-        }
-        if (isset($map['StackPolicyBody'])) {
-            $model->stackPolicyBody = $map['StackPolicyBody'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Resources'])) {
             if (!empty($map['Resources'])) {
@@ -160,8 +151,17 @@ class stack extends Model
                 }
             }
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['StackName'])) {
+            $model->stackName = $map['StackName'];
+        }
+        if (isset($map['StackPolicyBody'])) {
+            $model->stackPolicyBody = $map['StackPolicyBody'];
+        }
+        if (isset($map['TemplateDescription'])) {
+            $model->templateDescription = $map['TemplateDescription'];
+        }
+        if (isset($map['TimeoutInMinutes'])) {
+            $model->timeoutInMinutes = $map['TimeoutInMinutes'];
         }
 
         return $model;

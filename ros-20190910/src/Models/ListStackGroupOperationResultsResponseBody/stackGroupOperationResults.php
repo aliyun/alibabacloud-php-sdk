@@ -11,17 +11,12 @@ class stackGroupOperationResults extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $statusReason;
-
-    /**
-     * @var string
-     */
     public $accountId;
+
+    /**
+     * @var string
+     */
+    public $rdFolderId;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class stackGroupOperationResults extends Model
     /**
      * @var string
      */
-    public $rdFolderId;
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $statusReason;
     protected $_name = [
+        'accountId'    => 'AccountId',
+        'rdFolderId'   => 'RdFolderId',
+        'regionId'     => 'RegionId',
         'status'       => 'Status',
         'statusReason' => 'StatusReason',
-        'accountId'    => 'AccountId',
-        'regionId'     => 'RegionId',
-        'rdFolderId'   => 'RdFolderId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class stackGroupOperationResults extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
+        }
+        if (null !== $this->rdFolderId) {
+            $res['RdFolderId'] = $this->rdFolderId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->statusReason) {
             $res['StatusReason'] = $this->statusReason;
-        }
-        if (null !== $this->accountId) {
-            $res['AccountId'] = $this->accountId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->rdFolderId) {
-            $res['RdFolderId'] = $this->rdFolderId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class stackGroupOperationResults extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
+        }
+        if (isset($map['RdFolderId'])) {
+            $model->rdFolderId = $map['RdFolderId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['StatusReason'])) {
             $model->statusReason = $map['StatusReason'];
-        }
-        if (isset($map['AccountId'])) {
-            $model->accountId = $map['AccountId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['RdFolderId'])) {
-            $model->rdFolderId = $map['RdFolderId'];
         }
 
         return $model;

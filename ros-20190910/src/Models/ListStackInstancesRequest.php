@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListStackInstancesRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -27,23 +37,13 @@ class ListStackInstancesRequest extends Model
      * @var string
      */
     public $stackInstanceRegionId;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
     protected $_name = [
+        'pageNumber'             => 'PageNumber',
+        'pageSize'               => 'PageSize',
         'regionId'               => 'RegionId',
         'stackGroupName'         => 'StackGroupName',
         'stackInstanceAccountId' => 'StackInstanceAccountId',
         'stackInstanceRegionId'  => 'StackInstanceRegionId',
-        'pageSize'               => 'PageSize',
-        'pageNumber'             => 'PageNumber',
     ];
 
     public function validate()
@@ -53,6 +53,12 @@ class ListStackInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -64,12 +70,6 @@ class ListStackInstancesRequest extends Model
         }
         if (null !== $this->stackInstanceRegionId) {
             $res['StackInstanceRegionId'] = $this->stackInstanceRegionId;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
         }
 
         return $res;
@@ -83,6 +83,12 @@ class ListStackInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -94,12 +100,6 @@ class ListStackInstancesRequest extends Model
         }
         if (isset($map['StackInstanceRegionId'])) {
             $model->stackInstanceRegionId = $map['StackInstanceRegionId'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
         }
 
         return $model;

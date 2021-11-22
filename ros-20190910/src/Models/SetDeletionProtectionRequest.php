@@ -11,21 +11,21 @@ class SetDeletionProtectionRequest extends Model
     /**
      * @var string
      */
-    public $stackId;
-
-    /**
-     * @var string
-     */
     public $deletionProtection;
 
     /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $stackId;
     protected $_name = [
-        'stackId'            => 'StackId',
         'deletionProtection' => 'DeletionProtection',
         'regionId'           => 'RegionId',
+        'stackId'            => 'StackId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class SetDeletionProtectionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->stackId) {
-            $res['StackId'] = $this->stackId;
-        }
         if (null !== $this->deletionProtection) {
             $res['DeletionProtection'] = $this->deletionProtection;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->stackId) {
+            $res['StackId'] = $this->stackId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class SetDeletionProtectionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StackId'])) {
-            $model->stackId = $map['StackId'];
-        }
         if (isset($map['DeletionProtection'])) {
             $model->deletionProtection = $map['DeletionProtection'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StackId'])) {
+            $model->stackId = $map['StackId'];
         }
 
         return $model;

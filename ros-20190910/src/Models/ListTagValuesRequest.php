@@ -11,12 +11,7 @@ class ListTagValuesRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $resourceType;
+    public $key;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class ListTagValuesRequest extends Model
     /**
      * @var string
      */
-    public $key;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
     protected $_name = [
+        'key'          => 'Key',
+        'nextToken'    => 'NextToken',
         'regionId'     => 'RegionId',
         'resourceType' => 'ResourceType',
-        'nextToken'    => 'NextToken',
-        'key'          => 'Key',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ListTagValuesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ListTagValuesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
         }
 
         return $model;

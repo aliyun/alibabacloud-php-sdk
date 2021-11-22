@@ -15,6 +15,11 @@ class ValidateTemplateResponseBody extends Model
     public $description;
 
     /**
+     * @var outputs[]
+     */
+    public $outputs;
+
+    /**
      * @var mixed[][]
      */
     public $parameters;
@@ -23,16 +28,11 @@ class ValidateTemplateResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var outputs[]
-     */
-    public $outputs;
     protected $_name = [
         'description' => 'Description',
+        'outputs'     => 'Outputs',
         'parameters'  => 'Parameters',
         'requestId'   => 'RequestId',
-        'outputs'     => 'Outputs',
     ];
 
     public function validate()
@@ -45,12 +45,6 @@ class ValidateTemplateResponseBody extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->parameters) {
-            $res['Parameters'] = $this->parameters;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->outputs) {
             $res['Outputs'] = [];
             if (null !== $this->outputs && \is_array($this->outputs)) {
@@ -59,6 +53,12 @@ class ValidateTemplateResponseBody extends Model
                     $res['Outputs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->parameters) {
+            $res['Parameters'] = $this->parameters;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -75,14 +75,6 @@ class ValidateTemplateResponseBody extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['Parameters'])) {
-            if (!empty($map['Parameters'])) {
-                $model->parameters = $map['Parameters'];
-            }
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Outputs'])) {
             if (!empty($map['Outputs'])) {
                 $model->outputs = [];
@@ -91,6 +83,14 @@ class ValidateTemplateResponseBody extends Model
                     $model->outputs[$n++] = null !== $item ? outputs::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Parameters'])) {
+            if (!empty($map['Parameters'])) {
+                $model->parameters = $map['Parameters'];
+            }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

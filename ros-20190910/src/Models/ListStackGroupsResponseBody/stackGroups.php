@@ -10,19 +10,9 @@ use AlibabaCloud\Tea\Model;
 class stackGroups extends Model
 {
     /**
-     * @var string
+     * @var autoDeployment
      */
-    public $stackGroupId;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $driftDetectionTime;
+    public $autoDeployment;
 
     /**
      * @var string
@@ -32,12 +22,12 @@ class stackGroups extends Model
     /**
      * @var string
      */
-    public $stackGroupDriftStatus;
+    public $driftDetectionTime;
 
     /**
      * @var string
      */
-    public $stackGroupName;
+    public $permissionModel;
 
     /**
      * @var string
@@ -47,22 +37,32 @@ class stackGroups extends Model
     /**
      * @var string
      */
-    public $permissionModel;
+    public $stackGroupDriftStatus;
 
     /**
-     * @var autoDeployment
+     * @var string
      */
-    public $autoDeployment;
+    public $stackGroupId;
+
+    /**
+     * @var string
+     */
+    public $stackGroupName;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'stackGroupId'          => 'StackGroupId',
-        'status'                => 'Status',
-        'driftDetectionTime'    => 'DriftDetectionTime',
-        'description'           => 'Description',
-        'stackGroupDriftStatus' => 'StackGroupDriftStatus',
-        'stackGroupName'        => 'StackGroupName',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'permissionModel'       => 'PermissionModel',
         'autoDeployment'        => 'AutoDeployment',
+        'description'           => 'Description',
+        'driftDetectionTime'    => 'DriftDetectionTime',
+        'permissionModel'       => 'PermissionModel',
+        'resourceGroupId'       => 'ResourceGroupId',
+        'stackGroupDriftStatus' => 'StackGroupDriftStatus',
+        'stackGroupId'          => 'StackGroupId',
+        'stackGroupName'        => 'StackGroupName',
+        'status'                => 'Status',
     ];
 
     public function validate()
@@ -72,32 +72,32 @@ class stackGroups extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->stackGroupId) {
-            $res['StackGroupId'] = $this->stackGroupId;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->driftDetectionTime) {
-            $res['DriftDetectionTime'] = $this->driftDetectionTime;
+        if (null !== $this->autoDeployment) {
+            $res['AutoDeployment'] = null !== $this->autoDeployment ? $this->autoDeployment->toMap() : null;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->stackGroupDriftStatus) {
-            $res['StackGroupDriftStatus'] = $this->stackGroupDriftStatus;
-        }
-        if (null !== $this->stackGroupName) {
-            $res['StackGroupName'] = $this->stackGroupName;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->driftDetectionTime) {
+            $res['DriftDetectionTime'] = $this->driftDetectionTime;
         }
         if (null !== $this->permissionModel) {
             $res['PermissionModel'] = $this->permissionModel;
         }
-        if (null !== $this->autoDeployment) {
-            $res['AutoDeployment'] = null !== $this->autoDeployment ? $this->autoDeployment->toMap() : null;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->stackGroupDriftStatus) {
+            $res['StackGroupDriftStatus'] = $this->stackGroupDriftStatus;
+        }
+        if (null !== $this->stackGroupId) {
+            $res['StackGroupId'] = $this->stackGroupId;
+        }
+        if (null !== $this->stackGroupName) {
+            $res['StackGroupName'] = $this->stackGroupName;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -111,32 +111,32 @@ class stackGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StackGroupId'])) {
-            $model->stackGroupId = $map['StackGroupId'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['DriftDetectionTime'])) {
-            $model->driftDetectionTime = $map['DriftDetectionTime'];
+        if (isset($map['AutoDeployment'])) {
+            $model->autoDeployment = autoDeployment::fromMap($map['AutoDeployment']);
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['StackGroupDriftStatus'])) {
-            $model->stackGroupDriftStatus = $map['StackGroupDriftStatus'];
-        }
-        if (isset($map['StackGroupName'])) {
-            $model->stackGroupName = $map['StackGroupName'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['DriftDetectionTime'])) {
+            $model->driftDetectionTime = $map['DriftDetectionTime'];
         }
         if (isset($map['PermissionModel'])) {
             $model->permissionModel = $map['PermissionModel'];
         }
-        if (isset($map['AutoDeployment'])) {
-            $model->autoDeployment = autoDeployment::fromMap($map['AutoDeployment']);
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['StackGroupDriftStatus'])) {
+            $model->stackGroupDriftStatus = $map['StackGroupDriftStatus'];
+        }
+        if (isset($map['StackGroupId'])) {
+            $model->stackGroupId = $map['StackGroupId'];
+        }
+        if (isset($map['StackGroupName'])) {
+            $model->stackGroupName = $map['StackGroupName'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

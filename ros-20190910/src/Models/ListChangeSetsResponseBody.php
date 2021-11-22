@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListChangeSetsResponseBody extends Model
 {
     /**
+     * @var changeSets[]
+     */
+    public $changeSets;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -28,17 +33,12 @@ class ListChangeSetsResponseBody extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var changeSets[]
-     */
-    public $changeSets;
     protected $_name = [
+        'changeSets' => 'ChangeSets',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
         'totalCount' => 'TotalCount',
-        'changeSets' => 'ChangeSets',
     ];
 
     public function validate()
@@ -48,6 +48,15 @@ class ListChangeSetsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->changeSets) {
+            $res['ChangeSets'] = [];
+            if (null !== $this->changeSets && \is_array($this->changeSets)) {
+                $n = 0;
+                foreach ($this->changeSets as $item) {
+                    $res['ChangeSets'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -59,15 +68,6 @@ class ListChangeSetsResponseBody extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->changeSets) {
-            $res['ChangeSets'] = [];
-            if (null !== $this->changeSets && \is_array($this->changeSets)) {
-                $n = 0;
-                foreach ($this->changeSets as $item) {
-                    $res['ChangeSets'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -81,6 +81,15 @@ class ListChangeSetsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChangeSets'])) {
+            if (!empty($map['ChangeSets'])) {
+                $model->changeSets = [];
+                $n                 = 0;
+                foreach ($map['ChangeSets'] as $item) {
+                    $model->changeSets[$n++] = null !== $item ? changeSets::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -92,15 +101,6 @@ class ListChangeSetsResponseBody extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['ChangeSets'])) {
-            if (!empty($map['ChangeSets'])) {
-                $model->changeSets = [];
-                $n                 = 0;
-                foreach ($map['ChangeSets'] as $item) {
-                    $model->changeSets[$n++] = null !== $item ? changeSets::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

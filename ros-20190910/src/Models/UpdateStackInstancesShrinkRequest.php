@@ -12,27 +12,17 @@ class UpdateStackInstancesShrinkRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $stackGroupName;
-
-    /**
-     * @var string
-     */
     public $accountIdsShrink;
 
     /**
      * @var string
      */
-    public $regionIdsShrink;
+    public $clientToken;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $deploymentTargetsShrink;
 
     /**
      * @var string
@@ -45,11 +35,6 @@ class UpdateStackInstancesShrinkRequest extends Model
     public $operationPreferencesShrink;
 
     /**
-     * @var int
-     */
-    public $timeoutInMinutes;
-
-    /**
      * @var parameterOverrides[]
      */
     public $parameterOverrides;
@@ -57,18 +42,33 @@ class UpdateStackInstancesShrinkRequest extends Model
     /**
      * @var string
      */
-    public $deploymentTargetsShrink;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $regionIdsShrink;
+
+    /**
+     * @var string
+     */
+    public $stackGroupName;
+
+    /**
+     * @var int
+     */
+    public $timeoutInMinutes;
     protected $_name = [
-        'regionId'                   => 'RegionId',
-        'stackGroupName'             => 'StackGroupName',
         'accountIdsShrink'           => 'AccountIds',
-        'regionIdsShrink'            => 'RegionIds',
         'clientToken'                => 'ClientToken',
+        'deploymentTargetsShrink'    => 'DeploymentTargets',
         'operationDescription'       => 'OperationDescription',
         'operationPreferencesShrink' => 'OperationPreferences',
-        'timeoutInMinutes'           => 'TimeoutInMinutes',
         'parameterOverrides'         => 'ParameterOverrides',
-        'deploymentTargetsShrink'    => 'DeploymentTargets',
+        'regionId'                   => 'RegionId',
+        'regionIdsShrink'            => 'RegionIds',
+        'stackGroupName'             => 'StackGroupName',
+        'timeoutInMinutes'           => 'TimeoutInMinutes',
     ];
 
     public function validate()
@@ -78,29 +78,20 @@ class UpdateStackInstancesShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->stackGroupName) {
-            $res['StackGroupName'] = $this->stackGroupName;
-        }
         if (null !== $this->accountIdsShrink) {
             $res['AccountIds'] = $this->accountIdsShrink;
         }
-        if (null !== $this->regionIdsShrink) {
-            $res['RegionIds'] = $this->regionIdsShrink;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->deploymentTargetsShrink) {
+            $res['DeploymentTargets'] = $this->deploymentTargetsShrink;
         }
         if (null !== $this->operationDescription) {
             $res['OperationDescription'] = $this->operationDescription;
         }
         if (null !== $this->operationPreferencesShrink) {
             $res['OperationPreferences'] = $this->operationPreferencesShrink;
-        }
-        if (null !== $this->timeoutInMinutes) {
-            $res['TimeoutInMinutes'] = $this->timeoutInMinutes;
         }
         if (null !== $this->parameterOverrides) {
             $res['ParameterOverrides'] = [];
@@ -111,8 +102,17 @@ class UpdateStackInstancesShrinkRequest extends Model
                 }
             }
         }
-        if (null !== $this->deploymentTargetsShrink) {
-            $res['DeploymentTargets'] = $this->deploymentTargetsShrink;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->regionIdsShrink) {
+            $res['RegionIds'] = $this->regionIdsShrink;
+        }
+        if (null !== $this->stackGroupName) {
+            $res['StackGroupName'] = $this->stackGroupName;
+        }
+        if (null !== $this->timeoutInMinutes) {
+            $res['TimeoutInMinutes'] = $this->timeoutInMinutes;
         }
 
         return $res;
@@ -126,29 +126,20 @@ class UpdateStackInstancesShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['StackGroupName'])) {
-            $model->stackGroupName = $map['StackGroupName'];
-        }
         if (isset($map['AccountIds'])) {
             $model->accountIdsShrink = $map['AccountIds'];
         }
-        if (isset($map['RegionIds'])) {
-            $model->regionIdsShrink = $map['RegionIds'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DeploymentTargets'])) {
+            $model->deploymentTargetsShrink = $map['DeploymentTargets'];
         }
         if (isset($map['OperationDescription'])) {
             $model->operationDescription = $map['OperationDescription'];
         }
         if (isset($map['OperationPreferences'])) {
             $model->operationPreferencesShrink = $map['OperationPreferences'];
-        }
-        if (isset($map['TimeoutInMinutes'])) {
-            $model->timeoutInMinutes = $map['TimeoutInMinutes'];
         }
         if (isset($map['ParameterOverrides'])) {
             if (!empty($map['ParameterOverrides'])) {
@@ -159,8 +150,17 @@ class UpdateStackInstancesShrinkRequest extends Model
                 }
             }
         }
-        if (isset($map['DeploymentTargets'])) {
-            $model->deploymentTargetsShrink = $map['DeploymentTargets'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RegionIds'])) {
+            $model->regionIdsShrink = $map['RegionIds'];
+        }
+        if (isset($map['StackGroupName'])) {
+            $model->stackGroupName = $map['StackGroupName'];
+        }
+        if (isset($map['TimeoutInMinutes'])) {
+            $model->timeoutInMinutes = $map['TimeoutInMinutes'];
         }
 
         return $model;

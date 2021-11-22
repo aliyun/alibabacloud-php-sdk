@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListStackGroupsRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $status;
+    public $pageNumber;
 
     /**
      * @var int
@@ -24,20 +19,25 @@ class ListStackGroupsRequest extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageNumber;
+    public $regionId;
 
     /**
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'regionId'        => 'RegionId',
-        'status'          => 'Status',
-        'pageSize'        => 'PageSize',
         'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
+        'status'          => 'Status',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class ListStackGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class ListStackGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

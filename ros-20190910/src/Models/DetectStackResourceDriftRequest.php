@@ -11,12 +11,12 @@ class DetectStackResourceDriftRequest extends Model
     /**
      * @var string
      */
-    public $stackId;
+    public $clientToken;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $logicalResourceId;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class DetectStackResourceDriftRequest extends Model
     /**
      * @var string
      */
-    public $logicalResourceId;
+    public $stackId;
     protected $_name = [
-        'stackId'           => 'StackId',
         'clientToken'       => 'ClientToken',
-        'regionId'          => 'RegionId',
         'logicalResourceId' => 'LogicalResourceId',
+        'regionId'          => 'RegionId',
+        'stackId'           => 'StackId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DetectStackResourceDriftRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->stackId) {
-            $res['StackId'] = $this->stackId;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->logicalResourceId) {
+            $res['LogicalResourceId'] = $this->logicalResourceId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->logicalResourceId) {
-            $res['LogicalResourceId'] = $this->logicalResourceId;
+        if (null !== $this->stackId) {
+            $res['StackId'] = $this->stackId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DetectStackResourceDriftRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StackId'])) {
-            $model->stackId = $map['StackId'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['LogicalResourceId'])) {
+            $model->logicalResourceId = $map['LogicalResourceId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['LogicalResourceId'])) {
-            $model->logicalResourceId = $map['LogicalResourceId'];
+        if (isset($map['StackId'])) {
+            $model->stackId = $map['StackId'];
         }
 
         return $model;

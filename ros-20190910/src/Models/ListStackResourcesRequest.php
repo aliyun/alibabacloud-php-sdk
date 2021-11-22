@@ -11,15 +11,15 @@ class ListStackResourcesRequest extends Model
     /**
      * @var string
      */
-    public $stackId;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $stackId;
     protected $_name = [
-        'stackId'  => 'StackId',
         'regionId' => 'RegionId',
+        'stackId'  => 'StackId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ListStackResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->stackId) {
-            $res['StackId'] = $this->stackId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->stackId) {
+            $res['StackId'] = $this->stackId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ListStackResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StackId'])) {
-            $model->stackId = $map['StackId'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StackId'])) {
+            $model->stackId = $map['StackId'];
         }
 
         return $model;

@@ -12,7 +12,12 @@ class GetTemplateEstimateCostRequest extends Model
     /**
      * @var string
      */
-    public $templateURL;
+    public $clientToken;
+
+    /**
+     * @var parameters[]
+     */
+    public $parameters;
 
     /**
      * @var string
@@ -27,30 +32,25 @@ class GetTemplateEstimateCostRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
     public $templateId;
 
     /**
      * @var string
      */
-    public $templateVersion;
+    public $templateURL;
 
     /**
-     * @var parameters[]
+     * @var string
      */
-    public $parameters;
+    public $templateVersion;
     protected $_name = [
-        'templateURL'     => 'TemplateURL',
+        'clientToken'     => 'ClientToken',
+        'parameters'      => 'Parameters',
         'regionId'        => 'RegionId',
         'templateBody'    => 'TemplateBody',
-        'clientToken'     => 'ClientToken',
         'templateId'      => 'TemplateId',
+        'templateURL'     => 'TemplateURL',
         'templateVersion' => 'TemplateVersion',
-        'parameters'      => 'Parameters',
     ];
 
     public function validate()
@@ -60,23 +60,8 @@ class GetTemplateEstimateCostRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateURL) {
-            $res['TemplateURL'] = $this->templateURL;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->templateBody) {
-            $res['TemplateBody'] = $this->templateBody;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
-        }
-        if (null !== $this->templateVersion) {
-            $res['TemplateVersion'] = $this->templateVersion;
         }
         if (null !== $this->parameters) {
             $res['Parameters'] = [];
@@ -86,6 +71,21 @@ class GetTemplateEstimateCostRequest extends Model
                     $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->templateBody) {
+            $res['TemplateBody'] = $this->templateBody;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->templateURL) {
+            $res['TemplateURL'] = $this->templateURL;
+        }
+        if (null !== $this->templateVersion) {
+            $res['TemplateVersion'] = $this->templateVersion;
         }
 
         return $res;
@@ -99,23 +99,8 @@ class GetTemplateEstimateCostRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateURL'])) {
-            $model->templateURL = $map['TemplateURL'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['TemplateBody'])) {
-            $model->templateBody = $map['TemplateBody'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
-        }
-        if (isset($map['TemplateVersion'])) {
-            $model->templateVersion = $map['TemplateVersion'];
         }
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
@@ -125,6 +110,21 @@ class GetTemplateEstimateCostRequest extends Model
                     $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['TemplateBody'])) {
+            $model->templateBody = $map['TemplateBody'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateURL'])) {
+            $model->templateURL = $map['TemplateURL'];
+        }
+        if (isset($map['TemplateVersion'])) {
+            $model->templateVersion = $map['TemplateVersion'];
         }
 
         return $model;

@@ -11,16 +11,6 @@ class UpdateTemplateRequest extends Model
     /**
      * @var string
      */
-    public $templateURL;
-
-    /**
-     * @var string
-     */
-    public $templateName;
-
-    /**
-     * @var string
-     */
     public $description;
 
     /**
@@ -32,12 +22,22 @@ class UpdateTemplateRequest extends Model
      * @var string
      */
     public $templateId;
+
+    /**
+     * @var string
+     */
+    public $templateName;
+
+    /**
+     * @var string
+     */
+    public $templateURL;
     protected $_name = [
-        'templateURL'  => 'TemplateURL',
-        'templateName' => 'TemplateName',
         'description'  => 'Description',
         'templateBody' => 'TemplateBody',
         'templateId'   => 'TemplateId',
+        'templateName' => 'TemplateName',
+        'templateURL'  => 'TemplateURL',
     ];
 
     public function validate()
@@ -47,12 +47,6 @@ class UpdateTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateURL) {
-            $res['TemplateURL'] = $this->templateURL;
-        }
-        if (null !== $this->templateName) {
-            $res['TemplateName'] = $this->templateName;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -61,6 +55,12 @@ class UpdateTemplateRequest extends Model
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
+        }
+        if (null !== $this->templateURL) {
+            $res['TemplateURL'] = $this->templateURL;
         }
 
         return $res;
@@ -74,12 +74,6 @@ class UpdateTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateURL'])) {
-            $model->templateURL = $map['TemplateURL'];
-        }
-        if (isset($map['TemplateName'])) {
-            $model->templateName = $map['TemplateName'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -88,6 +82,12 @@ class UpdateTemplateRequest extends Model
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
+        }
+        if (isset($map['TemplateURL'])) {
+            $model->templateURL = $map['TemplateURL'];
         }
 
         return $model;

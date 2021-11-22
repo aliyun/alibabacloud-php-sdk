@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListTemplateVersionsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
      * @var int
      */
     public $maxResults;
@@ -21,10 +16,15 @@ class ListTemplateVersionsRequest extends Model
     /**
      * @var string
      */
+    public $nextToken;
+
+    /**
+     * @var string
+     */
     public $templateId;
     protected $_name = [
-        'nextToken'  => 'NextToken',
         'maxResults' => 'MaxResults',
+        'nextToken'  => 'NextToken',
         'templateId' => 'TemplateId',
     ];
 
@@ -35,11 +35,11 @@ class ListTemplateVersionsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
@@ -56,11 +56,11 @@ class ListTemplateVersionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];

@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListStackGroupOperationsRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -17,21 +27,11 @@ class ListStackGroupOperationsRequest extends Model
      * @var string
      */
     public $stackGroupName;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
     protected $_name = [
+        'pageNumber'     => 'PageNumber',
+        'pageSize'       => 'PageSize',
         'regionId'       => 'RegionId',
         'stackGroupName' => 'StackGroupName',
-        'pageSize'       => 'PageSize',
-        'pageNumber'     => 'PageNumber',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ListStackGroupOperationsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->stackGroupName) {
             $res['StackGroupName'] = $this->stackGroupName;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ListStackGroupOperationsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['StackGroupName'])) {
             $model->stackGroupName = $map['StackGroupName'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
         }
 
         return $model;

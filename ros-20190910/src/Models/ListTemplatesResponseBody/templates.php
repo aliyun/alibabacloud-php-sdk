@@ -11,12 +11,7 @@ class templates extends Model
     /**
      * @var string
      */
-    public $templateARN;
-
-    /**
-     * @var string
-     */
-    public $updateTime;
+    public $createTime;
 
     /**
      * @var string
@@ -26,7 +21,27 @@ class templates extends Model
     /**
      * @var string
      */
-    public $createTime;
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $shareType;
+
+    /**
+     * @var string
+     */
+    public $templateARN;
+
+    /**
+     * @var string
+     */
+    public $templateId;
 
     /**
      * @var string
@@ -41,33 +56,18 @@ class templates extends Model
     /**
      * @var string
      */
-    public $templateId;
-
-    /**
-     * @var string
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $shareType;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
+    public $updateTime;
     protected $_name = [
-        'templateARN'     => 'TemplateARN',
-        'updateTime'      => 'UpdateTime',
-        'description'     => 'Description',
         'createTime'      => 'CreateTime',
+        'description'     => 'Description',
+        'ownerId'         => 'OwnerId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'shareType'       => 'ShareType',
+        'templateARN'     => 'TemplateARN',
+        'templateId'      => 'TemplateId',
         'templateName'    => 'TemplateName',
         'templateVersion' => 'TemplateVersion',
-        'templateId'      => 'TemplateId',
-        'ownerId'         => 'OwnerId',
-        'shareType'       => 'ShareType',
-        'resourceGroupId' => 'ResourceGroupId',
+        'updateTime'      => 'UpdateTime',
     ];
 
     public function validate()
@@ -77,17 +77,26 @@ class templates extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateARN) {
-            $res['TemplateARN'] = $this->templateARN;
-        }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->shareType) {
+            $res['ShareType'] = $this->shareType;
+        }
+        if (null !== $this->templateARN) {
+            $res['TemplateARN'] = $this->templateARN;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
@@ -95,17 +104,8 @@ class templates extends Model
         if (null !== $this->templateVersion) {
             $res['TemplateVersion'] = $this->templateVersion;
         }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->shareType) {
-            $res['ShareType'] = $this->shareType;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -119,17 +119,26 @@ class templates extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateARN'])) {
-            $model->templateARN = $map['TemplateARN'];
-        }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ShareType'])) {
+            $model->shareType = $map['ShareType'];
+        }
+        if (isset($map['TemplateARN'])) {
+            $model->templateARN = $map['TemplateARN'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
@@ -137,17 +146,8 @@ class templates extends Model
         if (isset($map['TemplateVersion'])) {
             $model->templateVersion = $map['TemplateVersion'];
         }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShareType'])) {
-            $model->shareType = $map['ShareType'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

@@ -11,22 +11,17 @@ class resources extends Model
     /**
      * @var string
      */
-    public $logicalResourceId;
-
-    /**
-     * @var string
-     */
-    public $resourceType;
-
-    /**
-     * @var string
-     */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $logicalResourceId;
 
     /**
      * @var mixed[]
      */
-    public $stack;
+    public $properties;
 
     /**
      * @var string[]
@@ -34,16 +29,21 @@ class resources extends Model
     public $requiredBy;
 
     /**
+     * @var string
+     */
+    public $resourceType;
+
+    /**
      * @var mixed[]
      */
-    public $properties;
+    public $stack;
     protected $_name = [
-        'logicalResourceId' => 'LogicalResourceId',
-        'resourceType'      => 'ResourceType',
         'description'       => 'Description',
-        'stack'             => 'Stack',
-        'requiredBy'        => 'RequiredBy',
+        'logicalResourceId' => 'LogicalResourceId',
         'properties'        => 'Properties',
+        'requiredBy'        => 'RequiredBy',
+        'resourceType'      => 'ResourceType',
+        'stack'             => 'Stack',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class resources extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->logicalResourceId) {
-            $res['LogicalResourceId'] = $this->logicalResourceId;
-        }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->stack) {
-            $res['Stack'] = $this->stack;
+        if (null !== $this->logicalResourceId) {
+            $res['LogicalResourceId'] = $this->logicalResourceId;
+        }
+        if (null !== $this->properties) {
+            $res['Properties'] = $this->properties;
         }
         if (null !== $this->requiredBy) {
             $res['RequiredBy'] = $this->requiredBy;
         }
-        if (null !== $this->properties) {
-            $res['Properties'] = $this->properties;
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->stack) {
+            $res['Stack'] = $this->stack;
         }
 
         return $res;
@@ -83,25 +83,25 @@ class resources extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LogicalResourceId'])) {
-            $model->logicalResourceId = $map['LogicalResourceId'];
-        }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['Stack'])) {
-            $model->stack = $map['Stack'];
+        if (isset($map['LogicalResourceId'])) {
+            $model->logicalResourceId = $map['LogicalResourceId'];
+        }
+        if (isset($map['Properties'])) {
+            $model->properties = $map['Properties'];
         }
         if (isset($map['RequiredBy'])) {
             if (!empty($map['RequiredBy'])) {
                 $model->requiredBy = $map['RequiredBy'];
             }
         }
-        if (isset($map['Properties'])) {
-            $model->properties = $map['Properties'];
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['Stack'])) {
+            $model->stack = $map['Stack'];
         }
 
         return $model;

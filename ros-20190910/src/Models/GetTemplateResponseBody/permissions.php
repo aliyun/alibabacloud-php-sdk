@@ -11,11 +11,6 @@ class permissions extends Model
     /**
      * @var string
      */
-    public $versionOption;
-
-    /**
-     * @var string
-     */
     public $accountId;
 
     /**
@@ -27,11 +22,16 @@ class permissions extends Model
      * @var string
      */
     public $templateVersion;
+
+    /**
+     * @var string
+     */
+    public $versionOption;
     protected $_name = [
-        'versionOption'   => 'VersionOption',
         'accountId'       => 'AccountId',
         'shareOption'     => 'ShareOption',
         'templateVersion' => 'TemplateVersion',
+        'versionOption'   => 'VersionOption',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class permissions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->versionOption) {
-            $res['VersionOption'] = $this->versionOption;
-        }
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
@@ -52,6 +49,9 @@ class permissions extends Model
         }
         if (null !== $this->templateVersion) {
             $res['TemplateVersion'] = $this->templateVersion;
+        }
+        if (null !== $this->versionOption) {
+            $res['VersionOption'] = $this->versionOption;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class permissions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VersionOption'])) {
-            $model->versionOption = $map['VersionOption'];
-        }
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
@@ -76,6 +73,9 @@ class permissions extends Model
         }
         if (isset($map['TemplateVersion'])) {
             $model->templateVersion = $map['TemplateVersion'];
+        }
+        if (isset($map['VersionOption'])) {
+            $model->versionOption = $map['VersionOption'];
         }
 
         return $model;

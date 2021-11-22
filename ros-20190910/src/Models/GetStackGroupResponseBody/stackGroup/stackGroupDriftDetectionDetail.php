@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class stackGroupDriftDetectionDetail extends Model
 {
     /**
-     * @var string
-     */
-    public $driftDetectionTime;
-
-    /**
      * @var int
      */
-    public $totalStackInstancesCount;
-
-    /**
-     * @var int
-     */
-    public $failedStackInstancesCount;
+    public $cancelledStackInstancesCount;
 
     /**
      * @var string
@@ -31,7 +21,17 @@ class stackGroupDriftDetectionDetail extends Model
     /**
      * @var string
      */
-    public $stackGroupDriftStatus;
+    public $driftDetectionTime;
+
+    /**
+     * @var int
+     */
+    public $driftedStackInstancesCount;
+
+    /**
+     * @var int
+     */
+    public $failedStackInstancesCount;
 
     /**
      * @var int
@@ -44,24 +44,24 @@ class stackGroupDriftDetectionDetail extends Model
     public $inSyncStackInstancesCount;
 
     /**
-     * @var int
+     * @var string
      */
-    public $cancelledStackInstancesCount;
+    public $stackGroupDriftStatus;
 
     /**
      * @var int
      */
-    public $driftedStackInstancesCount;
+    public $totalStackInstancesCount;
     protected $_name = [
-        'driftDetectionTime'            => 'DriftDetectionTime',
-        'totalStackInstancesCount'      => 'TotalStackInstancesCount',
-        'failedStackInstancesCount'     => 'FailedStackInstancesCount',
+        'cancelledStackInstancesCount'  => 'CancelledStackInstancesCount',
         'driftDetectionStatus'          => 'DriftDetectionStatus',
-        'stackGroupDriftStatus'         => 'StackGroupDriftStatus',
+        'driftDetectionTime'            => 'DriftDetectionTime',
+        'driftedStackInstancesCount'    => 'DriftedStackInstancesCount',
+        'failedStackInstancesCount'     => 'FailedStackInstancesCount',
         'inProgressStackInstancesCount' => 'InProgressStackInstancesCount',
         'inSyncStackInstancesCount'     => 'InSyncStackInstancesCount',
-        'cancelledStackInstancesCount'  => 'CancelledStackInstancesCount',
-        'driftedStackInstancesCount'    => 'DriftedStackInstancesCount',
+        'stackGroupDriftStatus'         => 'StackGroupDriftStatus',
+        'totalStackInstancesCount'      => 'TotalStackInstancesCount',
     ];
 
     public function validate()
@@ -71,20 +71,20 @@ class stackGroupDriftDetectionDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->driftDetectionTime) {
-            $res['DriftDetectionTime'] = $this->driftDetectionTime;
-        }
-        if (null !== $this->totalStackInstancesCount) {
-            $res['TotalStackInstancesCount'] = $this->totalStackInstancesCount;
-        }
-        if (null !== $this->failedStackInstancesCount) {
-            $res['FailedStackInstancesCount'] = $this->failedStackInstancesCount;
+        if (null !== $this->cancelledStackInstancesCount) {
+            $res['CancelledStackInstancesCount'] = $this->cancelledStackInstancesCount;
         }
         if (null !== $this->driftDetectionStatus) {
             $res['DriftDetectionStatus'] = $this->driftDetectionStatus;
         }
-        if (null !== $this->stackGroupDriftStatus) {
-            $res['StackGroupDriftStatus'] = $this->stackGroupDriftStatus;
+        if (null !== $this->driftDetectionTime) {
+            $res['DriftDetectionTime'] = $this->driftDetectionTime;
+        }
+        if (null !== $this->driftedStackInstancesCount) {
+            $res['DriftedStackInstancesCount'] = $this->driftedStackInstancesCount;
+        }
+        if (null !== $this->failedStackInstancesCount) {
+            $res['FailedStackInstancesCount'] = $this->failedStackInstancesCount;
         }
         if (null !== $this->inProgressStackInstancesCount) {
             $res['InProgressStackInstancesCount'] = $this->inProgressStackInstancesCount;
@@ -92,11 +92,11 @@ class stackGroupDriftDetectionDetail extends Model
         if (null !== $this->inSyncStackInstancesCount) {
             $res['InSyncStackInstancesCount'] = $this->inSyncStackInstancesCount;
         }
-        if (null !== $this->cancelledStackInstancesCount) {
-            $res['CancelledStackInstancesCount'] = $this->cancelledStackInstancesCount;
+        if (null !== $this->stackGroupDriftStatus) {
+            $res['StackGroupDriftStatus'] = $this->stackGroupDriftStatus;
         }
-        if (null !== $this->driftedStackInstancesCount) {
-            $res['DriftedStackInstancesCount'] = $this->driftedStackInstancesCount;
+        if (null !== $this->totalStackInstancesCount) {
+            $res['TotalStackInstancesCount'] = $this->totalStackInstancesCount;
         }
 
         return $res;
@@ -110,20 +110,20 @@ class stackGroupDriftDetectionDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DriftDetectionTime'])) {
-            $model->driftDetectionTime = $map['DriftDetectionTime'];
-        }
-        if (isset($map['TotalStackInstancesCount'])) {
-            $model->totalStackInstancesCount = $map['TotalStackInstancesCount'];
-        }
-        if (isset($map['FailedStackInstancesCount'])) {
-            $model->failedStackInstancesCount = $map['FailedStackInstancesCount'];
+        if (isset($map['CancelledStackInstancesCount'])) {
+            $model->cancelledStackInstancesCount = $map['CancelledStackInstancesCount'];
         }
         if (isset($map['DriftDetectionStatus'])) {
             $model->driftDetectionStatus = $map['DriftDetectionStatus'];
         }
-        if (isset($map['StackGroupDriftStatus'])) {
-            $model->stackGroupDriftStatus = $map['StackGroupDriftStatus'];
+        if (isset($map['DriftDetectionTime'])) {
+            $model->driftDetectionTime = $map['DriftDetectionTime'];
+        }
+        if (isset($map['DriftedStackInstancesCount'])) {
+            $model->driftedStackInstancesCount = $map['DriftedStackInstancesCount'];
+        }
+        if (isset($map['FailedStackInstancesCount'])) {
+            $model->failedStackInstancesCount = $map['FailedStackInstancesCount'];
         }
         if (isset($map['InProgressStackInstancesCount'])) {
             $model->inProgressStackInstancesCount = $map['InProgressStackInstancesCount'];
@@ -131,11 +131,11 @@ class stackGroupDriftDetectionDetail extends Model
         if (isset($map['InSyncStackInstancesCount'])) {
             $model->inSyncStackInstancesCount = $map['InSyncStackInstancesCount'];
         }
-        if (isset($map['CancelledStackInstancesCount'])) {
-            $model->cancelledStackInstancesCount = $map['CancelledStackInstancesCount'];
+        if (isset($map['StackGroupDriftStatus'])) {
+            $model->stackGroupDriftStatus = $map['StackGroupDriftStatus'];
         }
-        if (isset($map['DriftedStackInstancesCount'])) {
-            $model->driftedStackInstancesCount = $map['DriftedStackInstancesCount'];
+        if (isset($map['TotalStackInstancesCount'])) {
+            $model->totalStackInstancesCount = $map['TotalStackInstancesCount'];
         }
 
         return $model;

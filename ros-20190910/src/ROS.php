@@ -48,10 +48,14 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\GenerateTemplatePolicyRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GenerateTemplatePolicyResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetChangeSetRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetChangeSetResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetResourceTypeRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetResourceTypeResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetResourceTypeTemplateRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetResourceTypeTemplateResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetServiceProvisionsRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetServiceProvisionsResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackDriftDetectionStatusRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackDriftDetectionStatusResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackGroupOperationRequest;
@@ -68,6 +72,9 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackResourceResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateEstimateCostRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateEstimateCostResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateParameterConstraintsRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateParameterConstraintsResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateParameterConstraintsShrinkRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateSummaryRequest;
@@ -333,14 +340,14 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->accountIds)) {
             $request->accountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->accountIds, 'AccountIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->regionIds)) {
-            $request->regionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
+        if (!Utils::isUnset($tmpReq->deploymentTargets)) {
+            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deploymentTargets), 'DeploymentTargets', 'json');
         }
         if (!Utils::isUnset($tmpReq->operationPreferences)) {
             $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
         }
-        if (!Utils::isUnset($tmpReq->deploymentTargets)) {
-            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deploymentTargets), 'DeploymentTargets', 'json');
+        if (!Utils::isUnset($tmpReq->regionIds)) {
+            $request->regionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
         }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
@@ -487,14 +494,14 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->accountIds)) {
             $request->accountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->accountIds, 'AccountIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->regionIds)) {
-            $request->regionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
+        if (!Utils::isUnset($tmpReq->deploymentTargets)) {
+            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deploymentTargets), 'DeploymentTargets', 'json');
         }
         if (!Utils::isUnset($tmpReq->operationPreferences)) {
             $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
         }
-        if (!Utils::isUnset($tmpReq->deploymentTargets)) {
-            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deploymentTargets), 'DeploymentTargets', 'json');
+        if (!Utils::isUnset($tmpReq->regionIds)) {
+            $request->regionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
         }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
@@ -745,6 +752,34 @@ class ROS extends OpenApiClient
     }
 
     /**
+     * @param GetFeatureDetailsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetFeatureDetailsResponse
+     */
+    public function getFeatureDetailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetFeatureDetailsResponse::fromMap($this->doRPCRequest('GetFeatureDetails', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetFeatureDetailsRequest $request
+     *
+     * @return GetFeatureDetailsResponse
+     */
+    public function getFeatureDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFeatureDetailsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetResourceTypeRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -798,6 +833,34 @@ class ROS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getResourceTypeTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetServiceProvisionsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetServiceProvisionsResponse
+     */
+    public function getServiceProvisionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetServiceProvisionsResponse::fromMap($this->doRPCRequest('GetServiceProvisions', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetServiceProvisionsRequest $request
+     *
+     * @return GetServiceProvisionsResponse
+     */
+    public function getServiceProvisions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceProvisionsWithOptions($request, $runtime);
     }
 
     /**
@@ -1050,6 +1113,39 @@ class ROS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getTemplateEstimateCostWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTemplateParameterConstraintsRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return GetTemplateParameterConstraintsResponse
+     */
+    public function getTemplateParameterConstraintsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetTemplateParameterConstraintsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->parametersKeyFilter)) {
+            $request->parametersKeyFilterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parametersKeyFilter, 'ParametersKeyFilter', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetTemplateParameterConstraintsResponse::fromMap($this->doRPCRequest('GetTemplateParameterConstraints', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetTemplateParameterConstraintsRequest $request
+     *
+     * @return GetTemplateParameterConstraintsResponse
+     */
+    public function getTemplateParameterConstraints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTemplateParameterConstraintsWithOptions($request, $runtime);
     }
 
     /**
@@ -1467,34 +1563,6 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param ListTemplatesRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListTemplatesResponse
-     */
-    public function listTemplatesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListTemplatesResponse::fromMap($this->doRPCRequest('ListTemplates', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListTemplatesRequest $request
-     *
-     * @return ListTemplatesResponse
-     */
-    public function listTemplates($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listTemplatesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListTemplateVersionsRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1520,6 +1588,34 @@ class ROS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTemplateVersionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTemplatesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListTemplatesResponse
+     */
+    public function listTemplatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListTemplatesResponse::fromMap($this->doRPCRequest('ListTemplates', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListTemplatesRequest $request
+     *
+     * @return ListTemplatesResponse
+     */
+    public function listTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTemplatesWithOptions($request, $runtime);
     }
 
     /**
@@ -1816,17 +1912,17 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->accountIds)) {
             $request->accountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->accountIds, 'AccountIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->regionIds)) {
-            $request->regionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->operationPreferences)) {
-            $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
-        }
         if (!Utils::isUnset($tmpReq->autoDeployment)) {
             $request->autoDeploymentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->autoDeployment), 'AutoDeployment', 'json');
         }
         if (!Utils::isUnset($tmpReq->deploymentTargets)) {
             $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deploymentTargets), 'DeploymentTargets', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->operationPreferences)) {
+            $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->regionIds)) {
+            $request->regionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
         }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
@@ -1861,14 +1957,14 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->accountIds)) {
             $request->accountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->accountIds, 'AccountIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->regionIds)) {
-            $request->regionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
+        if (!Utils::isUnset($tmpReq->deploymentTargets)) {
+            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deploymentTargets), 'DeploymentTargets', 'json');
         }
         if (!Utils::isUnset($tmpReq->operationPreferences)) {
             $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
         }
-        if (!Utils::isUnset($tmpReq->deploymentTargets)) {
-            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deploymentTargets), 'DeploymentTargets', 'json');
+        if (!Utils::isUnset($tmpReq->regionIds)) {
+            $request->regionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
         }
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),

@@ -11,29 +11,19 @@ use AlibabaCloud\Tea\Model;
 class UpdateStackInstancesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $stackGroupName;
-
-    /**
      * @var string[]
      */
     public $accountIds;
 
     /**
-     * @var string[]
-     */
-    public $regionIds;
-
-    /**
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var deploymentTargets
+     */
+    public $deploymentTargets;
 
     /**
      * @var string
@@ -46,30 +36,40 @@ class UpdateStackInstancesRequest extends Model
     public $operationPreferences;
 
     /**
-     * @var int
-     */
-    public $timeoutInMinutes;
-
-    /**
      * @var parameterOverrides[]
      */
     public $parameterOverrides;
 
     /**
-     * @var deploymentTargets
+     * @var string
      */
-    public $deploymentTargets;
+    public $regionId;
+
+    /**
+     * @var string[]
+     */
+    public $regionIds;
+
+    /**
+     * @var string
+     */
+    public $stackGroupName;
+
+    /**
+     * @var int
+     */
+    public $timeoutInMinutes;
     protected $_name = [
-        'regionId'             => 'RegionId',
-        'stackGroupName'       => 'StackGroupName',
         'accountIds'           => 'AccountIds',
-        'regionIds'            => 'RegionIds',
         'clientToken'          => 'ClientToken',
+        'deploymentTargets'    => 'DeploymentTargets',
         'operationDescription' => 'OperationDescription',
         'operationPreferences' => 'OperationPreferences',
-        'timeoutInMinutes'     => 'TimeoutInMinutes',
         'parameterOverrides'   => 'ParameterOverrides',
-        'deploymentTargets'    => 'DeploymentTargets',
+        'regionId'             => 'RegionId',
+        'regionIds'            => 'RegionIds',
+        'stackGroupName'       => 'StackGroupName',
+        'timeoutInMinutes'     => 'TimeoutInMinutes',
     ];
 
     public function validate()
@@ -79,29 +79,20 @@ class UpdateStackInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->stackGroupName) {
-            $res['StackGroupName'] = $this->stackGroupName;
-        }
         if (null !== $this->accountIds) {
             $res['AccountIds'] = $this->accountIds;
         }
-        if (null !== $this->regionIds) {
-            $res['RegionIds'] = $this->regionIds;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->deploymentTargets) {
+            $res['DeploymentTargets'] = null !== $this->deploymentTargets ? $this->deploymentTargets->toMap() : null;
         }
         if (null !== $this->operationDescription) {
             $res['OperationDescription'] = $this->operationDescription;
         }
         if (null !== $this->operationPreferences) {
             $res['OperationPreferences'] = $this->operationPreferences;
-        }
-        if (null !== $this->timeoutInMinutes) {
-            $res['TimeoutInMinutes'] = $this->timeoutInMinutes;
         }
         if (null !== $this->parameterOverrides) {
             $res['ParameterOverrides'] = [];
@@ -112,8 +103,17 @@ class UpdateStackInstancesRequest extends Model
                 }
             }
         }
-        if (null !== $this->deploymentTargets) {
-            $res['DeploymentTargets'] = null !== $this->deploymentTargets ? $this->deploymentTargets->toMap() : null;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->regionIds) {
+            $res['RegionIds'] = $this->regionIds;
+        }
+        if (null !== $this->stackGroupName) {
+            $res['StackGroupName'] = $this->stackGroupName;
+        }
+        if (null !== $this->timeoutInMinutes) {
+            $res['TimeoutInMinutes'] = $this->timeoutInMinutes;
         }
 
         return $res;
@@ -127,33 +127,22 @@ class UpdateStackInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['StackGroupName'])) {
-            $model->stackGroupName = $map['StackGroupName'];
-        }
         if (isset($map['AccountIds'])) {
             if (!empty($map['AccountIds'])) {
                 $model->accountIds = $map['AccountIds'];
             }
         }
-        if (isset($map['RegionIds'])) {
-            if (!empty($map['RegionIds'])) {
-                $model->regionIds = $map['RegionIds'];
-            }
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DeploymentTargets'])) {
+            $model->deploymentTargets = deploymentTargets::fromMap($map['DeploymentTargets']);
         }
         if (isset($map['OperationDescription'])) {
             $model->operationDescription = $map['OperationDescription'];
         }
         if (isset($map['OperationPreferences'])) {
             $model->operationPreferences = $map['OperationPreferences'];
-        }
-        if (isset($map['TimeoutInMinutes'])) {
-            $model->timeoutInMinutes = $map['TimeoutInMinutes'];
         }
         if (isset($map['ParameterOverrides'])) {
             if (!empty($map['ParameterOverrides'])) {
@@ -164,8 +153,19 @@ class UpdateStackInstancesRequest extends Model
                 }
             }
         }
-        if (isset($map['DeploymentTargets'])) {
-            $model->deploymentTargets = deploymentTargets::fromMap($map['DeploymentTargets']);
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RegionIds'])) {
+            if (!empty($map['RegionIds'])) {
+                $model->regionIds = $map['RegionIds'];
+            }
+        }
+        if (isset($map['StackGroupName'])) {
+            $model->stackGroupName = $map['StackGroupName'];
+        }
+        if (isset($map['TimeoutInMinutes'])) {
+            $model->timeoutInMinutes = $map['TimeoutInMinutes'];
         }
 
         return $model;

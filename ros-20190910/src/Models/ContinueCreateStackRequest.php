@@ -10,9 +10,34 @@ use AlibabaCloud\Tea\Model;
 class ContinueCreateStackRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
-    public $stackId;
+    public $mode;
+
+    /**
+     * @var int
+     */
+    public $parallelism;
+
+    /**
+     * @var parameters[]
+     */
+    public $parameters;
+
+    /**
+     * @var string
+     */
+    public $ramRoleName;
+
+    /**
+     * @var string[]
+     */
+    public $recreatingResources;
 
     /**
      * @var string
@@ -22,12 +47,7 @@ class ContinueCreateStackRequest extends Model
     /**
      * @var string
      */
-    public $ramRoleName;
-
-    /**
-     * @var string
-     */
-    public $mode;
+    public $stackId;
 
     /**
      * @var string
@@ -37,50 +57,30 @@ class ContinueCreateStackRequest extends Model
     /**
      * @var string
      */
-    public $templateURL;
-
-    /**
-     * @var bool
-     */
-    public $dryRun;
-
-    /**
-     * @var string
-     */
     public $templateId;
 
     /**
      * @var string
      */
+    public $templateURL;
+
+    /**
+     * @var string
+     */
     public $templateVersion;
-
-    /**
-     * @var string[]
-     */
-    public $recreatingResources;
-
-    /**
-     * @var parameters[]
-     */
-    public $parameters;
-
-    /**
-     * @var int
-     */
-    public $parallelism;
     protected $_name = [
-        'stackId'             => 'StackId',
-        'regionId'            => 'RegionId',
-        'ramRoleName'         => 'RamRoleName',
-        'mode'                => 'Mode',
-        'templateBody'        => 'TemplateBody',
-        'templateURL'         => 'TemplateURL',
         'dryRun'              => 'DryRun',
-        'templateId'          => 'TemplateId',
-        'templateVersion'     => 'TemplateVersion',
-        'recreatingResources' => 'RecreatingResources',
-        'parameters'          => 'Parameters',
+        'mode'                => 'Mode',
         'parallelism'         => 'Parallelism',
+        'parameters'          => 'Parameters',
+        'ramRoleName'         => 'RamRoleName',
+        'recreatingResources' => 'RecreatingResources',
+        'regionId'            => 'RegionId',
+        'stackId'             => 'StackId',
+        'templateBody'        => 'TemplateBody',
+        'templateId'          => 'TemplateId',
+        'templateURL'         => 'TemplateURL',
+        'templateVersion'     => 'TemplateVersion',
     ];
 
     public function validate()
@@ -90,35 +90,14 @@ class ContinueCreateStackRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->stackId) {
-            $res['StackId'] = $this->stackId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->ramRoleName) {
-            $res['RamRoleName'] = $this->ramRoleName;
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
-        if (null !== $this->templateBody) {
-            $res['TemplateBody'] = $this->templateBody;
-        }
-        if (null !== $this->templateURL) {
-            $res['TemplateURL'] = $this->templateURL;
-        }
-        if (null !== $this->dryRun) {
-            $res['DryRun'] = $this->dryRun;
-        }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
-        }
-        if (null !== $this->templateVersion) {
-            $res['TemplateVersion'] = $this->templateVersion;
-        }
-        if (null !== $this->recreatingResources) {
-            $res['RecreatingResources'] = $this->recreatingResources;
+        if (null !== $this->parallelism) {
+            $res['Parallelism'] = $this->parallelism;
         }
         if (null !== $this->parameters) {
             $res['Parameters'] = [];
@@ -129,8 +108,29 @@ class ContinueCreateStackRequest extends Model
                 }
             }
         }
-        if (null !== $this->parallelism) {
-            $res['Parallelism'] = $this->parallelism;
+        if (null !== $this->ramRoleName) {
+            $res['RamRoleName'] = $this->ramRoleName;
+        }
+        if (null !== $this->recreatingResources) {
+            $res['RecreatingResources'] = $this->recreatingResources;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->stackId) {
+            $res['StackId'] = $this->stackId;
+        }
+        if (null !== $this->templateBody) {
+            $res['TemplateBody'] = $this->templateBody;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->templateURL) {
+            $res['TemplateURL'] = $this->templateURL;
+        }
+        if (null !== $this->templateVersion) {
+            $res['TemplateVersion'] = $this->templateVersion;
         }
 
         return $res;
@@ -144,37 +144,14 @@ class ContinueCreateStackRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StackId'])) {
-            $model->stackId = $map['StackId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['RamRoleName'])) {
-            $model->ramRoleName = $map['RamRoleName'];
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
-        if (isset($map['TemplateBody'])) {
-            $model->templateBody = $map['TemplateBody'];
-        }
-        if (isset($map['TemplateURL'])) {
-            $model->templateURL = $map['TemplateURL'];
-        }
-        if (isset($map['DryRun'])) {
-            $model->dryRun = $map['DryRun'];
-        }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
-        }
-        if (isset($map['TemplateVersion'])) {
-            $model->templateVersion = $map['TemplateVersion'];
-        }
-        if (isset($map['RecreatingResources'])) {
-            if (!empty($map['RecreatingResources'])) {
-                $model->recreatingResources = $map['RecreatingResources'];
-            }
+        if (isset($map['Parallelism'])) {
+            $model->parallelism = $map['Parallelism'];
         }
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
@@ -185,8 +162,31 @@ class ContinueCreateStackRequest extends Model
                 }
             }
         }
-        if (isset($map['Parallelism'])) {
-            $model->parallelism = $map['Parallelism'];
+        if (isset($map['RamRoleName'])) {
+            $model->ramRoleName = $map['RamRoleName'];
+        }
+        if (isset($map['RecreatingResources'])) {
+            if (!empty($map['RecreatingResources'])) {
+                $model->recreatingResources = $map['RecreatingResources'];
+            }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StackId'])) {
+            $model->stackId = $map['StackId'];
+        }
+        if (isset($map['TemplateBody'])) {
+            $model->templateBody = $map['TemplateBody'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateURL'])) {
+            $model->templateURL = $map['TemplateURL'];
+        }
+        if (isset($map['TemplateVersion'])) {
+            $model->templateVersion = $map['TemplateVersion'];
         }
 
         return $model;

@@ -16,22 +16,22 @@ class DetectStackGroupDriftShrinkRequest extends Model
     /**
      * @var string
      */
+    public $operationPreferencesShrink;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
      * @var string
      */
     public $stackGroupName;
-
-    /**
-     * @var string
-     */
-    public $operationPreferencesShrink;
     protected $_name = [
         'clientToken'                => 'ClientToken',
+        'operationPreferencesShrink' => 'OperationPreferences',
         'regionId'                   => 'RegionId',
         'stackGroupName'             => 'StackGroupName',
-        'operationPreferencesShrink' => 'OperationPreferences',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class DetectStackGroupDriftShrinkRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->operationPreferencesShrink) {
+            $res['OperationPreferences'] = $this->operationPreferencesShrink;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->stackGroupName) {
             $res['StackGroupName'] = $this->stackGroupName;
-        }
-        if (null !== $this->operationPreferencesShrink) {
-            $res['OperationPreferences'] = $this->operationPreferencesShrink;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class DetectStackGroupDriftShrinkRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['OperationPreferences'])) {
+            $model->operationPreferencesShrink = $map['OperationPreferences'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['StackGroupName'])) {
             $model->stackGroupName = $map['StackGroupName'];
-        }
-        if (isset($map['OperationPreferences'])) {
-            $model->operationPreferencesShrink = $map['OperationPreferences'];
         }
 
         return $model;

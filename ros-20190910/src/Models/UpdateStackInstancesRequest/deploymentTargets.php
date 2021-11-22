@@ -11,15 +11,15 @@ class deploymentTargets extends Model
     /**
      * @var string[]
      */
-    public $rdFolderIds;
+    public $accountIds;
 
     /**
      * @var string[]
      */
-    public $accountIds;
+    public $rdFolderIds;
     protected $_name = [
-        'rdFolderIds' => 'RdFolderIds',
         'accountIds'  => 'AccountIds',
+        'rdFolderIds' => 'RdFolderIds',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class deploymentTargets extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->rdFolderIds) {
-            $res['RdFolderIds'] = $this->rdFolderIds;
-        }
         if (null !== $this->accountIds) {
             $res['AccountIds'] = $this->accountIds;
+        }
+        if (null !== $this->rdFolderIds) {
+            $res['RdFolderIds'] = $this->rdFolderIds;
         }
 
         return $res;
@@ -47,14 +47,14 @@ class deploymentTargets extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RdFolderIds'])) {
-            if (!empty($map['RdFolderIds'])) {
-                $model->rdFolderIds = $map['RdFolderIds'];
-            }
-        }
         if (isset($map['AccountIds'])) {
             if (!empty($map['AccountIds'])) {
                 $model->accountIds = $map['AccountIds'];
+            }
+        }
+        if (isset($map['RdFolderIds'])) {
+            if (!empty($map['RdFolderIds'])) {
+                $model->rdFolderIds = $map['RdFolderIds'];
             }
         }
 

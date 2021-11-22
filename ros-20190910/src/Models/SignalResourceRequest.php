@@ -11,6 +11,21 @@ class SignalResourceRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $logicalResourceId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $stackId;
 
     /**
@@ -21,29 +36,14 @@ class SignalResourceRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $uniqueId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $logicalResourceId;
     protected $_name = [
-        'stackId'           => 'StackId',
-        'status'            => 'Status',
-        'regionId'          => 'RegionId',
-        'uniqueId'          => 'UniqueId',
         'clientToken'       => 'ClientToken',
         'logicalResourceId' => 'LogicalResourceId',
+        'regionId'          => 'RegionId',
+        'stackId'           => 'StackId',
+        'status'            => 'Status',
+        'uniqueId'          => 'UniqueId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class SignalResourceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->logicalResourceId) {
+            $res['LogicalResourceId'] = $this->logicalResourceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->stackId) {
             $res['StackId'] = $this->stackId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->uniqueId) {
             $res['UniqueId'] = $this->uniqueId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->logicalResourceId) {
-            $res['LogicalResourceId'] = $this->logicalResourceId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class SignalResourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['LogicalResourceId'])) {
+            $model->logicalResourceId = $map['LogicalResourceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['StackId'])) {
             $model->stackId = $map['StackId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['UniqueId'])) {
             $model->uniqueId = $map['UniqueId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['LogicalResourceId'])) {
-            $model->logicalResourceId = $map['LogicalResourceId'];
         }
 
         return $model;

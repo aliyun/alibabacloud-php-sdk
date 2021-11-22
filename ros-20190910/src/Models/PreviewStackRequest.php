@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class PreviewStackRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var bool
      */
     public $disableRollback;
@@ -17,17 +22,12 @@ class PreviewStackRequest extends Model
     /**
      * @var int
      */
-    public $timeoutInMinutes;
+    public $parallelism;
 
     /**
-     * @var string
+     * @var parameters[]
      */
-    public $templateBody;
-
-    /**
-     * @var string
-     */
-    public $stackPolicyURL;
+    public $parameters;
 
     /**
      * @var string
@@ -37,22 +37,22 @@ class PreviewStackRequest extends Model
     /**
      * @var string
      */
-    public $stackPolicyBody;
-
-    /**
-     * @var string
-     */
     public $stackName;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $stackPolicyBody;
 
     /**
      * @var string
      */
-    public $templateURL;
+    public $stackPolicyURL;
+
+    /**
+     * @var string
+     */
+    public $templateBody;
 
     /**
      * @var string
@@ -62,31 +62,31 @@ class PreviewStackRequest extends Model
     /**
      * @var string
      */
-    public $templateVersion;
+    public $templateURL;
 
     /**
-     * @var parameters[]
+     * @var string
      */
-    public $parameters;
+    public $templateVersion;
 
     /**
      * @var int
      */
-    public $parallelism;
+    public $timeoutInMinutes;
     protected $_name = [
-        'disableRollback'  => 'DisableRollback',
-        'timeoutInMinutes' => 'TimeoutInMinutes',
-        'templateBody'     => 'TemplateBody',
-        'stackPolicyURL'   => 'StackPolicyURL',
-        'regionId'         => 'RegionId',
-        'stackPolicyBody'  => 'StackPolicyBody',
-        'stackName'        => 'StackName',
         'clientToken'      => 'ClientToken',
-        'templateURL'      => 'TemplateURL',
-        'templateId'       => 'TemplateId',
-        'templateVersion'  => 'TemplateVersion',
-        'parameters'       => 'Parameters',
+        'disableRollback'  => 'DisableRollback',
         'parallelism'      => 'Parallelism',
+        'parameters'       => 'Parameters',
+        'regionId'         => 'RegionId',
+        'stackName'        => 'StackName',
+        'stackPolicyBody'  => 'StackPolicyBody',
+        'stackPolicyURL'   => 'StackPolicyURL',
+        'templateBody'     => 'TemplateBody',
+        'templateId'       => 'TemplateId',
+        'templateURL'      => 'TemplateURL',
+        'templateVersion'  => 'TemplateVersion',
+        'timeoutInMinutes' => 'TimeoutInMinutes',
     ];
 
     public function validate()
@@ -96,38 +96,14 @@ class PreviewStackRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->disableRollback) {
-            $res['DisableRollback'] = $this->disableRollback;
-        }
-        if (null !== $this->timeoutInMinutes) {
-            $res['TimeoutInMinutes'] = $this->timeoutInMinutes;
-        }
-        if (null !== $this->templateBody) {
-            $res['TemplateBody'] = $this->templateBody;
-        }
-        if (null !== $this->stackPolicyURL) {
-            $res['StackPolicyURL'] = $this->stackPolicyURL;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->stackPolicyBody) {
-            $res['StackPolicyBody'] = $this->stackPolicyBody;
-        }
-        if (null !== $this->stackName) {
-            $res['StackName'] = $this->stackName;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->templateURL) {
-            $res['TemplateURL'] = $this->templateURL;
+        if (null !== $this->disableRollback) {
+            $res['DisableRollback'] = $this->disableRollback;
         }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
-        }
-        if (null !== $this->templateVersion) {
-            $res['TemplateVersion'] = $this->templateVersion;
+        if (null !== $this->parallelism) {
+            $res['Parallelism'] = $this->parallelism;
         }
         if (null !== $this->parameters) {
             $res['Parameters'] = [];
@@ -138,8 +114,32 @@ class PreviewStackRequest extends Model
                 }
             }
         }
-        if (null !== $this->parallelism) {
-            $res['Parallelism'] = $this->parallelism;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->stackName) {
+            $res['StackName'] = $this->stackName;
+        }
+        if (null !== $this->stackPolicyBody) {
+            $res['StackPolicyBody'] = $this->stackPolicyBody;
+        }
+        if (null !== $this->stackPolicyURL) {
+            $res['StackPolicyURL'] = $this->stackPolicyURL;
+        }
+        if (null !== $this->templateBody) {
+            $res['TemplateBody'] = $this->templateBody;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->templateURL) {
+            $res['TemplateURL'] = $this->templateURL;
+        }
+        if (null !== $this->templateVersion) {
+            $res['TemplateVersion'] = $this->templateVersion;
+        }
+        if (null !== $this->timeoutInMinutes) {
+            $res['TimeoutInMinutes'] = $this->timeoutInMinutes;
         }
 
         return $res;
@@ -153,38 +153,14 @@ class PreviewStackRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DisableRollback'])) {
-            $model->disableRollback = $map['DisableRollback'];
-        }
-        if (isset($map['TimeoutInMinutes'])) {
-            $model->timeoutInMinutes = $map['TimeoutInMinutes'];
-        }
-        if (isset($map['TemplateBody'])) {
-            $model->templateBody = $map['TemplateBody'];
-        }
-        if (isset($map['StackPolicyURL'])) {
-            $model->stackPolicyURL = $map['StackPolicyURL'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['StackPolicyBody'])) {
-            $model->stackPolicyBody = $map['StackPolicyBody'];
-        }
-        if (isset($map['StackName'])) {
-            $model->stackName = $map['StackName'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['TemplateURL'])) {
-            $model->templateURL = $map['TemplateURL'];
+        if (isset($map['DisableRollback'])) {
+            $model->disableRollback = $map['DisableRollback'];
         }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
-        }
-        if (isset($map['TemplateVersion'])) {
-            $model->templateVersion = $map['TemplateVersion'];
+        if (isset($map['Parallelism'])) {
+            $model->parallelism = $map['Parallelism'];
         }
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
@@ -195,8 +171,32 @@ class PreviewStackRequest extends Model
                 }
             }
         }
-        if (isset($map['Parallelism'])) {
-            $model->parallelism = $map['Parallelism'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StackName'])) {
+            $model->stackName = $map['StackName'];
+        }
+        if (isset($map['StackPolicyBody'])) {
+            $model->stackPolicyBody = $map['StackPolicyBody'];
+        }
+        if (isset($map['StackPolicyURL'])) {
+            $model->stackPolicyURL = $map['StackPolicyURL'];
+        }
+        if (isset($map['TemplateBody'])) {
+            $model->templateBody = $map['TemplateBody'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateURL'])) {
+            $model->templateURL = $map['TemplateURL'];
+        }
+        if (isset($map['TemplateVersion'])) {
+            $model->templateVersion = $map['TemplateVersion'];
+        }
+        if (isset($map['TimeoutInMinutes'])) {
+            $model->timeoutInMinutes = $map['TimeoutInMinutes'];
         }
 
         return $model;

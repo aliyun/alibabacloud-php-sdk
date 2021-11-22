@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class resourceIdentifierSummaries extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $resourceType;
+    public $logicalResourceIds;
 
     /**
      * @var string[]
@@ -19,13 +19,13 @@ class resourceIdentifierSummaries extends Model
     public $resourceIdentifiers;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $logicalResourceIds;
+    public $resourceType;
     protected $_name = [
-        'resourceType'        => 'ResourceType',
-        'resourceIdentifiers' => 'ResourceIdentifiers',
         'logicalResourceIds'  => 'LogicalResourceIds',
+        'resourceIdentifiers' => 'ResourceIdentifiers',
+        'resourceType'        => 'ResourceType',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class resourceIdentifierSummaries extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
+        if (null !== $this->logicalResourceIds) {
+            $res['LogicalResourceIds'] = $this->logicalResourceIds;
         }
         if (null !== $this->resourceIdentifiers) {
             $res['ResourceIdentifiers'] = $this->resourceIdentifiers;
         }
-        if (null !== $this->logicalResourceIds) {
-            $res['LogicalResourceIds'] = $this->logicalResourceIds;
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -56,18 +56,18 @@ class resourceIdentifierSummaries extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
+        if (isset($map['LogicalResourceIds'])) {
+            if (!empty($map['LogicalResourceIds'])) {
+                $model->logicalResourceIds = $map['LogicalResourceIds'];
+            }
         }
         if (isset($map['ResourceIdentifiers'])) {
             if (!empty($map['ResourceIdentifiers'])) {
                 $model->resourceIdentifiers = $map['ResourceIdentifiers'];
             }
         }
-        if (isset($map['LogicalResourceIds'])) {
-            if (!empty($map['LogicalResourceIds'])) {
-                $model->logicalResourceIds = $map['LogicalResourceIds'];
-            }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;

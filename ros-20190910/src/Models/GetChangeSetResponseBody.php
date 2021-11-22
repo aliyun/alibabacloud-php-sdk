@@ -12,7 +12,7 @@ class GetChangeSetResponseBody extends Model
     /**
      * @var string
      */
-    public $status;
+    public $changeSetId;
 
     /**
      * @var string
@@ -25,14 +25,19 @@ class GetChangeSetResponseBody extends Model
     public $changeSetType;
 
     /**
-     * @var string
+     * @var mixed[][]
      */
-    public $statusReason;
+    public $changes;
 
     /**
      * @var string
      */
     public $createTime;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var bool
@@ -45,14 +50,9 @@ class GetChangeSetResponseBody extends Model
     public $executionStatus;
 
     /**
-     * @var string
+     * @var parameters[]
      */
-    public $stackName;
-
-    /**
-     * @var int
-     */
-    public $timeoutInMinutes;
+    public $parameters;
 
     /**
      * @var string
@@ -62,22 +62,27 @@ class GetChangeSetResponseBody extends Model
     /**
      * @var string
      */
-    public $stackId;
-
-    /**
-     * @var string
-     */
     public $requestId;
 
     /**
      * @var string
      */
-    public $description;
+    public $stackId;
 
     /**
      * @var string
      */
-    public $changeSetId;
+    public $stackName;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $statusReason;
 
     /**
      * @var string
@@ -85,32 +90,27 @@ class GetChangeSetResponseBody extends Model
     public $templateBody;
 
     /**
-     * @var mixed[][]
+     * @var int
      */
-    public $changes;
-
-    /**
-     * @var parameters[]
-     */
-    public $parameters;
+    public $timeoutInMinutes;
     protected $_name = [
-        'status'           => 'Status',
+        'changeSetId'      => 'ChangeSetId',
         'changeSetName'    => 'ChangeSetName',
         'changeSetType'    => 'ChangeSetType',
-        'statusReason'     => 'StatusReason',
+        'changes'          => 'Changes',
         'createTime'       => 'CreateTime',
+        'description'      => 'Description',
         'disableRollback'  => 'DisableRollback',
         'executionStatus'  => 'ExecutionStatus',
-        'stackName'        => 'StackName',
-        'timeoutInMinutes' => 'TimeoutInMinutes',
-        'regionId'         => 'RegionId',
-        'stackId'          => 'StackId',
-        'requestId'        => 'RequestId',
-        'description'      => 'Description',
-        'changeSetId'      => 'ChangeSetId',
-        'templateBody'     => 'TemplateBody',
-        'changes'          => 'Changes',
         'parameters'       => 'Parameters',
+        'regionId'         => 'RegionId',
+        'requestId'        => 'RequestId',
+        'stackId'          => 'StackId',
+        'stackName'        => 'StackName',
+        'status'           => 'Status',
+        'statusReason'     => 'StatusReason',
+        'templateBody'     => 'TemplateBody',
+        'timeoutInMinutes' => 'TimeoutInMinutes',
     ];
 
     public function validate()
@@ -120,8 +120,8 @@ class GetChangeSetResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->changeSetId) {
+            $res['ChangeSetId'] = $this->changeSetId;
         }
         if (null !== $this->changeSetName) {
             $res['ChangeSetName'] = $this->changeSetName;
@@ -129,44 +129,20 @@ class GetChangeSetResponseBody extends Model
         if (null !== $this->changeSetType) {
             $res['ChangeSetType'] = $this->changeSetType;
         }
-        if (null !== $this->statusReason) {
-            $res['StatusReason'] = $this->statusReason;
+        if (null !== $this->changes) {
+            $res['Changes'] = $this->changes;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->disableRollback) {
             $res['DisableRollback'] = $this->disableRollback;
         }
         if (null !== $this->executionStatus) {
             $res['ExecutionStatus'] = $this->executionStatus;
-        }
-        if (null !== $this->stackName) {
-            $res['StackName'] = $this->stackName;
-        }
-        if (null !== $this->timeoutInMinutes) {
-            $res['TimeoutInMinutes'] = $this->timeoutInMinutes;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->stackId) {
-            $res['StackId'] = $this->stackId;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->changeSetId) {
-            $res['ChangeSetId'] = $this->changeSetId;
-        }
-        if (null !== $this->templateBody) {
-            $res['TemplateBody'] = $this->templateBody;
-        }
-        if (null !== $this->changes) {
-            $res['Changes'] = $this->changes;
         }
         if (null !== $this->parameters) {
             $res['Parameters'] = [];
@@ -176,6 +152,30 @@ class GetChangeSetResponseBody extends Model
                     $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->stackId) {
+            $res['StackId'] = $this->stackId;
+        }
+        if (null !== $this->stackName) {
+            $res['StackName'] = $this->stackName;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->statusReason) {
+            $res['StatusReason'] = $this->statusReason;
+        }
+        if (null !== $this->templateBody) {
+            $res['TemplateBody'] = $this->templateBody;
+        }
+        if (null !== $this->timeoutInMinutes) {
+            $res['TimeoutInMinutes'] = $this->timeoutInMinutes;
         }
 
         return $res;
@@ -189,8 +189,8 @@ class GetChangeSetResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['ChangeSetId'])) {
+            $model->changeSetId = $map['ChangeSetId'];
         }
         if (isset($map['ChangeSetName'])) {
             $model->changeSetName = $map['ChangeSetName'];
@@ -198,46 +198,22 @@ class GetChangeSetResponseBody extends Model
         if (isset($map['ChangeSetType'])) {
             $model->changeSetType = $map['ChangeSetType'];
         }
-        if (isset($map['StatusReason'])) {
-            $model->statusReason = $map['StatusReason'];
+        if (isset($map['Changes'])) {
+            if (!empty($map['Changes'])) {
+                $model->changes = $map['Changes'];
+            }
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['DisableRollback'])) {
             $model->disableRollback = $map['DisableRollback'];
         }
         if (isset($map['ExecutionStatus'])) {
             $model->executionStatus = $map['ExecutionStatus'];
-        }
-        if (isset($map['StackName'])) {
-            $model->stackName = $map['StackName'];
-        }
-        if (isset($map['TimeoutInMinutes'])) {
-            $model->timeoutInMinutes = $map['TimeoutInMinutes'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['StackId'])) {
-            $model->stackId = $map['StackId'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['ChangeSetId'])) {
-            $model->changeSetId = $map['ChangeSetId'];
-        }
-        if (isset($map['TemplateBody'])) {
-            $model->templateBody = $map['TemplateBody'];
-        }
-        if (isset($map['Changes'])) {
-            if (!empty($map['Changes'])) {
-                $model->changes = $map['Changes'];
-            }
         }
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
@@ -247,6 +223,30 @@ class GetChangeSetResponseBody extends Model
                     $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['StackId'])) {
+            $model->stackId = $map['StackId'];
+        }
+        if (isset($map['StackName'])) {
+            $model->stackName = $map['StackName'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['StatusReason'])) {
+            $model->statusReason = $map['StatusReason'];
+        }
+        if (isset($map['TemplateBody'])) {
+            $model->templateBody = $map['TemplateBody'];
+        }
+        if (isset($map['TimeoutInMinutes'])) {
+            $model->timeoutInMinutes = $map['TimeoutInMinutes'];
         }
 
         return $model;

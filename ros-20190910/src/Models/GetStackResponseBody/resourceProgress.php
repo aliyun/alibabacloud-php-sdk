@@ -12,7 +12,22 @@ class resourceProgress extends Model
     /**
      * @var int
      */
-    public $totalResourceCount;
+    public $failedResourceCount;
+
+    /**
+     * @var int
+     */
+    public $inProgressResourceCount;
+
+    /**
+     * @var inProgressResourceDetails[]
+     */
+    public $inProgressResourceDetails;
+
+    /**
+     * @var int
+     */
+    public $pendingResourceCount;
 
     /**
      * @var int
@@ -22,29 +37,14 @@ class resourceProgress extends Model
     /**
      * @var int
      */
-    public $failedResourceCount;
-
-    /**
-     * @var int
-     */
-    public $inProgressResourceCount;
-
-    /**
-     * @var int
-     */
-    public $pendingResourceCount;
-
-    /**
-     * @var inProgressResourceDetails[]
-     */
-    public $inProgressResourceDetails;
+    public $totalResourceCount;
     protected $_name = [
-        'totalResourceCount'        => 'TotalResourceCount',
-        'successResourceCount'      => 'SuccessResourceCount',
         'failedResourceCount'       => 'FailedResourceCount',
         'inProgressResourceCount'   => 'InProgressResourceCount',
-        'pendingResourceCount'      => 'PendingResourceCount',
         'inProgressResourceDetails' => 'InProgressResourceDetails',
+        'pendingResourceCount'      => 'PendingResourceCount',
+        'successResourceCount'      => 'SuccessResourceCount',
+        'totalResourceCount'        => 'TotalResourceCount',
     ];
 
     public function validate()
@@ -54,20 +54,11 @@ class resourceProgress extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalResourceCount) {
-            $res['TotalResourceCount'] = $this->totalResourceCount;
-        }
-        if (null !== $this->successResourceCount) {
-            $res['SuccessResourceCount'] = $this->successResourceCount;
-        }
         if (null !== $this->failedResourceCount) {
             $res['FailedResourceCount'] = $this->failedResourceCount;
         }
         if (null !== $this->inProgressResourceCount) {
             $res['InProgressResourceCount'] = $this->inProgressResourceCount;
-        }
-        if (null !== $this->pendingResourceCount) {
-            $res['PendingResourceCount'] = $this->pendingResourceCount;
         }
         if (null !== $this->inProgressResourceDetails) {
             $res['InProgressResourceDetails'] = [];
@@ -77,6 +68,15 @@ class resourceProgress extends Model
                     $res['InProgressResourceDetails'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pendingResourceCount) {
+            $res['PendingResourceCount'] = $this->pendingResourceCount;
+        }
+        if (null !== $this->successResourceCount) {
+            $res['SuccessResourceCount'] = $this->successResourceCount;
+        }
+        if (null !== $this->totalResourceCount) {
+            $res['TotalResourceCount'] = $this->totalResourceCount;
         }
 
         return $res;
@@ -90,20 +90,11 @@ class resourceProgress extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalResourceCount'])) {
-            $model->totalResourceCount = $map['TotalResourceCount'];
-        }
-        if (isset($map['SuccessResourceCount'])) {
-            $model->successResourceCount = $map['SuccessResourceCount'];
-        }
         if (isset($map['FailedResourceCount'])) {
             $model->failedResourceCount = $map['FailedResourceCount'];
         }
         if (isset($map['InProgressResourceCount'])) {
             $model->inProgressResourceCount = $map['InProgressResourceCount'];
-        }
-        if (isset($map['PendingResourceCount'])) {
-            $model->pendingResourceCount = $map['PendingResourceCount'];
         }
         if (isset($map['InProgressResourceDetails'])) {
             if (!empty($map['InProgressResourceDetails'])) {
@@ -113,6 +104,15 @@ class resourceProgress extends Model
                     $model->inProgressResourceDetails[$n++] = null !== $item ? inProgressResourceDetails::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PendingResourceCount'])) {
+            $model->pendingResourceCount = $map['PendingResourceCount'];
+        }
+        if (isset($map['SuccessResourceCount'])) {
+            $model->successResourceCount = $map['SuccessResourceCount'];
+        }
+        if (isset($map['TotalResourceCount'])) {
+            $model->totalResourceCount = $map['TotalResourceCount'];
         }
 
         return $model;

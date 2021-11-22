@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class policy extends Model
 {
     /**
-     * @var string
-     */
-    public $version;
-
-    /**
      * @var statement[]
      */
     public $statement;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'version'   => 'Version',
         'statement' => 'Statement',
+        'version'   => 'Version',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class policy extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
         if (null !== $this->statement) {
             $res['Statement'] = [];
             if (null !== $this->statement && \is_array($this->statement)) {
@@ -41,6 +38,9 @@ class policy extends Model
                     $res['Statement'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class policy extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
         if (isset($map['Statement'])) {
             if (!empty($map['Statement'])) {
                 $model->statement = [];
@@ -65,6 +62,9 @@ class policy extends Model
                     $model->statement[$n++] = null !== $item ? statement::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

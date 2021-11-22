@@ -11,12 +11,12 @@ class ListStackGroupOperationResultsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $operationId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $operationId;
+    public $pageNumber;
 
     /**
      * @var int
@@ -24,14 +24,14 @@ class ListStackGroupOperationResultsRequest extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageNumber;
+    public $regionId;
     protected $_name = [
-        'regionId'    => 'RegionId',
         'operationId' => 'OperationId',
-        'pageSize'    => 'PageSize',
         'pageNumber'  => 'PageNumber',
+        'pageSize'    => 'PageSize',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ListStackGroupOperationResultsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->operationId) {
             $res['OperationId'] = $this->operationId;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ListStackGroupOperationResultsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['OperationId'])) {
             $model->operationId = $map['OperationId'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

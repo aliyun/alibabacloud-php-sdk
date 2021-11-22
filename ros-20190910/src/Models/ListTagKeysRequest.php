@@ -11,21 +11,21 @@ class ListTagKeysRequest extends Model
     /**
      * @var string
      */
+    public $nextToken;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
      * @var string
      */
     public $resourceType;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
     protected $_name = [
+        'nextToken'    => 'NextToken',
         'regionId'     => 'RegionId',
         'resourceType' => 'ResourceType',
-        'nextToken'    => 'NextToken',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ListTagKeysRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ListTagKeysRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
         }
 
         return $model;

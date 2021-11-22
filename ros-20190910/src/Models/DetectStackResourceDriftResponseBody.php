@@ -12,12 +12,27 @@ class DetectStackResourceDriftResponseBody extends Model
     /**
      * @var string
      */
+    public $actualProperties;
+
+    /**
+     * @var string
+     */
+    public $driftDetectionTime;
+
+    /**
+     * @var string
+     */
+    public $expectedProperties;
+
+    /**
+     * @var string
+     */
     public $logicalResourceId;
 
     /**
      * @var string
      */
-    public $resourceDriftStatus;
+    public $physicalResourceId;
 
     /**
      * @var propertyDifferences[]
@@ -32,17 +47,7 @@ class DetectStackResourceDriftResponseBody extends Model
     /**
      * @var string
      */
-    public $physicalResourceId;
-
-    /**
-     * @var string
-     */
-    public $expectedProperties;
-
-    /**
-     * @var string
-     */
-    public $driftDetectionTime;
+    public $resourceDriftStatus;
 
     /**
      * @var string
@@ -52,22 +57,17 @@ class DetectStackResourceDriftResponseBody extends Model
     /**
      * @var string
      */
-    public $actualProperties;
-
-    /**
-     * @var string
-     */
     public $stackId;
     protected $_name = [
+        'actualProperties'    => 'ActualProperties',
+        'driftDetectionTime'  => 'DriftDetectionTime',
+        'expectedProperties'  => 'ExpectedProperties',
         'logicalResourceId'   => 'LogicalResourceId',
-        'resourceDriftStatus' => 'ResourceDriftStatus',
+        'physicalResourceId'  => 'PhysicalResourceId',
         'propertyDifferences' => 'PropertyDifferences',
         'requestId'           => 'RequestId',
-        'physicalResourceId'  => 'PhysicalResourceId',
-        'expectedProperties'  => 'ExpectedProperties',
-        'driftDetectionTime'  => 'DriftDetectionTime',
+        'resourceDriftStatus' => 'ResourceDriftStatus',
         'resourceType'        => 'ResourceType',
-        'actualProperties'    => 'ActualProperties',
         'stackId'             => 'StackId',
     ];
 
@@ -78,11 +78,20 @@ class DetectStackResourceDriftResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->actualProperties) {
+            $res['ActualProperties'] = $this->actualProperties;
+        }
+        if (null !== $this->driftDetectionTime) {
+            $res['DriftDetectionTime'] = $this->driftDetectionTime;
+        }
+        if (null !== $this->expectedProperties) {
+            $res['ExpectedProperties'] = $this->expectedProperties;
+        }
         if (null !== $this->logicalResourceId) {
             $res['LogicalResourceId'] = $this->logicalResourceId;
         }
-        if (null !== $this->resourceDriftStatus) {
-            $res['ResourceDriftStatus'] = $this->resourceDriftStatus;
+        if (null !== $this->physicalResourceId) {
+            $res['PhysicalResourceId'] = $this->physicalResourceId;
         }
         if (null !== $this->propertyDifferences) {
             $res['PropertyDifferences'] = [];
@@ -96,20 +105,11 @@ class DetectStackResourceDriftResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->physicalResourceId) {
-            $res['PhysicalResourceId'] = $this->physicalResourceId;
-        }
-        if (null !== $this->expectedProperties) {
-            $res['ExpectedProperties'] = $this->expectedProperties;
-        }
-        if (null !== $this->driftDetectionTime) {
-            $res['DriftDetectionTime'] = $this->driftDetectionTime;
+        if (null !== $this->resourceDriftStatus) {
+            $res['ResourceDriftStatus'] = $this->resourceDriftStatus;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->actualProperties) {
-            $res['ActualProperties'] = $this->actualProperties;
         }
         if (null !== $this->stackId) {
             $res['StackId'] = $this->stackId;
@@ -126,11 +126,20 @@ class DetectStackResourceDriftResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ActualProperties'])) {
+            $model->actualProperties = $map['ActualProperties'];
+        }
+        if (isset($map['DriftDetectionTime'])) {
+            $model->driftDetectionTime = $map['DriftDetectionTime'];
+        }
+        if (isset($map['ExpectedProperties'])) {
+            $model->expectedProperties = $map['ExpectedProperties'];
+        }
         if (isset($map['LogicalResourceId'])) {
             $model->logicalResourceId = $map['LogicalResourceId'];
         }
-        if (isset($map['ResourceDriftStatus'])) {
-            $model->resourceDriftStatus = $map['ResourceDriftStatus'];
+        if (isset($map['PhysicalResourceId'])) {
+            $model->physicalResourceId = $map['PhysicalResourceId'];
         }
         if (isset($map['PropertyDifferences'])) {
             if (!empty($map['PropertyDifferences'])) {
@@ -144,20 +153,11 @@ class DetectStackResourceDriftResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PhysicalResourceId'])) {
-            $model->physicalResourceId = $map['PhysicalResourceId'];
-        }
-        if (isset($map['ExpectedProperties'])) {
-            $model->expectedProperties = $map['ExpectedProperties'];
-        }
-        if (isset($map['DriftDetectionTime'])) {
-            $model->driftDetectionTime = $map['DriftDetectionTime'];
+        if (isset($map['ResourceDriftStatus'])) {
+            $model->resourceDriftStatus = $map['ResourceDriftStatus'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['ActualProperties'])) {
-            $model->actualProperties = $map['ActualProperties'];
         }
         if (isset($map['StackId'])) {
             $model->stackId = $map['StackId'];

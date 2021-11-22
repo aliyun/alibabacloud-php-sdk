@@ -11,15 +11,15 @@ class GetStackGroupOperationRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $operationId;
 
     /**
      * @var string
      */
-    public $operationId;
+    public $regionId;
     protected $_name = [
-        'regionId'    => 'RegionId',
         'operationId' => 'OperationId',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetStackGroupOperationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->operationId) {
             $res['OperationId'] = $this->operationId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetStackGroupOperationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['OperationId'])) {
             $model->operationId = $map['OperationId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

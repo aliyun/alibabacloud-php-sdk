@@ -12,17 +12,7 @@ class GetTemplateResponseBody extends Model
     /**
      * @var string
      */
-    public $templateARN;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $changeSetId;
 
     /**
      * @var string
@@ -32,32 +22,12 @@ class GetTemplateResponseBody extends Model
     /**
      * @var string
      */
-    public $stackGroupName;
-
-    /**
-     * @var string
-     */
-    public $templateVersion;
-
-    /**
-     * @var string
-     */
-    public $templateBody;
-
-    /**
-     * @var string
-     */
-    public $changeSetId;
+    public $description;
 
     /**
      * @var string
      */
     public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $updateTime;
 
     /**
      * @var permissions[]
@@ -67,22 +37,17 @@ class GetTemplateResponseBody extends Model
     /**
      * @var string
      */
-    public $templateName;
-
-    /**
-     * @var string
-     */
     public $regionId;
 
     /**
      * @var string
      */
-    public $templateId;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $stackId;
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -92,25 +57,60 @@ class GetTemplateResponseBody extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $stackGroupName;
+
+    /**
+     * @var string
+     */
+    public $stackId;
+
+    /**
+     * @var string
+     */
+    public $templateARN;
+
+    /**
+     * @var string
+     */
+    public $templateBody;
+
+    /**
+     * @var string
+     */
+    public $templateId;
+
+    /**
+     * @var string
+     */
+    public $templateName;
+
+    /**
+     * @var string
+     */
+    public $templateVersion;
+
+    /**
+     * @var string
+     */
+    public $updateTime;
     protected $_name = [
-        'templateARN'     => 'TemplateARN',
-        'description'     => 'Description',
-        'requestId'       => 'RequestId',
-        'createTime'      => 'CreateTime',
-        'stackGroupName'  => 'StackGroupName',
-        'templateVersion' => 'TemplateVersion',
-        'templateBody'    => 'TemplateBody',
         'changeSetId'     => 'ChangeSetId',
+        'createTime'      => 'CreateTime',
+        'description'     => 'Description',
         'ownerId'         => 'OwnerId',
-        'updateTime'      => 'UpdateTime',
         'permissions'     => 'Permissions',
-        'templateName'    => 'TemplateName',
         'regionId'        => 'RegionId',
-        'templateId'      => 'TemplateId',
-        'stackId'         => 'StackId',
-        'shareType'       => 'ShareType',
+        'requestId'       => 'RequestId',
         'resourceGroupId' => 'ResourceGroupId',
+        'shareType'       => 'ShareType',
+        'stackGroupName'  => 'StackGroupName',
+        'stackId'         => 'StackId',
+        'templateARN'     => 'TemplateARN',
+        'templateBody'    => 'TemplateBody',
+        'templateId'      => 'TemplateId',
+        'templateName'    => 'TemplateName',
+        'templateVersion' => 'TemplateVersion',
+        'updateTime'      => 'UpdateTime',
     ];
 
     public function validate()
@@ -120,35 +120,17 @@ class GetTemplateResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateARN) {
-            $res['TemplateARN'] = $this->templateARN;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->changeSetId) {
+            $res['ChangeSetId'] = $this->changeSetId;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->stackGroupName) {
-            $res['StackGroupName'] = $this->stackGroupName;
-        }
-        if (null !== $this->templateVersion) {
-            $res['TemplateVersion'] = $this->templateVersion;
-        }
-        if (null !== $this->templateBody) {
-            $res['TemplateBody'] = $this->templateBody;
-        }
-        if (null !== $this->changeSetId) {
-            $res['ChangeSetId'] = $this->changeSetId;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
         }
         if (null !== $this->permissions) {
             $res['Permissions'] = [];
@@ -159,23 +141,41 @@ class GetTemplateResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->templateName) {
-            $res['TemplateName'] = $this->templateName;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->stackId) {
-            $res['StackId'] = $this->stackId;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->shareType) {
             $res['ShareType'] = $this->shareType;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->stackGroupName) {
+            $res['StackGroupName'] = $this->stackGroupName;
+        }
+        if (null !== $this->stackId) {
+            $res['StackId'] = $this->stackId;
+        }
+        if (null !== $this->templateARN) {
+            $res['TemplateARN'] = $this->templateARN;
+        }
+        if (null !== $this->templateBody) {
+            $res['TemplateBody'] = $this->templateBody;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
+        }
+        if (null !== $this->templateVersion) {
+            $res['TemplateVersion'] = $this->templateVersion;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -189,35 +189,17 @@ class GetTemplateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateARN'])) {
-            $model->templateARN = $map['TemplateARN'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ChangeSetId'])) {
+            $model->changeSetId = $map['ChangeSetId'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['StackGroupName'])) {
-            $model->stackGroupName = $map['StackGroupName'];
-        }
-        if (isset($map['TemplateVersion'])) {
-            $model->templateVersion = $map['TemplateVersion'];
-        }
-        if (isset($map['TemplateBody'])) {
-            $model->templateBody = $map['TemplateBody'];
-        }
-        if (isset($map['ChangeSetId'])) {
-            $model->changeSetId = $map['ChangeSetId'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
         }
         if (isset($map['Permissions'])) {
             if (!empty($map['Permissions'])) {
@@ -228,23 +210,41 @@ class GetTemplateResponseBody extends Model
                 }
             }
         }
-        if (isset($map['TemplateName'])) {
-            $model->templateName = $map['TemplateName'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['StackId'])) {
-            $model->stackId = $map['StackId'];
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ShareType'])) {
             $model->shareType = $map['ShareType'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['StackGroupName'])) {
+            $model->stackGroupName = $map['StackGroupName'];
+        }
+        if (isset($map['StackId'])) {
+            $model->stackId = $map['StackId'];
+        }
+        if (isset($map['TemplateARN'])) {
+            $model->templateARN = $map['TemplateARN'];
+        }
+        if (isset($map['TemplateBody'])) {
+            $model->templateBody = $map['TemplateBody'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
+        }
+        if (isset($map['TemplateVersion'])) {
+            $model->templateVersion = $map['TemplateVersion'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

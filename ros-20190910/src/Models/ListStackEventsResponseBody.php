@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListStackEventsResponseBody extends Model
 {
     /**
+     * @var events[]
+     */
+    public $events;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -28,17 +33,12 @@ class ListStackEventsResponseBody extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var events[]
-     */
-    public $events;
     protected $_name = [
+        'events'     => 'Events',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
         'totalCount' => 'TotalCount',
-        'events'     => 'Events',
     ];
 
     public function validate()
@@ -48,6 +48,15 @@ class ListStackEventsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->events) {
+            $res['Events'] = [];
+            if (null !== $this->events && \is_array($this->events)) {
+                $n = 0;
+                foreach ($this->events as $item) {
+                    $res['Events'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -59,15 +68,6 @@ class ListStackEventsResponseBody extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->events) {
-            $res['Events'] = [];
-            if (null !== $this->events && \is_array($this->events)) {
-                $n = 0;
-                foreach ($this->events as $item) {
-                    $res['Events'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -81,6 +81,15 @@ class ListStackEventsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Events'])) {
+            if (!empty($map['Events'])) {
+                $model->events = [];
+                $n             = 0;
+                foreach ($map['Events'] as $item) {
+                    $model->events[$n++] = null !== $item ? events::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -92,15 +101,6 @@ class ListStackEventsResponseBody extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['Events'])) {
-            if (!empty($map['Events'])) {
-                $model->events = [];
-                $n             = 0;
-                foreach ($map['Events'] as $item) {
-                    $model->events[$n++] = null !== $item ? events::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

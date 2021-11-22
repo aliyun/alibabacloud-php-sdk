@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetStackPolicyResponseBody extends Model
 {
     /**
-     * @var mixed[]
-     */
-    public $stackPolicyBody;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var mixed[]
+     */
+    public $stackPolicyBody;
     protected $_name = [
-        'stackPolicyBody' => 'StackPolicyBody',
         'requestId'       => 'RequestId',
+        'stackPolicyBody' => 'StackPolicyBody',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetStackPolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->stackPolicyBody) {
-            $res['StackPolicyBody'] = $this->stackPolicyBody;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->stackPolicyBody) {
+            $res['StackPolicyBody'] = $this->stackPolicyBody;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetStackPolicyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StackPolicyBody'])) {
-            $model->stackPolicyBody = $map['StackPolicyBody'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['StackPolicyBody'])) {
+            $model->stackPolicyBody = $map['StackPolicyBody'];
         }
 
         return $model;

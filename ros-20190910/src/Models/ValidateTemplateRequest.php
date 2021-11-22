@@ -11,7 +11,7 @@ class ValidateTemplateRequest extends Model
     /**
      * @var string
      */
-    public $templateURL;
+    public $clientToken;
 
     /**
      * @var string
@@ -26,17 +26,17 @@ class ValidateTemplateRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $templateURL;
 
     /**
      * @var string
      */
     public $validationOption;
     protected $_name = [
-        'templateURL'      => 'TemplateURL',
+        'clientToken'      => 'ClientToken',
         'regionId'         => 'RegionId',
         'templateBody'     => 'TemplateBody',
-        'clientToken'      => 'ClientToken',
+        'templateURL'      => 'TemplateURL',
         'validationOption' => 'ValidationOption',
     ];
 
@@ -47,8 +47,8 @@ class ValidateTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateURL) {
-            $res['TemplateURL'] = $this->templateURL;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -56,8 +56,8 @@ class ValidateTemplateRequest extends Model
         if (null !== $this->templateBody) {
             $res['TemplateBody'] = $this->templateBody;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->templateURL) {
+            $res['TemplateURL'] = $this->templateURL;
         }
         if (null !== $this->validationOption) {
             $res['ValidationOption'] = $this->validationOption;
@@ -74,8 +74,8 @@ class ValidateTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateURL'])) {
-            $model->templateURL = $map['TemplateURL'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
@@ -83,8 +83,8 @@ class ValidateTemplateRequest extends Model
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['TemplateURL'])) {
+            $model->templateURL = $map['TemplateURL'];
         }
         if (isset($map['ValidationOption'])) {
             $model->validationOption = $map['ValidationOption'];

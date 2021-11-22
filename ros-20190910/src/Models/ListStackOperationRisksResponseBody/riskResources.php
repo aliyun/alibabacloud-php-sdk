@@ -11,12 +11,27 @@ class riskResources extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var string
+     */
     public $logicalResourceId;
 
     /**
      * @var string
      */
+    public $message;
+
+    /**
+     * @var string
+     */
     public $physicalResourceId;
+
+    /**
+     * @var string
+     */
+    public $reason;
 
     /**
      * @var string
@@ -31,31 +46,16 @@ class riskResources extends Model
     /**
      * @var string
      */
-    public $code;
-
-    /**
-     * @var string
-     */
-    public $message;
-
-    /**
-     * @var string
-     */
     public $riskType;
-
-    /**
-     * @var string
-     */
-    public $reason;
     protected $_name = [
+        'code'               => 'Code',
         'logicalResourceId'  => 'LogicalResourceId',
+        'message'            => 'Message',
         'physicalResourceId' => 'PhysicalResourceId',
+        'reason'             => 'Reason',
         'requestId'          => 'RequestId',
         'resourceType'       => 'ResourceType',
-        'code'               => 'Code',
-        'message'            => 'Message',
         'riskType'           => 'RiskType',
-        'reason'             => 'Reason',
     ];
 
     public function validate()
@@ -65,11 +65,20 @@ class riskResources extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->logicalResourceId) {
             $res['LogicalResourceId'] = $this->logicalResourceId;
         }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
         if (null !== $this->physicalResourceId) {
             $res['PhysicalResourceId'] = $this->physicalResourceId;
+        }
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -77,17 +86,8 @@ class riskResources extends Model
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
         if (null !== $this->riskType) {
             $res['RiskType'] = $this->riskType;
-        }
-        if (null !== $this->reason) {
-            $res['Reason'] = $this->reason;
         }
 
         return $res;
@@ -101,11 +101,20 @@ class riskResources extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['LogicalResourceId'])) {
             $model->logicalResourceId = $map['LogicalResourceId'];
         }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
         if (isset($map['PhysicalResourceId'])) {
             $model->physicalResourceId = $map['PhysicalResourceId'];
+        }
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
@@ -113,17 +122,8 @@ class riskResources extends Model
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
         if (isset($map['RiskType'])) {
             $model->riskType = $map['RiskType'];
-        }
-        if (isset($map['Reason'])) {
-            $model->reason = $map['Reason'];
         }
 
         return $model;

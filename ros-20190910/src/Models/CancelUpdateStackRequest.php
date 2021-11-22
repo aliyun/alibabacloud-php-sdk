@@ -11,7 +11,7 @@ class CancelUpdateStackRequest extends Model
     /**
      * @var string
      */
-    public $stackId;
+    public $cancelType;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class CancelUpdateStackRequest extends Model
     /**
      * @var string
      */
-    public $cancelType;
+    public $stackId;
     protected $_name = [
-        'stackId'    => 'StackId',
-        'regionId'   => 'RegionId',
         'cancelType' => 'CancelType',
+        'regionId'   => 'RegionId',
+        'stackId'    => 'StackId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CancelUpdateStackRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->stackId) {
-            $res['StackId'] = $this->stackId;
+        if (null !== $this->cancelType) {
+            $res['CancelType'] = $this->cancelType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->cancelType) {
-            $res['CancelType'] = $this->cancelType;
+        if (null !== $this->stackId) {
+            $res['StackId'] = $this->stackId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CancelUpdateStackRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StackId'])) {
-            $model->stackId = $map['StackId'];
+        if (isset($map['CancelType'])) {
+            $model->cancelType = $map['CancelType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['CancelType'])) {
-            $model->cancelType = $map['CancelType'];
+        if (isset($map['StackId'])) {
+            $model->stackId = $map['StackId'];
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SetTemplatePermissionRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $accountIds;
+
+    /**
      * @var string
      */
     public $shareOption;
@@ -16,7 +21,7 @@ class SetTemplatePermissionRequest extends Model
     /**
      * @var string
      */
-    public $versionOption;
+    public $templateId;
 
     /**
      * @var string
@@ -26,18 +31,13 @@ class SetTemplatePermissionRequest extends Model
     /**
      * @var string
      */
-    public $templateId;
-
-    /**
-     * @var string[]
-     */
-    public $accountIds;
+    public $versionOption;
     protected $_name = [
-        'shareOption'     => 'ShareOption',
-        'versionOption'   => 'VersionOption',
-        'templateVersion' => 'TemplateVersion',
-        'templateId'      => 'TemplateId',
         'accountIds'      => 'AccountIds',
+        'shareOption'     => 'ShareOption',
+        'templateId'      => 'TemplateId',
+        'templateVersion' => 'TemplateVersion',
+        'versionOption'   => 'VersionOption',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class SetTemplatePermissionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountIds) {
+            $res['AccountIds'] = $this->accountIds;
+        }
         if (null !== $this->shareOption) {
             $res['ShareOption'] = $this->shareOption;
-        }
-        if (null !== $this->versionOption) {
-            $res['VersionOption'] = $this->versionOption;
-        }
-        if (null !== $this->templateVersion) {
-            $res['TemplateVersion'] = $this->templateVersion;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
-        if (null !== $this->accountIds) {
-            $res['AccountIds'] = $this->accountIds;
+        if (null !== $this->templateVersion) {
+            $res['TemplateVersion'] = $this->templateVersion;
+        }
+        if (null !== $this->versionOption) {
+            $res['VersionOption'] = $this->versionOption;
         }
 
         return $res;
@@ -74,22 +74,22 @@ class SetTemplatePermissionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ShareOption'])) {
-            $model->shareOption = $map['ShareOption'];
-        }
-        if (isset($map['VersionOption'])) {
-            $model->versionOption = $map['VersionOption'];
-        }
-        if (isset($map['TemplateVersion'])) {
-            $model->templateVersion = $map['TemplateVersion'];
-        }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
-        }
         if (isset($map['AccountIds'])) {
             if (!empty($map['AccountIds'])) {
                 $model->accountIds = $map['AccountIds'];
             }
+        }
+        if (isset($map['ShareOption'])) {
+            $model->shareOption = $map['ShareOption'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateVersion'])) {
+            $model->templateVersion = $map['TemplateVersion'];
+        }
+        if (isset($map['VersionOption'])) {
+            $model->versionOption = $map['VersionOption'];
         }
 
         return $model;

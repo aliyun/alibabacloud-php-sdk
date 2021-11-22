@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetChangeSetRequest extends Model
 {
     /**
-     * @var bool
+     * @var string
      */
-    public $showTemplate;
+    public $changeSetId;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class GetChangeSetRequest extends Model
     public $regionId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $changeSetId;
+    public $showTemplate;
     protected $_name = [
-        'showTemplate' => 'ShowTemplate',
-        'regionId'     => 'RegionId',
         'changeSetId'  => 'ChangeSetId',
+        'regionId'     => 'RegionId',
+        'showTemplate' => 'ShowTemplate',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetChangeSetRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->showTemplate) {
-            $res['ShowTemplate'] = $this->showTemplate;
+        if (null !== $this->changeSetId) {
+            $res['ChangeSetId'] = $this->changeSetId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->changeSetId) {
-            $res['ChangeSetId'] = $this->changeSetId;
+        if (null !== $this->showTemplate) {
+            $res['ShowTemplate'] = $this->showTemplate;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetChangeSetRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ShowTemplate'])) {
-            $model->showTemplate = $map['ShowTemplate'];
+        if (isset($map['ChangeSetId'])) {
+            $model->changeSetId = $map['ChangeSetId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ChangeSetId'])) {
-            $model->changeSetId = $map['ChangeSetId'];
+        if (isset($map['ShowTemplate'])) {
+            $model->showTemplate = $map['ShowTemplate'];
         }
 
         return $model;

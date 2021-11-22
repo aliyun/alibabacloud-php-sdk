@@ -11,21 +11,21 @@ class ExecuteChangeSetRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $changeSetId;
 
     /**
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'    => 'RegionId',
         'changeSetId' => 'ChangeSetId',
         'clientToken' => 'ClientToken',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ExecuteChangeSetRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->changeSetId) {
             $res['ChangeSetId'] = $this->changeSetId;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ExecuteChangeSetRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ChangeSetId'])) {
             $model->changeSetId = $map['ChangeSetId'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

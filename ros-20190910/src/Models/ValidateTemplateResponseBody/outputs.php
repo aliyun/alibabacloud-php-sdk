@@ -11,15 +11,15 @@ class outputs extends Model
     /**
      * @var string
      */
-    public $outputKey;
+    public $description;
 
     /**
      * @var string
      */
-    public $description;
+    public $outputKey;
     protected $_name = [
-        'outputKey'   => 'OutputKey',
         'description' => 'Description',
+        'outputKey'   => 'OutputKey',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class outputs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->outputKey) {
-            $res['OutputKey'] = $this->outputKey;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->outputKey) {
+            $res['OutputKey'] = $this->outputKey;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class outputs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OutputKey'])) {
-            $model->outputKey = $map['OutputKey'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['OutputKey'])) {
+            $model->outputKey = $map['OutputKey'];
         }
 
         return $model;

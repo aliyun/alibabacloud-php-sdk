@@ -10,19 +10,34 @@ use AlibabaCloud\Tea\Model;
 class DeleteStackInstancesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $stackGroupName;
-
-    /**
      * @var string[]
      */
     public $accountIds;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @var deploymentTargets
+     */
+    public $deploymentTargets;
+
+    /**
+     * @var string
+     */
+    public $operationDescription;
+
+    /**
+     * @var mixed[]
+     */
+    public $operationPreferences;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string[]
@@ -37,32 +52,17 @@ class DeleteStackInstancesRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $operationDescription;
-
-    /**
-     * @var mixed[]
-     */
-    public $operationPreferences;
-
-    /**
-     * @var deploymentTargets
-     */
-    public $deploymentTargets;
+    public $stackGroupName;
     protected $_name = [
-        'regionId'             => 'RegionId',
-        'stackGroupName'       => 'StackGroupName',
         'accountIds'           => 'AccountIds',
-        'regionIds'            => 'RegionIds',
-        'retainStacks'         => 'RetainStacks',
         'clientToken'          => 'ClientToken',
+        'deploymentTargets'    => 'DeploymentTargets',
         'operationDescription' => 'OperationDescription',
         'operationPreferences' => 'OperationPreferences',
-        'deploymentTargets'    => 'DeploymentTargets',
+        'regionId'             => 'RegionId',
+        'regionIds'            => 'RegionIds',
+        'retainStacks'         => 'RetainStacks',
+        'stackGroupName'       => 'StackGroupName',
     ];
 
     public function validate()
@@ -72,23 +72,14 @@ class DeleteStackInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->stackGroupName) {
-            $res['StackGroupName'] = $this->stackGroupName;
-        }
         if (null !== $this->accountIds) {
             $res['AccountIds'] = $this->accountIds;
         }
-        if (null !== $this->regionIds) {
-            $res['RegionIds'] = $this->regionIds;
-        }
-        if (null !== $this->retainStacks) {
-            $res['RetainStacks'] = $this->retainStacks;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->deploymentTargets) {
+            $res['DeploymentTargets'] = null !== $this->deploymentTargets ? $this->deploymentTargets->toMap() : null;
         }
         if (null !== $this->operationDescription) {
             $res['OperationDescription'] = $this->operationDescription;
@@ -96,8 +87,17 @@ class DeleteStackInstancesRequest extends Model
         if (null !== $this->operationPreferences) {
             $res['OperationPreferences'] = $this->operationPreferences;
         }
-        if (null !== $this->deploymentTargets) {
-            $res['DeploymentTargets'] = null !== $this->deploymentTargets ? $this->deploymentTargets->toMap() : null;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->regionIds) {
+            $res['RegionIds'] = $this->regionIds;
+        }
+        if (null !== $this->retainStacks) {
+            $res['RetainStacks'] = $this->retainStacks;
+        }
+        if (null !== $this->stackGroupName) {
+            $res['StackGroupName'] = $this->stackGroupName;
         }
 
         return $res;
@@ -111,16 +111,25 @@ class DeleteStackInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['StackGroupName'])) {
-            $model->stackGroupName = $map['StackGroupName'];
-        }
         if (isset($map['AccountIds'])) {
             if (!empty($map['AccountIds'])) {
                 $model->accountIds = $map['AccountIds'];
             }
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DeploymentTargets'])) {
+            $model->deploymentTargets = deploymentTargets::fromMap($map['DeploymentTargets']);
+        }
+        if (isset($map['OperationDescription'])) {
+            $model->operationDescription = $map['OperationDescription'];
+        }
+        if (isset($map['OperationPreferences'])) {
+            $model->operationPreferences = $map['OperationPreferences'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RegionIds'])) {
             if (!empty($map['RegionIds'])) {
@@ -130,17 +139,8 @@ class DeleteStackInstancesRequest extends Model
         if (isset($map['RetainStacks'])) {
             $model->retainStacks = $map['RetainStacks'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['OperationDescription'])) {
-            $model->operationDescription = $map['OperationDescription'];
-        }
-        if (isset($map['OperationPreferences'])) {
-            $model->operationPreferences = $map['OperationPreferences'];
-        }
-        if (isset($map['DeploymentTargets'])) {
-            $model->deploymentTargets = deploymentTargets::fromMap($map['DeploymentTargets']);
+        if (isset($map['StackGroupName'])) {
+            $model->stackGroupName = $map['StackGroupName'];
         }
 
         return $model;

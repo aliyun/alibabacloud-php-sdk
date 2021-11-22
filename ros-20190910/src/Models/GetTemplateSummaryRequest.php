@@ -11,17 +11,27 @@ class GetTemplateSummaryRequest extends Model
     /**
      * @var string
      */
+    public $changeSetId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $stackGroupName;
+
+    /**
+     * @var string
+     */
     public $stackId;
 
     /**
      * @var string
      */
     public $templateBody;
-
-    /**
-     * @var string
-     */
-    public $regionId;
 
     /**
      * @var string
@@ -36,26 +46,16 @@ class GetTemplateSummaryRequest extends Model
     /**
      * @var string
      */
-    public $changeSetId;
-
-    /**
-     * @var string
-     */
     public $templateVersion;
-
-    /**
-     * @var string
-     */
-    public $stackGroupName;
     protected $_name = [
+        'changeSetId'     => 'ChangeSetId',
+        'regionId'        => 'RegionId',
+        'stackGroupName'  => 'StackGroupName',
         'stackId'         => 'StackId',
         'templateBody'    => 'TemplateBody',
-        'regionId'        => 'RegionId',
         'templateId'      => 'TemplateId',
         'templateURL'     => 'TemplateURL',
-        'changeSetId'     => 'ChangeSetId',
         'templateVersion' => 'TemplateVersion',
-        'stackGroupName'  => 'StackGroupName',
     ];
 
     public function validate()
@@ -65,14 +65,20 @@ class GetTemplateSummaryRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->changeSetId) {
+            $res['ChangeSetId'] = $this->changeSetId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->stackGroupName) {
+            $res['StackGroupName'] = $this->stackGroupName;
+        }
         if (null !== $this->stackId) {
             $res['StackId'] = $this->stackId;
         }
         if (null !== $this->templateBody) {
             $res['TemplateBody'] = $this->templateBody;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
@@ -80,14 +86,8 @@ class GetTemplateSummaryRequest extends Model
         if (null !== $this->templateURL) {
             $res['TemplateURL'] = $this->templateURL;
         }
-        if (null !== $this->changeSetId) {
-            $res['ChangeSetId'] = $this->changeSetId;
-        }
         if (null !== $this->templateVersion) {
             $res['TemplateVersion'] = $this->templateVersion;
-        }
-        if (null !== $this->stackGroupName) {
-            $res['StackGroupName'] = $this->stackGroupName;
         }
 
         return $res;
@@ -101,14 +101,20 @@ class GetTemplateSummaryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChangeSetId'])) {
+            $model->changeSetId = $map['ChangeSetId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StackGroupName'])) {
+            $model->stackGroupName = $map['StackGroupName'];
+        }
         if (isset($map['StackId'])) {
             $model->stackId = $map['StackId'];
         }
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
@@ -116,14 +122,8 @@ class GetTemplateSummaryRequest extends Model
         if (isset($map['TemplateURL'])) {
             $model->templateURL = $map['TemplateURL'];
         }
-        if (isset($map['ChangeSetId'])) {
-            $model->changeSetId = $map['ChangeSetId'];
-        }
         if (isset($map['TemplateVersion'])) {
             $model->templateVersion = $map['TemplateVersion'];
-        }
-        if (isset($map['StackGroupName'])) {
-            $model->stackGroupName = $map['StackGroupName'];
         }
 
         return $model;

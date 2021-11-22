@@ -22,7 +22,7 @@ class ListTemplatesRequest extends Model
     /**
      * @var string
      */
-    public $templateName;
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -37,14 +37,14 @@ class ListTemplatesRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $templateName;
     protected $_name = [
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
-        'templateName'    => 'TemplateName',
+        'resourceGroupId' => 'ResourceGroupId',
         'shareType'       => 'ShareType',
         'tag'             => 'Tag',
-        'resourceGroupId' => 'ResourceGroupId',
+        'templateName'    => 'TemplateName',
     ];
 
     public function validate()
@@ -60,8 +60,8 @@ class ListTemplatesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->templateName) {
-            $res['TemplateName'] = $this->templateName;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->shareType) {
             $res['ShareType'] = $this->shareType;
@@ -75,8 +75,8 @@ class ListTemplatesRequest extends Model
                 }
             }
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
         }
 
         return $res;
@@ -96,8 +96,8 @@ class ListTemplatesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TemplateName'])) {
-            $model->templateName = $map['TemplateName'];
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ShareType'])) {
             $model->shareType = $map['ShareType'];
@@ -111,8 +111,8 @@ class ListTemplatesRequest extends Model
                 }
             }
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class GetStackDriftDetectionStatusRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $driftDetectionId;
 
     /**
      * @var string
      */
-    public $driftDetectionId;
+    public $regionId;
     protected $_name = [
-        'regionId'         => 'RegionId',
         'driftDetectionId' => 'DriftDetectionId',
+        'regionId'         => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetStackDriftDetectionStatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->driftDetectionId) {
             $res['DriftDetectionId'] = $this->driftDetectionId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetStackDriftDetectionStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['DriftDetectionId'])) {
             $model->driftDetectionId = $map['DriftDetectionId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

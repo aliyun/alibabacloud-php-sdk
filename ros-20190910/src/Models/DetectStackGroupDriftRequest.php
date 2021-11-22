@@ -14,6 +14,11 @@ class DetectStackGroupDriftRequest extends Model
     public $clientToken;
 
     /**
+     * @var mixed[]
+     */
+    public $operationPreferences;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -22,16 +27,11 @@ class DetectStackGroupDriftRequest extends Model
      * @var string
      */
     public $stackGroupName;
-
-    /**
-     * @var mixed[]
-     */
-    public $operationPreferences;
     protected $_name = [
         'clientToken'          => 'ClientToken',
+        'operationPreferences' => 'OperationPreferences',
         'regionId'             => 'RegionId',
         'stackGroupName'       => 'StackGroupName',
-        'operationPreferences' => 'OperationPreferences',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class DetectStackGroupDriftRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->operationPreferences) {
+            $res['OperationPreferences'] = $this->operationPreferences;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->stackGroupName) {
             $res['StackGroupName'] = $this->stackGroupName;
-        }
-        if (null !== $this->operationPreferences) {
-            $res['OperationPreferences'] = $this->operationPreferences;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class DetectStackGroupDriftRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['OperationPreferences'])) {
+            $model->operationPreferences = $map['OperationPreferences'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['StackGroupName'])) {
             $model->stackGroupName = $map['StackGroupName'];
-        }
-        if (isset($map['OperationPreferences'])) {
-            $model->operationPreferences = $map['OperationPreferences'];
         }
 
         return $model;

@@ -16,16 +16,16 @@ class GetStackGroupRequest extends Model
     /**
      * @var string
      */
-    public $stackGroupName;
+    public $stackGroupId;
 
     /**
      * @var string
      */
-    public $stackGroupId;
+    public $stackGroupName;
     protected $_name = [
         'regionId'       => 'RegionId',
-        'stackGroupName' => 'StackGroupName',
         'stackGroupId'   => 'StackGroupId',
+        'stackGroupName' => 'StackGroupName',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class GetStackGroupRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->stackGroupName) {
-            $res['StackGroupName'] = $this->stackGroupName;
-        }
         if (null !== $this->stackGroupId) {
             $res['StackGroupId'] = $this->stackGroupId;
+        }
+        if (null !== $this->stackGroupName) {
+            $res['StackGroupName'] = $this->stackGroupName;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class GetStackGroupRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['StackGroupName'])) {
-            $model->stackGroupName = $map['StackGroupName'];
-        }
         if (isset($map['StackGroupId'])) {
             $model->stackGroupId = $map['StackGroupId'];
+        }
+        if (isset($map['StackGroupName'])) {
+            $model->stackGroupName = $map['StackGroupName'];
         }
 
         return $model;

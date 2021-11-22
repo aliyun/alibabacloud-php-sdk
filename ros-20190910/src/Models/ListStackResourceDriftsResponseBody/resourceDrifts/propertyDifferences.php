@@ -21,17 +21,17 @@ class propertyDifferences extends Model
     /**
      * @var string
      */
-    public $propertyPath;
+    public $expectedValue;
 
     /**
      * @var string
      */
-    public $expectedValue;
+    public $propertyPath;
     protected $_name = [
         'actualValue'    => 'ActualValue',
         'differenceType' => 'DifferenceType',
-        'propertyPath'   => 'PropertyPath',
         'expectedValue'  => 'ExpectedValue',
+        'propertyPath'   => 'PropertyPath',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class propertyDifferences extends Model
         if (null !== $this->differenceType) {
             $res['DifferenceType'] = $this->differenceType;
         }
-        if (null !== $this->propertyPath) {
-            $res['PropertyPath'] = $this->propertyPath;
-        }
         if (null !== $this->expectedValue) {
             $res['ExpectedValue'] = $this->expectedValue;
+        }
+        if (null !== $this->propertyPath) {
+            $res['PropertyPath'] = $this->propertyPath;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class propertyDifferences extends Model
         if (isset($map['DifferenceType'])) {
             $model->differenceType = $map['DifferenceType'];
         }
-        if (isset($map['PropertyPath'])) {
-            $model->propertyPath = $map['PropertyPath'];
-        }
         if (isset($map['ExpectedValue'])) {
             $model->expectedValue = $map['ExpectedValue'];
+        }
+        if (isset($map['PropertyPath'])) {
+            $model->propertyPath = $map['PropertyPath'];
         }
 
         return $model;

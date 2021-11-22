@@ -11,12 +11,12 @@ class CreateTemplateRequest extends Model
     /**
      * @var string
      */
-    public $templateURL;
+    public $description;
 
     /**
      * @var string
      */
-    public $description;
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class CreateTemplateRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $templateURL;
     protected $_name = [
-        'templateURL'     => 'TemplateURL',
         'description'     => 'Description',
+        'resourceGroupId' => 'ResourceGroupId',
         'templateBody'    => 'TemplateBody',
         'templateName'    => 'TemplateName',
-        'resourceGroupId' => 'ResourceGroupId',
+        'templateURL'     => 'TemplateURL',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class CreateTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->templateURL) {
-            $res['TemplateURL'] = $this->templateURL;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->templateBody) {
             $res['TemplateBody'] = $this->templateBody;
@@ -59,8 +59,8 @@ class CreateTemplateRequest extends Model
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->templateURL) {
+            $res['TemplateURL'] = $this->templateURL;
         }
 
         return $res;
@@ -74,11 +74,11 @@ class CreateTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TemplateURL'])) {
-            $model->templateURL = $map['TemplateURL'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];
@@ -86,8 +86,8 @@ class CreateTemplateRequest extends Model
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['TemplateURL'])) {
+            $model->templateURL = $map['TemplateURL'];
         }
 
         return $model;

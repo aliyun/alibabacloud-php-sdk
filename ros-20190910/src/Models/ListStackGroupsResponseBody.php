@@ -10,6 +10,21 @@ use AlibabaCloud\Tea\Model;
 class ListStackGroupsResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var stackGroups[]
      */
     public $stackGroups;
@@ -18,27 +33,12 @@ class ListStackGroupsResponseBody extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
     protected $_name = [
+        'pageNumber'  => 'PageNumber',
+        'pageSize'    => 'PageSize',
+        'requestId'   => 'RequestId',
         'stackGroups' => 'StackGroups',
         'totalCount'  => 'TotalCount',
-        'requestId'   => 'RequestId',
-        'pageSize'    => 'PageSize',
-        'pageNumber'  => 'PageNumber',
     ];
 
     public function validate()
@@ -48,6 +48,15 @@ class ListStackGroupsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->stackGroups) {
             $res['StackGroups'] = [];
             if (null !== $this->stackGroups && \is_array($this->stackGroups)) {
@@ -59,15 +68,6 @@ class ListStackGroupsResponseBody extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
         }
 
         return $res;
@@ -81,6 +81,15 @@ class ListStackGroupsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['StackGroups'])) {
             if (!empty($map['StackGroups'])) {
                 $model->stackGroups = [];
@@ -92,15 +101,6 @@ class ListStackGroupsResponseBody extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
         }
 
         return $model;

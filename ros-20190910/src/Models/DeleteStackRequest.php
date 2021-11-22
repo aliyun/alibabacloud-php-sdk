@@ -11,12 +11,7 @@ class DeleteStackRequest extends Model
     /**
      * @var string
      */
-    public $stackId;
-
-    /**
-     * @var bool
-     */
-    public $retainAllResources;
+    public $ramRoleName;
 
     /**
      * @var string
@@ -24,20 +19,25 @@ class DeleteStackRequest extends Model
     public $regionId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $ramRoleName;
+    public $retainAllResources;
 
     /**
      * @var string[]
      */
     public $retainResources;
+
+    /**
+     * @var string
+     */
+    public $stackId;
     protected $_name = [
-        'stackId'            => 'StackId',
-        'retainAllResources' => 'RetainAllResources',
-        'regionId'           => 'RegionId',
         'ramRoleName'        => 'RamRoleName',
+        'regionId'           => 'RegionId',
+        'retainAllResources' => 'RetainAllResources',
         'retainResources'    => 'RetainResources',
+        'stackId'            => 'StackId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DeleteStackRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->stackId) {
-            $res['StackId'] = $this->stackId;
-        }
-        if (null !== $this->retainAllResources) {
-            $res['RetainAllResources'] = $this->retainAllResources;
+        if (null !== $this->ramRoleName) {
+            $res['RamRoleName'] = $this->ramRoleName;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->ramRoleName) {
-            $res['RamRoleName'] = $this->ramRoleName;
+        if (null !== $this->retainAllResources) {
+            $res['RetainAllResources'] = $this->retainAllResources;
         }
         if (null !== $this->retainResources) {
             $res['RetainResources'] = $this->retainResources;
+        }
+        if (null !== $this->stackId) {
+            $res['StackId'] = $this->stackId;
         }
 
         return $res;
@@ -74,22 +74,22 @@ class DeleteStackRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StackId'])) {
-            $model->stackId = $map['StackId'];
-        }
-        if (isset($map['RetainAllResources'])) {
-            $model->retainAllResources = $map['RetainAllResources'];
+        if (isset($map['RamRoleName'])) {
+            $model->ramRoleName = $map['RamRoleName'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['RamRoleName'])) {
-            $model->ramRoleName = $map['RamRoleName'];
+        if (isset($map['RetainAllResources'])) {
+            $model->retainAllResources = $map['RetainAllResources'];
         }
         if (isset($map['RetainResources'])) {
             if (!empty($map['RetainResources'])) {
                 $model->retainResources = $map['RetainResources'];
             }
+        }
+        if (isset($map['StackId'])) {
+            $model->stackId = $map['StackId'];
         }
 
         return $model;

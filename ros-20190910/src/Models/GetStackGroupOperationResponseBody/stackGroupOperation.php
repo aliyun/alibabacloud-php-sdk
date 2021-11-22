@@ -14,17 +14,12 @@ class stackGroupOperation extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $stackGroupId;
-
-    /**
-     * @var string
-     */
     public $action;
+
+    /**
+     * @var string
+     */
+    public $administrationRoleName;
 
     /**
      * @var string
@@ -32,34 +27,9 @@ class stackGroupOperation extends Model
     public $createTime;
 
     /**
-     * @var bool
+     * @var deploymentTargets
      */
-    public $retainStacks;
-
-    /**
-     * @var string
-     */
-    public $stackGroupName;
-
-    /**
-     * @var string
-     */
-    public $operationId;
-
-    /**
-     * @var string
-     */
-    public $operationDescription;
-
-    /**
-     * @var stackGroupDriftDetectionDetail
-     */
-    public $stackGroupDriftDetectionDetail;
-
-    /**
-     * @var operationPreferences
-     */
-    public $operationPreferences;
+    public $deploymentTargets;
 
     /**
      * @var string
@@ -74,27 +44,57 @@ class stackGroupOperation extends Model
     /**
      * @var string
      */
-    public $administrationRoleName;
+    public $operationDescription;
 
     /**
-     * @var deploymentTargets
+     * @var string
      */
-    public $deploymentTargets;
+    public $operationId;
+
+    /**
+     * @var operationPreferences
+     */
+    public $operationPreferences;
+
+    /**
+     * @var bool
+     */
+    public $retainStacks;
+
+    /**
+     * @var stackGroupDriftDetectionDetail
+     */
+    public $stackGroupDriftDetectionDetail;
+
+    /**
+     * @var string
+     */
+    public $stackGroupId;
+
+    /**
+     * @var string
+     */
+    public $stackGroupName;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'                         => 'Status',
-        'stackGroupId'                   => 'StackGroupId',
         'action'                         => 'Action',
+        'administrationRoleName'         => 'AdministrationRoleName',
         'createTime'                     => 'CreateTime',
-        'retainStacks'                   => 'RetainStacks',
-        'stackGroupName'                 => 'StackGroupName',
-        'operationId'                    => 'OperationId',
-        'operationDescription'           => 'OperationDescription',
-        'stackGroupDriftDetectionDetail' => 'StackGroupDriftDetectionDetail',
-        'operationPreferences'           => 'OperationPreferences',
+        'deploymentTargets'              => 'DeploymentTargets',
         'endTime'                        => 'EndTime',
         'executionRoleName'              => 'ExecutionRoleName',
-        'administrationRoleName'         => 'AdministrationRoleName',
-        'deploymentTargets'              => 'DeploymentTargets',
+        'operationDescription'           => 'OperationDescription',
+        'operationId'                    => 'OperationId',
+        'operationPreferences'           => 'OperationPreferences',
+        'retainStacks'                   => 'RetainStacks',
+        'stackGroupDriftDetectionDetail' => 'StackGroupDriftDetectionDetail',
+        'stackGroupId'                   => 'StackGroupId',
+        'stackGroupName'                 => 'StackGroupName',
+        'status'                         => 'Status',
     ];
 
     public function validate()
@@ -104,35 +104,17 @@ class stackGroupOperation extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->stackGroupId) {
-            $res['StackGroupId'] = $this->stackGroupId;
-        }
         if (null !== $this->action) {
             $res['Action'] = $this->action;
+        }
+        if (null !== $this->administrationRoleName) {
+            $res['AdministrationRoleName'] = $this->administrationRoleName;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->retainStacks) {
-            $res['RetainStacks'] = $this->retainStacks;
-        }
-        if (null !== $this->stackGroupName) {
-            $res['StackGroupName'] = $this->stackGroupName;
-        }
-        if (null !== $this->operationId) {
-            $res['OperationId'] = $this->operationId;
-        }
-        if (null !== $this->operationDescription) {
-            $res['OperationDescription'] = $this->operationDescription;
-        }
-        if (null !== $this->stackGroupDriftDetectionDetail) {
-            $res['StackGroupDriftDetectionDetail'] = null !== $this->stackGroupDriftDetectionDetail ? $this->stackGroupDriftDetectionDetail->toMap() : null;
-        }
-        if (null !== $this->operationPreferences) {
-            $res['OperationPreferences'] = null !== $this->operationPreferences ? $this->operationPreferences->toMap() : null;
+        if (null !== $this->deploymentTargets) {
+            $res['DeploymentTargets'] = null !== $this->deploymentTargets ? $this->deploymentTargets->toMap() : null;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -140,11 +122,29 @@ class stackGroupOperation extends Model
         if (null !== $this->executionRoleName) {
             $res['ExecutionRoleName'] = $this->executionRoleName;
         }
-        if (null !== $this->administrationRoleName) {
-            $res['AdministrationRoleName'] = $this->administrationRoleName;
+        if (null !== $this->operationDescription) {
+            $res['OperationDescription'] = $this->operationDescription;
         }
-        if (null !== $this->deploymentTargets) {
-            $res['DeploymentTargets'] = null !== $this->deploymentTargets ? $this->deploymentTargets->toMap() : null;
+        if (null !== $this->operationId) {
+            $res['OperationId'] = $this->operationId;
+        }
+        if (null !== $this->operationPreferences) {
+            $res['OperationPreferences'] = null !== $this->operationPreferences ? $this->operationPreferences->toMap() : null;
+        }
+        if (null !== $this->retainStacks) {
+            $res['RetainStacks'] = $this->retainStacks;
+        }
+        if (null !== $this->stackGroupDriftDetectionDetail) {
+            $res['StackGroupDriftDetectionDetail'] = null !== $this->stackGroupDriftDetectionDetail ? $this->stackGroupDriftDetectionDetail->toMap() : null;
+        }
+        if (null !== $this->stackGroupId) {
+            $res['StackGroupId'] = $this->stackGroupId;
+        }
+        if (null !== $this->stackGroupName) {
+            $res['StackGroupName'] = $this->stackGroupName;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -158,35 +158,17 @@ class stackGroupOperation extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['StackGroupId'])) {
-            $model->stackGroupId = $map['StackGroupId'];
-        }
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
+        }
+        if (isset($map['AdministrationRoleName'])) {
+            $model->administrationRoleName = $map['AdministrationRoleName'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['RetainStacks'])) {
-            $model->retainStacks = $map['RetainStacks'];
-        }
-        if (isset($map['StackGroupName'])) {
-            $model->stackGroupName = $map['StackGroupName'];
-        }
-        if (isset($map['OperationId'])) {
-            $model->operationId = $map['OperationId'];
-        }
-        if (isset($map['OperationDescription'])) {
-            $model->operationDescription = $map['OperationDescription'];
-        }
-        if (isset($map['StackGroupDriftDetectionDetail'])) {
-            $model->stackGroupDriftDetectionDetail = stackGroupDriftDetectionDetail::fromMap($map['StackGroupDriftDetectionDetail']);
-        }
-        if (isset($map['OperationPreferences'])) {
-            $model->operationPreferences = operationPreferences::fromMap($map['OperationPreferences']);
+        if (isset($map['DeploymentTargets'])) {
+            $model->deploymentTargets = deploymentTargets::fromMap($map['DeploymentTargets']);
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
@@ -194,11 +176,29 @@ class stackGroupOperation extends Model
         if (isset($map['ExecutionRoleName'])) {
             $model->executionRoleName = $map['ExecutionRoleName'];
         }
-        if (isset($map['AdministrationRoleName'])) {
-            $model->administrationRoleName = $map['AdministrationRoleName'];
+        if (isset($map['OperationDescription'])) {
+            $model->operationDescription = $map['OperationDescription'];
         }
-        if (isset($map['DeploymentTargets'])) {
-            $model->deploymentTargets = deploymentTargets::fromMap($map['DeploymentTargets']);
+        if (isset($map['OperationId'])) {
+            $model->operationId = $map['OperationId'];
+        }
+        if (isset($map['OperationPreferences'])) {
+            $model->operationPreferences = operationPreferences::fromMap($map['OperationPreferences']);
+        }
+        if (isset($map['RetainStacks'])) {
+            $model->retainStacks = $map['RetainStacks'];
+        }
+        if (isset($map['StackGroupDriftDetectionDetail'])) {
+            $model->stackGroupDriftDetectionDetail = stackGroupDriftDetectionDetail::fromMap($map['StackGroupDriftDetectionDetail']);
+        }
+        if (isset($map['StackGroupId'])) {
+            $model->stackGroupId = $map['StackGroupId'];
+        }
+        if (isset($map['StackGroupName'])) {
+            $model->stackGroupName = $map['StackGroupName'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

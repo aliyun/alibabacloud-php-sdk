@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListStackGroupOperationsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -25,20 +20,25 @@ class ListStackGroupOperationsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $totalCount;
+    public $requestId;
 
     /**
      * @var stackGroupOperations[]
      */
     public $stackGroupOperations;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'requestId'            => 'RequestId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
-        'totalCount'           => 'TotalCount',
+        'requestId'            => 'RequestId',
         'stackGroupOperations' => 'StackGroupOperations',
+        'totalCount'           => 'TotalCount',
     ];
 
     public function validate()
@@ -48,17 +48,14 @@ class ListStackGroupOperationsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->stackGroupOperations) {
             $res['StackGroupOperations'] = [];
@@ -68,6 +65,9 @@ class ListStackGroupOperationsResponseBody extends Model
                     $res['StackGroupOperations'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -81,17 +81,14 @@ class ListStackGroupOperationsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['StackGroupOperations'])) {
             if (!empty($map['StackGroupOperations'])) {
@@ -101,6 +98,9 @@ class ListStackGroupOperationsResponseBody extends Model
                     $model->stackGroupOperations[$n++] = null !== $item ? stackGroupOperations::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

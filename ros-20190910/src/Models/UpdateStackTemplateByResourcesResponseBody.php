@@ -16,16 +16,16 @@ class UpdateStackTemplateByResourcesResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $oldTemplateBody;
 
     /**
      * @var string
      */
-    public $oldTemplateBody;
+    public $requestId;
     protected $_name = [
         'newTemplateBody' => 'NewTemplateBody',
-        'requestId'       => 'RequestId',
         'oldTemplateBody' => 'OldTemplateBody',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class UpdateStackTemplateByResourcesResponseBody extends Model
         if (null !== $this->newTemplateBody) {
             $res['NewTemplateBody'] = $this->newTemplateBody;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->oldTemplateBody) {
             $res['OldTemplateBody'] = $this->oldTemplateBody;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class UpdateStackTemplateByResourcesResponseBody extends Model
         if (isset($map['NewTemplateBody'])) {
             $model->newTemplateBody = $map['NewTemplateBody'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['OldTemplateBody'])) {
             $model->oldTemplateBody = $map['OldTemplateBody'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

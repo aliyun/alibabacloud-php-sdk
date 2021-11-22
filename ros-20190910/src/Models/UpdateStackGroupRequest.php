@@ -12,14 +12,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateStackGroupRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $regionId;
+    public $accountIds;
 
     /**
      * @var string
      */
-    public $stackGroupName;
+    public $administrationRoleName;
+
+    /**
+     * @var autoDeployment
+     */
+    public $autoDeployment;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @var deploymentTargets
+     */
+    public $deploymentTargets;
 
     /**
      * @var string
@@ -27,29 +42,9 @@ class UpdateStackGroupRequest extends Model
     public $description;
 
     /**
-     * @var string[]
-     */
-    public $accountIds;
-
-    /**
-     * @var string[]
-     */
-    public $regionIds;
-
-    /**
      * @var string
      */
-    public $templateBody;
-
-    /**
-     * @var string
-     */
-    public $templateURL;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
+    public $executionRoleName;
 
     /**
      * @var string
@@ -62,26 +57,6 @@ class UpdateStackGroupRequest extends Model
     public $operationPreferences;
 
     /**
-     * @var string
-     */
-    public $administrationRoleName;
-
-    /**
-     * @var string
-     */
-    public $executionRoleName;
-
-    /**
-     * @var string
-     */
-    public $templateId;
-
-    /**
-     * @var string
-     */
-    public $templateVersion;
-
-    /**
      * @var parameters[]
      */
     public $parameters;
@@ -92,33 +67,58 @@ class UpdateStackGroupRequest extends Model
     public $permissionModel;
 
     /**
-     * @var autoDeployment
+     * @var string
      */
-    public $autoDeployment;
+    public $regionId;
 
     /**
-     * @var deploymentTargets
+     * @var string[]
      */
-    public $deploymentTargets;
+    public $regionIds;
+
+    /**
+     * @var string
+     */
+    public $stackGroupName;
+
+    /**
+     * @var string
+     */
+    public $templateBody;
+
+    /**
+     * @var string
+     */
+    public $templateId;
+
+    /**
+     * @var string
+     */
+    public $templateURL;
+
+    /**
+     * @var string
+     */
+    public $templateVersion;
     protected $_name = [
-        'regionId'               => 'RegionId',
-        'stackGroupName'         => 'StackGroupName',
-        'description'            => 'Description',
         'accountIds'             => 'AccountIds',
-        'regionIds'              => 'RegionIds',
-        'templateBody'           => 'TemplateBody',
-        'templateURL'            => 'TemplateURL',
+        'administrationRoleName' => 'AdministrationRoleName',
+        'autoDeployment'         => 'AutoDeployment',
         'clientToken'            => 'ClientToken',
+        'deploymentTargets'      => 'DeploymentTargets',
+        'description'            => 'Description',
+        'executionRoleName'      => 'ExecutionRoleName',
         'operationDescription'   => 'OperationDescription',
         'operationPreferences'   => 'OperationPreferences',
-        'administrationRoleName' => 'AdministrationRoleName',
-        'executionRoleName'      => 'ExecutionRoleName',
-        'templateId'             => 'TemplateId',
-        'templateVersion'        => 'TemplateVersion',
         'parameters'             => 'Parameters',
         'permissionModel'        => 'PermissionModel',
-        'autoDeployment'         => 'AutoDeployment',
-        'deploymentTargets'      => 'DeploymentTargets',
+        'regionId'               => 'RegionId',
+        'regionIds'              => 'RegionIds',
+        'stackGroupName'         => 'StackGroupName',
+        'templateBody'           => 'TemplateBody',
+        'templateId'             => 'TemplateId',
+        'templateURL'            => 'TemplateURL',
+        'templateVersion'        => 'TemplateVersion',
     ];
 
     public function validate()
@@ -128,47 +128,32 @@ class UpdateStackGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->accountIds) {
+            $res['AccountIds'] = $this->accountIds;
         }
-        if (null !== $this->stackGroupName) {
-            $res['StackGroupName'] = $this->stackGroupName;
+        if (null !== $this->administrationRoleName) {
+            $res['AdministrationRoleName'] = $this->administrationRoleName;
+        }
+        if (null !== $this->autoDeployment) {
+            $res['AutoDeployment'] = null !== $this->autoDeployment ? $this->autoDeployment->toMap() : null;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->deploymentTargets) {
+            $res['DeploymentTargets'] = null !== $this->deploymentTargets ? $this->deploymentTargets->toMap() : null;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->accountIds) {
-            $res['AccountIds'] = $this->accountIds;
-        }
-        if (null !== $this->regionIds) {
-            $res['RegionIds'] = $this->regionIds;
-        }
-        if (null !== $this->templateBody) {
-            $res['TemplateBody'] = $this->templateBody;
-        }
-        if (null !== $this->templateURL) {
-            $res['TemplateURL'] = $this->templateURL;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->executionRoleName) {
+            $res['ExecutionRoleName'] = $this->executionRoleName;
         }
         if (null !== $this->operationDescription) {
             $res['OperationDescription'] = $this->operationDescription;
         }
         if (null !== $this->operationPreferences) {
             $res['OperationPreferences'] = $this->operationPreferences;
-        }
-        if (null !== $this->administrationRoleName) {
-            $res['AdministrationRoleName'] = $this->administrationRoleName;
-        }
-        if (null !== $this->executionRoleName) {
-            $res['ExecutionRoleName'] = $this->executionRoleName;
-        }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
-        }
-        if (null !== $this->templateVersion) {
-            $res['TemplateVersion'] = $this->templateVersion;
         }
         if (null !== $this->parameters) {
             $res['Parameters'] = [];
@@ -182,11 +167,26 @@ class UpdateStackGroupRequest extends Model
         if (null !== $this->permissionModel) {
             $res['PermissionModel'] = $this->permissionModel;
         }
-        if (null !== $this->autoDeployment) {
-            $res['AutoDeployment'] = null !== $this->autoDeployment ? $this->autoDeployment->toMap() : null;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->deploymentTargets) {
-            $res['DeploymentTargets'] = null !== $this->deploymentTargets ? $this->deploymentTargets->toMap() : null;
+        if (null !== $this->regionIds) {
+            $res['RegionIds'] = $this->regionIds;
+        }
+        if (null !== $this->stackGroupName) {
+            $res['StackGroupName'] = $this->stackGroupName;
+        }
+        if (null !== $this->templateBody) {
+            $res['TemplateBody'] = $this->templateBody;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->templateURL) {
+            $res['TemplateURL'] = $this->templateURL;
+        }
+        if (null !== $this->templateVersion) {
+            $res['TemplateVersion'] = $this->templateVersion;
         }
 
         return $res;
@@ -200,51 +200,34 @@ class UpdateStackGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['StackGroupName'])) {
-            $model->stackGroupName = $map['StackGroupName'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['AccountIds'])) {
             if (!empty($map['AccountIds'])) {
                 $model->accountIds = $map['AccountIds'];
             }
         }
-        if (isset($map['RegionIds'])) {
-            if (!empty($map['RegionIds'])) {
-                $model->regionIds = $map['RegionIds'];
-            }
+        if (isset($map['AdministrationRoleName'])) {
+            $model->administrationRoleName = $map['AdministrationRoleName'];
         }
-        if (isset($map['TemplateBody'])) {
-            $model->templateBody = $map['TemplateBody'];
-        }
-        if (isset($map['TemplateURL'])) {
-            $model->templateURL = $map['TemplateURL'];
+        if (isset($map['AutoDeployment'])) {
+            $model->autoDeployment = autoDeployment::fromMap($map['AutoDeployment']);
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DeploymentTargets'])) {
+            $model->deploymentTargets = deploymentTargets::fromMap($map['DeploymentTargets']);
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['ExecutionRoleName'])) {
+            $model->executionRoleName = $map['ExecutionRoleName'];
         }
         if (isset($map['OperationDescription'])) {
             $model->operationDescription = $map['OperationDescription'];
         }
         if (isset($map['OperationPreferences'])) {
             $model->operationPreferences = $map['OperationPreferences'];
-        }
-        if (isset($map['AdministrationRoleName'])) {
-            $model->administrationRoleName = $map['AdministrationRoleName'];
-        }
-        if (isset($map['ExecutionRoleName'])) {
-            $model->executionRoleName = $map['ExecutionRoleName'];
-        }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
-        }
-        if (isset($map['TemplateVersion'])) {
-            $model->templateVersion = $map['TemplateVersion'];
         }
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
@@ -258,11 +241,28 @@ class UpdateStackGroupRequest extends Model
         if (isset($map['PermissionModel'])) {
             $model->permissionModel = $map['PermissionModel'];
         }
-        if (isset($map['AutoDeployment'])) {
-            $model->autoDeployment = autoDeployment::fromMap($map['AutoDeployment']);
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
-        if (isset($map['DeploymentTargets'])) {
-            $model->deploymentTargets = deploymentTargets::fromMap($map['DeploymentTargets']);
+        if (isset($map['RegionIds'])) {
+            if (!empty($map['RegionIds'])) {
+                $model->regionIds = $map['RegionIds'];
+            }
+        }
+        if (isset($map['StackGroupName'])) {
+            $model->stackGroupName = $map['StackGroupName'];
+        }
+        if (isset($map['TemplateBody'])) {
+            $model->templateBody = $map['TemplateBody'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateURL'])) {
+            $model->templateURL = $map['TemplateURL'];
+        }
+        if (isset($map['TemplateVersion'])) {
+            $model->templateVersion = $map['TemplateVersion'];
         }
 
         return $model;

@@ -11,59 +11,9 @@ use AlibabaCloud\Tea\Model;
 class CreateStackRequest extends Model
 {
     /**
-     * @var bool
-     */
-    public $disableRollback;
-
-    /**
-     * @var string
-     */
-    public $templateBody;
-
-    /**
-     * @var string
-     */
-    public $stackPolicyURL;
-
-    /**
-     * @var int
-     */
-    public $timeoutInMinutes;
-
-    /**
-     * @var string
-     */
-    public $stackPolicyBody;
-
-    /**
-     * @var string
-     */
-    public $stackName;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var string
      */
     public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $templateURL;
-
-    /**
-     * @var string
-     */
-    public $ramRoleName;
-
-    /**
-     * @var string
-     */
-    public $deletionProtection;
 
     /**
      * @var string
@@ -73,12 +23,22 @@ class CreateStackRequest extends Model
     /**
      * @var string
      */
-    public $templateId;
+    public $deletionProtection;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $templateVersion;
+    public $disableRollback;
+
+    /**
+     * @var string[]
+     */
+    public $notificationURLs;
+
+    /**
+     * @var int
+     */
+    public $parallelism;
 
     /**
      * @var parameters[]
@@ -86,9 +46,34 @@ class CreateStackRequest extends Model
     public $parameters;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $notificationURLs;
+    public $ramRoleName;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $stackName;
+
+    /**
+     * @var string
+     */
+    public $stackPolicyBody;
+
+    /**
+     * @var string
+     */
+    public $stackPolicyURL;
 
     /**
      * @var tags[]
@@ -98,32 +83,53 @@ class CreateStackRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $templateBody;
+
+    /**
+     * @var string
+     */
+    public $templateId;
+
+    /**
+     * @var string
+     */
+    public $templateScratchId;
+
+    /**
+     * @var string
+     */
+    public $templateURL;
+
+    /**
+     * @var string
+     */
+    public $templateVersion;
 
     /**
      * @var int
      */
-    public $parallelism;
+    public $timeoutInMinutes;
     protected $_name = [
-        'disableRollback'    => 'DisableRollback',
-        'templateBody'       => 'TemplateBody',
-        'stackPolicyURL'     => 'StackPolicyURL',
-        'timeoutInMinutes'   => 'TimeoutInMinutes',
-        'stackPolicyBody'    => 'StackPolicyBody',
-        'stackName'          => 'StackName',
-        'regionId'           => 'RegionId',
         'clientToken'        => 'ClientToken',
-        'templateURL'        => 'TemplateURL',
-        'ramRoleName'        => 'RamRoleName',
-        'deletionProtection' => 'DeletionProtection',
         'createOption'       => 'CreateOption',
-        'templateId'         => 'TemplateId',
-        'templateVersion'    => 'TemplateVersion',
-        'parameters'         => 'Parameters',
+        'deletionProtection' => 'DeletionProtection',
+        'disableRollback'    => 'DisableRollback',
         'notificationURLs'   => 'NotificationURLs',
-        'tags'               => 'Tags',
-        'resourceGroupId'    => 'ResourceGroupId',
         'parallelism'        => 'Parallelism',
+        'parameters'         => 'Parameters',
+        'ramRoleName'        => 'RamRoleName',
+        'regionId'           => 'RegionId',
+        'resourceGroupId'    => 'ResourceGroupId',
+        'stackName'          => 'StackName',
+        'stackPolicyBody'    => 'StackPolicyBody',
+        'stackPolicyURL'     => 'StackPolicyURL',
+        'tags'               => 'Tags',
+        'templateBody'       => 'TemplateBody',
+        'templateId'         => 'TemplateId',
+        'templateScratchId'  => 'TemplateScratchId',
+        'templateURL'        => 'TemplateURL',
+        'templateVersion'    => 'TemplateVersion',
+        'timeoutInMinutes'   => 'TimeoutInMinutes',
     ];
 
     public function validate()
@@ -133,47 +139,23 @@ class CreateStackRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->disableRollback) {
-            $res['DisableRollback'] = $this->disableRollback;
-        }
-        if (null !== $this->templateBody) {
-            $res['TemplateBody'] = $this->templateBody;
-        }
-        if (null !== $this->stackPolicyURL) {
-            $res['StackPolicyURL'] = $this->stackPolicyURL;
-        }
-        if (null !== $this->timeoutInMinutes) {
-            $res['TimeoutInMinutes'] = $this->timeoutInMinutes;
-        }
-        if (null !== $this->stackPolicyBody) {
-            $res['StackPolicyBody'] = $this->stackPolicyBody;
-        }
-        if (null !== $this->stackName) {
-            $res['StackName'] = $this->stackName;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->templateURL) {
-            $res['TemplateURL'] = $this->templateURL;
-        }
-        if (null !== $this->ramRoleName) {
-            $res['RamRoleName'] = $this->ramRoleName;
-        }
-        if (null !== $this->deletionProtection) {
-            $res['DeletionProtection'] = $this->deletionProtection;
         }
         if (null !== $this->createOption) {
             $res['CreateOption'] = $this->createOption;
         }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
+        if (null !== $this->deletionProtection) {
+            $res['DeletionProtection'] = $this->deletionProtection;
         }
-        if (null !== $this->templateVersion) {
-            $res['TemplateVersion'] = $this->templateVersion;
+        if (null !== $this->disableRollback) {
+            $res['DisableRollback'] = $this->disableRollback;
+        }
+        if (null !== $this->notificationURLs) {
+            $res['NotificationURLs'] = $this->notificationURLs;
+        }
+        if (null !== $this->parallelism) {
+            $res['Parallelism'] = $this->parallelism;
         }
         if (null !== $this->parameters) {
             $res['Parameters'] = [];
@@ -184,8 +166,23 @@ class CreateStackRequest extends Model
                 }
             }
         }
-        if (null !== $this->notificationURLs) {
-            $res['NotificationURLs'] = $this->notificationURLs;
+        if (null !== $this->ramRoleName) {
+            $res['RamRoleName'] = $this->ramRoleName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->stackName) {
+            $res['StackName'] = $this->stackName;
+        }
+        if (null !== $this->stackPolicyBody) {
+            $res['StackPolicyBody'] = $this->stackPolicyBody;
+        }
+        if (null !== $this->stackPolicyURL) {
+            $res['StackPolicyURL'] = $this->stackPolicyURL;
         }
         if (null !== $this->tags) {
             $res['Tags'] = [];
@@ -196,11 +193,23 @@ class CreateStackRequest extends Model
                 }
             }
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->templateBody) {
+            $res['TemplateBody'] = $this->templateBody;
         }
-        if (null !== $this->parallelism) {
-            $res['Parallelism'] = $this->parallelism;
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->templateScratchId) {
+            $res['TemplateScratchId'] = $this->templateScratchId;
+        }
+        if (null !== $this->templateURL) {
+            $res['TemplateURL'] = $this->templateURL;
+        }
+        if (null !== $this->templateVersion) {
+            $res['TemplateVersion'] = $this->templateVersion;
+        }
+        if (null !== $this->timeoutInMinutes) {
+            $res['TimeoutInMinutes'] = $this->timeoutInMinutes;
         }
 
         return $res;
@@ -214,47 +223,25 @@ class CreateStackRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DisableRollback'])) {
-            $model->disableRollback = $map['DisableRollback'];
-        }
-        if (isset($map['TemplateBody'])) {
-            $model->templateBody = $map['TemplateBody'];
-        }
-        if (isset($map['StackPolicyURL'])) {
-            $model->stackPolicyURL = $map['StackPolicyURL'];
-        }
-        if (isset($map['TimeoutInMinutes'])) {
-            $model->timeoutInMinutes = $map['TimeoutInMinutes'];
-        }
-        if (isset($map['StackPolicyBody'])) {
-            $model->stackPolicyBody = $map['StackPolicyBody'];
-        }
-        if (isset($map['StackName'])) {
-            $model->stackName = $map['StackName'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['TemplateURL'])) {
-            $model->templateURL = $map['TemplateURL'];
-        }
-        if (isset($map['RamRoleName'])) {
-            $model->ramRoleName = $map['RamRoleName'];
-        }
-        if (isset($map['DeletionProtection'])) {
-            $model->deletionProtection = $map['DeletionProtection'];
         }
         if (isset($map['CreateOption'])) {
             $model->createOption = $map['CreateOption'];
         }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
+        if (isset($map['DeletionProtection'])) {
+            $model->deletionProtection = $map['DeletionProtection'];
         }
-        if (isset($map['TemplateVersion'])) {
-            $model->templateVersion = $map['TemplateVersion'];
+        if (isset($map['DisableRollback'])) {
+            $model->disableRollback = $map['DisableRollback'];
+        }
+        if (isset($map['NotificationURLs'])) {
+            if (!empty($map['NotificationURLs'])) {
+                $model->notificationURLs = $map['NotificationURLs'];
+            }
+        }
+        if (isset($map['Parallelism'])) {
+            $model->parallelism = $map['Parallelism'];
         }
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
@@ -265,10 +252,23 @@ class CreateStackRequest extends Model
                 }
             }
         }
-        if (isset($map['NotificationURLs'])) {
-            if (!empty($map['NotificationURLs'])) {
-                $model->notificationURLs = $map['NotificationURLs'];
-            }
+        if (isset($map['RamRoleName'])) {
+            $model->ramRoleName = $map['RamRoleName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['StackName'])) {
+            $model->stackName = $map['StackName'];
+        }
+        if (isset($map['StackPolicyBody'])) {
+            $model->stackPolicyBody = $map['StackPolicyBody'];
+        }
+        if (isset($map['StackPolicyURL'])) {
+            $model->stackPolicyURL = $map['StackPolicyURL'];
         }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
@@ -279,11 +279,23 @@ class CreateStackRequest extends Model
                 }
             }
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['TemplateBody'])) {
+            $model->templateBody = $map['TemplateBody'];
         }
-        if (isset($map['Parallelism'])) {
-            $model->parallelism = $map['Parallelism'];
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateScratchId'])) {
+            $model->templateScratchId = $map['TemplateScratchId'];
+        }
+        if (isset($map['TemplateURL'])) {
+            $model->templateURL = $map['TemplateURL'];
+        }
+        if (isset($map['TemplateVersion'])) {
+            $model->templateVersion = $map['TemplateVersion'];
+        }
+        if (isset($map['TimeoutInMinutes'])) {
+            $model->timeoutInMinutes = $map['TimeoutInMinutes'];
         }
 
         return $model;
