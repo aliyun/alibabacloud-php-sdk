@@ -11,20 +11,20 @@ class DetachDbfsRequest extends Model
     /**
      * @var string
      */
-    public $fsId;
+    public $ECSInstanceId;
 
     /**
      * @var string
      */
-    public $ECSInstanceId;
+    public $fsId;
 
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'fsId'          => 'FsId',
         'ECSInstanceId' => 'ECSInstanceId',
+        'fsId'          => 'FsId',
         'regionId'      => 'RegionId',
     ];
 
@@ -35,11 +35,11 @@ class DetachDbfsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fsId) {
-            $res['FsId'] = $this->fsId;
-        }
         if (null !== $this->ECSInstanceId) {
             $res['ECSInstanceId'] = $this->ECSInstanceId;
+        }
+        if (null !== $this->fsId) {
+            $res['FsId'] = $this->fsId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -56,11 +56,11 @@ class DetachDbfsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FsId'])) {
-            $model->fsId = $map['FsId'];
-        }
         if (isset($map['ECSInstanceId'])) {
             $model->ECSInstanceId = $map['ECSInstanceId'];
+        }
+        if (isset($map['FsId'])) {
+            $model->fsId = $map['FsId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

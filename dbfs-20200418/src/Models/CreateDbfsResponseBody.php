@@ -11,15 +11,15 @@ class CreateDbfsResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $fsId;
 
     /**
      * @var string
      */
-    public $fsId;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'fsId'      => 'FsId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateDbfsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->fsId) {
             $res['FsId'] = $this->fsId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateDbfsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['FsId'])) {
             $model->fsId = $map['FsId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

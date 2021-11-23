@@ -6,16 +6,16 @@ namespace AlibabaCloud\SDK\DBFS\V20200418\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class PublishUpgradeTaskResponseBody extends Model
+class DescribeInstanceTypesRequest extends Model
 {
     /**
-     * @description Id of the request
+     * @description 地域ID
      *
      * @var string
      */
-    public $requestId;
+    public $regionId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class PublishUpgradeTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -35,13 +35,13 @@ class PublishUpgradeTaskResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return PublishUpgradeTaskResponseBody
+     * @return DescribeInstanceTypesRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

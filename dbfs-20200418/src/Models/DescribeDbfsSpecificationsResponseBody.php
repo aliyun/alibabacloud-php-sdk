@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDbfsSpecificationsResponseBody extends Model
 {
     /**
+     * @var mixed[]
+     */
+    public $maxDbfsNumberPerEcs;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -17,15 +22,10 @@ class DescribeDbfsSpecificationsResponseBody extends Model
      * @var string[]
      */
     public $supportedEcsInstanceTypeFamily;
-
-    /**
-     * @var mixed[]
-     */
-    public $maxDbfsNumberPerEcs;
     protected $_name = [
+        'maxDbfsNumberPerEcs'            => 'MaxDbfsNumberPerEcs',
         'requestId'                      => 'RequestId',
         'supportedEcsInstanceTypeFamily' => 'SupportedEcsInstanceTypeFamily',
-        'maxDbfsNumberPerEcs'            => 'MaxDbfsNumberPerEcs',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeDbfsSpecificationsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->maxDbfsNumberPerEcs) {
+            $res['MaxDbfsNumberPerEcs'] = $this->maxDbfsNumberPerEcs;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->supportedEcsInstanceTypeFamily) {
             $res['SupportedEcsInstanceTypeFamily'] = $this->supportedEcsInstanceTypeFamily;
-        }
-        if (null !== $this->maxDbfsNumberPerEcs) {
-            $res['MaxDbfsNumberPerEcs'] = $this->maxDbfsNumberPerEcs;
         }
 
         return $res;
@@ -56,6 +56,9 @@ class DescribeDbfsSpecificationsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MaxDbfsNumberPerEcs'])) {
+            $model->maxDbfsNumberPerEcs = $map['MaxDbfsNumberPerEcs'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -63,9 +66,6 @@ class DescribeDbfsSpecificationsResponseBody extends Model
             if (!empty($map['SupportedEcsInstanceTypeFamily'])) {
                 $model->supportedEcsInstanceTypeFamily = $map['SupportedEcsInstanceTypeFamily'];
             }
-        }
-        if (isset($map['MaxDbfsNumberPerEcs'])) {
-            $model->maxDbfsNumberPerEcs = $map['MaxDbfsNumberPerEcs'];
         }
 
         return $model;

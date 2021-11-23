@@ -11,7 +11,12 @@ class CreateSnapshotRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var string
@@ -21,12 +26,7 @@ class CreateSnapshotRequest extends Model
     /**
      * @var string
      */
-    public $snapshotName;
-
-    /**
-     * @var string
-     */
-    public $description;
+    public $regionId;
 
     /**
      * @var int
@@ -36,14 +36,14 @@ class CreateSnapshotRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $snapshotName;
     protected $_name = [
-        'regionId'      => 'RegionId',
-        'fsId'          => 'FsId',
-        'snapshotName'  => 'SnapshotName',
-        'description'   => 'Description',
-        'retentionDays' => 'RetentionDays',
         'clientToken'   => 'ClientToken',
+        'description'   => 'Description',
+        'fsId'          => 'FsId',
+        'regionId'      => 'RegionId',
+        'retentionDays' => 'RetentionDays',
+        'snapshotName'  => 'SnapshotName',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class CreateSnapshotRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->fsId) {
-            $res['FsId'] = $this->fsId;
-        }
-        if (null !== $this->snapshotName) {
-            $res['SnapshotName'] = $this->snapshotName;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->fsId) {
+            $res['FsId'] = $this->fsId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->retentionDays) {
             $res['RetentionDays'] = $this->retentionDays;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->snapshotName) {
+            $res['SnapshotName'] = $this->snapshotName;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class CreateSnapshotRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['FsId'])) {
-            $model->fsId = $map['FsId'];
-        }
-        if (isset($map['SnapshotName'])) {
-            $model->snapshotName = $map['SnapshotName'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['FsId'])) {
+            $model->fsId = $map['FsId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['RetentionDays'])) {
             $model->retentionDays = $map['RetentionDays'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['SnapshotName'])) {
+            $model->snapshotName = $map['SnapshotName'];
         }
 
         return $model;

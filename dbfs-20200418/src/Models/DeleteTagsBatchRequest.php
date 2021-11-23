@@ -11,20 +11,20 @@ class DeleteTagsBatchRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $dbfsList;
 
     /**
      * @var string
      */
-    public $dbfsList;
+    public $regionId;
 
     /**
      * @var string
      */
     public $tags;
     protected $_name = [
-        'regionId' => 'RegionId',
         'dbfsList' => 'DbfsList',
+        'regionId' => 'RegionId',
         'tags'     => 'Tags',
     ];
 
@@ -35,11 +35,11 @@ class DeleteTagsBatchRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->dbfsList) {
             $res['DbfsList'] = $this->dbfsList;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
@@ -56,11 +56,11 @@ class DeleteTagsBatchRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['DbfsList'])) {
             $model->dbfsList = $map['DbfsList'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];

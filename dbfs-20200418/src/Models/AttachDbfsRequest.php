@@ -11,12 +11,17 @@ class AttachDbfsRequest extends Model
     /**
      * @var string
      */
-    public $ECSInstanceId;
+    public $attachMode;
 
     /**
      * @var string
      */
-    public $serverUrl;
+    public $attachPoint;
+
+    /**
+     * @var string
+     */
+    public $ECSInstanceId;
 
     /**
      * @var string
@@ -31,19 +36,14 @@ class AttachDbfsRequest extends Model
     /**
      * @var string
      */
-    public $attachMode;
-
-    /**
-     * @var string
-     */
-    public $attachPoint;
+    public $serverUrl;
     protected $_name = [
-        'ECSInstanceId' => 'ECSInstanceId',
-        'serverUrl'     => 'ServerUrl',
-        'fsId'          => 'FsId',
-        'regionId'      => 'RegionId',
         'attachMode'    => 'AttachMode',
         'attachPoint'   => 'AttachPoint',
+        'ECSInstanceId' => 'ECSInstanceId',
+        'fsId'          => 'FsId',
+        'regionId'      => 'RegionId',
+        'serverUrl'     => 'ServerUrl',
     ];
 
     public function validate()
@@ -53,11 +53,14 @@ class AttachDbfsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->attachMode) {
+            $res['AttachMode'] = $this->attachMode;
+        }
+        if (null !== $this->attachPoint) {
+            $res['AttachPoint'] = $this->attachPoint;
+        }
         if (null !== $this->ECSInstanceId) {
             $res['ECSInstanceId'] = $this->ECSInstanceId;
-        }
-        if (null !== $this->serverUrl) {
-            $res['ServerUrl'] = $this->serverUrl;
         }
         if (null !== $this->fsId) {
             $res['FsId'] = $this->fsId;
@@ -65,11 +68,8 @@ class AttachDbfsRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->attachMode) {
-            $res['AttachMode'] = $this->attachMode;
-        }
-        if (null !== $this->attachPoint) {
-            $res['AttachPoint'] = $this->attachPoint;
+        if (null !== $this->serverUrl) {
+            $res['ServerUrl'] = $this->serverUrl;
         }
 
         return $res;
@@ -83,11 +83,14 @@ class AttachDbfsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AttachMode'])) {
+            $model->attachMode = $map['AttachMode'];
+        }
+        if (isset($map['AttachPoint'])) {
+            $model->attachPoint = $map['AttachPoint'];
+        }
         if (isset($map['ECSInstanceId'])) {
             $model->ECSInstanceId = $map['ECSInstanceId'];
-        }
-        if (isset($map['ServerUrl'])) {
-            $model->serverUrl = $map['ServerUrl'];
         }
         if (isset($map['FsId'])) {
             $model->fsId = $map['FsId'];
@@ -95,11 +98,8 @@ class AttachDbfsRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['AttachMode'])) {
-            $model->attachMode = $map['AttachMode'];
-        }
-        if (isset($map['AttachPoint'])) {
-            $model->attachPoint = $map['AttachPoint'];
+        if (isset($map['ServerUrl'])) {
+            $model->serverUrl = $map['ServerUrl'];
         }
 
         return $model;

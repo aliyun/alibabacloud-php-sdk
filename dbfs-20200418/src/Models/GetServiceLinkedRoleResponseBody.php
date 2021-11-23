@@ -14,11 +14,6 @@ class GetServiceLinkedRoleResponseBody extends Model
     public $accountId;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var bool
      */
     public $dbfsLinkedRole;
@@ -27,11 +22,16 @@ class GetServiceLinkedRoleResponseBody extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'accountId'      => 'AccountId',
-        'requestId'      => 'RequestId',
         'dbfsLinkedRole' => 'DbfsLinkedRole',
         'regionId'       => 'RegionId',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class GetServiceLinkedRoleResponseBody extends Model
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->dbfsLinkedRole) {
             $res['DbfsLinkedRole'] = $this->dbfsLinkedRole;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class GetServiceLinkedRoleResponseBody extends Model
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DbfsLinkedRole'])) {
             $model->dbfsLinkedRole = $map['DbfsLinkedRole'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

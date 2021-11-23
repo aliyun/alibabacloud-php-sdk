@@ -11,21 +11,21 @@ class ResizeDbfsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $fsId;
 
     /**
      * @var int
      */
     public $newSizeG;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId' => 'RegionId',
         'fsId'     => 'FsId',
         'newSizeG' => 'NewSizeG',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ResizeDbfsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->fsId) {
             $res['FsId'] = $this->fsId;
         }
         if (null !== $this->newSizeG) {
             $res['NewSizeG'] = $this->newSizeG;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ResizeDbfsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['FsId'])) {
             $model->fsId = $map['FsId'];
         }
         if (isset($map['NewSizeG'])) {
             $model->newSizeG = $map['NewSizeG'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

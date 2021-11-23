@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class OpreateConstantsResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
      * @var string
      */
-    public $requestId;
+    public $accessData;
 
     /**
      * @var string
@@ -23,37 +21,7 @@ class OpreateConstantsResponseBody extends Model
     /**
      * @var string
      */
-    public $regionData;
-
-    /**
-     * @var string
-     */
-    public $zoneData;
-
-    /**
-     * @var string
-     */
-    public $osversionData;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var string
-     */
-    public $productCodeData;
+    public $endpointData;
 
     /**
      * @var string
@@ -63,25 +31,57 @@ class OpreateConstantsResponseBody extends Model
     /**
      * @var string
      */
-    public $endpointData;
+    public $osversionData;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
      */
-    public $accessData;
+    public $productCodeData;
+
+    /**
+     * @var string
+     */
+    public $regionData;
+
+    /**
+     * @description Id of the request
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var string
+     */
+    public $zoneData;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'data'            => 'Data',
-        'regionData'      => 'RegionData',
-        'zoneData'        => 'ZoneData',
-        'osversionData'   => 'OsversionData',
-        'pageSize'        => 'PageSize',
-        'totalCount'      => 'TotalCount',
-        'pageNumber'      => 'PageNumber',
-        'productCodeData' => 'ProductCodeData',
-        'masterData'      => 'MasterData',
-        'endpointData'    => 'EndpointData',
         'accessData'      => 'AccessData',
+        'data'            => 'Data',
+        'endpointData'    => 'EndpointData',
+        'masterData'      => 'MasterData',
+        'osversionData'   => 'OsversionData',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'productCodeData' => 'ProductCodeData',
+        'regionData'      => 'RegionData',
+        'requestId'       => 'RequestId',
+        'totalCount'      => 'TotalCount',
+        'zoneData'        => 'ZoneData',
     ];
 
     public function validate()
@@ -91,41 +91,41 @@ class OpreateConstantsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->accessData) {
+            $res['AccessData'] = $this->accessData;
         }
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
-        if (null !== $this->regionData) {
-            $res['RegionData'] = $this->regionData;
-        }
-        if (null !== $this->zoneData) {
-            $res['ZoneData'] = $this->zoneData;
-        }
-        if (null !== $this->osversionData) {
-            $res['OsversionData'] = $this->osversionData;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->productCodeData) {
-            $res['ProductCodeData'] = $this->productCodeData;
+        if (null !== $this->endpointData) {
+            $res['EndpointData'] = $this->endpointData;
         }
         if (null !== $this->masterData) {
             $res['MasterData'] = $this->masterData;
         }
-        if (null !== $this->endpointData) {
-            $res['EndpointData'] = $this->endpointData;
+        if (null !== $this->osversionData) {
+            $res['OsversionData'] = $this->osversionData;
         }
-        if (null !== $this->accessData) {
-            $res['AccessData'] = $this->accessData;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->productCodeData) {
+            $res['ProductCodeData'] = $this->productCodeData;
+        }
+        if (null !== $this->regionData) {
+            $res['RegionData'] = $this->regionData;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->zoneData) {
+            $res['ZoneData'] = $this->zoneData;
         }
 
         return $res;
@@ -139,41 +139,41 @@ class OpreateConstantsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['AccessData'])) {
+            $model->accessData = $map['AccessData'];
         }
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
-        if (isset($map['RegionData'])) {
-            $model->regionData = $map['RegionData'];
-        }
-        if (isset($map['ZoneData'])) {
-            $model->zoneData = $map['ZoneData'];
-        }
-        if (isset($map['OsversionData'])) {
-            $model->osversionData = $map['OsversionData'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['ProductCodeData'])) {
-            $model->productCodeData = $map['ProductCodeData'];
+        if (isset($map['EndpointData'])) {
+            $model->endpointData = $map['EndpointData'];
         }
         if (isset($map['MasterData'])) {
             $model->masterData = $map['MasterData'];
         }
-        if (isset($map['EndpointData'])) {
-            $model->endpointData = $map['EndpointData'];
+        if (isset($map['OsversionData'])) {
+            $model->osversionData = $map['OsversionData'];
         }
-        if (isset($map['AccessData'])) {
-            $model->accessData = $map['AccessData'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProductCodeData'])) {
+            $model->productCodeData = $map['ProductCodeData'];
+        }
+        if (isset($map['RegionData'])) {
+            $model->regionData = $map['RegionData'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['ZoneData'])) {
+            $model->zoneData = $map['ZoneData'];
         }
 
         return $model;

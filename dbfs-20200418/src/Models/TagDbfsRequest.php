@@ -11,20 +11,20 @@ class TagDbfsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $dbfsId;
 
     /**
      * @var string
      */
-    public $dbfsId;
+    public $regionId;
 
     /**
      * @var string
      */
     public $tags;
     protected $_name = [
-        'regionId' => 'RegionId',
         'dbfsId'   => 'DbfsId',
+        'regionId' => 'RegionId',
         'tags'     => 'Tags',
     ];
 
@@ -35,11 +35,11 @@ class TagDbfsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->dbfsId) {
             $res['DbfsId'] = $this->dbfsId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
@@ -56,11 +56,11 @@ class TagDbfsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['DbfsId'])) {
             $model->dbfsId = $map['DbfsId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];

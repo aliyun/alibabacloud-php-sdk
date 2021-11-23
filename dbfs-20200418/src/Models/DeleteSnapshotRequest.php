@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteSnapshotRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $force;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -17,15 +22,10 @@ class DeleteSnapshotRequest extends Model
      * @var string
      */
     public $snapshotId;
-
-    /**
-     * @var bool
-     */
-    public $force;
     protected $_name = [
+        'force'      => 'Force',
         'regionId'   => 'RegionId',
         'snapshotId' => 'SnapshotId',
-        'force'      => 'Force',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteSnapshotRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->force) {
+            $res['Force'] = $this->force;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
-        }
-        if (null !== $this->force) {
-            $res['Force'] = $this->force;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DeleteSnapshotRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Force'])) {
+            $model->force = $map['Force'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];
-        }
-        if (isset($map['Force'])) {
-            $model->force = $map['Force'];
         }
 
         return $model;

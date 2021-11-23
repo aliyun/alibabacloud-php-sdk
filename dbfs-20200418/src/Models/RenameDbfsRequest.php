@@ -11,20 +11,20 @@ class RenameDbfsRequest extends Model
     /**
      * @var string
      */
-    public $fsName;
+    public $fsId;
 
     /**
      * @var string
      */
-    public $fsId;
+    public $fsName;
 
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'fsName'   => 'FsName',
         'fsId'     => 'FsId',
+        'fsName'   => 'FsName',
         'regionId' => 'RegionId',
     ];
 
@@ -35,11 +35,11 @@ class RenameDbfsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fsName) {
-            $res['FsName'] = $this->fsName;
-        }
         if (null !== $this->fsId) {
             $res['FsId'] = $this->fsId;
+        }
+        if (null !== $this->fsName) {
+            $res['FsName'] = $this->fsName;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -56,11 +56,11 @@ class RenameDbfsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FsName'])) {
-            $model->fsName = $map['FsName'];
-        }
         if (isset($map['FsId'])) {
             $model->fsId = $map['FsId'];
+        }
+        if (isset($map['FsName'])) {
+            $model->fsName = $map['FsName'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

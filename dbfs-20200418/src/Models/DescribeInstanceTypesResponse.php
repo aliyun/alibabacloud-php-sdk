@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\DBFS\V20200418\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class StopUpgradeTaskResponse extends Model
+class DescribeInstanceTypesResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class StopUpgradeTaskResponse extends Model
     public $headers;
 
     /**
-     * @var StopUpgradeTaskResponseBody
+     * @var DescribeInstanceTypesResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class StopUpgradeTaskResponse extends Model
     /**
      * @param array $map
      *
-     * @return StopUpgradeTaskResponse
+     * @return DescribeInstanceTypesResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class StopUpgradeTaskResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = StopUpgradeTaskResponseBody::fromMap($map['body']);
+            $model->body = DescribeInstanceTypesResponseBody::fromMap($map['body']);
         }
 
         return $model;

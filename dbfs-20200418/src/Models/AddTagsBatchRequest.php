@@ -11,7 +11,7 @@ class AddTagsBatchRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $clientToken;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class AddTagsBatchRequest extends Model
     /**
      * @var string
      */
-    public $tags;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $tags;
     protected $_name = [
-        'regionId'    => 'RegionId',
-        'dbfsList'    => 'DbfsList',
-        'tags'        => 'Tags',
         'clientToken' => 'ClientToken',
+        'dbfsList'    => 'DbfsList',
+        'regionId'    => 'RegionId',
+        'tags'        => 'Tags',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class AddTagsBatchRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->dbfsList) {
             $res['DbfsList'] = $this->dbfsList;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class AddTagsBatchRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DbfsList'])) {
             $model->dbfsList = $map['DbfsList'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

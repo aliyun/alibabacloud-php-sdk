@@ -11,7 +11,7 @@ class UpdateConstantsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $constantsData;
 
     /**
      * @var int
@@ -26,12 +26,12 @@ class UpdateConstantsRequest extends Model
     /**
      * @var string
      */
-    public $constantsData;
+    public $regionId;
     protected $_name = [
-        'regionId'      => 'RegionId',
+        'constantsData' => 'ConstantsData',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
-        'constantsData' => 'ConstantsData',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class UpdateConstantsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->constantsData) {
+            $res['ConstantsData'] = $this->constantsData;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -50,8 +50,8 @@ class UpdateConstantsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->constantsData) {
-            $res['ConstantsData'] = $this->constantsData;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class UpdateConstantsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ConstantsData'])) {
+            $model->constantsData = $map['ConstantsData'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -74,8 +74,8 @@ class UpdateConstantsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['ConstantsData'])) {
-            $model->constantsData = $map['ConstantsData'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

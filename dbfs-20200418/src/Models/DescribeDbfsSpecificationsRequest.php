@@ -11,7 +11,7 @@ class DescribeDbfsSpecificationsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $category;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class DescribeDbfsSpecificationsRequest extends Model
     /**
      * @var string
      */
-    public $category;
+    public $regionId;
     protected $_name = [
-        'regionId'        => 'RegionId',
-        'ecsInstanceType' => 'EcsInstanceType',
         'category'        => 'Category',
+        'ecsInstanceType' => 'EcsInstanceType',
+        'regionId'        => 'RegionId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeDbfsSpecificationsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
         }
         if (null !== $this->ecsInstanceType) {
             $res['EcsInstanceType'] = $this->ecsInstanceType;
         }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeDbfsSpecificationsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
         }
         if (isset($map['EcsInstanceType'])) {
             $model->ecsInstanceType = $map['EcsInstanceType'];
         }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

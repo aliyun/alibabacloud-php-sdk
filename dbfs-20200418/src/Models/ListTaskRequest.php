@@ -11,7 +11,12 @@ class ListTaskRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $filterKey;
+
+    /**
+     * @var string
+     */
+    public $filterValue;
 
     /**
      * @var int
@@ -26,30 +31,25 @@ class ListTaskRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $sortKey;
 
     /**
      * @var string
      */
     public $sortType;
-
-    /**
-     * @var string
-     */
-    public $filterKey;
-
-    /**
-     * @var string
-     */
-    public $filterValue;
     protected $_name = [
-        'regionId'    => 'RegionId',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'sortKey'     => 'SortKey',
-        'sortType'    => 'SortType',
         'filterKey'   => 'FilterKey',
         'filterValue' => 'FilterValue',
+        'pageNumber'  => 'PageNumber',
+        'pageSize'    => 'PageSize',
+        'regionId'    => 'RegionId',
+        'sortKey'     => 'SortKey',
+        'sortType'    => 'SortType',
     ];
 
     public function validate()
@@ -59,8 +59,11 @@ class ListTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->filterKey) {
+            $res['FilterKey'] = $this->filterKey;
+        }
+        if (null !== $this->filterValue) {
+            $res['FilterValue'] = $this->filterValue;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -68,17 +71,14 @@ class ListTaskRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->sortKey) {
             $res['SortKey'] = $this->sortKey;
         }
         if (null !== $this->sortType) {
             $res['SortType'] = $this->sortType;
-        }
-        if (null !== $this->filterKey) {
-            $res['FilterKey'] = $this->filterKey;
-        }
-        if (null !== $this->filterValue) {
-            $res['FilterValue'] = $this->filterValue;
         }
 
         return $res;
@@ -92,8 +92,11 @@ class ListTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['FilterKey'])) {
+            $model->filterKey = $map['FilterKey'];
+        }
+        if (isset($map['FilterValue'])) {
+            $model->filterValue = $map['FilterValue'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -101,17 +104,14 @@ class ListTaskRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['SortKey'])) {
             $model->sortKey = $map['SortKey'];
         }
         if (isset($map['SortType'])) {
             $model->sortType = $map['SortType'];
-        }
-        if (isset($map['FilterKey'])) {
-            $model->filterKey = $map['FilterKey'];
-        }
-        if (isset($map['FilterValue'])) {
-            $model->filterValue = $map['FilterValue'];
         }
 
         return $model;

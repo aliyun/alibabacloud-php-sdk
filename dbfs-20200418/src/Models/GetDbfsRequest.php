@@ -11,15 +11,15 @@ class GetDbfsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $fsId;
 
     /**
      * @var string
      */
-    public $fsId;
+    public $regionId;
     protected $_name = [
-        'regionId' => 'RegionId',
         'fsId'     => 'FsId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetDbfsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->fsId) {
             $res['FsId'] = $this->fsId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetDbfsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['FsId'])) {
             $model->fsId = $map['FsId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;
