@@ -11,15 +11,15 @@ class DeleteIpControlRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $ipControlId;
 
     /**
      * @var string
      */
-    public $ipControlId;
+    public $securityToken;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
         'ipControlId'   => 'IpControlId',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteIpControlRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
         if (null !== $this->ipControlId) {
             $res['IpControlId'] = $this->ipControlId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteIpControlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
         if (isset($map['IpControlId'])) {
             $model->ipControlId = $map['IpControlId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

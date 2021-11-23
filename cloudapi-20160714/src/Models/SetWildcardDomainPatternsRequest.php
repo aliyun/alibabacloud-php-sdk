@@ -11,7 +11,7 @@ class SetWildcardDomainPatternsRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $domainName;
 
     /**
      * @var string
@@ -21,16 +21,16 @@ class SetWildcardDomainPatternsRequest extends Model
     /**
      * @var string
      */
-    public $domainName;
+    public $securityToken;
 
     /**
      * @var string
      */
     public $wildcardDomainPatterns;
     protected $_name = [
-        'securityToken'          => 'SecurityToken',
-        'groupId'                => 'GroupId',
         'domainName'             => 'DomainName',
+        'groupId'                => 'GroupId',
+        'securityToken'          => 'SecurityToken',
         'wildcardDomainPatterns' => 'WildcardDomainPatterns',
     ];
 
@@ -41,14 +41,14 @@ class SetWildcardDomainPatternsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->wildcardDomainPatterns) {
             $res['WildcardDomainPatterns'] = $this->wildcardDomainPatterns;
@@ -65,14 +65,14 @@ class SetWildcardDomainPatternsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['WildcardDomainPatterns'])) {
             $model->wildcardDomainPatterns = $map['WildcardDomainPatterns'];

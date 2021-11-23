@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $securityToken;
+    public $resourceId;
 
     /**
      * @var string
@@ -20,19 +20,19 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @var string
+     */
+    public $securityToken;
+
+    /**
      * @var tag[]
      */
     public $tag;
-
-    /**
-     * @var string[]
-     */
-    public $resourceId;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
-        'resourceType'  => 'ResourceType',
-        'tag'           => 'Tag',
         'resourceId'    => 'ResourceId',
+        'resourceType'  => 'ResourceType',
+        'securityToken' => 'SecurityToken',
+        'tag'           => 'Tag',
     ];
 
     public function validate()
@@ -42,11 +42,14 @@ class TagResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -56,9 +59,6 @@ class TagResourcesRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
         }
 
         return $res;
@@ -72,11 +72,16 @@ class TagResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['ResourceId'])) {
+            if (!empty($map['ResourceId'])) {
+                $model->resourceId = $map['ResourceId'];
+            }
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
@@ -85,11 +90,6 @@ class TagResourcesRequest extends Model
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
-            }
-        }
-        if (isset($map['ResourceId'])) {
-            if (!empty($map['ResourceId'])) {
-                $model->resourceId = $map['ResourceId'];
             }
         }
 

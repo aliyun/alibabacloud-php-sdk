@@ -11,7 +11,7 @@ class DescribeSignaturesByApiRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $apiId;
 
     /**
      * @var string
@@ -21,16 +21,16 @@ class DescribeSignaturesByApiRequest extends Model
     /**
      * @var string
      */
-    public $apiId;
+    public $securityToken;
 
     /**
      * @var string
      */
     public $stageName;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
-        'groupId'       => 'GroupId',
         'apiId'         => 'ApiId',
+        'groupId'       => 'GroupId',
+        'securityToken' => 'SecurityToken',
         'stageName'     => 'StageName',
     ];
 
@@ -41,14 +41,14 @@ class DescribeSignaturesByApiRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->apiId) {
+            $res['ApiId'] = $this->apiId;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->apiId) {
-            $res['ApiId'] = $this->apiId;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
@@ -65,14 +65,14 @@ class DescribeSignaturesByApiRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['ApiId'])) {
+            $model->apiId = $map['ApiId'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['ApiId'])) {
-            $model->apiId = $map['ApiId'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];

@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @var int
      */
     public $appId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
         'appId'         => 'AppId',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeAppRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeAppRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

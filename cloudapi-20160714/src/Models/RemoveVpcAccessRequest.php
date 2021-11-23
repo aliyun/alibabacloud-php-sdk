@@ -11,17 +11,12 @@ class RemoveVpcAccessRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
     public $instanceId;
+
+    /**
+     * @var bool
+     */
+    public $needBatchWork;
 
     /**
      * @var int
@@ -29,15 +24,20 @@ class RemoveVpcAccessRequest extends Model
     public $port;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $needBatchWork;
+    public $securityToken;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
+        'instanceId'    => 'InstanceId',
+        'needBatchWork' => 'NeedBatchWork',
+        'port'          => 'Port',
         'securityToken' => 'SecurityToken',
         'vpcId'         => 'VpcId',
-        'instanceId'    => 'InstanceId',
-        'port'          => 'Port',
-        'needBatchWork' => 'NeedBatchWork',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class RemoveVpcAccessRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->needBatchWork) {
+            $res['NeedBatchWork'] = $this->needBatchWork;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
+        }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
-        }
-        if (null !== $this->needBatchWork) {
-            $res['NeedBatchWork'] = $this->needBatchWork;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class RemoveVpcAccessRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['NeedBatchWork'])) {
+            $model->needBatchWork = $map['NeedBatchWork'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
+        }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
-        }
-        if (isset($map['NeedBatchWork'])) {
-            $model->needBatchWork = $map['NeedBatchWork'];
         }
 
         return $model;

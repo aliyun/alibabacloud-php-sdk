@@ -12,16 +12,6 @@ class stageRouteModel extends Model
     /**
      * @var string
      */
-    public $routeMatchSymbol;
-
-    /**
-     * @var string
-     */
-    public $parameterType;
-
-    /**
-     * @var string
-     */
     public $location;
 
     /**
@@ -32,19 +22,29 @@ class stageRouteModel extends Model
     /**
      * @var string
      */
-    public $serviceParameterName;
+    public $parameterType;
+
+    /**
+     * @var string
+     */
+    public $routeMatchSymbol;
 
     /**
      * @var routeRules
      */
     public $routeRules;
+
+    /**
+     * @var string
+     */
+    public $serviceParameterName;
     protected $_name = [
-        'routeMatchSymbol'     => 'RouteMatchSymbol',
-        'parameterType'        => 'ParameterType',
         'location'             => 'Location',
         'parameterCatalog'     => 'ParameterCatalog',
-        'serviceParameterName' => 'ServiceParameterName',
+        'parameterType'        => 'ParameterType',
+        'routeMatchSymbol'     => 'RouteMatchSymbol',
         'routeRules'           => 'RouteRules',
+        'serviceParameterName' => 'ServiceParameterName',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class stageRouteModel extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->routeMatchSymbol) {
-            $res['RouteMatchSymbol'] = $this->routeMatchSymbol;
-        }
-        if (null !== $this->parameterType) {
-            $res['ParameterType'] = $this->parameterType;
-        }
         if (null !== $this->location) {
             $res['Location'] = $this->location;
         }
         if (null !== $this->parameterCatalog) {
             $res['ParameterCatalog'] = $this->parameterCatalog;
         }
-        if (null !== $this->serviceParameterName) {
-            $res['ServiceParameterName'] = $this->serviceParameterName;
+        if (null !== $this->parameterType) {
+            $res['ParameterType'] = $this->parameterType;
+        }
+        if (null !== $this->routeMatchSymbol) {
+            $res['RouteMatchSymbol'] = $this->routeMatchSymbol;
         }
         if (null !== $this->routeRules) {
             $res['RouteRules'] = null !== $this->routeRules ? $this->routeRules->toMap() : null;
+        }
+        if (null !== $this->serviceParameterName) {
+            $res['ServiceParameterName'] = $this->serviceParameterName;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class stageRouteModel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RouteMatchSymbol'])) {
-            $model->routeMatchSymbol = $map['RouteMatchSymbol'];
-        }
-        if (isset($map['ParameterType'])) {
-            $model->parameterType = $map['ParameterType'];
-        }
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
         }
         if (isset($map['ParameterCatalog'])) {
             $model->parameterCatalog = $map['ParameterCatalog'];
         }
-        if (isset($map['ServiceParameterName'])) {
-            $model->serviceParameterName = $map['ServiceParameterName'];
+        if (isset($map['ParameterType'])) {
+            $model->parameterType = $map['ParameterType'];
+        }
+        if (isset($map['RouteMatchSymbol'])) {
+            $model->routeMatchSymbol = $map['RouteMatchSymbol'];
         }
         if (isset($map['RouteRules'])) {
             $model->routeRules = routeRules::fromMap($map['RouteRules']);
+        }
+        if (isset($map['ServiceParameterName'])) {
+            $model->serviceParameterName = $map['ServiceParameterName'];
         }
 
         return $model;

@@ -11,7 +11,12 @@ class apiImportSwaggerSuccess extends Model
     /**
      * @var string
      */
-    public $path;
+    public $apiOperation;
+
+    /**
+     * @var string
+     */
+    public $apiUid;
 
     /**
      * @var string
@@ -21,17 +26,12 @@ class apiImportSwaggerSuccess extends Model
     /**
      * @var string
      */
-    public $apiOperation;
-
-    /**
-     * @var string
-     */
-    public $apiUid;
+    public $path;
     protected $_name = [
-        'path'         => 'Path',
-        'httpMethod'   => 'HttpMethod',
         'apiOperation' => 'ApiOperation',
         'apiUid'       => 'ApiUid',
+        'httpMethod'   => 'HttpMethod',
+        'path'         => 'Path',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class apiImportSwaggerSuccess extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->path) {
-            $res['Path'] = $this->path;
-        }
-        if (null !== $this->httpMethod) {
-            $res['HttpMethod'] = $this->httpMethod;
-        }
         if (null !== $this->apiOperation) {
             $res['ApiOperation'] = $this->apiOperation;
         }
         if (null !== $this->apiUid) {
             $res['ApiUid'] = $this->apiUid;
+        }
+        if (null !== $this->httpMethod) {
+            $res['HttpMethod'] = $this->httpMethod;
+        }
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class apiImportSwaggerSuccess extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Path'])) {
-            $model->path = $map['Path'];
-        }
-        if (isset($map['HttpMethod'])) {
-            $model->httpMethod = $map['HttpMethod'];
-        }
         if (isset($map['ApiOperation'])) {
             $model->apiOperation = $map['ApiOperation'];
         }
         if (isset($map['ApiUid'])) {
             $model->apiUid = $map['ApiUid'];
+        }
+        if (isset($map['HttpMethod'])) {
+            $model->httpMethod = $map['HttpMethod'];
+        }
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
         }
 
         return $model;

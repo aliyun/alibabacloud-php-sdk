@@ -11,17 +11,7 @@ class DescribeIpControlPolicyItemsRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var string
-     */
     public $ipControlId;
-
-    /**
-     * @var string
-     */
-    public $policyItemId;
 
     /**
      * @var int
@@ -32,12 +22,22 @@ class DescribeIpControlPolicyItemsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $policyItemId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
         'ipControlId'   => 'IpControlId',
-        'policyItemId'  => 'PolicyItemId',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
+        'policyItemId'  => 'PolicyItemId',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeIpControlPolicyItemsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
         if (null !== $this->ipControlId) {
             $res['IpControlId'] = $this->ipControlId;
-        }
-        if (null !== $this->policyItemId) {
-            $res['PolicyItemId'] = $this->policyItemId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->policyItemId) {
+            $res['PolicyItemId'] = $this->policyItemId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeIpControlPolicyItemsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
         if (isset($map['IpControlId'])) {
             $model->ipControlId = $map['IpControlId'];
-        }
-        if (isset($map['PolicyItemId'])) {
-            $model->policyItemId = $map['PolicyItemId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['PolicyItemId'])) {
+            $model->policyItemId = $map['PolicyItemId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

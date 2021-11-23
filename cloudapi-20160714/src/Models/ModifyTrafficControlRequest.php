@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ModifyTrafficControlRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $apiDefault;
+
+    /**
+     * @var int
+     */
+    public $appDefault;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var string
      */
     public $securityToken;
@@ -31,31 +46,16 @@ class ModifyTrafficControlRequest extends Model
     /**
      * @var int
      */
-    public $apiDefault;
-
-    /**
-     * @var int
-     */
     public $userDefault;
-
-    /**
-     * @var int
-     */
-    public $appDefault;
-
-    /**
-     * @var string
-     */
-    public $description;
     protected $_name = [
+        'apiDefault'         => 'ApiDefault',
+        'appDefault'         => 'AppDefault',
+        'description'        => 'Description',
         'securityToken'      => 'SecurityToken',
         'trafficControlId'   => 'TrafficControlId',
         'trafficControlName' => 'TrafficControlName',
         'trafficControlUnit' => 'TrafficControlUnit',
-        'apiDefault'         => 'ApiDefault',
         'userDefault'        => 'UserDefault',
-        'appDefault'         => 'AppDefault',
-        'description'        => 'Description',
     ];
 
     public function validate()
@@ -65,6 +65,15 @@ class ModifyTrafficControlRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->apiDefault) {
+            $res['ApiDefault'] = $this->apiDefault;
+        }
+        if (null !== $this->appDefault) {
+            $res['AppDefault'] = $this->appDefault;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -77,17 +86,8 @@ class ModifyTrafficControlRequest extends Model
         if (null !== $this->trafficControlUnit) {
             $res['TrafficControlUnit'] = $this->trafficControlUnit;
         }
-        if (null !== $this->apiDefault) {
-            $res['ApiDefault'] = $this->apiDefault;
-        }
         if (null !== $this->userDefault) {
             $res['UserDefault'] = $this->userDefault;
-        }
-        if (null !== $this->appDefault) {
-            $res['AppDefault'] = $this->appDefault;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
         }
 
         return $res;
@@ -101,6 +101,15 @@ class ModifyTrafficControlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApiDefault'])) {
+            $model->apiDefault = $map['ApiDefault'];
+        }
+        if (isset($map['AppDefault'])) {
+            $model->appDefault = $map['AppDefault'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
@@ -113,17 +122,8 @@ class ModifyTrafficControlRequest extends Model
         if (isset($map['TrafficControlUnit'])) {
             $model->trafficControlUnit = $map['TrafficControlUnit'];
         }
-        if (isset($map['ApiDefault'])) {
-            $model->apiDefault = $map['ApiDefault'];
-        }
         if (isset($map['UserDefault'])) {
             $model->userDefault = $map['UserDefault'];
-        }
-        if (isset($map['AppDefault'])) {
-            $model->appDefault = $map['AppDefault'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
         }
 
         return $model;

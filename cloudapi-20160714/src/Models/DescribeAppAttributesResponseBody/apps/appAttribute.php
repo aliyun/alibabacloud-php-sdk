@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class appAttribute extends Model
 {
     /**
+     * @var int
+     */
+    public $appId;
+
+    /**
      * @var string
      */
     public $appName;
@@ -17,7 +22,7 @@ class appAttribute extends Model
     /**
      * @var string
      */
-    public $modifiedTime;
+    public $createdTime;
 
     /**
      * @var string
@@ -27,23 +32,18 @@ class appAttribute extends Model
     /**
      * @var string
      */
-    public $createdTime;
-
-    /**
-     * @var int
-     */
-    public $appId;
+    public $modifiedTime;
 
     /**
      * @var tags
      */
     public $tags;
     protected $_name = [
-        'appName'      => 'AppName',
-        'modifiedTime' => 'ModifiedTime',
-        'description'  => 'Description',
-        'createdTime'  => 'CreatedTime',
         'appId'        => 'AppId',
+        'appName'      => 'AppName',
+        'createdTime'  => 'CreatedTime',
+        'description'  => 'Description',
+        'modifiedTime' => 'ModifiedTime',
         'tags'         => 'Tags',
     ];
 
@@ -54,20 +54,20 @@ class appAttribute extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
-        }
-        if (null !== $this->modifiedTime) {
-            $res['ModifiedTime'] = $this->modifiedTime;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
         }
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->modifiedTime) {
+            $res['ModifiedTime'] = $this->modifiedTime;
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
@@ -84,20 +84,20 @@ class appAttribute extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
-        }
-        if (isset($map['ModifiedTime'])) {
-            $model->modifiedTime = $map['ModifiedTime'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
         }
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['ModifiedTime'])) {
+            $model->modifiedTime = $map['ModifiedTime'];
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);

@@ -11,27 +11,27 @@ class ossConfig extends Model
     /**
      * @var string
      */
-    public $key;
-
-    /**
-     * @var string
-     */
     public $action;
 
     /**
      * @var string
      */
-    public $ossRegionId;
+    public $bucketName;
 
     /**
      * @var string
      */
-    public $bucketName;
+    public $key;
+
+    /**
+     * @var string
+     */
+    public $ossRegionId;
     protected $_name = [
-        'key'         => 'Key',
         'action'      => 'Action',
-        'ossRegionId' => 'OssRegionId',
         'bucketName'  => 'BucketName',
+        'key'         => 'Key',
+        'ossRegionId' => 'OssRegionId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ossConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
-        }
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
-        if (null !== $this->ossRegionId) {
-            $res['OssRegionId'] = $this->ossRegionId;
-        }
         if (null !== $this->bucketName) {
             $res['BucketName'] = $this->bucketName;
+        }
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
+        }
+        if (null !== $this->ossRegionId) {
+            $res['OssRegionId'] = $this->ossRegionId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ossConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
-        }
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
-        if (isset($map['OssRegionId'])) {
-            $model->ossRegionId = $map['OssRegionId'];
-        }
         if (isset($map['BucketName'])) {
             $model->bucketName = $map['BucketName'];
+        }
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
+        }
+        if (isset($map['OssRegionId'])) {
+            $model->ossRegionId = $map['OssRegionId'];
         }
 
         return $model;

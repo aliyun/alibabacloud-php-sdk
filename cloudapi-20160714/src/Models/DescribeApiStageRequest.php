@@ -11,20 +11,20 @@ class DescribeApiStageRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $groupId;
 
     /**
      * @var string
      */
-    public $groupId;
+    public $securityToken;
 
     /**
      * @var string
      */
     public $stageId;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
         'groupId'       => 'GroupId',
+        'securityToken' => 'SecurityToken',
         'stageId'       => 'StageId',
     ];
 
@@ -35,11 +35,11 @@ class DescribeApiStageRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->stageId) {
             $res['StageId'] = $this->stageId;
@@ -56,11 +56,11 @@ class DescribeApiStageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['StageId'])) {
             $model->stageId = $map['StageId'];

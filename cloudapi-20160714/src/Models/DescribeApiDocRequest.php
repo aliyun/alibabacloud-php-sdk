@@ -11,7 +11,7 @@ class DescribeApiDocRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $apiId;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class DescribeApiDocRequest extends Model
     /**
      * @var string
      */
-    public $stageName;
+    public $securityToken;
 
     /**
      * @var string
      */
-    public $apiId;
+    public $stageName;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
-        'groupId'       => 'GroupId',
-        'stageName'     => 'StageName',
         'apiId'         => 'ApiId',
+        'groupId'       => 'GroupId',
+        'securityToken' => 'SecurityToken',
+        'stageName'     => 'StageName',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DescribeApiDocRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->apiId) {
+            $res['ApiId'] = $this->apiId;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
-        }
-        if (null !== $this->apiId) {
-            $res['ApiId'] = $this->apiId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DescribeApiDocRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['ApiId'])) {
+            $model->apiId = $map['ApiId'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
+        }
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];
-        }
-        if (isset($map['ApiId'])) {
-            $model->apiId = $map['ApiId'];
         }
 
         return $model;

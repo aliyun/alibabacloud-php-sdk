@@ -11,7 +11,7 @@ class vpcAccessAttribute extends Model
     /**
      * @var string
      */
-    public $vpcId;
+    public $createdTime;
 
     /**
      * @var string
@@ -24,6 +24,11 @@ class vpcAccessAttribute extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var int
      */
     public $port;
@@ -31,25 +36,20 @@ class vpcAccessAttribute extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $createdTime;
-
-    /**
-     * @var string
-     */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
-        'vpcId'       => 'VpcId',
+        'createdTime' => 'CreatedTime',
         'description' => 'Description',
         'instanceId'  => 'InstanceId',
-        'port'        => 'Port',
         'name'        => 'Name',
-        'createdTime' => 'CreatedTime',
+        'port'        => 'Port',
         'regionId'    => 'RegionId',
+        'vpcId'       => 'VpcId',
     ];
 
     public function validate()
@@ -59,8 +59,8 @@ class vpcAccessAttribute extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
+        if (null !== $this->createdTime) {
+            $res['CreatedTime'] = $this->createdTime;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -68,17 +68,17 @@ class vpcAccessAttribute extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->createdTime) {
-            $res['CreatedTime'] = $this->createdTime;
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -92,8 +92,8 @@ class vpcAccessAttribute extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
+        if (isset($map['CreatedTime'])) {
+            $model->createdTime = $map['CreatedTime'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -101,17 +101,17 @@ class vpcAccessAttribute extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['CreatedTime'])) {
-            $model->createdTime = $map['CreatedTime'];
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

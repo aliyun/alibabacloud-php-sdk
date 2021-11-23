@@ -11,12 +11,7 @@ class resultDescription extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $key;
+    public $description;
 
     /**
      * @var bool
@@ -26,12 +21,12 @@ class resultDescription extends Model
     /**
      * @var string
      */
-    public $description;
+    public $id;
 
     /**
      * @var string
      */
-    public $pid;
+    public $key;
 
     /**
      * @var bool
@@ -46,16 +41,21 @@ class resultDescription extends Model
     /**
      * @var string
      */
-    public $id;
+    public $pid;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'        => 'Type',
-        'key'         => 'Key',
-        'hasChild'    => 'HasChild',
         'description' => 'Description',
-        'pid'         => 'Pid',
+        'hasChild'    => 'HasChild',
+        'id'          => 'Id',
+        'key'         => 'Key',
         'mandatory'   => 'Mandatory',
         'name'        => 'Name',
-        'id'          => 'Id',
+        'pid'         => 'Pid',
+        'type'        => 'Type',
     ];
 
     public function validate()
@@ -65,20 +65,17 @@ class resultDescription extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->key) {
-            $res['Key'] = $this->key;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->hasChild) {
             $res['HasChild'] = $this->hasChild;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
-        if (null !== $this->pid) {
-            $res['Pid'] = $this->pid;
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
         }
         if (null !== $this->mandatory) {
             $res['Mandatory'] = $this->mandatory;
@@ -86,8 +83,11 @@ class resultDescription extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->pid) {
+            $res['Pid'] = $this->pid;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -101,20 +101,17 @@ class resultDescription extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Key'])) {
-            $model->key = $map['Key'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['HasChild'])) {
             $model->hasChild = $map['HasChild'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
-        if (isset($map['Pid'])) {
-            $model->pid = $map['Pid'];
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
         }
         if (isset($map['Mandatory'])) {
             $model->mandatory = $map['Mandatory'];
@@ -122,8 +119,11 @@ class resultDescription extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Pid'])) {
+            $model->pid = $map['Pid'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

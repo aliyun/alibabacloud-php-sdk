@@ -11,7 +11,7 @@ class deployedInfo extends Model
     /**
      * @var string
      */
-    public $stageName;
+    public $deployedStatus;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class deployedInfo extends Model
     /**
      * @var string
      */
-    public $deployedStatus;
+    public $stageName;
     protected $_name = [
-        'stageName'        => 'StageName',
-        'effectiveVersion' => 'EffectiveVersion',
         'deployedStatus'   => 'DeployedStatus',
+        'effectiveVersion' => 'EffectiveVersion',
+        'stageName'        => 'StageName',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class deployedInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->stageName) {
-            $res['StageName'] = $this->stageName;
+        if (null !== $this->deployedStatus) {
+            $res['DeployedStatus'] = $this->deployedStatus;
         }
         if (null !== $this->effectiveVersion) {
             $res['EffectiveVersion'] = $this->effectiveVersion;
         }
-        if (null !== $this->deployedStatus) {
-            $res['DeployedStatus'] = $this->deployedStatus;
+        if (null !== $this->stageName) {
+            $res['StageName'] = $this->stageName;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class deployedInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StageName'])) {
-            $model->stageName = $map['StageName'];
+        if (isset($map['DeployedStatus'])) {
+            $model->deployedStatus = $map['DeployedStatus'];
         }
         if (isset($map['EffectiveVersion'])) {
             $model->effectiveVersion = $map['EffectiveVersion'];
         }
-        if (isset($map['DeployedStatus'])) {
-            $model->deployedStatus = $map['DeployedStatus'];
+        if (isset($map['StageName'])) {
+            $model->stageName = $map['StageName'];
         }
 
         return $model;

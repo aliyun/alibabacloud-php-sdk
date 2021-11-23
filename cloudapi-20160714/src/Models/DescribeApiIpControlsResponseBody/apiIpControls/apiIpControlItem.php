@@ -11,12 +11,17 @@ class apiIpControlItem extends Model
     /**
      * @var string
      */
-    public $boundTime;
+    public $apiId;
 
     /**
      * @var string
      */
-    public $apiId;
+    public $apiName;
+
+    /**
+     * @var string
+     */
+    public $boundTime;
 
     /**
      * @var string
@@ -27,17 +32,12 @@ class apiIpControlItem extends Model
      * @var string
      */
     public $ipControlName;
-
-    /**
-     * @var string
-     */
-    public $apiName;
     protected $_name = [
-        'boundTime'     => 'BoundTime',
         'apiId'         => 'ApiId',
+        'apiName'       => 'ApiName',
+        'boundTime'     => 'BoundTime',
         'ipControlId'   => 'IpControlId',
         'ipControlName' => 'IpControlName',
-        'apiName'       => 'ApiName',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class apiIpControlItem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->boundTime) {
-            $res['BoundTime'] = $this->boundTime;
-        }
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
+        }
+        if (null !== $this->apiName) {
+            $res['ApiName'] = $this->apiName;
+        }
+        if (null !== $this->boundTime) {
+            $res['BoundTime'] = $this->boundTime;
         }
         if (null !== $this->ipControlId) {
             $res['IpControlId'] = $this->ipControlId;
         }
         if (null !== $this->ipControlName) {
             $res['IpControlName'] = $this->ipControlName;
-        }
-        if (null !== $this->apiName) {
-            $res['ApiName'] = $this->apiName;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class apiIpControlItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BoundTime'])) {
-            $model->boundTime = $map['BoundTime'];
-        }
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
+        }
+        if (isset($map['ApiName'])) {
+            $model->apiName = $map['ApiName'];
+        }
+        if (isset($map['BoundTime'])) {
+            $model->boundTime = $map['BoundTime'];
         }
         if (isset($map['IpControlId'])) {
             $model->ipControlId = $map['IpControlId'];
         }
         if (isset($map['IpControlName'])) {
             $model->ipControlName = $map['IpControlName'];
-        }
-        if (isset($map['ApiName'])) {
-            $model->apiName = $map['ApiName'];
         }
 
         return $model;

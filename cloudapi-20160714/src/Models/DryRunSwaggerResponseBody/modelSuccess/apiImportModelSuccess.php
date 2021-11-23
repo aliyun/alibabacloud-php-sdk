@@ -11,7 +11,7 @@ class apiImportModelSuccess extends Model
     /**
      * @var string
      */
-    public $modelUid;
+    public $groupId;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class apiImportModelSuccess extends Model
     /**
      * @var string
      */
-    public $groupId;
+    public $modelOperation;
 
     /**
      * @var string
      */
-    public $modelOperation;
+    public $modelUid;
     protected $_name = [
-        'modelUid'       => 'ModelUid',
-        'modelName'      => 'ModelName',
         'groupId'        => 'GroupId',
+        'modelName'      => 'ModelName',
         'modelOperation' => 'ModelOperation',
+        'modelUid'       => 'ModelUid',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class apiImportModelSuccess extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->modelUid) {
-            $res['ModelUid'] = $this->modelUid;
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
         }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
         if (null !== $this->modelOperation) {
             $res['ModelOperation'] = $this->modelOperation;
+        }
+        if (null !== $this->modelUid) {
+            $res['ModelUid'] = $this->modelUid;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class apiImportModelSuccess extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ModelUid'])) {
-            $model->modelUid = $map['ModelUid'];
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
         }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
         if (isset($map['ModelOperation'])) {
             $model->modelOperation = $map['ModelOperation'];
+        }
+        if (isset($map['ModelUid'])) {
+            $model->modelUid = $map['ModelUid'];
         }
 
         return $model;

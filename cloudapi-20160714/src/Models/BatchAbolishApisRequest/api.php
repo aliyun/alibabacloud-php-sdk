@@ -11,7 +11,7 @@ class api extends Model
     /**
      * @var string
      */
-    public $stageId;
+    public $apiUid;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class api extends Model
     /**
      * @var string
      */
-    public $apiUid;
+    public $stageId;
     protected $_name = [
-        'stageId' => 'StageId',
-        'groupId' => 'GroupId',
         'apiUid'  => 'ApiUid',
+        'groupId' => 'GroupId',
+        'stageId' => 'StageId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class api extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->stageId) {
-            $res['StageId'] = $this->stageId;
+        if (null !== $this->apiUid) {
+            $res['ApiUid'] = $this->apiUid;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->apiUid) {
-            $res['ApiUid'] = $this->apiUid;
+        if (null !== $this->stageId) {
+            $res['StageId'] = $this->stageId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class api extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StageId'])) {
-            $model->stageId = $map['StageId'];
+        if (isset($map['ApiUid'])) {
+            $model->apiUid = $map['ApiUid'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['ApiUid'])) {
-            $model->apiUid = $map['ApiUid'];
+        if (isset($map['StageId'])) {
+            $model->stageId = $map['StageId'];
         }
 
         return $model;

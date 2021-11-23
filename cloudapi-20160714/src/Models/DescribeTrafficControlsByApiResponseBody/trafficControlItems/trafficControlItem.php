@@ -11,20 +11,20 @@ class trafficControlItem extends Model
     /**
      * @var string
      */
-    public $trafficControlItemId;
+    public $boundTime;
 
     /**
      * @var string
      */
-    public $boundTime;
+    public $trafficControlItemId;
 
     /**
      * @var string
      */
     public $trafficControlItemName;
     protected $_name = [
-        'trafficControlItemId'   => 'TrafficControlItemId',
         'boundTime'              => 'BoundTime',
+        'trafficControlItemId'   => 'TrafficControlItemId',
         'trafficControlItemName' => 'TrafficControlItemName',
     ];
 
@@ -35,11 +35,11 @@ class trafficControlItem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->trafficControlItemId) {
-            $res['TrafficControlItemId'] = $this->trafficControlItemId;
-        }
         if (null !== $this->boundTime) {
             $res['BoundTime'] = $this->boundTime;
+        }
+        if (null !== $this->trafficControlItemId) {
+            $res['TrafficControlItemId'] = $this->trafficControlItemId;
         }
         if (null !== $this->trafficControlItemName) {
             $res['TrafficControlItemName'] = $this->trafficControlItemName;
@@ -56,11 +56,11 @@ class trafficControlItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TrafficControlItemId'])) {
-            $model->trafficControlItemId = $map['TrafficControlItemId'];
-        }
         if (isset($map['BoundTime'])) {
             $model->boundTime = $map['BoundTime'];
+        }
+        if (isset($map['TrafficControlItemId'])) {
+            $model->trafficControlItemId = $map['TrafficControlItemId'];
         }
         if (isset($map['TrafficControlItemName'])) {
             $model->trafficControlItemName = $map['TrafficControlItemName'];

@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class variableItem extends Model
 {
     /**
-     * @var string
+     * @var stageRouteModel
      */
-    public $variableValue;
-
-    /**
-     * @var string
-     */
-    public $variableName;
+    public $stageRouteModel;
 
     /**
      * @var bool
@@ -25,14 +20,19 @@ class variableItem extends Model
     public $supportRoute;
 
     /**
-     * @var stageRouteModel
+     * @var string
      */
-    public $stageRouteModel;
+    public $variableName;
+
+    /**
+     * @var string
+     */
+    public $variableValue;
     protected $_name = [
-        'variableValue'   => 'VariableValue',
-        'variableName'    => 'VariableName',
-        'supportRoute'    => 'SupportRoute',
         'stageRouteModel' => 'StageRouteModel',
+        'supportRoute'    => 'SupportRoute',
+        'variableName'    => 'VariableName',
+        'variableValue'   => 'VariableValue',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class variableItem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->variableValue) {
-            $res['VariableValue'] = $this->variableValue;
-        }
-        if (null !== $this->variableName) {
-            $res['VariableName'] = $this->variableName;
+        if (null !== $this->stageRouteModel) {
+            $res['StageRouteModel'] = null !== $this->stageRouteModel ? $this->stageRouteModel->toMap() : null;
         }
         if (null !== $this->supportRoute) {
             $res['SupportRoute'] = $this->supportRoute;
         }
-        if (null !== $this->stageRouteModel) {
-            $res['StageRouteModel'] = null !== $this->stageRouteModel ? $this->stageRouteModel->toMap() : null;
+        if (null !== $this->variableName) {
+            $res['VariableName'] = $this->variableName;
+        }
+        if (null !== $this->variableValue) {
+            $res['VariableValue'] = $this->variableValue;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class variableItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VariableValue'])) {
-            $model->variableValue = $map['VariableValue'];
-        }
-        if (isset($map['VariableName'])) {
-            $model->variableName = $map['VariableName'];
+        if (isset($map['StageRouteModel'])) {
+            $model->stageRouteModel = stageRouteModel::fromMap($map['StageRouteModel']);
         }
         if (isset($map['SupportRoute'])) {
             $model->supportRoute = $map['SupportRoute'];
         }
-        if (isset($map['StageRouteModel'])) {
-            $model->stageRouteModel = stageRouteModel::fromMap($map['StageRouteModel']);
+        if (isset($map['VariableName'])) {
+            $model->variableName = $map['VariableName'];
+        }
+        if (isset($map['VariableValue'])) {
+            $model->variableValue = $map['VariableValue'];
         }
 
         return $model;

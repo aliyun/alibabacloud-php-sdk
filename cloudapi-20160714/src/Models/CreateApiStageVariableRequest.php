@@ -11,12 +11,12 @@ class CreateApiStageVariableRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $groupId;
 
     /**
      * @var string
      */
-    public $groupId;
+    public $securityToken;
 
     /**
      * @var string
@@ -26,7 +26,7 @@ class CreateApiStageVariableRequest extends Model
     /**
      * @var string
      */
-    public $variableName;
+    public $stageRouteModel;
 
     /**
      * @var bool
@@ -36,20 +36,20 @@ class CreateApiStageVariableRequest extends Model
     /**
      * @var string
      */
-    public $variableValue;
+    public $variableName;
 
     /**
      * @var string
      */
-    public $stageRouteModel;
+    public $variableValue;
     protected $_name = [
-        'securityToken'   => 'SecurityToken',
         'groupId'         => 'GroupId',
+        'securityToken'   => 'SecurityToken',
         'stageId'         => 'StageId',
-        'variableName'    => 'VariableName',
-        'supportRoute'    => 'SupportRoute',
-        'variableValue'   => 'VariableValue',
         'stageRouteModel' => 'StageRouteModel',
+        'supportRoute'    => 'SupportRoute',
+        'variableName'    => 'VariableName',
+        'variableValue'   => 'VariableValue',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class CreateApiStageVariableRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->stageId) {
             $res['StageId'] = $this->stageId;
         }
-        if (null !== $this->variableName) {
-            $res['VariableName'] = $this->variableName;
+        if (null !== $this->stageRouteModel) {
+            $res['StageRouteModel'] = $this->stageRouteModel;
         }
         if (null !== $this->supportRoute) {
             $res['SupportRoute'] = $this->supportRoute;
         }
+        if (null !== $this->variableName) {
+            $res['VariableName'] = $this->variableName;
+        }
         if (null !== $this->variableValue) {
             $res['VariableValue'] = $this->variableValue;
-        }
-        if (null !== $this->stageRouteModel) {
-            $res['StageRouteModel'] = $this->stageRouteModel;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class CreateApiStageVariableRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['StageId'])) {
             $model->stageId = $map['StageId'];
         }
-        if (isset($map['VariableName'])) {
-            $model->variableName = $map['VariableName'];
+        if (isset($map['StageRouteModel'])) {
+            $model->stageRouteModel = $map['StageRouteModel'];
         }
         if (isset($map['SupportRoute'])) {
             $model->supportRoute = $map['SupportRoute'];
         }
+        if (isset($map['VariableName'])) {
+            $model->variableName = $map['VariableName'];
+        }
         if (isset($map['VariableValue'])) {
             $model->variableValue = $map['VariableValue'];
-        }
-        if (isset($map['StageRouteModel'])) {
-            $model->stageRouteModel = $map['StageRouteModel'];
         }
 
         return $model;

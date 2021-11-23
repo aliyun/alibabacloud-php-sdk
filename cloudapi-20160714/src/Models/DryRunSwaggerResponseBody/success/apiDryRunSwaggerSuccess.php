@@ -11,12 +11,7 @@ class apiDryRunSwaggerSuccess extends Model
     /**
      * @var string
      */
-    public $path;
-
-    /**
-     * @var string
-     */
-    public $httpMethod;
+    public $apiOperation;
 
     /**
      * @var string
@@ -26,18 +21,23 @@ class apiDryRunSwaggerSuccess extends Model
     /**
      * @var string
      */
-    public $apiOperation;
+    public $apiUid;
 
     /**
      * @var string
      */
-    public $apiUid;
+    public $httpMethod;
+
+    /**
+     * @var string
+     */
+    public $path;
     protected $_name = [
-        'path'         => 'Path',
-        'httpMethod'   => 'HttpMethod',
-        'apiSwagger'   => 'ApiSwagger',
         'apiOperation' => 'ApiOperation',
+        'apiSwagger'   => 'ApiSwagger',
         'apiUid'       => 'ApiUid',
+        'httpMethod'   => 'HttpMethod',
+        'path'         => 'Path',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class apiDryRunSwaggerSuccess extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->path) {
-            $res['Path'] = $this->path;
-        }
-        if (null !== $this->httpMethod) {
-            $res['HttpMethod'] = $this->httpMethod;
+        if (null !== $this->apiOperation) {
+            $res['ApiOperation'] = $this->apiOperation;
         }
         if (null !== $this->apiSwagger) {
             $res['ApiSwagger'] = $this->apiSwagger;
         }
-        if (null !== $this->apiOperation) {
-            $res['ApiOperation'] = $this->apiOperation;
-        }
         if (null !== $this->apiUid) {
             $res['ApiUid'] = $this->apiUid;
+        }
+        if (null !== $this->httpMethod) {
+            $res['HttpMethod'] = $this->httpMethod;
+        }
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class apiDryRunSwaggerSuccess extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Path'])) {
-            $model->path = $map['Path'];
-        }
-        if (isset($map['HttpMethod'])) {
-            $model->httpMethod = $map['HttpMethod'];
+        if (isset($map['ApiOperation'])) {
+            $model->apiOperation = $map['ApiOperation'];
         }
         if (isset($map['ApiSwagger'])) {
             $model->apiSwagger = $map['ApiSwagger'];
         }
-        if (isset($map['ApiOperation'])) {
-            $model->apiOperation = $map['ApiOperation'];
-        }
         if (isset($map['ApiUid'])) {
             $model->apiUid = $map['ApiUid'];
+        }
+        if (isset($map['HttpMethod'])) {
+            $model->httpMethod = $map['HttpMethod'];
+        }
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
         }
 
         return $model;

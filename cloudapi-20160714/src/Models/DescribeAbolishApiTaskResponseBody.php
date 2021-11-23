@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeAbolishApiTaskResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var apiAbolishResults
      */
     public $apiAbolishResults;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'         => 'RequestId',
         'apiAbolishResults' => 'ApiAbolishResults',
+        'requestId'         => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeAbolishApiTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->apiAbolishResults) {
             $res['ApiAbolishResults'] = null !== $this->apiAbolishResults ? $this->apiAbolishResults->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeAbolishApiTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ApiAbolishResults'])) {
             $model->apiAbolishResults = apiAbolishResults::fromMap($map['ApiAbolishResults']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -12,17 +12,17 @@ class CreateAppRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var string
-     */
     public $appName;
 
     /**
      * @var string
      */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
 
     /**
      * @var string
@@ -34,9 +34,9 @@ class CreateAppRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
         'appName'       => 'AppName',
         'description'   => 'Description',
+        'securityToken' => 'SecurityToken',
         'source'        => 'Source',
         'tag'           => 'Tag',
     ];
@@ -48,14 +48,14 @@ class CreateAppRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
@@ -81,14 +81,14 @@ class CreateAppRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];

@@ -11,32 +11,12 @@ class DescribeTrafficControlsRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $trafficControlId;
-
-    /**
-     * @var string
-     */
-    public $groupId;
-
-    /**
-     * @var string
-     */
     public $apiId;
 
     /**
      * @var string
      */
-    public $stageName;
-
-    /**
-     * @var string
-     */
-    public $trafficControlName;
+    public $groupId;
 
     /**
      * @var int
@@ -47,15 +27,35 @@ class DescribeTrafficControlsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
+    public $stageName;
+
+    /**
+     * @var string
+     */
+    public $trafficControlId;
+
+    /**
+     * @var string
+     */
+    public $trafficControlName;
     protected $_name = [
-        'securityToken'      => 'SecurityToken',
-        'trafficControlId'   => 'TrafficControlId',
-        'groupId'            => 'GroupId',
         'apiId'              => 'ApiId',
-        'stageName'          => 'StageName',
-        'trafficControlName' => 'TrafficControlName',
+        'groupId'            => 'GroupId',
         'pageNumber'         => 'PageNumber',
         'pageSize'           => 'PageSize',
+        'securityToken'      => 'SecurityToken',
+        'stageName'          => 'StageName',
+        'trafficControlId'   => 'TrafficControlId',
+        'trafficControlName' => 'TrafficControlName',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class DescribeTrafficControlsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->trafficControlId) {
-            $res['TrafficControlId'] = $this->trafficControlId;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
-        if (null !== $this->stageName) {
-            $res['StageName'] = $this->stageName;
-        }
-        if (null !== $this->trafficControlName) {
-            $res['TrafficControlName'] = $this->trafficControlName;
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->stageName) {
+            $res['StageName'] = $this->stageName;
+        }
+        if (null !== $this->trafficControlId) {
+            $res['TrafficControlId'] = $this->trafficControlId;
+        }
+        if (null !== $this->trafficControlName) {
+            $res['TrafficControlName'] = $this->trafficControlName;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class DescribeTrafficControlsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['TrafficControlId'])) {
-            $model->trafficControlId = $map['TrafficControlId'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
-        if (isset($map['StageName'])) {
-            $model->stageName = $map['StageName'];
-        }
-        if (isset($map['TrafficControlName'])) {
-            $model->trafficControlName = $map['TrafficControlName'];
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['StageName'])) {
+            $model->stageName = $map['StageName'];
+        }
+        if (isset($map['TrafficControlId'])) {
+            $model->trafficControlId = $map['TrafficControlId'];
+        }
+        if (isset($map['TrafficControlName'])) {
+            $model->trafficControlName = $map['TrafficControlName'];
         }
 
         return $model;

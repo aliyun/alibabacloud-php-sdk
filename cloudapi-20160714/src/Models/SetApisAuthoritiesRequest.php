@@ -11,12 +11,7 @@ class SetApisAuthoritiesRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $groupId;
+    public $apiIds;
 
     /**
      * @var int
@@ -26,12 +21,7 @@ class SetApisAuthoritiesRequest extends Model
     /**
      * @var string
      */
-    public $stageName;
-
-    /**
-     * @var string
-     */
-    public $apiIds;
+    public $authValidTime;
 
     /**
      * @var string
@@ -41,15 +31,25 @@ class SetApisAuthoritiesRequest extends Model
     /**
      * @var string
      */
-    public $authValidTime;
+    public $groupId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
+    public $stageName;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
-        'groupId'       => 'GroupId',
-        'appId'         => 'AppId',
-        'stageName'     => 'StageName',
         'apiIds'        => 'ApiIds',
-        'description'   => 'Description',
+        'appId'         => 'AppId',
         'authValidTime' => 'AuthValidTime',
+        'description'   => 'Description',
+        'groupId'       => 'GroupId',
+        'securityToken' => 'SecurityToken',
+        'stageName'     => 'StageName',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class SetApisAuthoritiesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
+        if (null !== $this->apiIds) {
+            $res['ApiIds'] = $this->apiIds;
         }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->stageName) {
-            $res['StageName'] = $this->stageName;
-        }
-        if (null !== $this->apiIds) {
-            $res['ApiIds'] = $this->apiIds;
+        if (null !== $this->authValidTime) {
+            $res['AuthValidTime'] = $this->authValidTime;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->authValidTime) {
-            $res['AuthValidTime'] = $this->authValidTime;
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->stageName) {
+            $res['StageName'] = $this->stageName;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class SetApisAuthoritiesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
+        if (isset($map['ApiIds'])) {
+            $model->apiIds = $map['ApiIds'];
         }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['StageName'])) {
-            $model->stageName = $map['StageName'];
-        }
-        if (isset($map['ApiIds'])) {
-            $model->apiIds = $map['ApiIds'];
+        if (isset($map['AuthValidTime'])) {
+            $model->authValidTime = $map['AuthValidTime'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['AuthValidTime'])) {
-            $model->authValidTime = $map['AuthValidTime'];
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['StageName'])) {
+            $model->stageName = $map['StageName'];
         }
 
         return $model;

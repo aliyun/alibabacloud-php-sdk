@@ -12,20 +12,20 @@ class DeletePluginRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $pluginId;
 
     /**
      * @var string
      */
-    public $pluginId;
+    public $securityToken;
 
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
         'pluginId'      => 'PluginId',
+        'securityToken' => 'SecurityToken',
         'tag'           => 'Tag',
     ];
 
@@ -36,11 +36,11 @@ class DeletePluginRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
         if (null !== $this->pluginId) {
             $res['PluginId'] = $this->pluginId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -63,11 +63,11 @@ class DeletePluginRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
         if (isset($map['PluginId'])) {
             $model->pluginId = $map['PluginId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

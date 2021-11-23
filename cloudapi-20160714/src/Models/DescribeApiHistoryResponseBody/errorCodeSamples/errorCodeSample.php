@@ -16,16 +16,16 @@ class errorCodeSample extends Model
     /**
      * @var string
      */
-    public $message;
+    public $description;
 
     /**
      * @var string
      */
-    public $description;
+    public $message;
     protected $_name = [
         'code'        => 'Code',
-        'message'     => 'Message',
         'description' => 'Description',
+        'message'     => 'Message',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class errorCodeSample extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class errorCodeSample extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
 
         return $model;

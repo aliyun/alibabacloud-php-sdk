@@ -10,9 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpControlPolicyItemsResponseBody extends Model
 {
     /**
+     * @var ipControlPolicyItems
+     */
+    public $ipControlPolicyItems;
+
+    /**
      * @var int
      */
     public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -22,23 +32,13 @@ class DescribeIpControlPolicyItemsResponseBody extends Model
     /**
      * @var int
      */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
     public $totalCount;
-
-    /**
-     * @var ipControlPolicyItems
-     */
-    public $ipControlPolicyItems;
     protected $_name = [
-        'pageNumber'           => 'PageNumber',
-        'requestId'            => 'RequestId',
-        'pageSize'             => 'PageSize',
-        'totalCount'           => 'TotalCount',
         'ipControlPolicyItems' => 'IpControlPolicyItems',
+        'pageNumber'           => 'PageNumber',
+        'pageSize'             => 'PageSize',
+        'requestId'            => 'RequestId',
+        'totalCount'           => 'TotalCount',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class DescribeIpControlPolicyItemsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ipControlPolicyItems) {
+            $res['IpControlPolicyItems'] = null !== $this->ipControlPolicyItems ? $this->ipControlPolicyItems->toMap() : null;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->ipControlPolicyItems) {
-            $res['IpControlPolicyItems'] = null !== $this->ipControlPolicyItems ? $this->ipControlPolicyItems->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class DescribeIpControlPolicyItemsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IpControlPolicyItems'])) {
+            $model->ipControlPolicyItems = ipControlPolicyItems::fromMap($map['IpControlPolicyItems']);
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['IpControlPolicyItems'])) {
-            $model->ipControlPolicyItems = ipControlPolicyItems::fromMap($map['IpControlPolicyItems']);
         }
 
         return $model;

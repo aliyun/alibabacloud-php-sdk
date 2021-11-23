@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateAppResponseBody extends Model
 {
     /**
-     * @var bool
+     * @var int
      */
-    public $tagStatus;
+    public $appId;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class CreateAppResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
+     * @var bool
      */
-    public $appId;
+    public $tagStatus;
     protected $_name = [
-        'tagStatus' => 'TagStatus',
-        'requestId' => 'RequestId',
         'appId'     => 'AppId',
+        'requestId' => 'RequestId',
+        'tagStatus' => 'TagStatus',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CreateAppResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tagStatus) {
-            $res['TagStatus'] = $this->tagStatus;
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
+        if (null !== $this->tagStatus) {
+            $res['TagStatus'] = $this->tagStatus;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CreateAppResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TagStatus'])) {
-            $model->tagStatus = $map['TagStatus'];
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
+        if (isset($map['TagStatus'])) {
+            $model->tagStatus = $map['TagStatus'];
         }
 
         return $model;

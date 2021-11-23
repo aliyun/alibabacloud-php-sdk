@@ -9,9 +9,24 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoPay;
+
+    /**
      * @var string
      */
     public $chargeType;
+
+    /**
+     * @var int
+     */
+    public $duration;
+
+    /**
+     * @var string
+     */
+    public $httpsPolicy;
 
     /**
      * @var string
@@ -26,42 +41,27 @@ class CreateInstanceRequest extends Model
     /**
      * @var string
      */
-    public $zoneId;
-
-    /**
-     * @var string
-     */
-    public $httpsPolicy;
-
-    /**
-     * @var int
-     */
-    public $duration;
-
-    /**
-     * @var string
-     */
     public $pricingCycle;
-
-    /**
-     * @var bool
-     */
-    public $autoPay;
 
     /**
      * @var string
      */
     public $token;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
+        'autoPay'      => 'AutoPay',
         'chargeType'   => 'ChargeType',
+        'duration'     => 'Duration',
+        'httpsPolicy'  => 'HttpsPolicy',
         'instanceName' => 'InstanceName',
         'instanceSpec' => 'InstanceSpec',
-        'zoneId'       => 'ZoneId',
-        'httpsPolicy'  => 'HttpsPolicy',
-        'duration'     => 'Duration',
         'pricingCycle' => 'PricingCycle',
-        'autoPay'      => 'AutoPay',
         'token'        => 'Token',
+        'zoneId'       => 'ZoneId',
     ];
 
     public function validate()
@@ -71,8 +71,17 @@ class CreateInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
+        }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->httpsPolicy) {
+            $res['HttpsPolicy'] = $this->httpsPolicy;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
@@ -80,23 +89,14 @@ class CreateInstanceRequest extends Model
         if (null !== $this->instanceSpec) {
             $res['InstanceSpec'] = $this->instanceSpec;
         }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->httpsPolicy) {
-            $res['HttpsPolicy'] = $this->httpsPolicy;
-        }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
-        }
         if (null !== $this->pricingCycle) {
             $res['PricingCycle'] = $this->pricingCycle;
         }
-        if (null !== $this->autoPay) {
-            $res['AutoPay'] = $this->autoPay;
-        }
         if (null !== $this->token) {
             $res['Token'] = $this->token;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -110,8 +110,17 @@ class CreateInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
+        }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
+        if (isset($map['HttpsPolicy'])) {
+            $model->httpsPolicy = $map['HttpsPolicy'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
@@ -119,23 +128,14 @@ class CreateInstanceRequest extends Model
         if (isset($map['InstanceSpec'])) {
             $model->instanceSpec = $map['InstanceSpec'];
         }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['HttpsPolicy'])) {
-            $model->httpsPolicy = $map['HttpsPolicy'];
-        }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
-        }
         if (isset($map['PricingCycle'])) {
             $model->pricingCycle = $map['PricingCycle'];
         }
-        if (isset($map['AutoPay'])) {
-            $model->autoPay = $map['AutoPay'];
-        }
         if (isset($map['Token'])) {
             $model->token = $map['Token'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class monitorItem extends Model
     /**
      * @var string
      */
-    public $itemValue;
+    public $itemTime;
 
     /**
      * @var string
      */
-    public $itemTime;
+    public $itemValue;
     protected $_name = [
-        'itemValue' => 'ItemValue',
         'itemTime'  => 'ItemTime',
+        'itemValue' => 'ItemValue',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class monitorItem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->itemValue) {
-            $res['ItemValue'] = $this->itemValue;
-        }
         if (null !== $this->itemTime) {
             $res['ItemTime'] = $this->itemTime;
+        }
+        if (null !== $this->itemValue) {
+            $res['ItemValue'] = $this->itemValue;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class monitorItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ItemValue'])) {
-            $model->itemValue = $map['ItemValue'];
-        }
         if (isset($map['ItemTime'])) {
             $model->itemTime = $map['ItemTime'];
+        }
+        if (isset($map['ItemValue'])) {
+            $model->itemValue = $map['ItemValue'];
         }
 
         return $model;

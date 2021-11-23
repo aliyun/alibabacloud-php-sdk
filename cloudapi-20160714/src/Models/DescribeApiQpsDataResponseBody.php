@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiQpsDataResponseBody extends Model
 {
     /**
-     * @var string
+     * @var callFails
      */
-    public $requestId;
+    public $callFails;
 
     /**
      * @var callSuccesses
@@ -21,13 +21,13 @@ class DescribeApiQpsDataResponseBody extends Model
     public $callSuccesses;
 
     /**
-     * @var callFails
+     * @var string
      */
-    public $callFails;
+    public $requestId;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'callSuccesses' => 'CallSuccesses',
         'callFails'     => 'CallFails',
+        'callSuccesses' => 'CallSuccesses',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class DescribeApiQpsDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->callFails) {
+            $res['CallFails'] = null !== $this->callFails ? $this->callFails->toMap() : null;
         }
         if (null !== $this->callSuccesses) {
             $res['CallSuccesses'] = null !== $this->callSuccesses ? $this->callSuccesses->toMap() : null;
         }
-        if (null !== $this->callFails) {
-            $res['CallFails'] = null !== $this->callFails ? $this->callFails->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class DescribeApiQpsDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['CallFails'])) {
+            $model->callFails = callFails::fromMap($map['CallFails']);
         }
         if (isset($map['CallSuccesses'])) {
             $model->callSuccesses = callSuccesses::fromMap($map['CallSuccesses']);
         }
-        if (isset($map['CallFails'])) {
-            $model->callFails = callFails::fromMap($map['CallFails']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

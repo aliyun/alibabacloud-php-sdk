@@ -16,7 +16,7 @@ class DeleteTrafficSpecialControlRequest extends Model
     /**
      * @var string
      */
-    public $trafficControlId;
+    public $specialKey;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class DeleteTrafficSpecialControlRequest extends Model
     /**
      * @var string
      */
-    public $specialKey;
+    public $trafficControlId;
     protected $_name = [
         'securityToken'    => 'SecurityToken',
-        'trafficControlId' => 'TrafficControlId',
-        'specialType'      => 'SpecialType',
         'specialKey'       => 'SpecialKey',
+        'specialType'      => 'SpecialType',
+        'trafficControlId' => 'TrafficControlId',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class DeleteTrafficSpecialControlRequest extends Model
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
-        if (null !== $this->trafficControlId) {
-            $res['TrafficControlId'] = $this->trafficControlId;
+        if (null !== $this->specialKey) {
+            $res['SpecialKey'] = $this->specialKey;
         }
         if (null !== $this->specialType) {
             $res['SpecialType'] = $this->specialType;
         }
-        if (null !== $this->specialKey) {
-            $res['SpecialKey'] = $this->specialKey;
+        if (null !== $this->trafficControlId) {
+            $res['TrafficControlId'] = $this->trafficControlId;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class DeleteTrafficSpecialControlRequest extends Model
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
-        if (isset($map['TrafficControlId'])) {
-            $model->trafficControlId = $map['TrafficControlId'];
+        if (isset($map['SpecialKey'])) {
+            $model->specialKey = $map['SpecialKey'];
         }
         if (isset($map['SpecialType'])) {
             $model->specialType = $map['SpecialType'];
         }
-        if (isset($map['SpecialKey'])) {
-            $model->specialKey = $map['SpecialKey'];
+        if (isset($map['TrafficControlId'])) {
+            $model->trafficControlId = $map['TrafficControlId'];
         }
 
         return $model;

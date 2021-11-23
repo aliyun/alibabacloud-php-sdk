@@ -11,22 +11,17 @@ class SetVpcAccessRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
+    public $description;
 
     /**
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var int
@@ -36,14 +31,19 @@ class SetVpcAccessRequest extends Model
     /**
      * @var string
      */
-    public $description;
+    public $securityToken;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
-        'name'          => 'Name',
-        'vpcId'         => 'VpcId',
-        'instanceId'    => 'InstanceId',
-        'port'          => 'Port',
         'description'   => 'Description',
+        'instanceId'    => 'InstanceId',
+        'name'          => 'Name',
+        'port'          => 'Port',
+        'securityToken' => 'SecurityToken',
+        'vpcId'         => 'VpcId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class SetVpcAccessRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class SetVpcAccessRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

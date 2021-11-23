@@ -12,12 +12,17 @@ class CreateIpControlRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $description;
 
     /**
      * @var string
      */
     public $ipControlName;
+
+    /**
+     * @var ipControlPolicys[]
+     */
+    public $ipControlPolicys;
 
     /**
      * @var string
@@ -27,18 +32,13 @@ class CreateIpControlRequest extends Model
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var ipControlPolicys[]
-     */
-    public $ipControlPolicys;
+    public $securityToken;
     protected $_name = [
-        'securityToken'    => 'SecurityToken',
-        'ipControlName'    => 'IpControlName',
-        'ipControlType'    => 'IpControlType',
         'description'      => 'Description',
+        'ipControlName'    => 'IpControlName',
         'ipControlPolicys' => 'IpControlPolicys',
+        'ipControlType'    => 'IpControlType',
+        'securityToken'    => 'SecurityToken',
     ];
 
     public function validate()
@@ -48,17 +48,11 @@ class CreateIpControlRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->ipControlName) {
             $res['IpControlName'] = $this->ipControlName;
-        }
-        if (null !== $this->ipControlType) {
-            $res['IpControlType'] = $this->ipControlType;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
         }
         if (null !== $this->ipControlPolicys) {
             $res['IpControlPolicys'] = [];
@@ -68,6 +62,12 @@ class CreateIpControlRequest extends Model
                     $res['IpControlPolicys'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->ipControlType) {
+            $res['IpControlType'] = $this->ipControlType;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -81,17 +81,11 @@ class CreateIpControlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['IpControlName'])) {
             $model->ipControlName = $map['IpControlName'];
-        }
-        if (isset($map['IpControlType'])) {
-            $model->ipControlType = $map['IpControlType'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
         }
         if (isset($map['IpControlPolicys'])) {
             if (!empty($map['IpControlPolicys'])) {
@@ -101,6 +95,12 @@ class CreateIpControlRequest extends Model
                     $model->ipControlPolicys[$n++] = null !== $item ? ipControlPolicys::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['IpControlType'])) {
+            $model->ipControlType = $map['IpControlType'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

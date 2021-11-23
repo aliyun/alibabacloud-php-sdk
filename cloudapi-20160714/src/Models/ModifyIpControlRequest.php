@@ -11,7 +11,7 @@ class ModifyIpControlRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $description;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class ModifyIpControlRequest extends Model
     /**
      * @var string
      */
-    public $description;
+    public $securityToken;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
+        'description'   => 'Description',
         'ipControlId'   => 'IpControlId',
         'ipControlName' => 'IpControlName',
-        'description'   => 'Description',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class ModifyIpControlRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->ipControlId) {
             $res['IpControlId'] = $this->ipControlId;
@@ -50,8 +50,8 @@ class ModifyIpControlRequest extends Model
         if (null !== $this->ipControlName) {
             $res['IpControlName'] = $this->ipControlName;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class ModifyIpControlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['IpControlId'])) {
             $model->ipControlId = $map['IpControlId'];
@@ -74,8 +74,8 @@ class ModifyIpControlRequest extends Model
         if (isset($map['IpControlName'])) {
             $model->ipControlName = $map['IpControlName'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

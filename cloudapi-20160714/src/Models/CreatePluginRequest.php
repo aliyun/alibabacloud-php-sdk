@@ -12,7 +12,12 @@ class CreatePluginRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $pluginData;
 
     /**
      * @var string
@@ -27,23 +32,18 @@ class CreatePluginRequest extends Model
     /**
      * @var string
      */
-    public $pluginData;
-
-    /**
-     * @var string
-     */
-    public $description;
+    public $securityToken;
 
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
+        'description'   => 'Description',
+        'pluginData'    => 'PluginData',
         'pluginName'    => 'PluginName',
         'pluginType'    => 'PluginType',
-        'pluginData'    => 'PluginData',
-        'description'   => 'Description',
+        'securityToken' => 'SecurityToken',
         'tag'           => 'Tag',
     ];
 
@@ -54,8 +54,11 @@ class CreatePluginRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->pluginData) {
+            $res['PluginData'] = $this->pluginData;
         }
         if (null !== $this->pluginName) {
             $res['PluginName'] = $this->pluginName;
@@ -63,11 +66,8 @@ class CreatePluginRequest extends Model
         if (null !== $this->pluginType) {
             $res['PluginType'] = $this->pluginType;
         }
-        if (null !== $this->pluginData) {
-            $res['PluginData'] = $this->pluginData;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -90,8 +90,11 @@ class CreatePluginRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['PluginData'])) {
+            $model->pluginData = $map['PluginData'];
         }
         if (isset($map['PluginName'])) {
             $model->pluginName = $map['PluginName'];
@@ -99,11 +102,8 @@ class CreatePluginRequest extends Model
         if (isset($map['PluginType'])) {
             $model->pluginType = $map['PluginType'];
         }
-        if (isset($map['PluginData'])) {
-            $model->pluginData = $map['PluginData'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

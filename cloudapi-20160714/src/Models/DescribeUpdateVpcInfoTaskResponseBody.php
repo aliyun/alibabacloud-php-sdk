@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeUpdateVpcInfoTaskResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var apiUpdateVpcInfoResults
      */
     public $apiUpdateVpcInfoResults;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'               => 'RequestId',
         'apiUpdateVpcInfoResults' => 'ApiUpdateVpcInfoResults',
+        'requestId'               => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeUpdateVpcInfoTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->apiUpdateVpcInfoResults) {
             $res['ApiUpdateVpcInfoResults'] = null !== $this->apiUpdateVpcInfoResults ? $this->apiUpdateVpcInfoResults->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeUpdateVpcInfoTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ApiUpdateVpcInfoResults'])) {
             $model->apiUpdateVpcInfoResults = apiUpdateVpcInfoResults::fromMap($map['ApiUpdateVpcInfoResults']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

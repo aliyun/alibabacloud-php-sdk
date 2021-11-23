@@ -11,12 +11,7 @@ class ipControlPolicyItem extends Model
     /**
      * @var string
      */
-    public $modifiedTime;
-
-    /**
-     * @var string
-     */
-    public $policyItemId;
+    public $appId;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class ipControlPolicyItem extends Model
     /**
      * @var string
      */
-    public $appId;
+    public $modifiedTime;
+
+    /**
+     * @var string
+     */
+    public $policyItemId;
     protected $_name = [
-        'modifiedTime' => 'ModifiedTime',
-        'policyItemId' => 'PolicyItemId',
+        'appId'        => 'AppId',
         'cidrIp'       => 'CidrIp',
         'createTime'   => 'CreateTime',
-        'appId'        => 'AppId',
+        'modifiedTime' => 'ModifiedTime',
+        'policyItemId' => 'PolicyItemId',
     ];
 
     public function validate()
@@ -47,11 +47,8 @@ class ipControlPolicyItem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->modifiedTime) {
-            $res['ModifiedTime'] = $this->modifiedTime;
-        }
-        if (null !== $this->policyItemId) {
-            $res['PolicyItemId'] = $this->policyItemId;
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
         }
         if (null !== $this->cidrIp) {
             $res['CidrIp'] = $this->cidrIp;
@@ -59,8 +56,11 @@ class ipControlPolicyItem extends Model
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
+        if (null !== $this->modifiedTime) {
+            $res['ModifiedTime'] = $this->modifiedTime;
+        }
+        if (null !== $this->policyItemId) {
+            $res['PolicyItemId'] = $this->policyItemId;
         }
 
         return $res;
@@ -74,11 +74,8 @@ class ipControlPolicyItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ModifiedTime'])) {
-            $model->modifiedTime = $map['ModifiedTime'];
-        }
-        if (isset($map['PolicyItemId'])) {
-            $model->policyItemId = $map['PolicyItemId'];
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
         }
         if (isset($map['CidrIp'])) {
             $model->cidrIp = $map['CidrIp'];
@@ -86,8 +83,11 @@ class ipControlPolicyItem extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
+        if (isset($map['ModifiedTime'])) {
+            $model->modifiedTime = $map['ModifiedTime'];
+        }
+        if (isset($map['PolicyItemId'])) {
+            $model->policyItemId = $map['PolicyItemId'];
         }
 
         return $model;

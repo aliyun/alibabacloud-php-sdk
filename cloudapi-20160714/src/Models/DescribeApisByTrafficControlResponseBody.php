@@ -10,9 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisByTrafficControlResponseBody extends Model
 {
     /**
+     * @var apiInfos
+     */
+    public $apiInfos;
+
+    /**
      * @var int
      */
     public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -22,23 +32,13 @@ class DescribeApisByTrafficControlResponseBody extends Model
     /**
      * @var int
      */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
     public $totalCount;
-
-    /**
-     * @var apiInfos
-     */
-    public $apiInfos;
     protected $_name = [
-        'pageNumber' => 'PageNumber',
-        'requestId'  => 'RequestId',
-        'pageSize'   => 'PageSize',
-        'totalCount' => 'TotalCount',
         'apiInfos'   => 'ApiInfos',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
+        'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class DescribeApisByTrafficControlResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->apiInfos) {
+            $res['ApiInfos'] = null !== $this->apiInfos ? $this->apiInfos->toMap() : null;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->apiInfos) {
-            $res['ApiInfos'] = null !== $this->apiInfos ? $this->apiInfos->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class DescribeApisByTrafficControlResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApiInfos'])) {
+            $model->apiInfos = apiInfos::fromMap($map['ApiInfos']);
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['ApiInfos'])) {
-            $model->apiInfos = apiInfos::fromMap($map['ApiInfos']);
         }
 
         return $model;

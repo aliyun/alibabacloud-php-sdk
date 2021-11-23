@@ -11,22 +11,7 @@ class DescribeApiLatencyDataRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var string
-     */
     public $apiId;
-
-    /**
-     * @var string
-     */
-    public $groupId;
-
-    /**
-     * @var string
-     */
-    public $startTime;
 
     /**
      * @var string
@@ -36,14 +21,29 @@ class DescribeApiLatencyDataRequest extends Model
     /**
      * @var string
      */
+    public $groupId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $stageName;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
         'apiId'         => 'ApiId',
-        'groupId'       => 'GroupId',
-        'startTime'     => 'StartTime',
         'endTime'       => 'EndTime',
+        'groupId'       => 'GroupId',
+        'securityToken' => 'SecurityToken',
         'stageName'     => 'StageName',
+        'startTime'     => 'StartTime',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class DescribeApiLatencyDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class DescribeApiLatencyDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
+        }
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class CreateModelRequest extends Model
     /**
      * @var string
      */
-    public $modelName;
+    public $description;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class CreateModelRequest extends Model
     /**
      * @var string
      */
-    public $schema;
+    public $modelName;
 
     /**
      * @var string
      */
-    public $description;
+    public $schema;
     protected $_name = [
-        'modelName'   => 'ModelName',
-        'groupId'     => 'GroupId',
-        'schema'      => 'Schema',
         'description' => 'Description',
+        'groupId'     => 'GroupId',
+        'modelName'   => 'ModelName',
+        'schema'      => 'Schema',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class CreateModelRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->modelName) {
-            $res['ModelName'] = $this->modelName;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+        if (null !== $this->modelName) {
+            $res['ModelName'] = $this->modelName;
+        }
         if (null !== $this->schema) {
             $res['Schema'] = $this->schema;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class CreateModelRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ModelName'])) {
-            $model->modelName = $map['ModelName'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+        if (isset($map['ModelName'])) {
+            $model->modelName = $map['ModelName'];
+        }
         if (isset($map['Schema'])) {
             $model->schema = $map['Schema'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
         }
 
         return $model;

@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcAccessesRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $accurateQuery;
+
+    /**
      * @var string
      */
-    public $securityToken;
+    public $name;
 
     /**
      * @var int
@@ -26,18 +31,13 @@ class DescribeVpcAccessesRequest extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var bool
-     */
-    public $accurateQuery;
+    public $securityToken;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
+        'accurateQuery' => 'AccurateQuery',
+        'name'          => 'Name',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
-        'name'          => 'Name',
-        'accurateQuery' => 'AccurateQuery',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -47,8 +47,11 @@ class DescribeVpcAccessesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->accurateQuery) {
+            $res['AccurateQuery'] = $this->accurateQuery;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -56,11 +59,8 @@ class DescribeVpcAccessesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->accurateQuery) {
-            $res['AccurateQuery'] = $this->accurateQuery;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -74,8 +74,11 @@ class DescribeVpcAccessesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['AccurateQuery'])) {
+            $model->accurateQuery = $map['AccurateQuery'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -83,11 +86,8 @@ class DescribeVpcAccessesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['AccurateQuery'])) {
-            $model->accurateQuery = $map['AccurateQuery'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

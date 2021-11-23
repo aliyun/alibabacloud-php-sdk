@@ -11,21 +11,21 @@ class RemoveIpControlPolicyItemRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var string
-     */
     public $ipControlId;
 
     /**
      * @var string
      */
     public $policyItemIds;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
         'ipControlId'   => 'IpControlId',
         'policyItemIds' => 'PolicyItemIds',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class RemoveIpControlPolicyItemRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
         if (null !== $this->ipControlId) {
             $res['IpControlId'] = $this->ipControlId;
         }
         if (null !== $this->policyItemIds) {
             $res['PolicyItemIds'] = $this->policyItemIds;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class RemoveIpControlPolicyItemRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
         if (isset($map['IpControlId'])) {
             $model->ipControlId = $map['IpControlId'];
         }
         if (isset($map['PolicyItemIds'])) {
             $model->policyItemIds = $map['PolicyItemIds'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

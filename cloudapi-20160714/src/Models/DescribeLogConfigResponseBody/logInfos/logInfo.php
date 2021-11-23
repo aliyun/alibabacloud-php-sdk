@@ -11,27 +11,27 @@ class logInfo extends Model
     /**
      * @var string
      */
-    public $slsLogStore;
-
-    /**
-     * @var string
-     */
     public $logType;
 
     /**
      * @var string
      */
-    public $slsProject;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $slsLogStore;
+
+    /**
+     * @var string
+     */
+    public $slsProject;
     protected $_name = [
-        'slsLogStore' => 'SlsLogStore',
         'logType'     => 'LogType',
-        'slsProject'  => 'SlsProject',
         'regionId'    => 'RegionId',
+        'slsLogStore' => 'SlsLogStore',
+        'slsProject'  => 'SlsProject',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class logInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->slsLogStore) {
-            $res['SlsLogStore'] = $this->slsLogStore;
-        }
         if (null !== $this->logType) {
             $res['LogType'] = $this->logType;
         }
-        if (null !== $this->slsProject) {
-            $res['SlsProject'] = $this->slsProject;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->slsLogStore) {
+            $res['SlsLogStore'] = $this->slsLogStore;
+        }
+        if (null !== $this->slsProject) {
+            $res['SlsProject'] = $this->slsProject;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class logInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SlsLogStore'])) {
-            $model->slsLogStore = $map['SlsLogStore'];
-        }
         if (isset($map['LogType'])) {
             $model->logType = $map['LogType'];
         }
-        if (isset($map['SlsProject'])) {
-            $model->slsProject = $map['SlsProject'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SlsLogStore'])) {
+            $model->slsLogStore = $map['SlsLogStore'];
+        }
+        if (isset($map['SlsProject'])) {
+            $model->slsProject = $map['SlsProject'];
         }
 
         return $model;

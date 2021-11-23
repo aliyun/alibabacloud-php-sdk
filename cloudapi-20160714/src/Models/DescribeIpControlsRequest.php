@@ -11,11 +11,6 @@ class DescribeIpControlsRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var string
-     */
     public $ipControlId;
 
     /**
@@ -37,13 +32,18 @@ class DescribeIpControlsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
         'ipControlId'   => 'IpControlId',
         'ipControlName' => 'IpControlName',
         'ipControlType' => 'IpControlType',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -53,9 +53,6 @@ class DescribeIpControlsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
         if (null !== $this->ipControlId) {
             $res['IpControlId'] = $this->ipControlId;
         }
@@ -71,6 +68,9 @@ class DescribeIpControlsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
 
         return $res;
     }
@@ -83,9 +83,6 @@ class DescribeIpControlsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
         if (isset($map['IpControlId'])) {
             $model->ipControlId = $map['IpControlId'];
         }
@@ -100,6 +97,9 @@ class DescribeIpControlsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

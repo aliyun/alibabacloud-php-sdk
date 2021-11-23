@@ -11,15 +11,15 @@ class DescribeRegionsRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $language;
 
     /**
      * @var string
      */
-    public $language;
+    public $securityToken;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
         'language'      => 'Language',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeRegionsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeRegionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

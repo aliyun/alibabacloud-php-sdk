@@ -16,16 +16,16 @@ class apiImportModelFailed extends Model
     /**
      * @var string
      */
-    public $modelName;
+    public $groupId;
 
     /**
      * @var string
      */
-    public $groupId;
+    public $modelName;
     protected $_name = [
         'errorMsg'  => 'ErrorMsg',
-        'modelName' => 'ModelName',
         'groupId'   => 'GroupId',
+        'modelName' => 'ModelName',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class apiImportModelFailed extends Model
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
         }
-        if (null !== $this->modelName) {
-            $res['ModelName'] = $this->modelName;
-        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->modelName) {
+            $res['ModelName'] = $this->modelName;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class apiImportModelFailed extends Model
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
         }
-        if (isset($map['ModelName'])) {
-            $model->modelName = $map['ModelName'];
-        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['ModelName'])) {
+            $model->modelName = $map['ModelName'];
         }
 
         return $model;

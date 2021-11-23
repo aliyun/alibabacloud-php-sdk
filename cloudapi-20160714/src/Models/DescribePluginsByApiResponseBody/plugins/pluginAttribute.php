@@ -11,7 +11,12 @@ class pluginAttribute extends Model
     /**
      * @var string
      */
-    public $pluginId;
+    public $createdTime;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var string
@@ -26,17 +31,12 @@ class pluginAttribute extends Model
     /**
      * @var string
      */
-    public $description;
+    public $pluginId;
 
     /**
      * @var string
      */
     public $pluginName;
-
-    /**
-     * @var string
-     */
-    public $createdTime;
 
     /**
      * @var string
@@ -48,12 +48,12 @@ class pluginAttribute extends Model
      */
     public $regionId;
     protected $_name = [
-        'pluginId'     => 'PluginId',
+        'createdTime'  => 'CreatedTime',
+        'description'  => 'Description',
         'modifiedTime' => 'ModifiedTime',
         'pluginData'   => 'PluginData',
-        'description'  => 'Description',
+        'pluginId'     => 'PluginId',
         'pluginName'   => 'PluginName',
-        'createdTime'  => 'CreatedTime',
         'pluginType'   => 'PluginType',
         'regionId'     => 'RegionId',
     ];
@@ -65,8 +65,11 @@ class pluginAttribute extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pluginId) {
-            $res['PluginId'] = $this->pluginId;
+        if (null !== $this->createdTime) {
+            $res['CreatedTime'] = $this->createdTime;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
@@ -74,14 +77,11 @@ class pluginAttribute extends Model
         if (null !== $this->pluginData) {
             $res['PluginData'] = $this->pluginData;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->pluginId) {
+            $res['PluginId'] = $this->pluginId;
         }
         if (null !== $this->pluginName) {
             $res['PluginName'] = $this->pluginName;
-        }
-        if (null !== $this->createdTime) {
-            $res['CreatedTime'] = $this->createdTime;
         }
         if (null !== $this->pluginType) {
             $res['PluginType'] = $this->pluginType;
@@ -101,8 +101,11 @@ class pluginAttribute extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PluginId'])) {
-            $model->pluginId = $map['PluginId'];
+        if (isset($map['CreatedTime'])) {
+            $model->createdTime = $map['CreatedTime'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
@@ -110,14 +113,11 @@ class pluginAttribute extends Model
         if (isset($map['PluginData'])) {
             $model->pluginData = $map['PluginData'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['PluginId'])) {
+            $model->pluginId = $map['PluginId'];
         }
         if (isset($map['PluginName'])) {
             $model->pluginName = $map['PluginName'];
-        }
-        if (isset($map['CreatedTime'])) {
-            $model->createdTime = $map['CreatedTime'];
         }
         if (isset($map['PluginType'])) {
             $model->pluginType = $map['PluginType'];

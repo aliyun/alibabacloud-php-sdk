@@ -11,15 +11,15 @@ class DeleteModelRequest extends Model
     /**
      * @var string
      */
-    public $modelName;
+    public $groupId;
 
     /**
      * @var string
      */
-    public $groupId;
+    public $modelName;
     protected $_name = [
-        'modelName' => 'ModelName',
         'groupId'   => 'GroupId',
+        'modelName' => 'ModelName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteModelRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->modelName) {
-            $res['ModelName'] = $this->modelName;
-        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->modelName) {
+            $res['ModelName'] = $this->modelName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteModelRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ModelName'])) {
-            $model->modelName = $map['ModelName'];
-        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['ModelName'])) {
+            $model->modelName = $map['ModelName'];
         }
 
         return $model;

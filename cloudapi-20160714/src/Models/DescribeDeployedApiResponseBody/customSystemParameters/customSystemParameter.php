@@ -21,12 +21,12 @@ class customSystemParameter extends Model
     /**
      * @var string
      */
-    public $parameterName;
+    public $location;
 
     /**
      * @var string
      */
-    public $location;
+    public $parameterName;
 
     /**
      * @var string
@@ -35,8 +35,8 @@ class customSystemParameter extends Model
     protected $_name = [
         'demoValue'            => 'DemoValue',
         'description'          => 'Description',
-        'parameterName'        => 'ParameterName',
         'location'             => 'Location',
+        'parameterName'        => 'ParameterName',
         'serviceParameterName' => 'ServiceParameterName',
     ];
 
@@ -53,11 +53,11 @@ class customSystemParameter extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->parameterName) {
-            $res['ParameterName'] = $this->parameterName;
-        }
         if (null !== $this->location) {
             $res['Location'] = $this->location;
+        }
+        if (null !== $this->parameterName) {
+            $res['ParameterName'] = $this->parameterName;
         }
         if (null !== $this->serviceParameterName) {
             $res['ServiceParameterName'] = $this->serviceParameterName;
@@ -80,11 +80,11 @@ class customSystemParameter extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['ParameterName'])) {
-            $model->parameterName = $map['ParameterName'];
-        }
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
+        }
+        if (isset($map['ParameterName'])) {
+            $model->parameterName = $map['ParameterName'];
         }
         if (isset($map['ServiceParameterName'])) {
             $model->serviceParameterName = $map['ServiceParameterName'];

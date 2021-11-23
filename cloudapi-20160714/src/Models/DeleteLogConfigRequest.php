@@ -11,15 +11,15 @@ class DeleteLogConfigRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $logType;
 
     /**
      * @var string
      */
-    public $logType;
+    public $securityToken;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
         'logType'       => 'LogType',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteLogConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
         if (null !== $this->logType) {
             $res['LogType'] = $this->logType;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteLogConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
         if (isset($map['LogType'])) {
             $model->logType = $map['LogType'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

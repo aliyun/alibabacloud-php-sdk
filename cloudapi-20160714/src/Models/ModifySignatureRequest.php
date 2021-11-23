@@ -21,12 +21,12 @@ class ModifySignatureRequest extends Model
     /**
      * @var string
      */
-    public $signatureName;
+    public $signatureKey;
 
     /**
      * @var string
      */
-    public $signatureKey;
+    public $signatureName;
 
     /**
      * @var string
@@ -35,8 +35,8 @@ class ModifySignatureRequest extends Model
     protected $_name = [
         'securityToken'   => 'SecurityToken',
         'signatureId'     => 'SignatureId',
-        'signatureName'   => 'SignatureName',
         'signatureKey'    => 'SignatureKey',
+        'signatureName'   => 'SignatureName',
         'signatureSecret' => 'SignatureSecret',
     ];
 
@@ -53,11 +53,11 @@ class ModifySignatureRequest extends Model
         if (null !== $this->signatureId) {
             $res['SignatureId'] = $this->signatureId;
         }
-        if (null !== $this->signatureName) {
-            $res['SignatureName'] = $this->signatureName;
-        }
         if (null !== $this->signatureKey) {
             $res['SignatureKey'] = $this->signatureKey;
+        }
+        if (null !== $this->signatureName) {
+            $res['SignatureName'] = $this->signatureName;
         }
         if (null !== $this->signatureSecret) {
             $res['SignatureSecret'] = $this->signatureSecret;
@@ -80,11 +80,11 @@ class ModifySignatureRequest extends Model
         if (isset($map['SignatureId'])) {
             $model->signatureId = $map['SignatureId'];
         }
-        if (isset($map['SignatureName'])) {
-            $model->signatureName = $map['SignatureName'];
-        }
         if (isset($map['SignatureKey'])) {
             $model->signatureKey = $map['SignatureKey'];
+        }
+        if (isset($map['SignatureName'])) {
+            $model->signatureName = $map['SignatureName'];
         }
         if (isset($map['SignatureSecret'])) {
             $model->signatureSecret = $map['SignatureSecret'];

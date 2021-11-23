@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DryRunSwaggerRequest extends Model
 {
     /**
-     * @var bool
+     * @var string
      */
-    public $overwrite;
+    public $data;
+
+    /**
+     * @var string
+     */
+    public $dataFormat;
 
     /**
      * @var mixed[]
@@ -21,23 +26,18 @@ class DryRunSwaggerRequest extends Model
     /**
      * @var string
      */
-    public $dataFormat;
-
-    /**
-     * @var string
-     */
-    public $data;
-
-    /**
-     * @var string
-     */
     public $groupId;
+
+    /**
+     * @var bool
+     */
+    public $overwrite;
     protected $_name = [
-        'overwrite'       => 'Overwrite',
-        'globalCondition' => 'GlobalCondition',
-        'dataFormat'      => 'DataFormat',
         'data'            => 'Data',
+        'dataFormat'      => 'DataFormat',
+        'globalCondition' => 'GlobalCondition',
         'groupId'         => 'GroupId',
+        'overwrite'       => 'Overwrite',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DryRunSwaggerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->overwrite) {
-            $res['Overwrite'] = $this->overwrite;
-        }
-        if (null !== $this->globalCondition) {
-            $res['GlobalCondition'] = $this->globalCondition;
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
         }
         if (null !== $this->dataFormat) {
             $res['DataFormat'] = $this->dataFormat;
         }
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
+        if (null !== $this->globalCondition) {
+            $res['GlobalCondition'] = $this->globalCondition;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->overwrite) {
+            $res['Overwrite'] = $this->overwrite;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DryRunSwaggerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Overwrite'])) {
-            $model->overwrite = $map['Overwrite'];
-        }
-        if (isset($map['GlobalCondition'])) {
-            $model->globalCondition = $map['GlobalCondition'];
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
         }
         if (isset($map['DataFormat'])) {
             $model->dataFormat = $map['DataFormat'];
         }
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+        if (isset($map['GlobalCondition'])) {
+            $model->globalCondition = $map['GlobalCondition'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['Overwrite'])) {
+            $model->overwrite = $map['Overwrite'];
         }
 
         return $model;

@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyAppRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @var int
      */
     public $appId;
@@ -30,14 +25,19 @@ class ModifyAppRequest extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $securityToken;
+
+    /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
         'appId'         => 'AppId',
         'appName'       => 'AppName',
         'description'   => 'Description',
+        'securityToken' => 'SecurityToken',
         'tag'           => 'Tag',
     ];
 
@@ -48,9 +48,6 @@ class ModifyAppRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
@@ -59,6 +56,9 @@ class ModifyAppRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -81,9 +81,6 @@ class ModifyAppRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
@@ -92,6 +89,9 @@ class ModifyAppRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

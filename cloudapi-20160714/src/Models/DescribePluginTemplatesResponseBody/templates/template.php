@@ -11,17 +11,12 @@ class template extends Model
     /**
      * @var string
      */
-    public $title;
+    public $description;
 
     /**
      * @var string
      */
     public $documentAnchor;
-
-    /**
-     * @var string
-     */
-    public $description;
 
     /**
      * @var string
@@ -32,12 +27,17 @@ class template extends Model
      * @var string
      */
     public $sample;
+
+    /**
+     * @var string
+     */
+    public $title;
     protected $_name = [
-        'title'          => 'Title',
-        'documentAnchor' => 'DocumentAnchor',
         'description'    => 'Description',
+        'documentAnchor' => 'DocumentAnchor',
         'documentId'     => 'DocumentId',
         'sample'         => 'Sample',
+        'title'          => 'Title',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class template extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->documentAnchor) {
             $res['DocumentAnchor'] = $this->documentAnchor;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
         }
         if (null !== $this->documentId) {
             $res['DocumentId'] = $this->documentId;
         }
         if (null !== $this->sample) {
             $res['Sample'] = $this->sample;
+        }
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class template extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['DocumentAnchor'])) {
             $model->documentAnchor = $map['DocumentAnchor'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
         }
         if (isset($map['DocumentId'])) {
             $model->documentId = $map['DocumentId'];
         }
         if (isset($map['Sample'])) {
             $model->sample = $map['Sample'];
+        }
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
         }
 
         return $model;

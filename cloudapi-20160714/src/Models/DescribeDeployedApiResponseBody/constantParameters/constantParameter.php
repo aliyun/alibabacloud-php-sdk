@@ -11,6 +11,11 @@ class constantParameter extends Model
     /**
      * @var string
      */
+    public $constantValue;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -22,16 +27,11 @@ class constantParameter extends Model
      * @var string
      */
     public $serviceParameterName;
-
-    /**
-     * @var string
-     */
-    public $constantValue;
     protected $_name = [
+        'constantValue'        => 'ConstantValue',
         'description'          => 'Description',
         'location'             => 'Location',
         'serviceParameterName' => 'ServiceParameterName',
-        'constantValue'        => 'ConstantValue',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class constantParameter extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->constantValue) {
+            $res['ConstantValue'] = $this->constantValue;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -49,9 +52,6 @@ class constantParameter extends Model
         }
         if (null !== $this->serviceParameterName) {
             $res['ServiceParameterName'] = $this->serviceParameterName;
-        }
-        if (null !== $this->constantValue) {
-            $res['ConstantValue'] = $this->constantValue;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class constantParameter extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConstantValue'])) {
+            $model->constantValue = $map['ConstantValue'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -73,9 +76,6 @@ class constantParameter extends Model
         }
         if (isset($map['ServiceParameterName'])) {
             $model->serviceParameterName = $map['ServiceParameterName'];
-        }
-        if (isset($map['ConstantValue'])) {
-            $model->constantValue = $map['ConstantValue'];
         }
 
         return $model;

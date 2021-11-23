@@ -11,12 +11,7 @@ class SetIpControlApisRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $ipControlId;
+    public $apiIds;
 
     /**
      * @var string
@@ -26,17 +21,22 @@ class SetIpControlApisRequest extends Model
     /**
      * @var string
      */
-    public $apiIds;
+    public $ipControlId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
 
     /**
      * @var string
      */
     public $stageName;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
-        'ipControlId'   => 'IpControlId',
-        'groupId'       => 'GroupId',
         'apiIds'        => 'ApiIds',
+        'groupId'       => 'GroupId',
+        'ipControlId'   => 'IpControlId',
+        'securityToken' => 'SecurityToken',
         'stageName'     => 'StageName',
     ];
 
@@ -47,17 +47,17 @@ class SetIpControlApisRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->ipControlId) {
-            $res['IpControlId'] = $this->ipControlId;
+        if (null !== $this->apiIds) {
+            $res['ApiIds'] = $this->apiIds;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->apiIds) {
-            $res['ApiIds'] = $this->apiIds;
+        if (null !== $this->ipControlId) {
+            $res['IpControlId'] = $this->ipControlId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
@@ -74,17 +74,17 @@ class SetIpControlApisRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['IpControlId'])) {
-            $model->ipControlId = $map['IpControlId'];
+        if (isset($map['ApiIds'])) {
+            $model->apiIds = $map['ApiIds'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['ApiIds'])) {
-            $model->apiIds = $map['ApiIds'];
+        if (isset($map['IpControlId'])) {
+            $model->ipControlId = $map['IpControlId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];

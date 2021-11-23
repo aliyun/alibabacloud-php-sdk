@@ -11,12 +11,12 @@ class ModifyApiGroupResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $basePath;
 
     /**
      * @var string
      */
-    public $basePath;
+    public $description;
 
     /**
      * @var string
@@ -31,18 +31,18 @@ class ModifyApiGroupResponseBody extends Model
     /**
      * @var string
      */
-    public $description;
+    public $requestId;
 
     /**
      * @var string
      */
     public $subDomain;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'basePath'    => 'BasePath',
+        'description' => 'Description',
         'groupId'     => 'GroupId',
         'groupName'   => 'GroupName',
-        'description' => 'Description',
+        'requestId'   => 'RequestId',
         'subDomain'   => 'SubDomain',
     ];
 
@@ -53,11 +53,11 @@ class ModifyApiGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->basePath) {
             $res['BasePath'] = $this->basePath;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -65,8 +65,8 @@ class ModifyApiGroupResponseBody extends Model
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->subDomain) {
             $res['SubDomain'] = $this->subDomain;
@@ -83,11 +83,11 @@ class ModifyApiGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['BasePath'])) {
             $model->basePath = $map['BasePath'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
@@ -95,8 +95,8 @@ class ModifyApiGroupResponseBody extends Model
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['SubDomain'])) {
             $model->subDomain = $map['SubDomain'];

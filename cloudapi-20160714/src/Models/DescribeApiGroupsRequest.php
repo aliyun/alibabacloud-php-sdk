@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiGroupsRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $securityToken;
+    public $enableTagAuth;
 
     /**
      * @var string
@@ -25,6 +25,11 @@ class DescribeApiGroupsRequest extends Model
     public $groupName;
 
     /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -35,14 +40,9 @@ class DescribeApiGroupsRequest extends Model
     public $pageSize;
 
     /**
-     * @var bool
-     */
-    public $enableTagAuth;
-
-    /**
      * @var string
      */
-    public $instanceId;
+    public $securityToken;
 
     /**
      * @var string
@@ -54,13 +54,13 @@ class DescribeApiGroupsRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
+        'enableTagAuth' => 'EnableTagAuth',
         'groupId'       => 'GroupId',
         'groupName'     => 'GroupName',
+        'instanceId'    => 'InstanceId',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
-        'enableTagAuth' => 'EnableTagAuth',
-        'instanceId'    => 'InstanceId',
+        'securityToken' => 'SecurityToken',
         'sort'          => 'Sort',
         'tag'           => 'Tag',
     ];
@@ -72,8 +72,8 @@ class DescribeApiGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->enableTagAuth) {
+            $res['EnableTagAuth'] = $this->enableTagAuth;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -81,17 +81,17 @@ class DescribeApiGroupsRequest extends Model
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->enableTagAuth) {
-            $res['EnableTagAuth'] = $this->enableTagAuth;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
@@ -117,8 +117,8 @@ class DescribeApiGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['EnableTagAuth'])) {
+            $model->enableTagAuth = $map['EnableTagAuth'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
@@ -126,17 +126,17 @@ class DescribeApiGroupsRequest extends Model
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['EnableTagAuth'])) {
-            $model->enableTagAuth = $map['EnableTagAuth'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Sort'])) {
             $model->sort = $map['Sort'];

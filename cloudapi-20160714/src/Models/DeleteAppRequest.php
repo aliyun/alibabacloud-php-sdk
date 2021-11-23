@@ -10,22 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteAppRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @var int
      */
     public $appId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
 
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
         'appId'         => 'AppId',
+        'securityToken' => 'SecurityToken',
         'tag'           => 'Tag',
     ];
 
@@ -36,11 +36,11 @@ class DeleteAppRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -63,11 +63,11 @@ class DeleteAppRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

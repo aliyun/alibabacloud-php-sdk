@@ -11,7 +11,7 @@ class apiImportSwaggerFailed extends Model
     /**
      * @var string
      */
-    public $path;
+    public $errorMsg;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class apiImportSwaggerFailed extends Model
     /**
      * @var string
      */
-    public $errorMsg;
+    public $path;
     protected $_name = [
-        'path'       => 'Path',
-        'httpMethod' => 'HttpMethod',
         'errorMsg'   => 'ErrorMsg',
+        'httpMethod' => 'HttpMethod',
+        'path'       => 'Path',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class apiImportSwaggerFailed extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->path) {
-            $res['Path'] = $this->path;
+        if (null !== $this->errorMsg) {
+            $res['ErrorMsg'] = $this->errorMsg;
         }
         if (null !== $this->httpMethod) {
             $res['HttpMethod'] = $this->httpMethod;
         }
-        if (null !== $this->errorMsg) {
-            $res['ErrorMsg'] = $this->errorMsg;
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class apiImportSwaggerFailed extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Path'])) {
-            $model->path = $map['Path'];
+        if (isset($map['ErrorMsg'])) {
+            $model->errorMsg = $map['ErrorMsg'];
         }
         if (isset($map['HttpMethod'])) {
             $model->httpMethod = $map['HttpMethod'];
         }
-        if (isset($map['ErrorMsg'])) {
-            $model->errorMsg = $map['ErrorMsg'];
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
         }
 
         return $model;

@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeAuthorizedApisRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @var int
      */
     public $appId;
@@ -27,11 +22,16 @@ class DescribeAuthorizedApisRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
         'appId'         => 'AppId',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class DescribeAuthorizedApisRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
@@ -52,6 +49,9 @@ class DescribeAuthorizedApisRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class DescribeAuthorizedApisRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
@@ -76,6 +73,9 @@ class DescribeAuthorizedApisRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class mockHeader extends Model
     /**
      * @var string
      */
-    public $headerValue;
+    public $headerName;
 
     /**
      * @var string
      */
-    public $headerName;
+    public $headerValue;
     protected $_name = [
-        'headerValue' => 'HeaderValue',
         'headerName'  => 'HeaderName',
+        'headerValue' => 'HeaderValue',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class mockHeader extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headerValue) {
-            $res['HeaderValue'] = $this->headerValue;
-        }
         if (null !== $this->headerName) {
             $res['HeaderName'] = $this->headerName;
+        }
+        if (null !== $this->headerValue) {
+            $res['HeaderValue'] = $this->headerValue;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class mockHeader extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HeaderValue'])) {
-            $model->headerValue = $map['HeaderValue'];
-        }
         if (isset($map['HeaderName'])) {
             $model->headerName = $map['HeaderName'];
+        }
+        if (isset($map['HeaderValue'])) {
+            $model->headerValue = $map['HeaderValue'];
         }
 
         return $model;

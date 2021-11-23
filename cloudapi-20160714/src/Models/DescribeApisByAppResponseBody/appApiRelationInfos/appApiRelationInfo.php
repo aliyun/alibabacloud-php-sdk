@@ -9,34 +9,67 @@ use AlibabaCloud\Tea\Model;
 class appApiRelationInfo extends Model
 {
     /**
+     * @description API的ID
+     *
      * @var string
      */
     public $apiId;
 
     /**
+     * @description API名称
+     *
      * @var string
      */
-    public $authorizationSource;
+    public $apiName;
 
     /**
+     * @description 授权有效时间
+     *
      * @var string
      */
     public $authVaildTime;
 
     /**
+     * @description 授权来源
+     *
+     * @var string
+     */
+    public $authorizationSource;
+
+    /**
+     * @description 授权时间
+     *
+     * @var string
+     */
+    public $createdTime;
+
+    /**
+     * @description 描述
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description 分组ID
+     *
+     * @var string
+     */
+    public $groupId;
+
+    /**
+     * @description 分组名称
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description API的请求HTTP Method
+     *
      * @var string
      */
-    public $groupId;
+    public $method;
 
     /**
      * @var string
@@ -44,36 +77,39 @@ class appApiRelationInfo extends Model
     public $operator;
 
     /**
+     * @description API的请求路径
+     *
      * @var string
      */
-    public $stageName;
+    public $path;
 
     /**
-     * @var string
-     */
-    public $createdTime;
-
-    /**
-     * @var string
-     */
-    public $apiName;
-
-    /**
+     * @description 地区ID
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description 环境名称
+     *
+     * @var string
+     */
+    public $stageName;
     protected $_name = [
         'apiId'               => 'ApiId',
-        'authorizationSource' => 'AuthorizationSource',
-        'authVaildTime'       => 'AuthVaildTime',
-        'description'         => 'Description',
-        'groupName'           => 'GroupName',
-        'groupId'             => 'GroupId',
-        'operator'            => 'Operator',
-        'stageName'           => 'StageName',
-        'createdTime'         => 'CreatedTime',
         'apiName'             => 'ApiName',
+        'authVaildTime'       => 'AuthVaildTime',
+        'authorizationSource' => 'AuthorizationSource',
+        'createdTime'         => 'CreatedTime',
+        'description'         => 'Description',
+        'groupId'             => 'GroupId',
+        'groupName'           => 'GroupName',
+        'method'              => 'Method',
+        'operator'            => 'Operator',
+        'path'                => 'Path',
         'regionId'            => 'RegionId',
+        'stageName'           => 'StageName',
     ];
 
     public function validate()
@@ -86,35 +122,41 @@ class appApiRelationInfo extends Model
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
-        if (null !== $this->authorizationSource) {
-            $res['AuthorizationSource'] = $this->authorizationSource;
+        if (null !== $this->apiName) {
+            $res['ApiName'] = $this->apiName;
         }
         if (null !== $this->authVaildTime) {
             $res['AuthVaildTime'] = $this->authVaildTime;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->operator) {
-            $res['Operator'] = $this->operator;
-        }
-        if (null !== $this->stageName) {
-            $res['StageName'] = $this->stageName;
+        if (null !== $this->authorizationSource) {
+            $res['AuthorizationSource'] = $this->authorizationSource;
         }
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
-        if (null !== $this->apiName) {
-            $res['ApiName'] = $this->apiName;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->method) {
+            $res['Method'] = $this->method;
+        }
+        if (null !== $this->operator) {
+            $res['Operator'] = $this->operator;
+        }
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->stageName) {
+            $res['StageName'] = $this->stageName;
         }
 
         return $res;
@@ -131,35 +173,41 @@ class appApiRelationInfo extends Model
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
-        if (isset($map['AuthorizationSource'])) {
-            $model->authorizationSource = $map['AuthorizationSource'];
+        if (isset($map['ApiName'])) {
+            $model->apiName = $map['ApiName'];
         }
         if (isset($map['AuthVaildTime'])) {
             $model->authVaildTime = $map['AuthVaildTime'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['Operator'])) {
-            $model->operator = $map['Operator'];
-        }
-        if (isset($map['StageName'])) {
-            $model->stageName = $map['StageName'];
+        if (isset($map['AuthorizationSource'])) {
+            $model->authorizationSource = $map['AuthorizationSource'];
         }
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
-        if (isset($map['ApiName'])) {
-            $model->apiName = $map['ApiName'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['Method'])) {
+            $model->method = $map['Method'];
+        }
+        if (isset($map['Operator'])) {
+            $model->operator = $map['Operator'];
+        }
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StageName'])) {
+            $model->stageName = $map['StageName'];
         }
 
         return $model;

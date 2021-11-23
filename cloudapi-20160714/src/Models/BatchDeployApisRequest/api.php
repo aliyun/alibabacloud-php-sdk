@@ -11,15 +11,15 @@ class api extends Model
     /**
      * @var string
      */
-    public $groupId;
+    public $apiUid;
 
     /**
      * @var string
      */
-    public $apiUid;
+    public $groupId;
     protected $_name = [
-        'groupId' => 'GroupId',
         'apiUid'  => 'ApiUid',
+        'groupId' => 'GroupId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class api extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
         if (null !== $this->apiUid) {
             $res['ApiUid'] = $this->apiUid;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class api extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
         if (isset($map['ApiUid'])) {
             $model->apiUid = $map['ApiUid'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
 
         return $model;

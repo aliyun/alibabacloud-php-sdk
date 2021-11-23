@@ -11,22 +11,12 @@ class apiAbolishResult extends Model
     /**
      * @var string
      */
-    public $stageId;
-
-    /**
-     * @var string
-     */
     public $abolishStatus;
 
     /**
      * @var string
      */
-    public $groupId;
-
-    /**
-     * @var string
-     */
-    public $groupName;
+    public $apiName;
 
     /**
      * @var string
@@ -41,21 +31,31 @@ class apiAbolishResult extends Model
     /**
      * @var string
      */
-    public $stageName;
+    public $groupId;
 
     /**
      * @var string
      */
-    public $apiName;
+    public $groupName;
+
+    /**
+     * @var string
+     */
+    public $stageId;
+
+    /**
+     * @var string
+     */
+    public $stageName;
     protected $_name = [
-        'stageId'       => 'StageId',
         'abolishStatus' => 'AbolishStatus',
-        'groupId'       => 'GroupId',
-        'groupName'     => 'GroupName',
+        'apiName'       => 'ApiName',
         'apiUid'        => 'ApiUid',
         'errorMsg'      => 'ErrorMsg',
+        'groupId'       => 'GroupId',
+        'groupName'     => 'GroupName',
+        'stageId'       => 'StageId',
         'stageName'     => 'StageName',
-        'apiName'       => 'ApiName',
     ];
 
     public function validate()
@@ -65,17 +65,11 @@ class apiAbolishResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->stageId) {
-            $res['StageId'] = $this->stageId;
-        }
         if (null !== $this->abolishStatus) {
             $res['AbolishStatus'] = $this->abolishStatus;
         }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
+        if (null !== $this->apiName) {
+            $res['ApiName'] = $this->apiName;
         }
         if (null !== $this->apiUid) {
             $res['ApiUid'] = $this->apiUid;
@@ -83,11 +77,17 @@ class apiAbolishResult extends Model
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
         }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->stageId) {
+            $res['StageId'] = $this->stageId;
+        }
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
-        }
-        if (null !== $this->apiName) {
-            $res['ApiName'] = $this->apiName;
         }
 
         return $res;
@@ -101,17 +101,11 @@ class apiAbolishResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StageId'])) {
-            $model->stageId = $map['StageId'];
-        }
         if (isset($map['AbolishStatus'])) {
             $model->abolishStatus = $map['AbolishStatus'];
         }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
+        if (isset($map['ApiName'])) {
+            $model->apiName = $map['ApiName'];
         }
         if (isset($map['ApiUid'])) {
             $model->apiUid = $map['ApiUid'];
@@ -119,11 +113,17 @@ class apiAbolishResult extends Model
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
         }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['StageId'])) {
+            $model->stageId = $map['StageId'];
+        }
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];
-        }
-        if (isset($map['ApiName'])) {
-            $model->apiName = $map['ApiName'];
         }
 
         return $model;

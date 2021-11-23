@@ -12,17 +12,12 @@ class DescribePurchasedApiGroupResponseBody extends Model
     /**
      * @var string
      */
-    public $status;
+    public $description;
 
     /**
-     * @var string
+     * @var domains
      */
-    public $purchasedTime;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $domains;
 
     /**
      * @var string
@@ -37,7 +32,7 @@ class DescribePurchasedApiGroupResponseBody extends Model
     /**
      * @var string
      */
-    public $description;
+    public $purchasedTime;
 
     /**
      * @var string
@@ -45,18 +40,23 @@ class DescribePurchasedApiGroupResponseBody extends Model
     public $regionId;
 
     /**
-     * @var domains
+     * @var string
      */
-    public $domains;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'        => 'Status',
-        'purchasedTime' => 'PurchasedTime',
-        'requestId'     => 'RequestId',
+        'description'   => 'Description',
+        'domains'       => 'Domains',
         'groupId'       => 'GroupId',
         'groupName'     => 'GroupName',
-        'description'   => 'Description',
+        'purchasedTime' => 'PurchasedTime',
         'regionId'      => 'RegionId',
-        'domains'       => 'Domains',
+        'requestId'     => 'RequestId',
+        'status'        => 'Status',
     ];
 
     public function validate()
@@ -66,14 +66,11 @@ class DescribePurchasedApiGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
-        if (null !== $this->purchasedTime) {
-            $res['PurchasedTime'] = $this->purchasedTime;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->domains) {
+            $res['Domains'] = null !== $this->domains ? $this->domains->toMap() : null;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -81,14 +78,17 @@ class DescribePurchasedApiGroupResponseBody extends Model
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->purchasedTime) {
+            $res['PurchasedTime'] = $this->purchasedTime;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->domains) {
-            $res['Domains'] = null !== $this->domains ? $this->domains->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -102,14 +102,11 @@ class DescribePurchasedApiGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
-        if (isset($map['PurchasedTime'])) {
-            $model->purchasedTime = $map['PurchasedTime'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Domains'])) {
+            $model->domains = domains::fromMap($map['Domains']);
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
@@ -117,14 +114,17 @@ class DescribePurchasedApiGroupResponseBody extends Model
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['PurchasedTime'])) {
+            $model->purchasedTime = $map['PurchasedTime'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['Domains'])) {
-            $model->domains = domains::fromMap($map['Domains']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

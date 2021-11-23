@@ -10,9 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiIpControlsResponseBody extends Model
 {
     /**
+     * @var apiIpControls
+     */
+    public $apiIpControls;
+
+    /**
      * @var int
      */
     public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -22,23 +32,13 @@ class DescribeApiIpControlsResponseBody extends Model
     /**
      * @var int
      */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
     public $totalCount;
-
-    /**
-     * @var apiIpControls
-     */
-    public $apiIpControls;
     protected $_name = [
-        'pageNumber'    => 'PageNumber',
-        'requestId'     => 'RequestId',
-        'pageSize'      => 'PageSize',
-        'totalCount'    => 'TotalCount',
         'apiIpControls' => 'ApiIpControls',
+        'pageNumber'    => 'PageNumber',
+        'pageSize'      => 'PageSize',
+        'requestId'     => 'RequestId',
+        'totalCount'    => 'TotalCount',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class DescribeApiIpControlsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->apiIpControls) {
+            $res['ApiIpControls'] = null !== $this->apiIpControls ? $this->apiIpControls->toMap() : null;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->apiIpControls) {
-            $res['ApiIpControls'] = null !== $this->apiIpControls ? $this->apiIpControls->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class DescribeApiIpControlsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApiIpControls'])) {
+            $model->apiIpControls = apiIpControls::fromMap($map['ApiIpControls']);
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['ApiIpControls'])) {
-            $model->apiIpControls = apiIpControls::fromMap($map['ApiIpControls']);
         }
 
         return $model;

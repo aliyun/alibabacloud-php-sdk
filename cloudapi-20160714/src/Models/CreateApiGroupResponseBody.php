@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateApiGroupResponseBody extends Model
 {
     /**
-     * @var bool
-     */
-    public $tagStatus;
-
-    /**
      * @var string
      */
     public $basePath;
-
-    /**
-     * @var string
-     */
-    public $requestId;
 
     /**
      * @var string
@@ -31,12 +21,12 @@ class CreateApiGroupResponseBody extends Model
     /**
      * @var string
      */
-    public $groupName;
+    public $groupId;
 
     /**
      * @var string
      */
-    public $groupId;
+    public $groupName;
 
     /**
      * @var string
@@ -46,22 +36,32 @@ class CreateApiGroupResponseBody extends Model
     /**
      * @var string
      */
-    public $subDomain;
+    public $instanceType;
 
     /**
      * @var string
      */
-    public $instanceType;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $subDomain;
+
+    /**
+     * @var bool
+     */
+    public $tagStatus;
     protected $_name = [
-        'tagStatus'    => 'TagStatus',
         'basePath'     => 'BasePath',
-        'requestId'    => 'RequestId',
         'description'  => 'Description',
-        'groupName'    => 'GroupName',
         'groupId'      => 'GroupId',
+        'groupName'    => 'GroupName',
         'instanceId'   => 'InstanceId',
-        'subDomain'    => 'SubDomain',
         'instanceType' => 'InstanceType',
+        'requestId'    => 'RequestId',
+        'subDomain'    => 'SubDomain',
+        'tagStatus'    => 'TagStatus',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class CreateApiGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tagStatus) {
-            $res['TagStatus'] = $this->tagStatus;
-        }
         if (null !== $this->basePath) {
             $res['BasePath'] = $this->basePath;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
-        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->subDomain) {
             $res['SubDomain'] = $this->subDomain;
         }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
+        if (null !== $this->tagStatus) {
+            $res['TagStatus'] = $this->tagStatus;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class CreateApiGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TagStatus'])) {
-            $model->tagStatus = $map['TagStatus'];
-        }
         if (isset($map['BasePath'])) {
             $model->basePath = $map['BasePath'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
-        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['SubDomain'])) {
             $model->subDomain = $map['SubDomain'];
         }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
+        if (isset($map['TagStatus'])) {
+            $model->tagStatus = $map['TagStatus'];
         }
 
         return $model;

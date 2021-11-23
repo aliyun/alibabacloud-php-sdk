@@ -11,12 +11,17 @@ class deployedResult extends Model
     /**
      * @var string
      */
-    public $errorMsg;
+    public $apiUid;
 
     /**
      * @var string
      */
-    public $stageName;
+    public $deployedStatus;
+
+    /**
+     * @var string
+     */
+    public $errorMsg;
 
     /**
      * @var string
@@ -26,18 +31,13 @@ class deployedResult extends Model
     /**
      * @var string
      */
-    public $apiUid;
-
-    /**
-     * @var string
-     */
-    public $deployedStatus;
+    public $stageName;
     protected $_name = [
-        'errorMsg'       => 'ErrorMsg',
-        'stageName'      => 'StageName',
-        'groupId'        => 'GroupId',
         'apiUid'         => 'ApiUid',
         'deployedStatus' => 'DeployedStatus',
+        'errorMsg'       => 'ErrorMsg',
+        'groupId'        => 'GroupId',
+        'stageName'      => 'StageName',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class deployedResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->errorMsg) {
-            $res['ErrorMsg'] = $this->errorMsg;
-        }
-        if (null !== $this->stageName) {
-            $res['StageName'] = $this->stageName;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
         if (null !== $this->apiUid) {
             $res['ApiUid'] = $this->apiUid;
         }
         if (null !== $this->deployedStatus) {
             $res['DeployedStatus'] = $this->deployedStatus;
+        }
+        if (null !== $this->errorMsg) {
+            $res['ErrorMsg'] = $this->errorMsg;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->stageName) {
+            $res['StageName'] = $this->stageName;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class deployedResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ErrorMsg'])) {
-            $model->errorMsg = $map['ErrorMsg'];
-        }
-        if (isset($map['StageName'])) {
-            $model->stageName = $map['StageName'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
         if (isset($map['ApiUid'])) {
             $model->apiUid = $map['ApiUid'];
         }
         if (isset($map['DeployedStatus'])) {
             $model->deployedStatus = $map['DeployedStatus'];
+        }
+        if (isset($map['ErrorMsg'])) {
+            $model->errorMsg = $map['ErrorMsg'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['StageName'])) {
+            $model->stageName = $map['StageName'];
         }
 
         return $model;

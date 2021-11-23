@@ -11,22 +11,7 @@ class functionComputeConfig extends Model
     /**
      * @var string
      */
-    public $fcType;
-
-    /**
-     * @var string
-     */
-    public $roleArn;
-
-    /**
-     * @var string
-     */
-    public $method;
-
-    /**
-     * @var string
-     */
-    public $fcBaseUrl;
+    public $contentTypeCatagory;
 
     /**
      * @var string
@@ -36,12 +21,12 @@ class functionComputeConfig extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $fcBaseUrl;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $onlyBusinessPath;
+    public $fcType;
 
     /**
      * @var string
@@ -51,7 +36,12 @@ class functionComputeConfig extends Model
     /**
      * @var string
      */
-    public $contentTypeCatagory;
+    public $method;
+
+    /**
+     * @var bool
+     */
+    public $onlyBusinessPath;
 
     /**
      * @var string
@@ -61,25 +51,35 @@ class functionComputeConfig extends Model
     /**
      * @var string
      */
-    public $serviceName;
+    public $qualifier;
 
     /**
      * @var string
      */
-    public $qualifier;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $roleArn;
+
+    /**
+     * @var string
+     */
+    public $serviceName;
     protected $_name = [
-        'fcType'              => 'FcType',
-        'roleArn'             => 'RoleArn',
-        'method'              => 'Method',
-        'fcBaseUrl'           => 'FcBaseUrl',
-        'contentTypeValue'    => 'ContentTypeValue',
-        'regionId'            => 'RegionId',
-        'onlyBusinessPath'    => 'OnlyBusinessPath',
-        'functionName'        => 'FunctionName',
         'contentTypeCatagory' => 'ContentTypeCatagory',
+        'contentTypeValue'    => 'ContentTypeValue',
+        'fcBaseUrl'           => 'FcBaseUrl',
+        'fcType'              => 'FcType',
+        'functionName'        => 'FunctionName',
+        'method'              => 'Method',
+        'onlyBusinessPath'    => 'OnlyBusinessPath',
         'path'                => 'Path',
-        'serviceName'         => 'ServiceName',
         'qualifier'           => 'Qualifier',
+        'regionId'            => 'RegionId',
+        'roleArn'             => 'RoleArn',
+        'serviceName'         => 'ServiceName',
     ];
 
     public function validate()
@@ -89,41 +89,41 @@ class functionComputeConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fcType) {
-            $res['FcType'] = $this->fcType;
-        }
-        if (null !== $this->roleArn) {
-            $res['RoleArn'] = $this->roleArn;
-        }
-        if (null !== $this->method) {
-            $res['Method'] = $this->method;
-        }
-        if (null !== $this->fcBaseUrl) {
-            $res['FcBaseUrl'] = $this->fcBaseUrl;
+        if (null !== $this->contentTypeCatagory) {
+            $res['ContentTypeCatagory'] = $this->contentTypeCatagory;
         }
         if (null !== $this->contentTypeValue) {
             $res['ContentTypeValue'] = $this->contentTypeValue;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->fcBaseUrl) {
+            $res['FcBaseUrl'] = $this->fcBaseUrl;
         }
-        if (null !== $this->onlyBusinessPath) {
-            $res['OnlyBusinessPath'] = $this->onlyBusinessPath;
+        if (null !== $this->fcType) {
+            $res['FcType'] = $this->fcType;
         }
         if (null !== $this->functionName) {
             $res['FunctionName'] = $this->functionName;
         }
-        if (null !== $this->contentTypeCatagory) {
-            $res['ContentTypeCatagory'] = $this->contentTypeCatagory;
+        if (null !== $this->method) {
+            $res['Method'] = $this->method;
+        }
+        if (null !== $this->onlyBusinessPath) {
+            $res['OnlyBusinessPath'] = $this->onlyBusinessPath;
         }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
-        if (null !== $this->serviceName) {
-            $res['ServiceName'] = $this->serviceName;
-        }
         if (null !== $this->qualifier) {
             $res['Qualifier'] = $this->qualifier;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->roleArn) {
+            $res['RoleArn'] = $this->roleArn;
+        }
+        if (null !== $this->serviceName) {
+            $res['ServiceName'] = $this->serviceName;
         }
 
         return $res;
@@ -137,41 +137,41 @@ class functionComputeConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FcType'])) {
-            $model->fcType = $map['FcType'];
-        }
-        if (isset($map['RoleArn'])) {
-            $model->roleArn = $map['RoleArn'];
-        }
-        if (isset($map['Method'])) {
-            $model->method = $map['Method'];
-        }
-        if (isset($map['FcBaseUrl'])) {
-            $model->fcBaseUrl = $map['FcBaseUrl'];
+        if (isset($map['ContentTypeCatagory'])) {
+            $model->contentTypeCatagory = $map['ContentTypeCatagory'];
         }
         if (isset($map['ContentTypeValue'])) {
             $model->contentTypeValue = $map['ContentTypeValue'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['FcBaseUrl'])) {
+            $model->fcBaseUrl = $map['FcBaseUrl'];
         }
-        if (isset($map['OnlyBusinessPath'])) {
-            $model->onlyBusinessPath = $map['OnlyBusinessPath'];
+        if (isset($map['FcType'])) {
+            $model->fcType = $map['FcType'];
         }
         if (isset($map['FunctionName'])) {
             $model->functionName = $map['FunctionName'];
         }
-        if (isset($map['ContentTypeCatagory'])) {
-            $model->contentTypeCatagory = $map['ContentTypeCatagory'];
+        if (isset($map['Method'])) {
+            $model->method = $map['Method'];
+        }
+        if (isset($map['OnlyBusinessPath'])) {
+            $model->onlyBusinessPath = $map['OnlyBusinessPath'];
         }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
-        if (isset($map['ServiceName'])) {
-            $model->serviceName = $map['ServiceName'];
-        }
         if (isset($map['Qualifier'])) {
             $model->qualifier = $map['Qualifier'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RoleArn'])) {
+            $model->roleArn = $map['RoleArn'];
+        }
+        if (isset($map['ServiceName'])) {
+            $model->serviceName = $map['ServiceName'];
         }
 
         return $model;

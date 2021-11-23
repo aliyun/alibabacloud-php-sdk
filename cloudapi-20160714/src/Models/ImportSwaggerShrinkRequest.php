@@ -9,9 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ImportSwaggerShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $data;
+
+    /**
+     * @var string
+     */
+    public $dataFormat;
+
+    /**
      * @var bool
      */
-    public $overwrite;
+    public $dryRun;
 
     /**
      * @var string
@@ -21,29 +31,19 @@ class ImportSwaggerShrinkRequest extends Model
     /**
      * @var string
      */
-    public $dataFormat;
-
-    /**
-     * @var string
-     */
-    public $data;
-
-    /**
-     * @var string
-     */
     public $groupId;
 
     /**
      * @var bool
      */
-    public $dryRun;
+    public $overwrite;
     protected $_name = [
-        'overwrite'             => 'Overwrite',
-        'globalConditionShrink' => 'GlobalCondition',
-        'dataFormat'            => 'DataFormat',
         'data'                  => 'Data',
-        'groupId'               => 'GroupId',
+        'dataFormat'            => 'DataFormat',
         'dryRun'                => 'DryRun',
+        'globalConditionShrink' => 'GlobalCondition',
+        'groupId'               => 'GroupId',
+        'overwrite'             => 'Overwrite',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class ImportSwaggerShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->overwrite) {
-            $res['Overwrite'] = $this->overwrite;
-        }
-        if (null !== $this->globalConditionShrink) {
-            $res['GlobalCondition'] = $this->globalConditionShrink;
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
         }
         if (null !== $this->dataFormat) {
             $res['DataFormat'] = $this->dataFormat;
         }
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->globalConditionShrink) {
+            $res['GlobalCondition'] = $this->globalConditionShrink;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->dryRun) {
-            $res['DryRun'] = $this->dryRun;
+        if (null !== $this->overwrite) {
+            $res['Overwrite'] = $this->overwrite;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class ImportSwaggerShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Overwrite'])) {
-            $model->overwrite = $map['Overwrite'];
-        }
-        if (isset($map['GlobalCondition'])) {
-            $model->globalConditionShrink = $map['GlobalCondition'];
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
         }
         if (isset($map['DataFormat'])) {
             $model->dataFormat = $map['DataFormat'];
         }
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['GlobalCondition'])) {
+            $model->globalConditionShrink = $map['GlobalCondition'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['DryRun'])) {
-            $model->dryRun = $map['DryRun'];
+        if (isset($map['Overwrite'])) {
+            $model->overwrite = $map['Overwrite'];
         }
 
         return $model;

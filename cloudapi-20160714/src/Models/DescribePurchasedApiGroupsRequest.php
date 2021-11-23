@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribePurchasedApiGroupsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -22,10 +17,15 @@ class DescribePurchasedApiGroupsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribePurchasedApiGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribePurchasedApiGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

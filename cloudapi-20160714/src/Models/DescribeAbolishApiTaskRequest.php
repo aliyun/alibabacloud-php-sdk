@@ -11,15 +11,15 @@ class DescribeAbolishApiTaskRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $operationUid;
 
     /**
      * @var string
      */
-    public $operationUid;
+    public $securityToken;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
         'operationUid'  => 'OperationUid',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeAbolishApiTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
         if (null !== $this->operationUid) {
             $res['OperationUid'] = $this->operationUid;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeAbolishApiTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
         if (isset($map['OperationUid'])) {
             $model->operationUid = $map['OperationUid'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

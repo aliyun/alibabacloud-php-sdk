@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class BatchDeployApisRequest extends Model
 {
     /**
+     * @var api[]
+     */
+    public $api;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var string
      */
     public $securityToken;
@@ -18,21 +28,11 @@ class BatchDeployApisRequest extends Model
      * @var string
      */
     public $stageName;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var api[]
-     */
-    public $api;
     protected $_name = [
+        'api'           => 'Api',
+        'description'   => 'Description',
         'securityToken' => 'SecurityToken',
         'stageName'     => 'StageName',
-        'description'   => 'Description',
-        'api'           => 'Api',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class BatchDeployApisRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->stageName) {
-            $res['StageName'] = $this->stageName;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->api) {
             $res['Api'] = [];
             if (null !== $this->api && \is_array($this->api)) {
@@ -59,6 +50,15 @@ class BatchDeployApisRequest extends Model
                     $res['Api'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->stageName) {
+            $res['StageName'] = $this->stageName;
         }
 
         return $res;
@@ -72,15 +72,6 @@ class BatchDeployApisRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['StageName'])) {
-            $model->stageName = $map['StageName'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['Api'])) {
             if (!empty($map['Api'])) {
                 $model->api = [];
@@ -89,6 +80,15 @@ class BatchDeployApisRequest extends Model
                     $model->api[$n++] = null !== $item ? api::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['StageName'])) {
+            $model->stageName = $map['StageName'];
         }
 
         return $model;

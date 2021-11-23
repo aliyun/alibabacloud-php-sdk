@@ -16,22 +16,22 @@ class DescribeApiMarketAttributesResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $marketChargingMode;
 
     /**
      * @var string
      */
     public $needCharging;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'apiId'              => 'ApiId',
-        'requestId'          => 'RequestId',
         'marketChargingMode' => 'MarketChargingMode',
         'needCharging'       => 'NeedCharging',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class DescribeApiMarketAttributesResponseBody extends Model
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->marketChargingMode) {
             $res['MarketChargingMode'] = $this->marketChargingMode;
         }
         if (null !== $this->needCharging) {
             $res['NeedCharging'] = $this->needCharging;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class DescribeApiMarketAttributesResponseBody extends Model
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['MarketChargingMode'])) {
             $model->marketChargingMode = $map['MarketChargingMode'];
         }
         if (isset($map['NeedCharging'])) {
             $model->needCharging = $map['NeedCharging'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

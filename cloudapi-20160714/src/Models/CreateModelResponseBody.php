@@ -11,12 +11,7 @@ class CreateModelResponseBody extends Model
     /**
      * @var string
      */
-    public $modifiedTime;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $createdTime;
 
     /**
      * @var string
@@ -31,7 +26,7 @@ class CreateModelResponseBody extends Model
     /**
      * @var string
      */
-    public $schema;
+    public $modelId;
 
     /**
      * @var string
@@ -41,12 +36,12 @@ class CreateModelResponseBody extends Model
     /**
      * @var string
      */
-    public $createdTime;
+    public $modelRef;
 
     /**
      * @var string
      */
-    public $modelId;
+    public $modifiedTime;
 
     /**
      * @var string
@@ -56,18 +51,23 @@ class CreateModelResponseBody extends Model
     /**
      * @var string
      */
-    public $modelRef;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $schema;
     protected $_name = [
-        'modifiedTime' => 'ModifiedTime',
-        'requestId'    => 'RequestId',
+        'createdTime'  => 'CreatedTime',
         'description'  => 'Description',
         'groupId'      => 'GroupId',
-        'schema'       => 'Schema',
-        'modelName'    => 'ModelName',
-        'createdTime'  => 'CreatedTime',
         'modelId'      => 'ModelId',
-        'regionId'     => 'RegionId',
+        'modelName'    => 'ModelName',
         'modelRef'     => 'ModelRef',
+        'modifiedTime' => 'ModifiedTime',
+        'regionId'     => 'RegionId',
+        'requestId'    => 'RequestId',
+        'schema'       => 'Schema',
     ];
 
     public function validate()
@@ -77,11 +77,8 @@ class CreateModelResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->modifiedTime) {
-            $res['ModifiedTime'] = $this->modifiedTime;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->createdTime) {
+            $res['CreatedTime'] = $this->createdTime;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -89,23 +86,26 @@ class CreateModelResponseBody extends Model
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->schema) {
-            $res['Schema'] = $this->schema;
+        if (null !== $this->modelId) {
+            $res['ModelId'] = $this->modelId;
         }
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
         }
-        if (null !== $this->createdTime) {
-            $res['CreatedTime'] = $this->createdTime;
+        if (null !== $this->modelRef) {
+            $res['ModelRef'] = $this->modelRef;
         }
-        if (null !== $this->modelId) {
-            $res['ModelId'] = $this->modelId;
+        if (null !== $this->modifiedTime) {
+            $res['ModifiedTime'] = $this->modifiedTime;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->modelRef) {
-            $res['ModelRef'] = $this->modelRef;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->schema) {
+            $res['Schema'] = $this->schema;
         }
 
         return $res;
@@ -119,11 +119,8 @@ class CreateModelResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ModifiedTime'])) {
-            $model->modifiedTime = $map['ModifiedTime'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['CreatedTime'])) {
+            $model->createdTime = $map['CreatedTime'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -131,23 +128,26 @@ class CreateModelResponseBody extends Model
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['Schema'])) {
-            $model->schema = $map['Schema'];
+        if (isset($map['ModelId'])) {
+            $model->modelId = $map['ModelId'];
         }
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
         }
-        if (isset($map['CreatedTime'])) {
-            $model->createdTime = $map['CreatedTime'];
+        if (isset($map['ModelRef'])) {
+            $model->modelRef = $map['ModelRef'];
         }
-        if (isset($map['ModelId'])) {
-            $model->modelId = $map['ModelId'];
+        if (isset($map['ModifiedTime'])) {
+            $model->modifiedTime = $map['ModifiedTime'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ModelRef'])) {
-            $model->modelRef = $map['ModelRef'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Schema'])) {
+            $model->schema = $map['Schema'];
         }
 
         return $model;

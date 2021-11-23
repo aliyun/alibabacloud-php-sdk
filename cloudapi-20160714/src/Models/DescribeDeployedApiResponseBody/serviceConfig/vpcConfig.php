@@ -11,12 +11,12 @@ class vpcConfig extends Model
     /**
      * @var string
      */
-    public $vpcId;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $name;
 
     /**
      * @var int
@@ -26,12 +26,12 @@ class vpcConfig extends Model
     /**
      * @var string
      */
-    public $name;
+    public $vpcId;
     protected $_name = [
-        'vpcId'      => 'VpcId',
         'instanceId' => 'InstanceId',
-        'port'       => 'Port',
         'name'       => 'Name',
+        'port'       => 'Port',
+        'vpcId'      => 'VpcId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class vpcConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class vpcConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

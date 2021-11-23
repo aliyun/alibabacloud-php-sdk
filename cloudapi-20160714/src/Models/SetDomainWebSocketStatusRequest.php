@@ -11,12 +11,7 @@ class SetDomainWebSocketStatusRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $groupId;
+    public $actionValue;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class SetDomainWebSocketStatusRequest extends Model
     /**
      * @var string
      */
-    public $actionValue;
+    public $groupId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
-        'groupId'       => 'GroupId',
-        'domainName'    => 'DomainName',
         'actionValue'   => 'ActionValue',
+        'domainName'    => 'DomainName',
+        'groupId'       => 'GroupId',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class SetDomainWebSocketStatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
+        if (null !== $this->actionValue) {
+            $res['ActionValue'] = $this->actionValue;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->actionValue) {
-            $res['ActionValue'] = $this->actionValue;
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class SetDomainWebSocketStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
+        if (isset($map['ActionValue'])) {
+            $model->actionValue = $map['ActionValue'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['ActionValue'])) {
-            $model->actionValue = $map['ActionValue'];
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

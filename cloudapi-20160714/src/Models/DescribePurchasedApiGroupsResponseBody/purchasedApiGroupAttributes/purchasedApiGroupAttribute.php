@@ -11,17 +11,7 @@ class purchasedApiGroupAttribute extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $purchasedTime;
-
-    /**
-     * @var string
-     */
-    public $expireTime;
+    public $billingType;
 
     /**
      * @var string
@@ -31,12 +21,17 @@ class purchasedApiGroupAttribute extends Model
     /**
      * @var string
      */
-    public $groupName;
+    public $expireTime;
 
     /**
      * @var string
      */
     public $groupId;
+
+    /**
+     * @var string
+     */
+    public $groupName;
 
     /**
      * @var int
@@ -51,23 +46,28 @@ class purchasedApiGroupAttribute extends Model
     /**
      * @var string
      */
-    public $billingType;
+    public $purchasedTime;
 
     /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'         => 'Status',
-        'purchasedTime'  => 'PurchasedTime',
-        'expireTime'     => 'ExpireTime',
+        'billingType'    => 'BillingType',
         'description'    => 'Description',
-        'groupName'      => 'GroupName',
+        'expireTime'     => 'ExpireTime',
         'groupId'        => 'GroupId',
+        'groupName'      => 'GroupName',
         'invokeTimesMax' => 'InvokeTimesMax',
         'invokeTimesNow' => 'InvokeTimesNow',
-        'billingType'    => 'BillingType',
+        'purchasedTime'  => 'PurchasedTime',
         'regionId'       => 'RegionId',
+        'status'         => 'Status',
     ];
 
     public function validate()
@@ -77,23 +77,20 @@ class purchasedApiGroupAttribute extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->purchasedTime) {
-            $res['PurchasedTime'] = $this->purchasedTime;
-        }
-        if (null !== $this->expireTime) {
-            $res['ExpireTime'] = $this->expireTime;
+        if (null !== $this->billingType) {
+            $res['BillingType'] = $this->billingType;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
         }
         if (null !== $this->invokeTimesMax) {
             $res['InvokeTimesMax'] = $this->invokeTimesMax;
@@ -101,11 +98,14 @@ class purchasedApiGroupAttribute extends Model
         if (null !== $this->invokeTimesNow) {
             $res['InvokeTimesNow'] = $this->invokeTimesNow;
         }
-        if (null !== $this->billingType) {
-            $res['BillingType'] = $this->billingType;
+        if (null !== $this->purchasedTime) {
+            $res['PurchasedTime'] = $this->purchasedTime;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -119,23 +119,20 @@ class purchasedApiGroupAttribute extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['PurchasedTime'])) {
-            $model->purchasedTime = $map['PurchasedTime'];
-        }
-        if (isset($map['ExpireTime'])) {
-            $model->expireTime = $map['ExpireTime'];
+        if (isset($map['BillingType'])) {
+            $model->billingType = $map['BillingType'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
         }
         if (isset($map['InvokeTimesMax'])) {
             $model->invokeTimesMax = $map['InvokeTimesMax'];
@@ -143,11 +140,14 @@ class purchasedApiGroupAttribute extends Model
         if (isset($map['InvokeTimesNow'])) {
             $model->invokeTimesNow = $map['InvokeTimesNow'];
         }
-        if (isset($map['BillingType'])) {
-            $model->billingType = $map['BillingType'];
+        if (isset($map['PurchasedTime'])) {
+            $model->purchasedTime = $map['PurchasedTime'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

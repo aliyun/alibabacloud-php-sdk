@@ -12,7 +12,7 @@ class DescribeAppAttributesRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $appCode;
 
     /**
      * @var int
@@ -22,7 +22,17 @@ class DescribeAppAttributesRequest extends Model
     /**
      * @var string
      */
+    public $appKey;
+
+    /**
+     * @var string
+     */
     public $appName;
+
+    /**
+     * @var bool
+     */
+    public $enableTagAuth;
 
     /**
      * @var int
@@ -37,12 +47,7 @@ class DescribeAppAttributesRequest extends Model
     /**
      * @var string
      */
-    public $appCode;
-
-    /**
-     * @var string
-     */
-    public $appKey;
+    public $securityToken;
 
     /**
      * @var string
@@ -50,24 +55,19 @@ class DescribeAppAttributesRequest extends Model
     public $sort;
 
     /**
-     * @var bool
-     */
-    public $enableTagAuth;
-
-    /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
+        'appCode'       => 'AppCode',
         'appId'         => 'AppId',
+        'appKey'        => 'AppKey',
         'appName'       => 'AppName',
+        'enableTagAuth' => 'EnableTagAuth',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
-        'appCode'       => 'AppCode',
-        'appKey'        => 'AppKey',
+        'securityToken' => 'SecurityToken',
         'sort'          => 'Sort',
-        'enableTagAuth' => 'EnableTagAuth',
         'tag'           => 'Tag',
     ];
 
@@ -78,14 +78,20 @@ class DescribeAppAttributesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->appCode) {
+            $res['AppCode'] = $this->appCode;
         }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+        if (null !== $this->appKey) {
+            $res['AppKey'] = $this->appKey;
+        }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+        if (null !== $this->enableTagAuth) {
+            $res['EnableTagAuth'] = $this->enableTagAuth;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -93,17 +99,11 @@ class DescribeAppAttributesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->appCode) {
-            $res['AppCode'] = $this->appCode;
-        }
-        if (null !== $this->appKey) {
-            $res['AppKey'] = $this->appKey;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
-        }
-        if (null !== $this->enableTagAuth) {
-            $res['EnableTagAuth'] = $this->enableTagAuth;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -126,14 +126,20 @@ class DescribeAppAttributesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['AppCode'])) {
+            $model->appCode = $map['AppCode'];
         }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+        if (isset($map['AppKey'])) {
+            $model->appKey = $map['AppKey'];
+        }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
+        }
+        if (isset($map['EnableTagAuth'])) {
+            $model->enableTagAuth = $map['EnableTagAuth'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -141,17 +147,11 @@ class DescribeAppAttributesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['AppCode'])) {
-            $model->appCode = $map['AppCode'];
-        }
-        if (isset($map['AppKey'])) {
-            $model->appKey = $map['AppKey'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Sort'])) {
             $model->sort = $map['Sort'];
-        }
-        if (isset($map['EnableTagAuth'])) {
-            $model->enableTagAuth = $map['EnableTagAuth'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

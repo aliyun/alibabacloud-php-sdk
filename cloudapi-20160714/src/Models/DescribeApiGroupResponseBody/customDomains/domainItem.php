@@ -16,7 +16,7 @@ class domainItem extends Model
     /**
      * @var string
      */
-    public $domainLegalStatus;
+    public $certificateId;
 
     /**
      * @var string
@@ -31,17 +31,17 @@ class domainItem extends Model
     /**
      * @var string
      */
+    public $domainBindingStatus;
+
+    /**
+     * @var string
+     */
     public $domainCNAMEStatus;
 
     /**
      * @var string
      */
-    public $wildcardDomainPatterns;
-
-    /**
-     * @var string
-     */
-    public $domainBindingStatus;
+    public $domainLegalStatus;
 
     /**
      * @var string
@@ -61,19 +61,19 @@ class domainItem extends Model
     /**
      * @var string
      */
-    public $certificateId;
+    public $wildcardDomainPatterns;
     protected $_name = [
         'bindStageName'          => 'BindStageName',
-        'domainLegalStatus'      => 'DomainLegalStatus',
+        'certificateId'          => 'CertificateId',
         'certificateName'        => 'CertificateName',
         'customDomainType'       => 'CustomDomainType',
-        'domainCNAMEStatus'      => 'DomainCNAMEStatus',
-        'wildcardDomainPatterns' => 'WildcardDomainPatterns',
         'domainBindingStatus'    => 'DomainBindingStatus',
+        'domainCNAMEStatus'      => 'DomainCNAMEStatus',
+        'domainLegalStatus'      => 'DomainLegalStatus',
         'domainName'             => 'DomainName',
         'domainRemark'           => 'DomainRemark',
         'domainWebSocketStatus'  => 'DomainWebSocketStatus',
-        'certificateId'          => 'CertificateId',
+        'wildcardDomainPatterns' => 'WildcardDomainPatterns',
     ];
 
     public function validate()
@@ -86,8 +86,8 @@ class domainItem extends Model
         if (null !== $this->bindStageName) {
             $res['BindStageName'] = $this->bindStageName;
         }
-        if (null !== $this->domainLegalStatus) {
-            $res['DomainLegalStatus'] = $this->domainLegalStatus;
+        if (null !== $this->certificateId) {
+            $res['CertificateId'] = $this->certificateId;
         }
         if (null !== $this->certificateName) {
             $res['CertificateName'] = $this->certificateName;
@@ -95,14 +95,14 @@ class domainItem extends Model
         if (null !== $this->customDomainType) {
             $res['CustomDomainType'] = $this->customDomainType;
         }
+        if (null !== $this->domainBindingStatus) {
+            $res['DomainBindingStatus'] = $this->domainBindingStatus;
+        }
         if (null !== $this->domainCNAMEStatus) {
             $res['DomainCNAMEStatus'] = $this->domainCNAMEStatus;
         }
-        if (null !== $this->wildcardDomainPatterns) {
-            $res['WildcardDomainPatterns'] = $this->wildcardDomainPatterns;
-        }
-        if (null !== $this->domainBindingStatus) {
-            $res['DomainBindingStatus'] = $this->domainBindingStatus;
+        if (null !== $this->domainLegalStatus) {
+            $res['DomainLegalStatus'] = $this->domainLegalStatus;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -113,8 +113,8 @@ class domainItem extends Model
         if (null !== $this->domainWebSocketStatus) {
             $res['DomainWebSocketStatus'] = $this->domainWebSocketStatus;
         }
-        if (null !== $this->certificateId) {
-            $res['CertificateId'] = $this->certificateId;
+        if (null !== $this->wildcardDomainPatterns) {
+            $res['WildcardDomainPatterns'] = $this->wildcardDomainPatterns;
         }
 
         return $res;
@@ -131,8 +131,8 @@ class domainItem extends Model
         if (isset($map['BindStageName'])) {
             $model->bindStageName = $map['BindStageName'];
         }
-        if (isset($map['DomainLegalStatus'])) {
-            $model->domainLegalStatus = $map['DomainLegalStatus'];
+        if (isset($map['CertificateId'])) {
+            $model->certificateId = $map['CertificateId'];
         }
         if (isset($map['CertificateName'])) {
             $model->certificateName = $map['CertificateName'];
@@ -140,14 +140,14 @@ class domainItem extends Model
         if (isset($map['CustomDomainType'])) {
             $model->customDomainType = $map['CustomDomainType'];
         }
+        if (isset($map['DomainBindingStatus'])) {
+            $model->domainBindingStatus = $map['DomainBindingStatus'];
+        }
         if (isset($map['DomainCNAMEStatus'])) {
             $model->domainCNAMEStatus = $map['DomainCNAMEStatus'];
         }
-        if (isset($map['WildcardDomainPatterns'])) {
-            $model->wildcardDomainPatterns = $map['WildcardDomainPatterns'];
-        }
-        if (isset($map['DomainBindingStatus'])) {
-            $model->domainBindingStatus = $map['DomainBindingStatus'];
+        if (isset($map['DomainLegalStatus'])) {
+            $model->domainLegalStatus = $map['DomainLegalStatus'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
@@ -158,8 +158,8 @@ class domainItem extends Model
         if (isset($map['DomainWebSocketStatus'])) {
             $model->domainWebSocketStatus = $map['DomainWebSocketStatus'];
         }
-        if (isset($map['CertificateId'])) {
-            $model->certificateId = $map['CertificateId'];
+        if (isset($map['WildcardDomainPatterns'])) {
+            $model->wildcardDomainPatterns = $map['WildcardDomainPatterns'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class BatchAbolishApisRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
      * @var api[]
      */
     public $api;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
         'api'           => 'Api',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class BatchAbolishApisRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
         if (null !== $this->api) {
             $res['Api'] = [];
             if (null !== $this->api && \is_array($this->api)) {
@@ -41,6 +38,9 @@ class BatchAbolishApisRequest extends Model
                     $res['Api'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class BatchAbolishApisRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
         if (isset($map['Api'])) {
             if (!empty($map['Api'])) {
                 $model->api = [];
@@ -65,6 +62,9 @@ class BatchAbolishApisRequest extends Model
                     $model->api[$n++] = null !== $item ? api::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

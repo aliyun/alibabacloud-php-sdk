@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeSignaturesRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $securityToken;
@@ -22,22 +32,12 @@ class DescribeSignaturesRequest extends Model
      * @var string
      */
     public $signatureName;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
     protected $_name = [
+        'pageNumber'    => 'PageNumber',
+        'pageSize'      => 'PageSize',
         'securityToken' => 'SecurityToken',
         'signatureId'   => 'SignatureId',
         'signatureName' => 'SignatureName',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class DescribeSignaturesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -55,12 +61,6 @@ class DescribeSignaturesRequest extends Model
         }
         if (null !== $this->signatureName) {
             $res['SignatureName'] = $this->signatureName;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class DescribeSignaturesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
@@ -82,12 +88,6 @@ class DescribeSignaturesRequest extends Model
         }
         if (isset($map['SignatureName'])) {
             $model->signatureName = $map['SignatureName'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

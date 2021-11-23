@@ -14,18 +14,18 @@ class CreatePluginResponseBody extends Model
     public $pluginId;
 
     /**
-     * @var bool
-     */
-    public $tagStatus;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $tagStatus;
     protected $_name = [
         'pluginId'  => 'PluginId',
-        'tagStatus' => 'TagStatus',
         'requestId' => 'RequestId',
+        'tagStatus' => 'TagStatus',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class CreatePluginResponseBody extends Model
         if (null !== $this->pluginId) {
             $res['PluginId'] = $this->pluginId;
         }
-        if (null !== $this->tagStatus) {
-            $res['TagStatus'] = $this->tagStatus;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->tagStatus) {
+            $res['TagStatus'] = $this->tagStatus;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class CreatePluginResponseBody extends Model
         if (isset($map['PluginId'])) {
             $model->pluginId = $map['PluginId'];
         }
-        if (isset($map['TagStatus'])) {
-            $model->tagStatus = $map['TagStatus'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TagStatus'])) {
+            $model->tagStatus = $map['TagStatus'];
         }
 
         return $model;

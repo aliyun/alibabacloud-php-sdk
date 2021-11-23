@@ -11,7 +11,7 @@ class DescribePluginTemplatesRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $language;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class DescribePluginTemplatesRequest extends Model
     /**
      * @var string
      */
-    public $language;
+    public $securityToken;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
-        'pluginName'    => 'PluginName',
         'language'      => 'Language',
+        'pluginName'    => 'PluginName',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribePluginTemplatesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
         }
         if (null !== $this->pluginName) {
             $res['PluginName'] = $this->pluginName;
         }
-        if (null !== $this->language) {
-            $res['Language'] = $this->language;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribePluginTemplatesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
         }
         if (isset($map['PluginName'])) {
             $model->pluginName = $map['PluginName'];
         }
-        if (isset($map['Language'])) {
-            $model->language = $map['Language'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

@@ -12,11 +12,6 @@ class ListTagResourcesRequest extends Model
     /**
      * @var string
      */
-    public $resourceType;
-
-    /**
-     * @var string
-     */
     public $nextToken;
 
     /**
@@ -25,13 +20,18 @@ class ListTagResourcesRequest extends Model
     public $resourceId;
 
     /**
+     * @var string
+     */
+    public $resourceType;
+
+    /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'resourceType' => 'ResourceType',
         'nextToken'    => 'NextToken',
         'resourceId'   => 'ResourceId',
+        'resourceType' => 'ResourceType',
         'tag'          => 'Tag',
     ];
 
@@ -42,14 +42,14 @@ class ListTagResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -72,9 +72,6 @@ class ListTagResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
@@ -82,6 +79,9 @@ class ListTagResourcesRequest extends Model
             if (!empty($map['ResourceId'])) {
                 $model->resourceId = $map['ResourceId'];
             }
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

@@ -11,7 +11,12 @@ class SetDomainRequest extends Model
     /**
      * @var string
      */
-    public $groupId;
+    public $bindStageName;
+
+    /**
+     * @var string
+     */
+    public $customDomainType;
 
     /**
      * @var string
@@ -21,22 +26,17 @@ class SetDomainRequest extends Model
     /**
      * @var string
      */
-    public $bindStageName;
-
-    /**
-     * @var string
-     */
-    public $customDomainType;
+    public $groupId;
 
     /**
      * @var bool
      */
     public $isForce;
     protected $_name = [
-        'groupId'          => 'GroupId',
-        'domainName'       => 'DomainName',
         'bindStageName'    => 'BindStageName',
         'customDomainType' => 'CustomDomainType',
+        'domainName'       => 'DomainName',
+        'groupId'          => 'GroupId',
         'isForce'          => 'IsForce',
     ];
 
@@ -47,17 +47,17 @@ class SetDomainRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
-        }
         if (null !== $this->bindStageName) {
             $res['BindStageName'] = $this->bindStageName;
         }
         if (null !== $this->customDomainType) {
             $res['CustomDomainType'] = $this->customDomainType;
+        }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->isForce) {
             $res['IsForce'] = $this->isForce;
@@ -74,17 +74,17 @@ class SetDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
-        }
         if (isset($map['BindStageName'])) {
             $model->bindStageName = $map['BindStageName'];
         }
         if (isset($map['CustomDomainType'])) {
             $model->customDomainType = $map['CustomDomainType'];
+        }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['IsForce'])) {
             $model->isForce = $map['IsForce'];

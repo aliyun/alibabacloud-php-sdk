@@ -13,24 +13,14 @@ use AlibabaCloud\Tea\Model;
 class DryRunSwaggerResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $globalCondition;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var success
-     */
-    public $success;
-
-    /**
      * @var failed
      */
     public $failed;
+
+    /**
+     * @var string
+     */
+    public $globalCondition;
 
     /**
      * @var modelFailed
@@ -41,13 +31,23 @@ class DryRunSwaggerResponseBody extends Model
      * @var modelSuccess
      */
     public $modelSuccess;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var success
+     */
+    public $success;
     protected $_name = [
-        'globalCondition' => 'GlobalCondition',
-        'requestId'       => 'RequestId',
-        'success'         => 'Success',
         'failed'          => 'Failed',
+        'globalCondition' => 'GlobalCondition',
         'modelFailed'     => 'ModelFailed',
         'modelSuccess'    => 'ModelSuccess',
+        'requestId'       => 'RequestId',
+        'success'         => 'Success',
     ];
 
     public function validate()
@@ -57,23 +57,23 @@ class DryRunSwaggerResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->globalCondition) {
-            $res['GlobalCondition'] = $this->globalCondition;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = null !== $this->success ? $this->success->toMap() : null;
-        }
         if (null !== $this->failed) {
             $res['Failed'] = null !== $this->failed ? $this->failed->toMap() : null;
+        }
+        if (null !== $this->globalCondition) {
+            $res['GlobalCondition'] = $this->globalCondition;
         }
         if (null !== $this->modelFailed) {
             $res['ModelFailed'] = null !== $this->modelFailed ? $this->modelFailed->toMap() : null;
         }
         if (null !== $this->modelSuccess) {
             $res['ModelSuccess'] = null !== $this->modelSuccess ? $this->modelSuccess->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = null !== $this->success ? $this->success->toMap() : null;
         }
 
         return $res;
@@ -87,23 +87,23 @@ class DryRunSwaggerResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GlobalCondition'])) {
-            $model->globalCondition = $map['GlobalCondition'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = success::fromMap($map['Success']);
-        }
         if (isset($map['Failed'])) {
             $model->failed = failed::fromMap($map['Failed']);
+        }
+        if (isset($map['GlobalCondition'])) {
+            $model->globalCondition = $map['GlobalCondition'];
         }
         if (isset($map['ModelFailed'])) {
             $model->modelFailed = modelFailed::fromMap($map['ModelFailed']);
         }
         if (isset($map['ModelSuccess'])) {
             $model->modelSuccess = modelSuccess::fromMap($map['ModelSuccess']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = success::fromMap($map['Success']);
         }
 
         return $model;

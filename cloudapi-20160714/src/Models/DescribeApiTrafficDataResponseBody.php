@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiTrafficDataResponseBody extends Model
 {
     /**
-     * @var string
+     * @var callDownloads
      */
-    public $requestId;
+    public $callDownloads;
 
     /**
      * @var callUploads
@@ -21,13 +21,13 @@ class DescribeApiTrafficDataResponseBody extends Model
     public $callUploads;
 
     /**
-     * @var callDownloads
+     * @var string
      */
-    public $callDownloads;
+    public $requestId;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'callUploads'   => 'CallUploads',
         'callDownloads' => 'CallDownloads',
+        'callUploads'   => 'CallUploads',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class DescribeApiTrafficDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->callDownloads) {
+            $res['CallDownloads'] = null !== $this->callDownloads ? $this->callDownloads->toMap() : null;
         }
         if (null !== $this->callUploads) {
             $res['CallUploads'] = null !== $this->callUploads ? $this->callUploads->toMap() : null;
         }
-        if (null !== $this->callDownloads) {
-            $res['CallDownloads'] = null !== $this->callDownloads ? $this->callDownloads->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class DescribeApiTrafficDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['CallDownloads'])) {
+            $model->callDownloads = callDownloads::fromMap($map['CallDownloads']);
         }
         if (isset($map['CallUploads'])) {
             $model->callUploads = callUploads::fromMap($map['CallUploads']);
         }
-        if (isset($map['CallDownloads'])) {
-            $model->callDownloads = callDownloads::fromMap($map['CallDownloads']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

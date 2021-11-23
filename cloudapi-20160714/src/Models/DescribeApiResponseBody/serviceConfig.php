@@ -18,9 +18,9 @@ class serviceConfig extends Model
     public $aoneAppName;
 
     /**
-     * @var int
+     * @var string
      */
-    public $mockStatusCode;
+    public $contentTypeCatagory;
 
     /**
      * @var string
@@ -28,19 +28,34 @@ class serviceConfig extends Model
     public $contentTypeValue;
 
     /**
-     * @var string
+     * @var functionComputeConfig
      */
-    public $serviceProtocol;
+    public $functionComputeConfig;
 
     /**
      * @var string
      */
-    public $servicePath;
+    public $mock;
+
+    /**
+     * @var mockHeaders
+     */
+    public $mockHeaders;
 
     /**
      * @var string
      */
-    public $contentTypeCatagory;
+    public $mockResult;
+
+    /**
+     * @var int
+     */
+    public $mockStatusCode;
+
+    /**
+     * @var ossConfig
+     */
+    public $ossConfig;
 
     /**
      * @var string
@@ -50,22 +65,17 @@ class serviceConfig extends Model
     /**
      * @var string
      */
-    public $mock;
-
-    /**
-     * @var string
-     */
-    public $serviceVpcEnable;
-
-    /**
-     * @var string
-     */
-    public $mockResult;
-
-    /**
-     * @var string
-     */
     public $serviceHttpMethod;
+
+    /**
+     * @var string
+     */
+    public $servicePath;
+
+    /**
+     * @var string
+     */
+    public $serviceProtocol;
 
     /**
      * @var int
@@ -73,41 +83,31 @@ class serviceConfig extends Model
     public $serviceTimeout;
 
     /**
-     * @var mockHeaders
+     * @var string
      */
-    public $mockHeaders;
+    public $serviceVpcEnable;
 
     /**
      * @var vpcConfig
      */
     public $vpcConfig;
-
-    /**
-     * @var functionComputeConfig
-     */
-    public $functionComputeConfig;
-
-    /**
-     * @var ossConfig
-     */
-    public $ossConfig;
     protected $_name = [
         'aoneAppName'           => 'AoneAppName',
-        'mockStatusCode'        => 'MockStatusCode',
-        'contentTypeValue'      => 'ContentTypeValue',
-        'serviceProtocol'       => 'ServiceProtocol',
-        'servicePath'           => 'ServicePath',
         'contentTypeCatagory'   => 'ContentTypeCatagory',
-        'serviceAddress'        => 'ServiceAddress',
-        'mock'                  => 'Mock',
-        'serviceVpcEnable'      => 'ServiceVpcEnable',
-        'mockResult'            => 'MockResult',
-        'serviceHttpMethod'     => 'ServiceHttpMethod',
-        'serviceTimeout'        => 'ServiceTimeout',
-        'mockHeaders'           => 'MockHeaders',
-        'vpcConfig'             => 'VpcConfig',
+        'contentTypeValue'      => 'ContentTypeValue',
         'functionComputeConfig' => 'FunctionComputeConfig',
+        'mock'                  => 'Mock',
+        'mockHeaders'           => 'MockHeaders',
+        'mockResult'            => 'MockResult',
+        'mockStatusCode'        => 'MockStatusCode',
         'ossConfig'             => 'OssConfig',
+        'serviceAddress'        => 'ServiceAddress',
+        'serviceHttpMethod'     => 'ServiceHttpMethod',
+        'servicePath'           => 'ServicePath',
+        'serviceProtocol'       => 'ServiceProtocol',
+        'serviceTimeout'        => 'ServiceTimeout',
+        'serviceVpcEnable'      => 'ServiceVpcEnable',
+        'vpcConfig'             => 'VpcConfig',
     ];
 
     public function validate()
@@ -120,50 +120,50 @@ class serviceConfig extends Model
         if (null !== $this->aoneAppName) {
             $res['AoneAppName'] = $this->aoneAppName;
         }
-        if (null !== $this->mockStatusCode) {
-            $res['MockStatusCode'] = $this->mockStatusCode;
+        if (null !== $this->contentTypeCatagory) {
+            $res['ContentTypeCatagory'] = $this->contentTypeCatagory;
         }
         if (null !== $this->contentTypeValue) {
             $res['ContentTypeValue'] = $this->contentTypeValue;
         }
-        if (null !== $this->serviceProtocol) {
-            $res['ServiceProtocol'] = $this->serviceProtocol;
-        }
-        if (null !== $this->servicePath) {
-            $res['ServicePath'] = $this->servicePath;
-        }
-        if (null !== $this->contentTypeCatagory) {
-            $res['ContentTypeCatagory'] = $this->contentTypeCatagory;
-        }
-        if (null !== $this->serviceAddress) {
-            $res['ServiceAddress'] = $this->serviceAddress;
+        if (null !== $this->functionComputeConfig) {
+            $res['FunctionComputeConfig'] = null !== $this->functionComputeConfig ? $this->functionComputeConfig->toMap() : null;
         }
         if (null !== $this->mock) {
             $res['Mock'] = $this->mock;
         }
-        if (null !== $this->serviceVpcEnable) {
-            $res['ServiceVpcEnable'] = $this->serviceVpcEnable;
+        if (null !== $this->mockHeaders) {
+            $res['MockHeaders'] = null !== $this->mockHeaders ? $this->mockHeaders->toMap() : null;
         }
         if (null !== $this->mockResult) {
             $res['MockResult'] = $this->mockResult;
         }
+        if (null !== $this->mockStatusCode) {
+            $res['MockStatusCode'] = $this->mockStatusCode;
+        }
+        if (null !== $this->ossConfig) {
+            $res['OssConfig'] = null !== $this->ossConfig ? $this->ossConfig->toMap() : null;
+        }
+        if (null !== $this->serviceAddress) {
+            $res['ServiceAddress'] = $this->serviceAddress;
+        }
         if (null !== $this->serviceHttpMethod) {
             $res['ServiceHttpMethod'] = $this->serviceHttpMethod;
+        }
+        if (null !== $this->servicePath) {
+            $res['ServicePath'] = $this->servicePath;
+        }
+        if (null !== $this->serviceProtocol) {
+            $res['ServiceProtocol'] = $this->serviceProtocol;
         }
         if (null !== $this->serviceTimeout) {
             $res['ServiceTimeout'] = $this->serviceTimeout;
         }
-        if (null !== $this->mockHeaders) {
-            $res['MockHeaders'] = null !== $this->mockHeaders ? $this->mockHeaders->toMap() : null;
+        if (null !== $this->serviceVpcEnable) {
+            $res['ServiceVpcEnable'] = $this->serviceVpcEnable;
         }
         if (null !== $this->vpcConfig) {
             $res['VpcConfig'] = null !== $this->vpcConfig ? $this->vpcConfig->toMap() : null;
-        }
-        if (null !== $this->functionComputeConfig) {
-            $res['FunctionComputeConfig'] = null !== $this->functionComputeConfig ? $this->functionComputeConfig->toMap() : null;
-        }
-        if (null !== $this->ossConfig) {
-            $res['OssConfig'] = null !== $this->ossConfig ? $this->ossConfig->toMap() : null;
         }
 
         return $res;
@@ -180,50 +180,50 @@ class serviceConfig extends Model
         if (isset($map['AoneAppName'])) {
             $model->aoneAppName = $map['AoneAppName'];
         }
-        if (isset($map['MockStatusCode'])) {
-            $model->mockStatusCode = $map['MockStatusCode'];
+        if (isset($map['ContentTypeCatagory'])) {
+            $model->contentTypeCatagory = $map['ContentTypeCatagory'];
         }
         if (isset($map['ContentTypeValue'])) {
             $model->contentTypeValue = $map['ContentTypeValue'];
         }
-        if (isset($map['ServiceProtocol'])) {
-            $model->serviceProtocol = $map['ServiceProtocol'];
-        }
-        if (isset($map['ServicePath'])) {
-            $model->servicePath = $map['ServicePath'];
-        }
-        if (isset($map['ContentTypeCatagory'])) {
-            $model->contentTypeCatagory = $map['ContentTypeCatagory'];
-        }
-        if (isset($map['ServiceAddress'])) {
-            $model->serviceAddress = $map['ServiceAddress'];
+        if (isset($map['FunctionComputeConfig'])) {
+            $model->functionComputeConfig = functionComputeConfig::fromMap($map['FunctionComputeConfig']);
         }
         if (isset($map['Mock'])) {
             $model->mock = $map['Mock'];
         }
-        if (isset($map['ServiceVpcEnable'])) {
-            $model->serviceVpcEnable = $map['ServiceVpcEnable'];
+        if (isset($map['MockHeaders'])) {
+            $model->mockHeaders = mockHeaders::fromMap($map['MockHeaders']);
         }
         if (isset($map['MockResult'])) {
             $model->mockResult = $map['MockResult'];
         }
+        if (isset($map['MockStatusCode'])) {
+            $model->mockStatusCode = $map['MockStatusCode'];
+        }
+        if (isset($map['OssConfig'])) {
+            $model->ossConfig = ossConfig::fromMap($map['OssConfig']);
+        }
+        if (isset($map['ServiceAddress'])) {
+            $model->serviceAddress = $map['ServiceAddress'];
+        }
         if (isset($map['ServiceHttpMethod'])) {
             $model->serviceHttpMethod = $map['ServiceHttpMethod'];
+        }
+        if (isset($map['ServicePath'])) {
+            $model->servicePath = $map['ServicePath'];
+        }
+        if (isset($map['ServiceProtocol'])) {
+            $model->serviceProtocol = $map['ServiceProtocol'];
         }
         if (isset($map['ServiceTimeout'])) {
             $model->serviceTimeout = $map['ServiceTimeout'];
         }
-        if (isset($map['MockHeaders'])) {
-            $model->mockHeaders = mockHeaders::fromMap($map['MockHeaders']);
+        if (isset($map['ServiceVpcEnable'])) {
+            $model->serviceVpcEnable = $map['ServiceVpcEnable'];
         }
         if (isset($map['VpcConfig'])) {
             $model->vpcConfig = vpcConfig::fromMap($map['VpcConfig']);
-        }
-        if (isset($map['FunctionComputeConfig'])) {
-            $model->functionComputeConfig = functionComputeConfig::fromMap($map['FunctionComputeConfig']);
-        }
-        if (isset($map['OssConfig'])) {
-            $model->ossConfig = ossConfig::fromMap($map['OssConfig']);
         }
 
         return $model;

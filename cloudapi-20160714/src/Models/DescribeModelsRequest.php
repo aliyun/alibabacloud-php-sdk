@@ -16,12 +16,12 @@ class DescribeModelsRequest extends Model
     /**
      * @var string
      */
-    public $modelName;
+    public $modelId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $modelName;
 
     /**
      * @var int
@@ -29,15 +29,15 @@ class DescribeModelsRequest extends Model
     public $pageNumber;
 
     /**
-     * @var string
+     * @var int
      */
-    public $modelId;
+    public $pageSize;
     protected $_name = [
         'groupId'    => 'GroupId',
-        'modelName'  => 'ModelName',
-        'pageSize'   => 'PageSize',
-        'pageNumber' => 'PageNumber',
         'modelId'    => 'ModelId',
+        'modelName'  => 'ModelName',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class DescribeModelsRequest extends Model
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+        if (null !== $this->modelId) {
+            $res['ModelId'] = $this->modelId;
+        }
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->modelId) {
-            $res['ModelId'] = $this->modelId;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class DescribeModelsRequest extends Model
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+        if (isset($map['ModelId'])) {
+            $model->modelId = $map['ModelId'];
+        }
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['ModelId'])) {
-            $model->modelId = $map['ModelId'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

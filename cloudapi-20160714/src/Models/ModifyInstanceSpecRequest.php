@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceSpecRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoPay;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -19,18 +24,13 @@ class ModifyInstanceSpecRequest extends Model
     public $instanceSpec;
 
     /**
-     * @var bool
-     */
-    public $autoPay;
-
-    /**
      * @var string
      */
     public $token;
     protected $_name = [
+        'autoPay'      => 'AutoPay',
         'instanceId'   => 'InstanceId',
         'instanceSpec' => 'InstanceSpec',
-        'autoPay'      => 'AutoPay',
         'token'        => 'Token',
     ];
 
@@ -41,14 +41,14 @@ class ModifyInstanceSpecRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->instanceSpec) {
             $res['InstanceSpec'] = $this->instanceSpec;
-        }
-        if (null !== $this->autoPay) {
-            $res['AutoPay'] = $this->autoPay;
         }
         if (null !== $this->token) {
             $res['Token'] = $this->token;
@@ -65,14 +65,14 @@ class ModifyInstanceSpecRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['InstanceSpec'])) {
             $model->instanceSpec = $map['InstanceSpec'];
-        }
-        if (isset($map['AutoPay'])) {
-            $model->autoPay = $map['AutoPay'];
         }
         if (isset($map['Token'])) {
             $model->token = $map['Token'];

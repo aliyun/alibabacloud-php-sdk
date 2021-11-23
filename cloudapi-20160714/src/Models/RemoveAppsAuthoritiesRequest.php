@@ -11,7 +11,12 @@ class RemoveAppsAuthoritiesRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $apiId;
+
+    /**
+     * @var string
+     */
+    public $appIds;
 
     /**
      * @var string
@@ -21,23 +26,18 @@ class RemoveAppsAuthoritiesRequest extends Model
     /**
      * @var string
      */
-    public $apiId;
+    public $securityToken;
 
     /**
      * @var string
      */
     public $stageName;
-
-    /**
-     * @var string
-     */
-    public $appIds;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
-        'groupId'       => 'GroupId',
         'apiId'         => 'ApiId',
-        'stageName'     => 'StageName',
         'appIds'        => 'AppIds',
+        'groupId'       => 'GroupId',
+        'securityToken' => 'SecurityToken',
+        'stageName'     => 'StageName',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class RemoveAppsAuthoritiesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->apiId) {
+            $res['ApiId'] = $this->apiId;
+        }
+        if (null !== $this->appIds) {
+            $res['AppIds'] = $this->appIds;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->apiId) {
-            $res['ApiId'] = $this->apiId;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
-        }
-        if (null !== $this->appIds) {
-            $res['AppIds'] = $this->appIds;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class RemoveAppsAuthoritiesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['ApiId'])) {
+            $model->apiId = $map['ApiId'];
+        }
+        if (isset($map['AppIds'])) {
+            $model->appIds = $map['AppIds'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['ApiId'])) {
-            $model->apiId = $map['ApiId'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];
-        }
-        if (isset($map['AppIds'])) {
-            $model->appIds = $map['AppIds'];
         }
 
         return $model;

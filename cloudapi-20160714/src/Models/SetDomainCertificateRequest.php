@@ -11,22 +11,7 @@ class SetDomainCertificateRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $groupId;
-
-    /**
-     * @var string
-     */
-    public $domainName;
-
-    /**
-     * @var string
-     */
-    public $certificateName;
+    public $caCertificateBody;
 
     /**
      * @var string
@@ -36,20 +21,35 @@ class SetDomainCertificateRequest extends Model
     /**
      * @var string
      */
+    public $certificateName;
+
+    /**
+     * @var string
+     */
     public $certificatePrivateKey;
 
     /**
      * @var string
      */
-    public $caCertificateBody;
+    public $domainName;
+
+    /**
+     * @var string
+     */
+    public $groupId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'securityToken'         => 'SecurityToken',
-        'groupId'               => 'GroupId',
-        'domainName'            => 'DomainName',
-        'certificateName'       => 'CertificateName',
-        'certificateBody'       => 'CertificateBody',
-        'certificatePrivateKey' => 'CertificatePrivateKey',
         'caCertificateBody'     => 'CaCertificateBody',
+        'certificateBody'       => 'CertificateBody',
+        'certificateName'       => 'CertificateName',
+        'certificatePrivateKey' => 'CertificatePrivateKey',
+        'domainName'            => 'DomainName',
+        'groupId'               => 'GroupId',
+        'securityToken'         => 'SecurityToken',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class SetDomainCertificateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->certificateName) {
-            $res['CertificateName'] = $this->certificateName;
+        if (null !== $this->caCertificateBody) {
+            $res['CaCertificateBody'] = $this->caCertificateBody;
         }
         if (null !== $this->certificateBody) {
             $res['CertificateBody'] = $this->certificateBody;
         }
+        if (null !== $this->certificateName) {
+            $res['CertificateName'] = $this->certificateName;
+        }
         if (null !== $this->certificatePrivateKey) {
             $res['CertificatePrivateKey'] = $this->certificatePrivateKey;
         }
-        if (null !== $this->caCertificateBody) {
-            $res['CaCertificateBody'] = $this->caCertificateBody;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class SetDomainCertificateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['CertificateName'])) {
-            $model->certificateName = $map['CertificateName'];
+        if (isset($map['CaCertificateBody'])) {
+            $model->caCertificateBody = $map['CaCertificateBody'];
         }
         if (isset($map['CertificateBody'])) {
             $model->certificateBody = $map['CertificateBody'];
         }
+        if (isset($map['CertificateName'])) {
+            $model->certificateName = $map['CertificateName'];
+        }
         if (isset($map['CertificatePrivateKey'])) {
             $model->certificatePrivateKey = $map['CertificatePrivateKey'];
         }
-        if (isset($map['CaCertificateBody'])) {
-            $model->caCertificateBody = $map['CaCertificateBody'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

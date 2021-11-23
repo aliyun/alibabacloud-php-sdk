@@ -16,7 +16,7 @@ class errorCodeSample extends Model
     /**
      * @var string
      */
-    public $model;
+    public $description;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class errorCodeSample extends Model
     /**
      * @var string
      */
-    public $description;
+    public $model;
     protected $_name = [
         'code'        => 'Code',
-        'model'       => 'Model',
-        'message'     => 'Message',
         'description' => 'Description',
+        'message'     => 'Message',
+        'model'       => 'Model',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class errorCodeSample extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->model) {
-            $res['Model'] = $this->model;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->model) {
+            $res['Model'] = $this->model;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class errorCodeSample extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Model'])) {
-            $model->model = $map['Model'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['Model'])) {
+            $model->model = $map['Model'];
         }
 
         return $model;

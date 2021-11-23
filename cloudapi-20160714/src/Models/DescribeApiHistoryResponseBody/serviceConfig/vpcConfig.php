@@ -11,17 +11,12 @@ class vpcConfig extends Model
     /**
      * @var string
      */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $vpcScheme;
-
-    /**
-     * @var string
-     */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var int
@@ -31,13 +26,18 @@ class vpcConfig extends Model
     /**
      * @var string
      */
-    public $name;
+    public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $vpcScheme;
     protected $_name = [
+        'instanceId' => 'InstanceId',
+        'name'       => 'Name',
+        'port'       => 'Port',
         'vpcId'      => 'VpcId',
         'vpcScheme'  => 'VpcScheme',
-        'instanceId' => 'InstanceId',
-        'port'       => 'Port',
-        'name'       => 'Name',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class vpcConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
+        }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
         if (null !== $this->vpcScheme) {
             $res['VpcScheme'] = $this->vpcScheme;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class vpcConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
+        }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
         if (isset($map['VpcScheme'])) {
             $model->vpcScheme = $map['VpcScheme'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
 
         return $model;

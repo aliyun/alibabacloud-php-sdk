@@ -12,16 +12,6 @@ class DescribeApisRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $groupId;
-
-    /**
-     * @var string
-     */
     public $apiId;
 
     /**
@@ -35,14 +25,14 @@ class DescribeApisRequest extends Model
     public $catalogId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $visibility;
+    public $enableTagAuth;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $groupId;
 
     /**
      * @var int
@@ -50,25 +40,35 @@ class DescribeApisRequest extends Model
     public $pageNumber;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $enableTagAuth;
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
 
     /**
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $visibility;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
-        'groupId'       => 'GroupId',
         'apiId'         => 'ApiId',
         'apiName'       => 'ApiName',
         'catalogId'     => 'CatalogId',
-        'visibility'    => 'Visibility',
-        'pageSize'      => 'PageSize',
-        'pageNumber'    => 'PageNumber',
         'enableTagAuth' => 'EnableTagAuth',
+        'groupId'       => 'GroupId',
+        'pageNumber'    => 'PageNumber',
+        'pageSize'      => 'PageSize',
+        'securityToken' => 'SecurityToken',
         'tag'           => 'Tag',
+        'visibility'    => 'Visibility',
     ];
 
     public function validate()
@@ -78,12 +78,6 @@ class DescribeApisRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
@@ -93,17 +87,20 @@ class DescribeApisRequest extends Model
         if (null !== $this->catalogId) {
             $res['CatalogId'] = $this->catalogId;
         }
-        if (null !== $this->visibility) {
-            $res['Visibility'] = $this->visibility;
+        if (null !== $this->enableTagAuth) {
+            $res['EnableTagAuth'] = $this->enableTagAuth;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->enableTagAuth) {
-            $res['EnableTagAuth'] = $this->enableTagAuth;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -113,6 +110,9 @@ class DescribeApisRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->visibility) {
+            $res['Visibility'] = $this->visibility;
         }
 
         return $res;
@@ -126,12 +126,6 @@ class DescribeApisRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
@@ -141,17 +135,20 @@ class DescribeApisRequest extends Model
         if (isset($map['CatalogId'])) {
             $model->catalogId = $map['CatalogId'];
         }
-        if (isset($map['Visibility'])) {
-            $model->visibility = $map['Visibility'];
+        if (isset($map['EnableTagAuth'])) {
+            $model->enableTagAuth = $map['EnableTagAuth'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['EnableTagAuth'])) {
-            $model->enableTagAuth = $map['EnableTagAuth'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
@@ -161,6 +158,9 @@ class DescribeApisRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Visibility'])) {
+            $model->visibility = $map['Visibility'];
         }
 
         return $model;

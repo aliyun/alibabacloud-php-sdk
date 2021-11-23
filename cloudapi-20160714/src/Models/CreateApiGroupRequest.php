@@ -12,16 +12,6 @@ class CreateApiGroupRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $groupName;
-
-    /**
-     * @var string
-     */
     public $basePath;
 
     /**
@@ -32,18 +22,28 @@ class CreateApiGroupRequest extends Model
     /**
      * @var string
      */
+    public $groupName;
+
+    /**
+     * @var string
+     */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
 
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
-        'groupName'     => 'GroupName',
         'basePath'      => 'BasePath',
         'description'   => 'Description',
+        'groupName'     => 'GroupName',
         'instanceId'    => 'InstanceId',
+        'securityToken' => 'SecurityToken',
         'tag'           => 'Tag',
     ];
 
@@ -54,20 +54,20 @@ class CreateApiGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
-        }
         if (null !== $this->basePath) {
             $res['BasePath'] = $this->basePath;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -90,20 +90,20 @@ class CreateApiGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
-        }
         if (isset($map['BasePath'])) {
             $model->basePath = $map['BasePath'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

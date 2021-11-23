@@ -11,27 +11,27 @@ class openIdConnectConfig extends Model
     /**
      * @var string
      */
-    public $openIdApiType;
-
-    /**
-     * @var string
-     */
     public $idTokenParamName;
 
     /**
      * @var string
      */
-    public $publicKeyId;
+    public $openIdApiType;
 
     /**
      * @var string
      */
     public $publicKey;
+
+    /**
+     * @var string
+     */
+    public $publicKeyId;
     protected $_name = [
-        'openIdApiType'    => 'OpenIdApiType',
         'idTokenParamName' => 'IdTokenParamName',
-        'publicKeyId'      => 'PublicKeyId',
+        'openIdApiType'    => 'OpenIdApiType',
         'publicKey'        => 'PublicKey',
+        'publicKeyId'      => 'PublicKeyId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class openIdConnectConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->openIdApiType) {
-            $res['OpenIdApiType'] = $this->openIdApiType;
-        }
         if (null !== $this->idTokenParamName) {
             $res['IdTokenParamName'] = $this->idTokenParamName;
         }
-        if (null !== $this->publicKeyId) {
-            $res['PublicKeyId'] = $this->publicKeyId;
+        if (null !== $this->openIdApiType) {
+            $res['OpenIdApiType'] = $this->openIdApiType;
         }
         if (null !== $this->publicKey) {
             $res['PublicKey'] = $this->publicKey;
+        }
+        if (null !== $this->publicKeyId) {
+            $res['PublicKeyId'] = $this->publicKeyId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class openIdConnectConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OpenIdApiType'])) {
-            $model->openIdApiType = $map['OpenIdApiType'];
-        }
         if (isset($map['IdTokenParamName'])) {
             $model->idTokenParamName = $map['IdTokenParamName'];
         }
-        if (isset($map['PublicKeyId'])) {
-            $model->publicKeyId = $map['PublicKeyId'];
+        if (isset($map['OpenIdApiType'])) {
+            $model->openIdApiType = $map['OpenIdApiType'];
         }
         if (isset($map['PublicKey'])) {
             $model->publicKey = $map['PublicKey'];
+        }
+        if (isset($map['PublicKeyId'])) {
+            $model->publicKeyId = $map['PublicKeyId'];
         }
 
         return $model;

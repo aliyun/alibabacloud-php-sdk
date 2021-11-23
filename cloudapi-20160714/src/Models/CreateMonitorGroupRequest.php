@@ -11,7 +11,7 @@ class CreateMonitorGroupRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $auth;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class CreateMonitorGroupRequest extends Model
     /**
      * @var string
      */
-    public $auth;
+    public $securityToken;
     protected $_name = [
-        'securityToken'     => 'SecurityToken',
+        'auth'              => 'Auth',
         'groupId'           => 'GroupId',
         'rawMonitorGroupId' => 'RawMonitorGroupId',
-        'auth'              => 'Auth',
+        'securityToken'     => 'SecurityToken',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class CreateMonitorGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->auth) {
+            $res['Auth'] = $this->auth;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -50,8 +50,8 @@ class CreateMonitorGroupRequest extends Model
         if (null !== $this->rawMonitorGroupId) {
             $res['RawMonitorGroupId'] = $this->rawMonitorGroupId;
         }
-        if (null !== $this->auth) {
-            $res['Auth'] = $this->auth;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class CreateMonitorGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['Auth'])) {
+            $model->auth = $map['Auth'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
@@ -74,8 +74,8 @@ class CreateMonitorGroupRequest extends Model
         if (isset($map['RawMonitorGroupId'])) {
             $model->rawMonitorGroupId = $map['RawMonitorGroupId'];
         }
-        if (isset($map['Auth'])) {
-            $model->auth = $map['Auth'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

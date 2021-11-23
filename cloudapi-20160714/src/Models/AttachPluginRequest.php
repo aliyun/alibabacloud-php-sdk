@@ -11,17 +11,7 @@ class AttachPluginRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $pluginId;
-
-    /**
-     * @var string
-     */
-    public $groupId;
+    public $apiId;
 
     /**
      * @var string
@@ -31,19 +21,29 @@ class AttachPluginRequest extends Model
     /**
      * @var string
      */
-    public $stageName;
+    public $groupId;
 
     /**
      * @var string
      */
-    public $apiId;
+    public $pluginId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
+    public $stageName;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
-        'pluginId'      => 'PluginId',
-        'groupId'       => 'GroupId',
-        'apiIds'        => 'ApiIds',
-        'stageName'     => 'StageName',
         'apiId'         => 'ApiId',
+        'apiIds'        => 'ApiIds',
+        'groupId'       => 'GroupId',
+        'pluginId'      => 'PluginId',
+        'securityToken' => 'SecurityToken',
+        'stageName'     => 'StageName',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class AttachPluginRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->pluginId) {
-            $res['PluginId'] = $this->pluginId;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
+        if (null !== $this->apiId) {
+            $res['ApiId'] = $this->apiId;
         }
         if (null !== $this->apiIds) {
             $res['ApiIds'] = $this->apiIds;
         }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->pluginId) {
+            $res['PluginId'] = $this->pluginId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
-        }
-        if (null !== $this->apiId) {
-            $res['ApiId'] = $this->apiId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class AttachPluginRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['PluginId'])) {
-            $model->pluginId = $map['PluginId'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
+        if (isset($map['ApiId'])) {
+            $model->apiId = $map['ApiId'];
         }
         if (isset($map['ApiIds'])) {
             $model->apiIds = $map['ApiIds'];
         }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['PluginId'])) {
+            $model->pluginId = $map['PluginId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
+        }
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];
-        }
-        if (isset($map['ApiId'])) {
-            $model->apiId = $map['ApiId'];
         }
 
         return $model;

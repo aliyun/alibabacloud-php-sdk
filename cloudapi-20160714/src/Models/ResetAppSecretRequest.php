@@ -11,15 +11,15 @@ class ResetAppSecretRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $appKey;
 
     /**
      * @var string
      */
-    public $appKey;
+    public $securityToken;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
         'appKey'        => 'AppKey',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ResetAppSecretRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ResetAppSecretRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

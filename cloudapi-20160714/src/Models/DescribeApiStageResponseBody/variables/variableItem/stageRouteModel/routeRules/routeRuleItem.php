@@ -11,7 +11,12 @@ class routeRuleItem extends Model
     /**
      * @var string
      */
-    public $resultValue;
+    public $conditionValue;
+
+    /**
+     * @var int
+     */
+    public $maxValue;
 
     /**
      * @var int
@@ -21,17 +26,12 @@ class routeRuleItem extends Model
     /**
      * @var string
      */
-    public $conditionValue;
-
-    /**
-     * @var int
-     */
-    public $maxValue;
+    public $resultValue;
     protected $_name = [
-        'resultValue'    => 'ResultValue',
-        'minValue'       => 'MinValue',
         'conditionValue' => 'ConditionValue',
         'maxValue'       => 'MaxValue',
+        'minValue'       => 'MinValue',
+        'resultValue'    => 'ResultValue',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class routeRuleItem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resultValue) {
-            $res['ResultValue'] = $this->resultValue;
-        }
-        if (null !== $this->minValue) {
-            $res['MinValue'] = $this->minValue;
-        }
         if (null !== $this->conditionValue) {
             $res['ConditionValue'] = $this->conditionValue;
         }
         if (null !== $this->maxValue) {
             $res['MaxValue'] = $this->maxValue;
+        }
+        if (null !== $this->minValue) {
+            $res['MinValue'] = $this->minValue;
+        }
+        if (null !== $this->resultValue) {
+            $res['ResultValue'] = $this->resultValue;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class routeRuleItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResultValue'])) {
-            $model->resultValue = $map['ResultValue'];
-        }
-        if (isset($map['MinValue'])) {
-            $model->minValue = $map['MinValue'];
-        }
         if (isset($map['ConditionValue'])) {
             $model->conditionValue = $map['ConditionValue'];
         }
         if (isset($map['MaxValue'])) {
             $model->maxValue = $map['MaxValue'];
+        }
+        if (isset($map['MinValue'])) {
+            $model->minValue = $map['MinValue'];
+        }
+        if (isset($map['ResultValue'])) {
+            $model->resultValue = $map['ResultValue'];
         }
 
         return $model;

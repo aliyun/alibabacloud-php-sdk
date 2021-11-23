@@ -15,30 +15,30 @@ class DescribeSignaturesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $totalCount;
+    public $requestId;
 
     /**
      * @var signatureInfos
      */
     public $signatureInfos;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'pageNumber'     => 'PageNumber',
-        'requestId'      => 'RequestId',
         'pageSize'       => 'PageSize',
-        'totalCount'     => 'TotalCount',
+        'requestId'      => 'RequestId',
         'signatureInfos' => 'SignatureInfos',
+        'totalCount'     => 'TotalCount',
     ];
 
     public function validate()
@@ -51,17 +51,17 @@ class DescribeSignaturesResponseBody extends Model
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->signatureInfos) {
             $res['SignatureInfos'] = null !== $this->signatureInfos ? $this->signatureInfos->toMap() : null;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -78,17 +78,17 @@ class DescribeSignaturesResponseBody extends Model
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['SignatureInfos'])) {
             $model->signatureInfos = signatureInfos::fromMap($map['SignatureInfos']);
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

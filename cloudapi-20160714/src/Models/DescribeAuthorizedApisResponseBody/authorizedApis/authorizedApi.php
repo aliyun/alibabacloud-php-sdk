@@ -16,7 +16,7 @@ class authorizedApi extends Model
     /**
      * @var string
      */
-    public $authorizationSource;
+    public $apiName;
 
     /**
      * @var string
@@ -26,17 +26,7 @@ class authorizedApi extends Model
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $groupName;
-
-    /**
-     * @var string
-     */
-    public $groupId;
+    public $authorizationSource;
 
     /**
      * @var string
@@ -46,34 +36,44 @@ class authorizedApi extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $groupId;
+
+    /**
+     * @var string
+     */
+    public $groupName;
+
+    /**
+     * @var string
+     */
     public $operator;
 
     /**
      * @var string
      */
-    public $stageName;
-
-    /**
-     * @var string
-     */
-    public $apiName;
-
-    /**
-     * @var string
-     */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $stageName;
     protected $_name = [
         'apiId'               => 'ApiId',
-        'authorizationSource' => 'AuthorizationSource',
-        'authVaildTime'       => 'AuthVaildTime',
-        'description'         => 'Description',
-        'groupName'           => 'GroupName',
-        'groupId'             => 'GroupId',
-        'authorizedTime'      => 'AuthorizedTime',
-        'operator'            => 'Operator',
-        'stageName'           => 'StageName',
         'apiName'             => 'ApiName',
+        'authVaildTime'       => 'AuthVaildTime',
+        'authorizationSource' => 'AuthorizationSource',
+        'authorizedTime'      => 'AuthorizedTime',
+        'description'         => 'Description',
+        'groupId'             => 'GroupId',
+        'groupName'           => 'GroupName',
+        'operator'            => 'Operator',
         'regionId'            => 'RegionId',
+        'stageName'           => 'StageName',
     ];
 
     public function validate()
@@ -86,35 +86,35 @@ class authorizedApi extends Model
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
-        if (null !== $this->authorizationSource) {
-            $res['AuthorizationSource'] = $this->authorizationSource;
+        if (null !== $this->apiName) {
+            $res['ApiName'] = $this->apiName;
         }
         if (null !== $this->authVaildTime) {
             $res['AuthVaildTime'] = $this->authVaildTime;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
+        if (null !== $this->authorizationSource) {
+            $res['AuthorizationSource'] = $this->authorizationSource;
         }
         if (null !== $this->authorizedTime) {
             $res['AuthorizedTime'] = $this->authorizedTime;
         }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
+        }
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
-        if (null !== $this->stageName) {
-            $res['StageName'] = $this->stageName;
-        }
-        if (null !== $this->apiName) {
-            $res['ApiName'] = $this->apiName;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->stageName) {
+            $res['StageName'] = $this->stageName;
         }
 
         return $res;
@@ -131,35 +131,35 @@ class authorizedApi extends Model
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
-        if (isset($map['AuthorizationSource'])) {
-            $model->authorizationSource = $map['AuthorizationSource'];
+        if (isset($map['ApiName'])) {
+            $model->apiName = $map['ApiName'];
         }
         if (isset($map['AuthVaildTime'])) {
             $model->authVaildTime = $map['AuthVaildTime'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
+        if (isset($map['AuthorizationSource'])) {
+            $model->authorizationSource = $map['AuthorizationSource'];
         }
         if (isset($map['AuthorizedTime'])) {
             $model->authorizedTime = $map['AuthorizedTime'];
         }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
+        }
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }
-        if (isset($map['StageName'])) {
-            $model->stageName = $map['StageName'];
-        }
-        if (isset($map['ApiName'])) {
-            $model->apiName = $map['ApiName'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StageName'])) {
+            $model->stageName = $map['StageName'];
         }
 
         return $model;

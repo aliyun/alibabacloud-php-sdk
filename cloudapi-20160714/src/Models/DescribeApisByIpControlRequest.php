@@ -11,12 +11,12 @@ class DescribeApisByIpControlRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $ipControlId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $ipControlId;
+    public $pageNumber;
 
     /**
      * @var int
@@ -24,14 +24,14 @@ class DescribeApisByIpControlRequest extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageNumber;
+    public $securityToken;
     protected $_name = [
-        'securityToken' => 'SecurityToken',
         'ipControlId'   => 'IpControlId',
-        'pageSize'      => 'PageSize',
         'pageNumber'    => 'PageNumber',
+        'pageSize'      => 'PageSize',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DescribeApisByIpControlRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
         if (null !== $this->ipControlId) {
             $res['IpControlId'] = $this->ipControlId;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DescribeApisByIpControlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
         if (isset($map['IpControlId'])) {
             $model->ipControlId = $map['IpControlId'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

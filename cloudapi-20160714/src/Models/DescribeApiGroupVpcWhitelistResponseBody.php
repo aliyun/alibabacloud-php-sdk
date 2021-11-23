@@ -11,15 +11,15 @@ class DescribeApiGroupVpcWhitelistResponseBody extends Model
     /**
      * @var string
      */
-    public $vpcIds;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $vpcIds;
     protected $_name = [
-        'vpcIds'    => 'VpcIds',
         'requestId' => 'RequestId',
+        'vpcIds'    => 'VpcIds',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeApiGroupVpcWhitelistResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcIds) {
-            $res['VpcIds'] = $this->vpcIds;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->vpcIds) {
+            $res['VpcIds'] = $this->vpcIds;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeApiGroupVpcWhitelistResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcIds'])) {
-            $model->vpcIds = $map['VpcIds'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['VpcIds'])) {
+            $model->vpcIds = $map['VpcIds'];
         }
 
         return $model;
