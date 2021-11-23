@@ -11,7 +11,7 @@ class results extends Model
     /**
      * @var string
      */
-    public $suggestion;
+    public $label;
 
     /**
      * @var string[]
@@ -19,19 +19,19 @@ class results extends Model
     public $qrCodesData;
 
     /**
-     * @var string
-     */
-    public $label;
-
-    /**
      * @var float
      */
     public $rate;
+
+    /**
+     * @var string
+     */
+    public $suggestion;
     protected $_name = [
-        'suggestion'  => 'Suggestion',
-        'qrCodesData' => 'QrCodesData',
         'label'       => 'Label',
+        'qrCodesData' => 'QrCodesData',
         'rate'        => 'Rate',
+        'suggestion'  => 'Suggestion',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class results extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->suggestion) {
-            $res['Suggestion'] = $this->suggestion;
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
         }
         if (null !== $this->qrCodesData) {
             $res['QrCodesData'] = $this->qrCodesData;
         }
-        if (null !== $this->label) {
-            $res['Label'] = $this->label;
-        }
         if (null !== $this->rate) {
             $res['Rate'] = $this->rate;
+        }
+        if (null !== $this->suggestion) {
+            $res['Suggestion'] = $this->suggestion;
         }
 
         return $res;
@@ -65,19 +65,19 @@ class results extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Suggestion'])) {
-            $model->suggestion = $map['Suggestion'];
+        if (isset($map['Label'])) {
+            $model->label = $map['Label'];
         }
         if (isset($map['QrCodesData'])) {
             if (!empty($map['QrCodesData'])) {
                 $model->qrCodesData = $map['QrCodesData'];
             }
         }
-        if (isset($map['Label'])) {
-            $model->label = $map['Label'];
-        }
         if (isset($map['Rate'])) {
             $model->rate = $map['Rate'];
+        }
+        if (isset($map['Suggestion'])) {
+            $model->suggestion = $map['Suggestion'];
         }
 
         return $model;

@@ -12,19 +12,14 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
-     * @var int
-     */
-    public $index;
-
-    /**
      * @var content
      */
     public $content;
 
     /**
-     * @var string
+     * @var int
      */
-    public $type;
+    public $index;
 
     /**
      * @var keyValueInfos[]
@@ -35,12 +30,17 @@ class results extends Model
      * @var sliceRectangle[]
      */
     public $sliceRectangle;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'index'          => 'Index',
         'content'        => 'Content',
-        'type'           => 'Type',
+        'index'          => 'Index',
         'keyValueInfos'  => 'KeyValueInfos',
         'sliceRectangle' => 'SliceRectangle',
+        'type'           => 'Type',
     ];
 
     public function validate()
@@ -50,14 +50,11 @@ class results extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->index) {
-            $res['Index'] = $this->index;
-        }
         if (null !== $this->content) {
             $res['Content'] = null !== $this->content ? $this->content->toMap() : null;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->index) {
+            $res['Index'] = $this->index;
         }
         if (null !== $this->keyValueInfos) {
             $res['KeyValueInfos'] = [];
@@ -77,6 +74,9 @@ class results extends Model
                 }
             }
         }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
 
         return $res;
     }
@@ -89,14 +89,11 @@ class results extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Index'])) {
-            $model->index = $map['Index'];
-        }
         if (isset($map['Content'])) {
             $model->content = content::fromMap($map['Content']);
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['Index'])) {
+            $model->index = $map['Index'];
         }
         if (isset($map['KeyValueInfos'])) {
             if (!empty($map['KeyValueInfos'])) {
@@ -115,6 +112,9 @@ class results extends Model
                     $model->sliceRectangle[$n++] = null !== $item ? sliceRectangle::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

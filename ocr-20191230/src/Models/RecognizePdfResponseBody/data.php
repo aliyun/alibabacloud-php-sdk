@@ -12,12 +12,12 @@ class data extends Model
     /**
      * @var int
      */
-    public $height;
+    public $angle;
 
     /**
      * @var int
      */
-    public $width;
+    public $height;
 
     /**
      * @var int
@@ -37,19 +37,19 @@ class data extends Model
     /**
      * @var int
      */
-    public $angle;
+    public $width;
 
     /**
      * @var wordsInfo[]
      */
     public $wordsInfo;
     protected $_name = [
+        'angle'     => 'Angle',
         'height'    => 'Height',
-        'width'     => 'Width',
         'orgHeight' => 'OrgHeight',
         'orgWidth'  => 'OrgWidth',
         'pageIndex' => 'PageIndex',
-        'angle'     => 'Angle',
+        'width'     => 'Width',
         'wordsInfo' => 'WordsInfo',
     ];
 
@@ -60,11 +60,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->angle) {
+            $res['Angle'] = $this->angle;
+        }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
-        }
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
         }
         if (null !== $this->orgHeight) {
             $res['OrgHeight'] = $this->orgHeight;
@@ -75,8 +75,8 @@ class data extends Model
         if (null !== $this->pageIndex) {
             $res['PageIndex'] = $this->pageIndex;
         }
-        if (null !== $this->angle) {
-            $res['Angle'] = $this->angle;
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
         if (null !== $this->wordsInfo) {
             $res['WordsInfo'] = [];
@@ -99,11 +99,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Angle'])) {
+            $model->angle = $map['Angle'];
+        }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
-        }
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
         }
         if (isset($map['OrgHeight'])) {
             $model->orgHeight = $map['OrgHeight'];
@@ -114,8 +114,8 @@ class data extends Model
         if (isset($map['PageIndex'])) {
             $model->pageIndex = $map['PageIndex'];
         }
-        if (isset($map['Angle'])) {
-            $model->angle = $map['Angle'];
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
         if (isset($map['WordsInfo'])) {
             if (!empty($map['WordsInfo'])) {

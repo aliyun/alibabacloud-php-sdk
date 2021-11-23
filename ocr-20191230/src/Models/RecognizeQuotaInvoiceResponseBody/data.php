@@ -16,14 +16,19 @@ class data extends Model
     public $angle;
 
     /**
+     * @var content
+     */
+    public $content;
+
+    /**
      * @var int
      */
     public $height;
 
     /**
-     * @var int
+     * @var keyValueInfos[]
      */
-    public $width;
+    public $keyValueInfos;
 
     /**
      * @var int
@@ -36,22 +41,17 @@ class data extends Model
     public $orgWidth;
 
     /**
-     * @var content
+     * @var int
      */
-    public $content;
-
-    /**
-     * @var keyValueInfos[]
-     */
-    public $keyValueInfos;
+    public $width;
     protected $_name = [
         'angle'         => 'Angle',
+        'content'       => 'Content',
         'height'        => 'Height',
-        'width'         => 'Width',
+        'keyValueInfos' => 'KeyValueInfos',
         'orgHeight'     => 'OrgHeight',
         'orgWidth'      => 'OrgWidth',
-        'content'       => 'Content',
-        'keyValueInfos' => 'KeyValueInfos',
+        'width'         => 'Width',
     ];
 
     public function validate()
@@ -64,20 +64,11 @@ class data extends Model
         if (null !== $this->angle) {
             $res['Angle'] = $this->angle;
         }
-        if (null !== $this->height) {
-            $res['Height'] = $this->height;
-        }
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
-        }
-        if (null !== $this->orgHeight) {
-            $res['OrgHeight'] = $this->orgHeight;
-        }
-        if (null !== $this->orgWidth) {
-            $res['OrgWidth'] = $this->orgWidth;
-        }
         if (null !== $this->content) {
             $res['Content'] = null !== $this->content ? $this->content->toMap() : null;
+        }
+        if (null !== $this->height) {
+            $res['Height'] = $this->height;
         }
         if (null !== $this->keyValueInfos) {
             $res['KeyValueInfos'] = [];
@@ -87,6 +78,15 @@ class data extends Model
                     $res['KeyValueInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->orgHeight) {
+            $res['OrgHeight'] = $this->orgHeight;
+        }
+        if (null !== $this->orgWidth) {
+            $res['OrgWidth'] = $this->orgWidth;
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -103,20 +103,11 @@ class data extends Model
         if (isset($map['Angle'])) {
             $model->angle = $map['Angle'];
         }
-        if (isset($map['Height'])) {
-            $model->height = $map['Height'];
-        }
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
-        }
-        if (isset($map['OrgHeight'])) {
-            $model->orgHeight = $map['OrgHeight'];
-        }
-        if (isset($map['OrgWidth'])) {
-            $model->orgWidth = $map['OrgWidth'];
-        }
         if (isset($map['Content'])) {
             $model->content = content::fromMap($map['Content']);
+        }
+        if (isset($map['Height'])) {
+            $model->height = $map['Height'];
         }
         if (isset($map['KeyValueInfos'])) {
             if (!empty($map['KeyValueInfos'])) {
@@ -126,6 +117,15 @@ class data extends Model
                     $model->keyValueInfos[$n++] = null !== $item ? keyValueInfos::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['OrgHeight'])) {
+            $model->orgHeight = $map['OrgHeight'];
+        }
+        if (isset($map['OrgWidth'])) {
+            $model->orgWidth = $map['OrgWidth'];
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

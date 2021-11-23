@@ -11,20 +11,20 @@ class TrimDocumentRequest extends Model
     /**
      * @var string
      */
-    public $fileURL;
+    public $fileType;
 
     /**
      * @var string
      */
-    public $fileType;
+    public $fileURL;
 
     /**
      * @var string
      */
     public $outputType;
     protected $_name = [
-        'fileURL'    => 'FileURL',
         'fileType'   => 'FileType',
+        'fileURL'    => 'FileURL',
         'outputType' => 'OutputType',
     ];
 
@@ -35,11 +35,11 @@ class TrimDocumentRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fileURL) {
-            $res['FileURL'] = $this->fileURL;
-        }
         if (null !== $this->fileType) {
             $res['FileType'] = $this->fileType;
+        }
+        if (null !== $this->fileURL) {
+            $res['FileURL'] = $this->fileURL;
         }
         if (null !== $this->outputType) {
             $res['OutputType'] = $this->outputType;
@@ -56,11 +56,11 @@ class TrimDocumentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FileURL'])) {
-            $model->fileURL = $map['FileURL'];
-        }
         if (isset($map['FileType'])) {
             $model->fileType = $map['FileType'];
+        }
+        if (isset($map['FileURL'])) {
+            $model->fileURL = $map['FileURL'];
         }
         if (isset($map['OutputType'])) {
             $model->outputType = $map['OutputType'];

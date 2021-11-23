@@ -11,15 +11,15 @@ class size extends Model
     /**
      * @var float
      */
-    public $w;
+    public $h;
 
     /**
      * @var float
      */
-    public $h;
+    public $w;
     protected $_name = [
-        'w' => 'W',
         'h' => 'H',
+        'w' => 'W',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class size extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->w) {
-            $res['W'] = $this->w;
-        }
         if (null !== $this->h) {
             $res['H'] = $this->h;
+        }
+        if (null !== $this->w) {
+            $res['W'] = $this->w;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class size extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['W'])) {
-            $model->w = $map['W'];
-        }
         if (isset($map['H'])) {
             $model->h = $map['H'];
+        }
+        if (isset($map['W'])) {
+            $model->w = $map['W'];
         }
 
         return $model;

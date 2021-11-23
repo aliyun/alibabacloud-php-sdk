@@ -11,15 +11,15 @@ class faceRectVertices extends Model
     /**
      * @var float
      */
-    public $y;
+    public $x;
 
     /**
      * @var float
      */
-    public $x;
+    public $y;
     protected $_name = [
-        'y' => 'Y',
         'x' => 'X',
+        'y' => 'Y',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class faceRectVertices extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->y) {
-            $res['Y'] = $this->y;
-        }
         if (null !== $this->x) {
             $res['X'] = $this->x;
+        }
+        if (null !== $this->y) {
+            $res['Y'] = $this->y;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class faceRectVertices extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Y'])) {
-            $model->y = $map['Y'];
-        }
         if (isset($map['X'])) {
             $model->x = $map['X'];
+        }
+        if (isset($map['Y'])) {
+            $model->y = $map['Y'];
         }
 
         return $model;

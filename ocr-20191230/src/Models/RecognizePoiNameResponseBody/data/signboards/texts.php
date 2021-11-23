@@ -11,7 +11,12 @@ class texts extends Model
     /**
      * @var string
      */
-    public $type;
+    public $label;
+
+    /**
+     * @var int[]
+     */
+    public $points;
 
     /**
      * @var float
@@ -26,18 +31,13 @@ class texts extends Model
     /**
      * @var string
      */
-    public $label;
-
-    /**
-     * @var int[]
-     */
-    public $points;
+    public $type;
     protected $_name = [
-        'type'   => 'Type',
-        'score'  => 'Score',
-        'tag'    => 'Tag',
         'label'  => 'Label',
         'points' => 'Points',
+        'score'  => 'Score',
+        'tag'    => 'Tag',
+        'type'   => 'Type',
     ];
 
     public function validate()
@@ -47,8 +47,11 @@ class texts extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
+        }
+        if (null !== $this->points) {
+            $res['Points'] = $this->points;
         }
         if (null !== $this->score) {
             $res['Score'] = $this->score;
@@ -56,11 +59,8 @@ class texts extends Model
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
         }
-        if (null !== $this->label) {
-            $res['Label'] = $this->label;
-        }
-        if (null !== $this->points) {
-            $res['Points'] = $this->points;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -74,15 +74,6 @@ class texts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Score'])) {
-            $model->score = $map['Score'];
-        }
-        if (isset($map['Tag'])) {
-            $model->tag = $map['Tag'];
-        }
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
@@ -90,6 +81,15 @@ class texts extends Model
             if (!empty($map['Points'])) {
                 $model->points = $map['Points'];
             }
+        }
+        if (isset($map['Score'])) {
+            $model->score = $map['Score'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

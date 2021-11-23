@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var summary
-     */
-    public $summary;
-
-    /**
      * @var signboards[]
      */
     public $signboards;
+
+    /**
+     * @var summary
+     */
+    public $summary;
     protected $_name = [
-        'summary'    => 'Summary',
         'signboards' => 'Signboards',
+        'summary'    => 'Summary',
     ];
 
     public function validate()
@@ -31,9 +31,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->summary) {
-            $res['Summary'] = null !== $this->summary ? $this->summary->toMap() : null;
-        }
         if (null !== $this->signboards) {
             $res['Signboards'] = [];
             if (null !== $this->signboards && \is_array($this->signboards)) {
@@ -42,6 +39,9 @@ class data extends Model
                     $res['Signboards'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->summary) {
+            $res['Summary'] = null !== $this->summary ? $this->summary->toMap() : null;
         }
 
         return $res;
@@ -55,9 +55,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Summary'])) {
-            $model->summary = summary::fromMap($map['Summary']);
-        }
         if (isset($map['Signboards'])) {
             if (!empty($map['Signboards'])) {
                 $model->signboards = [];
@@ -66,6 +63,9 @@ class data extends Model
                     $model->signboards[$n++] = null !== $item ? signboards::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Summary'])) {
+            $model->summary = summary::fromMap($map['Summary']);
         }
 
         return $model;

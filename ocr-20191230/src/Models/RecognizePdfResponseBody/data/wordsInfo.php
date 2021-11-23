@@ -15,19 +15,24 @@ class wordsInfo extends Model
     public $angle;
 
     /**
-     * @var string
-     */
-    public $word;
-
-    /**
      * @var int
      */
     public $height;
 
     /**
+     * @var positions[]
+     */
+    public $positions;
+
+    /**
      * @var int
      */
     public $width;
+
+    /**
+     * @var string
+     */
+    public $word;
 
     /**
      * @var int
@@ -38,19 +43,14 @@ class wordsInfo extends Model
      * @var int
      */
     public $y;
-
-    /**
-     * @var positions[]
-     */
-    public $positions;
     protected $_name = [
         'angle'     => 'Angle',
-        'word'      => 'Word',
         'height'    => 'Height',
+        'positions' => 'Positions',
         'width'     => 'Width',
+        'word'      => 'Word',
         'x'         => 'X',
         'y'         => 'Y',
-        'positions' => 'Positions',
     ];
 
     public function validate()
@@ -63,20 +63,8 @@ class wordsInfo extends Model
         if (null !== $this->angle) {
             $res['Angle'] = $this->angle;
         }
-        if (null !== $this->word) {
-            $res['Word'] = $this->word;
-        }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
-        }
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
-        }
-        if (null !== $this->x) {
-            $res['X'] = $this->x;
-        }
-        if (null !== $this->y) {
-            $res['Y'] = $this->y;
         }
         if (null !== $this->positions) {
             $res['Positions'] = [];
@@ -86,6 +74,18 @@ class wordsInfo extends Model
                     $res['Positions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
+        }
+        if (null !== $this->word) {
+            $res['Word'] = $this->word;
+        }
+        if (null !== $this->x) {
+            $res['X'] = $this->x;
+        }
+        if (null !== $this->y) {
+            $res['Y'] = $this->y;
         }
 
         return $res;
@@ -102,20 +102,8 @@ class wordsInfo extends Model
         if (isset($map['Angle'])) {
             $model->angle = $map['Angle'];
         }
-        if (isset($map['Word'])) {
-            $model->word = $map['Word'];
-        }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
-        }
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
-        }
-        if (isset($map['X'])) {
-            $model->x = $map['X'];
-        }
-        if (isset($map['Y'])) {
-            $model->y = $map['Y'];
         }
         if (isset($map['Positions'])) {
             if (!empty($map['Positions'])) {
@@ -125,6 +113,18 @@ class wordsInfo extends Model
                     $model->positions[$n++] = null !== $item ? positions::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
+        }
+        if (isset($map['Word'])) {
+            $model->word = $map['Word'];
+        }
+        if (isset($map['X'])) {
+            $model->x = $map['X'];
+        }
+        if (isset($map['Y'])) {
+            $model->y = $map['Y'];
         }
 
         return $model;

@@ -14,44 +14,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
-     */
-    public $gender;
-
-    /**
-     * @var titleArea
-     */
-    public $titleArea;
-
-    /**
      * @var float
      */
     public $angle;
-
-    /**
-     * @var registerStampAreas[]
-     */
-    public $registerStampAreas;
-
-    /**
-     * @var string
-     */
-    public $nationality;
-
-    /**
-     * @var string
-     */
-    public $birthPlace;
-
-    /**
-     * @var otherStampAreas[]
-     */
-    public $otherStampAreas;
-
-    /**
-     * @var undertakeStampAreas[]
-     */
-    public $undertakeStampAreas;
 
     /**
      * @var string
@@ -61,17 +26,12 @@ class data extends Model
     /**
      * @var string
      */
-    public $relation;
+    public $birthPlace;
 
     /**
      * @var string
      */
-    public $nativePlace;
-
-    /**
-     * @var string
-     */
-    public $name;
+    public $gender;
 
     /**
      * @var string
@@ -82,21 +42,61 @@ class data extends Model
      * @var invalidStampAreas[]
      */
     public $invalidStampAreas;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $nationality;
+
+    /**
+     * @var string
+     */
+    public $nativePlace;
+
+    /**
+     * @var otherStampAreas[]
+     */
+    public $otherStampAreas;
+
+    /**
+     * @var registerStampAreas[]
+     */
+    public $registerStampAreas;
+
+    /**
+     * @var string
+     */
+    public $relation;
+
+    /**
+     * @var titleArea
+     */
+    public $titleArea;
+
+    /**
+     * @var undertakeStampAreas[]
+     */
+    public $undertakeStampAreas;
     protected $_name = [
-        'gender'              => 'Gender',
-        'titleArea'           => 'TitleArea',
         'angle'               => 'Angle',
-        'registerStampAreas'  => 'RegisterStampAreas',
-        'nationality'         => 'Nationality',
-        'birthPlace'          => 'BirthPlace',
-        'otherStampAreas'     => 'OtherStampAreas',
-        'undertakeStampAreas' => 'UndertakeStampAreas',
         'birthDate'           => 'BirthDate',
-        'relation'            => 'Relation',
-        'nativePlace'         => 'NativePlace',
-        'name'                => 'Name',
+        'birthPlace'          => 'BirthPlace',
+        'gender'              => 'Gender',
         'IDNumber'            => 'IDNumber',
         'invalidStampAreas'   => 'InvalidStampAreas',
+        'name'                => 'Name',
+        'nationality'         => 'Nationality',
+        'nativePlace'         => 'NativePlace',
+        'otherStampAreas'     => 'OtherStampAreas',
+        'registerStampAreas'  => 'RegisterStampAreas',
+        'relation'            => 'Relation',
+        'titleArea'           => 'TitleArea',
+        'undertakeStampAreas' => 'UndertakeStampAreas',
     ];
 
     public function validate()
@@ -106,59 +106,17 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->gender) {
-            $res['Gender'] = $this->gender;
-        }
-        if (null !== $this->titleArea) {
-            $res['TitleArea'] = null !== $this->titleArea ? $this->titleArea->toMap() : null;
-        }
         if (null !== $this->angle) {
             $res['Angle'] = $this->angle;
-        }
-        if (null !== $this->registerStampAreas) {
-            $res['RegisterStampAreas'] = [];
-            if (null !== $this->registerStampAreas && \is_array($this->registerStampAreas)) {
-                $n = 0;
-                foreach ($this->registerStampAreas as $item) {
-                    $res['RegisterStampAreas'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->nationality) {
-            $res['Nationality'] = $this->nationality;
-        }
-        if (null !== $this->birthPlace) {
-            $res['BirthPlace'] = $this->birthPlace;
-        }
-        if (null !== $this->otherStampAreas) {
-            $res['OtherStampAreas'] = [];
-            if (null !== $this->otherStampAreas && \is_array($this->otherStampAreas)) {
-                $n = 0;
-                foreach ($this->otherStampAreas as $item) {
-                    $res['OtherStampAreas'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->undertakeStampAreas) {
-            $res['UndertakeStampAreas'] = [];
-            if (null !== $this->undertakeStampAreas && \is_array($this->undertakeStampAreas)) {
-                $n = 0;
-                foreach ($this->undertakeStampAreas as $item) {
-                    $res['UndertakeStampAreas'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->birthDate) {
             $res['BirthDate'] = $this->birthDate;
         }
-        if (null !== $this->relation) {
-            $res['Relation'] = $this->relation;
+        if (null !== $this->birthPlace) {
+            $res['BirthPlace'] = $this->birthPlace;
         }
-        if (null !== $this->nativePlace) {
-            $res['NativePlace'] = $this->nativePlace;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->gender) {
+            $res['Gender'] = $this->gender;
         }
         if (null !== $this->IDNumber) {
             $res['IDNumber'] = $this->IDNumber;
@@ -169,6 +127,48 @@ class data extends Model
                 $n = 0;
                 foreach ($this->invalidStampAreas as $item) {
                     $res['InvalidStampAreas'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->nationality) {
+            $res['Nationality'] = $this->nationality;
+        }
+        if (null !== $this->nativePlace) {
+            $res['NativePlace'] = $this->nativePlace;
+        }
+        if (null !== $this->otherStampAreas) {
+            $res['OtherStampAreas'] = [];
+            if (null !== $this->otherStampAreas && \is_array($this->otherStampAreas)) {
+                $n = 0;
+                foreach ($this->otherStampAreas as $item) {
+                    $res['OtherStampAreas'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->registerStampAreas) {
+            $res['RegisterStampAreas'] = [];
+            if (null !== $this->registerStampAreas && \is_array($this->registerStampAreas)) {
+                $n = 0;
+                foreach ($this->registerStampAreas as $item) {
+                    $res['RegisterStampAreas'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->relation) {
+            $res['Relation'] = $this->relation;
+        }
+        if (null !== $this->titleArea) {
+            $res['TitleArea'] = null !== $this->titleArea ? $this->titleArea->toMap() : null;
+        }
+        if (null !== $this->undertakeStampAreas) {
+            $res['UndertakeStampAreas'] = [];
+            if (null !== $this->undertakeStampAreas && \is_array($this->undertakeStampAreas)) {
+                $n = 0;
+                foreach ($this->undertakeStampAreas as $item) {
+                    $res['UndertakeStampAreas'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -184,59 +184,17 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Gender'])) {
-            $model->gender = $map['Gender'];
-        }
-        if (isset($map['TitleArea'])) {
-            $model->titleArea = titleArea::fromMap($map['TitleArea']);
-        }
         if (isset($map['Angle'])) {
             $model->angle = $map['Angle'];
-        }
-        if (isset($map['RegisterStampAreas'])) {
-            if (!empty($map['RegisterStampAreas'])) {
-                $model->registerStampAreas = [];
-                $n                         = 0;
-                foreach ($map['RegisterStampAreas'] as $item) {
-                    $model->registerStampAreas[$n++] = null !== $item ? registerStampAreas::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['Nationality'])) {
-            $model->nationality = $map['Nationality'];
-        }
-        if (isset($map['BirthPlace'])) {
-            $model->birthPlace = $map['BirthPlace'];
-        }
-        if (isset($map['OtherStampAreas'])) {
-            if (!empty($map['OtherStampAreas'])) {
-                $model->otherStampAreas = [];
-                $n                      = 0;
-                foreach ($map['OtherStampAreas'] as $item) {
-                    $model->otherStampAreas[$n++] = null !== $item ? otherStampAreas::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['UndertakeStampAreas'])) {
-            if (!empty($map['UndertakeStampAreas'])) {
-                $model->undertakeStampAreas = [];
-                $n                          = 0;
-                foreach ($map['UndertakeStampAreas'] as $item) {
-                    $model->undertakeStampAreas[$n++] = null !== $item ? undertakeStampAreas::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['BirthDate'])) {
             $model->birthDate = $map['BirthDate'];
         }
-        if (isset($map['Relation'])) {
-            $model->relation = $map['Relation'];
+        if (isset($map['BirthPlace'])) {
+            $model->birthPlace = $map['BirthPlace'];
         }
-        if (isset($map['NativePlace'])) {
-            $model->nativePlace = $map['NativePlace'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Gender'])) {
+            $model->gender = $map['Gender'];
         }
         if (isset($map['IDNumber'])) {
             $model->IDNumber = $map['IDNumber'];
@@ -247,6 +205,48 @@ class data extends Model
                 $n                        = 0;
                 foreach ($map['InvalidStampAreas'] as $item) {
                     $model->invalidStampAreas[$n++] = null !== $item ? invalidStampAreas::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Nationality'])) {
+            $model->nationality = $map['Nationality'];
+        }
+        if (isset($map['NativePlace'])) {
+            $model->nativePlace = $map['NativePlace'];
+        }
+        if (isset($map['OtherStampAreas'])) {
+            if (!empty($map['OtherStampAreas'])) {
+                $model->otherStampAreas = [];
+                $n                      = 0;
+                foreach ($map['OtherStampAreas'] as $item) {
+                    $model->otherStampAreas[$n++] = null !== $item ? otherStampAreas::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['RegisterStampAreas'])) {
+            if (!empty($map['RegisterStampAreas'])) {
+                $model->registerStampAreas = [];
+                $n                         = 0;
+                foreach ($map['RegisterStampAreas'] as $item) {
+                    $model->registerStampAreas[$n++] = null !== $item ? registerStampAreas::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Relation'])) {
+            $model->relation = $map['Relation'];
+        }
+        if (isset($map['TitleArea'])) {
+            $model->titleArea = titleArea::fromMap($map['TitleArea']);
+        }
+        if (isset($map['UndertakeStampAreas'])) {
+            if (!empty($map['UndertakeStampAreas'])) {
+                $model->undertakeStampAreas = [];
+                $n                          = 0;
+                foreach ($map['UndertakeStampAreas'] as $item) {
+                    $model->undertakeStampAreas[$n++] = null !== $item ? undertakeStampAreas::fromMap($item) : $item;
                 }
             }
         }

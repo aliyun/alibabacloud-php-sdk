@@ -13,7 +13,12 @@ class plates extends Model
     /**
      * @var float
      */
-    public $plateTypeConfidence;
+    public $confidence;
+
+    /**
+     * @var string
+     */
+    public $plateNumber;
 
     /**
      * @var string
@@ -23,29 +28,24 @@ class plates extends Model
     /**
      * @var float
      */
-    public $confidence;
-
-    /**
-     * @var string
-     */
-    public $plateNumber;
-
-    /**
-     * @var roi
-     */
-    public $roi;
+    public $plateTypeConfidence;
 
     /**
      * @var positions[]
      */
     public $positions;
+
+    /**
+     * @var roi
+     */
+    public $roi;
     protected $_name = [
-        'plateTypeConfidence' => 'PlateTypeConfidence',
-        'plateType'           => 'PlateType',
         'confidence'          => 'Confidence',
         'plateNumber'         => 'PlateNumber',
-        'roi'                 => 'Roi',
+        'plateType'           => 'PlateType',
+        'plateTypeConfidence' => 'PlateTypeConfidence',
         'positions'           => 'Positions',
+        'roi'                 => 'Roi',
     ];
 
     public function validate()
@@ -55,20 +55,17 @@ class plates extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->plateTypeConfidence) {
-            $res['PlateTypeConfidence'] = $this->plateTypeConfidence;
-        }
-        if (null !== $this->plateType) {
-            $res['PlateType'] = $this->plateType;
-        }
         if (null !== $this->confidence) {
             $res['Confidence'] = $this->confidence;
         }
         if (null !== $this->plateNumber) {
             $res['PlateNumber'] = $this->plateNumber;
         }
-        if (null !== $this->roi) {
-            $res['Roi'] = null !== $this->roi ? $this->roi->toMap() : null;
+        if (null !== $this->plateType) {
+            $res['PlateType'] = $this->plateType;
+        }
+        if (null !== $this->plateTypeConfidence) {
+            $res['PlateTypeConfidence'] = $this->plateTypeConfidence;
         }
         if (null !== $this->positions) {
             $res['Positions'] = [];
@@ -78,6 +75,9 @@ class plates extends Model
                     $res['Positions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->roi) {
+            $res['Roi'] = null !== $this->roi ? $this->roi->toMap() : null;
         }
 
         return $res;
@@ -91,20 +91,17 @@ class plates extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PlateTypeConfidence'])) {
-            $model->plateTypeConfidence = $map['PlateTypeConfidence'];
-        }
-        if (isset($map['PlateType'])) {
-            $model->plateType = $map['PlateType'];
-        }
         if (isset($map['Confidence'])) {
             $model->confidence = $map['Confidence'];
         }
         if (isset($map['PlateNumber'])) {
             $model->plateNumber = $map['PlateNumber'];
         }
-        if (isset($map['Roi'])) {
-            $model->roi = roi::fromMap($map['Roi']);
+        if (isset($map['PlateType'])) {
+            $model->plateType = $map['PlateType'];
+        }
+        if (isset($map['PlateTypeConfidence'])) {
+            $model->plateTypeConfidence = $map['PlateTypeConfidence'];
         }
         if (isset($map['Positions'])) {
             if (!empty($map['Positions'])) {
@@ -114,6 +111,9 @@ class plates extends Model
                     $model->positions[$n++] = null !== $item ? positions::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Roi'])) {
+            $model->roi = roi::fromMap($map['Roi']);
         }
 
         return $model;

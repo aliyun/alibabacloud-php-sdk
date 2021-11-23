@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class regions extends Model
 {
     /**
-     * @var float
+     * @var float[]
      */
-    public $recognitionScore;
+    public $bandBoxes;
+
+    /**
+     * @var string
+     */
+    public $content;
 
     /**
      * @var float
@@ -24,20 +29,15 @@ class regions extends Model
     public $name;
 
     /**
-     * @var string
+     * @var float
      */
-    public $content;
-
-    /**
-     * @var float[]
-     */
-    public $bandBoxes;
+    public $recognitionScore;
     protected $_name = [
-        'recognitionScore' => 'RecognitionScore',
+        'bandBoxes'        => 'BandBoxes',
+        'content'          => 'Content',
         'detectionScore'   => 'DetectionScore',
         'name'             => 'Name',
-        'content'          => 'Content',
-        'bandBoxes'        => 'BandBoxes',
+        'recognitionScore' => 'RecognitionScore',
     ];
 
     public function validate()
@@ -47,8 +47,11 @@ class regions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->recognitionScore) {
-            $res['RecognitionScore'] = $this->recognitionScore;
+        if (null !== $this->bandBoxes) {
+            $res['BandBoxes'] = $this->bandBoxes;
+        }
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
         if (null !== $this->detectionScore) {
             $res['DetectionScore'] = $this->detectionScore;
@@ -56,11 +59,8 @@ class regions extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
-        }
-        if (null !== $this->bandBoxes) {
-            $res['BandBoxes'] = $this->bandBoxes;
+        if (null !== $this->recognitionScore) {
+            $res['RecognitionScore'] = $this->recognitionScore;
         }
 
         return $res;
@@ -74,8 +74,13 @@ class regions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RecognitionScore'])) {
-            $model->recognitionScore = $map['RecognitionScore'];
+        if (isset($map['BandBoxes'])) {
+            if (!empty($map['BandBoxes'])) {
+                $model->bandBoxes = $map['BandBoxes'];
+            }
+        }
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
         if (isset($map['DetectionScore'])) {
             $model->detectionScore = $map['DetectionScore'];
@@ -83,13 +88,8 @@ class regions extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
-        }
-        if (isset($map['BandBoxes'])) {
-            if (!empty($map['BandBoxes'])) {
-                $model->bandBoxes = $map['BandBoxes'];
-            }
+        if (isset($map['RecognitionScore'])) {
+            $model->recognitionScore = $map['RecognitionScore'];
         }
 
         return $model;

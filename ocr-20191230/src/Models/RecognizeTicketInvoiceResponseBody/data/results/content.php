@@ -11,12 +11,12 @@ class content extends Model
     /**
      * @var string
      */
-    public $invoiceCode;
+    public $antiFakeCode;
 
     /**
      * @var string
      */
-    public $invoiceNumber;
+    public $invoiceCode;
 
     /**
      * @var string
@@ -26,7 +26,7 @@ class content extends Model
     /**
      * @var string
      */
-    public $antiFakeCode;
+    public $invoiceNumber;
 
     /**
      * @var string
@@ -53,10 +53,10 @@ class content extends Model
      */
     public $sumAmount;
     protected $_name = [
-        'invoiceCode'     => 'InvoiceCode',
-        'invoiceNumber'   => 'InvoiceNumber',
-        'invoiceDate'     => 'InvoiceDate',
         'antiFakeCode'    => 'AntiFakeCode',
+        'invoiceCode'     => 'InvoiceCode',
+        'invoiceDate'     => 'InvoiceDate',
+        'invoiceNumber'   => 'InvoiceNumber',
         'payeeName'       => 'PayeeName',
         'payeeRegisterNo' => 'PayeeRegisterNo',
         'payerName'       => 'PayerName',
@@ -71,17 +71,17 @@ class content extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->antiFakeCode) {
+            $res['AntiFakeCode'] = $this->antiFakeCode;
+        }
         if (null !== $this->invoiceCode) {
             $res['InvoiceCode'] = $this->invoiceCode;
-        }
-        if (null !== $this->invoiceNumber) {
-            $res['InvoiceNumber'] = $this->invoiceNumber;
         }
         if (null !== $this->invoiceDate) {
             $res['InvoiceDate'] = $this->invoiceDate;
         }
-        if (null !== $this->antiFakeCode) {
-            $res['AntiFakeCode'] = $this->antiFakeCode;
+        if (null !== $this->invoiceNumber) {
+            $res['InvoiceNumber'] = $this->invoiceNumber;
         }
         if (null !== $this->payeeName) {
             $res['PayeeName'] = $this->payeeName;
@@ -110,17 +110,17 @@ class content extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AntiFakeCode'])) {
+            $model->antiFakeCode = $map['AntiFakeCode'];
+        }
         if (isset($map['InvoiceCode'])) {
             $model->invoiceCode = $map['InvoiceCode'];
-        }
-        if (isset($map['InvoiceNumber'])) {
-            $model->invoiceNumber = $map['InvoiceNumber'];
         }
         if (isset($map['InvoiceDate'])) {
             $model->invoiceDate = $map['InvoiceDate'];
         }
-        if (isset($map['AntiFakeCode'])) {
-            $model->antiFakeCode = $map['AntiFakeCode'];
+        if (isset($map['InvoiceNumber'])) {
+            $model->invoiceNumber = $map['InvoiceNumber'];
         }
         if (isset($map['PayeeName'])) {
             $model->payeeName = $map['PayeeName'];

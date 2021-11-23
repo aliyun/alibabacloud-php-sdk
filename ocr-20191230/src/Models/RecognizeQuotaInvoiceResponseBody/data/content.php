@@ -11,7 +11,7 @@ class content extends Model
     /**
      * @var string
      */
-    public $sumAmount;
+    public $invoiceAmount;
 
     /**
      * @var string
@@ -21,23 +21,23 @@ class content extends Model
     /**
      * @var string
      */
+    public $invoiceDetails;
+
+    /**
+     * @var string
+     */
     public $invoiceNo;
 
     /**
      * @var string
      */
-    public $invoiceAmount;
-
-    /**
-     * @var string
-     */
-    public $invoiceDetails;
+    public $sumAmount;
     protected $_name = [
-        'sumAmount'      => 'SumAmount',
-        'invoiceCode'    => 'InvoiceCode',
-        'invoiceNo'      => 'InvoiceNo',
         'invoiceAmount'  => 'InvoiceAmount',
+        'invoiceCode'    => 'InvoiceCode',
         'invoiceDetails' => 'InvoiceDetails',
+        'invoiceNo'      => 'InvoiceNo',
+        'sumAmount'      => 'SumAmount',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class content extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sumAmount) {
-            $res['SumAmount'] = $this->sumAmount;
+        if (null !== $this->invoiceAmount) {
+            $res['InvoiceAmount'] = $this->invoiceAmount;
         }
         if (null !== $this->invoiceCode) {
             $res['InvoiceCode'] = $this->invoiceCode;
         }
+        if (null !== $this->invoiceDetails) {
+            $res['InvoiceDetails'] = $this->invoiceDetails;
+        }
         if (null !== $this->invoiceNo) {
             $res['InvoiceNo'] = $this->invoiceNo;
         }
-        if (null !== $this->invoiceAmount) {
-            $res['InvoiceAmount'] = $this->invoiceAmount;
-        }
-        if (null !== $this->invoiceDetails) {
-            $res['InvoiceDetails'] = $this->invoiceDetails;
+        if (null !== $this->sumAmount) {
+            $res['SumAmount'] = $this->sumAmount;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class content extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SumAmount'])) {
-            $model->sumAmount = $map['SumAmount'];
+        if (isset($map['InvoiceAmount'])) {
+            $model->invoiceAmount = $map['InvoiceAmount'];
         }
         if (isset($map['InvoiceCode'])) {
             $model->invoiceCode = $map['InvoiceCode'];
         }
+        if (isset($map['InvoiceDetails'])) {
+            $model->invoiceDetails = $map['InvoiceDetails'];
+        }
         if (isset($map['InvoiceNo'])) {
             $model->invoiceNo = $map['InvoiceNo'];
         }
-        if (isset($map['InvoiceAmount'])) {
-            $model->invoiceAmount = $map['InvoiceAmount'];
-        }
-        if (isset($map['InvoiceDetails'])) {
-            $model->invoiceDetails = $map['InvoiceDetails'];
+        if (isset($map['SumAmount'])) {
+            $model->sumAmount = $map['SumAmount'];
         }
 
         return $model;

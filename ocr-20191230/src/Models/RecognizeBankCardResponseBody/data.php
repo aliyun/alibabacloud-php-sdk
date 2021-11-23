@@ -11,21 +11,21 @@ class data extends Model
     /**
      * @var string
      */
+    public $bankName;
+
+    /**
+     * @var string
+     */
     public $cardNumber;
 
     /**
      * @var string
      */
     public $validDate;
-
-    /**
-     * @var string
-     */
-    public $bankName;
     protected $_name = [
+        'bankName'   => 'BankName',
         'cardNumber' => 'CardNumber',
         'validDate'  => 'ValidDate',
-        'bankName'   => 'BankName',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bankName) {
+            $res['BankName'] = $this->bankName;
+        }
         if (null !== $this->cardNumber) {
             $res['CardNumber'] = $this->cardNumber;
         }
         if (null !== $this->validDate) {
             $res['ValidDate'] = $this->validDate;
-        }
-        if (null !== $this->bankName) {
-            $res['BankName'] = $this->bankName;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BankName'])) {
+            $model->bankName = $map['BankName'];
+        }
         if (isset($map['CardNumber'])) {
             $model->cardNumber = $map['CardNumber'];
         }
         if (isset($map['ValidDate'])) {
             $model->validDate = $map['ValidDate'];
-        }
-        if (isset($map['BankName'])) {
-            $model->bankName = $map['BankName'];
         }
 
         return $model;

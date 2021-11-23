@@ -11,15 +11,15 @@ class RecognizeVATInvoiceRequest extends Model
     /**
      * @var string
      */
-    public $fileURL;
+    public $fileType;
 
     /**
      * @var string
      */
-    public $fileType;
+    public $fileURL;
     protected $_name = [
-        'fileURL'  => 'FileURL',
         'fileType' => 'FileType',
+        'fileURL'  => 'FileURL',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class RecognizeVATInvoiceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fileURL) {
-            $res['FileURL'] = $this->fileURL;
-        }
         if (null !== $this->fileType) {
             $res['FileType'] = $this->fileType;
+        }
+        if (null !== $this->fileURL) {
+            $res['FileURL'] = $this->fileURL;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class RecognizeVATInvoiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FileURL'])) {
-            $model->fileURL = $map['FileURL'];
-        }
         if (isset($map['FileType'])) {
             $model->fileType = $map['FileType'];
+        }
+        if (isset($map['FileURL'])) {
+            $model->fileURL = $map['FileURL'];
         }
 
         return $model;

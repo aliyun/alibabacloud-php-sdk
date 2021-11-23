@@ -15,27 +15,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var stamp
-     */
-    public $stamp;
-
-    /**
-     * @var string
-     */
-    public $establishDate;
-
-    /**
-     * @var string
-     */
-    public $validPeriod;
-
-    /**
-     * @var string
-     */
-    public $business;
+    public $address;
 
     /**
      * @var float
@@ -45,12 +25,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $registerNumber;
-
-    /**
-     * @var string
-     */
-    public $address;
+    public $business;
 
     /**
      * @var string
@@ -58,14 +33,19 @@ class data extends Model
     public $capital;
 
     /**
-     * @var title
-     */
-    public $title;
-
-    /**
      * @var emblem
      */
     public $emblem;
+
+    /**
+     * @var string
+     */
+    public $establishDate;
+
+    /**
+     * @var string
+     */
+    public $legalPerson;
 
     /**
      * @var string
@@ -80,22 +60,42 @@ class data extends Model
     /**
      * @var string
      */
-    public $legalPerson;
+    public $registerNumber;
+
+    /**
+     * @var stamp
+     */
+    public $stamp;
+
+    /**
+     * @var title
+     */
+    public $title;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $validPeriod;
     protected $_name = [
-        'type'           => 'Type',
-        'stamp'          => 'Stamp',
-        'establishDate'  => 'EstablishDate',
-        'validPeriod'    => 'ValidPeriod',
-        'business'       => 'Business',
-        'angle'          => 'Angle',
-        'registerNumber' => 'RegisterNumber',
         'address'        => 'Address',
+        'angle'          => 'Angle',
+        'business'       => 'Business',
         'capital'        => 'Capital',
-        'title'          => 'Title',
         'emblem'         => 'Emblem',
+        'establishDate'  => 'EstablishDate',
+        'legalPerson'    => 'LegalPerson',
         'name'           => 'Name',
         'QRCode'         => 'QRCode',
-        'legalPerson'    => 'LegalPerson',
+        'registerNumber' => 'RegisterNumber',
+        'stamp'          => 'Stamp',
+        'title'          => 'Title',
+        'type'           => 'Type',
+        'validPeriod'    => 'ValidPeriod',
     ];
 
     public function validate()
@@ -105,38 +105,26 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->stamp) {
-            $res['Stamp'] = null !== $this->stamp ? $this->stamp->toMap() : null;
-        }
-        if (null !== $this->establishDate) {
-            $res['EstablishDate'] = $this->establishDate;
-        }
-        if (null !== $this->validPeriod) {
-            $res['ValidPeriod'] = $this->validPeriod;
-        }
-        if (null !== $this->business) {
-            $res['Business'] = $this->business;
+        if (null !== $this->address) {
+            $res['Address'] = $this->address;
         }
         if (null !== $this->angle) {
             $res['Angle'] = $this->angle;
         }
-        if (null !== $this->registerNumber) {
-            $res['RegisterNumber'] = $this->registerNumber;
-        }
-        if (null !== $this->address) {
-            $res['Address'] = $this->address;
+        if (null !== $this->business) {
+            $res['Business'] = $this->business;
         }
         if (null !== $this->capital) {
             $res['Capital'] = $this->capital;
         }
-        if (null !== $this->title) {
-            $res['Title'] = null !== $this->title ? $this->title->toMap() : null;
-        }
         if (null !== $this->emblem) {
             $res['Emblem'] = null !== $this->emblem ? $this->emblem->toMap() : null;
+        }
+        if (null !== $this->establishDate) {
+            $res['EstablishDate'] = $this->establishDate;
+        }
+        if (null !== $this->legalPerson) {
+            $res['LegalPerson'] = $this->legalPerson;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -144,8 +132,20 @@ class data extends Model
         if (null !== $this->QRCode) {
             $res['QRCode'] = null !== $this->QRCode ? $this->QRCode->toMap() : null;
         }
-        if (null !== $this->legalPerson) {
-            $res['LegalPerson'] = $this->legalPerson;
+        if (null !== $this->registerNumber) {
+            $res['RegisterNumber'] = $this->registerNumber;
+        }
+        if (null !== $this->stamp) {
+            $res['Stamp'] = null !== $this->stamp ? $this->stamp->toMap() : null;
+        }
+        if (null !== $this->title) {
+            $res['Title'] = null !== $this->title ? $this->title->toMap() : null;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->validPeriod) {
+            $res['ValidPeriod'] = $this->validPeriod;
         }
 
         return $res;
@@ -159,38 +159,26 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Stamp'])) {
-            $model->stamp = stamp::fromMap($map['Stamp']);
-        }
-        if (isset($map['EstablishDate'])) {
-            $model->establishDate = $map['EstablishDate'];
-        }
-        if (isset($map['ValidPeriod'])) {
-            $model->validPeriod = $map['ValidPeriod'];
-        }
-        if (isset($map['Business'])) {
-            $model->business = $map['Business'];
+        if (isset($map['Address'])) {
+            $model->address = $map['Address'];
         }
         if (isset($map['Angle'])) {
             $model->angle = $map['Angle'];
         }
-        if (isset($map['RegisterNumber'])) {
-            $model->registerNumber = $map['RegisterNumber'];
-        }
-        if (isset($map['Address'])) {
-            $model->address = $map['Address'];
+        if (isset($map['Business'])) {
+            $model->business = $map['Business'];
         }
         if (isset($map['Capital'])) {
             $model->capital = $map['Capital'];
         }
-        if (isset($map['Title'])) {
-            $model->title = title::fromMap($map['Title']);
-        }
         if (isset($map['Emblem'])) {
             $model->emblem = emblem::fromMap($map['Emblem']);
+        }
+        if (isset($map['EstablishDate'])) {
+            $model->establishDate = $map['EstablishDate'];
+        }
+        if (isset($map['LegalPerson'])) {
+            $model->legalPerson = $map['LegalPerson'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -198,8 +186,20 @@ class data extends Model
         if (isset($map['QRCode'])) {
             $model->QRCode = QRCode::fromMap($map['QRCode']);
         }
-        if (isset($map['LegalPerson'])) {
-            $model->legalPerson = $map['LegalPerson'];
+        if (isset($map['RegisterNumber'])) {
+            $model->registerNumber = $map['RegisterNumber'];
+        }
+        if (isset($map['Stamp'])) {
+            $model->stamp = stamp::fromMap($map['Stamp']);
+        }
+        if (isset($map['Title'])) {
+            $model->title = title::fromMap($map['Title']);
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['ValidPeriod'])) {
+            $model->validPeriod = $map['ValidPeriod'];
         }
 
         return $model;

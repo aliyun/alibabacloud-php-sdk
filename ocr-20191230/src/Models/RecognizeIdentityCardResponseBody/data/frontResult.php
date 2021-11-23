@@ -12,14 +12,29 @@ use AlibabaCloud\Tea\Model;
 class frontResult extends Model
 {
     /**
-     * @var faceRectangle
+     * @var string
      */
-    public $faceRectangle;
+    public $address;
 
     /**
      * @var string
      */
     public $birthDate;
+
+    /**
+     * @var cardAreas[]
+     */
+    public $cardAreas;
+
+    /**
+     * @var faceRectVertices[]
+     */
+    public $faceRectVertices;
+
+    /**
+     * @var faceRectangle
+     */
+    public $faceRectangle;
 
     /**
      * @var string
@@ -29,22 +44,7 @@ class frontResult extends Model
     /**
      * @var string
      */
-    public $address;
-
-    /**
-     * @var faceRectVertices[]
-     */
-    public $faceRectVertices;
-
-    /**
-     * @var cardAreas[]
-     */
-    public $cardAreas;
-
-    /**
-     * @var string
-     */
-    public $nationality;
+    public $IDNumber;
 
     /**
      * @var string
@@ -54,17 +54,17 @@ class frontResult extends Model
     /**
      * @var string
      */
-    public $IDNumber;
+    public $nationality;
     protected $_name = [
-        'faceRectangle'    => 'FaceRectangle',
-        'birthDate'        => 'BirthDate',
-        'gender'           => 'Gender',
         'address'          => 'Address',
-        'faceRectVertices' => 'FaceRectVertices',
+        'birthDate'        => 'BirthDate',
         'cardAreas'        => 'CardAreas',
-        'nationality'      => 'Nationality',
-        'name'             => 'Name',
+        'faceRectVertices' => 'FaceRectVertices',
+        'faceRectangle'    => 'FaceRectangle',
+        'gender'           => 'Gender',
         'IDNumber'         => 'IDNumber',
+        'name'             => 'Name',
+        'nationality'      => 'Nationality',
     ];
 
     public function validate()
@@ -74,26 +74,11 @@ class frontResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->faceRectangle) {
-            $res['FaceRectangle'] = null !== $this->faceRectangle ? $this->faceRectangle->toMap() : null;
-        }
-        if (null !== $this->birthDate) {
-            $res['BirthDate'] = $this->birthDate;
-        }
-        if (null !== $this->gender) {
-            $res['Gender'] = $this->gender;
-        }
         if (null !== $this->address) {
             $res['Address'] = $this->address;
         }
-        if (null !== $this->faceRectVertices) {
-            $res['FaceRectVertices'] = [];
-            if (null !== $this->faceRectVertices && \is_array($this->faceRectVertices)) {
-                $n = 0;
-                foreach ($this->faceRectVertices as $item) {
-                    $res['FaceRectVertices'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->birthDate) {
+            $res['BirthDate'] = $this->birthDate;
         }
         if (null !== $this->cardAreas) {
             $res['CardAreas'] = [];
@@ -104,14 +89,29 @@ class frontResult extends Model
                 }
             }
         }
-        if (null !== $this->nationality) {
-            $res['Nationality'] = $this->nationality;
+        if (null !== $this->faceRectVertices) {
+            $res['FaceRectVertices'] = [];
+            if (null !== $this->faceRectVertices && \is_array($this->faceRectVertices)) {
+                $n = 0;
+                foreach ($this->faceRectVertices as $item) {
+                    $res['FaceRectVertices'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->faceRectangle) {
+            $res['FaceRectangle'] = null !== $this->faceRectangle ? $this->faceRectangle->toMap() : null;
+        }
+        if (null !== $this->gender) {
+            $res['Gender'] = $this->gender;
+        }
+        if (null !== $this->IDNumber) {
+            $res['IDNumber'] = $this->IDNumber;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->IDNumber) {
-            $res['IDNumber'] = $this->IDNumber;
+        if (null !== $this->nationality) {
+            $res['Nationality'] = $this->nationality;
         }
 
         return $res;
@@ -125,26 +125,11 @@ class frontResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FaceRectangle'])) {
-            $model->faceRectangle = faceRectangle::fromMap($map['FaceRectangle']);
-        }
-        if (isset($map['BirthDate'])) {
-            $model->birthDate = $map['BirthDate'];
-        }
-        if (isset($map['Gender'])) {
-            $model->gender = $map['Gender'];
-        }
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
         }
-        if (isset($map['FaceRectVertices'])) {
-            if (!empty($map['FaceRectVertices'])) {
-                $model->faceRectVertices = [];
-                $n                       = 0;
-                foreach ($map['FaceRectVertices'] as $item) {
-                    $model->faceRectVertices[$n++] = null !== $item ? faceRectVertices::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['BirthDate'])) {
+            $model->birthDate = $map['BirthDate'];
         }
         if (isset($map['CardAreas'])) {
             if (!empty($map['CardAreas'])) {
@@ -155,14 +140,29 @@ class frontResult extends Model
                 }
             }
         }
-        if (isset($map['Nationality'])) {
-            $model->nationality = $map['Nationality'];
+        if (isset($map['FaceRectVertices'])) {
+            if (!empty($map['FaceRectVertices'])) {
+                $model->faceRectVertices = [];
+                $n                       = 0;
+                foreach ($map['FaceRectVertices'] as $item) {
+                    $model->faceRectVertices[$n++] = null !== $item ? faceRectVertices::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['FaceRectangle'])) {
+            $model->faceRectangle = faceRectangle::fromMap($map['FaceRectangle']);
+        }
+        if (isset($map['Gender'])) {
+            $model->gender = $map['Gender'];
+        }
+        if (isset($map['IDNumber'])) {
+            $model->IDNumber = $map['IDNumber'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['IDNumber'])) {
-            $model->IDNumber = $map['IDNumber'];
+        if (isset($map['Nationality'])) {
+            $model->nationality = $map['Nationality'];
         }
 
         return $model;

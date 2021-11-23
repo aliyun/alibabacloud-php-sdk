@@ -11,15 +11,15 @@ class resultMap extends Model
     /**
      * @var float
      */
-    public $screenThreshold;
+    public $screenScore;
 
     /**
      * @var float
      */
-    public $screenScore;
+    public $screenThreshold;
     protected $_name = [
-        'screenThreshold' => 'ScreenThreshold',
         'screenScore'     => 'ScreenScore',
+        'screenThreshold' => 'ScreenThreshold',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class resultMap extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->screenThreshold) {
-            $res['ScreenThreshold'] = $this->screenThreshold;
-        }
         if (null !== $this->screenScore) {
             $res['ScreenScore'] = $this->screenScore;
+        }
+        if (null !== $this->screenThreshold) {
+            $res['ScreenThreshold'] = $this->screenThreshold;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class resultMap extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ScreenThreshold'])) {
-            $model->screenThreshold = $map['ScreenThreshold'];
-        }
         if (isset($map['ScreenScore'])) {
             $model->screenScore = $map['ScreenScore'];
+        }
+        if (isset($map['ScreenThreshold'])) {
+            $model->screenThreshold = $map['ScreenThreshold'];
         }
 
         return $model;

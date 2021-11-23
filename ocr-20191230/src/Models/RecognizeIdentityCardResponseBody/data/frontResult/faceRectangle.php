@@ -11,11 +11,6 @@ use AlibabaCloud\Tea\Model;
 class faceRectangle extends Model
 {
     /**
-     * @var size
-     */
-    public $size;
-
-    /**
      * @var float
      */
     public $angle;
@@ -24,10 +19,15 @@ class faceRectangle extends Model
      * @var center
      */
     public $center;
+
+    /**
+     * @var size
+     */
+    public $size;
     protected $_name = [
-        'size'   => 'Size',
         'angle'  => 'Angle',
         'center' => 'Center',
+        'size'   => 'Size',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class faceRectangle extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->size) {
-            $res['Size'] = null !== $this->size ? $this->size->toMap() : null;
-        }
         if (null !== $this->angle) {
             $res['Angle'] = $this->angle;
         }
         if (null !== $this->center) {
             $res['Center'] = null !== $this->center ? $this->center->toMap() : null;
+        }
+        if (null !== $this->size) {
+            $res['Size'] = null !== $this->size ? $this->size->toMap() : null;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class faceRectangle extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Size'])) {
-            $model->size = size::fromMap($map['Size']);
-        }
         if (isset($map['Angle'])) {
             $model->angle = $map['Angle'];
         }
         if (isset($map['Center'])) {
             $model->center = center::fromMap($map['Center']);
+        }
+        if (isset($map['Size'])) {
+            $model->size = size::fromMap($map['Size']);
         }
 
         return $model;

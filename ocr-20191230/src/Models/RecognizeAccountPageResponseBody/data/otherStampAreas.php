@@ -11,27 +11,27 @@ class otherStampAreas extends Model
     /**
      * @var int
      */
-    public $top;
-
-    /**
-     * @var int
-     */
-    public $width;
-
-    /**
-     * @var int
-     */
     public $height;
 
     /**
      * @var int
      */
     public $left;
+
+    /**
+     * @var int
+     */
+    public $top;
+
+    /**
+     * @var int
+     */
+    public $width;
     protected $_name = [
-        'top'    => 'Top',
-        'width'  => 'Width',
         'height' => 'Height',
         'left'   => 'Left',
+        'top'    => 'Top',
+        'width'  => 'Width',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class otherStampAreas extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->top) {
-            $res['Top'] = $this->top;
-        }
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
-        }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
         if (null !== $this->left) {
             $res['Left'] = $this->left;
+        }
+        if (null !== $this->top) {
+            $res['Top'] = $this->top;
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class otherStampAreas extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Top'])) {
-            $model->top = $map['Top'];
-        }
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
-        }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
         if (isset($map['Left'])) {
             $model->left = $map['Left'];
+        }
+        if (isset($map['Top'])) {
+            $model->top = $map['Top'];
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

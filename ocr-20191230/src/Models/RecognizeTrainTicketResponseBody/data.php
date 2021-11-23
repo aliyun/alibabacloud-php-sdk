@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var float
-     */
-    public $price;
-
-    /**
      * @var string
      */
-    public $destination;
+    public $date;
 
     /**
      * @var string
@@ -26,17 +21,12 @@ class data extends Model
     /**
      * @var string
      */
-    public $date;
+    public $destination;
 
     /**
      * @var string
      */
-    public $number;
-
-    /**
-     * @var string
-     */
-    public $seat;
+    public $level;
 
     /**
      * @var string
@@ -46,16 +36,26 @@ class data extends Model
     /**
      * @var string
      */
-    public $level;
+    public $number;
+
+    /**
+     * @var float
+     */
+    public $price;
+
+    /**
+     * @var string
+     */
+    public $seat;
     protected $_name = [
-        'price'            => 'Price',
-        'destination'      => 'Destination',
-        'departureStation' => 'DepartureStation',
         'date'             => 'Date',
-        'number'           => 'Number',
-        'seat'             => 'Seat',
-        'name'             => 'Name',
+        'departureStation' => 'DepartureStation',
+        'destination'      => 'Destination',
         'level'            => 'Level',
+        'name'             => 'Name',
+        'number'           => 'Number',
+        'price'            => 'Price',
+        'seat'             => 'Seat',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->price) {
-            $res['Price'] = $this->price;
-        }
-        if (null !== $this->destination) {
-            $res['Destination'] = $this->destination;
+        if (null !== $this->date) {
+            $res['Date'] = $this->date;
         }
         if (null !== $this->departureStation) {
             $res['DepartureStation'] = $this->departureStation;
         }
-        if (null !== $this->date) {
-            $res['Date'] = $this->date;
+        if (null !== $this->destination) {
+            $res['Destination'] = $this->destination;
         }
-        if (null !== $this->number) {
-            $res['Number'] = $this->number;
-        }
-        if (null !== $this->seat) {
-            $res['Seat'] = $this->seat;
+        if (null !== $this->level) {
+            $res['Level'] = $this->level;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->level) {
-            $res['Level'] = $this->level;
+        if (null !== $this->number) {
+            $res['Number'] = $this->number;
+        }
+        if (null !== $this->price) {
+            $res['Price'] = $this->price;
+        }
+        if (null !== $this->seat) {
+            $res['Seat'] = $this->seat;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Price'])) {
-            $model->price = $map['Price'];
-        }
-        if (isset($map['Destination'])) {
-            $model->destination = $map['Destination'];
+        if (isset($map['Date'])) {
+            $model->date = $map['Date'];
         }
         if (isset($map['DepartureStation'])) {
             $model->departureStation = $map['DepartureStation'];
         }
-        if (isset($map['Date'])) {
-            $model->date = $map['Date'];
+        if (isset($map['Destination'])) {
+            $model->destination = $map['Destination'];
         }
-        if (isset($map['Number'])) {
-            $model->number = $map['Number'];
-        }
-        if (isset($map['Seat'])) {
-            $model->seat = $map['Seat'];
+        if (isset($map['Level'])) {
+            $model->level = $map['Level'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Level'])) {
-            $model->level = $map['Level'];
+        if (isset($map['Number'])) {
+            $model->number = $map['Number'];
+        }
+        if (isset($map['Price'])) {
+            $model->price = $map['Price'];
+        }
+        if (isset($map['Seat'])) {
+            $model->seat = $map['Seat'];
         }
 
         return $model;

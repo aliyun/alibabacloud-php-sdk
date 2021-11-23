@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Ocr\V20191230\Models;
 
-use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeVerificationcodeResponseBody\data;
+use AlibabaCloud\SDK\Ocr\V20191230\Models\RecognizeVideoCharacterResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class RecognizeVerificationcodeResponseBody extends Model
+class RecognizeVideoCharacterResponseBody extends Model
 {
     /**
      * @var data
@@ -15,6 +15,8 @@ class RecognizeVerificationcodeResponseBody extends Model
     public $data;
 
     /**
+     * @description Id of the request
+     *
      * @var string
      */
     public $requestId;
@@ -43,7 +45,7 @@ class RecognizeVerificationcodeResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return RecognizeVerificationcodeResponseBody
+     * @return RecognizeVideoCharacterResponseBody
      */
     public static function fromMap($map = [])
     {

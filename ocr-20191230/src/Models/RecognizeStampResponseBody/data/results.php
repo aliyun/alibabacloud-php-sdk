@@ -12,9 +12,9 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
-     * @var text
+     * @var generalText[]
      */
-    public $text;
+    public $generalText;
 
     /**
      * @var roi
@@ -22,13 +22,13 @@ class results extends Model
     public $roi;
 
     /**
-     * @var generalText[]
+     * @var text
      */
-    public $generalText;
+    public $text;
     protected $_name = [
-        'text'        => 'Text',
-        'roi'         => 'Roi',
         'generalText' => 'GeneralText',
+        'roi'         => 'Roi',
+        'text'        => 'Text',
     ];
 
     public function validate()
@@ -38,12 +38,6 @@ class results extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->text) {
-            $res['Text'] = null !== $this->text ? $this->text->toMap() : null;
-        }
-        if (null !== $this->roi) {
-            $res['Roi'] = null !== $this->roi ? $this->roi->toMap() : null;
-        }
         if (null !== $this->generalText) {
             $res['GeneralText'] = [];
             if (null !== $this->generalText && \is_array($this->generalText)) {
@@ -52,6 +46,12 @@ class results extends Model
                     $res['GeneralText'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->roi) {
+            $res['Roi'] = null !== $this->roi ? $this->roi->toMap() : null;
+        }
+        if (null !== $this->text) {
+            $res['Text'] = null !== $this->text ? $this->text->toMap() : null;
         }
 
         return $res;
@@ -65,12 +65,6 @@ class results extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Text'])) {
-            $model->text = text::fromMap($map['Text']);
-        }
-        if (isset($map['Roi'])) {
-            $model->roi = roi::fromMap($map['Roi']);
-        }
         if (isset($map['GeneralText'])) {
             if (!empty($map['GeneralText'])) {
                 $model->generalText = [];
@@ -79,6 +73,12 @@ class results extends Model
                     $model->generalText[$n++] = null !== $item ? generalText::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Roi'])) {
+            $model->roi = roi::fromMap($map['Roi']);
+        }
+        if (isset($map['Text'])) {
+            $model->text = text::fromMap($map['Text']);
         }
 
         return $model;

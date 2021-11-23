@@ -15,16 +15,6 @@ class RecognizeTableAdvanceRequest extends Model
     public $imageURLObject;
 
     /**
-     * @var string
-     */
-    public $outputFormat;
-
-    /**
-     * @var bool
-     */
-    public $useFinanceModel;
-
-    /**
      * @var bool
      */
     public $assureDirection;
@@ -35,16 +25,26 @@ class RecognizeTableAdvanceRequest extends Model
     public $hasLine;
 
     /**
+     * @var string
+     */
+    public $outputFormat;
+
+    /**
      * @var bool
      */
     public $skipDetection;
+
+    /**
+     * @var bool
+     */
+    public $useFinanceModel;
     protected $_name = [
         'imageURLObject'  => 'ImageURLObject',
-        'outputFormat'    => 'OutputFormat',
-        'useFinanceModel' => 'UseFinanceModel',
         'assureDirection' => 'AssureDirection',
         'hasLine'         => 'HasLine',
+        'outputFormat'    => 'OutputFormat',
         'skipDetection'   => 'SkipDetection',
+        'useFinanceModel' => 'UseFinanceModel',
     ];
 
     public function validate()
@@ -58,20 +58,20 @@ class RecognizeTableAdvanceRequest extends Model
         if (null !== $this->imageURLObject) {
             $res['ImageURLObject'] = $this->imageURLObject;
         }
-        if (null !== $this->outputFormat) {
-            $res['OutputFormat'] = $this->outputFormat;
-        }
-        if (null !== $this->useFinanceModel) {
-            $res['UseFinanceModel'] = $this->useFinanceModel;
-        }
         if (null !== $this->assureDirection) {
             $res['AssureDirection'] = $this->assureDirection;
         }
         if (null !== $this->hasLine) {
             $res['HasLine'] = $this->hasLine;
         }
+        if (null !== $this->outputFormat) {
+            $res['OutputFormat'] = $this->outputFormat;
+        }
         if (null !== $this->skipDetection) {
             $res['SkipDetection'] = $this->skipDetection;
+        }
+        if (null !== $this->useFinanceModel) {
+            $res['UseFinanceModel'] = $this->useFinanceModel;
         }
 
         return $res;
@@ -88,20 +88,20 @@ class RecognizeTableAdvanceRequest extends Model
         if (isset($map['ImageURLObject'])) {
             $model->imageURLObject = $map['ImageURLObject'];
         }
-        if (isset($map['OutputFormat'])) {
-            $model->outputFormat = $map['OutputFormat'];
-        }
-        if (isset($map['UseFinanceModel'])) {
-            $model->useFinanceModel = $map['UseFinanceModel'];
-        }
         if (isset($map['AssureDirection'])) {
             $model->assureDirection = $map['AssureDirection'];
         }
         if (isset($map['HasLine'])) {
             $model->hasLine = $map['HasLine'];
         }
+        if (isset($map['OutputFormat'])) {
+            $model->outputFormat = $map['OutputFormat'];
+        }
         if (isset($map['SkipDetection'])) {
             $model->skipDetection = $map['SkipDetection'];
+        }
+        if (isset($map['UseFinanceModel'])) {
+            $model->useFinanceModel = $map['UseFinanceModel'];
         }
 
         return $model;

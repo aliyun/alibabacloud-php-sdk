@@ -22,11 +22,6 @@ class data extends Model
     /**
      * @var int
      */
-    public $width;
-
-    /**
-     * @var int
-     */
     public $orgHeight;
 
     /**
@@ -38,13 +33,18 @@ class data extends Model
      * @var results[]
      */
     public $results;
+
+    /**
+     * @var int
+     */
+    public $width;
     protected $_name = [
         'count'     => 'Count',
         'height'    => 'Height',
-        'width'     => 'Width',
         'orgHeight' => 'OrgHeight',
         'orgWidth'  => 'OrgWidth',
         'results'   => 'Results',
+        'width'     => 'Width',
     ];
 
     public function validate()
@@ -60,9 +60,6 @@ class data extends Model
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
-        }
         if (null !== $this->orgHeight) {
             $res['OrgHeight'] = $this->orgHeight;
         }
@@ -77,6 +74,9 @@ class data extends Model
                     $res['Results'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -96,9 +96,6 @@ class data extends Model
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
-        }
         if (isset($map['OrgHeight'])) {
             $model->orgHeight = $map['OrgHeight'];
         }
@@ -113,6 +110,9 @@ class data extends Model
                     $model->results[$n++] = null !== $item ? results::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

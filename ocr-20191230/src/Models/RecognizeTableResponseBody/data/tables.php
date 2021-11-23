@@ -15,18 +15,18 @@ class tables extends Model
     public $head;
 
     /**
-     * @var string[]
-     */
-    public $tail;
-
-    /**
      * @var tableRows[]
      */
     public $tableRows;
+
+    /**
+     * @var string[]
+     */
+    public $tail;
     protected $_name = [
         'head'      => 'Head',
-        'tail'      => 'Tail',
         'tableRows' => 'TableRows',
+        'tail'      => 'Tail',
     ];
 
     public function validate()
@@ -39,9 +39,6 @@ class tables extends Model
         if (null !== $this->head) {
             $res['Head'] = $this->head;
         }
-        if (null !== $this->tail) {
-            $res['Tail'] = $this->tail;
-        }
         if (null !== $this->tableRows) {
             $res['TableRows'] = [];
             if (null !== $this->tableRows && \is_array($this->tableRows)) {
@@ -50,6 +47,9 @@ class tables extends Model
                     $res['TableRows'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->tail) {
+            $res['Tail'] = $this->tail;
         }
 
         return $res;
@@ -68,11 +68,6 @@ class tables extends Model
                 $model->head = $map['Head'];
             }
         }
-        if (isset($map['Tail'])) {
-            if (!empty($map['Tail'])) {
-                $model->tail = $map['Tail'];
-            }
-        }
         if (isset($map['TableRows'])) {
             if (!empty($map['TableRows'])) {
                 $model->tableRows = [];
@@ -80,6 +75,11 @@ class tables extends Model
                 foreach ($map['TableRows'] as $item) {
                     $model->tableRows[$n++] = null !== $item ? tableRows::fromMap($item) : $item;
                 }
+            }
+        }
+        if (isset($map['Tail'])) {
+            if (!empty($map['Tail'])) {
+                $model->tail = $map['Tail'];
             }
         }
 

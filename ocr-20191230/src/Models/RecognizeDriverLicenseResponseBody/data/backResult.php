@@ -16,12 +16,12 @@ class backResult extends Model
     /**
      * @var string
      */
-    public $name;
+    public $cardNumber;
 
     /**
      * @var string
      */
-    public $cardNumber;
+    public $name;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class backResult extends Model
     public $record;
     protected $_name = [
         'archiveNumber' => 'ArchiveNumber',
-        'name'          => 'Name',
         'cardNumber'    => 'CardNumber',
+        'name'          => 'Name',
         'record'        => 'Record',
     ];
 
@@ -44,11 +44,11 @@ class backResult extends Model
         if (null !== $this->archiveNumber) {
             $res['ArchiveNumber'] = $this->archiveNumber;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->cardNumber) {
             $res['CardNumber'] = $this->cardNumber;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->record) {
             $res['Record'] = $this->record;
@@ -68,11 +68,11 @@ class backResult extends Model
         if (isset($map['ArchiveNumber'])) {
             $model->archiveNumber = $map['ArchiveNumber'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['CardNumber'])) {
             $model->cardNumber = $map['CardNumber'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['Record'])) {
             $model->record = $map['Record'];

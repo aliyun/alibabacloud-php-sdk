@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class invoices extends Model
 {
     /**
+     * @var invoiceRoi
+     */
+    public $invoiceRoi;
+
+    /**
      * @var items[]
      */
     public $items;
@@ -19,15 +24,10 @@ class invoices extends Model
      * @var int
      */
     public $rotateType;
-
-    /**
-     * @var invoiceRoi
-     */
-    public $invoiceRoi;
     protected $_name = [
+        'invoiceRoi' => 'InvoiceRoi',
         'items'      => 'Items',
         'rotateType' => 'RotateType',
-        'invoiceRoi' => 'InvoiceRoi',
     ];
 
     public function validate()
@@ -37,6 +37,9 @@ class invoices extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->invoiceRoi) {
+            $res['InvoiceRoi'] = null !== $this->invoiceRoi ? $this->invoiceRoi->toMap() : null;
+        }
         if (null !== $this->items) {
             $res['Items'] = [];
             if (null !== $this->items && \is_array($this->items)) {
@@ -48,9 +51,6 @@ class invoices extends Model
         }
         if (null !== $this->rotateType) {
             $res['RotateType'] = $this->rotateType;
-        }
-        if (null !== $this->invoiceRoi) {
-            $res['InvoiceRoi'] = null !== $this->invoiceRoi ? $this->invoiceRoi->toMap() : null;
         }
 
         return $res;
@@ -64,6 +64,9 @@ class invoices extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InvoiceRoi'])) {
+            $model->invoiceRoi = invoiceRoi::fromMap($map['InvoiceRoi']);
+        }
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
@@ -75,9 +78,6 @@ class invoices extends Model
         }
         if (isset($map['RotateType'])) {
             $model->rotateType = $map['RotateType'];
-        }
-        if (isset($map['InvoiceRoi'])) {
-            $model->invoiceRoi = invoiceRoi::fromMap($map['InvoiceRoi']);
         }
 
         return $model;
