@@ -11,7 +11,12 @@ class account extends Model
     /**
      * @var string
      */
-    public $characterType;
+    public $accountDescription;
+
+    /**
+     * @var string
+     */
+    public $accountName;
 
     /**
      * @var string
@@ -21,23 +26,18 @@ class account extends Model
     /**
      * @var string
      */
-    public $accountDescription;
+    public $characterType;
 
     /**
      * @var string
      */
     public $DBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $accountName;
     protected $_name = [
-        'characterType'      => 'CharacterType',
-        'accountStatus'      => 'AccountStatus',
         'accountDescription' => 'AccountDescription',
-        'DBInstanceId'       => 'DBInstanceId',
         'accountName'        => 'AccountName',
+        'accountStatus'      => 'AccountStatus',
+        'characterType'      => 'CharacterType',
+        'DBInstanceId'       => 'DBInstanceId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class account extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->characterType) {
-            $res['CharacterType'] = $this->characterType;
+        if (null !== $this->accountDescription) {
+            $res['AccountDescription'] = $this->accountDescription;
+        }
+        if (null !== $this->accountName) {
+            $res['AccountName'] = $this->accountName;
         }
         if (null !== $this->accountStatus) {
             $res['AccountStatus'] = $this->accountStatus;
         }
-        if (null !== $this->accountDescription) {
-            $res['AccountDescription'] = $this->accountDescription;
+        if (null !== $this->characterType) {
+            $res['CharacterType'] = $this->characterType;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-        if (null !== $this->accountName) {
-            $res['AccountName'] = $this->accountName;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class account extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CharacterType'])) {
-            $model->characterType = $map['CharacterType'];
+        if (isset($map['AccountDescription'])) {
+            $model->accountDescription = $map['AccountDescription'];
+        }
+        if (isset($map['AccountName'])) {
+            $model->accountName = $map['AccountName'];
         }
         if (isset($map['AccountStatus'])) {
             $model->accountStatus = $map['AccountStatus'];
         }
-        if (isset($map['AccountDescription'])) {
-            $model->accountDescription = $map['AccountDescription'];
+        if (isset($map['CharacterType'])) {
+            $model->characterType = $map['CharacterType'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
-        }
-        if (isset($map['AccountName'])) {
-            $model->accountName = $map['AccountName'];
         }
 
         return $model;

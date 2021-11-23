@@ -11,20 +11,20 @@ class securityIpGroup extends Model
     /**
      * @var string
      */
-    public $securityIpGroupName;
+    public $securityIpGroupAttribute;
 
     /**
      * @var string
      */
-    public $securityIpGroupAttribute;
+    public $securityIpGroupName;
 
     /**
      * @var string
      */
     public $securityIpList;
     protected $_name = [
-        'securityIpGroupName'      => 'SecurityIpGroupName',
         'securityIpGroupAttribute' => 'SecurityIpGroupAttribute',
+        'securityIpGroupName'      => 'SecurityIpGroupName',
         'securityIpList'           => 'SecurityIpList',
     ];
 
@@ -35,11 +35,11 @@ class securityIpGroup extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityIpGroupName) {
-            $res['SecurityIpGroupName'] = $this->securityIpGroupName;
-        }
         if (null !== $this->securityIpGroupAttribute) {
             $res['SecurityIpGroupAttribute'] = $this->securityIpGroupAttribute;
+        }
+        if (null !== $this->securityIpGroupName) {
+            $res['SecurityIpGroupName'] = $this->securityIpGroupName;
         }
         if (null !== $this->securityIpList) {
             $res['SecurityIpList'] = $this->securityIpList;
@@ -56,11 +56,11 @@ class securityIpGroup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityIpGroupName'])) {
-            $model->securityIpGroupName = $map['SecurityIpGroupName'];
-        }
         if (isset($map['SecurityIpGroupAttribute'])) {
             $model->securityIpGroupAttribute = $map['SecurityIpGroupAttribute'];
+        }
+        if (isset($map['SecurityIpGroupName'])) {
+            $model->securityIpGroupName = $map['SecurityIpGroupName'];
         }
         if (isset($map['SecurityIpList'])) {
             $model->securityIpList = $map['SecurityIpList'];

@@ -9,29 +9,24 @@ use AlibabaCloud\Tea\Model;
 class CreateNodeRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $securityToken;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
+    public $autoPay;
 
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
+    public $businessInfo;
 
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $couponNo;
 
     /**
      * @var string
@@ -56,36 +51,47 @@ class CreateNodeRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $ownerAccount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $fromApp;
-
-    /**
-     * @var bool
-     */
-    public $autoPay;
+    public $ownerId;
 
     /**
      * @var int
      */
     public $readonlyReplicas;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
+        'autoPay'              => 'AutoPay',
+        'businessInfo'         => 'BusinessInfo',
+        'clientToken'          => 'ClientToken',
+        'couponNo'             => 'CouponNo',
         'DBInstanceId'         => 'DBInstanceId',
         'nodeClass'            => 'NodeClass',
         'nodeStorage'          => 'NodeStorage',
         'nodeType'             => 'NodeType',
-        'clientToken'          => 'ClientToken',
-        'fromApp'              => 'FromApp',
-        'autoPay'              => 'AutoPay',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
         'readonlyReplicas'     => 'ReadonlyReplicas',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'securityToken'        => 'SecurityToken',
     ];
 
     public function validate()
@@ -95,20 +101,17 @@ class CreateNodeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
         }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->businessInfo) {
+            $res['BusinessInfo'] = $this->businessInfo;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->couponNo) {
+            $res['CouponNo'] = $this->couponNo;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
@@ -122,17 +125,23 @@ class CreateNodeRequest extends Model
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->fromApp) {
-            $res['FromApp'] = $this->fromApp;
-        }
-        if (null !== $this->autoPay) {
-            $res['AutoPay'] = $this->autoPay;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->readonlyReplicas) {
             $res['ReadonlyReplicas'] = $this->readonlyReplicas;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -146,20 +155,17 @@ class CreateNodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
         }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['BusinessInfo'])) {
+            $model->businessInfo = $map['BusinessInfo'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['CouponNo'])) {
+            $model->couponNo = $map['CouponNo'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
@@ -173,17 +179,23 @@ class CreateNodeRequest extends Model
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['FromApp'])) {
-            $model->fromApp = $map['FromApp'];
-        }
-        if (isset($map['AutoPay'])) {
-            $model->autoPay = $map['AutoPay'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['ReadonlyReplicas'])) {
             $model->readonlyReplicas = $map['ReadonlyReplicas'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

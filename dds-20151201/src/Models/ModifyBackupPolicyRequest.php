@@ -9,14 +9,44 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackupPolicyRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $backupRetentionPeriod;
+
+    /**
      * @var string
      */
-    public $securityToken;
+    public $DBInstanceId;
+
+    /**
+     * @var int
+     */
+    public $enableBackupLog;
+
+    /**
+     * @var int
+     */
+    public $logBackupRetentionPeriod;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $preferredBackupPeriod;
+
+    /**
+     * @var string
+     */
+    public $preferredBackupTime;
 
     /**
      * @var string
@@ -31,31 +61,19 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $preferredBackupTime;
-
-    /**
-     * @var string
-     */
-    public $preferredBackupPeriod;
+    public $securityToken;
     protected $_name = [
-        'securityToken'         => 'SecurityToken',
-        'ownerId'               => 'OwnerId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'ownerAccount'          => 'OwnerAccount',
-        'DBInstanceId'          => 'DBInstanceId',
-        'preferredBackupTime'   => 'PreferredBackupTime',
-        'preferredBackupPeriod' => 'PreferredBackupPeriod',
+        'backupRetentionPeriod'    => 'BackupRetentionPeriod',
+        'DBInstanceId'             => 'DBInstanceId',
+        'enableBackupLog'          => 'EnableBackupLog',
+        'logBackupRetentionPeriod' => 'LogBackupRetentionPeriod',
+        'ownerAccount'             => 'OwnerAccount',
+        'ownerId'                  => 'OwnerId',
+        'preferredBackupPeriod'    => 'PreferredBackupPeriod',
+        'preferredBackupTime'      => 'PreferredBackupTime',
+        'resourceOwnerAccount'     => 'ResourceOwnerAccount',
+        'resourceOwnerId'          => 'ResourceOwnerId',
+        'securityToken'            => 'SecurityToken',
     ];
 
     public function validate()
@@ -65,11 +83,29 @@ class ModifyBackupPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->backupRetentionPeriod) {
+            $res['BackupRetentionPeriod'] = $this->backupRetentionPeriod;
+        }
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->enableBackupLog) {
+            $res['EnableBackupLog'] = $this->enableBackupLog;
+        }
+        if (null !== $this->logBackupRetentionPeriod) {
+            $res['LogBackupRetentionPeriod'] = $this->logBackupRetentionPeriod;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->preferredBackupPeriod) {
+            $res['PreferredBackupPeriod'] = $this->preferredBackupPeriod;
+        }
+        if (null !== $this->preferredBackupTime) {
+            $res['PreferredBackupTime'] = $this->preferredBackupTime;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -77,17 +113,8 @@ class ModifyBackupPolicyRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-        if (null !== $this->preferredBackupTime) {
-            $res['PreferredBackupTime'] = $this->preferredBackupTime;
-        }
-        if (null !== $this->preferredBackupPeriod) {
-            $res['PreferredBackupPeriod'] = $this->preferredBackupPeriod;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -101,11 +128,29 @@ class ModifyBackupPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['BackupRetentionPeriod'])) {
+            $model->backupRetentionPeriod = $map['BackupRetentionPeriod'];
+        }
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['EnableBackupLog'])) {
+            $model->enableBackupLog = $map['EnableBackupLog'];
+        }
+        if (isset($map['LogBackupRetentionPeriod'])) {
+            $model->logBackupRetentionPeriod = $map['LogBackupRetentionPeriod'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PreferredBackupPeriod'])) {
+            $model->preferredBackupPeriod = $map['PreferredBackupPeriod'];
+        }
+        if (isset($map['PreferredBackupTime'])) {
+            $model->preferredBackupTime = $map['PreferredBackupTime'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -113,17 +158,8 @@ class ModifyBackupPolicyRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
-        if (isset($map['PreferredBackupTime'])) {
-            $model->preferredBackupTime = $map['PreferredBackupTime'];
-        }
-        if (isset($map['PreferredBackupPeriod'])) {
-            $model->preferredBackupPeriod = $map['PreferredBackupPeriod'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

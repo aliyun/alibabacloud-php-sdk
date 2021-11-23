@@ -11,12 +11,22 @@ class DescribeBackupPolicyResponseBody extends Model
     /**
      * @var string
      */
-    public $preferredBackupPeriod;
+    public $backupRetentionPeriod;
+
+    /**
+     * @var int
+     */
+    public $enableBackupLog;
+
+    /**
+     * @var int
+     */
+    public $logBackupRetentionPeriod;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $preferredBackupPeriod;
 
     /**
      * @var string
@@ -26,12 +36,14 @@ class DescribeBackupPolicyResponseBody extends Model
     /**
      * @var string
      */
-    public $backupRetentionPeriod;
+    public $requestId;
     protected $_name = [
-        'preferredBackupPeriod' => 'PreferredBackupPeriod',
-        'requestId'             => 'RequestId',
-        'preferredBackupTime'   => 'PreferredBackupTime',
-        'backupRetentionPeriod' => 'BackupRetentionPeriod',
+        'backupRetentionPeriod'    => 'BackupRetentionPeriod',
+        'enableBackupLog'          => 'EnableBackupLog',
+        'logBackupRetentionPeriod' => 'LogBackupRetentionPeriod',
+        'preferredBackupPeriod'    => 'PreferredBackupPeriod',
+        'preferredBackupTime'      => 'PreferredBackupTime',
+        'requestId'                => 'RequestId',
     ];
 
     public function validate()
@@ -41,17 +53,23 @@ class DescribeBackupPolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backupRetentionPeriod) {
+            $res['BackupRetentionPeriod'] = $this->backupRetentionPeriod;
+        }
+        if (null !== $this->enableBackupLog) {
+            $res['EnableBackupLog'] = $this->enableBackupLog;
+        }
+        if (null !== $this->logBackupRetentionPeriod) {
+            $res['LogBackupRetentionPeriod'] = $this->logBackupRetentionPeriod;
+        }
         if (null !== $this->preferredBackupPeriod) {
             $res['PreferredBackupPeriod'] = $this->preferredBackupPeriod;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->preferredBackupTime) {
             $res['PreferredBackupTime'] = $this->preferredBackupTime;
         }
-        if (null !== $this->backupRetentionPeriod) {
-            $res['BackupRetentionPeriod'] = $this->backupRetentionPeriod;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -65,17 +83,23 @@ class DescribeBackupPolicyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackupRetentionPeriod'])) {
+            $model->backupRetentionPeriod = $map['BackupRetentionPeriod'];
+        }
+        if (isset($map['EnableBackupLog'])) {
+            $model->enableBackupLog = $map['EnableBackupLog'];
+        }
+        if (isset($map['LogBackupRetentionPeriod'])) {
+            $model->logBackupRetentionPeriod = $map['LogBackupRetentionPeriod'];
+        }
         if (isset($map['PreferredBackupPeriod'])) {
             $model->preferredBackupPeriod = $map['PreferredBackupPeriod'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['PreferredBackupTime'])) {
             $model->preferredBackupTime = $map['PreferredBackupTime'];
         }
-        if (isset($map['BackupRetentionPeriod'])) {
-            $model->backupRetentionPeriod = $map['BackupRetentionPeriod'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

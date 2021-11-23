@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancePerformanceResponseBody extends Model
 {
     /**
-     * @var performanceKeys
-     */
-    public $performanceKeys;
-
-    /**
      * @var string
      */
     public $endTime;
+
+    /**
+     * @var performanceKeys
+     */
+    public $performanceKeys;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class DescribeDBInstancePerformanceResponseBody extends Model
      */
     public $startTime;
     protected $_name = [
-        'performanceKeys' => 'PerformanceKeys',
         'endTime'         => 'EndTime',
+        'performanceKeys' => 'PerformanceKeys',
         'requestId'       => 'RequestId',
         'startTime'       => 'StartTime',
     ];
@@ -42,11 +42,11 @@ class DescribeDBInstancePerformanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->performanceKeys) {
-            $res['PerformanceKeys'] = null !== $this->performanceKeys ? $this->performanceKeys->toMap() : null;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->performanceKeys) {
+            $res['PerformanceKeys'] = null !== $this->performanceKeys ? $this->performanceKeys->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -66,11 +66,11 @@ class DescribeDBInstancePerformanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PerformanceKeys'])) {
-            $model->performanceKeys = performanceKeys::fromMap($map['PerformanceKeys']);
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['PerformanceKeys'])) {
+            $model->performanceKeys = performanceKeys::fromMap($map['PerformanceKeys']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

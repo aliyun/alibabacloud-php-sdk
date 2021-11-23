@@ -16,17 +16,12 @@ class parameter extends Model
     /**
      * @var string
      */
-    public $parameterName;
-
-    /**
-     * @var string
-     */
-    public $parameterValue;
-
-    /**
-     * @var string
-     */
     public $forceRestart;
+
+    /**
+     * @var string
+     */
+    public $modifiableStatus;
 
     /**
      * @var string
@@ -36,14 +31,19 @@ class parameter extends Model
     /**
      * @var string
      */
-    public $modifiableStatus;
+    public $parameterName;
+
+    /**
+     * @var string
+     */
+    public $parameterValue;
     protected $_name = [
         'checkingCode'         => 'CheckingCode',
+        'forceRestart'         => 'ForceRestart',
+        'modifiableStatus'     => 'ModifiableStatus',
+        'parameterDescription' => 'ParameterDescription',
         'parameterName'        => 'ParameterName',
         'parameterValue'       => 'ParameterValue',
-        'forceRestart'         => 'ForceRestart',
-        'parameterDescription' => 'ParameterDescription',
-        'modifiableStatus'     => 'ModifiableStatus',
     ];
 
     public function validate()
@@ -56,20 +56,20 @@ class parameter extends Model
         if (null !== $this->checkingCode) {
             $res['CheckingCode'] = $this->checkingCode;
         }
+        if (null !== $this->forceRestart) {
+            $res['ForceRestart'] = $this->forceRestart;
+        }
+        if (null !== $this->modifiableStatus) {
+            $res['ModifiableStatus'] = $this->modifiableStatus;
+        }
+        if (null !== $this->parameterDescription) {
+            $res['ParameterDescription'] = $this->parameterDescription;
+        }
         if (null !== $this->parameterName) {
             $res['ParameterName'] = $this->parameterName;
         }
         if (null !== $this->parameterValue) {
             $res['ParameterValue'] = $this->parameterValue;
-        }
-        if (null !== $this->forceRestart) {
-            $res['ForceRestart'] = $this->forceRestart;
-        }
-        if (null !== $this->parameterDescription) {
-            $res['ParameterDescription'] = $this->parameterDescription;
-        }
-        if (null !== $this->modifiableStatus) {
-            $res['ModifiableStatus'] = $this->modifiableStatus;
         }
 
         return $res;
@@ -86,20 +86,20 @@ class parameter extends Model
         if (isset($map['CheckingCode'])) {
             $model->checkingCode = $map['CheckingCode'];
         }
+        if (isset($map['ForceRestart'])) {
+            $model->forceRestart = $map['ForceRestart'];
+        }
+        if (isset($map['ModifiableStatus'])) {
+            $model->modifiableStatus = $map['ModifiableStatus'];
+        }
+        if (isset($map['ParameterDescription'])) {
+            $model->parameterDescription = $map['ParameterDescription'];
+        }
         if (isset($map['ParameterName'])) {
             $model->parameterName = $map['ParameterName'];
         }
         if (isset($map['ParameterValue'])) {
             $model->parameterValue = $map['ParameterValue'];
-        }
-        if (isset($map['ForceRestart'])) {
-            $model->forceRestart = $map['ForceRestart'];
-        }
-        if (isset($map['ParameterDescription'])) {
-            $model->parameterDescription = $map['ParameterDescription'];
-        }
-        if (isset($map['ModifiableStatus'])) {
-            $model->modifiableStatus = $map['ModifiableStatus'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class releaseNote extends Model
     /**
      * @var string
      */
-    public $releaseNote;
+    public $kernelVersion;
 
     /**
      * @var string
      */
-    public $kernelVersion;
+    public $releaseNote;
     protected $_name = [
-        'releaseNote'   => 'ReleaseNote',
         'kernelVersion' => 'KernelVersion',
+        'releaseNote'   => 'ReleaseNote',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class releaseNote extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->releaseNote) {
-            $res['ReleaseNote'] = $this->releaseNote;
-        }
         if (null !== $this->kernelVersion) {
             $res['KernelVersion'] = $this->kernelVersion;
+        }
+        if (null !== $this->releaseNote) {
+            $res['ReleaseNote'] = $this->releaseNote;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class releaseNote extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ReleaseNote'])) {
-            $model->releaseNote = $map['ReleaseNote'];
-        }
         if (isset($map['KernelVersion'])) {
             $model->kernelVersion = $map['KernelVersion'];
+        }
+        if (isset($map['ReleaseNote'])) {
+            $model->releaseNote = $map['ReleaseNote'];
         }
 
         return $model;

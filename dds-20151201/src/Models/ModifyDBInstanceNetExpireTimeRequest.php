@@ -9,9 +9,24 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceNetExpireTimeRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $classicExpendExpiredDays;
+
+    /**
      * @var string
      */
-    public $securityToken;
+    public $connectionString;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -31,31 +46,16 @@ class ModifyDBInstanceNetExpireTimeRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $connectionString;
-
-    /**
-     * @var int
-     */
-    public $classicExpendExpiredDays;
+    public $securityToken;
     protected $_name = [
-        'securityToken'            => 'SecurityToken',
+        'classicExpendExpiredDays' => 'ClassicExpendExpiredDays',
+        'connectionString'         => 'ConnectionString',
+        'DBInstanceId'             => 'DBInstanceId',
+        'ownerAccount'             => 'OwnerAccount',
         'ownerId'                  => 'OwnerId',
         'resourceOwnerAccount'     => 'ResourceOwnerAccount',
         'resourceOwnerId'          => 'ResourceOwnerId',
-        'ownerAccount'             => 'OwnerAccount',
-        'DBInstanceId'             => 'DBInstanceId',
-        'connectionString'         => 'ConnectionString',
-        'classicExpendExpiredDays' => 'ClassicExpendExpiredDays',
+        'securityToken'            => 'SecurityToken',
     ];
 
     public function validate()
@@ -65,8 +65,17 @@ class ModifyDBInstanceNetExpireTimeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->classicExpendExpiredDays) {
+            $res['ClassicExpendExpiredDays'] = $this->classicExpendExpiredDays;
+        }
+        if (null !== $this->connectionString) {
+            $res['ConnectionString'] = $this->connectionString;
+        }
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -77,17 +86,8 @@ class ModifyDBInstanceNetExpireTimeRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-        if (null !== $this->connectionString) {
-            $res['ConnectionString'] = $this->connectionString;
-        }
-        if (null !== $this->classicExpendExpiredDays) {
-            $res['ClassicExpendExpiredDays'] = $this->classicExpendExpiredDays;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -101,8 +101,17 @@ class ModifyDBInstanceNetExpireTimeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['ClassicExpendExpiredDays'])) {
+            $model->classicExpendExpiredDays = $map['ClassicExpendExpiredDays'];
+        }
+        if (isset($map['ConnectionString'])) {
+            $model->connectionString = $map['ConnectionString'];
+        }
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -113,17 +122,8 @@ class ModifyDBInstanceNetExpireTimeRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
-        if (isset($map['ConnectionString'])) {
-            $model->connectionString = $map['ConnectionString'];
-        }
-        if (isset($map['ClassicExpendExpiredDays'])) {
-            $model->classicExpendExpiredDays = $map['ClassicExpendExpiredDays'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

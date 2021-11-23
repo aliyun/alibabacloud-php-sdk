@@ -11,7 +11,7 @@ class replicaSet extends Model
     /**
      * @var string
      */
-    public $vSwitchId;
+    public $connectionDomain;
 
     /**
      * @var string
@@ -21,12 +21,12 @@ class replicaSet extends Model
     /**
      * @var string
      */
-    public $replicaSetRole;
+    public $networkType;
 
     /**
      * @var string
      */
-    public $connectionDomain;
+    public $replicaSetRole;
 
     /**
      * @var string
@@ -36,20 +36,20 @@ class replicaSet extends Model
     /**
      * @var string
      */
-    public $networkType;
+    public $VPCId;
 
     /**
      * @var string
      */
-    public $VPCId;
+    public $vSwitchId;
     protected $_name = [
-        'vSwitchId'          => 'VSwitchId',
-        'connectionPort'     => 'ConnectionPort',
-        'replicaSetRole'     => 'ReplicaSetRole',
         'connectionDomain'   => 'ConnectionDomain',
-        'VPCCloudInstanceId' => 'VPCCloudInstanceId',
+        'connectionPort'     => 'ConnectionPort',
         'networkType'        => 'NetworkType',
+        'replicaSetRole'     => 'ReplicaSetRole',
+        'VPCCloudInstanceId' => 'VPCCloudInstanceId',
         'VPCId'              => 'VPCId',
+        'vSwitchId'          => 'VSwitchId',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class replicaSet extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
+        if (null !== $this->connectionDomain) {
+            $res['ConnectionDomain'] = $this->connectionDomain;
         }
         if (null !== $this->connectionPort) {
             $res['ConnectionPort'] = $this->connectionPort;
         }
+        if (null !== $this->networkType) {
+            $res['NetworkType'] = $this->networkType;
+        }
         if (null !== $this->replicaSetRole) {
             $res['ReplicaSetRole'] = $this->replicaSetRole;
-        }
-        if (null !== $this->connectionDomain) {
-            $res['ConnectionDomain'] = $this->connectionDomain;
         }
         if (null !== $this->VPCCloudInstanceId) {
             $res['VPCCloudInstanceId'] = $this->VPCCloudInstanceId;
         }
-        if (null !== $this->networkType) {
-            $res['NetworkType'] = $this->networkType;
-        }
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class replicaSet extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
+        if (isset($map['ConnectionDomain'])) {
+            $model->connectionDomain = $map['ConnectionDomain'];
         }
         if (isset($map['ConnectionPort'])) {
             $model->connectionPort = $map['ConnectionPort'];
         }
+        if (isset($map['NetworkType'])) {
+            $model->networkType = $map['NetworkType'];
+        }
         if (isset($map['ReplicaSetRole'])) {
             $model->replicaSetRole = $map['ReplicaSetRole'];
-        }
-        if (isset($map['ConnectionDomain'])) {
-            $model->connectionDomain = $map['ConnectionDomain'];
         }
         if (isset($map['VPCCloudInstanceId'])) {
             $model->VPCCloudInstanceId = $map['VPCCloudInstanceId'];
         }
-        if (isset($map['NetworkType'])) {
-            $model->networkType = $map['NetworkType'];
-        }
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
 
         return $model;

@@ -11,12 +11,7 @@ class historicalParameter extends Model
     /**
      * @var string
      */
-    public $parameterName;
-
-    /**
-     * @var string
-     */
-    public $oldParameterValue;
+    public $modifyTime;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class historicalParameter extends Model
     /**
      * @var string
      */
-    public $modifyTime;
+    public $oldParameterValue;
+
+    /**
+     * @var string
+     */
+    public $parameterName;
     protected $_name = [
-        'parameterName'     => 'ParameterName',
-        'oldParameterValue' => 'OldParameterValue',
-        'newParameterValue' => 'NewParameterValue',
         'modifyTime'        => 'ModifyTime',
+        'newParameterValue' => 'NewParameterValue',
+        'oldParameterValue' => 'OldParameterValue',
+        'parameterName'     => 'ParameterName',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class historicalParameter extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->parameterName) {
-            $res['ParameterName'] = $this->parameterName;
-        }
-        if (null !== $this->oldParameterValue) {
-            $res['OldParameterValue'] = $this->oldParameterValue;
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
         }
         if (null !== $this->newParameterValue) {
             $res['NewParameterValue'] = $this->newParameterValue;
         }
-        if (null !== $this->modifyTime) {
-            $res['ModifyTime'] = $this->modifyTime;
+        if (null !== $this->oldParameterValue) {
+            $res['OldParameterValue'] = $this->oldParameterValue;
+        }
+        if (null !== $this->parameterName) {
+            $res['ParameterName'] = $this->parameterName;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class historicalParameter extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ParameterName'])) {
-            $model->parameterName = $map['ParameterName'];
-        }
-        if (isset($map['OldParameterValue'])) {
-            $model->oldParameterValue = $map['OldParameterValue'];
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
         }
         if (isset($map['NewParameterValue'])) {
             $model->newParameterValue = $map['NewParameterValue'];
         }
-        if (isset($map['ModifyTime'])) {
-            $model->modifyTime = $map['ModifyTime'];
+        if (isset($map['OldParameterValue'])) {
+            $model->oldParameterValue = $map['OldParameterValue'];
+        }
+        if (isset($map['ParameterName'])) {
+            $model->parameterName = $map['ParameterName'];
         }
 
         return $model;

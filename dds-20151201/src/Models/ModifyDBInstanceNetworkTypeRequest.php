@@ -9,9 +9,24 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceNetworkTypeRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $classicExpiredDays;
+
+    /**
      * @var string
      */
-    public $securityToken;
+    public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $networkType;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
@@ -31,22 +46,12 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $retainClassic;
 
     /**
      * @var string
      */
-    public $DBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $networkType;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
+    public $securityToken;
 
     /**
      * @var string
@@ -56,24 +61,19 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
     /**
      * @var string
      */
-    public $retainClassic;
-
-    /**
-     * @var int
-     */
-    public $classicExpiredDays;
+    public $vpcId;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
+        'classicExpiredDays'   => 'ClassicExpiredDays',
+        'DBInstanceId'         => 'DBInstanceId',
+        'networkType'          => 'NetworkType',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'DBInstanceId'         => 'DBInstanceId',
-        'networkType'          => 'NetworkType',
-        'vpcId'                => 'VpcId',
-        'vSwitchId'            => 'VSwitchId',
         'retainClassic'        => 'RetainClassic',
-        'classicExpiredDays'   => 'ClassicExpiredDays',
+        'securityToken'        => 'SecurityToken',
+        'vSwitchId'            => 'VSwitchId',
+        'vpcId'                => 'VpcId',
     ];
 
     public function validate()
@@ -83,8 +83,17 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->classicExpiredDays) {
+            $res['ClassicExpiredDays'] = $this->classicExpiredDays;
+        }
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->networkType) {
+            $res['NetworkType'] = $this->networkType;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -95,26 +104,17 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->retainClassic) {
+            $res['RetainClassic'] = $this->retainClassic;
         }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-        if (null !== $this->networkType) {
-            $res['NetworkType'] = $this->networkType;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
-        if (null !== $this->retainClassic) {
-            $res['RetainClassic'] = $this->retainClassic;
-        }
-        if (null !== $this->classicExpiredDays) {
-            $res['ClassicExpiredDays'] = $this->classicExpiredDays;
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -128,8 +128,17 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['ClassicExpiredDays'])) {
+            $model->classicExpiredDays = $map['ClassicExpiredDays'];
+        }
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['NetworkType'])) {
+            $model->networkType = $map['NetworkType'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -140,26 +149,17 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['RetainClassic'])) {
+            $model->retainClassic = $map['RetainClassic'];
         }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
-        if (isset($map['NetworkType'])) {
-            $model->networkType = $map['NetworkType'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
-        if (isset($map['RetainClassic'])) {
-            $model->retainClassic = $map['RetainClassic'];
-        }
-        if (isset($map['ClassicExpiredDays'])) {
-            $model->classicExpiredDays = $map['ClassicExpiredDays'];
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class configserverAttribute extends Model
 {
     /**
-     * @var int
-     */
-    public $maxIOPS;
-
-    /**
      * @var string
      */
     public $connectString;
-
-    /**
-     * @var string
-     */
-    public $nodeClass;
 
     /**
      * @var int
@@ -31,7 +21,12 @@ class configserverAttribute extends Model
     /**
      * @var int
      */
-    public $port;
+    public $maxIOPS;
+
+    /**
+     * @var string
+     */
+    public $nodeClass;
 
     /**
      * @var string
@@ -47,15 +42,26 @@ class configserverAttribute extends Model
      * @var int
      */
     public $nodeStorage;
+
+    /**
+     * @var int
+     */
+    public $port;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'maxIOPS'         => 'MaxIOPS',
         'connectString'   => 'ConnectString',
-        'nodeClass'       => 'NodeClass',
         'maxConnections'  => 'MaxConnections',
-        'port'            => 'Port',
+        'maxIOPS'         => 'MaxIOPS',
+        'nodeClass'       => 'NodeClass',
         'nodeDescription' => 'NodeDescription',
         'nodeId'          => 'NodeId',
         'nodeStorage'     => 'NodeStorage',
+        'port'            => 'Port',
+        'status'          => 'Status',
     ];
 
     public function validate()
@@ -65,20 +71,17 @@ class configserverAttribute extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->maxIOPS) {
-            $res['MaxIOPS'] = $this->maxIOPS;
-        }
         if (null !== $this->connectString) {
             $res['ConnectString'] = $this->connectString;
-        }
-        if (null !== $this->nodeClass) {
-            $res['NodeClass'] = $this->nodeClass;
         }
         if (null !== $this->maxConnections) {
             $res['MaxConnections'] = $this->maxConnections;
         }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
+        if (null !== $this->maxIOPS) {
+            $res['MaxIOPS'] = $this->maxIOPS;
+        }
+        if (null !== $this->nodeClass) {
+            $res['NodeClass'] = $this->nodeClass;
         }
         if (null !== $this->nodeDescription) {
             $res['NodeDescription'] = $this->nodeDescription;
@@ -88,6 +91,12 @@ class configserverAttribute extends Model
         }
         if (null !== $this->nodeStorage) {
             $res['NodeStorage'] = $this->nodeStorage;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -101,20 +110,17 @@ class configserverAttribute extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MaxIOPS'])) {
-            $model->maxIOPS = $map['MaxIOPS'];
-        }
         if (isset($map['ConnectString'])) {
             $model->connectString = $map['ConnectString'];
-        }
-        if (isset($map['NodeClass'])) {
-            $model->nodeClass = $map['NodeClass'];
         }
         if (isset($map['MaxConnections'])) {
             $model->maxConnections = $map['MaxConnections'];
         }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
+        if (isset($map['MaxIOPS'])) {
+            $model->maxIOPS = $map['MaxIOPS'];
+        }
+        if (isset($map['NodeClass'])) {
+            $model->nodeClass = $map['NodeClass'];
         }
         if (isset($map['NodeDescription'])) {
             $model->nodeDescription = $map['NodeDescription'];
@@ -124,6 +130,12 @@ class configserverAttribute extends Model
         }
         if (isset($map['NodeStorage'])) {
             $model->nodeStorage = $map['NodeStorage'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

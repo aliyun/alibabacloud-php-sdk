@@ -16,7 +16,12 @@ class logFile extends Model
     /**
      * @var string
      */
-    public $logStartTime;
+    public $logDownloadURL;
+
+    /**
+     * @var string
+     */
+    public $logEndTime;
 
     /**
      * @var int
@@ -26,12 +31,7 @@ class logFile extends Model
     /**
      * @var string
      */
-    public $logDownloadURL;
-
-    /**
-     * @var string
-     */
-    public $logEndTime;
+    public $logStartTime;
 
     /**
      * @var string
@@ -39,10 +39,10 @@ class logFile extends Model
     public $logStatus;
     protected $_name = [
         'fileID'         => 'FileID',
-        'logStartTime'   => 'LogStartTime',
-        'logSize'        => 'LogSize',
         'logDownloadURL' => 'LogDownloadURL',
         'logEndTime'     => 'LogEndTime',
+        'logSize'        => 'LogSize',
+        'logStartTime'   => 'LogStartTime',
         'logStatus'      => 'LogStatus',
     ];
 
@@ -56,17 +56,17 @@ class logFile extends Model
         if (null !== $this->fileID) {
             $res['FileID'] = $this->fileID;
         }
-        if (null !== $this->logStartTime) {
-            $res['LogStartTime'] = $this->logStartTime;
-        }
-        if (null !== $this->logSize) {
-            $res['LogSize'] = $this->logSize;
-        }
         if (null !== $this->logDownloadURL) {
             $res['LogDownloadURL'] = $this->logDownloadURL;
         }
         if (null !== $this->logEndTime) {
             $res['LogEndTime'] = $this->logEndTime;
+        }
+        if (null !== $this->logSize) {
+            $res['LogSize'] = $this->logSize;
+        }
+        if (null !== $this->logStartTime) {
+            $res['LogStartTime'] = $this->logStartTime;
         }
         if (null !== $this->logStatus) {
             $res['LogStatus'] = $this->logStatus;
@@ -86,17 +86,17 @@ class logFile extends Model
         if (isset($map['FileID'])) {
             $model->fileID = $map['FileID'];
         }
-        if (isset($map['LogStartTime'])) {
-            $model->logStartTime = $map['LogStartTime'];
-        }
-        if (isset($map['LogSize'])) {
-            $model->logSize = $map['LogSize'];
-        }
         if (isset($map['LogDownloadURL'])) {
             $model->logDownloadURL = $map['LogDownloadURL'];
         }
         if (isset($map['LogEndTime'])) {
             $model->logEndTime = $map['LogEndTime'];
+        }
+        if (isset($map['LogSize'])) {
+            $model->logSize = $map['LogSize'];
+        }
+        if (isset($map['LogStartTime'])) {
+            $model->logStartTime = $map['LogStartTime'];
         }
         if (isset($map['LogStatus'])) {
             $model->logStatus = $map['LogStatus'];

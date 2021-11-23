@@ -15,6 +15,11 @@ class performanceKey extends Model
     public $key;
 
     /**
+     * @var performanceValues
+     */
+    public $performanceValues;
+
+    /**
      * @var string
      */
     public $unit;
@@ -23,16 +28,11 @@ class performanceKey extends Model
      * @var string
      */
     public $valueFormat;
-
-    /**
-     * @var performanceValues
-     */
-    public $performanceValues;
     protected $_name = [
         'key'               => 'Key',
+        'performanceValues' => 'PerformanceValues',
         'unit'              => 'Unit',
         'valueFormat'       => 'ValueFormat',
-        'performanceValues' => 'PerformanceValues',
     ];
 
     public function validate()
@@ -45,14 +45,14 @@ class performanceKey extends Model
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+        if (null !== $this->performanceValues) {
+            $res['PerformanceValues'] = null !== $this->performanceValues ? $this->performanceValues->toMap() : null;
+        }
         if (null !== $this->unit) {
             $res['Unit'] = $this->unit;
         }
         if (null !== $this->valueFormat) {
             $res['ValueFormat'] = $this->valueFormat;
-        }
-        if (null !== $this->performanceValues) {
-            $res['PerformanceValues'] = null !== $this->performanceValues ? $this->performanceValues->toMap() : null;
         }
 
         return $res;
@@ -69,14 +69,14 @@ class performanceKey extends Model
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+        if (isset($map['PerformanceValues'])) {
+            $model->performanceValues = performanceValues::fromMap($map['PerformanceValues']);
+        }
         if (isset($map['Unit'])) {
             $model->unit = $map['Unit'];
         }
         if (isset($map['ValueFormat'])) {
             $model->valueFormat = $map['ValueFormat'];
-        }
-        if (isset($map['PerformanceValues'])) {
-            $model->performanceValues = performanceValues::fromMap($map['PerformanceValues']);
         }
 
         return $model;

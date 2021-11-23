@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableTimeRangeResponseBody extends Model
 {
     /**
-     * @var timeRange
-     */
-    public $timeRange;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var timeRange
+     */
+    public $timeRange;
     protected $_name = [
-        'timeRange' => 'TimeRange',
         'requestId' => 'RequestId',
+        'timeRange' => 'TimeRange',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeAvailableTimeRangeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->timeRange) {
-            $res['TimeRange'] = null !== $this->timeRange ? $this->timeRange->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->timeRange) {
+            $res['TimeRange'] = null !== $this->timeRange ? $this->timeRange->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeAvailableTimeRangeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TimeRange'])) {
-            $model->timeRange = timeRange::fromMap($map['TimeRange']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TimeRange'])) {
+            $model->timeRange = timeRange::fromMap($map['TimeRange']);
         }
 
         return $model;

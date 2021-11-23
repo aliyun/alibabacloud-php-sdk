@@ -16,16 +16,16 @@ class replicaSet extends Model
     /**
      * @var int
      */
-    public $storage;
+    public $readonlyReplicas;
 
     /**
      * @var int
      */
-    public $readonlyReplicas;
+    public $storage;
     protected $_name = [
         'class'            => 'Class',
-        'storage'          => 'Storage',
         'readonlyReplicas' => 'ReadonlyReplicas',
+        'storage'          => 'Storage',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class replicaSet extends Model
         if (null !== $this->class) {
             $res['Class'] = $this->class;
         }
-        if (null !== $this->storage) {
-            $res['Storage'] = $this->storage;
-        }
         if (null !== $this->readonlyReplicas) {
             $res['ReadonlyReplicas'] = $this->readonlyReplicas;
+        }
+        if (null !== $this->storage) {
+            $res['Storage'] = $this->storage;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class replicaSet extends Model
         if (isset($map['Class'])) {
             $model->class = $map['Class'];
         }
-        if (isset($map['Storage'])) {
-            $model->storage = $map['Storage'];
-        }
         if (isset($map['ReadonlyReplicas'])) {
             $model->readonlyReplicas = $map['ReadonlyReplicas'];
+        }
+        if (isset($map['Storage'])) {
+            $model->storage = $map['Storage'];
         }
 
         return $model;

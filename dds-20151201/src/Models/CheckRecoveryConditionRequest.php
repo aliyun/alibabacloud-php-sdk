@@ -11,12 +11,27 @@ class CheckRecoveryConditionRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $backupId;
+
+    /**
+     * @var string
+     */
+    public $databaseNames;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -31,43 +46,28 @@ class CheckRecoveryConditionRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $sourceDBInstance;
-
-    /**
-     * @var string
-     */
-    public $databaseNames;
-
-    /**
-     * @var string
-     */
     public $restoreTime;
 
     /**
      * @var string
      */
-    public $backupId;
+    public $securityToken;
 
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $sourceDBInstance;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
+        'backupId'             => 'BackupId',
+        'databaseNames'        => 'DatabaseNames',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'sourceDBInstance'     => 'SourceDBInstance',
-        'databaseNames'        => 'DatabaseNames',
         'restoreTime'          => 'RestoreTime',
-        'backupId'             => 'BackupId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'securityToken'        => 'SecurityToken',
+        'sourceDBInstance'     => 'SourceDBInstance',
     ];
 
     public function validate()
@@ -77,11 +77,20 @@ class CheckRecoveryConditionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->backupId) {
+            $res['BackupId'] = $this->backupId;
+        }
+        if (null !== $this->databaseNames) {
+            $res['DatabaseNames'] = $this->databaseNames;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -89,23 +98,14 @@ class CheckRecoveryConditionRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->sourceDBInstance) {
-            $res['SourceDBInstance'] = $this->sourceDBInstance;
-        }
-        if (null !== $this->databaseNames) {
-            $res['DatabaseNames'] = $this->databaseNames;
-        }
         if (null !== $this->restoreTime) {
             $res['RestoreTime'] = $this->restoreTime;
         }
-        if (null !== $this->backupId) {
-            $res['BackupId'] = $this->backupId;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->sourceDBInstance) {
+            $res['SourceDBInstance'] = $this->sourceDBInstance;
         }
 
         return $res;
@@ -119,11 +119,20 @@ class CheckRecoveryConditionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['BackupId'])) {
+            $model->backupId = $map['BackupId'];
+        }
+        if (isset($map['DatabaseNames'])) {
+            $model->databaseNames = $map['DatabaseNames'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -131,23 +140,14 @@ class CheckRecoveryConditionRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['SourceDBInstance'])) {
-            $model->sourceDBInstance = $map['SourceDBInstance'];
-        }
-        if (isset($map['DatabaseNames'])) {
-            $model->databaseNames = $map['DatabaseNames'];
-        }
         if (isset($map['RestoreTime'])) {
             $model->restoreTime = $map['RestoreTime'];
         }
-        if (isset($map['BackupId'])) {
-            $model->backupId = $map['BackupId'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['SourceDBInstance'])) {
+            $model->sourceDBInstance = $map['SourceDBInstance'];
         }
 
         return $model;

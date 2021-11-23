@@ -11,42 +11,27 @@ class CreateServerlessDBInstanceRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
+    public $accountPassword;
 
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
+    public $autoRenew;
 
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $clientToken;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $DBInstanceDescription;
 
     /**
      * @var int
      */
     public $DBInstanceStorage;
-
-    /**
-     * @var string
-     */
-    public $zoneId;
 
     /**
      * @var string
@@ -61,17 +46,12 @@ class CreateServerlessDBInstanceRequest extends Model
     /**
      * @var string
      */
-    public $DBInstanceDescription;
+    public $ownerAccount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $securityIPList;
-
-    /**
-     * @var string
-     */
-    public $accountPassword;
+    public $ownerId;
 
     /**
      * @var int
@@ -81,27 +61,12 @@ class CreateServerlessDBInstanceRequest extends Model
     /**
      * @var string
      */
-    public $vpcId;
+    public $periodPriceType;
 
     /**
      * @var string
      */
-    public $vSwitchId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $storageEngine;
-
-    /**
-     * @var string
-     */
-    public $autoRenew;
+    public $regionId;
 
     /**
      * @var string
@@ -111,29 +76,64 @@ class CreateServerlessDBInstanceRequest extends Model
     /**
      * @var string
      */
-    public $periodPriceType;
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $securityIPList;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
+    public $storageEngine;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'securityToken'         => 'SecurityToken',
-        'ownerId'               => 'OwnerId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'ownerAccount'          => 'OwnerAccount',
-        'regionId'              => 'RegionId',
+        'accountPassword'       => 'AccountPassword',
+        'autoRenew'             => 'AutoRenew',
+        'clientToken'           => 'ClientToken',
+        'DBInstanceDescription' => 'DBInstanceDescription',
         'DBInstanceStorage'     => 'DBInstanceStorage',
-        'zoneId'                => 'ZoneId',
         'engine'                => 'Engine',
         'engineVersion'         => 'EngineVersion',
-        'DBInstanceDescription' => 'DBInstanceDescription',
-        'securityIPList'        => 'SecurityIPList',
-        'accountPassword'       => 'AccountPassword',
+        'ownerAccount'          => 'OwnerAccount',
+        'ownerId'               => 'OwnerId',
         'period'                => 'Period',
-        'vpcId'                 => 'VpcId',
-        'vSwitchId'             => 'VSwitchId',
-        'clientToken'           => 'ClientToken',
-        'storageEngine'         => 'StorageEngine',
-        'autoRenew'             => 'AutoRenew',
-        'resourceGroupId'       => 'ResourceGroupId',
         'periodPriceType'       => 'PeriodPriceType',
+        'regionId'              => 'RegionId',
+        'resourceGroupId'       => 'ResourceGroupId',
+        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
+        'resourceOwnerId'       => 'ResourceOwnerId',
+        'securityIPList'        => 'SecurityIPList',
+        'securityToken'         => 'SecurityToken',
+        'storageEngine'         => 'StorageEngine',
+        'vSwitchId'             => 'VSwitchId',
+        'vpcId'                 => 'VpcId',
+        'zoneId'                => 'ZoneId',
     ];
 
     public function validate()
@@ -143,29 +143,20 @@ class CreateServerlessDBInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->accountPassword) {
+            $res['AccountPassword'] = $this->accountPassword;
         }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->DBInstanceDescription) {
+            $res['DBInstanceDescription'] = $this->DBInstanceDescription;
         }
         if (null !== $this->DBInstanceStorage) {
             $res['DBInstanceStorage'] = $this->DBInstanceStorage;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
@@ -173,38 +164,47 @@ class CreateServerlessDBInstanceRequest extends Model
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
         }
-        if (null !== $this->DBInstanceDescription) {
-            $res['DBInstanceDescription'] = $this->DBInstanceDescription;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->securityIPList) {
-            $res['SecurityIPList'] = $this->securityIPList;
-        }
-        if (null !== $this->accountPassword) {
-            $res['AccountPassword'] = $this->accountPassword;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
+        if (null !== $this->periodPriceType) {
+            $res['PeriodPriceType'] = $this->periodPriceType;
         }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->storageEngine) {
-            $res['StorageEngine'] = $this->storageEngine;
-        }
-        if (null !== $this->autoRenew) {
-            $res['AutoRenew'] = $this->autoRenew;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->periodPriceType) {
-            $res['PeriodPriceType'] = $this->periodPriceType;
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->securityIPList) {
+            $res['SecurityIPList'] = $this->securityIPList;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->storageEngine) {
+            $res['StorageEngine'] = $this->storageEngine;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -218,29 +218,20 @@ class CreateServerlessDBInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['AccountPassword'])) {
+            $model->accountPassword = $map['AccountPassword'];
         }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['DBInstanceDescription'])) {
+            $model->DBInstanceDescription = $map['DBInstanceDescription'];
         }
         if (isset($map['DBInstanceStorage'])) {
             $model->DBInstanceStorage = $map['DBInstanceStorage'];
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
@@ -248,38 +239,47 @@ class CreateServerlessDBInstanceRequest extends Model
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
         }
-        if (isset($map['DBInstanceDescription'])) {
-            $model->DBInstanceDescription = $map['DBInstanceDescription'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['SecurityIPList'])) {
-            $model->securityIPList = $map['SecurityIPList'];
-        }
-        if (isset($map['AccountPassword'])) {
-            $model->accountPassword = $map['AccountPassword'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
+        if (isset($map['PeriodPriceType'])) {
+            $model->periodPriceType = $map['PeriodPriceType'];
         }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['StorageEngine'])) {
-            $model->storageEngine = $map['StorageEngine'];
-        }
-        if (isset($map['AutoRenew'])) {
-            $model->autoRenew = $map['AutoRenew'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['PeriodPriceType'])) {
-            $model->periodPriceType = $map['PeriodPriceType'];
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SecurityIPList'])) {
+            $model->securityIPList = $map['SecurityIPList'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['StorageEngine'])) {
+            $model->storageEngine = $map['StorageEngine'];
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

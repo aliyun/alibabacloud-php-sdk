@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ddsRegion extends Model
 {
     /**
-     * @var zones
-     */
-    public $zones;
-
-    /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var zones
+     */
+    public $zones;
     protected $_name = [
-        'zones'    => 'Zones',
         'regionId' => 'RegionId',
+        'zones'    => 'Zones',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class ddsRegion extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->zones) {
-            $res['Zones'] = null !== $this->zones ? $this->zones->toMap() : null;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->zones) {
+            $res['Zones'] = null !== $this->zones ? $this->zones->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class ddsRegion extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Zones'])) {
-            $model->zones = zones::fromMap($map['Zones']);
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Zones'])) {
+            $model->zones = zones::fromMap($map['Zones']);
         }
 
         return $model;

@@ -12,52 +12,17 @@ class DescribeDBInstancesRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
+    public $chargeType;
 
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
+    public $connectionDomain;
 
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $DBInstanceId;
-
-    /**
-     * @var string
-     */
-    public $replicationFactor;
+    public $DBInstanceClass;
 
     /**
      * @var string
@@ -67,7 +32,7 @@ class DescribeDBInstancesRequest extends Model
     /**
      * @var string
      */
-    public $expireTime;
+    public $DBInstanceId;
 
     /**
      * @var string
@@ -82,11 +47,6 @@ class DescribeDBInstancesRequest extends Model
     /**
      * @var string
      */
-    public $DBInstanceClass;
-
-    /**
-     * @var string
-     */
     public $engine;
 
     /**
@@ -97,27 +57,7 @@ class DescribeDBInstancesRequest extends Model
     /**
      * @var string
      */
-    public $networkType;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $vSwitchId;
-
-    /**
-     * @var string
-     */
-    public $chargeType;
-
-    /**
-     * @var string
-     */
-    public $zoneId;
+    public $expireTime;
 
     /**
      * @var string
@@ -127,7 +67,37 @@ class DescribeDBInstancesRequest extends Model
     /**
      * @var string
      */
-    public $connectionDomain;
+    public $networkType;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $replicationFactor;
 
     /**
      * @var string
@@ -135,36 +105,66 @@ class DescribeDBInstancesRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
+
+    /**
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'securityToken'         => 'SecurityToken',
-        'ownerId'               => 'OwnerId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'ownerAccount'          => 'OwnerAccount',
-        'regionId'              => 'RegionId',
-        'pageNumber'            => 'PageNumber',
-        'pageSize'              => 'PageSize',
-        'DBInstanceId'          => 'DBInstanceId',
-        'replicationFactor'     => 'ReplicationFactor',
+        'chargeType'            => 'ChargeType',
+        'connectionDomain'      => 'ConnectionDomain',
+        'DBInstanceClass'       => 'DBInstanceClass',
         'DBInstanceDescription' => 'DBInstanceDescription',
-        'expireTime'            => 'ExpireTime',
+        'DBInstanceId'          => 'DBInstanceId',
         'DBInstanceStatus'      => 'DBInstanceStatus',
         'DBInstanceType'        => 'DBInstanceType',
-        'DBInstanceClass'       => 'DBInstanceClass',
         'engine'                => 'Engine',
         'engineVersion'         => 'EngineVersion',
-        'networkType'           => 'NetworkType',
-        'vpcId'                 => 'VpcId',
-        'vSwitchId'             => 'VSwitchId',
-        'chargeType'            => 'ChargeType',
-        'zoneId'                => 'ZoneId',
+        'expireTime'            => 'ExpireTime',
         'expired'               => 'Expired',
-        'connectionDomain'      => 'ConnectionDomain',
+        'networkType'           => 'NetworkType',
+        'ownerAccount'          => 'OwnerAccount',
+        'ownerId'               => 'OwnerId',
+        'pageNumber'            => 'PageNumber',
+        'pageSize'              => 'PageSize',
+        'regionId'              => 'RegionId',
+        'replicationFactor'     => 'ReplicationFactor',
         'resourceGroupId'       => 'ResourceGroupId',
+        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
+        'resourceOwnerId'       => 'ResourceOwnerId',
+        'securityToken'         => 'SecurityToken',
         'tag'                   => 'Tag',
+        'vSwitchId'             => 'VSwitchId',
+        'vpcId'                 => 'VpcId',
+        'zoneId'                => 'ZoneId',
     ];
 
     public function validate()
@@ -174,41 +174,20 @@ class DescribeDBInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
         }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->connectionDomain) {
+            $res['ConnectionDomain'] = $this->connectionDomain;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
-        }
-        if (null !== $this->replicationFactor) {
-            $res['ReplicationFactor'] = $this->replicationFactor;
+        if (null !== $this->DBInstanceClass) {
+            $res['DBInstanceClass'] = $this->DBInstanceClass;
         }
         if (null !== $this->DBInstanceDescription) {
             $res['DBInstanceDescription'] = $this->DBInstanceDescription;
         }
-        if (null !== $this->expireTime) {
-            $res['ExpireTime'] = $this->expireTime;
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
         }
         if (null !== $this->DBInstanceStatus) {
             $res['DBInstanceStatus'] = $this->DBInstanceStatus;
@@ -216,38 +195,50 @@ class DescribeDBInstancesRequest extends Model
         if (null !== $this->DBInstanceType) {
             $res['DBInstanceType'] = $this->DBInstanceType;
         }
-        if (null !== $this->DBInstanceClass) {
-            $res['DBInstanceClass'] = $this->DBInstanceClass;
-        }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
         }
-        if (null !== $this->networkType) {
-            $res['NetworkType'] = $this->networkType;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
-        if (null !== $this->chargeType) {
-            $res['ChargeType'] = $this->chargeType;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
         }
         if (null !== $this->expired) {
             $res['Expired'] = $this->expired;
         }
-        if (null !== $this->connectionDomain) {
-            $res['ConnectionDomain'] = $this->connectionDomain;
+        if (null !== $this->networkType) {
+            $res['NetworkType'] = $this->networkType;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->replicationFactor) {
+            $res['ReplicationFactor'] = $this->replicationFactor;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -257,6 +248,15 @@ class DescribeDBInstancesRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -270,41 +270,20 @@ class DescribeDBInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
         }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['ConnectionDomain'])) {
+            $model->connectionDomain = $map['ConnectionDomain'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
-        }
-        if (isset($map['ReplicationFactor'])) {
-            $model->replicationFactor = $map['ReplicationFactor'];
+        if (isset($map['DBInstanceClass'])) {
+            $model->DBInstanceClass = $map['DBInstanceClass'];
         }
         if (isset($map['DBInstanceDescription'])) {
             $model->DBInstanceDescription = $map['DBInstanceDescription'];
         }
-        if (isset($map['ExpireTime'])) {
-            $model->expireTime = $map['ExpireTime'];
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
         }
         if (isset($map['DBInstanceStatus'])) {
             $model->DBInstanceStatus = $map['DBInstanceStatus'];
@@ -312,38 +291,50 @@ class DescribeDBInstancesRequest extends Model
         if (isset($map['DBInstanceType'])) {
             $model->DBInstanceType = $map['DBInstanceType'];
         }
-        if (isset($map['DBInstanceClass'])) {
-            $model->DBInstanceClass = $map['DBInstanceClass'];
-        }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
         }
-        if (isset($map['NetworkType'])) {
-            $model->networkType = $map['NetworkType'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
-        if (isset($map['ChargeType'])) {
-            $model->chargeType = $map['ChargeType'];
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
         }
         if (isset($map['Expired'])) {
             $model->expired = $map['Expired'];
         }
-        if (isset($map['ConnectionDomain'])) {
-            $model->connectionDomain = $map['ConnectionDomain'];
+        if (isset($map['NetworkType'])) {
+            $model->networkType = $map['NetworkType'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ReplicationFactor'])) {
+            $model->replicationFactor = $map['ReplicationFactor'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
@@ -353,6 +344,15 @@ class DescribeDBInstancesRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

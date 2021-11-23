@@ -11,12 +11,17 @@ class compatibleConnection extends Model
     /**
      * @var string
      */
-    public $vswitchId;
+    public $expiredTime;
 
     /**
      * @var string
      */
-    public $expiredTime;
+    public $IPAddress;
+
+    /**
+     * @var string
+     */
+    public $networkAddress;
 
     /**
      * @var string
@@ -31,25 +36,20 @@ class compatibleConnection extends Model
     /**
      * @var string
      */
-    public $networkAddress;
-
-    /**
-     * @var string
-     */
     public $VPCId;
 
     /**
      * @var string
      */
-    public $IPAddress;
+    public $vswitchId;
     protected $_name = [
-        'vswitchId'      => 'VswitchId',
         'expiredTime'    => 'ExpiredTime',
+        'IPAddress'      => 'IPAddress',
+        'networkAddress' => 'NetworkAddress',
         'networkType'    => 'NetworkType',
         'port'           => 'Port',
-        'networkAddress' => 'NetworkAddress',
         'VPCId'          => 'VPCId',
-        'IPAddress'      => 'IPAddress',
+        'vswitchId'      => 'VswitchId',
     ];
 
     public function validate()
@@ -59,11 +59,14 @@ class compatibleConnection extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vswitchId) {
-            $res['VswitchId'] = $this->vswitchId;
-        }
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
+        }
+        if (null !== $this->IPAddress) {
+            $res['IPAddress'] = $this->IPAddress;
+        }
+        if (null !== $this->networkAddress) {
+            $res['NetworkAddress'] = $this->networkAddress;
         }
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
@@ -71,14 +74,11 @@ class compatibleConnection extends Model
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
-        if (null !== $this->networkAddress) {
-            $res['NetworkAddress'] = $this->networkAddress;
-        }
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
         }
-        if (null !== $this->IPAddress) {
-            $res['IPAddress'] = $this->IPAddress;
+        if (null !== $this->vswitchId) {
+            $res['VswitchId'] = $this->vswitchId;
         }
 
         return $res;
@@ -92,11 +92,14 @@ class compatibleConnection extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VswitchId'])) {
-            $model->vswitchId = $map['VswitchId'];
-        }
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
+        }
+        if (isset($map['IPAddress'])) {
+            $model->IPAddress = $map['IPAddress'];
+        }
+        if (isset($map['NetworkAddress'])) {
+            $model->networkAddress = $map['NetworkAddress'];
         }
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
@@ -104,14 +107,11 @@ class compatibleConnection extends Model
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
-        if (isset($map['NetworkAddress'])) {
-            $model->networkAddress = $map['NetworkAddress'];
-        }
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];
         }
-        if (isset($map['IPAddress'])) {
-            $model->IPAddress = $map['IPAddress'];
+        if (isset($map['VswitchId'])) {
+            $model->vswitchId = $map['VswitchId'];
         }
 
         return $model;

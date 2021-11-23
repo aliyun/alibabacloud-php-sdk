@@ -11,15 +11,15 @@ class DescribeAuditPolicyResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $logAuditStatus;
 
     /**
      * @var string
      */
-    public $logAuditStatus;
+    public $requestId;
     protected $_name = [
-        'requestId'      => 'RequestId',
         'logAuditStatus' => 'LogAuditStatus',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeAuditPolicyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->logAuditStatus) {
             $res['LogAuditStatus'] = $this->logAuditStatus;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeAuditPolicyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['LogAuditStatus'])) {
             $model->logAuditStatus = $map['LogAuditStatus'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

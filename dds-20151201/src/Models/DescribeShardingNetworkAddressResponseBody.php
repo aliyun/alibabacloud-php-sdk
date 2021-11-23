@@ -16,18 +16,18 @@ class DescribeShardingNetworkAddressResponseBody extends Model
     public $compatibleConnections;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var networkAddresses
      */
     public $networkAddresses;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'compatibleConnections' => 'CompatibleConnections',
-        'requestId'             => 'RequestId',
         'networkAddresses'      => 'NetworkAddresses',
+        'requestId'             => 'RequestId',
     ];
 
     public function validate()
@@ -40,11 +40,11 @@ class DescribeShardingNetworkAddressResponseBody extends Model
         if (null !== $this->compatibleConnections) {
             $res['CompatibleConnections'] = null !== $this->compatibleConnections ? $this->compatibleConnections->toMap() : null;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->networkAddresses) {
             $res['NetworkAddresses'] = null !== $this->networkAddresses ? $this->networkAddresses->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -61,11 +61,11 @@ class DescribeShardingNetworkAddressResponseBody extends Model
         if (isset($map['CompatibleConnections'])) {
             $model->compatibleConnections = compatibleConnections::fromMap($map['CompatibleConnections']);
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['NetworkAddresses'])) {
             $model->networkAddresses = networkAddresses::fromMap($map['NetworkAddresses']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

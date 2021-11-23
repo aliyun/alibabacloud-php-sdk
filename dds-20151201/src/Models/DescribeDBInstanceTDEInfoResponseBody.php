@@ -11,15 +11,15 @@ class DescribeDBInstanceTDEInfoResponseBody extends Model
     /**
      * @var string
      */
-    public $TDEStatus;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $TDEStatus;
     protected $_name = [
-        'TDEStatus' => 'TDEStatus',
         'requestId' => 'RequestId',
+        'TDEStatus' => 'TDEStatus',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeDBInstanceTDEInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->TDEStatus) {
-            $res['TDEStatus'] = $this->TDEStatus;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->TDEStatus) {
+            $res['TDEStatus'] = $this->TDEStatus;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeDBInstanceTDEInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TDEStatus'])) {
-            $model->TDEStatus = $map['TDEStatus'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TDEStatus'])) {
+            $model->TDEStatus = $map['TDEStatus'];
         }
 
         return $model;

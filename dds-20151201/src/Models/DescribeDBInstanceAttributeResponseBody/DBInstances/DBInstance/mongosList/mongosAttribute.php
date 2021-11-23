@@ -11,22 +11,7 @@ class mongosAttribute extends Model
     /**
      * @var string
      */
-    public $vpcCloudInstanceId;
-
-    /**
-     * @var int
-     */
-    public $maxIOPS;
-
-    /**
-     * @var string
-     */
-    public $vSwitchId;
-
-    /**
-     * @var string
-     */
-    public $nodeClass;
+    public $connectSting;
 
     /**
      * @var int
@@ -36,17 +21,12 @@ class mongosAttribute extends Model
     /**
      * @var int
      */
-    public $port;
+    public $maxIOPS;
 
     /**
      * @var string
      */
-    public $VPCId;
-
-    /**
-     * @var string
-     */
-    public $connectSting;
+    public $nodeClass;
 
     /**
      * @var string
@@ -57,17 +37,43 @@ class mongosAttribute extends Model
      * @var string
      */
     public $nodeId;
+
+    /**
+     * @var int
+     */
+    public $port;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $VPCId;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $vpcCloudInstanceId;
     protected $_name = [
-        'vpcCloudInstanceId' => 'VpcCloudInstanceId',
-        'maxIOPS'            => 'MaxIOPS',
-        'vSwitchId'          => 'VSwitchId',
-        'nodeClass'          => 'NodeClass',
-        'maxConnections'     => 'MaxConnections',
-        'port'               => 'Port',
-        'VPCId'              => 'VPCId',
         'connectSting'       => 'ConnectSting',
+        'maxConnections'     => 'MaxConnections',
+        'maxIOPS'            => 'MaxIOPS',
+        'nodeClass'          => 'NodeClass',
         'nodeDescription'    => 'NodeDescription',
         'nodeId'             => 'NodeId',
+        'port'               => 'Port',
+        'status'             => 'Status',
+        'VPCId'              => 'VPCId',
+        'vSwitchId'          => 'VSwitchId',
+        'vpcCloudInstanceId' => 'VpcCloudInstanceId',
     ];
 
     public function validate()
@@ -77,35 +83,38 @@ class mongosAttribute extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcCloudInstanceId) {
-            $res['VpcCloudInstanceId'] = $this->vpcCloudInstanceId;
-        }
-        if (null !== $this->maxIOPS) {
-            $res['MaxIOPS'] = $this->maxIOPS;
-        }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
-        if (null !== $this->nodeClass) {
-            $res['NodeClass'] = $this->nodeClass;
+        if (null !== $this->connectSting) {
+            $res['ConnectSting'] = $this->connectSting;
         }
         if (null !== $this->maxConnections) {
             $res['MaxConnections'] = $this->maxConnections;
         }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
+        if (null !== $this->maxIOPS) {
+            $res['MaxIOPS'] = $this->maxIOPS;
         }
-        if (null !== $this->VPCId) {
-            $res['VPCId'] = $this->VPCId;
-        }
-        if (null !== $this->connectSting) {
-            $res['ConnectSting'] = $this->connectSting;
+        if (null !== $this->nodeClass) {
+            $res['NodeClass'] = $this->nodeClass;
         }
         if (null !== $this->nodeDescription) {
             $res['NodeDescription'] = $this->nodeDescription;
         }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->VPCId) {
+            $res['VPCId'] = $this->VPCId;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->vpcCloudInstanceId) {
+            $res['VpcCloudInstanceId'] = $this->vpcCloudInstanceId;
         }
 
         return $res;
@@ -119,35 +128,38 @@ class mongosAttribute extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcCloudInstanceId'])) {
-            $model->vpcCloudInstanceId = $map['VpcCloudInstanceId'];
-        }
-        if (isset($map['MaxIOPS'])) {
-            $model->maxIOPS = $map['MaxIOPS'];
-        }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
-        if (isset($map['NodeClass'])) {
-            $model->nodeClass = $map['NodeClass'];
+        if (isset($map['ConnectSting'])) {
+            $model->connectSting = $map['ConnectSting'];
         }
         if (isset($map['MaxConnections'])) {
             $model->maxConnections = $map['MaxConnections'];
         }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
+        if (isset($map['MaxIOPS'])) {
+            $model->maxIOPS = $map['MaxIOPS'];
         }
-        if (isset($map['VPCId'])) {
-            $model->VPCId = $map['VPCId'];
-        }
-        if (isset($map['ConnectSting'])) {
-            $model->connectSting = $map['ConnectSting'];
+        if (isset($map['NodeClass'])) {
+            $model->nodeClass = $map['NodeClass'];
         }
         if (isset($map['NodeDescription'])) {
             $model->nodeDescription = $map['NodeDescription'];
         }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['VPCId'])) {
+            $model->VPCId = $map['VPCId'];
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['VpcCloudInstanceId'])) {
+            $model->vpcCloudInstanceId = $map['VpcCloudInstanceId'];
         }
 
         return $model;

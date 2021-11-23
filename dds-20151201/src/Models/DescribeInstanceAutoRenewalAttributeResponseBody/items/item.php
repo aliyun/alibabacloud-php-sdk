@@ -11,17 +11,12 @@ class item extends Model
     /**
      * @var string
      */
-    public $DBInstanceType;
-
-    /**
-     * @var string
-     */
     public $autoRenew;
 
     /**
      * @var string
      */
-    public $duration;
+    public $DBInstanceType;
 
     /**
      * @var string
@@ -31,12 +26,17 @@ class item extends Model
     /**
      * @var string
      */
+    public $duration;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
-        'DBInstanceType' => 'DBInstanceType',
         'autoRenew'      => 'AutoRenew',
-        'duration'       => 'Duration',
+        'DBInstanceType' => 'DBInstanceType',
         'dbInstanceId'   => 'DbInstanceId',
+        'duration'       => 'Duration',
         'regionId'       => 'RegionId',
     ];
 
@@ -47,17 +47,17 @@ class item extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBInstanceType) {
-            $res['DBInstanceType'] = $this->DBInstanceType;
-        }
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
+        if (null !== $this->DBInstanceType) {
+            $res['DBInstanceType'] = $this->DBInstanceType;
         }
         if (null !== $this->dbInstanceId) {
             $res['DbInstanceId'] = $this->dbInstanceId;
+        }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -74,17 +74,17 @@ class item extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBInstanceType'])) {
-            $model->DBInstanceType = $map['DBInstanceType'];
-        }
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
+        if (isset($map['DBInstanceType'])) {
+            $model->DBInstanceType = $map['DBInstanceType'];
         }
         if (isset($map['DbInstanceId'])) {
             $model->dbInstanceId = $map['DbInstanceId'];
+        }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

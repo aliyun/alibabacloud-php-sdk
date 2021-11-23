@@ -12,21 +12,21 @@ class DescribeSecurityIpsResponseBody extends Model
     /**
      * @var string
      */
-    public $securityIps;
-
-    /**
-     * @var string
-     */
     public $requestId;
 
     /**
      * @var securityIpGroups
      */
     public $securityIpGroups;
+
+    /**
+     * @var string
+     */
+    public $securityIps;
     protected $_name = [
-        'securityIps'      => 'SecurityIps',
         'requestId'        => 'RequestId',
         'securityIpGroups' => 'SecurityIpGroups',
+        'securityIps'      => 'SecurityIps',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeSecurityIpsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityIps) {
-            $res['SecurityIps'] = $this->securityIps;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->securityIpGroups) {
             $res['SecurityIpGroups'] = null !== $this->securityIpGroups ? $this->securityIpGroups->toMap() : null;
+        }
+        if (null !== $this->securityIps) {
+            $res['SecurityIps'] = $this->securityIps;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeSecurityIpsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityIps'])) {
-            $model->securityIps = $map['SecurityIps'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['SecurityIpGroups'])) {
             $model->securityIpGroups = securityIpGroups::fromMap($map['SecurityIpGroups']);
+        }
+        if (isset($map['SecurityIps'])) {
+            $model->securityIps = $map['SecurityIps'];
         }
 
         return $model;

@@ -11,20 +11,20 @@ class DescribeAuditLogFilterResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $filter;
 
     /**
      * @var string
      */
-    public $filter;
+    public $requestId;
 
     /**
      * @var string
      */
     public $roleType;
     protected $_name = [
-        'requestId' => 'RequestId',
         'filter'    => 'Filter',
+        'requestId' => 'RequestId',
         'roleType'  => 'RoleType',
     ];
 
@@ -35,11 +35,11 @@ class DescribeAuditLogFilterResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->roleType) {
             $res['RoleType'] = $this->roleType;
@@ -56,11 +56,11 @@ class DescribeAuditLogFilterResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['RoleType'])) {
             $model->roleType = $map['RoleType'];

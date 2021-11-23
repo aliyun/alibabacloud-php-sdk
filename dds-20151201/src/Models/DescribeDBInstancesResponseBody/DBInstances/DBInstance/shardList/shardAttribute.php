@@ -19,14 +19,14 @@ class shardAttribute extends Model
     public $nodeDescription;
 
     /**
-     * @var int
-     */
-    public $nodeStorage;
-
-    /**
      * @var string
      */
     public $nodeId;
+
+    /**
+     * @var int
+     */
+    public $nodeStorage;
 
     /**
      * @var int
@@ -35,8 +35,8 @@ class shardAttribute extends Model
     protected $_name = [
         'nodeClass'        => 'NodeClass',
         'nodeDescription'  => 'NodeDescription',
-        'nodeStorage'      => 'NodeStorage',
         'nodeId'           => 'NodeId',
+        'nodeStorage'      => 'NodeStorage',
         'readonlyReplicas' => 'ReadonlyReplicas',
     ];
 
@@ -53,11 +53,11 @@ class shardAttribute extends Model
         if (null !== $this->nodeDescription) {
             $res['NodeDescription'] = $this->nodeDescription;
         }
-        if (null !== $this->nodeStorage) {
-            $res['NodeStorage'] = $this->nodeStorage;
-        }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
+        }
+        if (null !== $this->nodeStorage) {
+            $res['NodeStorage'] = $this->nodeStorage;
         }
         if (null !== $this->readonlyReplicas) {
             $res['ReadonlyReplicas'] = $this->readonlyReplicas;
@@ -80,11 +80,11 @@ class shardAttribute extends Model
         if (isset($map['NodeDescription'])) {
             $model->nodeDescription = $map['NodeDescription'];
         }
-        if (isset($map['NodeStorage'])) {
-            $model->nodeStorage = $map['NodeStorage'];
-        }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
+        }
+        if (isset($map['NodeStorage'])) {
+            $model->nodeStorage = $map['NodeStorage'];
         }
         if (isset($map['ReadonlyReplicas'])) {
             $model->readonlyReplicas = $map['ReadonlyReplicas'];

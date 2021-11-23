@@ -11,15 +11,15 @@ class DescribeDBInstanceMonitorResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $granularity;
 
     /**
      * @var string
      */
-    public $granularity;
+    public $requestId;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'granularity' => 'Granularity',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeDBInstanceMonitorResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->granularity) {
             $res['Granularity'] = $this->granularity;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeDBInstanceMonitorResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Granularity'])) {
             $model->granularity = $map['Granularity'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

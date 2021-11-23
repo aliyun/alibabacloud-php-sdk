@@ -11,21 +11,21 @@ class CheckRecoveryConditionResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $DBInstanceName;
 
     /**
      * @var bool
      */
     public $isValid;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'      => 'RequestId',
         'DBInstanceName' => 'DBInstanceName',
         'isValid'        => 'IsValid',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CheckRecoveryConditionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
         if (null !== $this->isValid) {
             $res['IsValid'] = $this->isValid;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CheckRecoveryConditionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
         if (isset($map['IsValid'])) {
             $model->isValid = $map['IsValid'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

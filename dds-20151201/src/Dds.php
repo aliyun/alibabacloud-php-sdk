@@ -17,6 +17,8 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\CreateBackupRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateBackupResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateDBInstanceRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateDBInstanceResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\CreateNodeBatchRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\CreateNodeBatchResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateNodeRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateNodeResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateRecommendationTaskRequest;
@@ -43,6 +45,10 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAuditPolicyRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAuditPolicyResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAuditRecordsRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAuditRecordsResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableEngineVersionRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableEngineVersionResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableResourceRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableResourceResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableTimeRangeRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableTimeRangeResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupDBsRequest;
@@ -85,6 +91,8 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\DescribePriceRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribePriceResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRenewalPriceRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRenewalPriceResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeReplicaSetRoleRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeReplicaSetRoleResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRoleZoneInfoRequest;
@@ -99,6 +107,10 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeShardingNetworkAddressRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeShardingNetworkAddressResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeSlowLogRecordsRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeSlowLogRecordsResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeTagsRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeTagsResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeUserEncryptionKeyListRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeUserEncryptionKeyListResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DestroyInstanceRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DestroyInstanceResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\EvaluateResourceRequest;
@@ -139,10 +151,14 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyInstanceAutoRenewalAttributeRequ
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyInstanceAutoRenewalAttributeResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyInstanceVpcAuthModeRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyInstanceVpcAuthModeResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyNodeSpecBatchRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyNodeSpecBatchResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyNodeSpecRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyNodeSpecResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyParametersRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyParametersResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyResourceGroupRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyResourceGroupResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifySecurityGroupConfigurationRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifySecurityGroupConfigurationResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifySecurityIpsRequest;
@@ -462,6 +478,34 @@ class Dds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createNodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateNodeBatchRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateNodeBatchResponse
+     */
+    public function createNodeBatchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateNodeBatchResponse::fromMap($this->doRPCRequest('CreateNodeBatch', '2015-12-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateNodeBatchRequest $request
+     *
+     * @return CreateNodeBatchResponse
+     */
+    public function createNodeBatch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createNodeBatchWithOptions($request, $runtime);
     }
 
     /**
@@ -801,6 +845,62 @@ class Dds extends OpenApiClient
     }
 
     /**
+     * @param DescribeAvailableEngineVersionRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeAvailableEngineVersionResponse
+     */
+    public function describeAvailableEngineVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeAvailableEngineVersionResponse::fromMap($this->doRPCRequest('DescribeAvailableEngineVersion', '2015-12-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAvailableEngineVersionRequest $request
+     *
+     * @return DescribeAvailableEngineVersionResponse
+     */
+    public function describeAvailableEngineVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAvailableEngineVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAvailableResourceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeAvailableResourceResponse
+     */
+    public function describeAvailableResourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeAvailableResourceResponse::fromMap($this->doRPCRequest('DescribeAvailableResource', '2015-12-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAvailableResourceRequest $request
+     *
+     * @return DescribeAvailableResourceResponse
+     */
+    public function describeAvailableResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAvailableResourceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeAvailableTimeRangeRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -1025,34 +1125,6 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstancesRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeDBInstancesResponse
-     */
-    public function describeDBInstancesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDBInstancesResponse::fromMap($this->doRPCRequest('DescribeDBInstances', '2015-12-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDBInstancesRequest $request
-     *
-     * @return DescribeDBInstancesResponse
-     */
-    public function describeDBInstances($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDBInstancesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeDBInstanceSSLRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1106,6 +1178,34 @@ class Dds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBInstanceTDEInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDBInstancesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeDBInstancesResponse
+     */
+    public function describeDBInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeDBInstancesResponse::fromMap($this->doRPCRequest('DescribeDBInstances', '2015-12-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBInstancesRequest $request
+     *
+     * @return DescribeDBInstancesResponse
+     */
+    public function describeDBInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstancesWithOptions($request, $runtime);
     }
 
     /**
@@ -1277,34 +1377,6 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param DescribeParametersRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeParametersResponse
-     */
-    public function describeParametersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeParametersResponse::fromMap($this->doRPCRequest('DescribeParameters', '2015-12-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeParametersRequest $request
-     *
-     * @return DescribeParametersResponse
-     */
-    public function describeParameters($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeParametersWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeParameterTemplatesRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -1330,6 +1402,34 @@ class Dds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeParameterTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeParametersRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeParametersResponse
+     */
+    public function describeParametersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeParametersResponse::fromMap($this->doRPCRequest('DescribeParameters', '2015-12-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeParametersRequest $request
+     *
+     * @return DescribeParametersResponse
+     */
+    public function describeParameters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeParametersWithOptions($request, $runtime);
     }
 
     /**
@@ -1386,6 +1486,34 @@ class Dds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRegionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRenewalPriceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeRenewalPriceResponse
+     */
+    public function describeRenewalPriceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeRenewalPriceResponse::fromMap($this->doRPCRequest('DescribeRenewalPrice', '2015-12-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRenewalPriceRequest $request
+     *
+     * @return DescribeRenewalPriceResponse
+     */
+    public function describeRenewalPrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRenewalPriceWithOptions($request, $runtime);
     }
 
     /**
@@ -1582,6 +1710,62 @@ class Dds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSlowLogRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeTagsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeTagsResponse
+     */
+    public function describeTagsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeTagsResponse::fromMap($this->doRPCRequest('DescribeTags', '2015-12-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeTagsRequest $request
+     *
+     * @return DescribeTagsResponse
+     */
+    public function describeTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTagsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeUserEncryptionKeyListRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeUserEncryptionKeyListResponse
+     */
+    public function describeUserEncryptionKeyListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return DescribeUserEncryptionKeyListResponse::fromMap($this->doRPCRequest('DescribeUserEncryptionKeyList', '2015-12-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUserEncryptionKeyListRequest $request
+     *
+     * @return DescribeUserEncryptionKeyListResponse
+     */
+    public function describeUserEncryptionKeyList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserEncryptionKeyListWithOptions($request, $runtime);
     }
 
     /**
@@ -2005,34 +2189,6 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceSpecRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ModifyDBInstanceSpecResponse
-     */
-    public function modifyDBInstanceSpecWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyDBInstanceSpecResponse::fromMap($this->doRPCRequest('ModifyDBInstanceSpec', '2015-12-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyDBInstanceSpecRequest $request
-     *
-     * @return ModifyDBInstanceSpecResponse
-     */
-    public function modifyDBInstanceSpec($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyDBInstanceSpecWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ModifyDBInstanceSSLRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -2058,6 +2214,34 @@ class Dds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDBInstanceSSLWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDBInstanceSpecRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyDBInstanceSpecResponse
+     */
+    public function modifyDBInstanceSpecWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyDBInstanceSpecResponse::fromMap($this->doRPCRequest('ModifyDBInstanceSpec', '2015-12-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDBInstanceSpecRequest $request
+     *
+     * @return ModifyDBInstanceSpecResponse
+     */
+    public function modifyDBInstanceSpec($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBInstanceSpecWithOptions($request, $runtime);
     }
 
     /**
@@ -2173,6 +2357,34 @@ class Dds extends OpenApiClient
     }
 
     /**
+     * @param ModifyNodeSpecBatchRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyNodeSpecBatchResponse
+     */
+    public function modifyNodeSpecBatchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyNodeSpecBatchResponse::fromMap($this->doRPCRequest('ModifyNodeSpecBatch', '2015-12-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyNodeSpecBatchRequest $request
+     *
+     * @return ModifyNodeSpecBatchResponse
+     */
+    public function modifyNodeSpecBatch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyNodeSpecBatchWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyParametersRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2198,6 +2410,34 @@ class Dds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyParametersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyResourceGroupResponse
+     */
+    public function modifyResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyResourceGroupResponse::fromMap($this->doRPCRequest('ModifyResourceGroup', '2015-12-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyResourceGroupRequest $request
+     *
+     * @return ModifyResourceGroupResponse
+     */
+    public function modifyResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyResourceGroupWithOptions($request, $runtime);
     }
 
     /**

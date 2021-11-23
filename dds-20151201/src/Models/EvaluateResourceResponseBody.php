@@ -16,22 +16,22 @@ class EvaluateResourceResponseBody extends Model
     /**
      * @var string
      */
+    public $engine;
+
+    /**
+     * @var string
+     */
     public $engineVersion;
 
     /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $engine;
     protected $_name = [
         'DBInstanceAvailable' => 'DBInstanceAvailable',
+        'engine'              => 'Engine',
         'engineVersion'       => 'EngineVersion',
         'requestId'           => 'RequestId',
-        'engine'              => 'Engine',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class EvaluateResourceResponseBody extends Model
         if (null !== $this->DBInstanceAvailable) {
             $res['DBInstanceAvailable'] = $this->DBInstanceAvailable;
         }
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
+        }
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->engine) {
-            $res['Engine'] = $this->engine;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class EvaluateResourceResponseBody extends Model
         if (isset($map['DBInstanceAvailable'])) {
             $model->DBInstanceAvailable = $map['DBInstanceAvailable'];
         }
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
+        }
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Engine'])) {
-            $model->engine = $map['Engine'];
         }
 
         return $model;

@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeMongoDBLogConfigResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $userProjectName;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $isEtlMetaExist;
 
     /**
      * @var int
@@ -24,14 +19,19 @@ class DescribeMongoDBLogConfigResponseBody extends Model
     public $isUserProjectLogstoreExist;
 
     /**
-     * @var int
+     * @var string
      */
-    public $isEtlMetaExist;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $userProjectName;
     protected $_name = [
-        'userProjectName'            => 'UserProjectName',
-        'requestId'                  => 'RequestId',
-        'isUserProjectLogstoreExist' => 'IsUserProjectLogstoreExist',
         'isEtlMetaExist'             => 'IsEtlMetaExist',
+        'isUserProjectLogstoreExist' => 'IsUserProjectLogstoreExist',
+        'requestId'                  => 'RequestId',
+        'userProjectName'            => 'UserProjectName',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DescribeMongoDBLogConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userProjectName) {
-            $res['UserProjectName'] = $this->userProjectName;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->isEtlMetaExist) {
+            $res['IsEtlMetaExist'] = $this->isEtlMetaExist;
         }
         if (null !== $this->isUserProjectLogstoreExist) {
             $res['IsUserProjectLogstoreExist'] = $this->isUserProjectLogstoreExist;
         }
-        if (null !== $this->isEtlMetaExist) {
-            $res['IsEtlMetaExist'] = $this->isEtlMetaExist;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->userProjectName) {
+            $res['UserProjectName'] = $this->userProjectName;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DescribeMongoDBLogConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserProjectName'])) {
-            $model->userProjectName = $map['UserProjectName'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['IsEtlMetaExist'])) {
+            $model->isEtlMetaExist = $map['IsEtlMetaExist'];
         }
         if (isset($map['IsUserProjectLogstoreExist'])) {
             $model->isUserProjectLogstoreExist = $map['IsUserProjectLogstoreExist'];
         }
-        if (isset($map['IsEtlMetaExist'])) {
-            $model->isEtlMetaExist = $map['IsEtlMetaExist'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['UserProjectName'])) {
+            $model->userProjectName = $map['UserProjectName'];
         }
 
         return $model;
