@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class images extends Model
 {
     /**
-     * @var float
+     * @var int
      */
-    public $width;
+    public $display;
 
     /**
      * @var float
@@ -19,37 +19,37 @@ class images extends Model
     public $height;
 
     /**
-     * @var float
-     */
-    public $y;
-
-    /**
      * @var string
      */
     public $url;
 
     /**
-     * @var int
+     * @var float
      */
-    public $display;
-
-    /**
-     * @var int
-     */
-    public $ZOrder;
+    public $width;
 
     /**
      * @var float
      */
     public $x;
+
+    /**
+     * @var float
+     */
+    public $y;
+
+    /**
+     * @var int
+     */
+    public $ZOrder;
     protected $_name = [
-        'width'   => 'Width',
-        'height'  => 'Height',
-        'y'       => 'Y',
-        'url'     => 'Url',
         'display' => 'Display',
-        'ZOrder'  => 'ZOrder',
+        'height'  => 'Height',
+        'url'     => 'Url',
+        'width'   => 'Width',
         'x'       => 'X',
+        'y'       => 'Y',
+        'ZOrder'  => 'ZOrder',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class images extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
+        if (null !== $this->display) {
+            $res['Display'] = $this->display;
         }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
-        if (null !== $this->y) {
-            $res['Y'] = $this->y;
-        }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
-        if (null !== $this->display) {
-            $res['Display'] = $this->display;
-        }
-        if (null !== $this->ZOrder) {
-            $res['ZOrder'] = $this->ZOrder;
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
         if (null !== $this->x) {
             $res['X'] = $this->x;
+        }
+        if (null !== $this->y) {
+            $res['Y'] = $this->y;
+        }
+        if (null !== $this->ZOrder) {
+            $res['ZOrder'] = $this->ZOrder;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class images extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
+        if (isset($map['Display'])) {
+            $model->display = $map['Display'];
         }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
-        if (isset($map['Y'])) {
-            $model->y = $map['Y'];
-        }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }
-        if (isset($map['Display'])) {
-            $model->display = $map['Display'];
-        }
-        if (isset($map['ZOrder'])) {
-            $model->ZOrder = $map['ZOrder'];
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
         if (isset($map['X'])) {
             $model->x = $map['X'];
+        }
+        if (isset($map['Y'])) {
+            $model->y = $map['Y'];
+        }
+        if (isset($map['ZOrder'])) {
+            $model->ZOrder = $map['ZOrder'];
         }
 
         return $model;

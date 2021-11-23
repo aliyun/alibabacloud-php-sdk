@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateRecordTaskRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $showLog;
-
-    /**
      * @var string
      */
     public $appId;
@@ -28,6 +18,36 @@ class UpdateRecordTaskRequest extends Model
      * @var string
      */
     public $channelId;
+
+    /**
+     * @var int[]
+     */
+    public $layoutIds;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string[]
+     */
+    public $subSpecAudioUsers;
+
+    /**
+     * @var string[]
+     */
+    public $subSpecCameraUsers;
+
+    /**
+     * @var string[]
+     */
+    public $subSpecShareScreenUsers;
+
+    /**
+     * @var string[]
+     */
+    public $subSpecUsers;
 
     /**
      * @var string
@@ -42,21 +62,37 @@ class UpdateRecordTaskRequest extends Model
     /**
      * @var string[]
      */
-    public $subSpecUsers;
+    public $unsubSpecAudioUsers;
+
+    /**
+     * @var string[]
+     */
+    public $unsubSpecCameraUsers;
+
+    /**
+     * @var string[]
+     */
+    public $unsubSpecShareScreenUsers;
 
     /**
      * @var userPanes[]
      */
     public $userPanes;
     protected $_name = [
-        'ownerId'      => 'OwnerId',
-        'showLog'      => 'ShowLog',
-        'appId'        => 'AppId',
-        'channelId'    => 'ChannelId',
-        'taskId'       => 'TaskId',
-        'templateId'   => 'TemplateId',
-        'subSpecUsers' => 'SubSpecUsers',
-        'userPanes'    => 'UserPanes',
+        'appId'                     => 'AppId',
+        'channelId'                 => 'ChannelId',
+        'layoutIds'                 => 'LayoutIds',
+        'ownerId'                   => 'OwnerId',
+        'subSpecAudioUsers'         => 'SubSpecAudioUsers',
+        'subSpecCameraUsers'        => 'SubSpecCameraUsers',
+        'subSpecShareScreenUsers'   => 'SubSpecShareScreenUsers',
+        'subSpecUsers'              => 'SubSpecUsers',
+        'taskId'                    => 'TaskId',
+        'templateId'                => 'TemplateId',
+        'unsubSpecAudioUsers'       => 'UnsubSpecAudioUsers',
+        'unsubSpecCameraUsers'      => 'UnsubSpecCameraUsers',
+        'unsubSpecShareScreenUsers' => 'UnsubSpecShareScreenUsers',
+        'userPanes'                 => 'UserPanes',
     ];
 
     public function validate()
@@ -66,17 +102,29 @@ class UpdateRecordTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
+        }
+        if (null !== $this->layoutIds) {
+            $res['LayoutIds'] = $this->layoutIds;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->subSpecAudioUsers) {
+            $res['SubSpecAudioUsers'] = $this->subSpecAudioUsers;
+        }
+        if (null !== $this->subSpecCameraUsers) {
+            $res['SubSpecCameraUsers'] = $this->subSpecCameraUsers;
+        }
+        if (null !== $this->subSpecShareScreenUsers) {
+            $res['SubSpecShareScreenUsers'] = $this->subSpecShareScreenUsers;
+        }
+        if (null !== $this->subSpecUsers) {
+            $res['SubSpecUsers'] = $this->subSpecUsers;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -84,8 +132,14 @@ class UpdateRecordTaskRequest extends Model
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
-        if (null !== $this->subSpecUsers) {
-            $res['SubSpecUsers'] = $this->subSpecUsers;
+        if (null !== $this->unsubSpecAudioUsers) {
+            $res['UnsubSpecAudioUsers'] = $this->unsubSpecAudioUsers;
+        }
+        if (null !== $this->unsubSpecCameraUsers) {
+            $res['UnsubSpecCameraUsers'] = $this->unsubSpecCameraUsers;
+        }
+        if (null !== $this->unsubSpecShareScreenUsers) {
+            $res['UnsubSpecShareScreenUsers'] = $this->unsubSpecShareScreenUsers;
         }
         if (null !== $this->userPanes) {
             $res['UserPanes'] = [];
@@ -108,17 +162,39 @@ class UpdateRecordTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
+        }
+        if (isset($map['LayoutIds'])) {
+            if (!empty($map['LayoutIds'])) {
+                $model->layoutIds = $map['LayoutIds'];
+            }
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['SubSpecAudioUsers'])) {
+            if (!empty($map['SubSpecAudioUsers'])) {
+                $model->subSpecAudioUsers = $map['SubSpecAudioUsers'];
+            }
+        }
+        if (isset($map['SubSpecCameraUsers'])) {
+            if (!empty($map['SubSpecCameraUsers'])) {
+                $model->subSpecCameraUsers = $map['SubSpecCameraUsers'];
+            }
+        }
+        if (isset($map['SubSpecShareScreenUsers'])) {
+            if (!empty($map['SubSpecShareScreenUsers'])) {
+                $model->subSpecShareScreenUsers = $map['SubSpecShareScreenUsers'];
+            }
+        }
+        if (isset($map['SubSpecUsers'])) {
+            if (!empty($map['SubSpecUsers'])) {
+                $model->subSpecUsers = $map['SubSpecUsers'];
+            }
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
@@ -126,9 +202,19 @@ class UpdateRecordTaskRequest extends Model
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
-        if (isset($map['SubSpecUsers'])) {
-            if (!empty($map['SubSpecUsers'])) {
-                $model->subSpecUsers = $map['SubSpecUsers'];
+        if (isset($map['UnsubSpecAudioUsers'])) {
+            if (!empty($map['UnsubSpecAudioUsers'])) {
+                $model->unsubSpecAudioUsers = $map['UnsubSpecAudioUsers'];
+            }
+        }
+        if (isset($map['UnsubSpecCameraUsers'])) {
+            if (!empty($map['UnsubSpecCameraUsers'])) {
+                $model->unsubSpecCameraUsers = $map['UnsubSpecCameraUsers'];
+            }
+        }
+        if (isset($map['UnsubSpecShareScreenUsers'])) {
+            if (!empty($map['UnsubSpecShareScreenUsers'])) {
+                $model->unsubSpecShareScreenUsers = $map['UnsubSpecShareScreenUsers'];
             }
         }
         if (isset($map['UserPanes'])) {

@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class property extends Model
 {
     /**
-     * @var string
-     */
-    public $session;
-
-    /**
      * @var int
      */
     public $join;
@@ -22,10 +17,15 @@ class property extends Model
      * @var int
      */
     public $role;
+
+    /**
+     * @var string
+     */
+    public $session;
     protected $_name = [
-        'session' => 'Session',
         'join'    => 'Join',
         'role'    => 'Role',
+        'session' => 'Session',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class property extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->session) {
-            $res['Session'] = $this->session;
-        }
         if (null !== $this->join) {
             $res['Join'] = $this->join;
         }
         if (null !== $this->role) {
             $res['Role'] = $this->role;
+        }
+        if (null !== $this->session) {
+            $res['Session'] = $this->session;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class property extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Session'])) {
-            $model->session = $map['Session'];
-        }
         if (isset($map['Join'])) {
             $model->join = $map['Join'];
         }
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
+        }
+        if (isset($map['Session'])) {
+            $model->session = $map['Session'];
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteEventSubscribeRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $appId;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -16,21 +21,10 @@ class DeleteEventSubscribeRequest extends Model
     /**
      * @var string
      */
-    public $showLog;
-
-    /**
-     * @var string
-     */
-    public $appId;
-
-    /**
-     * @var string
-     */
     public $subscribeId;
     protected $_name = [
-        'ownerId'     => 'OwnerId',
-        'showLog'     => 'ShowLog',
         'appId'       => 'AppId',
+        'ownerId'     => 'OwnerId',
         'subscribeId' => 'SubscribeId',
     ];
 
@@ -41,14 +35,11 @@ class DeleteEventSubscribeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->subscribeId) {
             $res['SubscribeId'] = $this->subscribeId;
@@ -65,14 +56,11 @@ class DeleteEventSubscribeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['SubscribeId'])) {
             $model->subscribeId = $map['SubscribeId'];

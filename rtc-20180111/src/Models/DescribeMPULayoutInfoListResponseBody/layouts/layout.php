@@ -12,12 +12,12 @@ class layout extends Model
     /**
      * @var int
      */
-    public $layoutId;
+    public $audioMixCount;
 
     /**
-     * @var panes
+     * @var int
      */
-    public $panes;
+    public $layoutId;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class layout extends Model
     public $name;
 
     /**
-     * @var int
+     * @var panes
      */
-    public $audioMixCount;
+    public $panes;
     protected $_name = [
-        'layoutId'      => 'LayoutId',
-        'panes'         => 'Panes',
-        'name'          => 'Name',
         'audioMixCount' => 'AudioMixCount',
+        'layoutId'      => 'LayoutId',
+        'name'          => 'Name',
+        'panes'         => 'Panes',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class layout extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->audioMixCount) {
+            $res['AudioMixCount'] = $this->audioMixCount;
+        }
         if (null !== $this->layoutId) {
             $res['LayoutId'] = $this->layoutId;
-        }
-        if (null !== $this->panes) {
-            $res['Panes'] = null !== $this->panes ? $this->panes->toMap() : null;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->audioMixCount) {
-            $res['AudioMixCount'] = $this->audioMixCount;
+        if (null !== $this->panes) {
+            $res['Panes'] = null !== $this->panes ? $this->panes->toMap() : null;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class layout extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AudioMixCount'])) {
+            $model->audioMixCount = $map['AudioMixCount'];
+        }
         if (isset($map['LayoutId'])) {
             $model->layoutId = $map['LayoutId'];
-        }
-        if (isset($map['Panes'])) {
-            $model->panes = panes::fromMap($map['Panes']);
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['AudioMixCount'])) {
-            $model->audioMixCount = $map['AudioMixCount'];
+        if (isset($map['Panes'])) {
+            $model->panes = panes::fromMap($map['Panes']);
         }
 
         return $model;

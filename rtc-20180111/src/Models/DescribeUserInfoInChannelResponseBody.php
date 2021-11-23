@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserInfoInChannelResponseBody extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $requestId;
+    public $isChannelExist;
 
     /**
      * @var bool
@@ -20,25 +20,25 @@ class DescribeUserInfoInChannelResponseBody extends Model
     public $isInChannel;
 
     /**
-     * @var int
-     */
-    public $timestamp;
-
-    /**
-     * @var bool
-     */
-    public $isChannelExist;
-
-    /**
      * @var property[]
      */
     public $property;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var int
+     */
+    public $timestamp;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'isInChannel'    => 'IsInChannel',
-        'timestamp'      => 'Timestamp',
         'isChannelExist' => 'IsChannelExist',
+        'isInChannel'    => 'IsInChannel',
         'property'       => 'Property',
+        'requestId'      => 'RequestId',
+        'timestamp'      => 'Timestamp',
     ];
 
     public function validate()
@@ -48,17 +48,11 @@ class DescribeUserInfoInChannelResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->isChannelExist) {
+            $res['IsChannelExist'] = $this->isChannelExist;
         }
         if (null !== $this->isInChannel) {
             $res['IsInChannel'] = $this->isInChannel;
-        }
-        if (null !== $this->timestamp) {
-            $res['Timestamp'] = $this->timestamp;
-        }
-        if (null !== $this->isChannelExist) {
-            $res['IsChannelExist'] = $this->isChannelExist;
         }
         if (null !== $this->property) {
             $res['Property'] = [];
@@ -68,6 +62,12 @@ class DescribeUserInfoInChannelResponseBody extends Model
                     $res['Property'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->timestamp) {
+            $res['Timestamp'] = $this->timestamp;
         }
 
         return $res;
@@ -81,17 +81,11 @@ class DescribeUserInfoInChannelResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['IsChannelExist'])) {
+            $model->isChannelExist = $map['IsChannelExist'];
         }
         if (isset($map['IsInChannel'])) {
             $model->isInChannel = $map['IsInChannel'];
-        }
-        if (isset($map['Timestamp'])) {
-            $model->timestamp = $map['Timestamp'];
-        }
-        if (isset($map['IsChannelExist'])) {
-            $model->isChannelExist = $map['IsChannelExist'];
         }
         if (isset($map['Property'])) {
             if (!empty($map['Property'])) {
@@ -101,6 +95,12 @@ class DescribeUserInfoInChannelResponseBody extends Model
                     $model->property[$n++] = null !== $item ? property::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Timestamp'])) {
+            $model->timestamp = $map['Timestamp'];
         }
 
         return $model;

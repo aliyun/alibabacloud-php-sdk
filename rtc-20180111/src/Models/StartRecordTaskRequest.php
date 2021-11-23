@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class StartRecordTaskRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $showLog;
-
-    /**
      * @var string
      */
     public $appId;
@@ -28,6 +18,61 @@ class StartRecordTaskRequest extends Model
      * @var string
      */
     public $channelId;
+
+    /**
+     * @var int
+     */
+    public $cropMode;
+
+    /**
+     * @var int[]
+     */
+    public $layoutIds;
+
+    /**
+     * @var int
+     */
+    public $mediaEncode;
+
+    /**
+     * @var int
+     */
+    public $mixMode;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $sourceType;
+
+    /**
+     * @var int
+     */
+    public $streamType;
+
+    /**
+     * @var string[]
+     */
+    public $subSpecAudioUsers;
+
+    /**
+     * @var string[]
+     */
+    public $subSpecCameraUsers;
+
+    /**
+     * @var string[]
+     */
+    public $subSpecShareScreenUsers;
+
+    /**
+     * @var string[]
+     */
+    public $subSpecUsers;
 
     /**
      * @var string
@@ -40,11 +85,6 @@ class StartRecordTaskRequest extends Model
     public $taskProfile;
 
     /**
-     * @var int
-     */
-    public $mediaEncode;
-
-    /**
      * @var string
      */
     public $templateId;
@@ -52,23 +92,43 @@ class StartRecordTaskRequest extends Model
     /**
      * @var string[]
      */
-    public $subSpecUsers;
+    public $unsubSpecAudioUsers;
+
+    /**
+     * @var string[]
+     */
+    public $unsubSpecCameraUsers;
+
+    /**
+     * @var string[]
+     */
+    public $unsubSpecShareScreenUsers;
 
     /**
      * @var userPanes[]
      */
     public $userPanes;
     protected $_name = [
-        'ownerId'      => 'OwnerId',
-        'showLog'      => 'ShowLog',
-        'appId'        => 'AppId',
-        'channelId'    => 'ChannelId',
-        'taskId'       => 'TaskId',
-        'taskProfile'  => 'TaskProfile',
-        'mediaEncode'  => 'MediaEncode',
-        'templateId'   => 'TemplateId',
-        'subSpecUsers' => 'SubSpecUsers',
-        'userPanes'    => 'UserPanes',
+        'appId'                     => 'AppId',
+        'channelId'                 => 'ChannelId',
+        'cropMode'                  => 'CropMode',
+        'layoutIds'                 => 'LayoutIds',
+        'mediaEncode'               => 'MediaEncode',
+        'mixMode'                   => 'MixMode',
+        'ownerId'                   => 'OwnerId',
+        'sourceType'                => 'SourceType',
+        'streamType'                => 'StreamType',
+        'subSpecAudioUsers'         => 'SubSpecAudioUsers',
+        'subSpecCameraUsers'        => 'SubSpecCameraUsers',
+        'subSpecShareScreenUsers'   => 'SubSpecShareScreenUsers',
+        'subSpecUsers'              => 'SubSpecUsers',
+        'taskId'                    => 'TaskId',
+        'taskProfile'               => 'TaskProfile',
+        'templateId'                => 'TemplateId',
+        'unsubSpecAudioUsers'       => 'UnsubSpecAudioUsers',
+        'unsubSpecCameraUsers'      => 'UnsubSpecCameraUsers',
+        'unsubSpecShareScreenUsers' => 'UnsubSpecShareScreenUsers',
+        'userPanes'                 => 'UserPanes',
     ];
 
     public function validate()
@@ -78,17 +138,44 @@ class StartRecordTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
+        }
+        if (null !== $this->cropMode) {
+            $res['CropMode'] = $this->cropMode;
+        }
+        if (null !== $this->layoutIds) {
+            $res['LayoutIds'] = $this->layoutIds;
+        }
+        if (null !== $this->mediaEncode) {
+            $res['MediaEncode'] = $this->mediaEncode;
+        }
+        if (null !== $this->mixMode) {
+            $res['MixMode'] = $this->mixMode;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
+        }
+        if (null !== $this->streamType) {
+            $res['StreamType'] = $this->streamType;
+        }
+        if (null !== $this->subSpecAudioUsers) {
+            $res['SubSpecAudioUsers'] = $this->subSpecAudioUsers;
+        }
+        if (null !== $this->subSpecCameraUsers) {
+            $res['SubSpecCameraUsers'] = $this->subSpecCameraUsers;
+        }
+        if (null !== $this->subSpecShareScreenUsers) {
+            $res['SubSpecShareScreenUsers'] = $this->subSpecShareScreenUsers;
+        }
+        if (null !== $this->subSpecUsers) {
+            $res['SubSpecUsers'] = $this->subSpecUsers;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -96,14 +183,17 @@ class StartRecordTaskRequest extends Model
         if (null !== $this->taskProfile) {
             $res['TaskProfile'] = $this->taskProfile;
         }
-        if (null !== $this->mediaEncode) {
-            $res['MediaEncode'] = $this->mediaEncode;
-        }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
-        if (null !== $this->subSpecUsers) {
-            $res['SubSpecUsers'] = $this->subSpecUsers;
+        if (null !== $this->unsubSpecAudioUsers) {
+            $res['UnsubSpecAudioUsers'] = $this->unsubSpecAudioUsers;
+        }
+        if (null !== $this->unsubSpecCameraUsers) {
+            $res['UnsubSpecCameraUsers'] = $this->unsubSpecCameraUsers;
+        }
+        if (null !== $this->unsubSpecShareScreenUsers) {
+            $res['UnsubSpecShareScreenUsers'] = $this->unsubSpecShareScreenUsers;
         }
         if (null !== $this->userPanes) {
             $res['UserPanes'] = [];
@@ -126,17 +216,54 @@ class StartRecordTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
+        }
+        if (isset($map['CropMode'])) {
+            $model->cropMode = $map['CropMode'];
+        }
+        if (isset($map['LayoutIds'])) {
+            if (!empty($map['LayoutIds'])) {
+                $model->layoutIds = $map['LayoutIds'];
+            }
+        }
+        if (isset($map['MediaEncode'])) {
+            $model->mediaEncode = $map['MediaEncode'];
+        }
+        if (isset($map['MixMode'])) {
+            $model->mixMode = $map['MixMode'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
+        }
+        if (isset($map['StreamType'])) {
+            $model->streamType = $map['StreamType'];
+        }
+        if (isset($map['SubSpecAudioUsers'])) {
+            if (!empty($map['SubSpecAudioUsers'])) {
+                $model->subSpecAudioUsers = $map['SubSpecAudioUsers'];
+            }
+        }
+        if (isset($map['SubSpecCameraUsers'])) {
+            if (!empty($map['SubSpecCameraUsers'])) {
+                $model->subSpecCameraUsers = $map['SubSpecCameraUsers'];
+            }
+        }
+        if (isset($map['SubSpecShareScreenUsers'])) {
+            if (!empty($map['SubSpecShareScreenUsers'])) {
+                $model->subSpecShareScreenUsers = $map['SubSpecShareScreenUsers'];
+            }
+        }
+        if (isset($map['SubSpecUsers'])) {
+            if (!empty($map['SubSpecUsers'])) {
+                $model->subSpecUsers = $map['SubSpecUsers'];
+            }
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
@@ -144,15 +271,22 @@ class StartRecordTaskRequest extends Model
         if (isset($map['TaskProfile'])) {
             $model->taskProfile = $map['TaskProfile'];
         }
-        if (isset($map['MediaEncode'])) {
-            $model->mediaEncode = $map['MediaEncode'];
-        }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
-        if (isset($map['SubSpecUsers'])) {
-            if (!empty($map['SubSpecUsers'])) {
-                $model->subSpecUsers = $map['SubSpecUsers'];
+        if (isset($map['UnsubSpecAudioUsers'])) {
+            if (!empty($map['UnsubSpecAudioUsers'])) {
+                $model->unsubSpecAudioUsers = $map['UnsubSpecAudioUsers'];
+            }
+        }
+        if (isset($map['UnsubSpecCameraUsers'])) {
+            if (!empty($map['UnsubSpecCameraUsers'])) {
+                $model->unsubSpecCameraUsers = $map['UnsubSpecCameraUsers'];
+            }
+        }
+        if (isset($map['UnsubSpecShareScreenUsers'])) {
+            if (!empty($map['UnsubSpecShareScreenUsers'])) {
+                $model->unsubSpecShareScreenUsers = $map['UnsubSpecShareScreenUsers'];
             }
         }
         if (isset($map['UserPanes'])) {

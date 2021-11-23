@@ -10,19 +10,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyMPULayoutRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $showLog;
-
-    /**
      * @var string
      */
     public $appId;
+
+    /**
+     * @var int
+     */
+    public $audioMixCount;
+
+    /**
+     * @var int
+     */
+    public $layoutId;
 
     /**
      * @var string
@@ -32,24 +32,18 @@ class ModifyMPULayoutRequest extends Model
     /**
      * @var int
      */
-    public $layoutId;
-
-    /**
-     * @var int
-     */
-    public $audioMixCount;
+    public $ownerId;
 
     /**
      * @var panes[]
      */
     public $panes;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
-        'showLog'       => 'ShowLog',
         'appId'         => 'AppId',
-        'name'          => 'Name',
-        'layoutId'      => 'LayoutId',
         'audioMixCount' => 'AudioMixCount',
+        'layoutId'      => 'LayoutId',
+        'name'          => 'Name',
+        'ownerId'       => 'OwnerId',
         'panes'         => 'Panes',
     ];
 
@@ -60,23 +54,20 @@ class ModifyMPULayoutRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->audioMixCount) {
+            $res['AudioMixCount'] = $this->audioMixCount;
         }
         if (null !== $this->layoutId) {
             $res['LayoutId'] = $this->layoutId;
         }
-        if (null !== $this->audioMixCount) {
-            $res['AudioMixCount'] = $this->audioMixCount;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->panes) {
             $res['Panes'] = [];
@@ -99,23 +90,20 @@ class ModifyMPULayoutRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['AudioMixCount'])) {
+            $model->audioMixCount = $map['AudioMixCount'];
         }
         if (isset($map['LayoutId'])) {
             $model->layoutId = $map['LayoutId'];
         }
-        if (isset($map['AudioMixCount'])) {
-            $model->audioMixCount = $map['AudioMixCount'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['Panes'])) {
             if (!empty($map['Panes'])) {

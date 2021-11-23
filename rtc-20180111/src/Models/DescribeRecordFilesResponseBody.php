@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeRecordFilesResponseBody extends Model
 {
     /**
+     * @var recordFiles[]
+     */
+    public $recordFiles;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var int
      */
     public $totalNum;
@@ -18,21 +28,11 @@ class DescribeRecordFilesResponseBody extends Model
      * @var int
      */
     public $totalPage;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var recordFiles[]
-     */
-    public $recordFiles;
     protected $_name = [
+        'recordFiles' => 'RecordFiles',
+        'requestId'   => 'RequestId',
         'totalNum'    => 'TotalNum',
         'totalPage'   => 'TotalPage',
-        'requestId'   => 'RequestId',
-        'recordFiles' => 'RecordFiles',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class DescribeRecordFilesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalNum) {
-            $res['TotalNum'] = $this->totalNum;
-        }
-        if (null !== $this->totalPage) {
-            $res['TotalPage'] = $this->totalPage;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->recordFiles) {
             $res['RecordFiles'] = [];
             if (null !== $this->recordFiles && \is_array($this->recordFiles)) {
@@ -59,6 +50,15 @@ class DescribeRecordFilesResponseBody extends Model
                     $res['RecordFiles'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalNum) {
+            $res['TotalNum'] = $this->totalNum;
+        }
+        if (null !== $this->totalPage) {
+            $res['TotalPage'] = $this->totalPage;
         }
 
         return $res;
@@ -72,15 +72,6 @@ class DescribeRecordFilesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalNum'])) {
-            $model->totalNum = $map['TotalNum'];
-        }
-        if (isset($map['TotalPage'])) {
-            $model->totalPage = $map['TotalPage'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['RecordFiles'])) {
             if (!empty($map['RecordFiles'])) {
                 $model->recordFiles = [];
@@ -89,6 +80,15 @@ class DescribeRecordFilesResponseBody extends Model
                     $model->recordFiles[$n++] = null !== $item ? recordFiles::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalNum'])) {
+            $model->totalNum = $map['TotalNum'];
+        }
+        if (isset($map['TotalPage'])) {
+            $model->totalPage = $map['TotalPage'];
         }
 
         return $model;

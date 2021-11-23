@@ -15,6 +15,11 @@ class DescribeRecordTasksResponseBody extends Model
     public $recordTasks;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var int
      */
     public $totalNum;
@@ -23,16 +28,11 @@ class DescribeRecordTasksResponseBody extends Model
      * @var int
      */
     public $totalPage;
-
-    /**
-     * @var string
-     */
-    public $requestId;
     protected $_name = [
         'recordTasks' => 'RecordTasks',
+        'requestId'   => 'RequestId',
         'totalNum'    => 'TotalNum',
         'totalPage'   => 'TotalPage',
-        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -51,14 +51,14 @@ class DescribeRecordTasksResponseBody extends Model
                 }
             }
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->totalNum) {
             $res['TotalNum'] = $this->totalNum;
         }
         if (null !== $this->totalPage) {
             $res['TotalPage'] = $this->totalPage;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -81,14 +81,14 @@ class DescribeRecordTasksResponseBody extends Model
                 }
             }
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TotalNum'])) {
             $model->totalNum = $map['TotalNum'];
         }
         if (isset($map['TotalPage'])) {
             $model->totalPage = $map['TotalPage'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
 
         return $model;

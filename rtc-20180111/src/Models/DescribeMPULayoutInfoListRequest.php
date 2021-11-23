@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeMPULayoutInfoListRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $showLog;
-
-    /**
      * @var string
      */
     public $appId;
@@ -36,6 +26,11 @@ class DescribeMPULayoutInfoListRequest extends Model
     /**
      * @var int
      */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
     public $pageNum;
 
     /**
@@ -43,11 +38,10 @@ class DescribeMPULayoutInfoListRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'ownerId'  => 'OwnerId',
-        'showLog'  => 'ShowLog',
         'appId'    => 'AppId',
         'layoutId' => 'LayoutId',
         'name'     => 'Name',
+        'ownerId'  => 'OwnerId',
         'pageNum'  => 'PageNum',
         'pageSize' => 'PageSize',
     ];
@@ -59,12 +53,6 @@ class DescribeMPULayoutInfoListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
@@ -73,6 +61,9 @@ class DescribeMPULayoutInfoListRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
@@ -92,12 +83,6 @@ class DescribeMPULayoutInfoListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
@@ -106,6 +91,9 @@ class DescribeMPULayoutInfoListRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];

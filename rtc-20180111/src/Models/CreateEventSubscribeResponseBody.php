@@ -11,15 +11,15 @@ class CreateEventSubscribeResponseBody extends Model
     /**
      * @var string
      */
-    public $subscribeId;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $subscribeId;
     protected $_name = [
-        'subscribeId' => 'SubscribeId',
         'requestId'   => 'RequestId',
+        'subscribeId' => 'SubscribeId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateEventSubscribeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->subscribeId) {
-            $res['SubscribeId'] = $this->subscribeId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->subscribeId) {
+            $res['SubscribeId'] = $this->subscribeId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateEventSubscribeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SubscribeId'])) {
-            $model->subscribeId = $map['SubscribeId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SubscribeId'])) {
+            $model->subscribeId = $map['SubscribeId'];
         }
 
         return $model;

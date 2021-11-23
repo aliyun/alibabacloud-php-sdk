@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeRecordTasksRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $showLog;
-
-    /**
      * @var string
      */
     public $appId;
@@ -31,7 +21,22 @@ class DescribeRecordTasksRequest extends Model
     /**
      * @var string
      */
-    public $status;
+    public $endTime;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $pageNum;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -41,32 +46,21 @@ class DescribeRecordTasksRequest extends Model
     /**
      * @var string
      */
-    public $endTime;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNum;
+    public $status;
 
     /**
      * @var string[]
      */
     public $taskIds;
     protected $_name = [
-        'ownerId'   => 'OwnerId',
-        'showLog'   => 'ShowLog',
         'appId'     => 'AppId',
         'channelId' => 'ChannelId',
-        'status'    => 'Status',
-        'startTime' => 'StartTime',
         'endTime'   => 'EndTime',
-        'pageSize'  => 'PageSize',
+        'ownerId'   => 'OwnerId',
         'pageNum'   => 'PageNum',
+        'pageSize'  => 'PageSize',
+        'startTime' => 'StartTime',
+        'status'    => 'Status',
         'taskIds'   => 'TaskIds',
     ];
 
@@ -77,32 +71,29 @@ class DescribeRecordTasksRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->taskIds) {
             $res['TaskIds'] = $this->taskIds;
@@ -119,32 +110,29 @@ class DescribeRecordTasksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['TaskIds'])) {
             if (!empty($map['TaskIds'])) {

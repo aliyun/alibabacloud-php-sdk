@@ -16,9 +16,14 @@ class userPanes extends Model
     public $images;
 
     /**
+     * @var int
+     */
+    public $paneId;
+
+    /**
      * @var string
      */
-    public $userId;
+    public $sourceType;
 
     /**
      * @var texts[]
@@ -28,18 +33,13 @@ class userPanes extends Model
     /**
      * @var string
      */
-    public $sourceType;
-
-    /**
-     * @var int
-     */
-    public $paneId;
+    public $userId;
     protected $_name = [
         'images'     => 'Images',
-        'userId'     => 'UserId',
-        'texts'      => 'Texts',
-        'sourceType' => 'SourceType',
         'paneId'     => 'PaneId',
+        'sourceType' => 'SourceType',
+        'texts'      => 'Texts',
+        'userId'     => 'UserId',
     ];
 
     public function validate()
@@ -58,8 +58,11 @@ class userPanes extends Model
                 }
             }
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->paneId) {
+            $res['PaneId'] = $this->paneId;
+        }
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
         }
         if (null !== $this->texts) {
             $res['Texts'] = [];
@@ -70,11 +73,8 @@ class userPanes extends Model
                 }
             }
         }
-        if (null !== $this->sourceType) {
-            $res['SourceType'] = $this->sourceType;
-        }
-        if (null !== $this->paneId) {
-            $res['PaneId'] = $this->paneId;
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -97,8 +97,11 @@ class userPanes extends Model
                 }
             }
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['PaneId'])) {
+            $model->paneId = $map['PaneId'];
+        }
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
         }
         if (isset($map['Texts'])) {
             if (!empty($map['Texts'])) {
@@ -109,11 +112,8 @@ class userPanes extends Model
                 }
             }
         }
-        if (isset($map['SourceType'])) {
-            $model->sourceType = $map['SourceType'];
-        }
-        if (isset($map['PaneId'])) {
-            $model->paneId = $map['PaneId'];
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

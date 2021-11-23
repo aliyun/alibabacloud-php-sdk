@@ -11,27 +11,7 @@ class texts extends Model
     /**
      * @var int
      */
-    public $fontType;
-
-    /**
-     * @var int
-     */
     public $fontColor;
-
-    /**
-     * @var float
-     */
-    public $y;
-
-    /**
-     * @var string
-     */
-    public $text;
-
-    /**
-     * @var int
-     */
-    public $ZOrder;
 
     /**
      * @var int
@@ -39,17 +19,37 @@ class texts extends Model
     public $fontSize;
 
     /**
+     * @var int
+     */
+    public $fontType;
+
+    /**
+     * @var string
+     */
+    public $text;
+
+    /**
      * @var float
      */
     public $x;
+
+    /**
+     * @var float
+     */
+    public $y;
+
+    /**
+     * @var int
+     */
+    public $ZOrder;
     protected $_name = [
-        'fontType'  => 'FontType',
         'fontColor' => 'FontColor',
-        'y'         => 'Y',
-        'text'      => 'Text',
-        'ZOrder'    => 'ZOrder',
         'fontSize'  => 'FontSize',
+        'fontType'  => 'FontType',
+        'text'      => 'Text',
         'x'         => 'X',
+        'y'         => 'Y',
+        'ZOrder'    => 'ZOrder',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class texts extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fontType) {
-            $res['FontType'] = $this->fontType;
-        }
         if (null !== $this->fontColor) {
             $res['FontColor'] = $this->fontColor;
-        }
-        if (null !== $this->y) {
-            $res['Y'] = $this->y;
-        }
-        if (null !== $this->text) {
-            $res['Text'] = $this->text;
-        }
-        if (null !== $this->ZOrder) {
-            $res['ZOrder'] = $this->ZOrder;
         }
         if (null !== $this->fontSize) {
             $res['FontSize'] = $this->fontSize;
         }
+        if (null !== $this->fontType) {
+            $res['FontType'] = $this->fontType;
+        }
+        if (null !== $this->text) {
+            $res['Text'] = $this->text;
+        }
         if (null !== $this->x) {
             $res['X'] = $this->x;
+        }
+        if (null !== $this->y) {
+            $res['Y'] = $this->y;
+        }
+        if (null !== $this->ZOrder) {
+            $res['ZOrder'] = $this->ZOrder;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class texts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FontType'])) {
-            $model->fontType = $map['FontType'];
-        }
         if (isset($map['FontColor'])) {
             $model->fontColor = $map['FontColor'];
-        }
-        if (isset($map['Y'])) {
-            $model->y = $map['Y'];
-        }
-        if (isset($map['Text'])) {
-            $model->text = $map['Text'];
-        }
-        if (isset($map['ZOrder'])) {
-            $model->ZOrder = $map['ZOrder'];
         }
         if (isset($map['FontSize'])) {
             $model->fontSize = $map['FontSize'];
         }
+        if (isset($map['FontType'])) {
+            $model->fontType = $map['FontType'];
+        }
+        if (isset($map['Text'])) {
+            $model->text = $map['Text'];
+        }
         if (isset($map['X'])) {
             $model->x = $map['X'];
+        }
+        if (isset($map['Y'])) {
+            $model->y = $map['Y'];
+        }
+        if (isset($map['ZOrder'])) {
+            $model->ZOrder = $map['ZOrder'];
         }
 
         return $model;

@@ -9,24 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeChannelUsersResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $channelProfile;
+
+    /**
+     * @var int
+     */
+    public $commTotalNum;
 
     /**
      * @var string[]
      */
     public $interactiveUserList;
-
-    /**
-     * @var int
-     */
-    public $liveUserNum;
-
-    /**
-     * @var int
-     */
-    public $channelProfile;
 
     /**
      * @var int
@@ -39,6 +34,21 @@ class DescribeChannelUsersResponseBody extends Model
     public $isChannelExist;
 
     /**
+     * @var string[]
+     */
+    public $liveUserList;
+
+    /**
+     * @var int
+     */
+    public $liveUserNum;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var int
      */
     public $timestamp;
@@ -47,27 +57,17 @@ class DescribeChannelUsersResponseBody extends Model
      * @var string[]
      */
     public $userList;
-
-    /**
-     * @var string[]
-     */
-    public $liveUserList;
-
-    /**
-     * @var int
-     */
-    public $commTotalNum;
     protected $_name = [
-        'requestId'           => 'RequestId',
-        'interactiveUserList' => 'InteractiveUserList',
-        'liveUserNum'         => 'LiveUserNum',
         'channelProfile'      => 'ChannelProfile',
+        'commTotalNum'        => 'CommTotalNum',
+        'interactiveUserList' => 'InteractiveUserList',
         'interactiveUserNum'  => 'InteractiveUserNum',
         'isChannelExist'      => 'IsChannelExist',
+        'liveUserList'        => 'LiveUserList',
+        'liveUserNum'         => 'LiveUserNum',
+        'requestId'           => 'RequestId',
         'timestamp'           => 'Timestamp',
         'userList'            => 'UserList',
-        'liveUserList'        => 'LiveUserList',
-        'commTotalNum'        => 'CommTotalNum',
     ];
 
     public function validate()
@@ -77,17 +77,14 @@ class DescribeChannelUsersResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->channelProfile) {
+            $res['ChannelProfile'] = $this->channelProfile;
+        }
+        if (null !== $this->commTotalNum) {
+            $res['CommTotalNum'] = $this->commTotalNum;
         }
         if (null !== $this->interactiveUserList) {
             $res['InteractiveUserList'] = $this->interactiveUserList;
-        }
-        if (null !== $this->liveUserNum) {
-            $res['LiveUserNum'] = $this->liveUserNum;
-        }
-        if (null !== $this->channelProfile) {
-            $res['ChannelProfile'] = $this->channelProfile;
         }
         if (null !== $this->interactiveUserNum) {
             $res['InteractiveUserNum'] = $this->interactiveUserNum;
@@ -95,17 +92,20 @@ class DescribeChannelUsersResponseBody extends Model
         if (null !== $this->isChannelExist) {
             $res['IsChannelExist'] = $this->isChannelExist;
         }
+        if (null !== $this->liveUserList) {
+            $res['LiveUserList'] = $this->liveUserList;
+        }
+        if (null !== $this->liveUserNum) {
+            $res['LiveUserNum'] = $this->liveUserNum;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
         if (null !== $this->userList) {
             $res['UserList'] = $this->userList;
-        }
-        if (null !== $this->liveUserList) {
-            $res['LiveUserList'] = $this->liveUserList;
-        }
-        if (null !== $this->commTotalNum) {
-            $res['CommTotalNum'] = $this->commTotalNum;
         }
 
         return $res;
@@ -119,25 +119,33 @@ class DescribeChannelUsersResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ChannelProfile'])) {
+            $model->channelProfile = $map['ChannelProfile'];
+        }
+        if (isset($map['CommTotalNum'])) {
+            $model->commTotalNum = $map['CommTotalNum'];
         }
         if (isset($map['InteractiveUserList'])) {
             if (!empty($map['InteractiveUserList'])) {
                 $model->interactiveUserList = $map['InteractiveUserList'];
             }
         }
-        if (isset($map['LiveUserNum'])) {
-            $model->liveUserNum = $map['LiveUserNum'];
-        }
-        if (isset($map['ChannelProfile'])) {
-            $model->channelProfile = $map['ChannelProfile'];
-        }
         if (isset($map['InteractiveUserNum'])) {
             $model->interactiveUserNum = $map['InteractiveUserNum'];
         }
         if (isset($map['IsChannelExist'])) {
             $model->isChannelExist = $map['IsChannelExist'];
+        }
+        if (isset($map['LiveUserList'])) {
+            if (!empty($map['LiveUserList'])) {
+                $model->liveUserList = $map['LiveUserList'];
+            }
+        }
+        if (isset($map['LiveUserNum'])) {
+            $model->liveUserNum = $map['LiveUserNum'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
@@ -146,14 +154,6 @@ class DescribeChannelUsersResponseBody extends Model
             if (!empty($map['UserList'])) {
                 $model->userList = $map['UserList'];
             }
-        }
-        if (isset($map['LiveUserList'])) {
-            if (!empty($map['LiveUserList'])) {
-                $model->liveUserList = $map['LiveUserList'];
-            }
-        }
-        if (isset($map['CommTotalNum'])) {
-            $model->commTotalNum = $map['CommTotalNum'];
         }
 
         return $model;

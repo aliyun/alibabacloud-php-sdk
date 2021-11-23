@@ -9,118 +9,46 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\AddRecordTemplateRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\AddRecordTemplateResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAutoLiveStreamRuleRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAutoLiveStreamRuleResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateChannelRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateChannelResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateConferenceRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateConferenceResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateEventSubscribeRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateEventSubscribeResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateMPULayoutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateMPULayoutResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateMPURuleRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateMPURuleResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateServiceLinkedRoleForRtcRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateServiceLinkedRoleForRtcResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateSubscribeRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateSubscribeResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateRecordIndexFileRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateRecordIndexFileResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAutoLiveStreamRuleRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAutoLiveStreamRuleResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteChannelRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteChannelResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteConferenceRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteConferenceResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteEventSubscribeRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteEventSubscribeResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteMPULayoutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteMPULayoutResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteMPURuleRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteMPURuleResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteRecordTemplateRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteRecordTemplateResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteSubscribeRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteSubscribeResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppsRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppsResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAutoLiveStreamRuleRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAutoLiveStreamRuleResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelParticipantsRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelParticipantsResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelUsersRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelUsersResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeConferenceAuthInfoRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeConferenceAuthInfoResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeMPULayoutInfoListRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeMPULayoutInfoListResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeMPULayoutInfoRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeMPULayoutInfoResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeMPULayoutListRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeMPULayoutListResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeMPURuleRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeMPURuleResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRecordFilesRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRecordFilesResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRecordTasksRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRecordTasksResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRecordTemplatesRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRecordTemplatesResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRTCAppKeyRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRTCAppKeyResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelCntDataRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelCntDataResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelDetailRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelDetailResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelListRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelListResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelMetricRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelMetricResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelMetricsRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelMetricsResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelsRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelsResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelUserListRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelUserListResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcDurationDataRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcDurationDataResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcPeakChannelCntDataRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcPeakChannelCntDataResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcPeakUserCntDataRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcPeakUserCntDataResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcScaleDetailRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcScaleDetailResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcScaleRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcScaleResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcUserCntDataRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcUserCntDataResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcUserEventsRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcUserEventsResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcUserListRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcUserListResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeUserInfoInChannelRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeUserInfoInChannelResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DisableMPURuleRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DisableMPURuleResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\EnableMPURuleRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\EnableMPURuleResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DisableAutoLiveStreamRuleRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DisableAutoLiveStreamRuleResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\EnableAutoLiveStreamRuleRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\EnableAutoLiveStreamRuleResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\GetMPUTaskStatusRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\GetMPUTaskStatusResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyConferenceRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyConferenceResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyMPULayoutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyMPULayoutResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\MuteAudioAllRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\MuteAudioAllResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\MuteAudioRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\MuteAudioResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\ReceiveNotifyRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\ReceiveNotifyResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveParticipantsRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveParticipantsResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveTerminalsRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveTerminalsResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\SetChannelPropertyRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\SetChannelPropertyResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartMPUTaskRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartMPUTaskResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartRecordTaskRequest;
@@ -131,14 +59,10 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\StopMPUTaskRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopMPUTaskResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopRecordTaskRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopRecordTaskResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\UnmuteAudioAllRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\UnmuteAudioAllResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\UnmuteAudioRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\UnmuteAudioResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateChannelRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateChannelResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateMPULayoutRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateMPULayoutResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateAutoLiveStreamRuleRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateAutoLiveStreamRuleResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateMPUTaskRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateMPUTaskResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateRecordTaskRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateRecordTaskResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateRecordTemplateRequest;
@@ -238,62 +162,6 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param CreateChannelRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateChannelResponse
-     */
-    public function createChannelWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateChannelResponse::fromMap($this->doRPCRequest('CreateChannel', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateChannelRequest $request
-     *
-     * @return CreateChannelResponse
-     */
-    public function createChannel($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createChannelWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateConferenceRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateConferenceResponse
-     */
-    public function createConferenceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateConferenceResponse::fromMap($this->doRPCRequest('CreateConference', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateConferenceRequest $request
-     *
-     * @return CreateConferenceResponse
-     */
-    public function createConference($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createConferenceWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateEventSubscribeRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -350,87 +218,31 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param CreateMPURuleRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param CreateRecordIndexFileRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return CreateMPURuleResponse
+     * @return CreateRecordIndexFileResponse
      */
-    public function createMPURuleWithOptions($request, $runtime)
+    public function createRecordIndexFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return CreateMPURuleResponse::fromMap($this->doRPCRequest('CreateMPURule', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateRecordIndexFileResponse::fromMap($this->doRPCRequest('CreateRecordIndexFile', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param CreateMPURuleRequest $request
+     * @param CreateRecordIndexFileRequest $request
      *
-     * @return CreateMPURuleResponse
+     * @return CreateRecordIndexFileResponse
      */
-    public function createMPURule($request)
+    public function createRecordIndexFile($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createMPURuleWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateServiceLinkedRoleForRtcRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return CreateServiceLinkedRoleForRtcResponse
-     */
-    public function createServiceLinkedRoleForRtcWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateServiceLinkedRoleForRtcResponse::fromMap($this->doRPCRequest('CreateServiceLinkedRoleForRtc', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateServiceLinkedRoleForRtcRequest $request
-     *
-     * @return CreateServiceLinkedRoleForRtcResponse
-     */
-    public function createServiceLinkedRoleForRtc($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createServiceLinkedRoleForRtcWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateSubscribeRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CreateSubscribeResponse
-     */
-    public function createSubscribeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateSubscribeResponse::fromMap($this->doRPCRequest('CreateSubscribe', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateSubscribeRequest $request
-     *
-     * @return CreateSubscribeResponse
-     */
-    public function createSubscribe($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createSubscribeWithOptions($request, $runtime);
+        return $this->createRecordIndexFileWithOptions($request, $runtime);
     }
 
     /**
@@ -459,62 +271,6 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAutoLiveStreamRuleWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteChannelRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteChannelResponse
-     */
-    public function deleteChannelWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteChannelResponse::fromMap($this->doRPCRequest('DeleteChannel', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteChannelRequest $request
-     *
-     * @return DeleteChannelResponse
-     */
-    public function deleteChannel($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteChannelWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteConferenceRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteConferenceResponse
-     */
-    public function deleteConferenceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteConferenceResponse::fromMap($this->doRPCRequest('DeleteConference', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteConferenceRequest $request
-     *
-     * @return DeleteConferenceResponse
-     */
-    public function deleteConference($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteConferenceWithOptions($request, $runtime);
     }
 
     /**
@@ -574,34 +330,6 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DeleteMPURuleRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteMPURuleResponse
-     */
-    public function deleteMPURuleWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteMPURuleResponse::fromMap($this->doRPCRequest('DeleteMPURule', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteMPURuleRequest $request
-     *
-     * @return DeleteMPURuleResponse
-     */
-    public function deleteMPURule($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteMPURuleWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteRecordTemplateRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -627,62 +355,6 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteRecordTemplateWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteSubscribeRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DeleteSubscribeResponse
-     */
-    public function deleteSubscribeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteSubscribeResponse::fromMap($this->doRPCRequest('DeleteSubscribe', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteSubscribeRequest $request
-     *
-     * @return DeleteSubscribeResponse
-     */
-    public function deleteSubscribe($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteSubscribeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeAppsRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DescribeAppsResponse
-     */
-    public function describeAppsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeAppsResponse::fromMap($this->doRPCRequest('DescribeApps', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeAppsRequest $request
-     *
-     * @return DescribeAppsResponse
-     */
-    public function describeApps($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAppsWithOptions($request, $runtime);
     }
 
     /**
@@ -770,62 +442,6 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeConferenceAuthInfoRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeConferenceAuthInfoResponse
-     */
-    public function describeConferenceAuthInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeConferenceAuthInfoResponse::fromMap($this->doRPCRequest('DescribeConferenceAuthInfo', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeConferenceAuthInfoRequest $request
-     *
-     * @return DescribeConferenceAuthInfoResponse
-     */
-    public function describeConferenceAuthInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeConferenceAuthInfoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeMPULayoutInfoRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeMPULayoutInfoResponse
-     */
-    public function describeMPULayoutInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeMPULayoutInfoResponse::fromMap($this->doRPCRequest('DescribeMPULayoutInfo', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeMPULayoutInfoRequest $request
-     *
-     * @return DescribeMPULayoutInfoResponse
-     */
-    public function describeMPULayoutInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeMPULayoutInfoWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeMPULayoutInfoListRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -851,62 +467,6 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeMPULayoutInfoListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeMPULayoutListRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeMPULayoutListResponse
-     */
-    public function describeMPULayoutListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeMPULayoutListResponse::fromMap($this->doRPCRequest('DescribeMPULayoutList', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeMPULayoutListRequest $request
-     *
-     * @return DescribeMPULayoutListResponse
-     */
-    public function describeMPULayoutList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeMPULayoutListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeMPURuleRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeMPURuleResponse
-     */
-    public function describeMPURuleWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeMPURuleResponse::fromMap($this->doRPCRequest('DescribeMPURule', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeMPURuleRequest $request
-     *
-     * @return DescribeMPURuleResponse
-     */
-    public function describeMPURule($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeMPURuleWithOptions($request, $runtime);
     }
 
     /**
@@ -994,454 +554,6 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRTCAppKeyRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeRTCAppKeyResponse
-     */
-    public function describeRTCAppKeyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeRTCAppKeyResponse::fromMap($this->doRPCRequest('DescribeRTCAppKey', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRTCAppKeyRequest $request
-     *
-     * @return DescribeRTCAppKeyResponse
-     */
-    public function describeRTCAppKey($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRTCAppKeyWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRtcChannelCntDataRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeRtcChannelCntDataResponse
-     */
-    public function describeRtcChannelCntDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeRtcChannelCntDataResponse::fromMap($this->doRPCRequest('DescribeRtcChannelCntData', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRtcChannelCntDataRequest $request
-     *
-     * @return DescribeRtcChannelCntDataResponse
-     */
-    public function describeRtcChannelCntData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRtcChannelCntDataWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRtcChannelDetailRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeRtcChannelDetailResponse
-     */
-    public function describeRtcChannelDetailWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeRtcChannelDetailResponse::fromMap($this->doRPCRequest('DescribeRtcChannelDetail', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRtcChannelDetailRequest $request
-     *
-     * @return DescribeRtcChannelDetailResponse
-     */
-    public function describeRtcChannelDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRtcChannelDetailWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRtcChannelListRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeRtcChannelListResponse
-     */
-    public function describeRtcChannelListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeRtcChannelListResponse::fromMap($this->doRPCRequest('DescribeRtcChannelList', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRtcChannelListRequest $request
-     *
-     * @return DescribeRtcChannelListResponse
-     */
-    public function describeRtcChannelList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRtcChannelListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRtcChannelMetricRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeRtcChannelMetricResponse
-     */
-    public function describeRtcChannelMetricWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeRtcChannelMetricResponse::fromMap($this->doRPCRequest('DescribeRtcChannelMetric', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRtcChannelMetricRequest $request
-     *
-     * @return DescribeRtcChannelMetricResponse
-     */
-    public function describeRtcChannelMetric($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRtcChannelMetricWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRtcChannelMetricsRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeRtcChannelMetricsResponse
-     */
-    public function describeRtcChannelMetricsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeRtcChannelMetricsResponse::fromMap($this->doRPCRequest('DescribeRtcChannelMetrics', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRtcChannelMetricsRequest $request
-     *
-     * @return DescribeRtcChannelMetricsResponse
-     */
-    public function describeRtcChannelMetrics($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRtcChannelMetricsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRtcChannelsRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeRtcChannelsResponse
-     */
-    public function describeRtcChannelsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeRtcChannelsResponse::fromMap($this->doRPCRequest('DescribeRtcChannels', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRtcChannelsRequest $request
-     *
-     * @return DescribeRtcChannelsResponse
-     */
-    public function describeRtcChannels($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRtcChannelsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRtcChannelUserListRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeRtcChannelUserListResponse
-     */
-    public function describeRtcChannelUserListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeRtcChannelUserListResponse::fromMap($this->doRPCRequest('DescribeRtcChannelUserList', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRtcChannelUserListRequest $request
-     *
-     * @return DescribeRtcChannelUserListResponse
-     */
-    public function describeRtcChannelUserList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRtcChannelUserListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRtcDurationDataRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeRtcDurationDataResponse
-     */
-    public function describeRtcDurationDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeRtcDurationDataResponse::fromMap($this->doRPCRequest('DescribeRtcDurationData', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRtcDurationDataRequest $request
-     *
-     * @return DescribeRtcDurationDataResponse
-     */
-    public function describeRtcDurationData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRtcDurationDataWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRtcPeakChannelCntDataRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeRtcPeakChannelCntDataResponse
-     */
-    public function describeRtcPeakChannelCntDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeRtcPeakChannelCntDataResponse::fromMap($this->doRPCRequest('DescribeRtcPeakChannelCntData', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRtcPeakChannelCntDataRequest $request
-     *
-     * @return DescribeRtcPeakChannelCntDataResponse
-     */
-    public function describeRtcPeakChannelCntData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRtcPeakChannelCntDataWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRtcPeakUserCntDataRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeRtcPeakUserCntDataResponse
-     */
-    public function describeRtcPeakUserCntDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeRtcPeakUserCntDataResponse::fromMap($this->doRPCRequest('DescribeRtcPeakUserCntData', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRtcPeakUserCntDataRequest $request
-     *
-     * @return DescribeRtcPeakUserCntDataResponse
-     */
-    public function describeRtcPeakUserCntData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRtcPeakUserCntDataWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRtcScaleRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeRtcScaleResponse
-     */
-    public function describeRtcScaleWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeRtcScaleResponse::fromMap($this->doRPCRequest('DescribeRtcScale', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRtcScaleRequest $request
-     *
-     * @return DescribeRtcScaleResponse
-     */
-    public function describeRtcScale($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRtcScaleWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRtcScaleDetailRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeRtcScaleDetailResponse
-     */
-    public function describeRtcScaleDetailWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeRtcScaleDetailResponse::fromMap($this->doRPCRequest('DescribeRtcScaleDetail', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRtcScaleDetailRequest $request
-     *
-     * @return DescribeRtcScaleDetailResponse
-     */
-    public function describeRtcScaleDetail($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRtcScaleDetailWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRtcUserCntDataRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeRtcUserCntDataResponse
-     */
-    public function describeRtcUserCntDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeRtcUserCntDataResponse::fromMap($this->doRPCRequest('DescribeRtcUserCntData', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRtcUserCntDataRequest $request
-     *
-     * @return DescribeRtcUserCntDataResponse
-     */
-    public function describeRtcUserCntData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRtcUserCntDataWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRtcUserEventsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeRtcUserEventsResponse
-     */
-    public function describeRtcUserEventsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeRtcUserEventsResponse::fromMap($this->doRPCRequest('DescribeRtcUserEvents', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRtcUserEventsRequest $request
-     *
-     * @return DescribeRtcUserEventsResponse
-     */
-    public function describeRtcUserEvents($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRtcUserEventsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRtcUserListRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeRtcUserListResponse
-     */
-    public function describeRtcUserListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeRtcUserListResponse::fromMap($this->doRPCRequest('DescribeRtcUserList', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRtcUserListRequest $request
-     *
-     * @return DescribeRtcUserListResponse
-     */
-    public function describeRtcUserList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRtcUserListWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeUserInfoInChannelRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -1470,59 +582,59 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DisableMPURuleRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param DisableAutoLiveStreamRuleRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return DisableMPURuleResponse
+     * @return DisableAutoLiveStreamRuleResponse
      */
-    public function disableMPURuleWithOptions($request, $runtime)
+    public function disableAutoLiveStreamRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return DisableMPURuleResponse::fromMap($this->doRPCRequest('DisableMPURule', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableAutoLiveStreamRuleResponse::fromMap($this->doRPCRequest('DisableAutoLiveStreamRule', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DisableMPURuleRequest $request
+     * @param DisableAutoLiveStreamRuleRequest $request
      *
-     * @return DisableMPURuleResponse
+     * @return DisableAutoLiveStreamRuleResponse
      */
-    public function disableMPURule($request)
+    public function disableAutoLiveStreamRule($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->disableMPURuleWithOptions($request, $runtime);
+        return $this->disableAutoLiveStreamRuleWithOptions($request, $runtime);
     }
 
     /**
-     * @param EnableMPURuleRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param EnableAutoLiveStreamRuleRequest $request
+     * @param RuntimeOptions                  $runtime
      *
-     * @return EnableMPURuleResponse
+     * @return EnableAutoLiveStreamRuleResponse
      */
-    public function enableMPURuleWithOptions($request, $runtime)
+    public function enableAutoLiveStreamRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return EnableMPURuleResponse::fromMap($this->doRPCRequest('EnableMPURule', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableAutoLiveStreamRuleResponse::fromMap($this->doRPCRequest('EnableAutoLiveStreamRule', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param EnableMPURuleRequest $request
+     * @param EnableAutoLiveStreamRuleRequest $request
      *
-     * @return EnableMPURuleResponse
+     * @return EnableAutoLiveStreamRuleResponse
      */
-    public function enableMPURule($request)
+    public function enableAutoLiveStreamRule($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->enableMPURuleWithOptions($request, $runtime);
+        return $this->enableAutoLiveStreamRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -1554,62 +666,6 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param ModifyAppRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ModifyAppResponse
-     */
-    public function modifyAppWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyAppResponse::fromMap($this->doRPCRequest('ModifyApp', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyAppRequest $request
-     *
-     * @return ModifyAppResponse
-     */
-    public function modifyApp($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyAppWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyConferenceRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ModifyConferenceResponse
-     */
-    public function modifyConferenceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyConferenceResponse::fromMap($this->doRPCRequest('ModifyConference', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyConferenceRequest $request
-     *
-     * @return ModifyConferenceResponse
-     */
-    public function modifyConference($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyConferenceWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ModifyMPULayoutRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1638,118 +694,6 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param MuteAudioRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return MuteAudioResponse
-     */
-    public function muteAudioWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return MuteAudioResponse::fromMap($this->doRPCRequest('MuteAudio', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param MuteAudioRequest $request
-     *
-     * @return MuteAudioResponse
-     */
-    public function muteAudio($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->muteAudioWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param MuteAudioAllRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return MuteAudioAllResponse
-     */
-    public function muteAudioAllWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return MuteAudioAllResponse::fromMap($this->doRPCRequest('MuteAudioAll', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param MuteAudioAllRequest $request
-     *
-     * @return MuteAudioAllResponse
-     */
-    public function muteAudioAll($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->muteAudioAllWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ReceiveNotifyRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ReceiveNotifyResponse
-     */
-    public function receiveNotifyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ReceiveNotifyResponse::fromMap($this->doRPCRequest('ReceiveNotify', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ReceiveNotifyRequest $request
-     *
-     * @return ReceiveNotifyResponse
-     */
-    public function receiveNotify($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->receiveNotifyWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RemoveParticipantsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return RemoveParticipantsResponse
-     */
-    public function removeParticipantsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RemoveParticipantsResponse::fromMap($this->doRPCRequest('RemoveParticipants', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RemoveParticipantsRequest $request
-     *
-     * @return RemoveParticipantsResponse
-     */
-    public function removeParticipants($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removeParticipantsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param RemoveTerminalsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1775,34 +719,6 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeTerminalsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SetChannelPropertyRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SetChannelPropertyResponse
-     */
-    public function setChannelPropertyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SetChannelPropertyResponse::fromMap($this->doRPCRequest('SetChannelProperty', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SetChannelPropertyRequest $request
-     *
-     * @return SetChannelPropertyResponse
-     */
-    public function setChannelProperty($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setChannelPropertyWithOptions($request, $runtime);
     }
 
     /**
@@ -1946,115 +862,59 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param UnmuteAudioRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param UpdateAutoLiveStreamRuleRequest $request
+     * @param RuntimeOptions                  $runtime
      *
-     * @return UnmuteAudioResponse
+     * @return UpdateAutoLiveStreamRuleResponse
      */
-    public function unmuteAudioWithOptions($request, $runtime)
+    public function updateAutoLiveStreamRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return UnmuteAudioResponse::fromMap($this->doRPCRequest('UnmuteAudio', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateAutoLiveStreamRuleResponse::fromMap($this->doRPCRequest('UpdateAutoLiveStreamRule', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param UnmuteAudioRequest $request
+     * @param UpdateAutoLiveStreamRuleRequest $request
      *
-     * @return UnmuteAudioResponse
+     * @return UpdateAutoLiveStreamRuleResponse
      */
-    public function unmuteAudio($request)
+    public function updateAutoLiveStreamRule($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->unmuteAudioWithOptions($request, $runtime);
+        return $this->updateAutoLiveStreamRuleWithOptions($request, $runtime);
     }
 
     /**
-     * @param UnmuteAudioAllRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UnmuteAudioAllResponse
-     */
-    public function unmuteAudioAllWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UnmuteAudioAllResponse::fromMap($this->doRPCRequest('UnmuteAudioAll', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UnmuteAudioAllRequest $request
-     *
-     * @return UnmuteAudioAllResponse
-     */
-    public function unmuteAudioAll($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->unmuteAudioAllWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateChannelRequest $request
+     * @param UpdateMPUTaskRequest $request
      * @param RuntimeOptions       $runtime
      *
-     * @return UpdateChannelResponse
+     * @return UpdateMPUTaskResponse
      */
-    public function updateChannelWithOptions($request, $runtime)
+    public function updateMPUTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return UpdateChannelResponse::fromMap($this->doRPCRequest('UpdateChannel', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateMPUTaskResponse::fromMap($this->doRPCRequest('UpdateMPUTask', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param UpdateChannelRequest $request
+     * @param UpdateMPUTaskRequest $request
      *
-     * @return UpdateChannelResponse
+     * @return UpdateMPUTaskResponse
      */
-    public function updateChannel($request)
+    public function updateMPUTask($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->updateChannelWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateMPULayoutRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return UpdateMPULayoutResponse
-     */
-    public function updateMPULayoutWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateMPULayoutResponse::fromMap($this->doRPCRequest('UpdateMPULayout', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateMPULayoutRequest $request
-     *
-     * @return UpdateMPULayoutResponse
-     */
-    public function updateMPULayout($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateMPULayoutWithOptions($request, $runtime);
+        return $this->updateMPUTaskWithOptions($request, $runtime);
     }
 
     /**

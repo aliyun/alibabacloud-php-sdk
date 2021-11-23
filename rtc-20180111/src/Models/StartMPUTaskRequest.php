@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartMPUTaskRequest\backgrounds;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartMPUTaskRequest\clockWidgets;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartMPUTaskRequest\enhancedParam;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartMPUTaskRequest\userPanes;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartMPUTaskRequest\watermarks;
 use AlibabaCloud\Tea\Model;
@@ -13,19 +14,19 @@ use AlibabaCloud\Tea\Model;
 class StartMPUTaskRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $showLog;
-
-    /**
      * @var string
      */
     public $appId;
+
+    /**
+     * @var int
+     */
+    public $backgroundColor;
+
+    /**
+     * @var backgrounds[]
+     */
+    public $backgrounds;
 
     /**
      * @var string
@@ -33,19 +34,29 @@ class StartMPUTaskRequest extends Model
     public $channelId;
 
     /**
-     * @var string
+     * @var clockWidgets[]
      */
-    public $taskId;
-
-    /**
-     * @var string
-     */
-    public $taskProfile;
+    public $clockWidgets;
 
     /**
      * @var int
      */
-    public $taskMode;
+    public $cropMode;
+
+    /**
+     * @var enhancedParam
+     */
+    public $enhancedParam;
+
+    /**
+     * @var int[]
+     */
+    public $layoutIds;
+
+    /**
+     * @var int
+     */
+    public $mediaEncode;
 
     /**
      * @var int
@@ -55,32 +66,7 @@ class StartMPUTaskRequest extends Model
     /**
      * @var int
      */
-    public $cropMode;
-
-    /**
-     * @var int
-     */
-    public $mediaEncode;
-
-    /**
-     * @var string
-     */
-    public $sourceType;
-
-    /**
-     * @var int
-     */
-    public $streamType;
-
-    /**
-     * @var int
-     */
-    public $backgroundColor;
-
-    /**
-     * @var string
-     */
-    public $streamURL;
+    public $ownerId;
 
     /**
      * @var int
@@ -98,19 +84,19 @@ class StartMPUTaskRequest extends Model
     public $rtpExtInfo;
 
     /**
-     * @var int
+     * @var string
      */
-    public $timeStampRef;
+    public $sourceType;
 
     /**
      * @var int
      */
-    public $vadInterval;
+    public $streamType;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $subSpecUsers;
+    public $streamURL;
 
     /**
      * @var string[]
@@ -118,9 +104,49 @@ class StartMPUTaskRequest extends Model
     public $subSpecAudioUsers;
 
     /**
-     * @var int[]
+     * @var string[]
      */
-    public $layoutIds;
+    public $subSpecCameraUsers;
+
+    /**
+     * @var string[]
+     */
+    public $subSpecShareScreenUsers;
+
+    /**
+     * @var string[]
+     */
+    public $subSpecUsers;
+
+    /**
+     * @var string
+     */
+    public $taskId;
+
+    /**
+     * @var int
+     */
+    public $taskType;
+
+    /**
+     * @var int
+     */
+    public $timeStampRef;
+
+    /**
+     * @var string[]
+     */
+    public $unsubSpecAudioUsers;
+
+    /**
+     * @var string[]
+     */
+    public $unsubSpecCameraUsers;
+
+    /**
+     * @var string[]
+     */
+    public $unsubSpecShareScreenUsers;
 
     /**
      * @var userPanes[]
@@ -128,46 +154,45 @@ class StartMPUTaskRequest extends Model
     public $userPanes;
 
     /**
-     * @var backgrounds[]
+     * @var int
      */
-    public $backgrounds;
+    public $vadInterval;
 
     /**
      * @var watermarks[]
      */
     public $watermarks;
-
-    /**
-     * @var clockWidgets[]
-     */
-    public $clockWidgets;
     protected $_name = [
-        'ownerId'           => 'OwnerId',
-        'showLog'           => 'ShowLog',
-        'appId'             => 'AppId',
-        'channelId'         => 'ChannelId',
-        'taskId'            => 'TaskId',
-        'taskProfile'       => 'TaskProfile',
-        'taskMode'          => 'TaskMode',
-        'mixMode'           => 'MixMode',
-        'cropMode'          => 'CropMode',
-        'mediaEncode'       => 'MediaEncode',
-        'sourceType'        => 'SourceType',
-        'streamType'        => 'StreamType',
-        'backgroundColor'   => 'BackgroundColor',
-        'streamURL'         => 'StreamURL',
-        'payloadType'       => 'PayloadType',
-        'reportVad'         => 'ReportVad',
-        'rtpExtInfo'        => 'RtpExtInfo',
-        'timeStampRef'      => 'TimeStampRef',
-        'vadInterval'       => 'VadInterval',
-        'subSpecUsers'      => 'SubSpecUsers',
-        'subSpecAudioUsers' => 'SubSpecAudioUsers',
-        'layoutIds'         => 'LayoutIds',
-        'userPanes'         => 'UserPanes',
-        'backgrounds'       => 'Backgrounds',
-        'watermarks'        => 'Watermarks',
-        'clockWidgets'      => 'ClockWidgets',
+        'appId'                     => 'AppId',
+        'backgroundColor'           => 'BackgroundColor',
+        'backgrounds'               => 'Backgrounds',
+        'channelId'                 => 'ChannelId',
+        'clockWidgets'              => 'ClockWidgets',
+        'cropMode'                  => 'CropMode',
+        'enhancedParam'             => 'EnhancedParam',
+        'layoutIds'                 => 'LayoutIds',
+        'mediaEncode'               => 'MediaEncode',
+        'mixMode'                   => 'MixMode',
+        'ownerId'                   => 'OwnerId',
+        'payloadType'               => 'PayloadType',
+        'reportVad'                 => 'ReportVad',
+        'rtpExtInfo'                => 'RtpExtInfo',
+        'sourceType'                => 'SourceType',
+        'streamType'                => 'StreamType',
+        'streamURL'                 => 'StreamURL',
+        'subSpecAudioUsers'         => 'SubSpecAudioUsers',
+        'subSpecCameraUsers'        => 'SubSpecCameraUsers',
+        'subSpecShareScreenUsers'   => 'SubSpecShareScreenUsers',
+        'subSpecUsers'              => 'SubSpecUsers',
+        'taskId'                    => 'TaskId',
+        'taskType'                  => 'TaskType',
+        'timeStampRef'              => 'TimeStampRef',
+        'unsubSpecAudioUsers'       => 'UnsubSpecAudioUsers',
+        'unsubSpecCameraUsers'      => 'UnsubSpecCameraUsers',
+        'unsubSpecShareScreenUsers' => 'UnsubSpecShareScreenUsers',
+        'userPanes'                 => 'UserPanes',
+        'vadInterval'               => 'VadInterval',
+        'watermarks'                => 'Watermarks',
     ];
 
     public function validate()
@@ -177,80 +202,11 @@ class StartMPUTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->channelId) {
-            $res['ChannelId'] = $this->channelId;
-        }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
-        if (null !== $this->taskProfile) {
-            $res['TaskProfile'] = $this->taskProfile;
-        }
-        if (null !== $this->taskMode) {
-            $res['TaskMode'] = $this->taskMode;
-        }
-        if (null !== $this->mixMode) {
-            $res['MixMode'] = $this->mixMode;
-        }
-        if (null !== $this->cropMode) {
-            $res['CropMode'] = $this->cropMode;
-        }
-        if (null !== $this->mediaEncode) {
-            $res['MediaEncode'] = $this->mediaEncode;
-        }
-        if (null !== $this->sourceType) {
-            $res['SourceType'] = $this->sourceType;
-        }
-        if (null !== $this->streamType) {
-            $res['StreamType'] = $this->streamType;
-        }
         if (null !== $this->backgroundColor) {
             $res['BackgroundColor'] = $this->backgroundColor;
-        }
-        if (null !== $this->streamURL) {
-            $res['StreamURL'] = $this->streamURL;
-        }
-        if (null !== $this->payloadType) {
-            $res['PayloadType'] = $this->payloadType;
-        }
-        if (null !== $this->reportVad) {
-            $res['ReportVad'] = $this->reportVad;
-        }
-        if (null !== $this->rtpExtInfo) {
-            $res['RtpExtInfo'] = $this->rtpExtInfo;
-        }
-        if (null !== $this->timeStampRef) {
-            $res['TimeStampRef'] = $this->timeStampRef;
-        }
-        if (null !== $this->vadInterval) {
-            $res['VadInterval'] = $this->vadInterval;
-        }
-        if (null !== $this->subSpecUsers) {
-            $res['SubSpecUsers'] = $this->subSpecUsers;
-        }
-        if (null !== $this->subSpecAudioUsers) {
-            $res['SubSpecAudioUsers'] = $this->subSpecAudioUsers;
-        }
-        if (null !== $this->layoutIds) {
-            $res['LayoutIds'] = $this->layoutIds;
-        }
-        if (null !== $this->userPanes) {
-            $res['UserPanes'] = [];
-            if (null !== $this->userPanes && \is_array($this->userPanes)) {
-                $n = 0;
-                foreach ($this->userPanes as $item) {
-                    $res['UserPanes'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->backgrounds) {
             $res['Backgrounds'] = [];
@@ -261,14 +217,8 @@ class StartMPUTaskRequest extends Model
                 }
             }
         }
-        if (null !== $this->watermarks) {
-            $res['Watermarks'] = [];
-            if (null !== $this->watermarks && \is_array($this->watermarks)) {
-                $n = 0;
-                foreach ($this->watermarks as $item) {
-                    $res['Watermarks'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->channelId) {
+            $res['ChannelId'] = $this->channelId;
         }
         if (null !== $this->clockWidgets) {
             $res['ClockWidgets'] = [];
@@ -276,6 +226,93 @@ class StartMPUTaskRequest extends Model
                 $n = 0;
                 foreach ($this->clockWidgets as $item) {
                     $res['ClockWidgets'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->cropMode) {
+            $res['CropMode'] = $this->cropMode;
+        }
+        if (null !== $this->enhancedParam) {
+            $res['EnhancedParam'] = null !== $this->enhancedParam ? $this->enhancedParam->toMap() : null;
+        }
+        if (null !== $this->layoutIds) {
+            $res['LayoutIds'] = $this->layoutIds;
+        }
+        if (null !== $this->mediaEncode) {
+            $res['MediaEncode'] = $this->mediaEncode;
+        }
+        if (null !== $this->mixMode) {
+            $res['MixMode'] = $this->mixMode;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->payloadType) {
+            $res['PayloadType'] = $this->payloadType;
+        }
+        if (null !== $this->reportVad) {
+            $res['ReportVad'] = $this->reportVad;
+        }
+        if (null !== $this->rtpExtInfo) {
+            $res['RtpExtInfo'] = $this->rtpExtInfo;
+        }
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
+        }
+        if (null !== $this->streamType) {
+            $res['StreamType'] = $this->streamType;
+        }
+        if (null !== $this->streamURL) {
+            $res['StreamURL'] = $this->streamURL;
+        }
+        if (null !== $this->subSpecAudioUsers) {
+            $res['SubSpecAudioUsers'] = $this->subSpecAudioUsers;
+        }
+        if (null !== $this->subSpecCameraUsers) {
+            $res['SubSpecCameraUsers'] = $this->subSpecCameraUsers;
+        }
+        if (null !== $this->subSpecShareScreenUsers) {
+            $res['SubSpecShareScreenUsers'] = $this->subSpecShareScreenUsers;
+        }
+        if (null !== $this->subSpecUsers) {
+            $res['SubSpecUsers'] = $this->subSpecUsers;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->taskType) {
+            $res['TaskType'] = $this->taskType;
+        }
+        if (null !== $this->timeStampRef) {
+            $res['TimeStampRef'] = $this->timeStampRef;
+        }
+        if (null !== $this->unsubSpecAudioUsers) {
+            $res['UnsubSpecAudioUsers'] = $this->unsubSpecAudioUsers;
+        }
+        if (null !== $this->unsubSpecCameraUsers) {
+            $res['UnsubSpecCameraUsers'] = $this->unsubSpecCameraUsers;
+        }
+        if (null !== $this->unsubSpecShareScreenUsers) {
+            $res['UnsubSpecShareScreenUsers'] = $this->unsubSpecShareScreenUsers;
+        }
+        if (null !== $this->userPanes) {
+            $res['UserPanes'] = [];
+            if (null !== $this->userPanes && \is_array($this->userPanes)) {
+                $n = 0;
+                foreach ($this->userPanes as $item) {
+                    $res['UserPanes'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->vadInterval) {
+            $res['VadInterval'] = $this->vadInterval;
+        }
+        if (null !== $this->watermarks) {
+            $res['Watermarks'] = [];
+            if (null !== $this->watermarks && \is_array($this->watermarks)) {
+                $n = 0;
+                foreach ($this->watermarks as $item) {
+                    $res['Watermarks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -291,47 +328,52 @@ class StartMPUTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
-        }
-        if (isset($map['ChannelId'])) {
-            $model->channelId = $map['ChannelId'];
-        }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
-        if (isset($map['TaskProfile'])) {
-            $model->taskProfile = $map['TaskProfile'];
-        }
-        if (isset($map['TaskMode'])) {
-            $model->taskMode = $map['TaskMode'];
-        }
-        if (isset($map['MixMode'])) {
-            $model->mixMode = $map['MixMode'];
-        }
-        if (isset($map['CropMode'])) {
-            $model->cropMode = $map['CropMode'];
-        }
-        if (isset($map['MediaEncode'])) {
-            $model->mediaEncode = $map['MediaEncode'];
-        }
-        if (isset($map['SourceType'])) {
-            $model->sourceType = $map['SourceType'];
-        }
-        if (isset($map['StreamType'])) {
-            $model->streamType = $map['StreamType'];
         }
         if (isset($map['BackgroundColor'])) {
             $model->backgroundColor = $map['BackgroundColor'];
         }
-        if (isset($map['StreamURL'])) {
-            $model->streamURL = $map['StreamURL'];
+        if (isset($map['Backgrounds'])) {
+            if (!empty($map['Backgrounds'])) {
+                $model->backgrounds = [];
+                $n                  = 0;
+                foreach ($map['Backgrounds'] as $item) {
+                    $model->backgrounds[$n++] = null !== $item ? backgrounds::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['ChannelId'])) {
+            $model->channelId = $map['ChannelId'];
+        }
+        if (isset($map['ClockWidgets'])) {
+            if (!empty($map['ClockWidgets'])) {
+                $model->clockWidgets = [];
+                $n                   = 0;
+                foreach ($map['ClockWidgets'] as $item) {
+                    $model->clockWidgets[$n++] = null !== $item ? clockWidgets::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['CropMode'])) {
+            $model->cropMode = $map['CropMode'];
+        }
+        if (isset($map['EnhancedParam'])) {
+            $model->enhancedParam = enhancedParam::fromMap($map['EnhancedParam']);
+        }
+        if (isset($map['LayoutIds'])) {
+            if (!empty($map['LayoutIds'])) {
+                $model->layoutIds = $map['LayoutIds'];
+            }
+        }
+        if (isset($map['MediaEncode'])) {
+            $model->mediaEncode = $map['MediaEncode'];
+        }
+        if (isset($map['MixMode'])) {
+            $model->mixMode = $map['MixMode'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PayloadType'])) {
             $model->payloadType = $map['PayloadType'];
@@ -342,25 +384,57 @@ class StartMPUTaskRequest extends Model
         if (isset($map['RtpExtInfo'])) {
             $model->rtpExtInfo = $map['RtpExtInfo'];
         }
-        if (isset($map['TimeStampRef'])) {
-            $model->timeStampRef = $map['TimeStampRef'];
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
         }
-        if (isset($map['VadInterval'])) {
-            $model->vadInterval = $map['VadInterval'];
+        if (isset($map['StreamType'])) {
+            $model->streamType = $map['StreamType'];
         }
-        if (isset($map['SubSpecUsers'])) {
-            if (!empty($map['SubSpecUsers'])) {
-                $model->subSpecUsers = $map['SubSpecUsers'];
-            }
+        if (isset($map['StreamURL'])) {
+            $model->streamURL = $map['StreamURL'];
         }
         if (isset($map['SubSpecAudioUsers'])) {
             if (!empty($map['SubSpecAudioUsers'])) {
                 $model->subSpecAudioUsers = $map['SubSpecAudioUsers'];
             }
         }
-        if (isset($map['LayoutIds'])) {
-            if (!empty($map['LayoutIds'])) {
-                $model->layoutIds = $map['LayoutIds'];
+        if (isset($map['SubSpecCameraUsers'])) {
+            if (!empty($map['SubSpecCameraUsers'])) {
+                $model->subSpecCameraUsers = $map['SubSpecCameraUsers'];
+            }
+        }
+        if (isset($map['SubSpecShareScreenUsers'])) {
+            if (!empty($map['SubSpecShareScreenUsers'])) {
+                $model->subSpecShareScreenUsers = $map['SubSpecShareScreenUsers'];
+            }
+        }
+        if (isset($map['SubSpecUsers'])) {
+            if (!empty($map['SubSpecUsers'])) {
+                $model->subSpecUsers = $map['SubSpecUsers'];
+            }
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['TaskType'])) {
+            $model->taskType = $map['TaskType'];
+        }
+        if (isset($map['TimeStampRef'])) {
+            $model->timeStampRef = $map['TimeStampRef'];
+        }
+        if (isset($map['UnsubSpecAudioUsers'])) {
+            if (!empty($map['UnsubSpecAudioUsers'])) {
+                $model->unsubSpecAudioUsers = $map['UnsubSpecAudioUsers'];
+            }
+        }
+        if (isset($map['UnsubSpecCameraUsers'])) {
+            if (!empty($map['UnsubSpecCameraUsers'])) {
+                $model->unsubSpecCameraUsers = $map['UnsubSpecCameraUsers'];
+            }
+        }
+        if (isset($map['UnsubSpecShareScreenUsers'])) {
+            if (!empty($map['UnsubSpecShareScreenUsers'])) {
+                $model->unsubSpecShareScreenUsers = $map['UnsubSpecShareScreenUsers'];
             }
         }
         if (isset($map['UserPanes'])) {
@@ -372,14 +446,8 @@ class StartMPUTaskRequest extends Model
                 }
             }
         }
-        if (isset($map['Backgrounds'])) {
-            if (!empty($map['Backgrounds'])) {
-                $model->backgrounds = [];
-                $n                  = 0;
-                foreach ($map['Backgrounds'] as $item) {
-                    $model->backgrounds[$n++] = null !== $item ? backgrounds::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['VadInterval'])) {
+            $model->vadInterval = $map['VadInterval'];
         }
         if (isset($map['Watermarks'])) {
             if (!empty($map['Watermarks'])) {
@@ -387,15 +455,6 @@ class StartMPUTaskRequest extends Model
                 $n                 = 0;
                 foreach ($map['Watermarks'] as $item) {
                     $model->watermarks[$n++] = null !== $item ? watermarks::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['ClockWidgets'])) {
-            if (!empty($map['ClockWidgets'])) {
-                $model->clockWidgets = [];
-                $n                   = 0;
-                foreach ($map['ClockWidgets'] as $item) {
-                    $model->clockWidgets[$n++] = null !== $item ? clockWidgets::fromMap($item) : $item;
                 }
             }
         }

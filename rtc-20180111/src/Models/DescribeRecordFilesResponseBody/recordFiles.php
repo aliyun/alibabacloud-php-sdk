@@ -11,16 +11,6 @@ class recordFiles extends Model
     /**
      * @var string
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $createTime;
-
-    /**
-     * @var string
-     */
     public $appId;
 
     /**
@@ -31,7 +21,7 @@ class recordFiles extends Model
     /**
      * @var string
      */
-    public $url;
+    public $createTime;
 
     /**
      * @var float
@@ -41,21 +31,31 @@ class recordFiles extends Model
     /**
      * @var string
      */
-    public $taskId;
+    public $startTime;
 
     /**
      * @var string
      */
     public $stopTime;
+
+    /**
+     * @var string
+     */
+    public $taskId;
+
+    /**
+     * @var string
+     */
+    public $url;
     protected $_name = [
-        'startTime'  => 'StartTime',
-        'createTime' => 'CreateTime',
         'appId'      => 'AppId',
         'channelId'  => 'ChannelId',
-        'url'        => 'Url',
+        'createTime' => 'CreateTime',
         'duration'   => 'Duration',
-        'taskId'     => 'TaskId',
+        'startTime'  => 'StartTime',
         'stopTime'   => 'StopTime',
+        'taskId'     => 'TaskId',
+        'url'        => 'Url',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class recordFiles extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->stopTime) {
             $res['StopTime'] = $this->stopTime;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class recordFiles extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['StopTime'])) {
             $model->stopTime = $map['StopTime'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

@@ -9,19 +9,34 @@ use AlibabaCloud\Tea\Model;
 class CreateAutoLiveStreamRuleRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $showLog;
-
-    /**
      * @var string
      */
     public $appId;
+
+    /**
+     * @var string
+     */
+    public $callBack;
+
+    /**
+     * @var string[]
+     */
+    public $channelIdPrefixes;
+
+    /**
+     * @var string[]
+     */
+    public $channelIds;
+
+    /**
+     * @var int
+     */
+    public $mediaEncode;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
@@ -32,18 +47,15 @@ class CreateAutoLiveStreamRuleRequest extends Model
      * @var string
      */
     public $ruleName;
-
-    /**
-     * @var string
-     */
-    public $callBack;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
-        'showLog'    => 'ShowLog',
-        'appId'      => 'AppId',
-        'playDomain' => 'PlayDomain',
-        'ruleName'   => 'RuleName',
-        'callBack'   => 'CallBack',
+        'appId'             => 'AppId',
+        'callBack'          => 'CallBack',
+        'channelIdPrefixes' => 'ChannelIdPrefixes',
+        'channelIds'        => 'ChannelIds',
+        'mediaEncode'       => 'MediaEncode',
+        'ownerId'           => 'OwnerId',
+        'playDomain'        => 'PlayDomain',
+        'ruleName'          => 'RuleName',
     ];
 
     public function validate()
@@ -53,23 +65,29 @@ class CreateAutoLiveStreamRuleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->showLog) {
-            $res['ShowLog'] = $this->showLog;
-        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->callBack) {
+            $res['CallBack'] = $this->callBack;
+        }
+        if (null !== $this->channelIdPrefixes) {
+            $res['ChannelIdPrefixes'] = $this->channelIdPrefixes;
+        }
+        if (null !== $this->channelIds) {
+            $res['ChannelIds'] = $this->channelIds;
+        }
+        if (null !== $this->mediaEncode) {
+            $res['MediaEncode'] = $this->mediaEncode;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->playDomain) {
             $res['PlayDomain'] = $this->playDomain;
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
-        }
-        if (null !== $this->callBack) {
-            $res['CallBack'] = $this->callBack;
         }
 
         return $res;
@@ -83,23 +101,33 @@ class CreateAutoLiveStreamRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ShowLog'])) {
-            $model->showLog = $map['ShowLog'];
-        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['CallBack'])) {
+            $model->callBack = $map['CallBack'];
+        }
+        if (isset($map['ChannelIdPrefixes'])) {
+            if (!empty($map['ChannelIdPrefixes'])) {
+                $model->channelIdPrefixes = $map['ChannelIdPrefixes'];
+            }
+        }
+        if (isset($map['ChannelIds'])) {
+            if (!empty($map['ChannelIds'])) {
+                $model->channelIds = $map['ChannelIds'];
+            }
+        }
+        if (isset($map['MediaEncode'])) {
+            $model->mediaEncode = $map['MediaEncode'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PlayDomain'])) {
             $model->playDomain = $map['PlayDomain'];
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
-        }
-        if (isset($map['CallBack'])) {
-            $model->callBack = $map['CallBack'];
         }
 
         return $model;

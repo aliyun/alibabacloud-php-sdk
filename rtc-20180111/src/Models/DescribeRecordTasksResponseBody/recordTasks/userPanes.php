@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class userPanes extends Model
 {
     /**
-     * @var string
-     */
-    public $userId;
-
-    /**
      * @var int
      */
     public $paneId;
@@ -22,10 +17,15 @@ class userPanes extends Model
      * @var string
      */
     public $source;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
-        'userId' => 'UserId',
         'paneId' => 'PaneId',
         'source' => 'Source',
+        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class userPanes extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->paneId) {
             $res['PaneId'] = $this->paneId;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class userPanes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['PaneId'])) {
             $model->paneId = $map['PaneId'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;
