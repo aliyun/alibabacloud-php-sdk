@@ -30,6 +30,13 @@ class ModifyClusterRequest extends Model
     public $deletionProtection;
 
     /**
+     * @description 启用或禁用 RRSA 功能。true: 启用，false: 禁用
+     *
+     * @var bool
+     */
+    public $enableRrsa;
+
+    /**
      * @description 域名是否重新绑定到Ingress的SLB地址。
      *
      * @var string
@@ -65,6 +72,7 @@ class ModifyClusterRequest extends Model
         'apiServerEip'               => 'api_server_eip',
         'apiServerEipId'             => 'api_server_eip_id',
         'deletionProtection'         => 'deletion_protection',
+        'enableRrsa'                 => 'enable_rrsa',
         'ingressDomainRebinding'     => 'ingress_domain_rebinding',
         'ingressLoadbalancerId'      => 'ingress_loadbalancer_id',
         'instanceDeletionProtection' => 'instance_deletion_protection',
@@ -87,6 +95,9 @@ class ModifyClusterRequest extends Model
         }
         if (null !== $this->deletionProtection) {
             $res['deletion_protection'] = $this->deletionProtection;
+        }
+        if (null !== $this->enableRrsa) {
+            $res['enable_rrsa'] = $this->enableRrsa;
         }
         if (null !== $this->ingressDomainRebinding) {
             $res['ingress_domain_rebinding'] = $this->ingressDomainRebinding;
@@ -123,6 +134,9 @@ class ModifyClusterRequest extends Model
         }
         if (isset($map['deletion_protection'])) {
             $model->deletionProtection = $map['deletion_protection'];
+        }
+        if (isset($map['enable_rrsa'])) {
+            $model->enableRrsa = $map['enable_rrsa'];
         }
         if (isset($map['ingress_domain_rebinding'])) {
             $model->ingressDomainRebinding = $map['ingress_domain_rebinding'];

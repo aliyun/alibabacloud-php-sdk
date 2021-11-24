@@ -35,6 +35,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterShrinkRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteEdgeMachineRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteEdgeMachineResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteKubernetesTriggerResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DeletePolicyInstanceRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeletePolicyInstanceResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteTemplateResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteTriggerResponse;
@@ -152,6 +153,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\UpgradeClusterResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class CS extends OpenApiClient
@@ -294,8 +296,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'AttachInstances',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $ClusterId . '/attach',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return AttachInstancesResponse::fromMap($this->doROARequest('AttachInstances', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $ClusterId . '/attach', 'json', $req, $runtime));
+        return AttachInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -324,8 +337,19 @@ class CS extends OpenApiClient
         $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'CancelClusterUpgrade',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/clusters/' . $ClusterId . '/upgrade/cancel',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return CancelClusterUpgradeResponse::fromMap($this->doROARequest('CancelClusterUpgrade', '2015-12-15', 'HTTPS', 'POST', 'AK', '/api/v2/clusters/' . $ClusterId . '/upgrade/cancel', 'none', $req, $runtime));
+        return CancelClusterUpgradeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -357,8 +381,19 @@ class CS extends OpenApiClient
         $req         = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'CancelComponentUpgrade',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $clusterId . '/components/{componentId}/cancel',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return CancelComponentUpgradeResponse::fromMap($this->doROARequest('CancelComponentUpgrade', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $clusterId . '/components/' . $componentId . '/cancel', 'none', $req, $runtime));
+        return CancelComponentUpgradeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -395,8 +430,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CancelWorkflow',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/gs/workflow/' . $workflowName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return CancelWorkflowResponse::fromMap($this->doROARequest('CancelWorkflow', '2015-12-15', 'HTTPS', 'PUT', 'AK', '/gs/workflow/' . $workflowName . '', 'none', $req, $runtime));
+        return CancelWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -445,8 +491,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateAutoscalingConfig',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/cluster/' . $ClusterId . '/autoscale/config/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return CreateAutoscalingConfigResponse::fromMap($this->doROARequest('CreateAutoscalingConfig', '2015-12-15', 'HTTPS', 'POST', 'AK', '/cluster/' . $ClusterId . '/autoscale/config/', 'none', $req, $runtime));
+        return CreateAutoscalingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -517,6 +574,9 @@ class CS extends OpenApiClient
         }
         if (!Utils::isUnset($request->disableRollback)) {
             @$body['disable_rollback'] = $request->disableRollback;
+        }
+        if (!Utils::isUnset($request->enableRrsa)) {
+            @$body['enable_rrsa'] = $request->enableRrsa;
         }
         if (!Utils::isUnset($request->encryptionProviderKey)) {
             @$body['encryption_provider_key'] = $request->encryptionProviderKey;
@@ -723,8 +783,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateCluster',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateClusterResponse::fromMap($this->doROARequest('CreateCluster', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters', 'json', $req, $runtime));
+        return CreateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -788,8 +859,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateClusterNodePool',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $ClusterId . '/nodepools',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateClusterNodePoolResponse::fromMap($this->doROARequest('CreateClusterNodePool', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $ClusterId . '/nodepools', 'json', $req, $runtime));
+        return CreateClusterNodePoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -829,8 +911,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateEdgeMachine',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/edge_machines',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateEdgeMachineResponse::fromMap($this->doROARequest('CreateEdgeMachine', '2015-12-15', 'HTTPS', 'POST', 'AK', '/edge_machines', 'json', $req, $runtime));
+        return CreateEdgeMachineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -873,8 +966,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateKubernetesTrigger',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/triggers',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateKubernetesTriggerResponse::fromMap($this->doROARequest('CreateKubernetesTrigger', '2015-12-15', 'HTTPS', 'POST', 'AK', '/triggers', 'json', $req, $runtime));
+        return CreateKubernetesTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -920,8 +1024,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateTemplate',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/templates',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateTemplateResponse::fromMap($this->doROARequest('CreateTemplate', '2015-12-15', 'HTTPS', 'POST', 'AK', '/templates', 'json', $req, $runtime));
+        return CreateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -967,8 +1082,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateTrigger',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $clusterId . '/triggers',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateTriggerResponse::fromMap($this->doROARequest('CreateTrigger', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $clusterId . '/triggers', 'json', $req, $runtime));
+        return CreateTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1016,8 +1142,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteCluster',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $ClusterId . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteClusterResponse::fromMap($this->doROARequest('DeleteCluster', '2015-12-15', 'HTTPS', 'DELETE', 'AK', '/clusters/' . $ClusterId . '', 'none', $req, $runtime));
+        return DeleteClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1049,8 +1186,19 @@ class CS extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteClusterNodepool',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $ClusterId . '/nodepools/{NodepoolId}',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteClusterNodepoolResponse::fromMap($this->doROARequest('DeleteClusterNodepool', '2015-12-15', 'HTTPS', 'DELETE', 'AK', '/clusters/' . $ClusterId . '/nodepools/' . $NodepoolId . '', 'json', $req, $runtime));
+        return DeleteClusterNodepoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1093,8 +1241,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteClusterNodes',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $ClusterId . '/nodes',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteClusterNodesResponse::fromMap($this->doROARequest('DeleteClusterNodes', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $ClusterId . '/nodes', 'json', $req, $runtime));
+        return DeleteClusterNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1131,8 +1290,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteEdgeMachine',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/edge_machines/[edge_machineid]',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteEdgeMachineResponse::fromMap($this->doROARequest('DeleteEdgeMachine', '2015-12-15', 'HTTPS', 'DELETE', 'AK', '/edge_machines/[edge_machineid]', 'none', $req, $runtime));
+        return DeleteEdgeMachineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1161,44 +1331,71 @@ class CS extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteKubernetesTrigger',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/triggers/revoke/' . $Id . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteKubernetesTriggerResponse::fromMap($this->doROARequest('DeleteKubernetesTrigger', '2015-12-15', 'HTTPS', 'DELETE', 'AK', '/triggers/revoke/' . $Id . '', 'none', $req, $runtime));
+        return DeleteKubernetesTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param string $clusterId
-     * @param string $policyName
-     * @param string $instanceId
+     * @param string                      $clusterId
+     * @param string                      $policyName
+     * @param DeletePolicyInstanceRequest $request
      *
      * @return DeletePolicyInstanceResponse
      */
-    public function deletePolicyInstance($clusterId, $policyName, $instanceId)
+    public function deletePolicyInstance($clusterId, $policyName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deletePolicyInstanceWithOptions($clusterId, $policyName, $instanceId, $headers, $runtime);
+        return $this->deletePolicyInstanceWithOptions($clusterId, $policyName, $request, $headers, $runtime);
     }
 
     /**
-     * @param string         $clusterId
-     * @param string         $policyName
-     * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                      $clusterId
+     * @param string                      $policyName
+     * @param DeletePolicyInstanceRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
      * @return DeletePolicyInstanceResponse
      */
-    public function deletePolicyInstanceWithOptions($clusterId, $policyName, $instanceId, $headers, $runtime)
+    public function deletePolicyInstanceWithOptions($clusterId, $policyName, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
         $clusterId  = OpenApiUtilClient::getEncodeParam($clusterId);
         $policyName = OpenApiUtilClient::getEncodeParam($policyName);
-        $instanceId = OpenApiUtilClient::getEncodeParam($instanceId);
-        $req        = new OpenApiRequest([
+        $query      = [];
+        if (!Utils::isUnset($request->instanceName)) {
+            @$query['instance_name'] = $request->instanceName;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePolicyInstance',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $clusterId . '/policies/{policyName}',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeletePolicyInstanceResponse::fromMap($this->doROARequest('DeletePolicyInstance', '2015-12-15', 'HTTPS', 'DELETE', 'AK', '/clusters/' . $clusterId . '/policies/' . $policyName . '/instances/' . $instanceId . '', 'none', $req, $runtime));
+        return DeletePolicyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1227,8 +1424,19 @@ class CS extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteTemplate',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/templates/' . $TemplateId . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteTemplateResponse::fromMap($this->doROARequest('DeleteTemplate', '2015-12-15', 'HTTPS', 'DELETE', 'AK', '/templates/' . $TemplateId . '', 'none', $req, $runtime));
+        return DeleteTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1260,8 +1468,19 @@ class CS extends OpenApiClient
         $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteTrigger',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/[cluster_id]/triggers/[Id]',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteTriggerResponse::fromMap($this->doROARequest('DeleteTrigger', '2015-12-15', 'HTTPS', 'DELETE', 'AK', '/clusters/[cluster_id]/triggers/[Id]', 'none', $req, $runtime));
+        return DeleteTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1307,8 +1526,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'DeployPolicyInstance',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $clusterId . '/policies/{policyName}',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeployPolicyInstanceResponse::fromMap($this->doROARequest('DeployPolicyInstance', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $clusterId . '/policies/' . $policyName . '', 'none', $req, $runtime));
+        return DeployPolicyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1337,8 +1567,19 @@ class CS extends OpenApiClient
         $req          = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescirbeWorkflow',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/gs/workflow/' . $workflowName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescirbeWorkflowResponse::fromMap($this->doROARequest('DescirbeWorkflow', '2015-12-15', 'HTTPS', 'GET', 'AK', '/gs/workflow/' . $workflowName . '', 'json', $req, $runtime));
+        return DescirbeWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1375,8 +1616,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeAddons',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/components/metadata',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeAddonsResponse::fromMap($this->doROARequest('DescribeAddons', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/components/metadata', 'json', $req, $runtime));
+        return DescribeAddonsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1411,8 +1663,19 @@ class CS extends OpenApiClient
         $req         = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterAddonMetadata',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $clusterId . '/components/{componentId}/metadata',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeClusterAddonMetadataResponse::fromMap($this->doROARequest('DescribeClusterAddonMetadata', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/' . $clusterId . '/components/' . $componentId . '/metadata', 'json', $req, $runtime));
+        return DescribeClusterAddonMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1444,8 +1707,19 @@ class CS extends OpenApiClient
         $req         = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterAddonUpgradeStatus',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $ClusterId . '/components/{ComponentId}/upgradestatus',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeClusterAddonUpgradeStatusResponse::fromMap($this->doROARequest('DescribeClusterAddonUpgradeStatus', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/' . $ClusterId . '/components/' . $ComponentId . '/upgradestatus', 'json', $req, $runtime));
+        return DescribeClusterAddonUpgradeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1487,8 +1761,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterAddonsUpgradeStatus',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $ClusterId . '/components/upgradestatus',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeClusterAddonsUpgradeStatusResponse::fromMap($this->doROARequest('DescribeClusterAddonsUpgradeStatus', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/' . $ClusterId . '/components/upgradestatus', 'json', $req, $runtime));
+        return DescribeClusterAddonsUpgradeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1517,8 +1802,19 @@ class CS extends OpenApiClient
         $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterAddonsVersion',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $ClusterId . '/components/version',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeClusterAddonsVersionResponse::fromMap($this->doROARequest('DescribeClusterAddonsVersion', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/' . $ClusterId . '/components/version', 'json', $req, $runtime));
+        return DescribeClusterAddonsVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1570,8 +1866,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterAttachScripts',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $ClusterId . '/attachscript',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'string',
+        ]);
 
-        return DescribeClusterAttachScriptsResponse::fromMap($this->doROARequest('DescribeClusterAttachScripts', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $ClusterId . '/attachscript', 'string', $req, $runtime));
+        return DescribeClusterAttachScriptsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1600,8 +1907,19 @@ class CS extends OpenApiClient
         $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterDetail',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $ClusterId . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeClusterDetailResponse::fromMap($this->doROARequest('DescribeClusterDetail', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/' . $ClusterId . '', 'json', $req, $runtime));
+        return DescribeClusterDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1630,8 +1948,19 @@ class CS extends OpenApiClient
         $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterLogs',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $ClusterId . '/logs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'array',
+        ]);
 
-        return DescribeClusterLogsResponse::fromMap($this->doROARequest('DescribeClusterLogs', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/' . $ClusterId . '/logs', 'array', $req, $runtime));
+        return DescribeClusterLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1660,8 +1989,19 @@ class CS extends OpenApiClient
         $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterNamespaces',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/k8s/' . $ClusterId . '/namespaces',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'array',
+        ]);
 
-        return DescribeClusterNamespacesResponse::fromMap($this->doROARequest('DescribeClusterNamespaces', '2015-12-15', 'HTTPS', 'GET', 'AK', '/k8s/' . $ClusterId . '/namespaces', 'array', $req, $runtime));
+        return DescribeClusterNamespacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1693,8 +2033,19 @@ class CS extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterNodePoolDetail',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $ClusterId . '/nodepools/{NodepoolId}',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeClusterNodePoolDetailResponse::fromMap($this->doROARequest('DescribeClusterNodePoolDetail', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/' . $ClusterId . '/nodepools/' . $NodepoolId . '', 'json', $req, $runtime));
+        return DescribeClusterNodePoolDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1723,8 +2074,19 @@ class CS extends OpenApiClient
         $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterNodePools',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $ClusterId . '/nodepools',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeClusterNodePoolsResponse::fromMap($this->doROARequest('DescribeClusterNodePools', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/' . $ClusterId . '/nodepools', 'json', $req, $runtime));
+        return DescribeClusterNodePoolsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1773,8 +2135,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterNodes',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $ClusterId . '/nodes',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeClusterNodesResponse::fromMap($this->doROARequest('DescribeClusterNodes', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/' . $ClusterId . '/nodes', 'json', $req, $runtime));
+        return DescribeClusterNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1803,8 +2176,19 @@ class CS extends OpenApiClient
         $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterResources',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $ClusterId . '/resources',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'array',
+        ]);
 
-        return DescribeClusterResourcesResponse::fromMap($this->doROARequest('DescribeClusterResources', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/' . $ClusterId . '/resources', 'array', $req, $runtime));
+        return DescribeClusterResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1844,8 +2228,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterUserKubeconfig',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/k8s/' . $ClusterId . '/user_config',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeClusterUserKubeconfigResponse::fromMap($this->doROARequest('DescribeClusterUserKubeconfig', '2015-12-15', 'HTTPS', 'GET', 'AK', '/k8s/' . $ClusterId . '/user_config', 'json', $req, $runtime));
+        return DescribeClusterUserKubeconfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1882,8 +2277,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterV2UserKubeconfig',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/k8s/' . $ClusterId . '/user_config',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeClusterV2UserKubeconfigResponse::fromMap($this->doROARequest('DescribeClusterV2UserKubeconfig', '2015-12-15', 'HTTPS', 'GET', 'AK', '/api/v2/k8s/' . $ClusterId . '/user_config', 'json', $req, $runtime));
+        return DescribeClusterV2UserKubeconfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1920,8 +2326,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeClusters',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'array',
+        ]);
 
-        return DescribeClustersResponse::fromMap($this->doROARequest('DescribeClusters', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters', 'array', $req, $runtime));
+        return DescribeClustersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1970,8 +2387,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeClustersV1',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/clusters',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeClustersV1Response::fromMap($this->doROARequest('DescribeClustersV1', '2015-12-15', 'HTTPS', 'GET', 'AK', '/api/v1/clusters', 'json', $req, $runtime));
+        return DescribeClustersV1Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2000,8 +2428,19 @@ class CS extends OpenApiClient
         $req           = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeEdgeMachineActiveProcess',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/edge_machines/[edge_machineid]/activeprocess',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeEdgeMachineActiveProcessResponse::fromMap($this->doROARequest('DescribeEdgeMachineActiveProcess', '2015-12-15', 'HTTPS', 'GET', 'AK', '/edge_machines/[edge_machineid]/activeprocess', 'json', $req, $runtime));
+        return DescribeEdgeMachineActiveProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2026,8 +2465,19 @@ class CS extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeEdgeMachineModels',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/edge_machines/models',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeEdgeMachineModelsResponse::fromMap($this->doROARequest('DescribeEdgeMachineModels', '2015-12-15', 'HTTPS', 'GET', 'AK', '/edge_machines/models', 'json', $req, $runtime));
+        return DescribeEdgeMachineModelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2056,8 +2506,19 @@ class CS extends OpenApiClient
         $req           = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeEdgeMachineTunnelConfigDetail',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/edge_machines/[edge_machineid]/tunnelconfig',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeEdgeMachineTunnelConfigDetailResponse::fromMap($this->doROARequest('DescribeEdgeMachineTunnelConfigDetail', '2015-12-15', 'HTTPS', 'POST', 'AK', '/edge_machines/[edge_machineid]/tunnelconfig', 'json', $req, $runtime));
+        return DescribeEdgeMachineTunnelConfigDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2106,8 +2567,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeEdgeMachines',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/edge_machines',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeEdgeMachinesResponse::fromMap($this->doROARequest('DescribeEdgeMachines', '2015-12-15', 'HTTPS', 'GET', 'AK', '/edge_machines', 'json', $req, $runtime));
+        return DescribeEdgeMachinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2150,8 +2622,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeEvents',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/events',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeEventsResponse::fromMap($this->doROARequest('DescribeEvents', '2015-12-15', 'HTTPS', 'GET', 'AK', '/events', 'json', $req, $runtime));
+        return DescribeEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2188,8 +2671,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeExternalAgent',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/k8s/' . $ClusterId . '/external/agent/deployment',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeExternalAgentResponse::fromMap($this->doROARequest('DescribeExternalAgent', '2015-12-15', 'HTTPS', 'GET', 'AK', '/k8s/' . $ClusterId . '/external/agent/deployment', 'json', $req, $runtime));
+        return DescribeExternalAgentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2232,8 +2726,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeKubernetesVersionMetadata',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/metadata/versions',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'array',
+        ]);
 
-        return DescribeKubernetesVersionMetadataResponse::fromMap($this->doROARequest('DescribeKubernetesVersionMetadata', '2015-12-15', 'HTTPS', 'GET', 'AK', '/api/v1/metadata/versions', 'array', $req, $runtime));
+        return DescribeKubernetesVersionMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2258,8 +2763,19 @@ class CS extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribePolicies',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/policies',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribePoliciesResponse::fromMap($this->doROARequest('DescribePolicies', '2015-12-15', 'HTTPS', 'GET', 'AK', '/policies', 'json', $req, $runtime));
+        return DescribePoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2288,8 +2804,19 @@ class CS extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribePolicyDetails',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/policies/' . $policyName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribePolicyDetailsResponse::fromMap($this->doROARequest('DescribePolicyDetails', '2015-12-15', 'HTTPS', 'GET', 'AK', '/policies/' . $policyName . '', 'json', $req, $runtime));
+        return DescribePolicyDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2318,8 +2845,19 @@ class CS extends OpenApiClient
         $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribePolicyGovernanceInCluster',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $clusterId . '/policygovernance',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribePolicyGovernanceInClusterResponse::fromMap($this->doROARequest('DescribePolicyGovernanceInCluster', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/' . $clusterId . '/policygovernance', 'json', $req, $runtime));
+        return DescribePolicyGovernanceInClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2359,8 +2897,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribePolicyInstances',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $clusterId . '/policies',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'array',
+        ]);
 
-        return DescribePolicyInstancesResponse::fromMap($this->doROARequest('DescribePolicyInstances', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/' . $clusterId . '/policies', 'array', $req, $runtime));
+        return DescribePolicyInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2389,8 +2938,19 @@ class CS extends OpenApiClient
         $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribePolicyInstancesStatus',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $clusterId . '/policies/status',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribePolicyInstancesStatusResponse::fromMap($this->doROARequest('DescribePolicyInstancesStatus', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/' . $clusterId . '/policies/status', 'json', $req, $runtime));
+        return DescribePolicyInstancesStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2419,8 +2979,19 @@ class CS extends OpenApiClient
         $req    = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeTaskInfo',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/tasks/' . $taskId . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeTaskInfoResponse::fromMap($this->doROARequest('DescribeTaskInfo', '2015-12-15', 'HTTPS', 'GET', 'AK', '/tasks/' . $taskId . '', 'json', $req, $runtime));
+        return DescribeTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2457,8 +3028,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeTemplateAttribute',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/templates/' . $TemplateId . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'array',
+        ]);
 
-        return DescribeTemplateAttributeResponse::fromMap($this->doROARequest('DescribeTemplateAttribute', '2015-12-15', 'HTTPS', 'GET', 'AK', '/templates/' . $TemplateId . '', 'array', $req, $runtime));
+        return DescribeTemplateAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2498,8 +3080,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeTemplates',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/templates',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeTemplatesResponse::fromMap($this->doROARequest('DescribeTemplates', '2015-12-15', 'HTTPS', 'GET', 'AK', '/templates', 'json', $req, $runtime));
+        return DescribeTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2545,8 +3138,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeTrigger',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/[cluster_id]/triggers',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'array',
+        ]);
 
-        return DescribeTriggerResponse::fromMap($this->doROARequest('DescribeTrigger', '2015-12-15', 'HTTPS', 'GET', 'AK', '/clusters/[cluster_id]/triggers', 'array', $req, $runtime));
+        return DescribeTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2575,8 +3179,19 @@ class CS extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeUserPermission',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/permissions/users/' . $uid . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'array',
+        ]);
 
-        return DescribeUserPermissionResponse::fromMap($this->doROARequest('DescribeUserPermission', '2015-12-15', 'HTTPS', 'GET', 'AK', '/permissions/users/' . $uid . '', 'array', $req, $runtime));
+        return DescribeUserPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2601,8 +3216,19 @@ class CS extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeUserQuota',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/quota',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeUserQuotaResponse::fromMap($this->doROARequest('DescribeUserQuota', '2015-12-15', 'HTTPS', 'GET', 'AK', '/quota', 'json', $req, $runtime));
+        return DescribeUserQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2627,8 +3253,19 @@ class CS extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeWorkflows',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/gs/workflows',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeWorkflowsResponse::fromMap($this->doROARequest('DescribeWorkflows', '2015-12-15', 'HTTPS', 'GET', 'AK', '/gs/workflows', 'json', $req, $runtime));
+        return DescribeWorkflowsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2674,8 +3311,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'EdgeClusterAddEdgeMachine',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/[clusterid]/attachedgemachine/[edge_machineid]',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return EdgeClusterAddEdgeMachineResponse::fromMap($this->doROARequest('EdgeClusterAddEdgeMachine', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/[clusterid]/attachedgemachine/[edge_machineid]', 'json', $req, $runtime));
+        return EdgeClusterAddEdgeMachineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2721,8 +3369,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetKubernetesTrigger',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/triggers/' . $ClusterId . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'array',
+        ]);
 
-        return GetKubernetesTriggerResponse::fromMap($this->doROARequest('GetKubernetesTrigger', '2015-12-15', 'HTTPS', 'GET', 'AK', '/triggers/' . $ClusterId . '', 'array', $req, $runtime));
+        return GetKubernetesTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2751,8 +3410,19 @@ class CS extends OpenApiClient
         $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetUpgradeStatus',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/clusters/' . $ClusterId . '/upgrade/status',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetUpgradeStatusResponse::fromMap($this->doROARequest('GetUpgradeStatus', '2015-12-15', 'HTTPS', 'GET', 'AK', '/api/v2/clusters/' . $ClusterId . '/upgrade/status', 'json', $req, $runtime));
+        return GetUpgradeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2785,8 +3455,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => Utils::toArray($request->body),
         ]);
+        $params = new Params([
+            'action'      => 'GrantPermissions',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/permissions/users/' . $uid . '',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return GrantPermissionsResponse::fromMap($this->doROARequest('GrantPermissions', '2015-12-15', 'HTTPS', 'POST', 'AK', '/permissions/users/' . $uid . '', 'none', $req, $runtime));
+        return GrantPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2819,8 +3500,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => Utils::toArray($request->body),
         ]);
+        $params = new Params([
+            'action'      => 'InstallClusterAddons',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $ClusterId . '/components/install',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return InstallClusterAddonsResponse::fromMap($this->doROARequest('InstallClusterAddons', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $ClusterId . '/components/install', 'none', $req, $runtime));
+        return InstallClusterAddonsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2874,8 +3566,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/tags',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListTagResourcesResponse::fromMap($this->doROARequest('ListTagResources', '2015-12-15', 'HTTPS', 'GET', 'AK', '/tags', 'json', $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2904,8 +3607,19 @@ class CS extends OpenApiClient
         $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'MigrateCluster',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $clusterId . '/migrate',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return MigrateClusterResponse::fromMap($this->doROARequest('MigrateCluster', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $clusterId . '/migrate', 'none', $req, $runtime));
+        return MigrateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2944,6 +3658,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->deletionProtection)) {
             @$body['deletion_protection'] = $request->deletionProtection;
         }
+        if (!Utils::isUnset($request->enableRrsa)) {
+            @$body['enable_rrsa'] = $request->enableRrsa;
+        }
         if (!Utils::isUnset($request->ingressDomainRebinding)) {
             @$body['ingress_domain_rebinding'] = $request->ingressDomainRebinding;
         }
@@ -2963,8 +3680,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ModifyCluster',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/clusters/' . $ClusterId . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ModifyClusterResponse::fromMap($this->doROARequest('ModifyCluster', '2015-12-15', 'HTTPS', 'PUT', 'AK', '/api/v2/clusters/' . $ClusterId . '', 'json', $req, $runtime));
+        return ModifyClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3004,8 +3732,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ModifyClusterAddon',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $clusterId . '/components/{componentId}/config',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return ModifyClusterAddonResponse::fromMap($this->doROARequest('ModifyClusterAddon', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $clusterId . '/components/' . $componentId . '/config', 'none', $req, $runtime));
+        return ModifyClusterAddonResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3042,8 +3781,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ModifyClusterConfiguration',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $ClusterId . '/configuration',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return ModifyClusterConfigurationResponse::fromMap($this->doROARequest('ModifyClusterConfiguration', '2015-12-15', 'HTTPS', 'PUT', 'AK', '/clusters/' . $ClusterId . '/configuration', 'none', $req, $runtime));
+        return ModifyClusterConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3101,8 +3851,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ModifyClusterNodePool',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $ClusterId . '/nodepools/{NodepoolId}',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ModifyClusterNodePoolResponse::fromMap($this->doROARequest('ModifyClusterNodePool', '2015-12-15', 'HTTPS', 'PUT', 'AK', '/clusters/' . $ClusterId . '/nodepools/' . $NodepoolId . '', 'json', $req, $runtime));
+        return ModifyClusterNodePoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3135,8 +3896,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => Utils::toArray($request->body),
         ]);
+        $params = new Params([
+            'action'      => 'ModifyClusterTags',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $ClusterId . '/tags',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return ModifyClusterTagsResponse::fromMap($this->doROARequest('ModifyClusterTags', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $ClusterId . '/tags', 'none', $req, $runtime));
+        return ModifyClusterTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3185,8 +3957,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ModifyPolicyInstance',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $clusterId . '/policies/{policyName}',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ModifyPolicyInstanceResponse::fromMap($this->doROARequest('ModifyPolicyInstance', '2015-12-15', 'HTTPS', 'PUT', 'AK', '/clusters/' . $clusterId . '/policies/' . $policyName . '', 'none', $req, $runtime));
+        return ModifyPolicyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3220,8 +4003,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'OpenAckService',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/service/open',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return OpenAckServiceResponse::fromMap($this->doROARequest('OpenAckService', '2015-12-15', 'HTTPS', 'POST', 'AK', '/service/open', 'json', $req, $runtime));
+        return OpenAckServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3250,8 +4044,19 @@ class CS extends OpenApiClient
         $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'PauseClusterUpgrade',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/clusters/' . $ClusterId . '/upgrade/pause',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return PauseClusterUpgradeResponse::fromMap($this->doROARequest('PauseClusterUpgrade', '2015-12-15', 'HTTPS', 'POST', 'AK', '/api/v2/clusters/' . $ClusterId . '/upgrade/pause', 'none', $req, $runtime));
+        return PauseClusterUpgradeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3283,8 +4088,19 @@ class CS extends OpenApiClient
         $req         = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'PauseComponentUpgrade',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $clusterid . '/components/{componentid}/pause',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return PauseComponentUpgradeResponse::fromMap($this->doROARequest('PauseComponentUpgrade', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $clusterid . '/components/' . $componentid . '/pause', 'none', $req, $runtime));
+        return PauseComponentUpgradeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3327,8 +4143,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'RemoveClusterNodes',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/clusters/' . $ClusterId . '/nodes/remove',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return RemoveClusterNodesResponse::fromMap($this->doROARequest('RemoveClusterNodes', '2015-12-15', 'HTTPS', 'POST', 'AK', '/api/v2/clusters/' . $ClusterId . '/nodes/remove', 'none', $req, $runtime));
+        return RemoveClusterNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3357,8 +4184,19 @@ class CS extends OpenApiClient
         $req          = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'RemoveWorkflow',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/gs/workflow/' . $workflowName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return RemoveWorkflowResponse::fromMap($this->doROARequest('RemoveWorkflow', '2015-12-15', 'HTTPS', 'DELETE', 'AK', '/gs/workflow/' . $workflowName . '', 'none', $req, $runtime));
+        return RemoveWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3390,8 +4228,19 @@ class CS extends OpenApiClient
         $req         = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'ResumeComponentUpgrade',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $clusterid . '/components/{componentid}/resume',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return ResumeComponentUpgradeResponse::fromMap($this->doROARequest('ResumeComponentUpgrade', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $clusterid . '/components/' . $componentid . '/resume', 'none', $req, $runtime));
+        return ResumeComponentUpgradeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3420,8 +4269,19 @@ class CS extends OpenApiClient
         $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'ResumeUpgradeCluster',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/clusters/' . $ClusterId . '/upgrade/resume',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return ResumeUpgradeClusterResponse::fromMap($this->doROARequest('ResumeUpgradeCluster', '2015-12-15', 'HTTPS', 'POST', 'AK', '/api/v2/clusters/' . $ClusterId . '/upgrade/resume', 'none', $req, $runtime));
+        return ResumeUpgradeClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3512,8 +4372,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ScaleCluster',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $ClusterId . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ScaleClusterResponse::fromMap($this->doROARequest('ScaleCluster', '2015-12-15', 'HTTPS', 'PUT', 'AK', '/clusters/' . $ClusterId . '', 'json', $req, $runtime));
+        return ScaleClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3553,8 +4424,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ScaleClusterNodePool',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $ClusterId . '/nodepools/{NodepoolId}',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ScaleClusterNodePoolResponse::fromMap($this->doROARequest('ScaleClusterNodePool', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $ClusterId . '/nodepools/' . $NodepoolId . '', 'json', $req, $runtime));
+        return ScaleClusterNodePoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3651,8 +4533,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ScaleOutCluster',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/clusters/' . $ClusterId . '',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ScaleOutClusterResponse::fromMap($this->doROARequest('ScaleOutCluster', '2015-12-15', 'HTTPS', 'POST', 'AK', '/api/v2/clusters/' . $ClusterId . '', 'json', $req, $runtime));
+        return ScaleOutClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3740,8 +4633,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'StartWorkflow',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/gs/workflow',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return StartWorkflowResponse::fromMap($this->doROARequest('StartWorkflow', '2015-12-15', 'HTTPS', 'POST', 'AK', '/gs/workflow', 'json', $req, $runtime));
+        return StartWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3784,8 +4688,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/tags',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return TagResourcesResponse::fromMap($this->doROARequest('TagResources', '2015-12-15', 'HTTPS', 'PUT', 'AK', '/tags', 'none', $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3818,8 +4733,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => Utils::toArray($request->addons),
         ]);
+        $params = new Params([
+            'action'      => 'UnInstallClusterAddons',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $ClusterId . '/components/uninstall',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return UnInstallClusterAddonsResponse::fromMap($this->doROARequest('UnInstallClusterAddons', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $ClusterId . '/components/uninstall', 'none', $req, $runtime));
+        return UnInstallClusterAddonsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3862,8 +4788,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/tags',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return UntagResourcesResponse::fromMap($this->doROARequest('UntagResources', '2015-12-15', 'HTTPS', 'DELETE', 'AK', '/tags', 'none', $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3892,8 +4829,19 @@ class CS extends OpenApiClient
         $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'UpdateK8sClusterUserConfigExpire',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/k8s/' . $ClusterId . '/user_config/expire',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return UpdateK8sClusterUserConfigExpireResponse::fromMap($this->doROARequest('UpdateK8sClusterUserConfigExpire', '2015-12-15', 'HTTPS', 'POST', 'AK', '/k8s/' . $ClusterId . '/user_config/expire', 'none', $req, $runtime));
+        return UpdateK8sClusterUserConfigExpireResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3942,8 +4890,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateTemplate',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/templates/' . $TemplateId . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return UpdateTemplateResponse::fromMap($this->doROARequest('UpdateTemplate', '2015-12-15', 'HTTPS', 'PUT', 'AK', '/templates/' . $TemplateId . '', 'none', $req, $runtime));
+        return UpdateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3986,8 +4945,19 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpgradeCluster',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/clusters/' . $ClusterId . '/upgrade',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return UpgradeClusterResponse::fromMap($this->doROARequest('UpgradeCluster', '2015-12-15', 'HTTPS', 'POST', 'AK', '/api/v2/clusters/' . $ClusterId . '/upgrade', 'none', $req, $runtime));
+        return UpgradeClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4020,7 +4990,18 @@ class CS extends OpenApiClient
             'headers' => $headers,
             'body'    => Utils::toArray($request->body),
         ]);
+        $params = new Params([
+            'action'      => 'UpgradeClusterAddons',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . $ClusterId . '/components/upgrade',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return UpgradeClusterAddonsResponse::fromMap($this->doROARequest('UpgradeClusterAddons', '2015-12-15', 'HTTPS', 'POST', 'AK', '/clusters/' . $ClusterId . '/components/upgrade', 'none', $req, $runtime));
+        return UpgradeClusterAddonsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 }

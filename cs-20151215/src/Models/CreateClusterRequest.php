@@ -115,6 +115,13 @@ class CreateClusterRequest extends Model
     public $disableRollback;
 
     /**
+     * @description 启用 RRSA 功能
+     *
+     * @var bool
+     */
+    public $enableRrsa;
+
+    /**
      * @description Secret落盘加密
      *
      * @var string
@@ -596,6 +603,7 @@ class CreateClusterRequest extends Model
         'customSan'                        => 'custom_san',
         'deletionProtection'               => 'deletion_protection',
         'disableRollback'                  => 'disable_rollback',
+        'enableRrsa'                       => 'enable_rrsa',
         'encryptionProviderKey'            => 'encryption_provider_key',
         'endpointPublicAccess'             => 'endpoint_public_access',
         'formatDisk'                       => 'format_disk',
@@ -722,6 +730,9 @@ class CreateClusterRequest extends Model
         }
         if (null !== $this->disableRollback) {
             $res['disable_rollback'] = $this->disableRollback;
+        }
+        if (null !== $this->enableRrsa) {
+            $res['enable_rrsa'] = $this->enableRrsa;
         }
         if (null !== $this->encryptionProviderKey) {
             $res['encryption_provider_key'] = $this->encryptionProviderKey;
@@ -1006,6 +1017,9 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['disable_rollback'])) {
             $model->disableRollback = $map['disable_rollback'];
+        }
+        if (isset($map['enable_rrsa'])) {
+            $model->enableRrsa = $map['enable_rrsa'];
         }
         if (isset($map['encryption_provider_key'])) {
             $model->encryptionProviderKey = $map['encryption_provider_key'];
