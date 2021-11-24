@@ -11,21 +11,21 @@ class DeleteZnodeRequest extends Model
     /**
      * @var string
      */
-    public $requestPars;
-
-    /**
-     * @var string
-     */
     public $clusterId;
 
     /**
      * @var string
      */
     public $path;
+
+    /**
+     * @var string
+     */
+    public $requestPars;
     protected $_name = [
-        'requestPars' => 'RequestPars',
         'clusterId'   => 'ClusterId',
         'path'        => 'Path',
+        'requestPars' => 'RequestPars',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteZnodeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestPars) {
-            $res['RequestPars'] = $this->requestPars;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
+        }
+        if (null !== $this->requestPars) {
+            $res['RequestPars'] = $this->requestPars;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DeleteZnodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestPars'])) {
-            $model->requestPars = $map['RequestPars'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
+        }
+        if (isset($map['RequestPars'])) {
+            $model->requestPars = $map['RequestPars'];
         }
 
         return $model;

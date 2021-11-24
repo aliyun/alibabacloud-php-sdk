@@ -12,16 +12,6 @@ class CreateEngineNamespaceResponseBody extends Model
     /**
      * @var string
      */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $clusterId;
 
     /**
@@ -35,15 +25,25 @@ class CreateEngineNamespaceResponseBody extends Model
     public $errorCode;
 
     /**
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
         'clusterId' => 'ClusterId',
         'data'      => 'Data',
         'errorCode' => 'ErrorCode',
+        'message'   => 'Message',
+        'requestId' => 'RequestId',
         'success'   => 'Success',
     ];
 
@@ -54,12 +54,6 @@ class CreateEngineNamespaceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -68,6 +62,12 @@ class CreateEngineNamespaceResponseBody extends Model
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -84,12 +84,6 @@ class CreateEngineNamespaceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
@@ -98,6 +92,12 @@ class CreateEngineNamespaceResponseBody extends Model
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

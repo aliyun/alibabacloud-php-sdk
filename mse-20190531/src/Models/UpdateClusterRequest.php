@@ -11,21 +11,21 @@ class UpdateClusterRequest extends Model
     /**
      * @var string
      */
-    public $requestPars;
-
-    /**
-     * @var string
-     */
     public $clusterAliasName;
 
     /**
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $requestPars;
     protected $_name = [
-        'requestPars'      => 'RequestPars',
         'clusterAliasName' => 'ClusterAliasName',
         'instanceId'       => 'InstanceId',
+        'requestPars'      => 'RequestPars',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class UpdateClusterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestPars) {
-            $res['RequestPars'] = $this->requestPars;
-        }
         if (null !== $this->clusterAliasName) {
             $res['ClusterAliasName'] = $this->clusterAliasName;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->requestPars) {
+            $res['RequestPars'] = $this->requestPars;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class UpdateClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestPars'])) {
-            $model->requestPars = $map['RequestPars'];
-        }
         if (isset($map['ClusterAliasName'])) {
             $model->clusterAliasName = $map['ClusterAliasName'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RequestPars'])) {
+            $model->requestPars = $map['RequestPars'];
         }
 
         return $model;

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ScalingClusterRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $instanceCount;
+    public $clusterSpecification;
 
     /**
      * @var int
@@ -21,23 +21,23 @@ class ScalingClusterRequest extends Model
     /**
      * @var int
      */
-    public $memoryCapacity;
-
-    /**
-     * @var string
-     */
-    public $clusterSpecification;
+    public $instanceCount;
 
     /**
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var int
+     */
+    public $memoryCapacity;
     protected $_name = [
-        'instanceCount'        => 'InstanceCount',
-        'cpu'                  => 'Cpu',
-        'memoryCapacity'       => 'MemoryCapacity',
         'clusterSpecification' => 'ClusterSpecification',
+        'cpu'                  => 'Cpu',
+        'instanceCount'        => 'InstanceCount',
         'instanceId'           => 'InstanceId',
+        'memoryCapacity'       => 'MemoryCapacity',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class ScalingClusterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceCount) {
-            $res['InstanceCount'] = $this->instanceCount;
+        if (null !== $this->clusterSpecification) {
+            $res['ClusterSpecification'] = $this->clusterSpecification;
         }
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
-        if (null !== $this->memoryCapacity) {
-            $res['MemoryCapacity'] = $this->memoryCapacity;
-        }
-        if (null !== $this->clusterSpecification) {
-            $res['ClusterSpecification'] = $this->clusterSpecification;
+        if (null !== $this->instanceCount) {
+            $res['InstanceCount'] = $this->instanceCount;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->memoryCapacity) {
+            $res['MemoryCapacity'] = $this->memoryCapacity;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class ScalingClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceCount'])) {
-            $model->instanceCount = $map['InstanceCount'];
+        if (isset($map['ClusterSpecification'])) {
+            $model->clusterSpecification = $map['ClusterSpecification'];
         }
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
-        if (isset($map['MemoryCapacity'])) {
-            $model->memoryCapacity = $map['MemoryCapacity'];
-        }
-        if (isset($map['ClusterSpecification'])) {
-            $model->clusterSpecification = $map['ClusterSpecification'];
+        if (isset($map['InstanceCount'])) {
+            $model->instanceCount = $map['InstanceCount'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MemoryCapacity'])) {
+            $model->memoryCapacity = $map['MemoryCapacity'];
         }
 
         return $model;

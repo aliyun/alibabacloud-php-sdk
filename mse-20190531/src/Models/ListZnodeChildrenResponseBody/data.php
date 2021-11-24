@@ -14,11 +14,6 @@ class data extends Model
     public $data;
 
     /**
-     * @var string
-     */
-    public $path;
-
-    /**
      * @var bool
      */
     public $dir;
@@ -27,11 +22,16 @@ class data extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $path;
     protected $_name = [
         'data' => 'Data',
-        'path' => 'Path',
         'dir'  => 'Dir',
         'name' => 'Name',
+        'path' => 'Path',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class data extends Model
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
-        if (null !== $this->path) {
-            $res['Path'] = $this->path;
-        }
         if (null !== $this->dir) {
             $res['Dir'] = $this->dir;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class data extends Model
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
-        if (isset($map['Path'])) {
-            $model->path = $map['Path'];
-        }
         if (isset($map['Dir'])) {
             $model->dir = $map['Dir'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
         }
 
         return $model;

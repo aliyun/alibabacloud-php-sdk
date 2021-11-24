@@ -11,12 +11,12 @@ class UpdateZnodeRequest extends Model
     /**
      * @var string
      */
-    public $requestPars;
+    public $clusterId;
 
     /**
      * @var string
      */
-    public $clusterId;
+    public $data;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class UpdateZnodeRequest extends Model
     /**
      * @var string
      */
-    public $data;
+    public $requestPars;
     protected $_name = [
-        'requestPars' => 'RequestPars',
         'clusterId'   => 'ClusterId',
-        'path'        => 'Path',
         'data'        => 'Data',
+        'path'        => 'Path',
+        'requestPars' => 'RequestPars',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class UpdateZnodeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestPars) {
-            $res['RequestPars'] = $this->requestPars;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
         }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
+        if (null !== $this->requestPars) {
+            $res['RequestPars'] = $this->requestPars;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class UpdateZnodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestPars'])) {
-            $model->requestPars = $map['RequestPars'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
         }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+        if (isset($map['RequestPars'])) {
+            $model->requestPars = $map['RequestPars'];
         }
 
         return $model;

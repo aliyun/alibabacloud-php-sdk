@@ -11,21 +11,21 @@ class data extends Model
     /**
      * @var int
      */
-    public $step;
-
-    /**
-     * @var int
-     */
     public $max;
 
     /**
      * @var int
      */
     public $min;
+
+    /**
+     * @var int
+     */
+    public $step;
     protected $_name = [
-        'step' => 'Step',
         'max'  => 'Max',
         'min'  => 'Min',
+        'step' => 'Step',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->step) {
-            $res['Step'] = $this->step;
-        }
         if (null !== $this->max) {
             $res['Max'] = $this->max;
         }
         if (null !== $this->min) {
             $res['Min'] = $this->min;
+        }
+        if (null !== $this->step) {
+            $res['Step'] = $this->step;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Step'])) {
-            $model->step = $map['Step'];
-        }
         if (isset($map['Max'])) {
             $model->max = $map['Max'];
         }
         if (isset($map['Min'])) {
             $model->min = $map['Min'];
+        }
+        if (isset($map['Step'])) {
+            $model->step = $map['Step'];
         }
 
         return $model;

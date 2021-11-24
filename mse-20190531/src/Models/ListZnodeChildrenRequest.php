@@ -11,15 +11,15 @@ class ListZnodeChildrenRequest extends Model
     /**
      * @var string
      */
-    public $path;
+    public $clusterId;
 
     /**
      * @var string
      */
-    public $clusterId;
+    public $path;
     protected $_name = [
-        'path'      => 'Path',
         'clusterId' => 'ClusterId',
+        'path'      => 'Path',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ListZnodeChildrenRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->path) {
-            $res['Path'] = $this->path;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ListZnodeChildrenRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Path'])) {
-            $model->path = $map['Path'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
         }
 
         return $model;

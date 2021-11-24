@@ -14,19 +14,19 @@ class clusters extends Model
     public $defaultCheckPort;
 
     /**
+     * @var int
+     */
+    public $defaultPort;
+
+    /**
      * @var string
      */
     public $healthCheckerType;
 
     /**
-     * @var bool
+     * @var mixed[]
      */
-    public $useIPPort4Check;
-
-    /**
-     * @var string
-     */
-    public $serviceName;
+    public $metadata;
 
     /**
      * @var string
@@ -34,22 +34,22 @@ class clusters extends Model
     public $name;
 
     /**
-     * @var int
+     * @var string
      */
-    public $defaultPort;
+    public $serviceName;
 
     /**
-     * @var mixed[]
+     * @var bool
      */
-    public $metadata;
+    public $useIPPort4Check;
     protected $_name = [
         'defaultCheckPort'  => 'DefaultCheckPort',
-        'healthCheckerType' => 'HealthCheckerType',
-        'useIPPort4Check'   => 'UseIPPort4Check',
-        'serviceName'       => 'ServiceName',
-        'name'              => 'Name',
         'defaultPort'       => 'DefaultPort',
+        'healthCheckerType' => 'HealthCheckerType',
         'metadata'          => 'Metadata',
+        'name'              => 'Name',
+        'serviceName'       => 'ServiceName',
+        'useIPPort4Check'   => 'UseIPPort4Check',
     ];
 
     public function validate()
@@ -62,23 +62,23 @@ class clusters extends Model
         if (null !== $this->defaultCheckPort) {
             $res['DefaultCheckPort'] = $this->defaultCheckPort;
         }
+        if (null !== $this->defaultPort) {
+            $res['DefaultPort'] = $this->defaultPort;
+        }
         if (null !== $this->healthCheckerType) {
             $res['HealthCheckerType'] = $this->healthCheckerType;
         }
-        if (null !== $this->useIPPort4Check) {
-            $res['UseIPPort4Check'] = $this->useIPPort4Check;
-        }
-        if (null !== $this->serviceName) {
-            $res['ServiceName'] = $this->serviceName;
+        if (null !== $this->metadata) {
+            $res['Metadata'] = $this->metadata;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->defaultPort) {
-            $res['DefaultPort'] = $this->defaultPort;
+        if (null !== $this->serviceName) {
+            $res['ServiceName'] = $this->serviceName;
         }
-        if (null !== $this->metadata) {
-            $res['Metadata'] = $this->metadata;
+        if (null !== $this->useIPPort4Check) {
+            $res['UseIPPort4Check'] = $this->useIPPort4Check;
         }
 
         return $res;
@@ -95,23 +95,23 @@ class clusters extends Model
         if (isset($map['DefaultCheckPort'])) {
             $model->defaultCheckPort = $map['DefaultCheckPort'];
         }
+        if (isset($map['DefaultPort'])) {
+            $model->defaultPort = $map['DefaultPort'];
+        }
         if (isset($map['HealthCheckerType'])) {
             $model->healthCheckerType = $map['HealthCheckerType'];
         }
-        if (isset($map['UseIPPort4Check'])) {
-            $model->useIPPort4Check = $map['UseIPPort4Check'];
-        }
-        if (isset($map['ServiceName'])) {
-            $model->serviceName = $map['ServiceName'];
+        if (isset($map['Metadata'])) {
+            $model->metadata = $map['Metadata'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['DefaultPort'])) {
-            $model->defaultPort = $map['DefaultPort'];
+        if (isset($map['ServiceName'])) {
+            $model->serviceName = $map['ServiceName'];
         }
-        if (isset($map['Metadata'])) {
-            $model->metadata = $map['Metadata'];
+        if (isset($map['UseIPPort4Check'])) {
+            $model->useIPPort4Check = $map['UseIPPort4Check'];
         }
 
         return $model;

@@ -9,44 +9,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var int
-     */
-    public $ordering;
-
-    /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $districtEnName;
-
-    /**
-     * @var string
-     */
-    public $showName;
-
-    /**
-     * @var string
-     */
-    public $districtCnName;
-
-    /**
-     * @var string
-     */
-    public $enName;
-
-    /**
-     * @var string
-     */
-    public $districtId;
-
-    /**
-     * @var string
-     */
-    public $districtShowName;
+    public $cnName;
 
     /**
      * @var string
@@ -56,12 +21,37 @@ class data extends Model
     /**
      * @var string
      */
+    public $districtCnName;
+
+    /**
+     * @var string
+     */
+    public $districtEnName;
+
+    /**
+     * @var string
+     */
+    public $districtId;
+
+    /**
+     * @var int
+     */
+    public $districtOrdering;
+
+    /**
+     * @var string
+     */
+    public $districtShowName;
+
+    /**
+     * @var string
+     */
     public $enDescription;
 
     /**
      * @var string
      */
-    public $cnName;
+    public $enName;
 
     /**
      * @var string
@@ -71,21 +61,31 @@ class data extends Model
     /**
      * @var int
      */
-    public $districtOrdering;
+    public $ordering;
+
+    /**
+     * @var string
+     */
+    public $showName;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'ordering'         => 'Ordering',
-        'type'             => 'Type',
-        'districtEnName'   => 'DistrictEnName',
-        'showName'         => 'ShowName',
-        'districtCnName'   => 'DistrictCnName',
-        'enName'           => 'EnName',
-        'districtId'       => 'DistrictId',
-        'districtShowName' => 'DistrictShowName',
-        'description'      => 'Description',
-        'enDescription'    => 'EnDescription',
         'cnName'           => 'CnName',
-        'name'             => 'Name',
+        'description'      => 'Description',
+        'districtCnName'   => 'DistrictCnName',
+        'districtEnName'   => 'DistrictEnName',
+        'districtId'       => 'DistrictId',
         'districtOrdering' => 'DistrictOrdering',
+        'districtShowName' => 'DistrictShowName',
+        'enDescription'    => 'EnDescription',
+        'enName'           => 'EnName',
+        'name'             => 'Name',
+        'ordering'         => 'Ordering',
+        'showName'         => 'ShowName',
+        'type'             => 'Type',
     ];
 
     public function validate()
@@ -95,44 +95,44 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ordering) {
-            $res['Ordering'] = $this->ordering;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->districtEnName) {
-            $res['DistrictEnName'] = $this->districtEnName;
-        }
-        if (null !== $this->showName) {
-            $res['ShowName'] = $this->showName;
-        }
-        if (null !== $this->districtCnName) {
-            $res['DistrictCnName'] = $this->districtCnName;
-        }
-        if (null !== $this->enName) {
-            $res['EnName'] = $this->enName;
-        }
-        if (null !== $this->districtId) {
-            $res['DistrictId'] = $this->districtId;
-        }
-        if (null !== $this->districtShowName) {
-            $res['DistrictShowName'] = $this->districtShowName;
+        if (null !== $this->cnName) {
+            $res['CnName'] = $this->cnName;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->districtCnName) {
+            $res['DistrictCnName'] = $this->districtCnName;
+        }
+        if (null !== $this->districtEnName) {
+            $res['DistrictEnName'] = $this->districtEnName;
+        }
+        if (null !== $this->districtId) {
+            $res['DistrictId'] = $this->districtId;
+        }
+        if (null !== $this->districtOrdering) {
+            $res['DistrictOrdering'] = $this->districtOrdering;
+        }
+        if (null !== $this->districtShowName) {
+            $res['DistrictShowName'] = $this->districtShowName;
+        }
         if (null !== $this->enDescription) {
             $res['EnDescription'] = $this->enDescription;
         }
-        if (null !== $this->cnName) {
-            $res['CnName'] = $this->cnName;
+        if (null !== $this->enName) {
+            $res['EnName'] = $this->enName;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->districtOrdering) {
-            $res['DistrictOrdering'] = $this->districtOrdering;
+        if (null !== $this->ordering) {
+            $res['Ordering'] = $this->ordering;
+        }
+        if (null !== $this->showName) {
+            $res['ShowName'] = $this->showName;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -146,44 +146,44 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Ordering'])) {
-            $model->ordering = $map['Ordering'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['DistrictEnName'])) {
-            $model->districtEnName = $map['DistrictEnName'];
-        }
-        if (isset($map['ShowName'])) {
-            $model->showName = $map['ShowName'];
-        }
-        if (isset($map['DistrictCnName'])) {
-            $model->districtCnName = $map['DistrictCnName'];
-        }
-        if (isset($map['EnName'])) {
-            $model->enName = $map['EnName'];
-        }
-        if (isset($map['DistrictId'])) {
-            $model->districtId = $map['DistrictId'];
-        }
-        if (isset($map['DistrictShowName'])) {
-            $model->districtShowName = $map['DistrictShowName'];
+        if (isset($map['CnName'])) {
+            $model->cnName = $map['CnName'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['DistrictCnName'])) {
+            $model->districtCnName = $map['DistrictCnName'];
+        }
+        if (isset($map['DistrictEnName'])) {
+            $model->districtEnName = $map['DistrictEnName'];
+        }
+        if (isset($map['DistrictId'])) {
+            $model->districtId = $map['DistrictId'];
+        }
+        if (isset($map['DistrictOrdering'])) {
+            $model->districtOrdering = $map['DistrictOrdering'];
+        }
+        if (isset($map['DistrictShowName'])) {
+            $model->districtShowName = $map['DistrictShowName'];
+        }
         if (isset($map['EnDescription'])) {
             $model->enDescription = $map['EnDescription'];
         }
-        if (isset($map['CnName'])) {
-            $model->cnName = $map['CnName'];
+        if (isset($map['EnName'])) {
+            $model->enName = $map['EnName'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['DistrictOrdering'])) {
-            $model->districtOrdering = $map['DistrictOrdering'];
+        if (isset($map['Ordering'])) {
+            $model->ordering = $map['Ordering'];
+        }
+        if (isset($map['ShowName'])) {
+            $model->showName = $map['ShowName'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

@@ -11,7 +11,22 @@ class ListAnsServiceClustersRequest extends Model
     /**
      * @var string
      */
-    public $requestPars;
+    public $clusterId;
+
+    /**
+     * @var string
+     */
+    public $clusterName;
+
+    /**
+     * @var string
+     */
+    public $groupName;
+
+    /**
+     * @var string
+     */
+    public $namespaceId;
 
     /**
      * @var int
@@ -26,36 +41,21 @@ class ListAnsServiceClustersRequest extends Model
     /**
      * @var string
      */
-    public $clusterId;
+    public $requestPars;
 
     /**
      * @var string
      */
     public $serviceName;
-
-    /**
-     * @var string
-     */
-    public $groupName;
-
-    /**
-     * @var string
-     */
-    public $namespaceId;
-
-    /**
-     * @var string
-     */
-    public $clusterName;
     protected $_name = [
-        'requestPars' => 'RequestPars',
-        'pageNum'     => 'PageNum',
-        'pageSize'    => 'PageSize',
         'clusterId'   => 'ClusterId',
-        'serviceName' => 'ServiceName',
+        'clusterName' => 'ClusterName',
         'groupName'   => 'GroupName',
         'namespaceId' => 'NamespaceId',
-        'clusterName' => 'ClusterName',
+        'pageNum'     => 'PageNum',
+        'pageSize'    => 'PageSize',
+        'requestPars' => 'RequestPars',
+        'serviceName' => 'ServiceName',
     ];
 
     public function validate()
@@ -65,20 +65,11 @@ class ListAnsServiceClustersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestPars) {
-            $res['RequestPars'] = $this->requestPars;
-        }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->serviceName) {
-            $res['ServiceName'] = $this->serviceName;
+        if (null !== $this->clusterName) {
+            $res['ClusterName'] = $this->clusterName;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
@@ -86,8 +77,17 @@ class ListAnsServiceClustersRequest extends Model
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
-        if (null !== $this->clusterName) {
-            $res['ClusterName'] = $this->clusterName;
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestPars) {
+            $res['RequestPars'] = $this->requestPars;
+        }
+        if (null !== $this->serviceName) {
+            $res['ServiceName'] = $this->serviceName;
         }
 
         return $res;
@@ -101,20 +101,11 @@ class ListAnsServiceClustersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestPars'])) {
-            $model->requestPars = $map['RequestPars'];
-        }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['ServiceName'])) {
-            $model->serviceName = $map['ServiceName'];
+        if (isset($map['ClusterName'])) {
+            $model->clusterName = $map['ClusterName'];
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
@@ -122,8 +113,17 @@ class ListAnsServiceClustersRequest extends Model
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }
-        if (isset($map['ClusterName'])) {
-            $model->clusterName = $map['ClusterName'];
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestPars'])) {
+            $model->requestPars = $map['RequestPars'];
+        }
+        if (isset($map['ServiceName'])) {
+            $model->serviceName = $map['ServiceName'];
         }
 
         return $model;

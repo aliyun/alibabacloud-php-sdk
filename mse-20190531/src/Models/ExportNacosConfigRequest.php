@@ -11,17 +11,7 @@ class ExportNacosConfigRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $namespaceId;
-
-    /**
-     * @var string
-     */
-    public $ids;
+    public $appName;
 
     /**
      * @var string
@@ -36,14 +26,24 @@ class ExportNacosConfigRequest extends Model
     /**
      * @var string
      */
-    public $appName;
+    public $ids;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $namespaceId;
     protected $_name = [
-        'instanceId'  => 'InstanceId',
-        'namespaceId' => 'NamespaceId',
-        'ids'         => 'Ids',
+        'appName'     => 'AppName',
         'dataId'      => 'DataId',
         'group'       => 'Group',
-        'appName'     => 'AppName',
+        'ids'         => 'Ids',
+        'instanceId'  => 'InstanceId',
+        'namespaceId' => 'NamespaceId',
     ];
 
     public function validate()
@@ -53,14 +53,8 @@ class ExportNacosConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->namespaceId) {
-            $res['NamespaceId'] = $this->namespaceId;
-        }
-        if (null !== $this->ids) {
-            $res['Ids'] = $this->ids;
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
         }
         if (null !== $this->dataId) {
             $res['DataId'] = $this->dataId;
@@ -68,8 +62,14 @@ class ExportNacosConfigRequest extends Model
         if (null !== $this->group) {
             $res['Group'] = $this->group;
         }
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
+        if (null !== $this->ids) {
+            $res['Ids'] = $this->ids;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->namespaceId) {
+            $res['NamespaceId'] = $this->namespaceId;
         }
 
         return $res;
@@ -83,14 +83,8 @@ class ExportNacosConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['NamespaceId'])) {
-            $model->namespaceId = $map['NamespaceId'];
-        }
-        if (isset($map['Ids'])) {
-            $model->ids = $map['Ids'];
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
         }
         if (isset($map['DataId'])) {
             $model->dataId = $map['DataId'];
@@ -98,8 +92,14 @@ class ExportNacosConfigRequest extends Model
         if (isset($map['Group'])) {
             $model->group = $map['Group'];
         }
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
+        if (isset($map['Ids'])) {
+            $model->ids = $map['Ids'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['NamespaceId'])) {
+            $model->namespaceId = $map['NamespaceId'];
         }
 
         return $model;

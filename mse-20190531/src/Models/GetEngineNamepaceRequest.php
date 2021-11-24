@@ -11,21 +11,21 @@ class GetEngineNamepaceRequest extends Model
     /**
      * @var string
      */
+    public $clusterId;
+
+    /**
+     * @var string
+     */
     public $id;
 
     /**
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $clusterId;
     protected $_name = [
+        'clusterId'  => 'ClusterId',
         'id'         => 'Id',
         'instanceId' => 'InstanceId',
-        'clusterId'  => 'ClusterId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetEngineNamepaceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetEngineNamepaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
         }
 
         return $model;

@@ -11,21 +11,21 @@ class listeners extends Model
     /**
      * @var string
      */
-    public $md5;
-
-    /**
-     * @var string
-     */
     public $dataId;
 
     /**
      * @var string
      */
     public $group;
+
+    /**
+     * @var string
+     */
+    public $md5;
     protected $_name = [
-        'md5'    => 'Md5',
         'dataId' => 'DataId',
         'group'  => 'Group',
+        'md5'    => 'Md5',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class listeners extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->md5) {
-            $res['Md5'] = $this->md5;
-        }
         if (null !== $this->dataId) {
             $res['DataId'] = $this->dataId;
         }
         if (null !== $this->group) {
             $res['Group'] = $this->group;
+        }
+        if (null !== $this->md5) {
+            $res['Md5'] = $this->md5;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class listeners extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Md5'])) {
-            $model->md5 = $map['Md5'];
-        }
         if (isset($map['DataId'])) {
             $model->dataId = $map['DataId'];
         }
         if (isset($map['Group'])) {
             $model->group = $map['Group'];
+        }
+        if (isset($map['Md5'])) {
+            $model->md5 = $map['Md5'];
         }
 
         return $model;

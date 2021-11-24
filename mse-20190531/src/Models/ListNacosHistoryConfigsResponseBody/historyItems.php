@@ -26,12 +26,12 @@ class historyItems extends Model
     /**
      * @var int
      */
-    public $lastModifiedTime;
+    public $id;
 
     /**
      * @var int
      */
-    public $id;
+    public $lastModifiedTime;
 
     /**
      * @var string
@@ -41,8 +41,8 @@ class historyItems extends Model
         'appName'          => 'AppName',
         'dataId'           => 'DataId',
         'group'            => 'Group',
-        'lastModifiedTime' => 'LastModifiedTime',
         'id'               => 'Id',
+        'lastModifiedTime' => 'LastModifiedTime',
         'opType'           => 'OpType',
     ];
 
@@ -62,11 +62,11 @@ class historyItems extends Model
         if (null !== $this->group) {
             $res['Group'] = $this->group;
         }
-        if (null !== $this->lastModifiedTime) {
-            $res['LastModifiedTime'] = $this->lastModifiedTime;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->lastModifiedTime) {
+            $res['LastModifiedTime'] = $this->lastModifiedTime;
         }
         if (null !== $this->opType) {
             $res['OpType'] = $this->opType;
@@ -92,11 +92,11 @@ class historyItems extends Model
         if (isset($map['Group'])) {
             $model->group = $map['Group'];
         }
-        if (isset($map['LastModifiedTime'])) {
-            $model->lastModifiedTime = $map['LastModifiedTime'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['LastModifiedTime'])) {
+            $model->lastModifiedTime = $map['LastModifiedTime'];
         }
         if (isset($map['OpType'])) {
             $model->opType = $map['OpType'];

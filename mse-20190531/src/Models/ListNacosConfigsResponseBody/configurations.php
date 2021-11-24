@@ -21,17 +21,17 @@ class configurations extends Model
     /**
      * @var string
      */
-    public $id;
+    public $group;
 
     /**
      * @var string
      */
-    public $group;
+    public $id;
     protected $_name = [
         'appName' => 'AppName',
         'dataId'  => 'DataId',
-        'id'      => 'Id',
         'group'   => 'Group',
+        'id'      => 'Id',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class configurations extends Model
         if (null !== $this->dataId) {
             $res['DataId'] = $this->dataId;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
         if (null !== $this->group) {
             $res['Group'] = $this->group;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class configurations extends Model
         if (isset($map['DataId'])) {
             $model->dataId = $map['DataId'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
         if (isset($map['Group'])) {
             $model->group = $map['Group'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         return $model;

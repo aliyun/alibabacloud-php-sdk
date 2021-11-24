@@ -11,11 +11,6 @@ class QueryConfigRequest extends Model
     /**
      * @var string
      */
-    public $requestPars;
-
-    /**
-     * @var string
-     */
     public $clusterId;
 
     /**
@@ -27,11 +22,16 @@ class QueryConfigRequest extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $requestPars;
     protected $_name = [
-        'requestPars' => 'RequestPars',
         'clusterId'   => 'ClusterId',
         'configType'  => 'ConfigType',
         'instanceId'  => 'InstanceId',
+        'requestPars' => 'RequestPars',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class QueryConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestPars) {
-            $res['RequestPars'] = $this->requestPars;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -52,6 +49,9 @@ class QueryConfigRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->requestPars) {
+            $res['RequestPars'] = $this->requestPars;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class QueryConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestPars'])) {
-            $model->requestPars = $map['RequestPars'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
@@ -76,6 +73,9 @@ class QueryConfigRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RequestPars'])) {
+            $model->requestPars = $map['RequestPars'];
         }
 
         return $model;

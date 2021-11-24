@@ -11,17 +11,17 @@ class GetNacosHistoryConfigRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
     public $dataId;
 
     /**
      * @var string
      */
     public $group;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string
@@ -33,9 +33,9 @@ class GetNacosHistoryConfigRequest extends Model
      */
     public $nid;
     protected $_name = [
-        'instanceId'  => 'InstanceId',
         'dataId'      => 'DataId',
         'group'       => 'Group',
+        'instanceId'  => 'InstanceId',
         'namespaceId' => 'NamespaceId',
         'nid'         => 'Nid',
     ];
@@ -47,14 +47,14 @@ class GetNacosHistoryConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->dataId) {
             $res['DataId'] = $this->dataId;
         }
         if (null !== $this->group) {
             $res['Group'] = $this->group;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
@@ -74,14 +74,14 @@ class GetNacosHistoryConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['DataId'])) {
             $model->dataId = $map['DataId'];
         }
         if (isset($map['Group'])) {
             $model->group = $map['Group'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];

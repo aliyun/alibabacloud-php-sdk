@@ -11,12 +11,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $alarmTime;
-
-    /**
-     * @var string
-     */
-    public $alarmEmail;
+    public $alarmContent;
 
     /**
      * @var string
@@ -26,7 +21,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $alarmPhone;
+    public $alarmEmail;
 
     /**
      * @var string
@@ -36,14 +31,19 @@ class data extends Model
     /**
      * @var string
      */
-    public $alarmContent;
+    public $alarmPhone;
+
+    /**
+     * @var string
+     */
+    public $alarmTime;
     protected $_name = [
-        'alarmTime'     => 'AlarmTime',
-        'alarmEmail'    => 'AlarmEmail',
-        'alarmDingDing' => 'AlarmDingDing',
-        'alarmPhone'    => 'AlarmPhone',
-        'alarmName'     => 'AlarmName',
         'alarmContent'  => 'AlarmContent',
+        'alarmDingDing' => 'AlarmDingDing',
+        'alarmEmail'    => 'AlarmEmail',
+        'alarmName'     => 'AlarmName',
+        'alarmPhone'    => 'AlarmPhone',
+        'alarmTime'     => 'AlarmTime',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->alarmTime) {
-            $res['AlarmTime'] = $this->alarmTime;
-        }
-        if (null !== $this->alarmEmail) {
-            $res['AlarmEmail'] = $this->alarmEmail;
+        if (null !== $this->alarmContent) {
+            $res['AlarmContent'] = $this->alarmContent;
         }
         if (null !== $this->alarmDingDing) {
             $res['AlarmDingDing'] = $this->alarmDingDing;
         }
-        if (null !== $this->alarmPhone) {
-            $res['AlarmPhone'] = $this->alarmPhone;
+        if (null !== $this->alarmEmail) {
+            $res['AlarmEmail'] = $this->alarmEmail;
         }
         if (null !== $this->alarmName) {
             $res['AlarmName'] = $this->alarmName;
         }
-        if (null !== $this->alarmContent) {
-            $res['AlarmContent'] = $this->alarmContent;
+        if (null !== $this->alarmPhone) {
+            $res['AlarmPhone'] = $this->alarmPhone;
+        }
+        if (null !== $this->alarmTime) {
+            $res['AlarmTime'] = $this->alarmTime;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AlarmTime'])) {
-            $model->alarmTime = $map['AlarmTime'];
-        }
-        if (isset($map['AlarmEmail'])) {
-            $model->alarmEmail = $map['AlarmEmail'];
+        if (isset($map['AlarmContent'])) {
+            $model->alarmContent = $map['AlarmContent'];
         }
         if (isset($map['AlarmDingDing'])) {
             $model->alarmDingDing = $map['AlarmDingDing'];
         }
-        if (isset($map['AlarmPhone'])) {
-            $model->alarmPhone = $map['AlarmPhone'];
+        if (isset($map['AlarmEmail'])) {
+            $model->alarmEmail = $map['AlarmEmail'];
         }
         if (isset($map['AlarmName'])) {
             $model->alarmName = $map['AlarmName'];
         }
-        if (isset($map['AlarmContent'])) {
-            $model->alarmContent = $map['AlarmContent'];
+        if (isset($map['AlarmPhone'])) {
+            $model->alarmPhone = $map['AlarmPhone'];
+        }
+        if (isset($map['AlarmTime'])) {
+            $model->alarmTime = $map['AlarmTime'];
         }
 
         return $model;

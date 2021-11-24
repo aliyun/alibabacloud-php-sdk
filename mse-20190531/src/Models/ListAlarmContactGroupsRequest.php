@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListAlarmContactGroupsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $requestPars;
-
-    /**
      * @var int
      */
     public $pageNum;
@@ -22,10 +17,15 @@ class ListAlarmContactGroupsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $requestPars;
     protected $_name = [
-        'requestPars' => 'RequestPars',
         'pageNum'     => 'PageNum',
         'pageSize'    => 'PageSize',
+        'requestPars' => 'RequestPars',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ListAlarmContactGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestPars) {
-            $res['RequestPars'] = $this->requestPars;
-        }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestPars) {
+            $res['RequestPars'] = $this->requestPars;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ListAlarmContactGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestPars'])) {
-            $model->requestPars = $map['RequestPars'];
-        }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestPars'])) {
+            $model->requestPars = $map['RequestPars'];
         }
 
         return $model;

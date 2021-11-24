@@ -9,14 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteNacosConfigsResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $httpCode;
+    public $code;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $httpCode;
 
     /**
      * @var string
@@ -26,23 +31,18 @@ class DeleteNacosConfigsResponseBody extends Model
     /**
      * @var string
      */
-    public $errorCode;
-
-    /**
-     * @var int
-     */
-    public $code;
+    public $requestId;
 
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'httpCode'  => 'HttpCode',
-        'requestId' => 'RequestId',
-        'message'   => 'Message',
-        'errorCode' => 'ErrorCode',
         'code'      => 'Code',
+        'errorCode' => 'ErrorCode',
+        'httpCode'  => 'HttpCode',
+        'message'   => 'Message',
+        'requestId' => 'RequestId',
         'success'   => 'Success',
     ];
 
@@ -53,20 +53,20 @@ class DeleteNacosConfigsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->httpCode) {
-            $res['HttpCode'] = $this->httpCode;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->httpCode) {
+            $res['HttpCode'] = $this->httpCode;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -83,20 +83,20 @@ class DeleteNacosConfigsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HttpCode'])) {
-            $model->httpCode = $map['HttpCode'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['HttpCode'])) {
+            $model->httpCode = $map['HttpCode'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

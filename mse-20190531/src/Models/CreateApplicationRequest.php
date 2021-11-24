@@ -16,12 +16,7 @@ class CreateApplicationRequest extends Model
     /**
      * @var string
      */
-    public $region;
-
-    /**
-     * @var string
-     */
-    public $source;
+    public $extraInfo;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class CreateApplicationRequest extends Model
     /**
      * @var string
      */
-    public $extraInfo;
+    public $region;
+
+    /**
+     * @var string
+     */
+    public $source;
     protected $_name = [
         'appName'   => 'AppName',
+        'extraInfo' => 'ExtraInfo',
+        'language'  => 'Language',
         'region'    => 'Region',
         'source'    => 'Source',
-        'language'  => 'Language',
-        'extraInfo' => 'ExtraInfo',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class CreateApplicationRequest extends Model
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+        if (null !== $this->extraInfo) {
+            $res['ExtraInfo'] = $this->extraInfo;
+        }
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
+        }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
-        }
-        if (null !== $this->language) {
-            $res['Language'] = $this->language;
-        }
-        if (null !== $this->extraInfo) {
-            $res['ExtraInfo'] = $this->extraInfo;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class CreateApplicationRequest extends Model
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+        if (isset($map['ExtraInfo'])) {
+            $model->extraInfo = $map['ExtraInfo'];
+        }
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
+        }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
-        }
-        if (isset($map['Language'])) {
-            $model->language = $map['Language'];
-        }
-        if (isset($map['ExtraInfo'])) {
-            $model->extraInfo = $map['ExtraInfo'];
         }
 
         return $model;

@@ -11,12 +11,17 @@ class data extends Model
     /**
      * @var int
      */
-    public $healthyInstanceCount;
+    public $clusterCount;
 
     /**
      * @var string
      */
     public $groupName;
+
+    /**
+     * @var int
+     */
+    public $healthyInstanceCount;
 
     /**
      * @var int
@@ -27,17 +32,12 @@ class data extends Model
      * @var string
      */
     public $name;
-
-    /**
-     * @var int
-     */
-    public $clusterCount;
     protected $_name = [
-        'healthyInstanceCount' => 'HealthyInstanceCount',
+        'clusterCount'         => 'ClusterCount',
         'groupName'            => 'GroupName',
+        'healthyInstanceCount' => 'HealthyInstanceCount',
         'ipCount'              => 'IpCount',
         'name'                 => 'Name',
-        'clusterCount'         => 'ClusterCount',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->healthyInstanceCount) {
-            $res['HealthyInstanceCount'] = $this->healthyInstanceCount;
+        if (null !== $this->clusterCount) {
+            $res['ClusterCount'] = $this->clusterCount;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->healthyInstanceCount) {
+            $res['HealthyInstanceCount'] = $this->healthyInstanceCount;
         }
         if (null !== $this->ipCount) {
             $res['IpCount'] = $this->ipCount;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->clusterCount) {
-            $res['ClusterCount'] = $this->clusterCount;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HealthyInstanceCount'])) {
-            $model->healthyInstanceCount = $map['HealthyInstanceCount'];
+        if (isset($map['ClusterCount'])) {
+            $model->clusterCount = $map['ClusterCount'];
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['HealthyInstanceCount'])) {
+            $model->healthyInstanceCount = $map['HealthyInstanceCount'];
         }
         if (isset($map['IpCount'])) {
             $model->ipCount = $map['IpCount'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['ClusterCount'])) {
-            $model->clusterCount = $map['ClusterCount'];
         }
 
         return $model;

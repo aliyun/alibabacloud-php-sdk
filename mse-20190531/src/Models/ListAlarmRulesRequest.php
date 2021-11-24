@@ -11,7 +11,7 @@ class ListAlarmRulesRequest extends Model
     /**
      * @var string
      */
-    public $requestPars;
+    public $alarmMseType;
 
     /**
      * @var int
@@ -26,12 +26,12 @@ class ListAlarmRulesRequest extends Model
     /**
      * @var string
      */
-    public $alarmMseType;
+    public $requestPars;
     protected $_name = [
-        'requestPars'  => 'RequestPars',
+        'alarmMseType' => 'AlarmMseType',
         'pageNum'      => 'PageNum',
         'pageSize'     => 'PageSize',
-        'alarmMseType' => 'AlarmMseType',
+        'requestPars'  => 'RequestPars',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class ListAlarmRulesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestPars) {
-            $res['RequestPars'] = $this->requestPars;
+        if (null !== $this->alarmMseType) {
+            $res['AlarmMseType'] = $this->alarmMseType;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
@@ -50,8 +50,8 @@ class ListAlarmRulesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->alarmMseType) {
-            $res['AlarmMseType'] = $this->alarmMseType;
+        if (null !== $this->requestPars) {
+            $res['RequestPars'] = $this->requestPars;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class ListAlarmRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestPars'])) {
-            $model->requestPars = $map['RequestPars'];
+        if (isset($map['AlarmMseType'])) {
+            $model->alarmMseType = $map['AlarmMseType'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
@@ -74,8 +74,8 @@ class ListAlarmRulesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['AlarmMseType'])) {
-            $model->alarmMseType = $map['AlarmMseType'];
+        if (isset($map['RequestPars'])) {
+            $model->requestPars = $map['RequestPars'];
         }
 
         return $model;

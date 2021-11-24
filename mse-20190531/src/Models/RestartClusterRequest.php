@@ -11,7 +11,7 @@ class RestartClusterRequest extends Model
     /**
      * @var string
      */
-    public $requestPars;
+    public $clusterId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class RestartClusterRequest extends Model
     /**
      * @var string
      */
-    public $clusterId;
+    public $requestPars;
     protected $_name = [
-        'requestPars' => 'RequestPars',
-        'instanceId'  => 'InstanceId',
         'clusterId'   => 'ClusterId',
+        'instanceId'  => 'InstanceId',
+        'requestPars' => 'RequestPars',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class RestartClusterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestPars) {
-            $res['RequestPars'] = $this->requestPars;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->requestPars) {
+            $res['RequestPars'] = $this->requestPars;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class RestartClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestPars'])) {
-            $model->requestPars = $map['RequestPars'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['RequestPars'])) {
+            $model->requestPars = $map['RequestPars'];
         }
 
         return $model;

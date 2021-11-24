@@ -11,27 +11,7 @@ class ListAnsServicesRequest extends Model
     /**
      * @var string
      */
-    public $requestPars;
-
-    /**
-     * @var int
-     */
-    public $pageNum;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var string
-     */
     public $clusterId;
-
-    /**
-     * @var string
-     */
-    public $serviceName;
 
     /**
      * @var string
@@ -52,16 +32,36 @@ class ListAnsServicesRequest extends Model
      * @var string
      */
     public $namespaceId;
+
+    /**
+     * @var int
+     */
+    public $pageNum;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $requestPars;
+
+    /**
+     * @var string
+     */
+    public $serviceName;
     protected $_name = [
-        'requestPars' => 'RequestPars',
-        'pageNum'     => 'PageNum',
-        'pageSize'    => 'PageSize',
         'clusterId'   => 'ClusterId',
-        'serviceName' => 'ServiceName',
         'groupName'   => 'GroupName',
         'hasIpCount'  => 'HasIpCount',
         'instanceId'  => 'InstanceId',
         'namespaceId' => 'NamespaceId',
+        'pageNum'     => 'PageNum',
+        'pageSize'    => 'PageSize',
+        'requestPars' => 'RequestPars',
+        'serviceName' => 'ServiceName',
     ];
 
     public function validate()
@@ -71,20 +71,8 @@ class ListAnsServicesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestPars) {
-            $res['RequestPars'] = $this->requestPars;
-        }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
-        }
-        if (null !== $this->serviceName) {
-            $res['ServiceName'] = $this->serviceName;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
@@ -98,6 +86,18 @@ class ListAnsServicesRequest extends Model
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestPars) {
+            $res['RequestPars'] = $this->requestPars;
+        }
+        if (null !== $this->serviceName) {
+            $res['ServiceName'] = $this->serviceName;
+        }
 
         return $res;
     }
@@ -110,20 +110,8 @@ class ListAnsServicesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestPars'])) {
-            $model->requestPars = $map['RequestPars'];
-        }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
-        }
-        if (isset($map['ServiceName'])) {
-            $model->serviceName = $map['ServiceName'];
         }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
@@ -136,6 +124,18 @@ class ListAnsServicesRequest extends Model
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
+        }
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestPars'])) {
+            $model->requestPars = $map['RequestPars'];
+        }
+        if (isset($map['ServiceName'])) {
+            $model->serviceName = $map['ServiceName'];
         }
 
         return $model;

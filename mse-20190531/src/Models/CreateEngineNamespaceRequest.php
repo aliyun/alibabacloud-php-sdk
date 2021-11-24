@@ -16,11 +16,6 @@ class CreateEngineNamespaceRequest extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
     public $desc;
 
     /**
@@ -29,14 +24,19 @@ class CreateEngineNamespaceRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var int
      */
     public $serviceCount;
     protected $_name = [
         'clusterId'    => 'ClusterId',
-        'name'         => 'Name',
         'desc'         => 'Desc',
         'instanceId'   => 'InstanceId',
+        'name'         => 'Name',
         'serviceCount' => 'ServiceCount',
     ];
 
@@ -50,14 +50,14 @@ class CreateEngineNamespaceRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->serviceCount) {
             $res['ServiceCount'] = $this->serviceCount;
@@ -77,14 +77,14 @@ class CreateEngineNamespaceRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['ServiceCount'])) {
             $model->serviceCount = $map['ServiceCount'];

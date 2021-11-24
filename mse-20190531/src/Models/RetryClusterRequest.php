@@ -11,15 +11,15 @@ class RetryClusterRequest extends Model
     /**
      * @var string
      */
-    public $requestPars;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $requestPars;
     protected $_name = [
-        'requestPars' => 'RequestPars',
         'instanceId'  => 'InstanceId',
+        'requestPars' => 'RequestPars',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class RetryClusterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestPars) {
-            $res['RequestPars'] = $this->requestPars;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->requestPars) {
+            $res['RequestPars'] = $this->requestPars;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class RetryClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestPars'])) {
-            $model->requestPars = $map['RequestPars'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RequestPars'])) {
+            $model->requestPars = $map['RequestPars'];
         }
 
         return $model;

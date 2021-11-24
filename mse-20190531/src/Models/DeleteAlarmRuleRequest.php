@@ -11,15 +11,15 @@ class DeleteAlarmRuleRequest extends Model
     /**
      * @var string
      */
-    public $requestPars;
+    public $alarmRuleId;
 
     /**
      * @var string
      */
-    public $alarmRuleId;
+    public $requestPars;
     protected $_name = [
-        'requestPars' => 'RequestPars',
         'alarmRuleId' => 'AlarmRuleId',
+        'requestPars' => 'RequestPars',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteAlarmRuleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestPars) {
-            $res['RequestPars'] = $this->requestPars;
-        }
         if (null !== $this->alarmRuleId) {
             $res['AlarmRuleId'] = $this->alarmRuleId;
+        }
+        if (null !== $this->requestPars) {
+            $res['RequestPars'] = $this->requestPars;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteAlarmRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestPars'])) {
-            $model->requestPars = $map['RequestPars'];
-        }
         if (isset($map['AlarmRuleId'])) {
             $model->alarmRuleId = $map['AlarmRuleId'];
+        }
+        if (isset($map['RequestPars'])) {
+            $model->requestPars = $map['RequestPars'];
         }
 
         return $model;

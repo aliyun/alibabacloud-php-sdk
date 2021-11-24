@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddMockRuleRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddMockRuleResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\AddServiceSourceRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\AddServiceSourceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CloneNacosConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CloneNacosConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateAlarmRuleRequest;
@@ -19,6 +21,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\CreateClusterRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateClusterResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateEngineNamespaceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateEngineNamespaceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateGovernanceKubernetesClusterRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateGovernanceKubernetesClusterResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateZnodeRequest;
@@ -41,8 +45,19 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ExportNacosConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ExportNacosConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetEngineNamepaceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetEngineNamepaceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayOptionRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayOptionResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetGovernanceKubernetesClusterListRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetGovernanceKubernetesClusterListResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetGovernanceKubernetesClusterRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetGovernanceKubernetesClusterResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetImageRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetImageResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetImportFileUrlRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetImportFileUrlResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetMseFeatureSwitchResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetNacosConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetNacosConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetNacosHistoryConfigRequest;
@@ -78,6 +93,9 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListEurekaInstancesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListEurekaInstancesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListEurekaServicesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListEurekaServicesResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListListenersByConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListListenersByConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListListenersByIpRequest;
@@ -88,6 +106,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListNacosHistoryConfigsRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListNacosHistoryConfigsResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListZnodeChildrenRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListZnodeChildrenResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ModifyGovernanceKubernetesClusterRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ModifyGovernanceKubernetesClusterResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryBusinessLocationsResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryClusterDetailRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryClusterDetailResponse;
@@ -96,8 +116,11 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\QueryClusterDiskSpecificationResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryClusterSpecificationResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryConfigResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\QueryGatewayRegionResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\QueryGatewayTypeResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryMonitorRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryMonitorResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\QuerySlbSpecResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryZnodeDetailRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryZnodeDetailResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\RestartClusterRequest;
@@ -114,6 +137,15 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateEngineNamespaceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateEngineNamespaceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayNameRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayNameResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayOptionRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayOptionResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayOptionShrinkRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteHTTPRewriteRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteHTTPRewriteResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateImageRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateImageResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateNacosConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateNacosConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateNacosInstanceRequest;
@@ -122,6 +154,7 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateZnodeRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateZnodeResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpgradeClusterRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpgradeClusterResponse;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -133,12 +166,6 @@ class Mse extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'cn-chengdu'            => 'mse.cn-chegndu.aliyuncs.com',
-            'ap-northeast-1'        => 'mse. ap-northeast-1.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'msefinance-share.cn-shanghai-finance-1.aliyuncs.com',
-            'cn-shenzhen-finance-1' => 'msefinance-share.cn-shenzhen-finance-1.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('mse', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -192,6 +219,34 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addMockRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddServiceSourceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddServiceSourceResponse
+     */
+    public function addServiceSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return AddServiceSourceResponse::fromMap($this->doRPCRequest('AddServiceSource', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param AddServiceSourceRequest $request
+     *
+     * @return AddServiceSourceResponse
+     */
+    public function addServiceSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addServiceSourceWithOptions($request, $runtime);
     }
 
     /**
@@ -340,6 +395,34 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createEngineNamespaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateGovernanceKubernetesClusterRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return CreateGovernanceKubernetesClusterResponse
+     */
+    public function createGovernanceKubernetesClusterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateGovernanceKubernetesClusterResponse::fromMap($this->doRPCRequest('CreateGovernanceKubernetesCluster', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateGovernanceKubernetesClusterRequest $request
+     *
+     * @return CreateGovernanceKubernetesClusterResponse
+     */
+    public function createGovernanceKubernetesCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGovernanceKubernetesClusterWithOptions($request, $runtime);
     }
 
     /**
@@ -651,6 +734,147 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param GetGatewayRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetGatewayResponse
+     */
+    public function getGatewayWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return GetGatewayResponse::fromMap($this->doRPCRequest('GetGateway', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetGatewayRequest $request
+     *
+     * @return GetGatewayResponse
+     */
+    public function getGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGatewayWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetGatewayOptionRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetGatewayOptionResponse
+     */
+    public function getGatewayOptionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetGatewayOptionResponse::fromMap($this->doRPCRequest('GetGatewayOption', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetGatewayOptionRequest $request
+     *
+     * @return GetGatewayOptionResponse
+     */
+    public function getGatewayOption($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGatewayOptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetGovernanceKubernetesClusterRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetGovernanceKubernetesClusterResponse
+     */
+    public function getGovernanceKubernetesClusterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetGovernanceKubernetesClusterResponse::fromMap($this->doRPCRequest('GetGovernanceKubernetesCluster', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetGovernanceKubernetesClusterRequest $request
+     *
+     * @return GetGovernanceKubernetesClusterResponse
+     */
+    public function getGovernanceKubernetesCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGovernanceKubernetesClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetGovernanceKubernetesClusterListRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return GetGovernanceKubernetesClusterListResponse
+     */
+    public function getGovernanceKubernetesClusterListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetGovernanceKubernetesClusterListResponse::fromMap($this->doRPCRequest('GetGovernanceKubernetesClusterList', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetGovernanceKubernetesClusterListRequest $request
+     *
+     * @return GetGovernanceKubernetesClusterListResponse
+     */
+    public function getGovernanceKubernetesClusterList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGovernanceKubernetesClusterListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetImageRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetImageResponse
+     */
+    public function getImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetImageResponse::fromMap($this->doRPCRequest('GetImage', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetImageRequest $request
+     *
+     * @return GetImageResponse
+     */
+    public function getImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getImageWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetImportFileUrlRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -676,6 +900,28 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getImportFileUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetMseFeatureSwitchResponse
+     */
+    public function getMseFeatureSwitchWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return GetMseFeatureSwitchResponse::fromMap($this->doRPCRequest('GetMseFeatureSwitch', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return GetMseFeatureSwitchResponse
+     */
+    public function getMseFeatureSwitch()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMseFeatureSwitchWithOptions($runtime);
     }
 
     /**
@@ -1016,35 +1262,6 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListClustersRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListClustersResponse
-     */
-    public function listClustersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return ListClustersResponse::fromMap($this->doRPCRequest('ListClusters', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListClustersRequest $request
-     *
-     * @return ListClustersResponse
-     */
-    public function listClusters($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listClustersWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListClusterTypesRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1098,6 +1315,35 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listClusterVersionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListClustersRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListClustersResponse
+     */
+    public function listClustersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return ListClustersResponse::fromMap($this->doRPCRequest('ListClusters', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListClustersRequest $request
+     *
+     * @return ListClustersResponse
+     */
+    public function listClusters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listClustersWithOptions($request, $runtime);
     }
 
     /**
@@ -1185,6 +1431,39 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listEurekaServicesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListGatewayRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListGatewayResponse
+     */
+    public function listGatewayWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListGatewayShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->filterParams)) {
+            $request->filterParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->filterParams), 'FilterParams', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListGatewayResponse::fromMap($this->doRPCRequest('ListGateway', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListGatewayRequest $request
+     *
+     * @return ListGatewayResponse
+     */
+    public function listGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listGatewayWithOptions($request, $runtime);
     }
 
     /**
@@ -1329,6 +1608,34 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param ModifyGovernanceKubernetesClusterRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ModifyGovernanceKubernetesClusterResponse
+     */
+    public function modifyGovernanceKubernetesClusterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ModifyGovernanceKubernetesClusterResponse::fromMap($this->doRPCRequest('ModifyGovernanceKubernetesCluster', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ModifyGovernanceKubernetesClusterRequest $request
+     *
+     * @return ModifyGovernanceKubernetesClusterResponse
+     */
+    public function modifyGovernanceKubernetesCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyGovernanceKubernetesClusterWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RuntimeOptions $runtime
      *
      * @return QueryBusinessLocationsResponse
@@ -1458,6 +1765,50 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return QueryGatewayRegionResponse
+     */
+    public function queryGatewayRegionWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return QueryGatewayRegionResponse::fromMap($this->doRPCRequest('QueryGatewayRegion', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return QueryGatewayRegionResponse
+     */
+    public function queryGatewayRegion()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryGatewayRegionWithOptions($runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return QueryGatewayTypeResponse
+     */
+    public function queryGatewayTypeWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return QueryGatewayTypeResponse::fromMap($this->doRPCRequest('QueryGatewayType', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return QueryGatewayTypeResponse
+     */
+    public function queryGatewayType()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryGatewayTypeWithOptions($runtime);
+    }
+
+    /**
      * @param QueryMonitorRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1484,6 +1835,28 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return QuerySlbSpecResponse
+     */
+    public function querySlbSpecWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+
+        return QuerySlbSpecResponse::fromMap($this->doRPCRequest('QuerySlbSpec', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @return QuerySlbSpecResponse
+     */
+    public function querySlbSpec()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySlbSpecWithOptions($runtime);
     }
 
     /**
@@ -1709,6 +2082,124 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateEngineNamespaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateGatewayNameRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateGatewayNameResponse
+     */
+    public function updateGatewayNameWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => $query,
+        ]);
+
+        return UpdateGatewayNameResponse::fromMap($this->doRPCRequest('UpdateGatewayName', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGatewayNameRequest $request
+     *
+     * @return UpdateGatewayNameResponse
+     */
+    public function updateGatewayName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGatewayNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateGatewayOptionRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateGatewayOptionResponse
+     */
+    public function updateGatewayOptionWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateGatewayOptionShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->gatewayOption)) {
+            $request->gatewayOptionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->gatewayOption), 'GatewayOption', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateGatewayOptionResponse::fromMap($this->doRPCRequest('UpdateGatewayOption', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGatewayOptionRequest $request
+     *
+     * @return UpdateGatewayOptionResponse
+     */
+    public function updateGatewayOption($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGatewayOptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateGatewayRouteHTTPRewriteRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpdateGatewayRouteHTTPRewriteResponse
+     */
+    public function updateGatewayRouteHTTPRewriteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateGatewayRouteHTTPRewriteResponse::fromMap($this->doRPCRequest('UpdateGatewayRouteHTTPRewrite', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGatewayRouteHTTPRewriteRequest $request
+     *
+     * @return UpdateGatewayRouteHTTPRewriteResponse
+     */
+    public function updateGatewayRouteHTTPRewrite($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGatewayRouteHTTPRewriteWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateImageRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateImageResponse
+     */
+    public function updateImageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return UpdateImageResponse::fromMap($this->doRPCRequest('UpdateImage', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param UpdateImageRequest $request
+     *
+     * @return UpdateImageResponse
+     */
+    public function updateImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateImageWithOptions($request, $runtime);
     }
 
     /**

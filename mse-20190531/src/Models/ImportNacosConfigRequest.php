@@ -11,6 +11,11 @@ class ImportNacosConfigRequest extends Model
     /**
      * @var string
      */
+    public $fileUrl;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -22,16 +27,11 @@ class ImportNacosConfigRequest extends Model
      * @var string
      */
     public $policy;
-
-    /**
-     * @var string
-     */
-    public $fileUrl;
     protected $_name = [
+        'fileUrl'     => 'FileUrl',
         'instanceId'  => 'InstanceId',
         'namespaceId' => 'NamespaceId',
         'policy'      => 'Policy',
-        'fileUrl'     => 'FileUrl',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class ImportNacosConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fileUrl) {
+            $res['FileUrl'] = $this->fileUrl;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -49,9 +52,6 @@ class ImportNacosConfigRequest extends Model
         }
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
-        }
-        if (null !== $this->fileUrl) {
-            $res['FileUrl'] = $this->fileUrl;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class ImportNacosConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FileUrl'])) {
+            $model->fileUrl = $map['FileUrl'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -73,9 +76,6 @@ class ImportNacosConfigRequest extends Model
         }
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
-        }
-        if (isset($map['FileUrl'])) {
-            $model->fileUrl = $map['FileUrl'];
         }
 
         return $model;

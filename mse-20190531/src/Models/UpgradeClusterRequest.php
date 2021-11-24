@@ -11,20 +11,20 @@ class UpgradeClusterRequest extends Model
     /**
      * @var string
      */
-    public $requestPars;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $requestPars;
 
     /**
      * @var string
      */
     public $upgradeVersion;
     protected $_name = [
-        'requestPars'    => 'RequestPars',
         'instanceId'     => 'InstanceId',
+        'requestPars'    => 'RequestPars',
         'upgradeVersion' => 'UpgradeVersion',
     ];
 
@@ -35,11 +35,11 @@ class UpgradeClusterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestPars) {
-            $res['RequestPars'] = $this->requestPars;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->requestPars) {
+            $res['RequestPars'] = $this->requestPars;
         }
         if (null !== $this->upgradeVersion) {
             $res['UpgradeVersion'] = $this->upgradeVersion;
@@ -56,11 +56,11 @@ class UpgradeClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestPars'])) {
-            $model->requestPars = $map['RequestPars'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RequestPars'])) {
+            $model->requestPars = $map['RequestPars'];
         }
         if (isset($map['UpgradeVersion'])) {
             $model->upgradeVersion = $map['UpgradeVersion'];

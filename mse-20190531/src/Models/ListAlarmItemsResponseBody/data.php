@@ -11,21 +11,21 @@ class data extends Model
     /**
      * @var string
      */
+    public $alarmCode;
+
+    /**
+     * @var string
+     */
     public $alarmDesc;
 
     /**
      * @var string
      */
     public $clusterType;
-
-    /**
-     * @var string
-     */
-    public $alarmCode;
     protected $_name = [
+        'alarmCode'   => 'AlarmCode',
         'alarmDesc'   => 'AlarmDesc',
         'clusterType' => 'ClusterType',
-        'alarmCode'   => 'AlarmCode',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->alarmCode) {
+            $res['AlarmCode'] = $this->alarmCode;
+        }
         if (null !== $this->alarmDesc) {
             $res['AlarmDesc'] = $this->alarmDesc;
         }
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
-        }
-        if (null !== $this->alarmCode) {
-            $res['AlarmCode'] = $this->alarmCode;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlarmCode'])) {
+            $model->alarmCode = $map['AlarmCode'];
+        }
         if (isset($map['AlarmDesc'])) {
             $model->alarmDesc = $map['AlarmDesc'];
         }
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
-        }
-        if (isset($map['AlarmCode'])) {
-            $model->alarmCode = $map['AlarmCode'];
         }
 
         return $model;

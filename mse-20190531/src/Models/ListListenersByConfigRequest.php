@@ -11,16 +11,6 @@ class ListListenersByConfigRequest extends Model
     /**
      * @var string
      */
-    public $requestPars;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
     public $dataId;
 
     /**
@@ -31,13 +21,23 @@ class ListListenersByConfigRequest extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $namespaceId;
+
+    /**
+     * @var string
+     */
+    public $requestPars;
     protected $_name = [
-        'requestPars' => 'RequestPars',
-        'instanceId'  => 'InstanceId',
         'dataId'      => 'DataId',
         'group'       => 'Group',
+        'instanceId'  => 'InstanceId',
         'namespaceId' => 'NamespaceId',
+        'requestPars' => 'RequestPars',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class ListListenersByConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestPars) {
-            $res['RequestPars'] = $this->requestPars;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->dataId) {
             $res['DataId'] = $this->dataId;
         }
         if (null !== $this->group) {
             $res['Group'] = $this->group;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
+        }
+        if (null !== $this->requestPars) {
+            $res['RequestPars'] = $this->requestPars;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class ListListenersByConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestPars'])) {
-            $model->requestPars = $map['RequestPars'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['DataId'])) {
             $model->dataId = $map['DataId'];
         }
         if (isset($map['Group'])) {
             $model->group = $map['Group'];
         }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
+        }
+        if (isset($map['RequestPars'])) {
+            $model->requestPars = $map['RequestPars'];
         }
 
         return $model;

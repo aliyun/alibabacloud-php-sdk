@@ -11,17 +11,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $alarmStatus;
-
-    /**
-     * @var string
-     */
-    public $alarmRuleId;
-
-    /**
-     * @var string
-     */
-    public $createTime;
+    public $alarmName;
 
     /**
      * @var string
@@ -31,13 +21,23 @@ class data extends Model
     /**
      * @var string
      */
-    public $alarmName;
+    public $alarmRuleId;
+
+    /**
+     * @var string
+     */
+    public $alarmStatus;
+
+    /**
+     * @var string
+     */
+    public $createTime;
     protected $_name = [
-        'alarmStatus'     => 'AlarmStatus',
-        'alarmRuleId'     => 'AlarmRuleId',
-        'createTime'      => 'CreateTime',
-        'alarmRuleDetail' => 'AlarmRuleDetail',
         'alarmName'       => 'AlarmName',
+        'alarmRuleDetail' => 'AlarmRuleDetail',
+        'alarmRuleId'     => 'AlarmRuleId',
+        'alarmStatus'     => 'AlarmStatus',
+        'createTime'      => 'CreateTime',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->alarmStatus) {
-            $res['AlarmStatus'] = $this->alarmStatus;
-        }
-        if (null !== $this->alarmRuleId) {
-            $res['AlarmRuleId'] = $this->alarmRuleId;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->alarmName) {
+            $res['AlarmName'] = $this->alarmName;
         }
         if (null !== $this->alarmRuleDetail) {
             $res['AlarmRuleDetail'] = $this->alarmRuleDetail;
         }
-        if (null !== $this->alarmName) {
-            $res['AlarmName'] = $this->alarmName;
+        if (null !== $this->alarmRuleId) {
+            $res['AlarmRuleId'] = $this->alarmRuleId;
+        }
+        if (null !== $this->alarmStatus) {
+            $res['AlarmStatus'] = $this->alarmStatus;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AlarmStatus'])) {
-            $model->alarmStatus = $map['AlarmStatus'];
-        }
-        if (isset($map['AlarmRuleId'])) {
-            $model->alarmRuleId = $map['AlarmRuleId'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['AlarmName'])) {
+            $model->alarmName = $map['AlarmName'];
         }
         if (isset($map['AlarmRuleDetail'])) {
             $model->alarmRuleDetail = $map['AlarmRuleDetail'];
         }
-        if (isset($map['AlarmName'])) {
-            $model->alarmName = $map['AlarmName'];
+        if (isset($map['AlarmRuleId'])) {
+            $model->alarmRuleId = $map['AlarmRuleId'];
+        }
+        if (isset($map['AlarmStatus'])) {
+            $model->alarmStatus = $map['AlarmStatus'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
 
         return $model;

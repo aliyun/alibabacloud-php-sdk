@@ -11,27 +11,7 @@ class ListNacosConfigsRequest extends Model
     /**
      * @var string
      */
-    public $requestPars;
-
-    /**
-     * @var int
-     */
-    public $pageNum;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $appName;
 
     /**
      * @var string
@@ -46,28 +26,48 @@ class ListNacosConfigsRequest extends Model
     /**
      * @var string
      */
-    public $appName;
-
-    /**
-     * @var string
-     */
-    public $tags;
+    public $instanceId;
 
     /**
      * @var string
      */
     public $namespaceId;
+
+    /**
+     * @var int
+     */
+    public $pageNum;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $requestPars;
+
+    /**
+     * @var string
+     */
+    public $tags;
     protected $_name = [
-        'requestPars' => 'RequestPars',
-        'pageNum'     => 'PageNum',
-        'pageSize'    => 'PageSize',
-        'instanceId'  => 'InstanceId',
-        'regionId'    => 'RegionId',
+        'appName'     => 'AppName',
         'dataId'      => 'DataId',
         'group'       => 'Group',
-        'appName'     => 'AppName',
-        'tags'        => 'Tags',
+        'instanceId'  => 'InstanceId',
         'namespaceId' => 'NamespaceId',
+        'pageNum'     => 'PageNum',
+        'pageSize'    => 'PageSize',
+        'regionId'    => 'RegionId',
+        'requestPars' => 'RequestPars',
+        'tags'        => 'Tags',
     ];
 
     public function validate()
@@ -77,20 +77,8 @@ class ListNacosConfigsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestPars) {
-            $res['RequestPars'] = $this->requestPars;
-        }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
         }
         if (null !== $this->dataId) {
             $res['DataId'] = $this->dataId;
@@ -98,14 +86,26 @@ class ListNacosConfigsRequest extends Model
         if (null !== $this->group) {
             $res['Group'] = $this->group;
         }
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
+        }
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->requestPars) {
+            $res['RequestPars'] = $this->requestPars;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
 
         return $res;
@@ -119,20 +119,8 @@ class ListNacosConfigsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestPars'])) {
-            $model->requestPars = $map['RequestPars'];
-        }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
         }
         if (isset($map['DataId'])) {
             $model->dataId = $map['DataId'];
@@ -140,14 +128,26 @@ class ListNacosConfigsRequest extends Model
         if (isset($map['Group'])) {
             $model->group = $map['Group'];
         }
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
+        }
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RequestPars'])) {
+            $model->requestPars = $map['RequestPars'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
 
         return $model;

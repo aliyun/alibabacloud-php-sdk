@@ -11,15 +11,15 @@ class data extends Model
     /**
      * @var string
      */
-    public $contactGroupName;
+    public $contactGroupId;
 
     /**
      * @var string
      */
-    public $contactGroupId;
+    public $contactGroupName;
     protected $_name = [
-        'contactGroupName' => 'ContactGroupName',
         'contactGroupId'   => 'ContactGroupId',
+        'contactGroupName' => 'ContactGroupName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->contactGroupName) {
-            $res['ContactGroupName'] = $this->contactGroupName;
-        }
         if (null !== $this->contactGroupId) {
             $res['ContactGroupId'] = $this->contactGroupId;
+        }
+        if (null !== $this->contactGroupName) {
+            $res['ContactGroupName'] = $this->contactGroupName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ContactGroupName'])) {
-            $model->contactGroupName = $map['ContactGroupName'];
-        }
         if (isset($map['ContactGroupId'])) {
             $model->contactGroupId = $map['ContactGroupId'];
+        }
+        if (isset($map['ContactGroupName'])) {
+            $model->contactGroupName = $map['ContactGroupName'];
         }
 
         return $model;

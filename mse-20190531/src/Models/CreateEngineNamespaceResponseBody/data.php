@@ -11,17 +11,7 @@ class data extends Model
     /**
      * @var int
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $namespaceShowName;
-
-    /**
-     * @var int
-     */
-    public $quota;
+    public $configCount;
 
     /**
      * @var string
@@ -34,22 +24,32 @@ class data extends Model
     public $namespaceDesc;
 
     /**
+     * @var string
+     */
+    public $namespaceShowName;
+
+    /**
      * @var int
      */
-    public $configCount;
+    public $quota;
 
     /**
      * @var int
      */
     public $serviceCount;
+
+    /**
+     * @var int
+     */
+    public $type;
     protected $_name = [
-        'type'              => 'Type',
-        'namespaceShowName' => 'NamespaceShowName',
-        'quota'             => 'Quota',
+        'configCount'       => 'ConfigCount',
         'namespace'         => 'Namespace',
         'namespaceDesc'     => 'NamespaceDesc',
-        'configCount'       => 'ConfigCount',
+        'namespaceShowName' => 'NamespaceShowName',
+        'quota'             => 'Quota',
         'serviceCount'      => 'ServiceCount',
+        'type'              => 'Type',
     ];
 
     public function validate()
@@ -59,14 +59,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->namespaceShowName) {
-            $res['NamespaceShowName'] = $this->namespaceShowName;
-        }
-        if (null !== $this->quota) {
-            $res['Quota'] = $this->quota;
+        if (null !== $this->configCount) {
+            $res['ConfigCount'] = $this->configCount;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
@@ -74,11 +68,17 @@ class data extends Model
         if (null !== $this->namespaceDesc) {
             $res['NamespaceDesc'] = $this->namespaceDesc;
         }
-        if (null !== $this->configCount) {
-            $res['ConfigCount'] = $this->configCount;
+        if (null !== $this->namespaceShowName) {
+            $res['NamespaceShowName'] = $this->namespaceShowName;
+        }
+        if (null !== $this->quota) {
+            $res['Quota'] = $this->quota;
         }
         if (null !== $this->serviceCount) {
             $res['ServiceCount'] = $this->serviceCount;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -92,14 +92,8 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['NamespaceShowName'])) {
-            $model->namespaceShowName = $map['NamespaceShowName'];
-        }
-        if (isset($map['Quota'])) {
-            $model->quota = $map['Quota'];
+        if (isset($map['ConfigCount'])) {
+            $model->configCount = $map['ConfigCount'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
@@ -107,11 +101,17 @@ class data extends Model
         if (isset($map['NamespaceDesc'])) {
             $model->namespaceDesc = $map['NamespaceDesc'];
         }
-        if (isset($map['ConfigCount'])) {
-            $model->configCount = $map['ConfigCount'];
+        if (isset($map['NamespaceShowName'])) {
+            $model->namespaceShowName = $map['NamespaceShowName'];
+        }
+        if (isset($map['Quota'])) {
+            $model->quota = $map['Quota'];
         }
         if (isset($map['ServiceCount'])) {
             $model->serviceCount = $map['ServiceCount'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

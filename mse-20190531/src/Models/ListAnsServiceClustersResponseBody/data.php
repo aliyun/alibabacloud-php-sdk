@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var float
-     */
-    public $protectThreshold;
-
-    /**
-     * @var string
-     */
-    public $groupName;
-
-    /**
      * @var clusters[]
      */
     public $clusters;
@@ -27,24 +17,34 @@ class data extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $selectorType;
+    public $groupName;
 
     /**
      * @var mixed[]
      */
     public $metadata;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var float
+     */
+    public $protectThreshold;
+
+    /**
+     * @var string
+     */
+    public $selectorType;
     protected $_name = [
-        'protectThreshold' => 'ProtectThreshold',
-        'groupName'        => 'GroupName',
         'clusters'         => 'Clusters',
-        'name'             => 'Name',
-        'selectorType'     => 'SelectorType',
+        'groupName'        => 'GroupName',
         'metadata'         => 'Metadata',
+        'name'             => 'Name',
+        'protectThreshold' => 'ProtectThreshold',
+        'selectorType'     => 'SelectorType',
     ];
 
     public function validate()
@@ -54,12 +54,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->protectThreshold) {
-            $res['ProtectThreshold'] = $this->protectThreshold;
-        }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
-        }
         if (null !== $this->clusters) {
             $res['Clusters'] = [];
             if (null !== $this->clusters && \is_array($this->clusters)) {
@@ -69,14 +63,20 @@ class data extends Model
                 }
             }
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->selectorType) {
-            $res['SelectorType'] = $this->selectorType;
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
         }
         if (null !== $this->metadata) {
             $res['Metadata'] = $this->metadata;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->protectThreshold) {
+            $res['ProtectThreshold'] = $this->protectThreshold;
+        }
+        if (null !== $this->selectorType) {
+            $res['SelectorType'] = $this->selectorType;
         }
 
         return $res;
@@ -90,12 +90,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProtectThreshold'])) {
-            $model->protectThreshold = $map['ProtectThreshold'];
-        }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
-        }
         if (isset($map['Clusters'])) {
             if (!empty($map['Clusters'])) {
                 $model->clusters = [];
@@ -105,14 +99,20 @@ class data extends Model
                 }
             }
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['SelectorType'])) {
-            $model->selectorType = $map['SelectorType'];
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
         }
         if (isset($map['Metadata'])) {
             $model->metadata = $map['Metadata'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['ProtectThreshold'])) {
+            $model->protectThreshold = $map['ProtectThreshold'];
+        }
+        if (isset($map['SelectorType'])) {
+            $model->selectorType = $map['SelectorType'];
         }
 
         return $model;

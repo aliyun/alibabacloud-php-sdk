@@ -11,11 +11,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var int
-     */
-    public $succCount;
-
-    /**
      * @var failData[]
      */
     public $failData;
@@ -29,11 +24,16 @@ class data extends Model
      * @var skipData[]
      */
     public $skipData;
+
+    /**
+     * @var int
+     */
+    public $succCount;
     protected $_name = [
-        'succCount' => 'SuccCount',
         'failData'  => 'FailData',
         'skipCount' => 'SkipCount',
         'skipData'  => 'SkipData',
+        'succCount' => 'SuccCount',
     ];
 
     public function validate()
@@ -43,9 +43,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->succCount) {
-            $res['SuccCount'] = $this->succCount;
-        }
         if (null !== $this->failData) {
             $res['FailData'] = [];
             if (null !== $this->failData && \is_array($this->failData)) {
@@ -67,6 +64,9 @@ class data extends Model
                 }
             }
         }
+        if (null !== $this->succCount) {
+            $res['SuccCount'] = $this->succCount;
+        }
 
         return $res;
     }
@@ -79,9 +79,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SuccCount'])) {
-            $model->succCount = $map['SuccCount'];
-        }
         if (isset($map['FailData'])) {
             if (!empty($map['FailData'])) {
                 $model->failData = [];
@@ -102,6 +99,9 @@ class data extends Model
                     $model->skipData[$n++] = null !== $item ? skipData::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['SuccCount'])) {
+            $model->succCount = $map['SuccCount'];
         }
 
         return $model;

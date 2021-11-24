@@ -11,22 +11,12 @@ class data extends Model
     /**
      * @var string
      */
-    public $endDate;
+    public $appVersion;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $intranetDomain;
-
-    /**
-     * @var string
-     */
-    public $internetDomain;
-
-    /**
-     * @var string
-     */
-    public $createTime;
+    public $canUpdate;
 
     /**
      * @var string
@@ -36,7 +26,37 @@ class data extends Model
     /**
      * @var string
      */
-    public $intranetAddress;
+    public $clusterAliasName;
+
+    /**
+     * @var string
+     */
+    public $clusterName;
+
+    /**
+     * @var string
+     */
+    public $clusterType;
+
+    /**
+     * @var string
+     */
+    public $createTime;
+
+    /**
+     * @var string
+     */
+    public $endDate;
+
+    /**
+     * @var string
+     */
+    public $initStatus;
+
+    /**
+     * @var int
+     */
+    public $instanceCount;
 
     /**
      * @var string
@@ -51,35 +71,39 @@ class data extends Model
     /**
      * @var string
      */
-    public $clusterAliasName;
+    public $internetDomain;
 
     /**
      * @var string
      */
-    public $clusterType;
+    public $intranetAddress;
 
     /**
      * @var string
      */
-    public $initStatus;
+    public $intranetDomain;
 
     /**
      * @var string
      */
-    public $appVersion;
+    public $versionCode;
     protected $_name = [
-        'endDate'          => 'EndDate',
-        'intranetDomain'   => 'IntranetDomain',
-        'internetDomain'   => 'InternetDomain',
-        'createTime'       => 'CreateTime',
+        'appVersion'       => 'AppVersion',
+        'canUpdate'        => 'CanUpdate',
         'chargeType'       => 'ChargeType',
-        'intranetAddress'  => 'IntranetAddress',
+        'clusterAliasName' => 'ClusterAliasName',
+        'clusterName'      => 'ClusterName',
+        'clusterType'      => 'ClusterType',
+        'createTime'       => 'CreateTime',
+        'endDate'          => 'EndDate',
+        'initStatus'       => 'InitStatus',
+        'instanceCount'    => 'InstanceCount',
         'instanceId'       => 'InstanceId',
         'internetAddress'  => 'InternetAddress',
-        'clusterAliasName' => 'ClusterAliasName',
-        'clusterType'      => 'ClusterType',
-        'initStatus'       => 'InitStatus',
-        'appVersion'       => 'AppVersion',
+        'internetDomain'   => 'InternetDomain',
+        'intranetAddress'  => 'IntranetAddress',
+        'intranetDomain'   => 'IntranetDomain',
+        'versionCode'      => 'VersionCode',
     ];
 
     public function validate()
@@ -89,23 +113,35 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endDate) {
-            $res['EndDate'] = $this->endDate;
+        if (null !== $this->appVersion) {
+            $res['AppVersion'] = $this->appVersion;
         }
-        if (null !== $this->intranetDomain) {
-            $res['IntranetDomain'] = $this->intranetDomain;
-        }
-        if (null !== $this->internetDomain) {
-            $res['InternetDomain'] = $this->internetDomain;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->canUpdate) {
+            $res['CanUpdate'] = $this->canUpdate;
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
-        if (null !== $this->intranetAddress) {
-            $res['IntranetAddress'] = $this->intranetAddress;
+        if (null !== $this->clusterAliasName) {
+            $res['ClusterAliasName'] = $this->clusterAliasName;
+        }
+        if (null !== $this->clusterName) {
+            $res['ClusterName'] = $this->clusterName;
+        }
+        if (null !== $this->clusterType) {
+            $res['ClusterType'] = $this->clusterType;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->endDate) {
+            $res['EndDate'] = $this->endDate;
+        }
+        if (null !== $this->initStatus) {
+            $res['InitStatus'] = $this->initStatus;
+        }
+        if (null !== $this->instanceCount) {
+            $res['InstanceCount'] = $this->instanceCount;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -113,17 +149,17 @@ class data extends Model
         if (null !== $this->internetAddress) {
             $res['InternetAddress'] = $this->internetAddress;
         }
-        if (null !== $this->clusterAliasName) {
-            $res['ClusterAliasName'] = $this->clusterAliasName;
+        if (null !== $this->internetDomain) {
+            $res['InternetDomain'] = $this->internetDomain;
         }
-        if (null !== $this->clusterType) {
-            $res['ClusterType'] = $this->clusterType;
+        if (null !== $this->intranetAddress) {
+            $res['IntranetAddress'] = $this->intranetAddress;
         }
-        if (null !== $this->initStatus) {
-            $res['InitStatus'] = $this->initStatus;
+        if (null !== $this->intranetDomain) {
+            $res['IntranetDomain'] = $this->intranetDomain;
         }
-        if (null !== $this->appVersion) {
-            $res['AppVersion'] = $this->appVersion;
+        if (null !== $this->versionCode) {
+            $res['VersionCode'] = $this->versionCode;
         }
 
         return $res;
@@ -137,23 +173,35 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndDate'])) {
-            $model->endDate = $map['EndDate'];
+        if (isset($map['AppVersion'])) {
+            $model->appVersion = $map['AppVersion'];
         }
-        if (isset($map['IntranetDomain'])) {
-            $model->intranetDomain = $map['IntranetDomain'];
-        }
-        if (isset($map['InternetDomain'])) {
-            $model->internetDomain = $map['InternetDomain'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['CanUpdate'])) {
+            $model->canUpdate = $map['CanUpdate'];
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
-        if (isset($map['IntranetAddress'])) {
-            $model->intranetAddress = $map['IntranetAddress'];
+        if (isset($map['ClusterAliasName'])) {
+            $model->clusterAliasName = $map['ClusterAliasName'];
+        }
+        if (isset($map['ClusterName'])) {
+            $model->clusterName = $map['ClusterName'];
+        }
+        if (isset($map['ClusterType'])) {
+            $model->clusterType = $map['ClusterType'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['EndDate'])) {
+            $model->endDate = $map['EndDate'];
+        }
+        if (isset($map['InitStatus'])) {
+            $model->initStatus = $map['InitStatus'];
+        }
+        if (isset($map['InstanceCount'])) {
+            $model->instanceCount = $map['InstanceCount'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -161,17 +209,17 @@ class data extends Model
         if (isset($map['InternetAddress'])) {
             $model->internetAddress = $map['InternetAddress'];
         }
-        if (isset($map['ClusterAliasName'])) {
-            $model->clusterAliasName = $map['ClusterAliasName'];
+        if (isset($map['InternetDomain'])) {
+            $model->internetDomain = $map['InternetDomain'];
         }
-        if (isset($map['ClusterType'])) {
-            $model->clusterType = $map['ClusterType'];
+        if (isset($map['IntranetAddress'])) {
+            $model->intranetAddress = $map['IntranetAddress'];
         }
-        if (isset($map['InitStatus'])) {
-            $model->initStatus = $map['InitStatus'];
+        if (isset($map['IntranetDomain'])) {
+            $model->intranetDomain = $map['IntranetDomain'];
         }
-        if (isset($map['AppVersion'])) {
-            $model->appVersion = $map['AppVersion'];
+        if (isset($map['VersionCode'])) {
+            $model->versionCode = $map['VersionCode'];
         }
 
         return $model;

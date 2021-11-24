@@ -11,6 +11,11 @@ class DeleteAlarmRuleResponseBody extends Model
     /**
      * @var string
      */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
     public $httpCode;
 
     /**
@@ -24,19 +29,14 @@ class DeleteAlarmRuleResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
      * @var bool
      */
     public $success;
     protected $_name = [
+        'errorCode' => 'ErrorCode',
         'httpCode'  => 'HttpCode',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'errorCode' => 'ErrorCode',
         'success'   => 'Success',
     ];
 
@@ -47,6 +47,9 @@ class DeleteAlarmRuleResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
         if (null !== $this->httpCode) {
             $res['HttpCode'] = $this->httpCode;
         }
@@ -55,9 +58,6 @@ class DeleteAlarmRuleResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -74,6 +74,9 @@ class DeleteAlarmRuleResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
         if (isset($map['HttpCode'])) {
             $model->httpCode = $map['HttpCode'];
         }
@@ -82,9 +85,6 @@ class DeleteAlarmRuleResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

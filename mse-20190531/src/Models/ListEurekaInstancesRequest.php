@@ -11,7 +11,7 @@ class ListEurekaInstancesRequest extends Model
     /**
      * @var string
      */
-    public $requestPars;
+    public $clusterId;
 
     /**
      * @var int
@@ -26,17 +26,17 @@ class ListEurekaInstancesRequest extends Model
     /**
      * @var string
      */
-    public $clusterId;
+    public $requestPars;
 
     /**
      * @var string
      */
     public $serviceName;
     protected $_name = [
-        'requestPars' => 'RequestPars',
+        'clusterId'   => 'ClusterId',
         'pageNum'     => 'PageNum',
         'pageSize'    => 'PageSize',
-        'clusterId'   => 'ClusterId',
+        'requestPars' => 'RequestPars',
         'serviceName' => 'ServiceName',
     ];
 
@@ -47,8 +47,8 @@ class ListEurekaInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestPars) {
-            $res['RequestPars'] = $this->requestPars;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
@@ -56,8 +56,8 @@ class ListEurekaInstancesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->requestPars) {
+            $res['RequestPars'] = $this->requestPars;
         }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
@@ -74,8 +74,8 @@ class ListEurekaInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestPars'])) {
-            $model->requestPars = $map['RequestPars'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
@@ -83,8 +83,8 @@ class ListEurekaInstancesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['RequestPars'])) {
+            $model->requestPars = $map['RequestPars'];
         }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];

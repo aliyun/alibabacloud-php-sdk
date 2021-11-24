@@ -11,11 +11,6 @@ class ListListenersByIpRequest extends Model
     /**
      * @var string
      */
-    public $requestPars;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
@@ -27,11 +22,16 @@ class ListListenersByIpRequest extends Model
      * @var string
      */
     public $namespaceId;
+
+    /**
+     * @var string
+     */
+    public $requestPars;
     protected $_name = [
-        'requestPars' => 'RequestPars',
         'instanceId'  => 'InstanceId',
         'ip'          => 'Ip',
         'namespaceId' => 'NamespaceId',
+        'requestPars' => 'RequestPars',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class ListListenersByIpRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestPars) {
-            $res['RequestPars'] = $this->requestPars;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -52,6 +49,9 @@ class ListListenersByIpRequest extends Model
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
+        }
+        if (null !== $this->requestPars) {
+            $res['RequestPars'] = $this->requestPars;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class ListListenersByIpRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestPars'])) {
-            $model->requestPars = $map['RequestPars'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -76,6 +73,9 @@ class ListListenersByIpRequest extends Model
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
+        }
+        if (isset($map['RequestPars'])) {
+            $model->requestPars = $map['RequestPars'];
         }
 
         return $model;

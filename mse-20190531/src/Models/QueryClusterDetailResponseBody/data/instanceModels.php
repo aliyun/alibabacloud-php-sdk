@@ -11,12 +11,7 @@ class instanceModels extends Model
     /**
      * @var string
      */
-    public $podName;
-
-    /**
-     * @var string
-     */
-    public $singleTunnelVip;
+    public $healthStatus;
 
     /**
      * @var string
@@ -31,19 +26,24 @@ class instanceModels extends Model
     /**
      * @var string
      */
+    public $podName;
+
+    /**
+     * @var string
+     */
     public $role;
 
     /**
      * @var string
      */
-    public $healthStatus;
+    public $singleTunnelVip;
     protected $_name = [
-        'podName'         => 'PodName',
-        'singleTunnelVip' => 'SingleTunnelVip',
+        'healthStatus'    => 'HealthStatus',
         'internetIp'      => 'InternetIp',
         'ip'              => 'Ip',
+        'podName'         => 'PodName',
         'role'            => 'Role',
-        'healthStatus'    => 'HealthStatus',
+        'singleTunnelVip' => 'SingleTunnelVip',
     ];
 
     public function validate()
@@ -53,11 +53,8 @@ class instanceModels extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->podName) {
-            $res['PodName'] = $this->podName;
-        }
-        if (null !== $this->singleTunnelVip) {
-            $res['SingleTunnelVip'] = $this->singleTunnelVip;
+        if (null !== $this->healthStatus) {
+            $res['HealthStatus'] = $this->healthStatus;
         }
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
@@ -65,11 +62,14 @@ class instanceModels extends Model
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
+        if (null !== $this->podName) {
+            $res['PodName'] = $this->podName;
+        }
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
-        if (null !== $this->healthStatus) {
-            $res['HealthStatus'] = $this->healthStatus;
+        if (null !== $this->singleTunnelVip) {
+            $res['SingleTunnelVip'] = $this->singleTunnelVip;
         }
 
         return $res;
@@ -83,11 +83,8 @@ class instanceModels extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PodName'])) {
-            $model->podName = $map['PodName'];
-        }
-        if (isset($map['SingleTunnelVip'])) {
-            $model->singleTunnelVip = $map['SingleTunnelVip'];
+        if (isset($map['HealthStatus'])) {
+            $model->healthStatus = $map['HealthStatus'];
         }
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];
@@ -95,11 +92,14 @@ class instanceModels extends Model
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
+        if (isset($map['PodName'])) {
+            $model->podName = $map['PodName'];
+        }
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
-        if (isset($map['HealthStatus'])) {
-            $model->healthStatus = $map['HealthStatus'];
+        if (isset($map['SingleTunnelVip'])) {
+            $model->singleTunnelVip = $map['SingleTunnelVip'];
         }
 
         return $model;

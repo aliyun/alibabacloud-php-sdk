@@ -16,7 +16,7 @@ class configuration extends Model
     /**
      * @var string
      */
-    public $md5;
+    public $content;
 
     /**
      * @var string
@@ -26,7 +26,7 @@ class configuration extends Model
     /**
      * @var string
      */
-    public $content;
+    public $encryptedDataKey;
 
     /**
      * @var string
@@ -36,14 +36,20 @@ class configuration extends Model
     /**
      * @var string
      */
+    public $md5;
+
+    /**
+     * @var string
+     */
     public $opType;
     protected $_name = [
-        'appName' => 'AppName',
-        'md5'     => 'Md5',
-        'dataId'  => 'DataId',
-        'content' => 'Content',
-        'group'   => 'Group',
-        'opType'  => 'OpType',
+        'appName'          => 'AppName',
+        'content'          => 'Content',
+        'dataId'           => 'DataId',
+        'encryptedDataKey' => 'EncryptedDataKey',
+        'group'            => 'Group',
+        'md5'              => 'Md5',
+        'opType'           => 'OpType',
     ];
 
     public function validate()
@@ -56,17 +62,20 @@ class configuration extends Model
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-        if (null !== $this->md5) {
-            $res['Md5'] = $this->md5;
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
         if (null !== $this->dataId) {
             $res['DataId'] = $this->dataId;
         }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
+        if (null !== $this->encryptedDataKey) {
+            $res['EncryptedDataKey'] = $this->encryptedDataKey;
         }
         if (null !== $this->group) {
             $res['Group'] = $this->group;
+        }
+        if (null !== $this->md5) {
+            $res['Md5'] = $this->md5;
         }
         if (null !== $this->opType) {
             $res['OpType'] = $this->opType;
@@ -86,17 +95,20 @@ class configuration extends Model
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-        if (isset($map['Md5'])) {
-            $model->md5 = $map['Md5'];
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
         if (isset($map['DataId'])) {
             $model->dataId = $map['DataId'];
         }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
+        if (isset($map['EncryptedDataKey'])) {
+            $model->encryptedDataKey = $map['EncryptedDataKey'];
         }
         if (isset($map['Group'])) {
             $model->group = $map['Group'];
+        }
+        if (isset($map['Md5'])) {
+            $model->md5 = $map['Md5'];
         }
         if (isset($map['OpType'])) {
             $model->opType = $map['OpType'];

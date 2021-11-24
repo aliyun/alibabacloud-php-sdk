@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteZnodeResponseBody extends Model
 {
     /**
+     * @var data
+     */
+    public $data;
+
+    /**
+     * @var string
+     */
+    public $errorCode;
+
+    /**
      * @var string
      */
     public $httpCode;
@@ -25,25 +35,15 @@ class DeleteZnodeResponseBody extends Model
     public $requestId;
 
     /**
-     * @var data
-     */
-    public $data;
-
-    /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
      * @var bool
      */
     public $success;
     protected $_name = [
+        'data'      => 'Data',
+        'errorCode' => 'ErrorCode',
         'httpCode'  => 'HttpCode',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'data'      => 'Data',
-        'errorCode' => 'ErrorCode',
         'success'   => 'Success',
     ];
 
@@ -54,6 +54,12 @@ class DeleteZnodeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
         if (null !== $this->httpCode) {
             $res['HttpCode'] = $this->httpCode;
         }
@@ -62,12 +68,6 @@ class DeleteZnodeResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -84,6 +84,12 @@ class DeleteZnodeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
         if (isset($map['HttpCode'])) {
             $model->httpCode = $map['HttpCode'];
         }
@@ -92,12 +98,6 @@ class DeleteZnodeResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

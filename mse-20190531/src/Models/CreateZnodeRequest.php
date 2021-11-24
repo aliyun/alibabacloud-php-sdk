@@ -16,16 +16,16 @@ class CreateZnodeRequest extends Model
     /**
      * @var string
      */
-    public $path;
+    public $data;
 
     /**
      * @var string
      */
-    public $data;
+    public $path;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'path'      => 'Path',
         'data'      => 'Data',
+        'path'      => 'Path',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class CreateZnodeRequest extends Model
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->path) {
-            $res['Path'] = $this->path;
-        }
         if (null !== $this->data) {
             $res['Data'] = $this->data;
+        }
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class CreateZnodeRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['Path'])) {
-            $model->path = $map['Path'];
-        }
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
+        }
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
         }
 
         return $model;
