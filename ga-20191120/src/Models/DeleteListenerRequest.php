@@ -11,20 +11,20 @@ class DeleteListenerRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $acceleratorId;
 
     /**
      * @var string
      */
-    public $acceleratorId;
+    public $clientToken;
 
     /**
      * @var string
      */
     public $listenerId;
     protected $_name = [
-        'clientToken'   => 'ClientToken',
         'acceleratorId' => 'AcceleratorId',
+        'clientToken'   => 'ClientToken',
         'listenerId'    => 'ListenerId',
     ];
 
@@ -35,11 +35,11 @@ class DeleteListenerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
@@ -56,11 +56,11 @@ class DeleteListenerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];

@@ -11,15 +11,15 @@ class DescribeEndpointGroupRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $endpointGroupId;
 
     /**
      * @var string
      */
-    public $endpointGroupId;
+    public $regionId;
     protected $_name = [
-        'regionId'        => 'RegionId',
         'endpointGroupId' => 'EndpointGroupId',
+        'regionId'        => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeEndpointGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->endpointGroupId) {
             $res['EndpointGroupId'] = $this->endpointGroupId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeEndpointGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['EndpointGroupId'])) {
             $model->endpointGroupId = $map['EndpointGroupId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

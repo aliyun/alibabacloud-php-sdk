@@ -11,7 +11,7 @@ class GetSpareIpRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $acceleratorId;
 
     /**
      * @var string
@@ -26,17 +26,17 @@ class GetSpareIpRequest extends Model
     /**
      * @var string
      */
-    public $acceleratorId;
+    public $regionId;
 
     /**
      * @var string
      */
     public $spareIp;
     protected $_name = [
-        'regionId'      => 'RegionId',
+        'acceleratorId' => 'AcceleratorId',
         'clientToken'   => 'ClientToken',
         'dryRun'        => 'DryRun',
-        'acceleratorId' => 'AcceleratorId',
+        'regionId'      => 'RegionId',
         'spareIp'       => 'SpareIp',
     ];
 
@@ -47,8 +47,8 @@ class GetSpareIpRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -56,8 +56,8 @@ class GetSpareIpRequest extends Model
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
-        if (null !== $this->acceleratorId) {
-            $res['AcceleratorId'] = $this->acceleratorId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->spareIp) {
             $res['SpareIp'] = $this->spareIp;
@@ -74,8 +74,8 @@ class GetSpareIpRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['AcceleratorId'])) {
+            $model->acceleratorId = $map['AcceleratorId'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
@@ -83,8 +83,8 @@ class GetSpareIpRequest extends Model
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
-        if (isset($map['AcceleratorId'])) {
-            $model->acceleratorId = $map['AcceleratorId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SpareIp'])) {
             $model->spareIp = $map['SpareIp'];

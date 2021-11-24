@@ -11,15 +11,15 @@ class DeleteAcceleratorRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $acceleratorId;
 
     /**
      * @var string
      */
-    public $acceleratorId;
+    public $regionId;
     protected $_name = [
-        'regionId'      => 'RegionId',
         'acceleratorId' => 'AcceleratorId',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteAcceleratorRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteAcceleratorRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

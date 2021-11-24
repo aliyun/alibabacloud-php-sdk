@@ -13,12 +13,17 @@ class UpdateEndpointGroupRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $clientToken;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $description;
+
+    /**
+     * @var endpointConfigurations[]
+     */
+    public $endpointConfigurations;
 
     /**
      * @var string
@@ -28,22 +33,17 @@ class UpdateEndpointGroupRequest extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
     public $endpointGroupRegion;
 
     /**
-     * @var int
+     * @var string
      */
-    public $trafficPercentage;
+    public $endpointRequestProtocol;
+
+    /**
+     * @var bool
+     */
+    public $healthCheckEnabled;
 
     /**
      * @var int
@@ -66,19 +66,9 @@ class UpdateEndpointGroupRequest extends Model
     public $healthCheckProtocol;
 
     /**
-     * @var int
-     */
-    public $thresholdCount;
-
-    /**
-     * @var endpointConfigurations[]
-     */
-    public $endpointConfigurations;
-
-    /**
      * @var string
      */
-    public $endpointRequestProtocol;
+    public $name;
 
     /**
      * @var portOverrides[]
@@ -86,26 +76,36 @@ class UpdateEndpointGroupRequest extends Model
     public $portOverrides;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $healthCheckEnabled;
+    public $regionId;
+
+    /**
+     * @var int
+     */
+    public $thresholdCount;
+
+    /**
+     * @var int
+     */
+    public $trafficPercentage;
     protected $_name = [
-        'regionId'                   => 'RegionId',
         'clientToken'                => 'ClientToken',
-        'endpointGroupId'            => 'EndpointGroupId',
-        'name'                       => 'Name',
         'description'                => 'Description',
+        'endpointConfigurations'     => 'EndpointConfigurations',
+        'endpointGroupId'            => 'EndpointGroupId',
         'endpointGroupRegion'        => 'EndpointGroupRegion',
-        'trafficPercentage'          => 'TrafficPercentage',
+        'endpointRequestProtocol'    => 'EndpointRequestProtocol',
+        'healthCheckEnabled'         => 'HealthCheckEnabled',
         'healthCheckIntervalSeconds' => 'HealthCheckIntervalSeconds',
         'healthCheckPath'            => 'HealthCheckPath',
         'healthCheckPort'            => 'HealthCheckPort',
         'healthCheckProtocol'        => 'HealthCheckProtocol',
-        'thresholdCount'             => 'ThresholdCount',
-        'endpointConfigurations'     => 'EndpointConfigurations',
-        'endpointRequestProtocol'    => 'EndpointRequestProtocol',
+        'name'                       => 'Name',
         'portOverrides'              => 'PortOverrides',
-        'healthCheckEnabled'         => 'HealthCheckEnabled',
+        'regionId'                   => 'RegionId',
+        'thresholdCount'             => 'ThresholdCount',
+        'trafficPercentage'          => 'TrafficPercentage',
     ];
 
     public function validate()
@@ -115,26 +115,32 @@ class UpdateEndpointGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->endpointGroupId) {
-            $res['EndpointGroupId'] = $this->endpointGroupId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->endpointConfigurations) {
+            $res['EndpointConfigurations'] = [];
+            if (null !== $this->endpointConfigurations && \is_array($this->endpointConfigurations)) {
+                $n = 0;
+                foreach ($this->endpointConfigurations as $item) {
+                    $res['EndpointConfigurations'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->endpointGroupId) {
+            $res['EndpointGroupId'] = $this->endpointGroupId;
+        }
         if (null !== $this->endpointGroupRegion) {
             $res['EndpointGroupRegion'] = $this->endpointGroupRegion;
         }
-        if (null !== $this->trafficPercentage) {
-            $res['TrafficPercentage'] = $this->trafficPercentage;
+        if (null !== $this->endpointRequestProtocol) {
+            $res['EndpointRequestProtocol'] = $this->endpointRequestProtocol;
+        }
+        if (null !== $this->healthCheckEnabled) {
+            $res['HealthCheckEnabled'] = $this->healthCheckEnabled;
         }
         if (null !== $this->healthCheckIntervalSeconds) {
             $res['HealthCheckIntervalSeconds'] = $this->healthCheckIntervalSeconds;
@@ -148,20 +154,8 @@ class UpdateEndpointGroupRequest extends Model
         if (null !== $this->healthCheckProtocol) {
             $res['HealthCheckProtocol'] = $this->healthCheckProtocol;
         }
-        if (null !== $this->thresholdCount) {
-            $res['ThresholdCount'] = $this->thresholdCount;
-        }
-        if (null !== $this->endpointConfigurations) {
-            $res['EndpointConfigurations'] = [];
-            if (null !== $this->endpointConfigurations && \is_array($this->endpointConfigurations)) {
-                $n = 0;
-                foreach ($this->endpointConfigurations as $item) {
-                    $res['EndpointConfigurations'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->endpointRequestProtocol) {
-            $res['EndpointRequestProtocol'] = $this->endpointRequestProtocol;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->portOverrides) {
             $res['PortOverrides'] = [];
@@ -172,8 +166,14 @@ class UpdateEndpointGroupRequest extends Model
                 }
             }
         }
-        if (null !== $this->healthCheckEnabled) {
-            $res['HealthCheckEnabled'] = $this->healthCheckEnabled;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->thresholdCount) {
+            $res['ThresholdCount'] = $this->thresholdCount;
+        }
+        if (null !== $this->trafficPercentage) {
+            $res['TrafficPercentage'] = $this->trafficPercentage;
         }
 
         return $res;
@@ -187,26 +187,32 @@ class UpdateEndpointGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['EndpointGroupId'])) {
-            $model->endpointGroupId = $map['EndpointGroupId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['EndpointConfigurations'])) {
+            if (!empty($map['EndpointConfigurations'])) {
+                $model->endpointConfigurations = [];
+                $n                             = 0;
+                foreach ($map['EndpointConfigurations'] as $item) {
+                    $model->endpointConfigurations[$n++] = null !== $item ? endpointConfigurations::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['EndpointGroupId'])) {
+            $model->endpointGroupId = $map['EndpointGroupId'];
+        }
         if (isset($map['EndpointGroupRegion'])) {
             $model->endpointGroupRegion = $map['EndpointGroupRegion'];
         }
-        if (isset($map['TrafficPercentage'])) {
-            $model->trafficPercentage = $map['TrafficPercentage'];
+        if (isset($map['EndpointRequestProtocol'])) {
+            $model->endpointRequestProtocol = $map['EndpointRequestProtocol'];
+        }
+        if (isset($map['HealthCheckEnabled'])) {
+            $model->healthCheckEnabled = $map['HealthCheckEnabled'];
         }
         if (isset($map['HealthCheckIntervalSeconds'])) {
             $model->healthCheckIntervalSeconds = $map['HealthCheckIntervalSeconds'];
@@ -220,20 +226,8 @@ class UpdateEndpointGroupRequest extends Model
         if (isset($map['HealthCheckProtocol'])) {
             $model->healthCheckProtocol = $map['HealthCheckProtocol'];
         }
-        if (isset($map['ThresholdCount'])) {
-            $model->thresholdCount = $map['ThresholdCount'];
-        }
-        if (isset($map['EndpointConfigurations'])) {
-            if (!empty($map['EndpointConfigurations'])) {
-                $model->endpointConfigurations = [];
-                $n                             = 0;
-                foreach ($map['EndpointConfigurations'] as $item) {
-                    $model->endpointConfigurations[$n++] = null !== $item ? endpointConfigurations::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['EndpointRequestProtocol'])) {
-            $model->endpointRequestProtocol = $map['EndpointRequestProtocol'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['PortOverrides'])) {
             if (!empty($map['PortOverrides'])) {
@@ -244,8 +238,14 @@ class UpdateEndpointGroupRequest extends Model
                 }
             }
         }
-        if (isset($map['HealthCheckEnabled'])) {
-            $model->healthCheckEnabled = $map['HealthCheckEnabled'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ThresholdCount'])) {
+            $model->thresholdCount = $map['ThresholdCount'];
+        }
+        if (isset($map['TrafficPercentage'])) {
+            $model->trafficPercentage = $map['TrafficPercentage'];
         }
 
         return $model;

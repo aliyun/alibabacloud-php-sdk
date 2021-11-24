@@ -11,7 +11,7 @@ class ListBandwidthPackagesRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $bandwidthPackageId;
 
     /**
      * @var int
@@ -26,24 +26,24 @@ class ListBandwidthPackagesRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $state;
 
     /**
      * @var string
      */
     public $type;
-
-    /**
-     * @var string
-     */
-    public $bandwidthPackageId;
     protected $_name = [
-        'regionId'           => 'RegionId',
+        'bandwidthPackageId' => 'BandwidthPackageId',
         'pageNumber'         => 'PageNumber',
         'pageSize'           => 'PageSize',
+        'regionId'           => 'RegionId',
         'state'              => 'State',
         'type'               => 'Type',
-        'bandwidthPackageId' => 'BandwidthPackageId',
     ];
 
     public function validate()
@@ -53,8 +53,8 @@ class ListBandwidthPackagesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->bandwidthPackageId) {
+            $res['BandwidthPackageId'] = $this->bandwidthPackageId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -62,14 +62,14 @@ class ListBandwidthPackagesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->bandwidthPackageId) {
-            $res['BandwidthPackageId'] = $this->bandwidthPackageId;
         }
 
         return $res;
@@ -83,8 +83,8 @@ class ListBandwidthPackagesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['BandwidthPackageId'])) {
+            $model->bandwidthPackageId = $map['BandwidthPackageId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -92,14 +92,14 @@ class ListBandwidthPackagesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-        if (isset($map['BandwidthPackageId'])) {
-            $model->bandwidthPackageId = $map['BandwidthPackageId'];
         }
 
         return $model;

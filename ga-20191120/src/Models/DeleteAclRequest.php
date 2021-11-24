@@ -11,11 +11,6 @@ class DeleteAclRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $aclId;
 
     /**
@@ -27,11 +22,16 @@ class DeleteAclRequest extends Model
      * @var bool
      */
     public $dryRun;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'    => 'RegionId',
         'aclId'       => 'AclId',
         'clientToken' => 'ClientToken',
         'dryRun'      => 'DryRun',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class DeleteAclRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->aclId) {
             $res['AclId'] = $this->aclId;
         }
@@ -52,6 +49,9 @@ class DeleteAclRequest extends Model
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class DeleteAclRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['AclId'])) {
             $model->aclId = $map['AclId'];
         }
@@ -76,6 +73,9 @@ class DeleteAclRequest extends Model
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

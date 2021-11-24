@@ -11,7 +11,7 @@ class ListAcceleratorsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $acceleratorId;
 
     /**
      * @var int
@@ -26,17 +26,17 @@ class ListAcceleratorsRequest extends Model
     /**
      * @var string
      */
-    public $acceleratorId;
+    public $regionId;
 
     /**
      * @var string
      */
     public $state;
     protected $_name = [
-        'regionId'      => 'RegionId',
+        'acceleratorId' => 'AcceleratorId',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
-        'acceleratorId' => 'AcceleratorId',
+        'regionId'      => 'RegionId',
         'state'         => 'State',
     ];
 
@@ -47,8 +47,8 @@ class ListAcceleratorsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -56,8 +56,8 @@ class ListAcceleratorsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->acceleratorId) {
-            $res['AcceleratorId'] = $this->acceleratorId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -74,8 +74,8 @@ class ListAcceleratorsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['AcceleratorId'])) {
+            $model->acceleratorId = $map['AcceleratorId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -83,8 +83,8 @@ class ListAcceleratorsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['AcceleratorId'])) {
-            $model->acceleratorId = $map['AcceleratorId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];

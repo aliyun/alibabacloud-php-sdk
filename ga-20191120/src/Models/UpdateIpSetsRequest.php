@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateIpSetsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var ipSets[]
      */
     public $ipSets;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId' => 'RegionId',
         'ipSets'   => 'IpSets',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class UpdateIpSetsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->ipSets) {
             $res['IpSets'] = [];
             if (null !== $this->ipSets && \is_array($this->ipSets)) {
@@ -41,6 +38,9 @@ class UpdateIpSetsRequest extends Model
                     $res['IpSets'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class UpdateIpSetsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['IpSets'])) {
             if (!empty($map['IpSets'])) {
                 $model->ipSets = [];
@@ -65,6 +62,9 @@ class UpdateIpSetsRequest extends Model
                     $model->ipSets[$n++] = null !== $item ? ipSets::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

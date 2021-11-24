@@ -11,12 +11,12 @@ class UpdateEndpointGroupAttributeRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $clientToken;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $description;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class UpdateEndpointGroupAttributeRequest extends Model
     /**
      * @var string
      */
-    public $description;
+    public $regionId;
     protected $_name = [
-        'regionId'        => 'RegionId',
         'clientToken'     => 'ClientToken',
+        'description'     => 'Description',
         'endpointGroupId' => 'EndpointGroupId',
         'name'            => 'Name',
-        'description'     => 'Description',
+        'regionId'        => 'RegionId',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class UpdateEndpointGroupAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->endpointGroupId) {
             $res['EndpointGroupId'] = $this->endpointGroupId;
@@ -59,8 +59,8 @@ class UpdateEndpointGroupAttributeRequest extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -74,11 +74,11 @@ class UpdateEndpointGroupAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['EndpointGroupId'])) {
             $model->endpointGroupId = $map['EndpointGroupId'];
@@ -86,8 +86,8 @@ class UpdateEndpointGroupAttributeRequest extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -10,6 +10,21 @@ use AlibabaCloud\Tea\Model;
 class ListForwardingRulesResponseBody extends Model
 {
     /**
+     * @var forwardingRules[]
+     */
+    public $forwardingRules;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -18,27 +33,12 @@ class ListForwardingRulesResponseBody extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @var forwardingRules[]
-     */
-    public $forwardingRules;
     protected $_name = [
+        'forwardingRules' => 'ForwardingRules',
+        'maxResults'      => 'MaxResults',
+        'nextToken'       => 'NextToken',
         'requestId'       => 'RequestId',
         'totalCount'      => 'TotalCount',
-        'nextToken'       => 'NextToken',
-        'maxResults'      => 'MaxResults',
-        'forwardingRules' => 'ForwardingRules',
     ];
 
     public function validate()
@@ -48,18 +48,6 @@ class ListForwardingRulesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
         if (null !== $this->forwardingRules) {
             $res['ForwardingRules'] = [];
             if (null !== $this->forwardingRules && \is_array($this->forwardingRules)) {
@@ -68,6 +56,18 @@ class ListForwardingRulesResponseBody extends Model
                     $res['ForwardingRules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -81,18 +81,6 @@ class ListForwardingRulesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
         if (isset($map['ForwardingRules'])) {
             if (!empty($map['ForwardingRules'])) {
                 $model->forwardingRules = [];
@@ -101,6 +89,18 @@ class ListForwardingRulesResponseBody extends Model
                     $model->forwardingRules[$n++] = null !== $item ? forwardingRules::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

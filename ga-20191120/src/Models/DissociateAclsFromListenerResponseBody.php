@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DissociateAclsFromListenerResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var string[]
      */
     public $aclIds;
@@ -24,10 +17,17 @@ class DissociateAclsFromListenerResponseBody extends Model
      * @var string
      */
     public $listenerId;
+
+    /**
+     * @description Id of the request
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'aclIds'     => 'AclIds',
         'listenerId' => 'ListenerId',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class DissociateAclsFromListenerResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->aclIds) {
             $res['AclIds'] = $this->aclIds;
         }
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -58,9 +58,6 @@ class DissociateAclsFromListenerResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AclIds'])) {
             if (!empty($map['AclIds'])) {
                 $model->aclIds = $map['AclIds'];
@@ -68,6 +65,9 @@ class DissociateAclsFromListenerResponseBody extends Model
         }
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

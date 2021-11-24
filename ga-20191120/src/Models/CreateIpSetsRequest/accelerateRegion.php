@@ -14,18 +14,18 @@ class accelerateRegion extends Model
     public $accelerateRegionId;
 
     /**
-     * @var string
-     */
-    public $ipVersion;
-
-    /**
      * @var int
      */
     public $bandwidth;
+
+    /**
+     * @var string
+     */
+    public $ipVersion;
     protected $_name = [
         'accelerateRegionId' => 'AccelerateRegionId',
-        'ipVersion'          => 'IpVersion',
         'bandwidth'          => 'Bandwidth',
+        'ipVersion'          => 'IpVersion',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class accelerateRegion extends Model
         if (null !== $this->accelerateRegionId) {
             $res['AccelerateRegionId'] = $this->accelerateRegionId;
         }
-        if (null !== $this->ipVersion) {
-            $res['IpVersion'] = $this->ipVersion;
-        }
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
+        }
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class accelerateRegion extends Model
         if (isset($map['AccelerateRegionId'])) {
             $model->accelerateRegionId = $map['AccelerateRegionId'];
         }
-        if (isset($map['IpVersion'])) {
-            $model->ipVersion = $map['IpVersion'];
-        }
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
+        }
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class DescribeIpSetRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $ipSetId;
 
     /**
      * @var string
      */
-    public $ipSetId;
+    public $regionId;
     protected $_name = [
-        'regionId' => 'RegionId',
         'ipSetId'  => 'IpSetId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeIpSetRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->ipSetId) {
             $res['IpSetId'] = $this->ipSetId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeIpSetRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['IpSetId'])) {
             $model->ipSetId = $map['IpSetId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class BandwidthPackageRemoveAcceleratorResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var string[]
      */
     public $accelerators;
@@ -22,10 +17,15 @@ class BandwidthPackageRemoveAcceleratorResponseBody extends Model
      * @var string
      */
     public $bandwidthPackageId;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'          => 'RequestId',
         'accelerators'       => 'Accelerators',
         'bandwidthPackageId' => 'BandwidthPackageId',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class BandwidthPackageRemoveAcceleratorResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->accelerators) {
             $res['Accelerators'] = $this->accelerators;
         }
         if (null !== $this->bandwidthPackageId) {
             $res['BandwidthPackageId'] = $this->bandwidthPackageId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,9 +56,6 @@ class BandwidthPackageRemoveAcceleratorResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Accelerators'])) {
             if (!empty($map['Accelerators'])) {
                 $model->accelerators = $map['Accelerators'];
@@ -66,6 +63,9 @@ class BandwidthPackageRemoveAcceleratorResponseBody extends Model
         }
         if (isset($map['BandwidthPackageId'])) {
             $model->bandwidthPackageId = $map['BandwidthPackageId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

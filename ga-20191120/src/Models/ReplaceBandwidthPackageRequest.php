@@ -11,20 +11,20 @@ class ReplaceBandwidthPackageRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $bandwidthPackageId;
 
     /**
      * @var string
      */
-    public $bandwidthPackageId;
+    public $regionId;
 
     /**
      * @var string
      */
     public $targetBandwidthPackageId;
     protected $_name = [
-        'regionId'                 => 'RegionId',
         'bandwidthPackageId'       => 'BandwidthPackageId',
+        'regionId'                 => 'RegionId',
         'targetBandwidthPackageId' => 'TargetBandwidthPackageId',
     ];
 
@@ -35,11 +35,11 @@ class ReplaceBandwidthPackageRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->bandwidthPackageId) {
             $res['BandwidthPackageId'] = $this->bandwidthPackageId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->targetBandwidthPackageId) {
             $res['TargetBandwidthPackageId'] = $this->targetBandwidthPackageId;
@@ -56,11 +56,11 @@ class ReplaceBandwidthPackageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['BandwidthPackageId'])) {
             $model->bandwidthPackageId = $map['BandwidthPackageId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['TargetBandwidthPackageId'])) {
             $model->targetBandwidthPackageId = $map['TargetBandwidthPackageId'];

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class securityPolicies extends Model
 {
     /**
+     * @var string[]
+     */
+    public $ciphers;
+
+    /**
      * @var string
      */
     public $securityPolicyId;
@@ -17,15 +22,10 @@ class securityPolicies extends Model
      * @var string[]
      */
     public $tlsVersions;
-
-    /**
-     * @var string[]
-     */
-    public $ciphers;
     protected $_name = [
+        'ciphers'          => 'Ciphers',
         'securityPolicyId' => 'SecurityPolicyId',
         'tlsVersions'      => 'TlsVersions',
-        'ciphers'          => 'Ciphers',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class securityPolicies extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ciphers) {
+            $res['Ciphers'] = $this->ciphers;
+        }
         if (null !== $this->securityPolicyId) {
             $res['SecurityPolicyId'] = $this->securityPolicyId;
         }
         if (null !== $this->tlsVersions) {
             $res['TlsVersions'] = $this->tlsVersions;
-        }
-        if (null !== $this->ciphers) {
-            $res['Ciphers'] = $this->ciphers;
         }
 
         return $res;
@@ -56,17 +56,17 @@ class securityPolicies extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Ciphers'])) {
+            if (!empty($map['Ciphers'])) {
+                $model->ciphers = $map['Ciphers'];
+            }
+        }
         if (isset($map['SecurityPolicyId'])) {
             $model->securityPolicyId = $map['SecurityPolicyId'];
         }
         if (isset($map['TlsVersions'])) {
             if (!empty($map['TlsVersions'])) {
                 $model->tlsVersions = $map['TlsVersions'];
-            }
-        }
-        if (isset($map['Ciphers'])) {
-            if (!empty($map['Ciphers'])) {
-                $model->ciphers = $map['Ciphers'];
             }
         }
 

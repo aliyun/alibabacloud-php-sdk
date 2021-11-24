@@ -12,7 +12,7 @@ class CreateEndpointGroupsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $acceleratorId;
 
     /**
      * @var string
@@ -25,9 +25,9 @@ class CreateEndpointGroupsRequest extends Model
     public $dryRun;
 
     /**
-     * @var string
+     * @var endpointGroupConfigurations[]
      */
-    public $acceleratorId;
+    public $endpointGroupConfigurations;
 
     /**
      * @var string
@@ -35,16 +35,16 @@ class CreateEndpointGroupsRequest extends Model
     public $listenerId;
 
     /**
-     * @var endpointGroupConfigurations[]
+     * @var string
      */
-    public $endpointGroupConfigurations;
+    public $regionId;
     protected $_name = [
-        'regionId'                    => 'RegionId',
+        'acceleratorId'               => 'AcceleratorId',
         'clientToken'                 => 'ClientToken',
         'dryRun'                      => 'DryRun',
-        'acceleratorId'               => 'AcceleratorId',
-        'listenerId'                  => 'ListenerId',
         'endpointGroupConfigurations' => 'EndpointGroupConfigurations',
+        'listenerId'                  => 'ListenerId',
+        'regionId'                    => 'RegionId',
     ];
 
     public function validate()
@@ -54,20 +54,14 @@ class CreateEndpointGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
-        }
-        if (null !== $this->acceleratorId) {
-            $res['AcceleratorId'] = $this->acceleratorId;
-        }
-        if (null !== $this->listenerId) {
-            $res['ListenerId'] = $this->listenerId;
         }
         if (null !== $this->endpointGroupConfigurations) {
             $res['EndpointGroupConfigurations'] = [];
@@ -77,6 +71,12 @@ class CreateEndpointGroupsRequest extends Model
                     $res['EndpointGroupConfigurations'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->listenerId) {
+            $res['ListenerId'] = $this->listenerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -90,20 +90,14 @@ class CreateEndpointGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['AcceleratorId'])) {
+            $model->acceleratorId = $map['AcceleratorId'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
-        }
-        if (isset($map['AcceleratorId'])) {
-            $model->acceleratorId = $map['AcceleratorId'];
-        }
-        if (isset($map['ListenerId'])) {
-            $model->listenerId = $map['ListenerId'];
         }
         if (isset($map['EndpointGroupConfigurations'])) {
             if (!empty($map['EndpointGroupConfigurations'])) {
@@ -113,6 +107,12 @@ class CreateEndpointGroupsRequest extends Model
                     $model->endpointGroupConfigurations[$n++] = null !== $item ? endpointGroupConfigurations::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ListenerId'])) {
+            $model->listenerId = $map['ListenerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -21,17 +21,17 @@ class UpdateBandwidthPackageResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $requestId;
     protected $_name = [
         'bandwidthPackage' => 'BandwidthPackage',
         'description'      => 'Description',
-        'requestId'        => 'RequestId',
         'name'             => 'Name',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class UpdateBandwidthPackageResponseBody extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class UpdateBandwidthPackageResponseBody extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -11,17 +11,12 @@ class DetachLogStoreFromEndpointGroupRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $acceleratorId;
 
     /**
      * @var string
      */
-    public $listenerId;
+    public $clientToken;
 
     /**
      * @var string[]
@@ -31,13 +26,18 @@ class DetachLogStoreFromEndpointGroupRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $listenerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'         => 'RegionId',
         'acceleratorId'    => 'AcceleratorId',
-        'listenerId'       => 'ListenerId',
-        'endpointGroupIds' => 'EndpointGroupIds',
         'clientToken'      => 'ClientToken',
+        'endpointGroupIds' => 'EndpointGroupIds',
+        'listenerId'       => 'ListenerId',
+        'regionId'         => 'RegionId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DetachLogStoreFromEndpointGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
         }
-        if (null !== $this->listenerId) {
-            $res['ListenerId'] = $this->listenerId;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->endpointGroupIds) {
             $res['EndpointGroupIds'] = $this->endpointGroupIds;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->listenerId) {
+            $res['ListenerId'] = $this->listenerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -74,22 +74,22 @@ class DetachLogStoreFromEndpointGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
         }
-        if (isset($map['ListenerId'])) {
-            $model->listenerId = $map['ListenerId'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['EndpointGroupIds'])) {
             if (!empty($map['EndpointGroupIds'])) {
                 $model->endpointGroupIds = $map['EndpointGroupIds'];
             }
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['ListenerId'])) {
+            $model->listenerId = $map['ListenerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

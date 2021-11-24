@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListBandwidthackagesResponseBody extends Model
 {
     /**
+     * @var bandwidthPackages[]
+     */
+    public $bandwidthPackages;
+
+    /**
      * @var int
      */
-    public $totalCount;
+    public $pageNumber;
 
     /**
      * @var int
@@ -27,18 +32,13 @@ class ListBandwidthackagesResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
-
-    /**
-     * @var bandwidthPackages[]
-     */
-    public $bandwidthPackages;
+    public $totalCount;
     protected $_name = [
-        'totalCount'        => 'TotalCount',
+        'bandwidthPackages' => 'BandwidthPackages',
+        'pageNumber'        => 'PageNumber',
         'pageSize'          => 'PageSize',
         'requestId'         => 'RequestId',
-        'pageNumber'        => 'PageNumber',
-        'bandwidthPackages' => 'BandwidthPackages',
+        'totalCount'        => 'TotalCount',
     ];
 
     public function validate()
@@ -48,18 +48,6 @@ class ListBandwidthackagesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
         if (null !== $this->bandwidthPackages) {
             $res['BandwidthPackages'] = [];
             if (null !== $this->bandwidthPackages && \is_array($this->bandwidthPackages)) {
@@ -68,6 +56,18 @@ class ListBandwidthackagesResponseBody extends Model
                     $res['BandwidthPackages'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -81,18 +81,6 @@ class ListBandwidthackagesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
         if (isset($map['BandwidthPackages'])) {
             if (!empty($map['BandwidthPackages'])) {
                 $model->bandwidthPackages = [];
@@ -101,6 +89,18 @@ class ListBandwidthackagesResponseBody extends Model
                     $model->bandwidthPackages[$n++] = null !== $item ? bandwidthPackages::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

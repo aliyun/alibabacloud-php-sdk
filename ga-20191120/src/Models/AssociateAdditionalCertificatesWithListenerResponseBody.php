@@ -11,15 +11,15 @@ class AssociateAdditionalCertificatesWithListenerResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $listenerId;
 
     /**
      * @var string
      */
-    public $listenerId;
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'listenerId' => 'ListenerId',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class AssociateAdditionalCertificatesWithListenerResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class AssociateAdditionalCertificatesWithListenerResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

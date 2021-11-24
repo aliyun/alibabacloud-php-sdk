@@ -12,11 +12,6 @@ class UpdateEndpointGroupsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $clientToken;
 
     /**
@@ -33,12 +28,17 @@ class UpdateEndpointGroupsRequest extends Model
      * @var string
      */
     public $listenerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'                    => 'RegionId',
         'clientToken'                 => 'ClientToken',
         'dryRun'                      => 'DryRun',
         'endpointGroupConfigurations' => 'EndpointGroupConfigurations',
         'listenerId'                  => 'ListenerId',
+        'regionId'                    => 'RegionId',
     ];
 
     public function validate()
@@ -48,9 +48,6 @@ class UpdateEndpointGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -69,6 +66,9 @@ class UpdateEndpointGroupsRequest extends Model
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
 
         return $res;
     }
@@ -81,9 +81,6 @@ class UpdateEndpointGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
@@ -101,6 +98,9 @@ class UpdateEndpointGroupsRequest extends Model
         }
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

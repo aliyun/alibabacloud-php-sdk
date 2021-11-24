@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class ruleConditions extends Model
 {
     /**
-     * @var string
+     * @var hostConfig
      */
-    public $ruleConditionType;
+    public $hostConfig;
 
     /**
      * @var pathConfig
@@ -21,13 +21,13 @@ class ruleConditions extends Model
     public $pathConfig;
 
     /**
-     * @var hostConfig
+     * @var string
      */
-    public $hostConfig;
+    public $ruleConditionType;
     protected $_name = [
-        'ruleConditionType' => 'RuleConditionType',
-        'pathConfig'        => 'PathConfig',
         'hostConfig'        => 'HostConfig',
+        'pathConfig'        => 'PathConfig',
+        'ruleConditionType' => 'RuleConditionType',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class ruleConditions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ruleConditionType) {
-            $res['RuleConditionType'] = $this->ruleConditionType;
+        if (null !== $this->hostConfig) {
+            $res['HostConfig'] = null !== $this->hostConfig ? $this->hostConfig->toMap() : null;
         }
         if (null !== $this->pathConfig) {
             $res['PathConfig'] = null !== $this->pathConfig ? $this->pathConfig->toMap() : null;
         }
-        if (null !== $this->hostConfig) {
-            $res['HostConfig'] = null !== $this->hostConfig ? $this->hostConfig->toMap() : null;
+        if (null !== $this->ruleConditionType) {
+            $res['RuleConditionType'] = $this->ruleConditionType;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class ruleConditions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RuleConditionType'])) {
-            $model->ruleConditionType = $map['RuleConditionType'];
+        if (isset($map['HostConfig'])) {
+            $model->hostConfig = hostConfig::fromMap($map['HostConfig']);
         }
         if (isset($map['PathConfig'])) {
             $model->pathConfig = pathConfig::fromMap($map['PathConfig']);
         }
-        if (isset($map['HostConfig'])) {
-            $model->hostConfig = hostConfig::fromMap($map['HostConfig']);
+        if (isset($map['RuleConditionType'])) {
+            $model->ruleConditionType = $map['RuleConditionType'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class certificates extends Model
     /**
      * @var string
      */
-    public $id;
+    public $domain;
 
     /**
      * @var string
      */
-    public $domain;
+    public $id;
     protected $_name = [
-        'id'     => 'Id',
         'domain' => 'Domain',
+        'id'     => 'Id',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class certificates extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class certificates extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         return $model;

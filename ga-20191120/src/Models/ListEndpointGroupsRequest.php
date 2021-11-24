@@ -11,7 +11,27 @@ class ListEndpointGroupsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $acceleratorId;
+
+    /**
+     * @var string
+     */
+    public $accessLogSwitch;
+
+    /**
+     * @var string
+     */
+    public $endpointGroupId;
+
+    /**
+     * @var string
+     */
+    public $endpointGroupType;
+
+    /**
+     * @var string
+     */
+    public $listenerId;
 
     /**
      * @var int
@@ -26,36 +46,16 @@ class ListEndpointGroupsRequest extends Model
     /**
      * @var string
      */
-    public $acceleratorId;
-
-    /**
-     * @var string
-     */
-    public $listenerId;
-
-    /**
-     * @var string
-     */
-    public $endpointGroupType;
-
-    /**
-     * @var string
-     */
-    public $accessLogSwitch;
-
-    /**
-     * @var string
-     */
-    public $endpointGroupId;
+    public $regionId;
     protected $_name = [
-        'regionId'          => 'RegionId',
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
         'acceleratorId'     => 'AcceleratorId',
-        'listenerId'        => 'ListenerId',
-        'endpointGroupType' => 'EndpointGroupType',
         'accessLogSwitch'   => 'AccessLogSwitch',
         'endpointGroupId'   => 'EndpointGroupId',
+        'endpointGroupType' => 'EndpointGroupType',
+        'listenerId'        => 'ListenerId',
+        'pageNumber'        => 'PageNumber',
+        'pageSize'          => 'PageSize',
+        'regionId'          => 'RegionId',
     ];
 
     public function validate()
@@ -65,8 +65,20 @@ class ListEndpointGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
+        }
+        if (null !== $this->accessLogSwitch) {
+            $res['AccessLogSwitch'] = $this->accessLogSwitch;
+        }
+        if (null !== $this->endpointGroupId) {
+            $res['EndpointGroupId'] = $this->endpointGroupId;
+        }
+        if (null !== $this->endpointGroupType) {
+            $res['EndpointGroupType'] = $this->endpointGroupType;
+        }
+        if (null !== $this->listenerId) {
+            $res['ListenerId'] = $this->listenerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -74,20 +86,8 @@ class ListEndpointGroupsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->acceleratorId) {
-            $res['AcceleratorId'] = $this->acceleratorId;
-        }
-        if (null !== $this->listenerId) {
-            $res['ListenerId'] = $this->listenerId;
-        }
-        if (null !== $this->endpointGroupType) {
-            $res['EndpointGroupType'] = $this->endpointGroupType;
-        }
-        if (null !== $this->accessLogSwitch) {
-            $res['AccessLogSwitch'] = $this->accessLogSwitch;
-        }
-        if (null !== $this->endpointGroupId) {
-            $res['EndpointGroupId'] = $this->endpointGroupId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -101,8 +101,20 @@ class ListEndpointGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['AcceleratorId'])) {
+            $model->acceleratorId = $map['AcceleratorId'];
+        }
+        if (isset($map['AccessLogSwitch'])) {
+            $model->accessLogSwitch = $map['AccessLogSwitch'];
+        }
+        if (isset($map['EndpointGroupId'])) {
+            $model->endpointGroupId = $map['EndpointGroupId'];
+        }
+        if (isset($map['EndpointGroupType'])) {
+            $model->endpointGroupType = $map['EndpointGroupType'];
+        }
+        if (isset($map['ListenerId'])) {
+            $model->listenerId = $map['ListenerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -110,20 +122,8 @@ class ListEndpointGroupsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['AcceleratorId'])) {
-            $model->acceleratorId = $map['AcceleratorId'];
-        }
-        if (isset($map['ListenerId'])) {
-            $model->listenerId = $map['ListenerId'];
-        }
-        if (isset($map['EndpointGroupType'])) {
-            $model->endpointGroupType = $map['EndpointGroupType'];
-        }
-        if (isset($map['AccessLogSwitch'])) {
-            $model->accessLogSwitch = $map['AccessLogSwitch'];
-        }
-        if (isset($map['EndpointGroupId'])) {
-            $model->endpointGroupId = $map['EndpointGroupId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class relatedListeners extends Model
     /**
      * @var string
      */
-    public $listenerId;
+    public $acceleratorId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class relatedListeners extends Model
     /**
      * @var string
      */
-    public $acceleratorId;
+    public $listenerId;
     protected $_name = [
-        'listenerId'    => 'ListenerId',
-        'aclType'       => 'AclType',
         'acceleratorId' => 'AcceleratorId',
+        'aclType'       => 'AclType',
+        'listenerId'    => 'ListenerId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class relatedListeners extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->listenerId) {
-            $res['ListenerId'] = $this->listenerId;
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
         }
         if (null !== $this->aclType) {
             $res['AclType'] = $this->aclType;
         }
-        if (null !== $this->acceleratorId) {
-            $res['AcceleratorId'] = $this->acceleratorId;
+        if (null !== $this->listenerId) {
+            $res['ListenerId'] = $this->listenerId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class relatedListeners extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ListenerId'])) {
-            $model->listenerId = $map['ListenerId'];
+        if (isset($map['AcceleratorId'])) {
+            $model->acceleratorId = $map['AcceleratorId'];
         }
         if (isset($map['AclType'])) {
             $model->aclType = $map['AclType'];
         }
-        if (isset($map['AcceleratorId'])) {
-            $model->acceleratorId = $map['AcceleratorId'];
+        if (isset($map['ListenerId'])) {
+            $model->listenerId = $map['ListenerId'];
         }
 
         return $model;

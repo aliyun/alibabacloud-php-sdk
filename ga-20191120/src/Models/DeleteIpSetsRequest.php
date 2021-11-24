@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteIpSetsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var string[]
      */
     public $ipSetIds;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId' => 'RegionId',
         'ipSetIds' => 'IpSetIds',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteIpSetsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->ipSetIds) {
             $res['IpSetIds'] = $this->ipSetIds;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,13 +47,13 @@ class DeleteIpSetsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['IpSetIds'])) {
             if (!empty($map['IpSetIds'])) {
                 $model->ipSetIds = $map['IpSetIds'];
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

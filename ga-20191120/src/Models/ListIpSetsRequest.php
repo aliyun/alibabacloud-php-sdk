@@ -11,7 +11,7 @@ class ListIpSetsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $acceleratorId;
 
     /**
      * @var int
@@ -26,12 +26,12 @@ class ListIpSetsRequest extends Model
     /**
      * @var string
      */
-    public $acceleratorId;
+    public $regionId;
     protected $_name = [
-        'regionId'      => 'RegionId',
+        'acceleratorId' => 'AcceleratorId',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
-        'acceleratorId' => 'AcceleratorId',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class ListIpSetsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -50,8 +50,8 @@ class ListIpSetsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->acceleratorId) {
-            $res['AcceleratorId'] = $this->acceleratorId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class ListIpSetsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['AcceleratorId'])) {
+            $model->acceleratorId = $map['AcceleratorId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -74,8 +74,8 @@ class ListIpSetsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['AcceleratorId'])) {
-            $model->acceleratorId = $map['AcceleratorId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

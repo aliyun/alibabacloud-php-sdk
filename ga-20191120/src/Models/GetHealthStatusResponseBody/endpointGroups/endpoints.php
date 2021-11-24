@@ -11,22 +11,22 @@ class endpoints extends Model
     /**
      * @var string
      */
-    public $endpointId;
-
-    /**
-     * @var string
-     */
     public $address;
 
     /**
      * @var string
      */
-    public $healthStatus;
+    public $endpointId;
 
     /**
      * @var string
      */
     public $healthDetail;
+
+    /**
+     * @var string
+     */
+    public $healthStatus;
 
     /**
      * @var int
@@ -38,10 +38,10 @@ class endpoints extends Model
      */
     public $type;
     protected $_name = [
-        'endpointId'   => 'EndpointId',
         'address'      => 'Address',
-        'healthStatus' => 'HealthStatus',
+        'endpointId'   => 'EndpointId',
         'healthDetail' => 'HealthDetail',
+        'healthStatus' => 'HealthStatus',
         'port'         => 'Port',
         'type'         => 'Type',
     ];
@@ -53,17 +53,17 @@ class endpoints extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endpointId) {
-            $res['EndpointId'] = $this->endpointId;
-        }
         if (null !== $this->address) {
             $res['Address'] = $this->address;
         }
-        if (null !== $this->healthStatus) {
-            $res['HealthStatus'] = $this->healthStatus;
+        if (null !== $this->endpointId) {
+            $res['EndpointId'] = $this->endpointId;
         }
         if (null !== $this->healthDetail) {
             $res['HealthDetail'] = $this->healthDetail;
+        }
+        if (null !== $this->healthStatus) {
+            $res['HealthStatus'] = $this->healthStatus;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
@@ -83,17 +83,17 @@ class endpoints extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndpointId'])) {
-            $model->endpointId = $map['EndpointId'];
-        }
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
         }
-        if (isset($map['HealthStatus'])) {
-            $model->healthStatus = $map['HealthStatus'];
+        if (isset($map['EndpointId'])) {
+            $model->endpointId = $map['EndpointId'];
         }
         if (isset($map['HealthDetail'])) {
             $model->healthDetail = $map['HealthDetail'];
+        }
+        if (isset($map['HealthStatus'])) {
+            $model->healthStatus = $map['HealthStatus'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];

@@ -11,7 +11,7 @@ class DeleteForwardingRulesRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $acceleratorId;
 
     /**
      * @var string
@@ -26,18 +26,18 @@ class DeleteForwardingRulesRequest extends Model
     /**
      * @var string
      */
-    public $acceleratorId;
+    public $listenerId;
 
     /**
      * @var string
      */
-    public $listenerId;
+    public $regionId;
     protected $_name = [
-        'regionId'          => 'RegionId',
+        'acceleratorId'     => 'AcceleratorId',
         'clientToken'       => 'ClientToken',
         'forwardingRuleIds' => 'ForwardingRuleIds',
-        'acceleratorId'     => 'AcceleratorId',
         'listenerId'        => 'ListenerId',
+        'regionId'          => 'RegionId',
     ];
 
     public function validate()
@@ -47,8 +47,8 @@ class DeleteForwardingRulesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -56,11 +56,11 @@ class DeleteForwardingRulesRequest extends Model
         if (null !== $this->forwardingRuleIds) {
             $res['ForwardingRuleIds'] = $this->forwardingRuleIds;
         }
-        if (null !== $this->acceleratorId) {
-            $res['AcceleratorId'] = $this->acceleratorId;
-        }
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -74,8 +74,8 @@ class DeleteForwardingRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['AcceleratorId'])) {
+            $model->acceleratorId = $map['AcceleratorId'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
@@ -85,11 +85,11 @@ class DeleteForwardingRulesRequest extends Model
                 $model->forwardingRuleIds = $map['ForwardingRuleIds'];
             }
         }
-        if (isset($map['AcceleratorId'])) {
-            $model->acceleratorId = $map['AcceleratorId'];
-        }
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class DescribeListenerRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $listenerId;
 
     /**
      * @var string
      */
-    public $listenerId;
+    public $regionId;
     protected $_name = [
-        'regionId'   => 'RegionId',
         'listenerId' => 'ListenerId',
+        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeListenerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeListenerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -13,27 +13,17 @@ class DescribeAcceleratorResponseBody extends Model
     /**
      * @var string
      */
-    public $ddosId;
+    public $acceleratorId;
+
+    /**
+     * @var basicBandwidthPackage
+     */
+    public $basicBandwidthPackage;
 
     /**
      * @var string
      */
-    public $dnsName;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $instanceChargeType;
+    public $cenId;
 
     /**
      * @var int
@@ -48,22 +38,17 @@ class DescribeAcceleratorResponseBody extends Model
     /**
      * @var string
      */
-    public $secondDnsName;
+    public $ddosId;
 
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var basicBandwidthPackage
-     */
-    public $basicBandwidthPackage;
+    public $description;
 
     /**
      * @var string
      */
-    public $state;
+    public $dnsName;
 
     /**
      * @var int
@@ -73,7 +58,12 @@ class DescribeAcceleratorResponseBody extends Model
     /**
      * @var string
      */
-    public $cenId;
+    public $instanceChargeType;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var string
@@ -83,29 +73,39 @@ class DescribeAcceleratorResponseBody extends Model
     /**
      * @var string
      */
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $secondDnsName;
+
+    /**
+     * @var string
+     */
     public $spec;
 
     /**
      * @var string
      */
-    public $acceleratorId;
+    public $state;
     protected $_name = [
-        'ddosId'                      => 'DdosId',
-        'dnsName'                     => 'DnsName',
-        'description'                 => 'Description',
-        'requestId'                   => 'RequestId',
-        'instanceChargeType'          => 'InstanceChargeType',
+        'acceleratorId'               => 'AcceleratorId',
+        'basicBandwidthPackage'       => 'BasicBandwidthPackage',
+        'cenId'                       => 'CenId',
         'createTime'                  => 'CreateTime',
         'crossDomainBandwidthPackage' => 'CrossDomainBandwidthPackage',
-        'secondDnsName'               => 'SecondDnsName',
-        'name'                        => 'Name',
-        'basicBandwidthPackage'       => 'BasicBandwidthPackage',
-        'state'                       => 'State',
+        'ddosId'                      => 'DdosId',
+        'description'                 => 'Description',
+        'dnsName'                     => 'DnsName',
         'expiredTime'                 => 'ExpiredTime',
-        'cenId'                       => 'CenId',
+        'instanceChargeType'          => 'InstanceChargeType',
+        'name'                        => 'Name',
         'regionId'                    => 'RegionId',
+        'requestId'                   => 'RequestId',
+        'secondDnsName'               => 'SecondDnsName',
         'spec'                        => 'Spec',
-        'acceleratorId'               => 'AcceleratorId',
+        'state'                       => 'State',
     ];
 
     public function validate()
@@ -115,20 +115,14 @@ class DescribeAcceleratorResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ddosId) {
-            $res['DdosId'] = $this->ddosId;
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
         }
-        if (null !== $this->dnsName) {
-            $res['DnsName'] = $this->dnsName;
+        if (null !== $this->basicBandwidthPackage) {
+            $res['BasicBandwidthPackage'] = null !== $this->basicBandwidthPackage ? $this->basicBandwidthPackage->toMap() : null;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->instanceChargeType) {
-            $res['InstanceChargeType'] = $this->instanceChargeType;
+        if (null !== $this->cenId) {
+            $res['CenId'] = $this->cenId;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -136,32 +130,38 @@ class DescribeAcceleratorResponseBody extends Model
         if (null !== $this->crossDomainBandwidthPackage) {
             $res['CrossDomainBandwidthPackage'] = null !== $this->crossDomainBandwidthPackage ? $this->crossDomainBandwidthPackage->toMap() : null;
         }
-        if (null !== $this->secondDnsName) {
-            $res['SecondDnsName'] = $this->secondDnsName;
+        if (null !== $this->ddosId) {
+            $res['DdosId'] = $this->ddosId;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
-        if (null !== $this->basicBandwidthPackage) {
-            $res['BasicBandwidthPackage'] = null !== $this->basicBandwidthPackage ? $this->basicBandwidthPackage->toMap() : null;
-        }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
+        if (null !== $this->dnsName) {
+            $res['DnsName'] = $this->dnsName;
         }
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
         }
-        if (null !== $this->cenId) {
-            $res['CenId'] = $this->cenId;
+        if (null !== $this->instanceChargeType) {
+            $res['InstanceChargeType'] = $this->instanceChargeType;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->secondDnsName) {
+            $res['SecondDnsName'] = $this->secondDnsName;
+        }
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
         }
-        if (null !== $this->acceleratorId) {
-            $res['AcceleratorId'] = $this->acceleratorId;
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
 
         return $res;
@@ -175,20 +175,14 @@ class DescribeAcceleratorResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DdosId'])) {
-            $model->ddosId = $map['DdosId'];
+        if (isset($map['AcceleratorId'])) {
+            $model->acceleratorId = $map['AcceleratorId'];
         }
-        if (isset($map['DnsName'])) {
-            $model->dnsName = $map['DnsName'];
+        if (isset($map['BasicBandwidthPackage'])) {
+            $model->basicBandwidthPackage = basicBandwidthPackage::fromMap($map['BasicBandwidthPackage']);
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['InstanceChargeType'])) {
-            $model->instanceChargeType = $map['InstanceChargeType'];
+        if (isset($map['CenId'])) {
+            $model->cenId = $map['CenId'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
@@ -196,32 +190,38 @@ class DescribeAcceleratorResponseBody extends Model
         if (isset($map['CrossDomainBandwidthPackage'])) {
             $model->crossDomainBandwidthPackage = crossDomainBandwidthPackage::fromMap($map['CrossDomainBandwidthPackage']);
         }
-        if (isset($map['SecondDnsName'])) {
-            $model->secondDnsName = $map['SecondDnsName'];
+        if (isset($map['DdosId'])) {
+            $model->ddosId = $map['DdosId'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
-        if (isset($map['BasicBandwidthPackage'])) {
-            $model->basicBandwidthPackage = basicBandwidthPackage::fromMap($map['BasicBandwidthPackage']);
-        }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
+        if (isset($map['DnsName'])) {
+            $model->dnsName = $map['DnsName'];
         }
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
         }
-        if (isset($map['CenId'])) {
-            $model->cenId = $map['CenId'];
+        if (isset($map['InstanceChargeType'])) {
+            $model->instanceChargeType = $map['InstanceChargeType'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SecondDnsName'])) {
+            $model->secondDnsName = $map['SecondDnsName'];
+        }
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];
         }
-        if (isset($map['AcceleratorId'])) {
-            $model->acceleratorId = $map['AcceleratorId'];
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
 
         return $model;

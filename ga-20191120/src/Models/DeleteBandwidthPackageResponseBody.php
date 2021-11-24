@@ -11,15 +11,15 @@ class DeleteBandwidthPackageResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $bandwidthPackageId;
 
     /**
      * @var string
      */
-    public $bandwidthPackageId;
+    public $requestId;
     protected $_name = [
-        'requestId'          => 'RequestId',
         'bandwidthPackageId' => 'BandwidthPackageId',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteBandwidthPackageResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->bandwidthPackageId) {
             $res['BandwidthPackageId'] = $this->bandwidthPackageId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteBandwidthPackageResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['BandwidthPackageId'])) {
             $model->bandwidthPackageId = $map['BandwidthPackageId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

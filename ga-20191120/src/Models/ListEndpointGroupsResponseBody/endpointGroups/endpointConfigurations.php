@@ -9,29 +9,19 @@ use AlibabaCloud\Tea\Model;
 class endpointConfigurations extends Model
 {
     /**
-     * @var string
-     */
-    public $type;
-
-    /**
      * @var bool
      */
     public $enableClientIPPreservation;
 
     /**
-     * @var int
-     */
-    public $weight;
-
-    /**
-     * @var string
-     */
-    public $probeProtocol;
-
-    /**
      * @var string
      */
     public $endpoint;
+
+    /**
+     * @var string
+     */
+    public $endpointId;
 
     /**
      * @var int
@@ -41,15 +31,25 @@ class endpointConfigurations extends Model
     /**
      * @var string
      */
-    public $endpointId;
+    public $probeProtocol;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var int
+     */
+    public $weight;
     protected $_name = [
-        'type'                       => 'Type',
         'enableClientIPPreservation' => 'EnableClientIPPreservation',
-        'weight'                     => 'Weight',
-        'probeProtocol'              => 'ProbeProtocol',
         'endpoint'                   => 'Endpoint',
-        'probePort'                  => 'ProbePort',
         'endpointId'                 => 'EndpointId',
+        'probePort'                  => 'ProbePort',
+        'probeProtocol'              => 'ProbeProtocol',
+        'type'                       => 'Type',
+        'weight'                     => 'Weight',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class endpointConfigurations extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->enableClientIPPreservation) {
             $res['EnableClientIPPreservation'] = $this->enableClientIPPreservation;
-        }
-        if (null !== $this->weight) {
-            $res['Weight'] = $this->weight;
-        }
-        if (null !== $this->probeProtocol) {
-            $res['ProbeProtocol'] = $this->probeProtocol;
         }
         if (null !== $this->endpoint) {
             $res['Endpoint'] = $this->endpoint;
         }
+        if (null !== $this->endpointId) {
+            $res['EndpointId'] = $this->endpointId;
+        }
         if (null !== $this->probePort) {
             $res['ProbePort'] = $this->probePort;
         }
-        if (null !== $this->endpointId) {
-            $res['EndpointId'] = $this->endpointId;
+        if (null !== $this->probeProtocol) {
+            $res['ProbeProtocol'] = $this->probeProtocol;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->weight) {
+            $res['Weight'] = $this->weight;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class endpointConfigurations extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['EnableClientIPPreservation'])) {
             $model->enableClientIPPreservation = $map['EnableClientIPPreservation'];
-        }
-        if (isset($map['Weight'])) {
-            $model->weight = $map['Weight'];
-        }
-        if (isset($map['ProbeProtocol'])) {
-            $model->probeProtocol = $map['ProbeProtocol'];
         }
         if (isset($map['Endpoint'])) {
             $model->endpoint = $map['Endpoint'];
         }
+        if (isset($map['EndpointId'])) {
+            $model->endpointId = $map['EndpointId'];
+        }
         if (isset($map['ProbePort'])) {
             $model->probePort = $map['ProbePort'];
         }
-        if (isset($map['EndpointId'])) {
-            $model->endpointId = $map['EndpointId'];
+        if (isset($map['ProbeProtocol'])) {
+            $model->probeProtocol = $map['ProbeProtocol'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['Weight'])) {
+            $model->weight = $map['Weight'];
         }
 
         return $model;

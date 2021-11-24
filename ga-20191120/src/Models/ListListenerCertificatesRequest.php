@@ -11,17 +11,7 @@ class ListListenerCertificatesRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $acceleratorId;
-
-    /**
-     * @var string
-     */
-    public $role;
 
     /**
      * @var string
@@ -29,21 +19,31 @@ class ListListenerCertificatesRequest extends Model
     public $listenerId;
 
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @var string
      */
     public $nextToken;
 
     /**
-     * @var int
+     * @var string
      */
-    public $maxResults;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $role;
     protected $_name = [
-        'regionId'      => 'RegionId',
         'acceleratorId' => 'AcceleratorId',
-        'role'          => 'Role',
         'listenerId'    => 'ListenerId',
-        'nextToken'     => 'NextToken',
         'maxResults'    => 'MaxResults',
+        'nextToken'     => 'NextToken',
+        'regionId'      => 'RegionId',
+        'role'          => 'Role',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class ListListenerCertificatesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
-        }
-        if (null !== $this->role) {
-            $res['Role'] = $this->role;
         }
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
         }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class ListListenerCertificatesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
-        }
-        if (isset($map['Role'])) {
-            $model->role = $map['Role'];
         }
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];
         }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
         }
 
         return $model;

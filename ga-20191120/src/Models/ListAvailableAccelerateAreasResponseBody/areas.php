@@ -12,20 +12,20 @@ class areas extends Model
     /**
      * @var string
      */
-    public $localName;
+    public $areaId;
 
     /**
      * @var string
      */
-    public $areaId;
+    public $localName;
 
     /**
      * @var regionList[]
      */
     public $regionList;
     protected $_name = [
-        'localName'  => 'LocalName',
         'areaId'     => 'AreaId',
+        'localName'  => 'LocalName',
         'regionList' => 'RegionList',
     ];
 
@@ -36,11 +36,11 @@ class areas extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->localName) {
-            $res['LocalName'] = $this->localName;
-        }
         if (null !== $this->areaId) {
             $res['AreaId'] = $this->areaId;
+        }
+        if (null !== $this->localName) {
+            $res['LocalName'] = $this->localName;
         }
         if (null !== $this->regionList) {
             $res['RegionList'] = [];
@@ -63,11 +63,11 @@ class areas extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LocalName'])) {
-            $model->localName = $map['LocalName'];
-        }
         if (isset($map['AreaId'])) {
             $model->areaId = $map['AreaId'];
+        }
+        if (isset($map['LocalName'])) {
+            $model->localName = $map['LocalName'];
         }
         if (isset($map['RegionList'])) {
             if (!empty($map['RegionList'])) {

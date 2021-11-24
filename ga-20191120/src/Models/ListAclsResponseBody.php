@@ -10,6 +10,21 @@ use AlibabaCloud\Tea\Model;
 class ListAclsResponseBody extends Model
 {
     /**
+     * @var acls[]
+     */
+    public $acls;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -18,27 +33,12 @@ class ListAclsResponseBody extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @var acls[]
-     */
-    public $acls;
     protected $_name = [
+        'acls'       => 'Acls',
+        'maxResults' => 'MaxResults',
+        'nextToken'  => 'NextToken',
         'requestId'  => 'RequestId',
         'totalCount' => 'TotalCount',
-        'nextToken'  => 'NextToken',
-        'maxResults' => 'MaxResults',
-        'acls'       => 'Acls',
     ];
 
     public function validate()
@@ -48,18 +48,6 @@ class ListAclsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
         if (null !== $this->acls) {
             $res['Acls'] = [];
             if (null !== $this->acls && \is_array($this->acls)) {
@@ -68,6 +56,18 @@ class ListAclsResponseBody extends Model
                     $res['Acls'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -81,18 +81,6 @@ class ListAclsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
         if (isset($map['Acls'])) {
             if (!empty($map['Acls'])) {
                 $model->acls = [];
@@ -101,6 +89,18 @@ class ListAclsResponseBody extends Model
                     $model->acls[$n++] = null !== $item ? acls::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class DescribeBandwidthPackageRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $bandwidthPackageId;
 
     /**
      * @var string
      */
-    public $bandwidthPackageId;
+    public $regionId;
     protected $_name = [
-        'regionId'           => 'RegionId',
         'bandwidthPackageId' => 'BandwidthPackageId',
+        'regionId'           => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeBandwidthPackageRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->bandwidthPackageId) {
             $res['BandwidthPackageId'] = $this->bandwidthPackageId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeBandwidthPackageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['BandwidthPackageId'])) {
             $model->bandwidthPackageId = $map['BandwidthPackageId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

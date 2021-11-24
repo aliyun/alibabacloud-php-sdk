@@ -14,19 +14,14 @@ class ipSets extends Model
     public $accelerateRegionId;
 
     /**
-     * @var string
-     */
-    public $ipVersion;
-
-    /**
      * @var int
      */
     public $bandwidth;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $state;
+    public $ipAddressList;
 
     /**
      * @var string
@@ -34,16 +29,21 @@ class ipSets extends Model
     public $ipSetId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $ipAddressList;
+    public $ipVersion;
+
+    /**
+     * @var string
+     */
+    public $state;
     protected $_name = [
         'accelerateRegionId' => 'AccelerateRegionId',
-        'ipVersion'          => 'IpVersion',
         'bandwidth'          => 'Bandwidth',
-        'state'              => 'State',
-        'ipSetId'            => 'IpSetId',
         'ipAddressList'      => 'IpAddressList',
+        'ipSetId'            => 'IpSetId',
+        'ipVersion'          => 'IpVersion',
+        'state'              => 'State',
     ];
 
     public function validate()
@@ -56,20 +56,20 @@ class ipSets extends Model
         if (null !== $this->accelerateRegionId) {
             $res['AccelerateRegionId'] = $this->accelerateRegionId;
         }
-        if (null !== $this->ipVersion) {
-            $res['IpVersion'] = $this->ipVersion;
-        }
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
         }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
+        if (null !== $this->ipAddressList) {
+            $res['IpAddressList'] = $this->ipAddressList;
         }
         if (null !== $this->ipSetId) {
             $res['IpSetId'] = $this->ipSetId;
         }
-        if (null !== $this->ipAddressList) {
-            $res['IpAddressList'] = $this->ipAddressList;
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
 
         return $res;
@@ -86,22 +86,22 @@ class ipSets extends Model
         if (isset($map['AccelerateRegionId'])) {
             $model->accelerateRegionId = $map['AccelerateRegionId'];
         }
-        if (isset($map['IpVersion'])) {
-            $model->ipVersion = $map['IpVersion'];
-        }
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
-        }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
-        if (isset($map['IpSetId'])) {
-            $model->ipSetId = $map['IpSetId'];
         }
         if (isset($map['IpAddressList'])) {
             if (!empty($map['IpAddressList'])) {
                 $model->ipAddressList = $map['IpAddressList'];
             }
+        }
+        if (isset($map['IpSetId'])) {
+            $model->ipSetId = $map['IpSetId'];
+        }
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
 
         return $model;

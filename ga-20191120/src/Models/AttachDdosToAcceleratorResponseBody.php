@@ -16,16 +16,16 @@ class AttachDdosToAcceleratorResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $gaId;
 
     /**
      * @var string
      */
-    public $gaId;
+    public $requestId;
     protected $_name = [
         'ddosId'    => 'DdosId',
-        'requestId' => 'RequestId',
         'gaId'      => 'GaId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class AttachDdosToAcceleratorResponseBody extends Model
         if (null !== $this->ddosId) {
             $res['DdosId'] = $this->ddosId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->gaId) {
             $res['GaId'] = $this->gaId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class AttachDdosToAcceleratorResponseBody extends Model
         if (isset($map['DdosId'])) {
             $model->ddosId = $map['DdosId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['GaId'])) {
             $model->gaId = $map['GaId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

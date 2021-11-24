@@ -11,17 +11,12 @@ class XForwardedForConfig extends Model
     /**
      * @var bool
      */
-    public $XForwardedForGaIdEnabled;
-
-    /**
-     * @var bool
-     */
     public $XForwardedForGaApEnabled;
 
     /**
      * @var bool
      */
-    public $XForwardedForProtoEnabled;
+    public $XForwardedForGaIdEnabled;
 
     /**
      * @var bool
@@ -31,12 +26,17 @@ class XForwardedForConfig extends Model
     /**
      * @var bool
      */
+    public $XForwardedForProtoEnabled;
+
+    /**
+     * @var bool
+     */
     public $XRealIpEnabled;
     protected $_name = [
-        'XForwardedForGaIdEnabled'  => 'XForwardedForGaIdEnabled',
         'XForwardedForGaApEnabled'  => 'XForwardedForGaApEnabled',
-        'XForwardedForProtoEnabled' => 'XForwardedForProtoEnabled',
+        'XForwardedForGaIdEnabled'  => 'XForwardedForGaIdEnabled',
         'XForwardedForPortEnabled'  => 'XForwardedForPortEnabled',
+        'XForwardedForProtoEnabled' => 'XForwardedForProtoEnabled',
         'XRealIpEnabled'            => 'XRealIpEnabled',
     ];
 
@@ -47,17 +47,17 @@ class XForwardedForConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->XForwardedForGaIdEnabled) {
-            $res['XForwardedForGaIdEnabled'] = $this->XForwardedForGaIdEnabled;
-        }
         if (null !== $this->XForwardedForGaApEnabled) {
             $res['XForwardedForGaApEnabled'] = $this->XForwardedForGaApEnabled;
         }
-        if (null !== $this->XForwardedForProtoEnabled) {
-            $res['XForwardedForProtoEnabled'] = $this->XForwardedForProtoEnabled;
+        if (null !== $this->XForwardedForGaIdEnabled) {
+            $res['XForwardedForGaIdEnabled'] = $this->XForwardedForGaIdEnabled;
         }
         if (null !== $this->XForwardedForPortEnabled) {
             $res['XForwardedForPortEnabled'] = $this->XForwardedForPortEnabled;
+        }
+        if (null !== $this->XForwardedForProtoEnabled) {
+            $res['XForwardedForProtoEnabled'] = $this->XForwardedForProtoEnabled;
         }
         if (null !== $this->XRealIpEnabled) {
             $res['XRealIpEnabled'] = $this->XRealIpEnabled;
@@ -74,17 +74,17 @@ class XForwardedForConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['XForwardedForGaIdEnabled'])) {
-            $model->XForwardedForGaIdEnabled = $map['XForwardedForGaIdEnabled'];
-        }
         if (isset($map['XForwardedForGaApEnabled'])) {
             $model->XForwardedForGaApEnabled = $map['XForwardedForGaApEnabled'];
         }
-        if (isset($map['XForwardedForProtoEnabled'])) {
-            $model->XForwardedForProtoEnabled = $map['XForwardedForProtoEnabled'];
+        if (isset($map['XForwardedForGaIdEnabled'])) {
+            $model->XForwardedForGaIdEnabled = $map['XForwardedForGaIdEnabled'];
         }
         if (isset($map['XForwardedForPortEnabled'])) {
             $model->XForwardedForPortEnabled = $map['XForwardedForPortEnabled'];
+        }
+        if (isset($map['XForwardedForProtoEnabled'])) {
+            $model->XForwardedForProtoEnabled = $map['XForwardedForProtoEnabled'];
         }
         if (isset($map['XRealIpEnabled'])) {
             $model->XRealIpEnabled = $map['XRealIpEnabled'];

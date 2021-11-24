@@ -11,11 +11,6 @@ class UpdateAclAttributeRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $aclId;
 
     /**
@@ -32,12 +27,17 @@ class UpdateAclAttributeRequest extends Model
      * @var bool
      */
     public $dryRun;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'    => 'RegionId',
         'aclId'       => 'AclId',
         'aclName'     => 'AclName',
         'clientToken' => 'ClientToken',
         'dryRun'      => 'DryRun',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -47,9 +47,6 @@ class UpdateAclAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->aclId) {
             $res['AclId'] = $this->aclId;
         }
@@ -61,6 +58,9 @@ class UpdateAclAttributeRequest extends Model
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -74,9 +74,6 @@ class UpdateAclAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['AclId'])) {
             $model->aclId = $map['AclId'];
         }
@@ -88,6 +85,9 @@ class UpdateAclAttributeRequest extends Model
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

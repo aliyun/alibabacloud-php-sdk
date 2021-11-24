@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ga\V20191120;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Ga\V20191120\Models\AddEntriesToAclRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\AddEntriesToAclResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\AssociateAclsWithListenerRequest;
@@ -27,6 +28,12 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\CreateAclRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateAclResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBandwidthPackageRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBandwidthPackageResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicAcceleratorRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicAcceleratorResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicEndpointGroupRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicEndpointGroupResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicIpSetRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\CreateBasicIpSetResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\CreateEndpointGroupsRequest;
@@ -45,6 +52,12 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteAclRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteAclResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBandwidthPackageRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBandwidthPackageResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBasicAcceleratorRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBasicAcceleratorResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBasicEndpointGroupRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBasicEndpointGroupResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBasicIpSetRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteBasicIpSetResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteEndpointGroupRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteEndpointGroupResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteEndpointGroupsRequest;
@@ -81,6 +94,12 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\DissociateAdditionalCertificatesFromLis
 use AlibabaCloud\SDK\Ga\V20191120\Models\DissociateAdditionalCertificatesFromListenerResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetAclRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetAclResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicAcceleratorRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicAcceleratorResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicEndpointGroupRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicEndpointGroupResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicIpSetRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\GetBasicIpSetResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetHealthStatusRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetHealthStatusResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\GetSpareIpRequest;
@@ -99,6 +118,8 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\ListBandwidthackagesRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListBandwidthackagesResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListBandwidthPackagesRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListBandwidthPackagesResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListBasicAcceleratorsRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListBasicAcceleratorsResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListBusiRegionsRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListBusiRegionsResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListEndpointGroupsRequest;
@@ -127,6 +148,10 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAclAttributeRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAclAttributeResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBandwidthPackageRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBandwidthPackageResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBasicAcceleratorRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBasicAcceleratorResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBasicEndpointGroupRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateBasicEndpointGroupResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateEndpointGroupAttributeRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateEndpointGroupAttributeResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateEndpointGroupRequest;
@@ -144,6 +169,7 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateListenerResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Ga extends OpenApiClient
@@ -188,11 +214,29 @@ class Ga extends OpenApiClient
     public function addEntriesToAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AclEntries']  = $request->aclEntries;
+        $query['AclId']       = $request->aclId;
+        $query['ClientToken'] = $request->clientToken;
+        $query['DryRun']      = $request->dryRun;
+        $query['RegionId']    = $request->regionId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddEntriesToAcl',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddEntriesToAclResponse::fromMap($this->doRPCRequest('AddEntriesToAcl', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddEntriesToAclResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -216,11 +260,30 @@ class Ga extends OpenApiClient
     public function associateAclsWithListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AclIds']      = $request->aclIds;
+        $query['AclType']     = $request->aclType;
+        $query['ClientToken'] = $request->clientToken;
+        $query['DryRun']      = $request->dryRun;
+        $query['ListenerId']  = $request->listenerId;
+        $query['RegionId']    = $request->regionId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AssociateAclsWithListener',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AssociateAclsWithListenerResponse::fromMap($this->doRPCRequest('AssociateAclsWithListener', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AssociateAclsWithListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -244,11 +307,29 @@ class Ga extends OpenApiClient
     public function associateAdditionalCertificatesWithListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['Certificates']  = $request->certificates;
+        $query['ClientToken']   = $request->clientToken;
+        $query['ListenerId']    = $request->listenerId;
+        $query['RegionId']      = $request->regionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AssociateAdditionalCertificatesWithListener',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AssociateAdditionalCertificatesWithListenerResponse::fromMap($this->doRPCRequest('AssociateAdditionalCertificatesWithListener', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AssociateAdditionalCertificatesWithListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -272,11 +353,28 @@ class Ga extends OpenApiClient
     public function attachDdosToAcceleratorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['DdosId']        = $request->ddosId;
+        $query['DdosRegionId']  = $request->ddosRegionId;
+        $query['RegionId']      = $request->regionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachDdosToAccelerator',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AttachDdosToAcceleratorResponse::fromMap($this->doRPCRequest('AttachDdosToAccelerator', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AttachDdosToAcceleratorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -300,11 +398,32 @@ class Ga extends OpenApiClient
     public function attachLogStoreToEndpointGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['AcceleratorId']    = $request->acceleratorId;
+        $query['ClientToken']      = $request->clientToken;
+        $query['EndpointGroupIds'] = $request->endpointGroupIds;
+        $query['ListenerId']       = $request->listenerId;
+        $query['RegionId']         = $request->regionId;
+        $query['SlsLogStoreName']  = $request->slsLogStoreName;
+        $query['SlsProjectName']   = $request->slsProjectName;
+        $query['SlsRegionId']      = $request->slsRegionId;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachLogStoreToEndpointGroup',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AttachLogStoreToEndpointGroupResponse::fromMap($this->doRPCRequest('AttachLogStoreToEndpointGroup', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AttachLogStoreToEndpointGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -328,11 +447,27 @@ class Ga extends OpenApiClient
     public function bandwidthPackageAddAcceleratorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['AcceleratorId']      = $request->acceleratorId;
+        $query['BandwidthPackageId'] = $request->bandwidthPackageId;
+        $query['RegionId']           = $request->regionId;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'BandwidthPackageAddAccelerator',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return BandwidthPackageAddAcceleratorResponse::fromMap($this->doRPCRequest('BandwidthPackageAddAccelerator', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BandwidthPackageAddAcceleratorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -356,11 +491,27 @@ class Ga extends OpenApiClient
     public function bandwidthPackageRemoveAcceleratorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['AcceleratorId']      = $request->acceleratorId;
+        $query['BandwidthPackageId'] = $request->bandwidthPackageId;
+        $query['RegionId']           = $request->regionId;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'BandwidthPackageRemoveAccelerator',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return BandwidthPackageRemoveAcceleratorResponse::fromMap($this->doRPCRequest('BandwidthPackageRemoveAccelerator', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BandwidthPackageRemoveAcceleratorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -384,11 +535,32 @@ class Ga extends OpenApiClient
     public function configEndpointProbeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClientToken']     = $request->clientToken;
+        $query['Enable']          = $request->enable;
+        $query['Endpoint']        = $request->endpoint;
+        $query['EndpointGroupId'] = $request->endpointGroupId;
+        $query['EndpointType']    = $request->endpointType;
+        $query['ProbePort']       = $request->probePort;
+        $query['ProbeProtocol']   = $request->probeProtocol;
+        $query['RegionId']        = $request->regionId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ConfigEndpointProbe',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ConfigEndpointProbeResponse::fromMap($this->doRPCRequest('ConfigEndpointProbe', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ConfigEndpointProbeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -412,11 +584,34 @@ class Ga extends OpenApiClient
     public function createAcceleratorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['AutoPay']           = $request->autoPay;
+        $query['AutoRenew']         = $request->autoRenew;
+        $query['AutoRenewDuration'] = $request->autoRenewDuration;
+        $query['AutoUseCoupon']     = $request->autoUseCoupon;
+        $query['ClientToken']       = $request->clientToken;
+        $query['Duration']          = $request->duration;
+        $query['Name']              = $request->name;
+        $query['PricingCycle']      = $request->pricingCycle;
+        $query['RegionId']          = $request->regionId;
+        $query['Spec']              = $request->spec;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAccelerator',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateAcceleratorResponse::fromMap($this->doRPCRequest('CreateAccelerator', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAcceleratorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -440,11 +635,30 @@ class Ga extends OpenApiClient
     public function createAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['AclEntries']       = $request->aclEntries;
+        $query['AclName']          = $request->aclName;
+        $query['AddressIPVersion'] = $request->addressIPVersion;
+        $query['ClientToken']      = $request->clientToken;
+        $query['DryRun']           = $request->dryRun;
+        $query['RegionId']         = $request->regionId;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAcl',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateAclResponse::fromMap($this->doRPCRequest('CreateAcl', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAclResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -468,11 +682,38 @@ class Ga extends OpenApiClient
     public function createBandwidthPackageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                           = [];
+        $query['AutoPay']                = $request->autoPay;
+        $query['AutoUseCoupon']          = $request->autoUseCoupon;
+        $query['Bandwidth']              = $request->bandwidth;
+        $query['BandwidthType']          = $request->bandwidthType;
+        $query['BillingType']            = $request->billingType;
+        $query['CbnGeographicRegionIdA'] = $request->cbnGeographicRegionIdA;
+        $query['CbnGeographicRegionIdB'] = $request->cbnGeographicRegionIdB;
+        $query['ChargeType']             = $request->chargeType;
+        $query['ClientToken']            = $request->clientToken;
+        $query['Duration']               = $request->duration;
+        $query['PricingCycle']           = $request->pricingCycle;
+        $query['Ratio']                  = $request->ratio;
+        $query['RegionId']               = $request->regionId;
+        $query['Type']                   = $request->type;
+        $req                             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBandwidthPackage',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateBandwidthPackageResponse::fromMap($this->doRPCRequest('CreateBandwidthPackage', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -488,6 +729,147 @@ class Ga extends OpenApiClient
     }
 
     /**
+     * @param CreateBasicAcceleratorRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateBasicAcceleratorResponse
+     */
+    public function createBasicAcceleratorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['AutoPay']       = $request->autoPay;
+        $query['AutoUseCoupon'] = $request->autoUseCoupon;
+        $query['ClientToken']   = $request->clientToken;
+        $query['Duration']      = $request->duration;
+        $query['PricingCycle']  = $request->pricingCycle;
+        $query['RegionId']      = $request->regionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBasicAccelerator',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateBasicAcceleratorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateBasicAcceleratorRequest $request
+     *
+     * @return CreateBasicAcceleratorResponse
+     */
+    public function createBasicAccelerator($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBasicAcceleratorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateBasicEndpointGroupRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateBasicEndpointGroupResponse
+     */
+    public function createBasicEndpointGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                        = [];
+        $query['AcceleratorId']       = $request->acceleratorId;
+        $query['ClientToken']         = $request->clientToken;
+        $query['Description']         = $request->description;
+        $query['EndpointAddress']     = $request->endpointAddress;
+        $query['EndpointGroupRegion'] = $request->endpointGroupRegion;
+        $query['EndpointType']        = $request->endpointType;
+        $query['Name']                = $request->name;
+        $query['RegionId']            = $request->regionId;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBasicEndpointGroup',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateBasicEndpointGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateBasicEndpointGroupRequest $request
+     *
+     * @return CreateBasicEndpointGroupResponse
+     */
+    public function createBasicEndpointGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBasicEndpointGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateBasicIpSetRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateBasicIpSetResponse
+     */
+    public function createBasicIpSetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                       = [];
+        $query['AccelerateRegionId'] = $request->accelerateRegionId;
+        $query['AcceleratorId']      = $request->acceleratorId;
+        $query['ClientToken']        = $request->clientToken;
+        $query['RegionId']           = $request->regionId;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBasicIpSet',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateBasicIpSetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateBasicIpSetRequest $request
+     *
+     * @return CreateBasicIpSetResponse
+     */
+    public function createBasicIpSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBasicIpSetWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateEndpointGroupRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -496,11 +878,42 @@ class Ga extends OpenApiClient
     public function createEndpointGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                               = [];
+        $query['AcceleratorId']              = $request->acceleratorId;
+        $query['ClientToken']                = $request->clientToken;
+        $query['Description']                = $request->description;
+        $query['EndpointConfigurations']     = $request->endpointConfigurations;
+        $query['EndpointGroupRegion']        = $request->endpointGroupRegion;
+        $query['EndpointGroupType']          = $request->endpointGroupType;
+        $query['EndpointRequestProtocol']    = $request->endpointRequestProtocol;
+        $query['HealthCheckEnabled']         = $request->healthCheckEnabled;
+        $query['HealthCheckIntervalSeconds'] = $request->healthCheckIntervalSeconds;
+        $query['HealthCheckPath']            = $request->healthCheckPath;
+        $query['HealthCheckPort']            = $request->healthCheckPort;
+        $query['HealthCheckProtocol']        = $request->healthCheckProtocol;
+        $query['ListenerId']                 = $request->listenerId;
+        $query['Name']                       = $request->name;
+        $query['PortOverrides']              = $request->portOverrides;
+        $query['RegionId']                   = $request->regionId;
+        $query['ThresholdCount']             = $request->thresholdCount;
+        $query['TrafficPercentage']          = $request->trafficPercentage;
+        $req                                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEndpointGroup',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateEndpointGroupResponse::fromMap($this->doRPCRequest('CreateEndpointGroup', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateEndpointGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -524,11 +937,30 @@ class Ga extends OpenApiClient
     public function createEndpointGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                                = [];
+        $query['AcceleratorId']               = $request->acceleratorId;
+        $query['ClientToken']                 = $request->clientToken;
+        $query['DryRun']                      = $request->dryRun;
+        $query['EndpointGroupConfigurations'] = $request->endpointGroupConfigurations;
+        $query['ListenerId']                  = $request->listenerId;
+        $query['RegionId']                    = $request->regionId;
+        $req                                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEndpointGroups',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateEndpointGroupsResponse::fromMap($this->doRPCRequest('CreateEndpointGroups', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateEndpointGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -552,11 +984,29 @@ class Ga extends OpenApiClient
     public function createForwardingRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['AcceleratorId']   = $request->acceleratorId;
+        $query['ClientToken']     = $request->clientToken;
+        $query['ForwardingRules'] = $request->forwardingRules;
+        $query['ListenerId']      = $request->listenerId;
+        $query['RegionId']        = $request->regionId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateForwardingRules',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateForwardingRulesResponse::fromMap($this->doRPCRequest('CreateForwardingRules', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateForwardingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -580,11 +1030,28 @@ class Ga extends OpenApiClient
     public function createIpSetsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['AccelerateRegion'] = $request->accelerateRegion;
+        $query['AcceleratorId']    = $request->acceleratorId;
+        $query['ClientToken']      = $request->clientToken;
+        $query['RegionId']         = $request->regionId;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateIpSets',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateIpSetsResponse::fromMap($this->doRPCRequest('CreateIpSets', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateIpSetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -608,11 +1075,36 @@ class Ga extends OpenApiClient
     public function createListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['AcceleratorId']       = $request->acceleratorId;
+        $query['Certificates']        = $request->certificates;
+        $query['ClientAffinity']      = $request->clientAffinity;
+        $query['ClientToken']         = $request->clientToken;
+        $query['Description']         = $request->description;
+        $query['Name']                = $request->name;
+        $query['PortRanges']          = $request->portRanges;
+        $query['Protocol']            = $request->protocol;
+        $query['ProxyProtocol']       = $request->proxyProtocol;
+        $query['RegionId']            = $request->regionId;
+        $query['SecurityPolicyId']    = $request->securityPolicyId;
+        $query['XForwardedForConfig'] = $request->XForwardedForConfig;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateListener',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateListenerResponse::fromMap($this->doRPCRequest('CreateListener', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -636,11 +1128,29 @@ class Ga extends OpenApiClient
     public function createSpareIpsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['ClientToken']   = $request->clientToken;
+        $query['DryRun']        = $request->dryRun;
+        $query['RegionId']      = $request->regionId;
+        $query['SpareIps']      = $request->spareIps;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSpareIps',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateSpareIpsResponse::fromMap($this->doRPCRequest('CreateSpareIps', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSpareIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -664,11 +1174,26 @@ class Ga extends OpenApiClient
     public function deleteAcceleratorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['RegionId']      = $request->regionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAccelerator',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAcceleratorResponse::fromMap($this->doRPCRequest('DeleteAccelerator', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAcceleratorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -692,11 +1217,28 @@ class Ga extends OpenApiClient
     public function deleteAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AclId']       = $request->aclId;
+        $query['ClientToken'] = $request->clientToken;
+        $query['DryRun']      = $request->dryRun;
+        $query['RegionId']    = $request->regionId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAcl',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAclResponse::fromMap($this->doRPCRequest('DeleteAcl', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAclResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -720,11 +1262,27 @@ class Ga extends OpenApiClient
     public function deleteBandwidthPackageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['BandwidthPackageId'] = $request->bandwidthPackageId;
+        $query['ClientToken']        = $request->clientToken;
+        $query['RegionId']           = $request->regionId;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBandwidthPackage',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteBandwidthPackageResponse::fromMap($this->doRPCRequest('DeleteBandwidthPackage', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -740,6 +1298,136 @@ class Ga extends OpenApiClient
     }
 
     /**
+     * @param DeleteBasicAcceleratorRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteBasicAcceleratorResponse
+     */
+    public function deleteBasicAcceleratorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['RegionId']      = $request->regionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBasicAccelerator',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteBasicAcceleratorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteBasicAcceleratorRequest $request
+     *
+     * @return DeleteBasicAcceleratorResponse
+     */
+    public function deleteBasicAccelerator($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBasicAcceleratorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteBasicEndpointGroupRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteBasicEndpointGroupResponse
+     */
+    public function deleteBasicEndpointGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                    = [];
+        $query['ClientToken']     = $request->clientToken;
+        $query['EndpointGroupId'] = $request->endpointGroupId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBasicEndpointGroup',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteBasicEndpointGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteBasicEndpointGroupRequest $request
+     *
+     * @return DeleteBasicEndpointGroupResponse
+     */
+    public function deleteBasicEndpointGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBasicEndpointGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteBasicIpSetRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteBasicIpSetResponse
+     */
+    public function deleteBasicIpSetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                = [];
+        $query['ClientToken'] = $request->clientToken;
+        $query['IpSetId']     = $request->ipSetId;
+        $query['RegionId']    = $request->regionId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBasicIpSet',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteBasicIpSetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteBasicIpSetRequest $request
+     *
+     * @return DeleteBasicIpSetResponse
+     */
+    public function deleteBasicIpSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBasicIpSetWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteEndpointGroupRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -748,11 +1436,27 @@ class Ga extends OpenApiClient
     public function deleteEndpointGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['AcceleratorId']   = $request->acceleratorId;
+        $query['ClientToken']     = $request->clientToken;
+        $query['EndpointGroupId'] = $request->endpointGroupId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEndpointGroup',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteEndpointGroupResponse::fromMap($this->doRPCRequest('DeleteEndpointGroup', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteEndpointGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -776,11 +1480,28 @@ class Ga extends OpenApiClient
     public function deleteEndpointGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['ClientToken']      = $request->clientToken;
+        $query['DryRun']           = $request->dryRun;
+        $query['EndpointGroupIds'] = $request->endpointGroupIds;
+        $query['RegionId']         = $request->regionId;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEndpointGroups',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteEndpointGroupsResponse::fromMap($this->doRPCRequest('DeleteEndpointGroups', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteEndpointGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -804,11 +1525,29 @@ class Ga extends OpenApiClient
     public function deleteForwardingRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['AcceleratorId']     = $request->acceleratorId;
+        $query['ClientToken']       = $request->clientToken;
+        $query['ForwardingRuleIds'] = $request->forwardingRuleIds;
+        $query['ListenerId']        = $request->listenerId;
+        $query['RegionId']          = $request->regionId;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteForwardingRules',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteForwardingRulesResponse::fromMap($this->doRPCRequest('DeleteForwardingRules', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteForwardingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -832,11 +1571,28 @@ class Ga extends OpenApiClient
     public function deleteIpSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['ClientToken']   = $request->clientToken;
+        $query['IpSetId']       = $request->ipSetId;
+        $query['RegionId']      = $request->regionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteIpSet',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteIpSetResponse::fromMap($this->doRPCRequest('DeleteIpSet', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteIpSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -860,11 +1616,26 @@ class Ga extends OpenApiClient
     public function deleteIpSetsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['IpSetIds'] = $request->ipSetIds;
+        $query['RegionId'] = $request->regionId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteIpSets',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteIpSetsResponse::fromMap($this->doRPCRequest('DeleteIpSets', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteIpSetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -888,11 +1659,27 @@ class Ga extends OpenApiClient
     public function deleteListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['ClientToken']   = $request->clientToken;
+        $query['ListenerId']    = $request->listenerId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteListener',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteListenerResponse::fromMap($this->doRPCRequest('DeleteListener', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -916,11 +1703,29 @@ class Ga extends OpenApiClient
     public function deleteSpareIpsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['ClientToken']   = $request->clientToken;
+        $query['DryRun']        = $request->dryRun;
+        $query['RegionId']      = $request->regionId;
+        $query['SpareIps']      = $request->spareIps;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSpareIps',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteSpareIpsResponse::fromMap($this->doRPCRequest('DeleteSpareIps', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteSpareIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -944,11 +1749,26 @@ class Ga extends OpenApiClient
     public function describeAcceleratorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['RegionId']      = $request->regionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAccelerator',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAcceleratorResponse::fromMap($this->doRPCRequest('DescribeAccelerator', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAcceleratorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -972,11 +1792,26 @@ class Ga extends OpenApiClient
     public function describeBandwidthPackageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['BandwidthPackageId'] = $request->bandwidthPackageId;
+        $query['RegionId']           = $request->regionId;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBandwidthPackage',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBandwidthPackageResponse::fromMap($this->doRPCRequest('DescribeBandwidthPackage', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1000,11 +1835,26 @@ class Ga extends OpenApiClient
     public function describeEndpointGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['EndpointGroupId'] = $request->endpointGroupId;
+        $query['RegionId']        = $request->regionId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEndpointGroup',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeEndpointGroupResponse::fromMap($this->doRPCRequest('DescribeEndpointGroup', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeEndpointGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1028,11 +1878,26 @@ class Ga extends OpenApiClient
     public function describeIpSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['IpSetId']  = $request->ipSetId;
+        $query['RegionId'] = $request->regionId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIpSet',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeIpSetResponse::fromMap($this->doRPCRequest('DescribeIpSet', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeIpSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1056,11 +1921,26 @@ class Ga extends OpenApiClient
     public function describeListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['ListenerId'] = $request->listenerId;
+        $query['RegionId']   = $request->regionId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeListener',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeListenerResponse::fromMap($this->doRPCRequest('DescribeListener', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1084,11 +1964,25 @@ class Ga extends OpenApiClient
     public function describeRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['RegionId'] = $request->regionId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRegions',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1112,11 +2006,26 @@ class Ga extends OpenApiClient
     public function detachDdosFromAcceleratorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['RegionId']      = $request->regionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachDdosFromAccelerator',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DetachDdosFromAcceleratorResponse::fromMap($this->doRPCRequest('DetachDdosFromAccelerator', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetachDdosFromAcceleratorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1140,11 +2049,29 @@ class Ga extends OpenApiClient
     public function detachLogStoreFromEndpointGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['AcceleratorId']    = $request->acceleratorId;
+        $query['ClientToken']      = $request->clientToken;
+        $query['EndpointGroupIds'] = $request->endpointGroupIds;
+        $query['ListenerId']       = $request->listenerId;
+        $query['RegionId']         = $request->regionId;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachLogStoreFromEndpointGroup',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DetachLogStoreFromEndpointGroupResponse::fromMap($this->doRPCRequest('DetachLogStoreFromEndpointGroup', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetachLogStoreFromEndpointGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1168,11 +2095,29 @@ class Ga extends OpenApiClient
     public function dissociateAclsFromListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AclIds']      = $request->aclIds;
+        $query['ClientToken'] = $request->clientToken;
+        $query['DryRun']      = $request->dryRun;
+        $query['ListenerId']  = $request->listenerId;
+        $query['RegionId']    = $request->regionId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DissociateAclsFromListener',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DissociateAclsFromListenerResponse::fromMap($this->doRPCRequest('DissociateAclsFromListener', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DissociateAclsFromListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1196,11 +2141,29 @@ class Ga extends OpenApiClient
     public function dissociateAdditionalCertificatesFromListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['ClientToken']   = $request->clientToken;
+        $query['Domains']       = $request->domains;
+        $query['ListenerId']    = $request->listenerId;
+        $query['RegionId']      = $request->regionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DissociateAdditionalCertificatesFromListener',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DissociateAdditionalCertificatesFromListenerResponse::fromMap($this->doRPCRequest('DissociateAdditionalCertificatesFromListener', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DissociateAdditionalCertificatesFromListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1224,11 +2187,26 @@ class Ga extends OpenApiClient
     public function getAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['AclId']    = $request->aclId;
+        $query['RegionId'] = $request->regionId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAcl',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAclResponse::fromMap($this->doRPCRequest('GetAcl', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAclResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1244,6 +2222,137 @@ class Ga extends OpenApiClient
     }
 
     /**
+     * @param GetBasicAcceleratorRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetBasicAcceleratorResponse
+     */
+    public function getBasicAcceleratorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['RegionId']      = $request->regionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBasicAccelerator',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetBasicAcceleratorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetBasicAcceleratorRequest $request
+     *
+     * @return GetBasicAcceleratorResponse
+     */
+    public function getBasicAccelerator($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBasicAcceleratorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetBasicEndpointGroupRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetBasicEndpointGroupResponse
+     */
+    public function getBasicEndpointGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                    = [];
+        $query['ClientToken']     = $request->clientToken;
+        $query['EndpointGroupId'] = $request->endpointGroupId;
+        $query['RegionId']        = $request->regionId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBasicEndpointGroup',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetBasicEndpointGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetBasicEndpointGroupRequest $request
+     *
+     * @return GetBasicEndpointGroupResponse
+     */
+    public function getBasicEndpointGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBasicEndpointGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetBasicIpSetRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetBasicIpSetResponse
+     */
+    public function getBasicIpSetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                = [];
+        $query['ClientToken'] = $request->clientToken;
+        $query['IpSetId']     = $request->ipSetId;
+        $query['RegionId']    = $request->regionId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBasicIpSet',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetBasicIpSetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetBasicIpSetRequest $request
+     *
+     * @return GetBasicIpSetResponse
+     */
+    public function getBasicIpSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBasicIpSetWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetHealthStatusRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1252,11 +2361,29 @@ class Ga extends OpenApiClient
     public function getHealthStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['ClientToken']   = $request->clientToken;
+        $query['DryRun']        = $request->dryRun;
+        $query['ListenerId']    = $request->listenerId;
+        $query['RegionId']      = $request->regionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetHealthStatus',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetHealthStatusResponse::fromMap($this->doRPCRequest('GetHealthStatus', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetHealthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1280,11 +2407,29 @@ class Ga extends OpenApiClient
     public function getSpareIpWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['ClientToken']   = $request->clientToken;
+        $query['DryRun']        = $request->dryRun;
+        $query['RegionId']      = $request->regionId;
+        $query['SpareIp']       = $request->spareIp;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSpareIp',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetSpareIpResponse::fromMap($this->doRPCRequest('GetSpareIp', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetSpareIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1308,11 +2453,25 @@ class Ga extends OpenApiClient
     public function listAccelerateAreasWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['RegionId'] = $request->regionId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAccelerateAreas',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAccelerateAreasResponse::fromMap($this->doRPCRequest('ListAccelerateAreas', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAccelerateAreasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1336,11 +2495,29 @@ class Ga extends OpenApiClient
     public function listAcceleratorsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['RegionId']      = $request->regionId;
+        $query['State']         = $request->state;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAccelerators',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAcceleratorsResponse::fromMap($this->doRPCRequest('ListAccelerators', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAcceleratorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1364,11 +2541,30 @@ class Ga extends OpenApiClient
     public function listAclsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AclIds']      = $request->aclIds;
+        $query['AclName']     = $request->aclName;
+        $query['ClientToken'] = $request->clientToken;
+        $query['MaxResults']  = $request->maxResults;
+        $query['NextToken']   = $request->nextToken;
+        $query['RegionId']    = $request->regionId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAcls',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAclsResponse::fromMap($this->doRPCRequest('ListAcls', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAclsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1392,11 +2588,26 @@ class Ga extends OpenApiClient
     public function listAvailableAccelerateAreasWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['RegionId']      = $request->regionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAvailableAccelerateAreas',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAvailableAccelerateAreasResponse::fromMap($this->doRPCRequest('ListAvailableAccelerateAreas', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAvailableAccelerateAreasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1420,11 +2631,26 @@ class Ga extends OpenApiClient
     public function listAvailableBusiRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['RegionId']      = $request->regionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAvailableBusiRegions',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAvailableBusiRegionsResponse::fromMap($this->doRPCRequest('ListAvailableBusiRegions', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAvailableBusiRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1440,34 +2666,6 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * @param ListBandwidthackagesRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ListBandwidthackagesResponse
-     */
-    public function listBandwidthackagesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListBandwidthackagesResponse::fromMap($this->doRPCRequest('ListBandwidthackages', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListBandwidthackagesRequest $request
-     *
-     * @return ListBandwidthackagesResponse
-     */
-    public function listBandwidthackages($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listBandwidthackagesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListBandwidthPackagesRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1476,11 +2674,30 @@ class Ga extends OpenApiClient
     public function listBandwidthPackagesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['BandwidthPackageId'] = $request->bandwidthPackageId;
+        $query['PageNumber']         = $request->pageNumber;
+        $query['PageSize']           = $request->pageSize;
+        $query['RegionId']           = $request->regionId;
+        $query['State']              = $request->state;
+        $query['Type']               = $request->type;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBandwidthPackages',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListBandwidthPackagesResponse::fromMap($this->doRPCRequest('ListBandwidthPackages', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListBandwidthPackagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1496,6 +2713,96 @@ class Ga extends OpenApiClient
     }
 
     /**
+     * @param ListBandwidthackagesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListBandwidthackagesResponse
+     */
+    public function listBandwidthackagesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $query['RegionId']   = $request->regionId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBandwidthackages',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListBandwidthackagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListBandwidthackagesRequest $request
+     *
+     * @return ListBandwidthackagesResponse
+     */
+    public function listBandwidthackages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBandwidthackagesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListBasicAcceleratorsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListBasicAcceleratorsResponse
+     */
+    public function listBasicAcceleratorsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['RegionId']      = $request->regionId;
+        $query['State']         = $request->state;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBasicAccelerators',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListBasicAcceleratorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListBasicAcceleratorsRequest $request
+     *
+     * @return ListBasicAcceleratorsResponse
+     */
+    public function listBasicAccelerators($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBasicAcceleratorsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListBusiRegionsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1504,11 +2811,25 @@ class Ga extends OpenApiClient
     public function listBusiRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['RegionId'] = $request->regionId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBusiRegions',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListBusiRegionsResponse::fromMap($this->doRPCRequest('ListBusiRegions', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListBusiRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1532,11 +2853,32 @@ class Ga extends OpenApiClient
     public function listEndpointGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['AcceleratorId']     = $request->acceleratorId;
+        $query['AccessLogSwitch']   = $request->accessLogSwitch;
+        $query['EndpointGroupId']   = $request->endpointGroupId;
+        $query['EndpointGroupType'] = $request->endpointGroupType;
+        $query['ListenerId']        = $request->listenerId;
+        $query['PageNumber']        = $request->pageNumber;
+        $query['PageSize']          = $request->pageSize;
+        $query['RegionId']          = $request->regionId;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEndpointGroups',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListEndpointGroupsResponse::fromMap($this->doRPCRequest('ListEndpointGroups', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListEndpointGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1560,11 +2902,31 @@ class Ga extends OpenApiClient
     public function listForwardingRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['AcceleratorId']    = $request->acceleratorId;
+        $query['ClientToken']      = $request->clientToken;
+        $query['ForwardingRuleId'] = $request->forwardingRuleId;
+        $query['ListenerId']       = $request->listenerId;
+        $query['MaxResults']       = $request->maxResults;
+        $query['NextToken']        = $request->nextToken;
+        $query['RegionId']         = $request->regionId;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListForwardingRules',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListForwardingRulesResponse::fromMap($this->doRPCRequest('ListForwardingRules', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListForwardingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1588,11 +2950,28 @@ class Ga extends OpenApiClient
     public function listIpSetsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['RegionId']      = $request->regionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIpSets',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListIpSetsResponse::fromMap($this->doRPCRequest('ListIpSets', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListIpSetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1616,11 +2995,30 @@ class Ga extends OpenApiClient
     public function listListenerCertificatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['ListenerId']    = $request->listenerId;
+        $query['MaxResults']    = $request->maxResults;
+        $query['NextToken']     = $request->nextToken;
+        $query['RegionId']      = $request->regionId;
+        $query['Role']          = $request->role;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListListenerCertificates',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListListenerCertificatesResponse::fromMap($this->doRPCRequest('ListListenerCertificates', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListListenerCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1644,11 +3042,28 @@ class Ga extends OpenApiClient
     public function listListenersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['RegionId']      = $request->regionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListListeners',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListListenersResponse::fromMap($this->doRPCRequest('ListListeners', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListListenersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1672,11 +3087,28 @@ class Ga extends OpenApiClient
     public function listSpareIpsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['ClientToken']   = $request->clientToken;
+        $query['DryRun']        = $request->dryRun;
+        $query['RegionId']      = $request->regionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSpareIps',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListSpareIpsResponse::fromMap($this->doRPCRequest('ListSpareIps', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSpareIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1700,11 +3132,27 @@ class Ga extends OpenApiClient
     public function listSystemSecurityPoliciesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $query['RegionId']   = $request->regionId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSystemSecurityPolicies',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListSystemSecurityPoliciesResponse::fromMap($this->doRPCRequest('ListSystemSecurityPolicies', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSystemSecurityPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1728,11 +3176,29 @@ class Ga extends OpenApiClient
     public function removeEntriesFromAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AclEntries']  = $request->aclEntries;
+        $query['AclId']       = $request->aclId;
+        $query['ClientToken'] = $request->clientToken;
+        $query['DryRun']      = $request->dryRun;
+        $query['RegionId']    = $request->regionId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveEntriesFromAcl',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveEntriesFromAclResponse::fromMap($this->doRPCRequest('RemoveEntriesFromAcl', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveEntriesFromAclResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1756,11 +3222,27 @@ class Ga extends OpenApiClient
     public function replaceBandwidthPackageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                             = [];
+        $query['BandwidthPackageId']       = $request->bandwidthPackageId;
+        $query['RegionId']                 = $request->regionId;
+        $query['TargetBandwidthPackageId'] = $request->targetBandwidthPackageId;
+        $req                               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ReplaceBandwidthPackage',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ReplaceBandwidthPackageResponse::fromMap($this->doRPCRequest('ReplaceBandwidthPackage', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReplaceBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1784,11 +3266,32 @@ class Ga extends OpenApiClient
     public function updateAcceleratorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['AutoPay']       = $request->autoPay;
+        $query['AutoUseCoupon'] = $request->autoUseCoupon;
+        $query['ClientToken']   = $request->clientToken;
+        $query['Description']   = $request->description;
+        $query['Name']          = $request->name;
+        $query['RegionId']      = $request->regionId;
+        $query['Spec']          = $request->spec;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAccelerator',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateAcceleratorResponse::fromMap($this->doRPCRequest('UpdateAccelerator', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateAcceleratorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1812,11 +3315,26 @@ class Ga extends OpenApiClient
     public function updateAcceleratorConfirmWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['RegionId']      = $request->regionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAcceleratorConfirm',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateAcceleratorConfirmResponse::fromMap($this->doRPCRequest('UpdateAcceleratorConfirm', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateAcceleratorConfirmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1840,11 +3358,29 @@ class Ga extends OpenApiClient
     public function updateAclAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AclId']       = $request->aclId;
+        $query['AclName']     = $request->aclName;
+        $query['ClientToken'] = $request->clientToken;
+        $query['DryRun']      = $request->dryRun;
+        $query['RegionId']    = $request->regionId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAclAttribute',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateAclAttributeResponse::fromMap($this->doRPCRequest('UpdateAclAttribute', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateAclAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1868,11 +3404,32 @@ class Ga extends OpenApiClient
     public function updateBandwidthPackageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['AutoPay']            = $request->autoPay;
+        $query['AutoUseCoupon']      = $request->autoUseCoupon;
+        $query['Bandwidth']          = $request->bandwidth;
+        $query['BandwidthPackageId'] = $request->bandwidthPackageId;
+        $query['BandwidthType']      = $request->bandwidthType;
+        $query['Description']        = $request->description;
+        $query['Name']               = $request->name;
+        $query['RegionId']           = $request->regionId;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateBandwidthPackage',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateBandwidthPackageResponse::fromMap($this->doRPCRequest('UpdateBandwidthPackage', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1888,6 +3445,100 @@ class Ga extends OpenApiClient
     }
 
     /**
+     * @param UpdateBasicAcceleratorRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateBasicAcceleratorResponse
+     */
+    public function updateBasicAcceleratorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['ClientToken']   = $request->clientToken;
+        $query['Description']   = $request->description;
+        $query['Name']          = $request->name;
+        $query['RegionId']      = $request->regionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateBasicAccelerator',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateBasicAcceleratorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateBasicAcceleratorRequest $request
+     *
+     * @return UpdateBasicAcceleratorResponse
+     */
+    public function updateBasicAccelerator($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateBasicAcceleratorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateBasicEndpointGroupRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateBasicEndpointGroupResponse
+     */
+    public function updateBasicEndpointGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                    = [];
+        $query['ClientToken']     = $request->clientToken;
+        $query['Description']     = $request->description;
+        $query['EndpointAddress'] = $request->endpointAddress;
+        $query['EndpointGroupId'] = $request->endpointGroupId;
+        $query['EndpointType']    = $request->endpointType;
+        $query['Name']            = $request->name;
+        $query['RegionId']        = $request->regionId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateBasicEndpointGroup',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateBasicEndpointGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateBasicEndpointGroupRequest $request
+     *
+     * @return UpdateBasicEndpointGroupResponse
+     */
+    public function updateBasicEndpointGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateBasicEndpointGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateEndpointGroupRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1896,11 +3547,40 @@ class Ga extends OpenApiClient
     public function updateEndpointGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                               = [];
+        $query['ClientToken']                = $request->clientToken;
+        $query['Description']                = $request->description;
+        $query['EndpointConfigurations']     = $request->endpointConfigurations;
+        $query['EndpointGroupId']            = $request->endpointGroupId;
+        $query['EndpointGroupRegion']        = $request->endpointGroupRegion;
+        $query['EndpointRequestProtocol']    = $request->endpointRequestProtocol;
+        $query['HealthCheckEnabled']         = $request->healthCheckEnabled;
+        $query['HealthCheckIntervalSeconds'] = $request->healthCheckIntervalSeconds;
+        $query['HealthCheckPath']            = $request->healthCheckPath;
+        $query['HealthCheckPort']            = $request->healthCheckPort;
+        $query['HealthCheckProtocol']        = $request->healthCheckProtocol;
+        $query['Name']                       = $request->name;
+        $query['PortOverrides']              = $request->portOverrides;
+        $query['RegionId']                   = $request->regionId;
+        $query['ThresholdCount']             = $request->thresholdCount;
+        $query['TrafficPercentage']          = $request->trafficPercentage;
+        $req                                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEndpointGroup',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateEndpointGroupResponse::fromMap($this->doRPCRequest('UpdateEndpointGroup', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateEndpointGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1924,11 +3604,29 @@ class Ga extends OpenApiClient
     public function updateEndpointGroupAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClientToken']     = $request->clientToken;
+        $query['Description']     = $request->description;
+        $query['EndpointGroupId'] = $request->endpointGroupId;
+        $query['Name']            = $request->name;
+        $query['RegionId']        = $request->regionId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEndpointGroupAttribute',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateEndpointGroupAttributeResponse::fromMap($this->doRPCRequest('UpdateEndpointGroupAttribute', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateEndpointGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1952,11 +3650,29 @@ class Ga extends OpenApiClient
     public function updateEndpointGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                                = [];
+        $query['ClientToken']                 = $request->clientToken;
+        $query['DryRun']                      = $request->dryRun;
+        $query['EndpointGroupConfigurations'] = $request->endpointGroupConfigurations;
+        $query['ListenerId']                  = $request->listenerId;
+        $query['RegionId']                    = $request->regionId;
+        $req                                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEndpointGroups',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateEndpointGroupsResponse::fromMap($this->doRPCRequest('UpdateEndpointGroups', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateEndpointGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1980,11 +3696,29 @@ class Ga extends OpenApiClient
     public function updateForwardingRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['AcceleratorId']   = $request->acceleratorId;
+        $query['ClientToken']     = $request->clientToken;
+        $query['ForwardingRules'] = $request->forwardingRules;
+        $query['ListenerId']      = $request->listenerId;
+        $query['RegionId']        = $request->regionId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateForwardingRules',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateForwardingRulesResponse::fromMap($this->doRPCRequest('UpdateForwardingRules', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateForwardingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2008,11 +3742,28 @@ class Ga extends OpenApiClient
     public function updateIpSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['Bandwidth']   = $request->bandwidth;
+        $query['ClientToken'] = $request->clientToken;
+        $query['IpSetId']     = $request->ipSetId;
+        $query['RegionId']    = $request->regionId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateIpSet',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateIpSetResponse::fromMap($this->doRPCRequest('UpdateIpSet', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateIpSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2036,11 +3787,26 @@ class Ga extends OpenApiClient
     public function updateIpSetsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['IpSets']   = $request->ipSets;
+        $query['RegionId'] = $request->regionId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateIpSets',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateIpSetsResponse::fromMap($this->doRPCRequest('UpdateIpSets', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateIpSetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2064,11 +3830,37 @@ class Ga extends OpenApiClient
     public function updateListenerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['BackendPorts']        = $request->backendPorts;
+        $query['Certificates']        = $request->certificates;
+        $query['ClientAffinity']      = $request->clientAffinity;
+        $query['ClientToken']         = $request->clientToken;
+        $query['Description']         = $request->description;
+        $query['ListenerId']          = $request->listenerId;
+        $query['Name']                = $request->name;
+        $query['PortRanges']          = $request->portRanges;
+        $query['Protocol']            = $request->protocol;
+        $query['ProxyProtocol']       = $request->proxyProtocol;
+        $query['RegionId']            = $request->regionId;
+        $query['SecurityPolicyId']    = $request->securityPolicyId;
+        $query['XForwardedForConfig'] = $request->XForwardedForConfig;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateListener',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateListenerResponse::fromMap($this->doRPCRequest('UpdateListener', '2019-11-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

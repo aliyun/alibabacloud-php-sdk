@@ -11,9 +11,19 @@ use AlibabaCloud\Tea\Model;
 class endpointGroupConfigurations extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $endpointGroupName;
+    public $enableClientIPPreservationProxyProtocol;
+
+    /**
+     * @var bool
+     */
+    public $enableClientIPPreservationToa;
+
+    /**
+     * @var endpointConfigurations[]
+     */
+    public $endpointConfigurations;
 
     /**
      * @var string
@@ -21,9 +31,19 @@ class endpointGroupConfigurations extends Model
     public $endpointGroupDescription;
 
     /**
-     * @var int
+     * @var string
      */
-    public $trafficPercentage;
+    public $endpointGroupId;
+
+    /**
+     * @var string
+     */
+    public $endpointGroupName;
+
+    /**
+     * @var string
+     */
+    public $endpointRequestProtocol;
 
     /**
      * @var bool
@@ -51,55 +71,35 @@ class endpointGroupConfigurations extends Model
     public $healthCheckProtocol;
 
     /**
-     * @var int
-     */
-    public $thresholdCount;
-
-    /**
-     * @var endpointConfigurations[]
-     */
-    public $endpointConfigurations;
-
-    /**
-     * @var string
-     */
-    public $endpointRequestProtocol;
-
-    /**
      * @var portOverrides[]
      */
     public $portOverrides;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $enableClientIPPreservationToa;
+    public $thresholdCount;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $enableClientIPPreservationProxyProtocol;
-
-    /**
-     * @var string
-     */
-    public $endpointGroupId;
+    public $trafficPercentage;
     protected $_name = [
-        'endpointGroupName'                       => 'EndpointGroupName',
+        'enableClientIPPreservationProxyProtocol' => 'EnableClientIPPreservationProxyProtocol',
+        'enableClientIPPreservationToa'           => 'EnableClientIPPreservationToa',
+        'endpointConfigurations'                  => 'EndpointConfigurations',
         'endpointGroupDescription'                => 'EndpointGroupDescription',
-        'trafficPercentage'                       => 'TrafficPercentage',
+        'endpointGroupId'                         => 'EndpointGroupId',
+        'endpointGroupName'                       => 'EndpointGroupName',
+        'endpointRequestProtocol'                 => 'EndpointRequestProtocol',
         'healthCheckEnabled'                      => 'HealthCheckEnabled',
         'healthCheckIntervalSeconds'              => 'HealthCheckIntervalSeconds',
         'healthCheckPath'                         => 'HealthCheckPath',
         'healthCheckPort'                         => 'HealthCheckPort',
         'healthCheckProtocol'                     => 'HealthCheckProtocol',
-        'thresholdCount'                          => 'ThresholdCount',
-        'endpointConfigurations'                  => 'EndpointConfigurations',
-        'endpointRequestProtocol'                 => 'EndpointRequestProtocol',
         'portOverrides'                           => 'PortOverrides',
-        'enableClientIPPreservationToa'           => 'EnableClientIPPreservationToa',
-        'enableClientIPPreservationProxyProtocol' => 'EnableClientIPPreservationProxyProtocol',
-        'endpointGroupId'                         => 'EndpointGroupId',
+        'thresholdCount'                          => 'ThresholdCount',
+        'trafficPercentage'                       => 'TrafficPercentage',
     ];
 
     public function validate()
@@ -109,14 +109,32 @@ class endpointGroupConfigurations extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endpointGroupName) {
-            $res['EndpointGroupName'] = $this->endpointGroupName;
+        if (null !== $this->enableClientIPPreservationProxyProtocol) {
+            $res['EnableClientIPPreservationProxyProtocol'] = $this->enableClientIPPreservationProxyProtocol;
+        }
+        if (null !== $this->enableClientIPPreservationToa) {
+            $res['EnableClientIPPreservationToa'] = $this->enableClientIPPreservationToa;
+        }
+        if (null !== $this->endpointConfigurations) {
+            $res['EndpointConfigurations'] = [];
+            if (null !== $this->endpointConfigurations && \is_array($this->endpointConfigurations)) {
+                $n = 0;
+                foreach ($this->endpointConfigurations as $item) {
+                    $res['EndpointConfigurations'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->endpointGroupDescription) {
             $res['EndpointGroupDescription'] = $this->endpointGroupDescription;
         }
-        if (null !== $this->trafficPercentage) {
-            $res['TrafficPercentage'] = $this->trafficPercentage;
+        if (null !== $this->endpointGroupId) {
+            $res['EndpointGroupId'] = $this->endpointGroupId;
+        }
+        if (null !== $this->endpointGroupName) {
+            $res['EndpointGroupName'] = $this->endpointGroupName;
+        }
+        if (null !== $this->endpointRequestProtocol) {
+            $res['EndpointRequestProtocol'] = $this->endpointRequestProtocol;
         }
         if (null !== $this->healthCheckEnabled) {
             $res['HealthCheckEnabled'] = $this->healthCheckEnabled;
@@ -133,21 +151,6 @@ class endpointGroupConfigurations extends Model
         if (null !== $this->healthCheckProtocol) {
             $res['HealthCheckProtocol'] = $this->healthCheckProtocol;
         }
-        if (null !== $this->thresholdCount) {
-            $res['ThresholdCount'] = $this->thresholdCount;
-        }
-        if (null !== $this->endpointConfigurations) {
-            $res['EndpointConfigurations'] = [];
-            if (null !== $this->endpointConfigurations && \is_array($this->endpointConfigurations)) {
-                $n = 0;
-                foreach ($this->endpointConfigurations as $item) {
-                    $res['EndpointConfigurations'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->endpointRequestProtocol) {
-            $res['EndpointRequestProtocol'] = $this->endpointRequestProtocol;
-        }
         if (null !== $this->portOverrides) {
             $res['PortOverrides'] = [];
             if (null !== $this->portOverrides && \is_array($this->portOverrides)) {
@@ -157,14 +160,11 @@ class endpointGroupConfigurations extends Model
                 }
             }
         }
-        if (null !== $this->enableClientIPPreservationToa) {
-            $res['EnableClientIPPreservationToa'] = $this->enableClientIPPreservationToa;
+        if (null !== $this->thresholdCount) {
+            $res['ThresholdCount'] = $this->thresholdCount;
         }
-        if (null !== $this->enableClientIPPreservationProxyProtocol) {
-            $res['EnableClientIPPreservationProxyProtocol'] = $this->enableClientIPPreservationProxyProtocol;
-        }
-        if (null !== $this->endpointGroupId) {
-            $res['EndpointGroupId'] = $this->endpointGroupId;
+        if (null !== $this->trafficPercentage) {
+            $res['TrafficPercentage'] = $this->trafficPercentage;
         }
 
         return $res;
@@ -178,14 +178,32 @@ class endpointGroupConfigurations extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndpointGroupName'])) {
-            $model->endpointGroupName = $map['EndpointGroupName'];
+        if (isset($map['EnableClientIPPreservationProxyProtocol'])) {
+            $model->enableClientIPPreservationProxyProtocol = $map['EnableClientIPPreservationProxyProtocol'];
+        }
+        if (isset($map['EnableClientIPPreservationToa'])) {
+            $model->enableClientIPPreservationToa = $map['EnableClientIPPreservationToa'];
+        }
+        if (isset($map['EndpointConfigurations'])) {
+            if (!empty($map['EndpointConfigurations'])) {
+                $model->endpointConfigurations = [];
+                $n                             = 0;
+                foreach ($map['EndpointConfigurations'] as $item) {
+                    $model->endpointConfigurations[$n++] = null !== $item ? endpointConfigurations::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['EndpointGroupDescription'])) {
             $model->endpointGroupDescription = $map['EndpointGroupDescription'];
         }
-        if (isset($map['TrafficPercentage'])) {
-            $model->trafficPercentage = $map['TrafficPercentage'];
+        if (isset($map['EndpointGroupId'])) {
+            $model->endpointGroupId = $map['EndpointGroupId'];
+        }
+        if (isset($map['EndpointGroupName'])) {
+            $model->endpointGroupName = $map['EndpointGroupName'];
+        }
+        if (isset($map['EndpointRequestProtocol'])) {
+            $model->endpointRequestProtocol = $map['EndpointRequestProtocol'];
         }
         if (isset($map['HealthCheckEnabled'])) {
             $model->healthCheckEnabled = $map['HealthCheckEnabled'];
@@ -202,21 +220,6 @@ class endpointGroupConfigurations extends Model
         if (isset($map['HealthCheckProtocol'])) {
             $model->healthCheckProtocol = $map['HealthCheckProtocol'];
         }
-        if (isset($map['ThresholdCount'])) {
-            $model->thresholdCount = $map['ThresholdCount'];
-        }
-        if (isset($map['EndpointConfigurations'])) {
-            if (!empty($map['EndpointConfigurations'])) {
-                $model->endpointConfigurations = [];
-                $n                             = 0;
-                foreach ($map['EndpointConfigurations'] as $item) {
-                    $model->endpointConfigurations[$n++] = null !== $item ? endpointConfigurations::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['EndpointRequestProtocol'])) {
-            $model->endpointRequestProtocol = $map['EndpointRequestProtocol'];
-        }
         if (isset($map['PortOverrides'])) {
             if (!empty($map['PortOverrides'])) {
                 $model->portOverrides = [];
@@ -226,14 +229,11 @@ class endpointGroupConfigurations extends Model
                 }
             }
         }
-        if (isset($map['EnableClientIPPreservationToa'])) {
-            $model->enableClientIPPreservationToa = $map['EnableClientIPPreservationToa'];
+        if (isset($map['ThresholdCount'])) {
+            $model->thresholdCount = $map['ThresholdCount'];
         }
-        if (isset($map['EnableClientIPPreservationProxyProtocol'])) {
-            $model->enableClientIPPreservationProxyProtocol = $map['EnableClientIPPreservationProxyProtocol'];
-        }
-        if (isset($map['EndpointGroupId'])) {
-            $model->endpointGroupId = $map['EndpointGroupId'];
+        if (isset($map['TrafficPercentage'])) {
+            $model->trafficPercentage = $map['TrafficPercentage'];
         }
 
         return $model;

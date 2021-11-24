@@ -11,7 +11,7 @@ class ListForwardingRulesRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $acceleratorId;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class ListForwardingRulesRequest extends Model
     /**
      * @var string
      */
+    public $forwardingRuleId;
+
+    /**
+     * @var string
+     */
     public $listenerId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $acceleratorId;
-
-    /**
-     * @var string
-     */
-    public $forwardingRuleId;
+    public $maxResults;
 
     /**
      * @var string
@@ -39,17 +39,17 @@ class ListForwardingRulesRequest extends Model
     public $nextToken;
 
     /**
-     * @var int
+     * @var string
      */
-    public $maxResults;
+    public $regionId;
     protected $_name = [
-        'regionId'         => 'RegionId',
-        'clientToken'      => 'ClientToken',
-        'listenerId'       => 'ListenerId',
         'acceleratorId'    => 'AcceleratorId',
+        'clientToken'      => 'ClientToken',
         'forwardingRuleId' => 'ForwardingRuleId',
-        'nextToken'        => 'NextToken',
+        'listenerId'       => 'ListenerId',
         'maxResults'       => 'MaxResults',
+        'nextToken'        => 'NextToken',
+        'regionId'         => 'RegionId',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class ListForwardingRulesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->forwardingRuleId) {
+            $res['ForwardingRuleId'] = $this->forwardingRuleId;
+        }
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
         }
-        if (null !== $this->acceleratorId) {
-            $res['AcceleratorId'] = $this->acceleratorId;
-        }
-        if (null !== $this->forwardingRuleId) {
-            $res['ForwardingRuleId'] = $this->forwardingRuleId;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class ListForwardingRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['AcceleratorId'])) {
+            $model->acceleratorId = $map['AcceleratorId'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['ForwardingRuleId'])) {
+            $model->forwardingRuleId = $map['ForwardingRuleId'];
+        }
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];
         }
-        if (isset($map['AcceleratorId'])) {
-            $model->acceleratorId = $map['AcceleratorId'];
-        }
-        if (isset($map['ForwardingRuleId'])) {
-            $model->forwardingRuleId = $map['ForwardingRuleId'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

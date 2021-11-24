@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateEndpointGroupsResponseBody extends Model
 {
     /**
+     * @var string[]
+     */
+    public $endpointGroupIds;
+
+    /**
      * @description Id of the request
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string[]
-     */
-    public $endpointGroupIds;
     protected $_name = [
-        'requestId'        => 'RequestId',
         'endpointGroupIds' => 'EndpointGroupIds',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class CreateEndpointGroupsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->endpointGroupIds) {
             $res['EndpointGroupIds'] = $this->endpointGroupIds;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -49,13 +49,13 @@ class CreateEndpointGroupsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['EndpointGroupIds'])) {
             if (!empty($map['EndpointGroupIds'])) {
                 $model->endpointGroupIds = $map['EndpointGroupIds'];
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

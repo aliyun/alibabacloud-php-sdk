@@ -14,7 +14,17 @@ class CreateListenerRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $acceleratorId;
+
+    /**
+     * @var certificates[]
+     */
+    public $certificates;
+
+    /**
+     * @var string
+     */
+    public $clientAffinity;
 
     /**
      * @var string
@@ -24,7 +34,7 @@ class CreateListenerRequest extends Model
     /**
      * @var string
      */
-    public $acceleratorId;
+    public $description;
 
     /**
      * @var string
@@ -32,14 +42,9 @@ class CreateListenerRequest extends Model
     public $name;
 
     /**
-     * @var string
+     * @var portRanges[]
      */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $clientAffinity;
+    public $portRanges;
 
     /**
      * @var string
@@ -52,37 +57,32 @@ class CreateListenerRequest extends Model
     public $proxyProtocol;
 
     /**
-     * @var portRanges[]
+     * @var string
      */
-    public $portRanges;
-
-    /**
-     * @var certificates[]
-     */
-    public $certificates;
-
-    /**
-     * @var XForwardedForConfig
-     */
-    public $XForwardedForConfig;
+    public $regionId;
 
     /**
      * @var string
      */
     public $securityPolicyId;
+
+    /**
+     * @var XForwardedForConfig
+     */
+    public $XForwardedForConfig;
     protected $_name = [
-        'regionId'            => 'RegionId',
-        'clientToken'         => 'ClientToken',
         'acceleratorId'       => 'AcceleratorId',
-        'name'                => 'Name',
-        'description'         => 'Description',
+        'certificates'        => 'Certificates',
         'clientAffinity'      => 'ClientAffinity',
+        'clientToken'         => 'ClientToken',
+        'description'         => 'Description',
+        'name'                => 'Name',
+        'portRanges'          => 'PortRanges',
         'protocol'            => 'Protocol',
         'proxyProtocol'       => 'ProxyProtocol',
-        'portRanges'          => 'PortRanges',
-        'certificates'        => 'Certificates',
-        'XForwardedForConfig' => 'XForwardedForConfig',
+        'regionId'            => 'RegionId',
         'securityPolicyId'    => 'SecurityPolicyId',
+        'XForwardedForConfig' => 'XForwardedForConfig',
     ];
 
     public function validate()
@@ -92,38 +92,8 @@ class CreateListenerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->clientAffinity) {
-            $res['ClientAffinity'] = $this->clientAffinity;
-        }
-        if (null !== $this->protocol) {
-            $res['Protocol'] = $this->protocol;
-        }
-        if (null !== $this->proxyProtocol) {
-            $res['ProxyProtocol'] = $this->proxyProtocol;
-        }
-        if (null !== $this->portRanges) {
-            $res['PortRanges'] = [];
-            if (null !== $this->portRanges && \is_array($this->portRanges)) {
-                $n = 0;
-                foreach ($this->portRanges as $item) {
-                    $res['PortRanges'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->certificates) {
             $res['Certificates'] = [];
@@ -134,11 +104,41 @@ class CreateListenerRequest extends Model
                 }
             }
         }
-        if (null !== $this->XForwardedForConfig) {
-            $res['XForwardedForConfig'] = null !== $this->XForwardedForConfig ? $this->XForwardedForConfig->toMap() : null;
+        if (null !== $this->clientAffinity) {
+            $res['ClientAffinity'] = $this->clientAffinity;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->portRanges) {
+            $res['PortRanges'] = [];
+            if (null !== $this->portRanges && \is_array($this->portRanges)) {
+                $n = 0;
+                foreach ($this->portRanges as $item) {
+                    $res['PortRanges'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->protocol) {
+            $res['Protocol'] = $this->protocol;
+        }
+        if (null !== $this->proxyProtocol) {
+            $res['ProxyProtocol'] = $this->proxyProtocol;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->securityPolicyId) {
             $res['SecurityPolicyId'] = $this->securityPolicyId;
+        }
+        if (null !== $this->XForwardedForConfig) {
+            $res['XForwardedForConfig'] = null !== $this->XForwardedForConfig ? $this->XForwardedForConfig->toMap() : null;
         }
 
         return $res;
@@ -152,38 +152,8 @@ class CreateListenerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['ClientAffinity'])) {
-            $model->clientAffinity = $map['ClientAffinity'];
-        }
-        if (isset($map['Protocol'])) {
-            $model->protocol = $map['Protocol'];
-        }
-        if (isset($map['ProxyProtocol'])) {
-            $model->proxyProtocol = $map['ProxyProtocol'];
-        }
-        if (isset($map['PortRanges'])) {
-            if (!empty($map['PortRanges'])) {
-                $model->portRanges = [];
-                $n                 = 0;
-                foreach ($map['PortRanges'] as $item) {
-                    $model->portRanges[$n++] = null !== $item ? portRanges::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['Certificates'])) {
             if (!empty($map['Certificates'])) {
@@ -194,11 +164,41 @@ class CreateListenerRequest extends Model
                 }
             }
         }
-        if (isset($map['XForwardedForConfig'])) {
-            $model->XForwardedForConfig = XForwardedForConfig::fromMap($map['XForwardedForConfig']);
+        if (isset($map['ClientAffinity'])) {
+            $model->clientAffinity = $map['ClientAffinity'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['PortRanges'])) {
+            if (!empty($map['PortRanges'])) {
+                $model->portRanges = [];
+                $n                 = 0;
+                foreach ($map['PortRanges'] as $item) {
+                    $model->portRanges[$n++] = null !== $item ? portRanges::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Protocol'])) {
+            $model->protocol = $map['Protocol'];
+        }
+        if (isset($map['ProxyProtocol'])) {
+            $model->proxyProtocol = $map['ProxyProtocol'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SecurityPolicyId'])) {
             $model->securityPolicyId = $map['SecurityPolicyId'];
+        }
+        if (isset($map['XForwardedForConfig'])) {
+            $model->XForwardedForConfig = XForwardedForConfig::fromMap($map['XForwardedForConfig']);
         }
 
         return $model;

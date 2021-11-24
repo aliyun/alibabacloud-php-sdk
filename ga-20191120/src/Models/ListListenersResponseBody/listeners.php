@@ -13,9 +13,9 @@ use AlibabaCloud\Tea\Model;
 class listeners extends Model
 {
     /**
-     * @var certificates[]
+     * @var string
      */
-    public $certificates;
+    public $acceleratorId;
 
     /**
      * @var backendPorts[]
@@ -23,9 +23,19 @@ class listeners extends Model
     public $backendPorts;
 
     /**
+     * @var certificates[]
+     */
+    public $certificates;
+
+    /**
      * @var string
      */
-    public $listenerId;
+    public $clientAffinity;
+
+    /**
+     * @var int
+     */
+    public $createTime;
 
     /**
      * @var string
@@ -35,22 +45,12 @@ class listeners extends Model
     /**
      * @var string
      */
-    public $state;
+    public $listenerId;
 
     /**
      * @var string
      */
-    public $clientAffinity;
-
-    /**
-     * @var string
-     */
-    public $protocol;
-
-    /**
-     * @var int
-     */
-    public $createTime;
+    public $name;
 
     /**
      * @var portRanges[]
@@ -60,7 +60,7 @@ class listeners extends Model
     /**
      * @var string
      */
-    public $name;
+    public $protocol;
 
     /**
      * @var bool
@@ -70,32 +70,32 @@ class listeners extends Model
     /**
      * @var string
      */
-    public $acceleratorId;
+    public $securityPolicyId;
+
+    /**
+     * @var string
+     */
+    public $state;
 
     /**
      * @var XForwardedForConfig
      */
     public $XForwardedForConfig;
-
-    /**
-     * @var string
-     */
-    public $securityPolicyId;
     protected $_name = [
-        'certificates'        => 'Certificates',
-        'backendPorts'        => 'BackendPorts',
-        'listenerId'          => 'ListenerId',
-        'description'         => 'Description',
-        'state'               => 'State',
-        'clientAffinity'      => 'ClientAffinity',
-        'protocol'            => 'Protocol',
-        'createTime'          => 'CreateTime',
-        'portRanges'          => 'PortRanges',
-        'name'                => 'Name',
-        'proxyProtocol'       => 'ProxyProtocol',
         'acceleratorId'       => 'AcceleratorId',
-        'XForwardedForConfig' => 'XForwardedForConfig',
+        'backendPorts'        => 'BackendPorts',
+        'certificates'        => 'Certificates',
+        'clientAffinity'      => 'ClientAffinity',
+        'createTime'          => 'CreateTime',
+        'description'         => 'Description',
+        'listenerId'          => 'ListenerId',
+        'name'                => 'Name',
+        'portRanges'          => 'PortRanges',
+        'protocol'            => 'Protocol',
+        'proxyProtocol'       => 'ProxyProtocol',
         'securityPolicyId'    => 'SecurityPolicyId',
+        'state'               => 'State',
+        'XForwardedForConfig' => 'XForwardedForConfig',
     ];
 
     public function validate()
@@ -105,14 +105,8 @@ class listeners extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->certificates) {
-            $res['Certificates'] = [];
-            if (null !== $this->certificates && \is_array($this->certificates)) {
-                $n = 0;
-                foreach ($this->certificates as $item) {
-                    $res['Certificates'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
         }
         if (null !== $this->backendPorts) {
             $res['BackendPorts'] = [];
@@ -123,23 +117,29 @@ class listeners extends Model
                 }
             }
         }
-        if (null !== $this->listenerId) {
-            $res['ListenerId'] = $this->listenerId;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
+        if (null !== $this->certificates) {
+            $res['Certificates'] = [];
+            if (null !== $this->certificates && \is_array($this->certificates)) {
+                $n = 0;
+                foreach ($this->certificates as $item) {
+                    $res['Certificates'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->clientAffinity) {
             $res['ClientAffinity'] = $this->clientAffinity;
         }
-        if (null !== $this->protocol) {
-            $res['Protocol'] = $this->protocol;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->listenerId) {
+            $res['ListenerId'] = $this->listenerId;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->portRanges) {
             $res['PortRanges'] = [];
@@ -150,20 +150,20 @@ class listeners extends Model
                 }
             }
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->protocol) {
+            $res['Protocol'] = $this->protocol;
         }
         if (null !== $this->proxyProtocol) {
             $res['ProxyProtocol'] = $this->proxyProtocol;
         }
-        if (null !== $this->acceleratorId) {
-            $res['AcceleratorId'] = $this->acceleratorId;
+        if (null !== $this->securityPolicyId) {
+            $res['SecurityPolicyId'] = $this->securityPolicyId;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
         if (null !== $this->XForwardedForConfig) {
             $res['XForwardedForConfig'] = null !== $this->XForwardedForConfig ? $this->XForwardedForConfig->toMap() : null;
-        }
-        if (null !== $this->securityPolicyId) {
-            $res['SecurityPolicyId'] = $this->securityPolicyId;
         }
 
         return $res;
@@ -177,14 +177,8 @@ class listeners extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Certificates'])) {
-            if (!empty($map['Certificates'])) {
-                $model->certificates = [];
-                $n                   = 0;
-                foreach ($map['Certificates'] as $item) {
-                    $model->certificates[$n++] = null !== $item ? certificates::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['AcceleratorId'])) {
+            $model->acceleratorId = $map['AcceleratorId'];
         }
         if (isset($map['BackendPorts'])) {
             if (!empty($map['BackendPorts'])) {
@@ -195,23 +189,29 @@ class listeners extends Model
                 }
             }
         }
-        if (isset($map['ListenerId'])) {
-            $model->listenerId = $map['ListenerId'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
+        if (isset($map['Certificates'])) {
+            if (!empty($map['Certificates'])) {
+                $model->certificates = [];
+                $n                   = 0;
+                foreach ($map['Certificates'] as $item) {
+                    $model->certificates[$n++] = null !== $item ? certificates::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ClientAffinity'])) {
             $model->clientAffinity = $map['ClientAffinity'];
         }
-        if (isset($map['Protocol'])) {
-            $model->protocol = $map['Protocol'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['ListenerId'])) {
+            $model->listenerId = $map['ListenerId'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['PortRanges'])) {
             if (!empty($map['PortRanges'])) {
@@ -222,20 +222,20 @@ class listeners extends Model
                 }
             }
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Protocol'])) {
+            $model->protocol = $map['Protocol'];
         }
         if (isset($map['ProxyProtocol'])) {
             $model->proxyProtocol = $map['ProxyProtocol'];
         }
-        if (isset($map['AcceleratorId'])) {
-            $model->acceleratorId = $map['AcceleratorId'];
+        if (isset($map['SecurityPolicyId'])) {
+            $model->securityPolicyId = $map['SecurityPolicyId'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
         if (isset($map['XForwardedForConfig'])) {
             $model->XForwardedForConfig = XForwardedForConfig::fromMap($map['XForwardedForConfig']);
-        }
-        if (isset($map['SecurityPolicyId'])) {
-            $model->securityPolicyId = $map['SecurityPolicyId'];
         }
 
         return $model;

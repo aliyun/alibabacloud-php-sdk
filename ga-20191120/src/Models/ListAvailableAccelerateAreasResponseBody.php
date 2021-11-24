@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListAvailableAccelerateAreasResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var areas[]
      */
     public $areas;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'areas'     => 'Areas',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class ListAvailableAccelerateAreasResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->areas) {
             $res['Areas'] = [];
             if (null !== $this->areas && \is_array($this->areas)) {
@@ -41,6 +38,9 @@ class ListAvailableAccelerateAreasResponseBody extends Model
                     $res['Areas'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class ListAvailableAccelerateAreasResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Areas'])) {
             if (!empty($map['Areas'])) {
                 $model->areas = [];
@@ -65,6 +62,9 @@ class ListAvailableAccelerateAreasResponseBody extends Model
                     $model->areas[$n++] = null !== $item ? areas::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

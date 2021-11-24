@@ -11,22 +11,12 @@ class DescribeIpSetResponseBody extends Model
     /**
      * @var string
      */
-    public $ipSetId;
+    public $accelerateRegionId;
 
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $ipVersion;
-
-    /**
-     * @var string
-     */
-    public $state;
+    public $acceleratorId;
 
     /**
      * @var int
@@ -41,21 +31,31 @@ class DescribeIpSetResponseBody extends Model
     /**
      * @var string
      */
-    public $accelerateRegionId;
+    public $ipSetId;
 
     /**
      * @var string
      */
-    public $acceleratorId;
+    public $ipVersion;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $state;
     protected $_name = [
-        'ipSetId'            => 'IpSetId',
-        'requestId'          => 'RequestId',
-        'ipVersion'          => 'IpVersion',
-        'state'              => 'State',
-        'bandwidth'          => 'Bandwidth',
-        'ipAddressList'      => 'IpAddressList',
         'accelerateRegionId' => 'AccelerateRegionId',
         'acceleratorId'      => 'AcceleratorId',
+        'bandwidth'          => 'Bandwidth',
+        'ipAddressList'      => 'IpAddressList',
+        'ipSetId'            => 'IpSetId',
+        'ipVersion'          => 'IpVersion',
+        'requestId'          => 'RequestId',
+        'state'              => 'State',
     ];
 
     public function validate()
@@ -65,17 +65,11 @@ class DescribeIpSetResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ipSetId) {
-            $res['IpSetId'] = $this->ipSetId;
+        if (null !== $this->accelerateRegionId) {
+            $res['AccelerateRegionId'] = $this->accelerateRegionId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->ipVersion) {
-            $res['IpVersion'] = $this->ipVersion;
-        }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
         }
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
@@ -83,11 +77,17 @@ class DescribeIpSetResponseBody extends Model
         if (null !== $this->ipAddressList) {
             $res['IpAddressList'] = $this->ipAddressList;
         }
-        if (null !== $this->accelerateRegionId) {
-            $res['AccelerateRegionId'] = $this->accelerateRegionId;
+        if (null !== $this->ipSetId) {
+            $res['IpSetId'] = $this->ipSetId;
         }
-        if (null !== $this->acceleratorId) {
-            $res['AcceleratorId'] = $this->acceleratorId;
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
 
         return $res;
@@ -101,17 +101,11 @@ class DescribeIpSetResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IpSetId'])) {
-            $model->ipSetId = $map['IpSetId'];
+        if (isset($map['AccelerateRegionId'])) {
+            $model->accelerateRegionId = $map['AccelerateRegionId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['IpVersion'])) {
-            $model->ipVersion = $map['IpVersion'];
-        }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
+        if (isset($map['AcceleratorId'])) {
+            $model->acceleratorId = $map['AcceleratorId'];
         }
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
@@ -121,11 +115,17 @@ class DescribeIpSetResponseBody extends Model
                 $model->ipAddressList = $map['IpAddressList'];
             }
         }
-        if (isset($map['AccelerateRegionId'])) {
-            $model->accelerateRegionId = $map['AccelerateRegionId'];
+        if (isset($map['IpSetId'])) {
+            $model->ipSetId = $map['IpSetId'];
         }
-        if (isset($map['AcceleratorId'])) {
-            $model->acceleratorId = $map['AcceleratorId'];
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
 
         return $model;

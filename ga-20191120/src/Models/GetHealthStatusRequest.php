@@ -11,7 +11,7 @@ class GetHealthStatusRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $acceleratorId;
 
     /**
      * @var string
@@ -26,18 +26,18 @@ class GetHealthStatusRequest extends Model
     /**
      * @var string
      */
-    public $acceleratorId;
+    public $listenerId;
 
     /**
      * @var string
      */
-    public $listenerId;
+    public $regionId;
     protected $_name = [
-        'regionId'      => 'RegionId',
+        'acceleratorId' => 'AcceleratorId',
         'clientToken'   => 'ClientToken',
         'dryRun'        => 'DryRun',
-        'acceleratorId' => 'AcceleratorId',
         'listenerId'    => 'ListenerId',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -47,8 +47,8 @@ class GetHealthStatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -56,11 +56,11 @@ class GetHealthStatusRequest extends Model
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
-        if (null !== $this->acceleratorId) {
-            $res['AcceleratorId'] = $this->acceleratorId;
-        }
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -74,8 +74,8 @@ class GetHealthStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['AcceleratorId'])) {
+            $model->acceleratorId = $map['AcceleratorId'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
@@ -83,11 +83,11 @@ class GetHealthStatusRequest extends Model
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
-        if (isset($map['AcceleratorId'])) {
-            $model->acceleratorId = $map['AcceleratorId'];
-        }
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -11,11 +11,9 @@ use AlibabaCloud\Tea\Model;
 class GetAclResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @var string
+     * @var aclEntries[]
      */
-    public $requestId;
+    public $aclEntries;
 
     /**
      * @var string
@@ -25,7 +23,7 @@ class GetAclResponseBody extends Model
     /**
      * @var string
      */
-    public $addressIPVersion;
+    public $aclName;
 
     /**
      * @var string
@@ -33,9 +31,9 @@ class GetAclResponseBody extends Model
     public $aclStatus;
 
     /**
-     * @var aclEntries[]
+     * @var string
      */
-    public $aclEntries;
+    public $addressIPVersion;
 
     /**
      * @var relatedListeners[]
@@ -43,17 +41,19 @@ class GetAclResponseBody extends Model
     public $relatedListeners;
 
     /**
+     * @description Id of the request
+     *
      * @var string
      */
-    public $aclName;
+    public $requestId;
     protected $_name = [
-        'requestId'        => 'RequestId',
-        'aclId'            => 'AclId',
-        'addressIPVersion' => 'AddressIPVersion',
-        'aclStatus'        => 'AclStatus',
         'aclEntries'       => 'AclEntries',
-        'relatedListeners' => 'RelatedListeners',
+        'aclId'            => 'AclId',
         'aclName'          => 'AclName',
+        'aclStatus'        => 'AclStatus',
+        'addressIPVersion' => 'AddressIPVersion',
+        'relatedListeners' => 'RelatedListeners',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -63,18 +63,6 @@ class GetAclResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->aclId) {
-            $res['AclId'] = $this->aclId;
-        }
-        if (null !== $this->addressIPVersion) {
-            $res['AddressIPVersion'] = $this->addressIPVersion;
-        }
-        if (null !== $this->aclStatus) {
-            $res['AclStatus'] = $this->aclStatus;
-        }
         if (null !== $this->aclEntries) {
             $res['AclEntries'] = [];
             if (null !== $this->aclEntries && \is_array($this->aclEntries)) {
@@ -83,6 +71,18 @@ class GetAclResponseBody extends Model
                     $res['AclEntries'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->aclId) {
+            $res['AclId'] = $this->aclId;
+        }
+        if (null !== $this->aclName) {
+            $res['AclName'] = $this->aclName;
+        }
+        if (null !== $this->aclStatus) {
+            $res['AclStatus'] = $this->aclStatus;
+        }
+        if (null !== $this->addressIPVersion) {
+            $res['AddressIPVersion'] = $this->addressIPVersion;
         }
         if (null !== $this->relatedListeners) {
             $res['RelatedListeners'] = [];
@@ -93,8 +93,8 @@ class GetAclResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->aclName) {
-            $res['AclName'] = $this->aclName;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -108,18 +108,6 @@ class GetAclResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['AclId'])) {
-            $model->aclId = $map['AclId'];
-        }
-        if (isset($map['AddressIPVersion'])) {
-            $model->addressIPVersion = $map['AddressIPVersion'];
-        }
-        if (isset($map['AclStatus'])) {
-            $model->aclStatus = $map['AclStatus'];
-        }
         if (isset($map['AclEntries'])) {
             if (!empty($map['AclEntries'])) {
                 $model->aclEntries = [];
@@ -128,6 +116,18 @@ class GetAclResponseBody extends Model
                     $model->aclEntries[$n++] = null !== $item ? aclEntries::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['AclId'])) {
+            $model->aclId = $map['AclId'];
+        }
+        if (isset($map['AclName'])) {
+            $model->aclName = $map['AclName'];
+        }
+        if (isset($map['AclStatus'])) {
+            $model->aclStatus = $map['AclStatus'];
+        }
+        if (isset($map['AddressIPVersion'])) {
+            $model->addressIPVersion = $map['AddressIPVersion'];
         }
         if (isset($map['RelatedListeners'])) {
             if (!empty($map['RelatedListeners'])) {
@@ -138,8 +138,8 @@ class GetAclResponseBody extends Model
                 }
             }
         }
-        if (isset($map['AclName'])) {
-            $model->aclName = $map['AclName'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

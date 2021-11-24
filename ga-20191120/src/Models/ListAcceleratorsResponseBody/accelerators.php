@@ -13,12 +13,67 @@ class accelerators extends Model
     /**
      * @var string
      */
-    public $dnsName;
+    public $acceleratorId;
+
+    /**
+     * @var int
+     */
+    public $bandwidth;
+
+    /**
+     * @var basicBandwidthPackage
+     */
+    public $basicBandwidthPackage;
 
     /**
      * @var string
      */
-    public $type;
+    public $cenId;
+
+    /**
+     * @var int
+     */
+    public $createTime;
+
+    /**
+     * @var crossDomainBandwidthPackage
+     */
+    public $crossDomainBandwidthPackage;
+
+    /**
+     * @var string
+     */
+    public $ddosId;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $dnsName;
+
+    /**
+     * @var int
+     */
+    public $expiredTime;
+
+    /**
+     * @var string
+     */
+    public $instanceChargeType;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -36,82 +91,27 @@ class accelerators extends Model
     public $state;
 
     /**
-     * @var int
-     */
-    public $createTime;
-
-    /**
      * @var string
      */
-    public $cenId;
-
-    /**
-     * @var string
-     */
-    public $ddosId;
-
-    /**
-     * @var basicBandwidthPackage
-     */
-    public $basicBandwidthPackage;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $instanceChargeType;
-
-    /**
-     * @var string
-     */
-    public $acceleratorId;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var int
-     */
-    public $bandwidth;
-
-    /**
-     * @var int
-     */
-    public $expiredTime;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var crossDomainBandwidthPackage
-     */
-    public $crossDomainBandwidthPackage;
+    public $type;
     protected $_name = [
+        'acceleratorId'               => 'AcceleratorId',
+        'bandwidth'                   => 'Bandwidth',
+        'basicBandwidthPackage'       => 'BasicBandwidthPackage',
+        'cenId'                       => 'CenId',
+        'createTime'                  => 'CreateTime',
+        'crossDomainBandwidthPackage' => 'CrossDomainBandwidthPackage',
+        'ddosId'                      => 'DdosId',
+        'description'                 => 'Description',
         'dnsName'                     => 'DnsName',
-        'type'                        => 'Type',
+        'expiredTime'                 => 'ExpiredTime',
+        'instanceChargeType'          => 'InstanceChargeType',
+        'name'                        => 'Name',
+        'regionId'                    => 'RegionId',
         'secondDnsName'               => 'SecondDnsName',
         'spec'                        => 'Spec',
         'state'                       => 'State',
-        'createTime'                  => 'CreateTime',
-        'cenId'                       => 'CenId',
-        'ddosId'                      => 'DdosId',
-        'basicBandwidthPackage'       => 'BasicBandwidthPackage',
-        'regionId'                    => 'RegionId',
-        'instanceChargeType'          => 'InstanceChargeType',
-        'acceleratorId'               => 'AcceleratorId',
-        'description'                 => 'Description',
-        'bandwidth'                   => 'Bandwidth',
-        'expiredTime'                 => 'ExpiredTime',
-        'name'                        => 'Name',
-        'crossDomainBandwidthPackage' => 'CrossDomainBandwidthPackage',
+        'type'                        => 'Type',
     ];
 
     public function validate()
@@ -121,11 +121,44 @@ class accelerators extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
+        }
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
+        }
+        if (null !== $this->basicBandwidthPackage) {
+            $res['BasicBandwidthPackage'] = null !== $this->basicBandwidthPackage ? $this->basicBandwidthPackage->toMap() : null;
+        }
+        if (null !== $this->cenId) {
+            $res['CenId'] = $this->cenId;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->crossDomainBandwidthPackage) {
+            $res['CrossDomainBandwidthPackage'] = null !== $this->crossDomainBandwidthPackage ? $this->crossDomainBandwidthPackage->toMap() : null;
+        }
+        if (null !== $this->ddosId) {
+            $res['DdosId'] = $this->ddosId;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->dnsName) {
             $res['DnsName'] = $this->dnsName;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->expiredTime) {
+            $res['ExpiredTime'] = $this->expiredTime;
+        }
+        if (null !== $this->instanceChargeType) {
+            $res['InstanceChargeType'] = $this->instanceChargeType;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->secondDnsName) {
             $res['SecondDnsName'] = $this->secondDnsName;
@@ -136,41 +169,8 @@ class accelerators extends Model
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->cenId) {
-            $res['CenId'] = $this->cenId;
-        }
-        if (null !== $this->ddosId) {
-            $res['DdosId'] = $this->ddosId;
-        }
-        if (null !== $this->basicBandwidthPackage) {
-            $res['BasicBandwidthPackage'] = null !== $this->basicBandwidthPackage ? $this->basicBandwidthPackage->toMap() : null;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->instanceChargeType) {
-            $res['InstanceChargeType'] = $this->instanceChargeType;
-        }
-        if (null !== $this->acceleratorId) {
-            $res['AcceleratorId'] = $this->acceleratorId;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->bandwidth) {
-            $res['Bandwidth'] = $this->bandwidth;
-        }
-        if (null !== $this->expiredTime) {
-            $res['ExpiredTime'] = $this->expiredTime;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->crossDomainBandwidthPackage) {
-            $res['CrossDomainBandwidthPackage'] = null !== $this->crossDomainBandwidthPackage ? $this->crossDomainBandwidthPackage->toMap() : null;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -184,11 +184,44 @@ class accelerators extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceleratorId'])) {
+            $model->acceleratorId = $map['AcceleratorId'];
+        }
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
+        }
+        if (isset($map['BasicBandwidthPackage'])) {
+            $model->basicBandwidthPackage = basicBandwidthPackage::fromMap($map['BasicBandwidthPackage']);
+        }
+        if (isset($map['CenId'])) {
+            $model->cenId = $map['CenId'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['CrossDomainBandwidthPackage'])) {
+            $model->crossDomainBandwidthPackage = crossDomainBandwidthPackage::fromMap($map['CrossDomainBandwidthPackage']);
+        }
+        if (isset($map['DdosId'])) {
+            $model->ddosId = $map['DdosId'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['DnsName'])) {
             $model->dnsName = $map['DnsName'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['ExpiredTime'])) {
+            $model->expiredTime = $map['ExpiredTime'];
+        }
+        if (isset($map['InstanceChargeType'])) {
+            $model->instanceChargeType = $map['InstanceChargeType'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SecondDnsName'])) {
             $model->secondDnsName = $map['SecondDnsName'];
@@ -199,41 +232,8 @@ class accelerators extends Model
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['CenId'])) {
-            $model->cenId = $map['CenId'];
-        }
-        if (isset($map['DdosId'])) {
-            $model->ddosId = $map['DdosId'];
-        }
-        if (isset($map['BasicBandwidthPackage'])) {
-            $model->basicBandwidthPackage = basicBandwidthPackage::fromMap($map['BasicBandwidthPackage']);
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['InstanceChargeType'])) {
-            $model->instanceChargeType = $map['InstanceChargeType'];
-        }
-        if (isset($map['AcceleratorId'])) {
-            $model->acceleratorId = $map['AcceleratorId'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['Bandwidth'])) {
-            $model->bandwidth = $map['Bandwidth'];
-        }
-        if (isset($map['ExpiredTime'])) {
-            $model->expiredTime = $map['ExpiredTime'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['CrossDomainBandwidthPackage'])) {
-            $model->crossDomainBandwidthPackage = crossDomainBandwidthPackage::fromMap($map['CrossDomainBandwidthPackage']);
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

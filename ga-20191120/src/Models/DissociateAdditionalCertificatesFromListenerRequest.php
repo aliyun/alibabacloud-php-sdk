@@ -11,7 +11,7 @@ class DissociateAdditionalCertificatesFromListenerRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $acceleratorId;
 
     /**
      * @var string
@@ -19,9 +19,9 @@ class DissociateAdditionalCertificatesFromListenerRequest extends Model
     public $clientToken;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $acceleratorId;
+    public $domains;
 
     /**
      * @var string
@@ -29,15 +29,15 @@ class DissociateAdditionalCertificatesFromListenerRequest extends Model
     public $listenerId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $domains;
+    public $regionId;
     protected $_name = [
-        'regionId'      => 'RegionId',
-        'clientToken'   => 'ClientToken',
         'acceleratorId' => 'AcceleratorId',
-        'listenerId'    => 'ListenerId',
+        'clientToken'   => 'ClientToken',
         'domains'       => 'Domains',
+        'listenerId'    => 'ListenerId',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DissociateAdditionalCertificatesFromListenerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->acceleratorId) {
-            $res['AcceleratorId'] = $this->acceleratorId;
+        if (null !== $this->domains) {
+            $res['Domains'] = $this->domains;
         }
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
         }
-        if (null !== $this->domains) {
-            $res['Domains'] = $this->domains;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -74,22 +74,22 @@ class DissociateAdditionalCertificatesFromListenerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
         }
-        if (isset($map['ListenerId'])) {
-            $model->listenerId = $map['ListenerId'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['Domains'])) {
             if (!empty($map['Domains'])) {
                 $model->domains = $map['Domains'];
             }
+        }
+        if (isset($map['ListenerId'])) {
+            $model->listenerId = $map['ListenerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

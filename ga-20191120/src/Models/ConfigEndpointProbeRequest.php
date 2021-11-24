@@ -11,12 +11,17 @@ class ConfigEndpointProbeRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $clientToken;
 
     /**
      * @var string
      */
-    public $clientToken;
+    public $enable;
+
+    /**
+     * @var string
+     */
+    public $endpoint;
 
     /**
      * @var string
@@ -31,7 +36,7 @@ class ConfigEndpointProbeRequest extends Model
     /**
      * @var string
      */
-    public $endpoint;
+    public $probePort;
 
     /**
      * @var string
@@ -41,21 +46,16 @@ class ConfigEndpointProbeRequest extends Model
     /**
      * @var string
      */
-    public $probePort;
-
-    /**
-     * @var string
-     */
-    public $enable;
+    public $regionId;
     protected $_name = [
-        'regionId'        => 'RegionId',
         'clientToken'     => 'ClientToken',
+        'enable'          => 'Enable',
+        'endpoint'        => 'Endpoint',
         'endpointGroupId' => 'EndpointGroupId',
         'endpointType'    => 'EndpointType',
-        'endpoint'        => 'Endpoint',
-        'probeProtocol'   => 'ProbeProtocol',
         'probePort'       => 'ProbePort',
-        'enable'          => 'Enable',
+        'probeProtocol'   => 'ProbeProtocol',
+        'regionId'        => 'RegionId',
     ];
 
     public function validate()
@@ -65,11 +65,14 @@ class ConfigEndpointProbeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->enable) {
+            $res['Enable'] = $this->enable;
+        }
+        if (null !== $this->endpoint) {
+            $res['Endpoint'] = $this->endpoint;
         }
         if (null !== $this->endpointGroupId) {
             $res['EndpointGroupId'] = $this->endpointGroupId;
@@ -77,17 +80,14 @@ class ConfigEndpointProbeRequest extends Model
         if (null !== $this->endpointType) {
             $res['EndpointType'] = $this->endpointType;
         }
-        if (null !== $this->endpoint) {
-            $res['Endpoint'] = $this->endpoint;
+        if (null !== $this->probePort) {
+            $res['ProbePort'] = $this->probePort;
         }
         if (null !== $this->probeProtocol) {
             $res['ProbeProtocol'] = $this->probeProtocol;
         }
-        if (null !== $this->probePort) {
-            $res['ProbePort'] = $this->probePort;
-        }
-        if (null !== $this->enable) {
-            $res['Enable'] = $this->enable;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -101,11 +101,14 @@ class ConfigEndpointProbeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Enable'])) {
+            $model->enable = $map['Enable'];
+        }
+        if (isset($map['Endpoint'])) {
+            $model->endpoint = $map['Endpoint'];
         }
         if (isset($map['EndpointGroupId'])) {
             $model->endpointGroupId = $map['EndpointGroupId'];
@@ -113,17 +116,14 @@ class ConfigEndpointProbeRequest extends Model
         if (isset($map['EndpointType'])) {
             $model->endpointType = $map['EndpointType'];
         }
-        if (isset($map['Endpoint'])) {
-            $model->endpoint = $map['Endpoint'];
+        if (isset($map['ProbePort'])) {
+            $model->probePort = $map['ProbePort'];
         }
         if (isset($map['ProbeProtocol'])) {
             $model->probeProtocol = $map['ProbeProtocol'];
         }
-        if (isset($map['ProbePort'])) {
-            $model->probePort = $map['ProbePort'];
-        }
-        if (isset($map['Enable'])) {
-            $model->enable = $map['Enable'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

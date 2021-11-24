@@ -20,9 +20,9 @@ class endpointGroups extends Model
     public $endpointGroupType;
 
     /**
-     * @var string
+     * @var endpoints[]
      */
-    public $healthStatus;
+    public $endpoints;
 
     /**
      * @var string[]
@@ -30,15 +30,15 @@ class endpointGroups extends Model
     public $forwardingRuleIds;
 
     /**
-     * @var endpoints[]
+     * @var string
      */
-    public $endpoints;
+    public $healthStatus;
     protected $_name = [
         'endpointGroupId'   => 'EndpointGroupId',
         'endpointGroupType' => 'EndpointGroupType',
-        'healthStatus'      => 'HealthStatus',
-        'forwardingRuleIds' => 'ForwardingRuleIds',
         'endpoints'         => 'Endpoints',
+        'forwardingRuleIds' => 'ForwardingRuleIds',
+        'healthStatus'      => 'HealthStatus',
     ];
 
     public function validate()
@@ -54,12 +54,6 @@ class endpointGroups extends Model
         if (null !== $this->endpointGroupType) {
             $res['EndpointGroupType'] = $this->endpointGroupType;
         }
-        if (null !== $this->healthStatus) {
-            $res['HealthStatus'] = $this->healthStatus;
-        }
-        if (null !== $this->forwardingRuleIds) {
-            $res['ForwardingRuleIds'] = $this->forwardingRuleIds;
-        }
         if (null !== $this->endpoints) {
             $res['Endpoints'] = [];
             if (null !== $this->endpoints && \is_array($this->endpoints)) {
@@ -68,6 +62,12 @@ class endpointGroups extends Model
                     $res['Endpoints'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->forwardingRuleIds) {
+            $res['ForwardingRuleIds'] = $this->forwardingRuleIds;
+        }
+        if (null !== $this->healthStatus) {
+            $res['HealthStatus'] = $this->healthStatus;
         }
 
         return $res;
@@ -87,14 +87,6 @@ class endpointGroups extends Model
         if (isset($map['EndpointGroupType'])) {
             $model->endpointGroupType = $map['EndpointGroupType'];
         }
-        if (isset($map['HealthStatus'])) {
-            $model->healthStatus = $map['HealthStatus'];
-        }
-        if (isset($map['ForwardingRuleIds'])) {
-            if (!empty($map['ForwardingRuleIds'])) {
-                $model->forwardingRuleIds = $map['ForwardingRuleIds'];
-            }
-        }
         if (isset($map['Endpoints'])) {
             if (!empty($map['Endpoints'])) {
                 $model->endpoints = [];
@@ -103,6 +95,14 @@ class endpointGroups extends Model
                     $model->endpoints[$n++] = null !== $item ? endpoints::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ForwardingRuleIds'])) {
+            if (!empty($map['ForwardingRuleIds'])) {
+                $model->forwardingRuleIds = $map['ForwardingRuleIds'];
+            }
+        }
+        if (isset($map['HealthStatus'])) {
+            $model->healthStatus = $map['HealthStatus'];
         }
 
         return $model;

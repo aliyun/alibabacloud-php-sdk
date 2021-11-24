@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class CreateIpSetsRequest extends Model
 {
     /**
+     * @var accelerateRegion[]
+     */
+    public $accelerateRegion;
+
+    /**
      * @var string
      */
-    public $regionId;
+    public $acceleratorId;
 
     /**
      * @var string
@@ -22,17 +27,12 @@ class CreateIpSetsRequest extends Model
     /**
      * @var string
      */
-    public $acceleratorId;
-
-    /**
-     * @var accelerateRegion[]
-     */
-    public $accelerateRegion;
+    public $regionId;
     protected $_name = [
-        'regionId'         => 'RegionId',
-        'clientToken'      => 'ClientToken',
-        'acceleratorId'    => 'AcceleratorId',
         'accelerateRegion' => 'AccelerateRegion',
+        'acceleratorId'    => 'AcceleratorId',
+        'clientToken'      => 'ClientToken',
+        'regionId'         => 'RegionId',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class CreateIpSetsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->acceleratorId) {
-            $res['AcceleratorId'] = $this->acceleratorId;
-        }
         if (null !== $this->accelerateRegion) {
             $res['AccelerateRegion'] = [];
             if (null !== $this->accelerateRegion && \is_array($this->accelerateRegion)) {
@@ -59,6 +50,15 @@ class CreateIpSetsRequest extends Model
                     $res['AccelerateRegion'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -72,15 +72,6 @@ class CreateIpSetsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['AcceleratorId'])) {
-            $model->acceleratorId = $map['AcceleratorId'];
-        }
         if (isset($map['AccelerateRegion'])) {
             if (!empty($map['AccelerateRegion'])) {
                 $model->accelerateRegion = [];
@@ -89,6 +80,15 @@ class CreateIpSetsRequest extends Model
                     $model->accelerateRegion[$n++] = null !== $item ? accelerateRegion::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['AcceleratorId'])) {
+            $model->acceleratorId = $map['AcceleratorId'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

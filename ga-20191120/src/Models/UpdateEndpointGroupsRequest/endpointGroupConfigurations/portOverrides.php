@@ -11,15 +11,15 @@ class portOverrides extends Model
     /**
      * @var int
      */
-    public $listenerPort;
+    public $endpointPort;
 
     /**
      * @var int
      */
-    public $endpointPort;
+    public $listenerPort;
     protected $_name = [
-        'listenerPort' => 'ListenerPort',
         'endpointPort' => 'EndpointPort',
+        'listenerPort' => 'ListenerPort',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class portOverrides extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->listenerPort) {
-            $res['ListenerPort'] = $this->listenerPort;
-        }
         if (null !== $this->endpointPort) {
             $res['EndpointPort'] = $this->endpointPort;
+        }
+        if (null !== $this->listenerPort) {
+            $res['ListenerPort'] = $this->listenerPort;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class portOverrides extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ListenerPort'])) {
-            $model->listenerPort = $map['ListenerPort'];
-        }
         if (isset($map['EndpointPort'])) {
             $model->endpointPort = $map['EndpointPort'];
+        }
+        if (isset($map['ListenerPort'])) {
+            $model->listenerPort = $map['ListenerPort'];
         }
 
         return $model;

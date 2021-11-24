@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateAclRequest extends Model
 {
     /**
-     * @var string
+     * @var aclEntries[]
      */
-    public $regionId;
+    public $aclEntries;
 
     /**
      * @var string
@@ -25,11 +25,6 @@ class CreateAclRequest extends Model
     public $addressIPVersion;
 
     /**
-     * @var aclEntries[]
-     */
-    public $aclEntries;
-
-    /**
      * @var string
      */
     public $clientToken;
@@ -38,13 +33,18 @@ class CreateAclRequest extends Model
      * @var bool
      */
     public $dryRun;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'         => 'RegionId',
+        'aclEntries'       => 'AclEntries',
         'aclName'          => 'AclName',
         'addressIPVersion' => 'AddressIPVersion',
-        'aclEntries'       => 'AclEntries',
         'clientToken'      => 'ClientToken',
         'dryRun'           => 'DryRun',
+        'regionId'         => 'RegionId',
     ];
 
     public function validate()
@@ -54,15 +54,6 @@ class CreateAclRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->aclName) {
-            $res['AclName'] = $this->aclName;
-        }
-        if (null !== $this->addressIPVersion) {
-            $res['AddressIPVersion'] = $this->addressIPVersion;
-        }
         if (null !== $this->aclEntries) {
             $res['AclEntries'] = [];
             if (null !== $this->aclEntries && \is_array($this->aclEntries)) {
@@ -72,11 +63,20 @@ class CreateAclRequest extends Model
                 }
             }
         }
+        if (null !== $this->aclName) {
+            $res['AclName'] = $this->aclName;
+        }
+        if (null !== $this->addressIPVersion) {
+            $res['AddressIPVersion'] = $this->addressIPVersion;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -90,15 +90,6 @@ class CreateAclRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['AclName'])) {
-            $model->aclName = $map['AclName'];
-        }
-        if (isset($map['AddressIPVersion'])) {
-            $model->addressIPVersion = $map['AddressIPVersion'];
-        }
         if (isset($map['AclEntries'])) {
             if (!empty($map['AclEntries'])) {
                 $model->aclEntries = [];
@@ -108,11 +99,20 @@ class CreateAclRequest extends Model
                 }
             }
         }
+        if (isset($map['AclName'])) {
+            $model->aclName = $map['AclName'];
+        }
+        if (isset($map['AddressIPVersion'])) {
+            $model->addressIPVersion = $map['AddressIPVersion'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

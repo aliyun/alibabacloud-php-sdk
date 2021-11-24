@@ -13,12 +13,37 @@ class endpointGroups extends Model
     /**
      * @var string
      */
+    public $acceleratorId;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var endpointConfigurations[]
+     */
+    public $endpointConfigurations;
+
+    /**
+     * @var string
+     */
     public $endpointGroupId;
 
     /**
      * @var string[]
      */
     public $endpointGroupIpList;
+
+    /**
+     * @var string
+     */
+    public $endpointGroupRegion;
+
+    /**
+     * @var string
+     */
+    public $endpointGroupType;
 
     /**
      * @var string[]
@@ -28,17 +53,17 @@ class endpointGroups extends Model
     /**
      * @var string
      */
-    public $state;
+    public $endpointRequestProtocol;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $healthCheckPath;
+    public $forwardingRuleIds;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $endpointGroupRegion;
+    public $healthCheckEnabled;
 
     /**
      * @var int
@@ -46,19 +71,19 @@ class endpointGroups extends Model
     public $healthCheckIntervalSeconds;
 
     /**
+     * @var string
+     */
+    public $healthCheckPath;
+
+    /**
      * @var int
      */
-    public $trafficPercentage;
+    public $healthCheckPort;
 
     /**
      * @var string
      */
     public $healthCheckProtocol;
-
-    /**
-     * @var int
-     */
-    public $thresholdCount;
 
     /**
      * @var string
@@ -68,12 +93,7 @@ class endpointGroups extends Model
     /**
      * @var string
      */
-    public $acceleratorId;
-
-    /**
-     * @var endpointConfigurations[]
-     */
-    public $endpointConfigurations;
+    public $name;
 
     /**
      * @var portOverrides[]
@@ -81,61 +101,41 @@ class endpointGroups extends Model
     public $portOverrides;
 
     /**
-     * @var string[]
-     */
-    public $forwardingRuleIds;
-
-    /**
      * @var string
      */
-    public $endpointGroupType;
-
-    /**
-     * @var string
-     */
-    public $endpointRequestProtocol;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $name;
+    public $state;
 
     /**
      * @var int
      */
-    public $healthCheckPort;
+    public $thresholdCount;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $healthCheckEnabled;
+    public $trafficPercentage;
     protected $_name = [
+        'acceleratorId'                  => 'AcceleratorId',
+        'description'                    => 'Description',
+        'endpointConfigurations'         => 'EndpointConfigurations',
         'endpointGroupId'                => 'EndpointGroupId',
         'endpointGroupIpList'            => 'EndpointGroupIpList',
-        'endpointGroupUnconfirmedIpList' => 'EndpointGroupUnconfirmedIpList',
-        'state'                          => 'State',
-        'healthCheckPath'                => 'HealthCheckPath',
         'endpointGroupRegion'            => 'EndpointGroupRegion',
-        'healthCheckIntervalSeconds'     => 'HealthCheckIntervalSeconds',
-        'trafficPercentage'              => 'TrafficPercentage',
-        'healthCheckProtocol'            => 'HealthCheckProtocol',
-        'thresholdCount'                 => 'ThresholdCount',
-        'listenerId'                     => 'ListenerId',
-        'acceleratorId'                  => 'AcceleratorId',
-        'endpointConfigurations'         => 'EndpointConfigurations',
-        'portOverrides'                  => 'PortOverrides',
-        'forwardingRuleIds'              => 'ForwardingRuleIds',
         'endpointGroupType'              => 'EndpointGroupType',
+        'endpointGroupUnconfirmedIpList' => 'EndpointGroupUnconfirmedIpList',
         'endpointRequestProtocol'        => 'EndpointRequestProtocol',
-        'description'                    => 'Description',
-        'name'                           => 'Name',
-        'healthCheckPort'                => 'HealthCheckPort',
+        'forwardingRuleIds'              => 'ForwardingRuleIds',
         'healthCheckEnabled'             => 'HealthCheckEnabled',
+        'healthCheckIntervalSeconds'     => 'HealthCheckIntervalSeconds',
+        'healthCheckPath'                => 'HealthCheckPath',
+        'healthCheckPort'                => 'HealthCheckPort',
+        'healthCheckProtocol'            => 'HealthCheckProtocol',
+        'listenerId'                     => 'ListenerId',
+        'name'                           => 'Name',
+        'portOverrides'                  => 'PortOverrides',
+        'state'                          => 'State',
+        'thresholdCount'                 => 'ThresholdCount',
+        'trafficPercentage'              => 'TrafficPercentage',
     ];
 
     public function validate()
@@ -145,41 +145,11 @@ class endpointGroups extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endpointGroupId) {
-            $res['EndpointGroupId'] = $this->endpointGroupId;
-        }
-        if (null !== $this->endpointGroupIpList) {
-            $res['EndpointGroupIpList'] = $this->endpointGroupIpList;
-        }
-        if (null !== $this->endpointGroupUnconfirmedIpList) {
-            $res['EndpointGroupUnconfirmedIpList'] = $this->endpointGroupUnconfirmedIpList;
-        }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
-        if (null !== $this->healthCheckPath) {
-            $res['HealthCheckPath'] = $this->healthCheckPath;
-        }
-        if (null !== $this->endpointGroupRegion) {
-            $res['EndpointGroupRegion'] = $this->endpointGroupRegion;
-        }
-        if (null !== $this->healthCheckIntervalSeconds) {
-            $res['HealthCheckIntervalSeconds'] = $this->healthCheckIntervalSeconds;
-        }
-        if (null !== $this->trafficPercentage) {
-            $res['TrafficPercentage'] = $this->trafficPercentage;
-        }
-        if (null !== $this->healthCheckProtocol) {
-            $res['HealthCheckProtocol'] = $this->healthCheckProtocol;
-        }
-        if (null !== $this->thresholdCount) {
-            $res['ThresholdCount'] = $this->thresholdCount;
-        }
-        if (null !== $this->listenerId) {
-            $res['ListenerId'] = $this->listenerId;
-        }
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->endpointConfigurations) {
             $res['EndpointConfigurations'] = [];
@@ -190,6 +160,48 @@ class endpointGroups extends Model
                 }
             }
         }
+        if (null !== $this->endpointGroupId) {
+            $res['EndpointGroupId'] = $this->endpointGroupId;
+        }
+        if (null !== $this->endpointGroupIpList) {
+            $res['EndpointGroupIpList'] = $this->endpointGroupIpList;
+        }
+        if (null !== $this->endpointGroupRegion) {
+            $res['EndpointGroupRegion'] = $this->endpointGroupRegion;
+        }
+        if (null !== $this->endpointGroupType) {
+            $res['EndpointGroupType'] = $this->endpointGroupType;
+        }
+        if (null !== $this->endpointGroupUnconfirmedIpList) {
+            $res['EndpointGroupUnconfirmedIpList'] = $this->endpointGroupUnconfirmedIpList;
+        }
+        if (null !== $this->endpointRequestProtocol) {
+            $res['EndpointRequestProtocol'] = $this->endpointRequestProtocol;
+        }
+        if (null !== $this->forwardingRuleIds) {
+            $res['ForwardingRuleIds'] = $this->forwardingRuleIds;
+        }
+        if (null !== $this->healthCheckEnabled) {
+            $res['HealthCheckEnabled'] = $this->healthCheckEnabled;
+        }
+        if (null !== $this->healthCheckIntervalSeconds) {
+            $res['HealthCheckIntervalSeconds'] = $this->healthCheckIntervalSeconds;
+        }
+        if (null !== $this->healthCheckPath) {
+            $res['HealthCheckPath'] = $this->healthCheckPath;
+        }
+        if (null !== $this->healthCheckPort) {
+            $res['HealthCheckPort'] = $this->healthCheckPort;
+        }
+        if (null !== $this->healthCheckProtocol) {
+            $res['HealthCheckProtocol'] = $this->healthCheckProtocol;
+        }
+        if (null !== $this->listenerId) {
+            $res['ListenerId'] = $this->listenerId;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->portOverrides) {
             $res['PortOverrides'] = [];
             if (null !== $this->portOverrides && \is_array($this->portOverrides)) {
@@ -199,26 +211,14 @@ class endpointGroups extends Model
                 }
             }
         }
-        if (null !== $this->forwardingRuleIds) {
-            $res['ForwardingRuleIds'] = $this->forwardingRuleIds;
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
-        if (null !== $this->endpointGroupType) {
-            $res['EndpointGroupType'] = $this->endpointGroupType;
+        if (null !== $this->thresholdCount) {
+            $res['ThresholdCount'] = $this->thresholdCount;
         }
-        if (null !== $this->endpointRequestProtocol) {
-            $res['EndpointRequestProtocol'] = $this->endpointRequestProtocol;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->healthCheckPort) {
-            $res['HealthCheckPort'] = $this->healthCheckPort;
-        }
-        if (null !== $this->healthCheckEnabled) {
-            $res['HealthCheckEnabled'] = $this->healthCheckEnabled;
+        if (null !== $this->trafficPercentage) {
+            $res['TrafficPercentage'] = $this->trafficPercentage;
         }
 
         return $res;
@@ -232,45 +232,11 @@ class endpointGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndpointGroupId'])) {
-            $model->endpointGroupId = $map['EndpointGroupId'];
-        }
-        if (isset($map['EndpointGroupIpList'])) {
-            if (!empty($map['EndpointGroupIpList'])) {
-                $model->endpointGroupIpList = $map['EndpointGroupIpList'];
-            }
-        }
-        if (isset($map['EndpointGroupUnconfirmedIpList'])) {
-            if (!empty($map['EndpointGroupUnconfirmedIpList'])) {
-                $model->endpointGroupUnconfirmedIpList = $map['EndpointGroupUnconfirmedIpList'];
-            }
-        }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
-        if (isset($map['HealthCheckPath'])) {
-            $model->healthCheckPath = $map['HealthCheckPath'];
-        }
-        if (isset($map['EndpointGroupRegion'])) {
-            $model->endpointGroupRegion = $map['EndpointGroupRegion'];
-        }
-        if (isset($map['HealthCheckIntervalSeconds'])) {
-            $model->healthCheckIntervalSeconds = $map['HealthCheckIntervalSeconds'];
-        }
-        if (isset($map['TrafficPercentage'])) {
-            $model->trafficPercentage = $map['TrafficPercentage'];
-        }
-        if (isset($map['HealthCheckProtocol'])) {
-            $model->healthCheckProtocol = $map['HealthCheckProtocol'];
-        }
-        if (isset($map['ThresholdCount'])) {
-            $model->thresholdCount = $map['ThresholdCount'];
-        }
-        if (isset($map['ListenerId'])) {
-            $model->listenerId = $map['ListenerId'];
-        }
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['EndpointConfigurations'])) {
             if (!empty($map['EndpointConfigurations'])) {
@@ -281,6 +247,54 @@ class endpointGroups extends Model
                 }
             }
         }
+        if (isset($map['EndpointGroupId'])) {
+            $model->endpointGroupId = $map['EndpointGroupId'];
+        }
+        if (isset($map['EndpointGroupIpList'])) {
+            if (!empty($map['EndpointGroupIpList'])) {
+                $model->endpointGroupIpList = $map['EndpointGroupIpList'];
+            }
+        }
+        if (isset($map['EndpointGroupRegion'])) {
+            $model->endpointGroupRegion = $map['EndpointGroupRegion'];
+        }
+        if (isset($map['EndpointGroupType'])) {
+            $model->endpointGroupType = $map['EndpointGroupType'];
+        }
+        if (isset($map['EndpointGroupUnconfirmedIpList'])) {
+            if (!empty($map['EndpointGroupUnconfirmedIpList'])) {
+                $model->endpointGroupUnconfirmedIpList = $map['EndpointGroupUnconfirmedIpList'];
+            }
+        }
+        if (isset($map['EndpointRequestProtocol'])) {
+            $model->endpointRequestProtocol = $map['EndpointRequestProtocol'];
+        }
+        if (isset($map['ForwardingRuleIds'])) {
+            if (!empty($map['ForwardingRuleIds'])) {
+                $model->forwardingRuleIds = $map['ForwardingRuleIds'];
+            }
+        }
+        if (isset($map['HealthCheckEnabled'])) {
+            $model->healthCheckEnabled = $map['HealthCheckEnabled'];
+        }
+        if (isset($map['HealthCheckIntervalSeconds'])) {
+            $model->healthCheckIntervalSeconds = $map['HealthCheckIntervalSeconds'];
+        }
+        if (isset($map['HealthCheckPath'])) {
+            $model->healthCheckPath = $map['HealthCheckPath'];
+        }
+        if (isset($map['HealthCheckPort'])) {
+            $model->healthCheckPort = $map['HealthCheckPort'];
+        }
+        if (isset($map['HealthCheckProtocol'])) {
+            $model->healthCheckProtocol = $map['HealthCheckProtocol'];
+        }
+        if (isset($map['ListenerId'])) {
+            $model->listenerId = $map['ListenerId'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['PortOverrides'])) {
             if (!empty($map['PortOverrides'])) {
                 $model->portOverrides = [];
@@ -290,28 +304,14 @@ class endpointGroups extends Model
                 }
             }
         }
-        if (isset($map['ForwardingRuleIds'])) {
-            if (!empty($map['ForwardingRuleIds'])) {
-                $model->forwardingRuleIds = $map['ForwardingRuleIds'];
-            }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
-        if (isset($map['EndpointGroupType'])) {
-            $model->endpointGroupType = $map['EndpointGroupType'];
+        if (isset($map['ThresholdCount'])) {
+            $model->thresholdCount = $map['ThresholdCount'];
         }
-        if (isset($map['EndpointRequestProtocol'])) {
-            $model->endpointRequestProtocol = $map['EndpointRequestProtocol'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['HealthCheckPort'])) {
-            $model->healthCheckPort = $map['HealthCheckPort'];
-        }
-        if (isset($map['HealthCheckEnabled'])) {
-            $model->healthCheckEnabled = $map['HealthCheckEnabled'];
+        if (isset($map['TrafficPercentage'])) {
+            $model->trafficPercentage = $map['TrafficPercentage'];
         }
 
         return $model;

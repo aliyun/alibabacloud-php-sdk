@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DissociateAclsFromListenerRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var string[]
      */
     public $aclIds;
-
-    /**
-     * @var string
-     */
-    public $listenerId;
 
     /**
      * @var string
@@ -32,12 +22,22 @@ class DissociateAclsFromListenerRequest extends Model
      * @var bool
      */
     public $dryRun;
+
+    /**
+     * @var string
+     */
+    public $listenerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'    => 'RegionId',
         'aclIds'      => 'AclIds',
-        'listenerId'  => 'ListenerId',
         'clientToken' => 'ClientToken',
         'dryRun'      => 'DryRun',
+        'listenerId'  => 'ListenerId',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DissociateAclsFromListenerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->aclIds) {
             $res['AclIds'] = $this->aclIds;
-        }
-        if (null !== $this->listenerId) {
-            $res['ListenerId'] = $this->listenerId;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->listenerId) {
+            $res['ListenerId'] = $this->listenerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -74,22 +74,22 @@ class DissociateAclsFromListenerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['AclIds'])) {
             if (!empty($map['AclIds'])) {
                 $model->aclIds = $map['AclIds'];
             }
-        }
-        if (isset($map['ListenerId'])) {
-            $model->listenerId = $map['ListenerId'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['ListenerId'])) {
+            $model->listenerId = $map['ListenerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

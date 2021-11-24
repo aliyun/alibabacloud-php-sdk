@@ -10,6 +10,21 @@ use AlibabaCloud\Tea\Model;
 class ListListenerCertificatesResponseBody extends Model
 {
     /**
+     * @var certificates[]
+     */
+    public $certificates;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -18,27 +33,12 @@ class ListListenerCertificatesResponseBody extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
-     * @var certificates[]
-     */
-    public $certificates;
     protected $_name = [
+        'certificates' => 'Certificates',
+        'maxResults'   => 'MaxResults',
+        'nextToken'    => 'NextToken',
         'requestId'    => 'RequestId',
         'totalCount'   => 'TotalCount',
-        'nextToken'    => 'NextToken',
-        'maxResults'   => 'MaxResults',
-        'certificates' => 'Certificates',
     ];
 
     public function validate()
@@ -48,18 +48,6 @@ class ListListenerCertificatesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
         if (null !== $this->certificates) {
             $res['Certificates'] = [];
             if (null !== $this->certificates && \is_array($this->certificates)) {
@@ -68,6 +56,18 @@ class ListListenerCertificatesResponseBody extends Model
                     $res['Certificates'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -81,18 +81,6 @@ class ListListenerCertificatesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
         if (isset($map['Certificates'])) {
             if (!empty($map['Certificates'])) {
                 $model->certificates = [];
@@ -101,6 +89,18 @@ class ListListenerCertificatesResponseBody extends Model
                     $model->certificates[$n++] = null !== $item ? certificates::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

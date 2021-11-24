@@ -11,11 +11,6 @@ class DeleteEndpointGroupsRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $clientToken;
 
     /**
@@ -27,11 +22,16 @@ class DeleteEndpointGroupsRequest extends Model
      * @var string[]
      */
     public $endpointGroupIds;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'         => 'RegionId',
         'clientToken'      => 'ClientToken',
         'dryRun'           => 'DryRun',
         'endpointGroupIds' => 'EndpointGroupIds',
+        'regionId'         => 'RegionId',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class DeleteEndpointGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -52,6 +49,9 @@ class DeleteEndpointGroupsRequest extends Model
         }
         if (null !== $this->endpointGroupIds) {
             $res['EndpointGroupIds'] = $this->endpointGroupIds;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class DeleteEndpointGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
@@ -78,6 +75,9 @@ class DeleteEndpointGroupsRequest extends Model
             if (!empty($map['EndpointGroupIds'])) {
                 $model->endpointGroupIds = $map['EndpointGroupIds'];
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

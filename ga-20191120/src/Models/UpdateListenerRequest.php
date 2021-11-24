@@ -13,24 +13,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateListenerRequest extends Model
 {
     /**
-     * @var string
+     * @var backendPorts[]
      */
-    public $regionId;
+    public $backendPorts;
 
     /**
-     * @var string
+     * @var certificates[]
      */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $description;
+    public $certificates;
 
     /**
      * @var string
@@ -40,7 +30,12 @@ class UpdateListenerRequest extends Model
     /**
      * @var string
      */
-    public $protocol;
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var string
@@ -50,7 +45,7 @@ class UpdateListenerRequest extends Model
     /**
      * @var string
      */
-    public $proxyProtocol;
+    public $name;
 
     /**
      * @var portRanges[]
@@ -58,38 +53,43 @@ class UpdateListenerRequest extends Model
     public $portRanges;
 
     /**
-     * @var certificates[]
+     * @var string
      */
-    public $certificates;
+    public $protocol;
 
     /**
-     * @var backendPorts[]
+     * @var string
      */
-    public $backendPorts;
+    public $proxyProtocol;
 
     /**
-     * @var XForwardedForConfig
+     * @var string
      */
-    public $XForwardedForConfig;
+    public $regionId;
 
     /**
      * @var string
      */
     public $securityPolicyId;
+
+    /**
+     * @var XForwardedForConfig
+     */
+    public $XForwardedForConfig;
     protected $_name = [
-        'regionId'            => 'RegionId',
-        'clientToken'         => 'ClientToken',
-        'name'                => 'Name',
-        'description'         => 'Description',
-        'clientAffinity'      => 'ClientAffinity',
-        'protocol'            => 'Protocol',
-        'listenerId'          => 'ListenerId',
-        'proxyProtocol'       => 'ProxyProtocol',
-        'portRanges'          => 'PortRanges',
-        'certificates'        => 'Certificates',
         'backendPorts'        => 'BackendPorts',
-        'XForwardedForConfig' => 'XForwardedForConfig',
+        'certificates'        => 'Certificates',
+        'clientAffinity'      => 'ClientAffinity',
+        'clientToken'         => 'ClientToken',
+        'description'         => 'Description',
+        'listenerId'          => 'ListenerId',
+        'name'                => 'Name',
+        'portRanges'          => 'PortRanges',
+        'protocol'            => 'Protocol',
+        'proxyProtocol'       => 'ProxyProtocol',
+        'regionId'            => 'RegionId',
         'securityPolicyId'    => 'SecurityPolicyId',
+        'XForwardedForConfig' => 'XForwardedForConfig',
     ];
 
     public function validate()
@@ -99,36 +99,12 @@ class UpdateListenerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->clientAffinity) {
-            $res['ClientAffinity'] = $this->clientAffinity;
-        }
-        if (null !== $this->protocol) {
-            $res['Protocol'] = $this->protocol;
-        }
-        if (null !== $this->listenerId) {
-            $res['ListenerId'] = $this->listenerId;
-        }
-        if (null !== $this->proxyProtocol) {
-            $res['ProxyProtocol'] = $this->proxyProtocol;
-        }
-        if (null !== $this->portRanges) {
-            $res['PortRanges'] = [];
-            if (null !== $this->portRanges && \is_array($this->portRanges)) {
+        if (null !== $this->backendPorts) {
+            $res['BackendPorts'] = [];
+            if (null !== $this->backendPorts && \is_array($this->backendPorts)) {
                 $n = 0;
-                foreach ($this->portRanges as $item) {
-                    $res['PortRanges'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->backendPorts as $item) {
+                    $res['BackendPorts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -141,20 +117,44 @@ class UpdateListenerRequest extends Model
                 }
             }
         }
-        if (null !== $this->backendPorts) {
-            $res['BackendPorts'] = [];
-            if (null !== $this->backendPorts && \is_array($this->backendPorts)) {
+        if (null !== $this->clientAffinity) {
+            $res['ClientAffinity'] = $this->clientAffinity;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->listenerId) {
+            $res['ListenerId'] = $this->listenerId;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->portRanges) {
+            $res['PortRanges'] = [];
+            if (null !== $this->portRanges && \is_array($this->portRanges)) {
                 $n = 0;
-                foreach ($this->backendPorts as $item) {
-                    $res['BackendPorts'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->portRanges as $item) {
+                    $res['PortRanges'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-        if (null !== $this->XForwardedForConfig) {
-            $res['XForwardedForConfig'] = null !== $this->XForwardedForConfig ? $this->XForwardedForConfig->toMap() : null;
+        if (null !== $this->protocol) {
+            $res['Protocol'] = $this->protocol;
+        }
+        if (null !== $this->proxyProtocol) {
+            $res['ProxyProtocol'] = $this->proxyProtocol;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->securityPolicyId) {
             $res['SecurityPolicyId'] = $this->securityPolicyId;
+        }
+        if (null !== $this->XForwardedForConfig) {
+            $res['XForwardedForConfig'] = null !== $this->XForwardedForConfig ? $this->XForwardedForConfig->toMap() : null;
         }
 
         return $res;
@@ -168,36 +168,12 @@ class UpdateListenerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['ClientAffinity'])) {
-            $model->clientAffinity = $map['ClientAffinity'];
-        }
-        if (isset($map['Protocol'])) {
-            $model->protocol = $map['Protocol'];
-        }
-        if (isset($map['ListenerId'])) {
-            $model->listenerId = $map['ListenerId'];
-        }
-        if (isset($map['ProxyProtocol'])) {
-            $model->proxyProtocol = $map['ProxyProtocol'];
-        }
-        if (isset($map['PortRanges'])) {
-            if (!empty($map['PortRanges'])) {
-                $model->portRanges = [];
-                $n                 = 0;
-                foreach ($map['PortRanges'] as $item) {
-                    $model->portRanges[$n++] = null !== $item ? portRanges::fromMap($item) : $item;
+        if (isset($map['BackendPorts'])) {
+            if (!empty($map['BackendPorts'])) {
+                $model->backendPorts = [];
+                $n                   = 0;
+                foreach ($map['BackendPorts'] as $item) {
+                    $model->backendPorts[$n++] = null !== $item ? backendPorts::fromMap($item) : $item;
                 }
             }
         }
@@ -210,20 +186,44 @@ class UpdateListenerRequest extends Model
                 }
             }
         }
-        if (isset($map['BackendPorts'])) {
-            if (!empty($map['BackendPorts'])) {
-                $model->backendPorts = [];
-                $n                   = 0;
-                foreach ($map['BackendPorts'] as $item) {
-                    $model->backendPorts[$n++] = null !== $item ? backendPorts::fromMap($item) : $item;
+        if (isset($map['ClientAffinity'])) {
+            $model->clientAffinity = $map['ClientAffinity'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['ListenerId'])) {
+            $model->listenerId = $map['ListenerId'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['PortRanges'])) {
+            if (!empty($map['PortRanges'])) {
+                $model->portRanges = [];
+                $n                 = 0;
+                foreach ($map['PortRanges'] as $item) {
+                    $model->portRanges[$n++] = null !== $item ? portRanges::fromMap($item) : $item;
                 }
             }
         }
-        if (isset($map['XForwardedForConfig'])) {
-            $model->XForwardedForConfig = XForwardedForConfig::fromMap($map['XForwardedForConfig']);
+        if (isset($map['Protocol'])) {
+            $model->protocol = $map['Protocol'];
+        }
+        if (isset($map['ProxyProtocol'])) {
+            $model->proxyProtocol = $map['ProxyProtocol'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SecurityPolicyId'])) {
             $model->securityPolicyId = $map['SecurityPolicyId'];
+        }
+        if (isset($map['XForwardedForConfig'])) {
+            $model->XForwardedForConfig = XForwardedForConfig::fromMap($map['XForwardedForConfig']);
         }
 
         return $model;

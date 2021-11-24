@@ -11,20 +11,20 @@ class DeleteEndpointGroupRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $acceleratorId;
 
     /**
      * @var string
      */
-    public $acceleratorId;
+    public $clientToken;
 
     /**
      * @var string
      */
     public $endpointGroupId;
     protected $_name = [
-        'clientToken'     => 'ClientToken',
         'acceleratorId'   => 'AcceleratorId',
+        'clientToken'     => 'ClientToken',
         'endpointGroupId' => 'EndpointGroupId',
     ];
 
@@ -35,11 +35,11 @@ class DeleteEndpointGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->endpointGroupId) {
             $res['EndpointGroupId'] = $this->endpointGroupId;
@@ -56,11 +56,11 @@ class DeleteEndpointGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['EndpointGroupId'])) {
             $model->endpointGroupId = $map['EndpointGroupId'];

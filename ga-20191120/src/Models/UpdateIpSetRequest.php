@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateIpSetRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $regionId;
+    public $bandwidth;
 
     /**
      * @var string
@@ -24,14 +24,14 @@ class UpdateIpSetRequest extends Model
     public $ipSetId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $bandwidth;
+    public $regionId;
     protected $_name = [
-        'regionId'    => 'RegionId',
+        'bandwidth'   => 'Bandwidth',
         'clientToken' => 'ClientToken',
         'ipSetId'     => 'IpSetId',
-        'bandwidth'   => 'Bandwidth',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class UpdateIpSetRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -50,8 +50,8 @@ class UpdateIpSetRequest extends Model
         if (null !== $this->ipSetId) {
             $res['IpSetId'] = $this->ipSetId;
         }
-        if (null !== $this->bandwidth) {
-            $res['Bandwidth'] = $this->bandwidth;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class UpdateIpSetRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
@@ -74,8 +74,8 @@ class UpdateIpSetRequest extends Model
         if (isset($map['IpSetId'])) {
             $model->ipSetId = $map['IpSetId'];
         }
-        if (isset($map['Bandwidth'])) {
-            $model->bandwidth = $map['Bandwidth'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

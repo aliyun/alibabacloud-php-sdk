@@ -10,16 +10,9 @@ use AlibabaCloud\Tea\Model;
 class GetHealthStatusResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @var string
+     * @var endpointGroups[]
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $listenerId;
+    public $endpointGroups;
 
     /**
      * @var string
@@ -27,14 +20,21 @@ class GetHealthStatusResponseBody extends Model
     public $healthStatus;
 
     /**
-     * @var endpointGroups[]
+     * @var string
      */
-    public $endpointGroups;
+    public $listenerId;
+
+    /**
+     * @description Id of the request
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'listenerId'     => 'ListenerId',
-        'healthStatus'   => 'HealthStatus',
         'endpointGroups' => 'EndpointGroups',
+        'healthStatus'   => 'HealthStatus',
+        'listenerId'     => 'ListenerId',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -44,15 +44,6 @@ class GetHealthStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->listenerId) {
-            $res['ListenerId'] = $this->listenerId;
-        }
-        if (null !== $this->healthStatus) {
-            $res['HealthStatus'] = $this->healthStatus;
-        }
         if (null !== $this->endpointGroups) {
             $res['EndpointGroups'] = [];
             if (null !== $this->endpointGroups && \is_array($this->endpointGroups)) {
@@ -61,6 +52,15 @@ class GetHealthStatusResponseBody extends Model
                     $res['EndpointGroups'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->healthStatus) {
+            $res['HealthStatus'] = $this->healthStatus;
+        }
+        if (null !== $this->listenerId) {
+            $res['ListenerId'] = $this->listenerId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -74,15 +74,6 @@ class GetHealthStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ListenerId'])) {
-            $model->listenerId = $map['ListenerId'];
-        }
-        if (isset($map['HealthStatus'])) {
-            $model->healthStatus = $map['HealthStatus'];
-        }
         if (isset($map['EndpointGroups'])) {
             if (!empty($map['EndpointGroups'])) {
                 $model->endpointGroups = [];
@@ -91,6 +82,15 @@ class GetHealthStatusResponseBody extends Model
                     $model->endpointGroups[$n++] = null !== $item ? endpointGroups::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['HealthStatus'])) {
+            $model->healthStatus = $map['HealthStatus'];
+        }
+        if (isset($map['ListenerId'])) {
+            $model->listenerId = $map['ListenerId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

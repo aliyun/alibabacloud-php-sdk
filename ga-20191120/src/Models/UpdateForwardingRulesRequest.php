@@ -12,7 +12,7 @@ class UpdateForwardingRulesRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $acceleratorId;
 
     /**
      * @var string
@@ -20,9 +20,9 @@ class UpdateForwardingRulesRequest extends Model
     public $clientToken;
 
     /**
-     * @var string
+     * @var forwardingRules[]
      */
-    public $acceleratorId;
+    public $forwardingRules;
 
     /**
      * @var string
@@ -30,15 +30,15 @@ class UpdateForwardingRulesRequest extends Model
     public $listenerId;
 
     /**
-     * @var forwardingRules[]
+     * @var string
      */
-    public $forwardingRules;
+    public $regionId;
     protected $_name = [
-        'regionId'        => 'RegionId',
-        'clientToken'     => 'ClientToken',
         'acceleratorId'   => 'AcceleratorId',
-        'listenerId'      => 'ListenerId',
+        'clientToken'     => 'ClientToken',
         'forwardingRules' => 'ForwardingRules',
+        'listenerId'      => 'ListenerId',
+        'regionId'        => 'RegionId',
     ];
 
     public function validate()
@@ -48,17 +48,11 @@ class UpdateForwardingRulesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
         }
-        if (null !== $this->listenerId) {
-            $res['ListenerId'] = $this->listenerId;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->forwardingRules) {
             $res['ForwardingRules'] = [];
@@ -68,6 +62,12 @@ class UpdateForwardingRulesRequest extends Model
                     $res['ForwardingRules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->listenerId) {
+            $res['ListenerId'] = $this->listenerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -81,17 +81,11 @@ class UpdateForwardingRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
         }
-        if (isset($map['ListenerId'])) {
-            $model->listenerId = $map['ListenerId'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['ForwardingRules'])) {
             if (!empty($map['ForwardingRules'])) {
@@ -101,6 +95,12 @@ class UpdateForwardingRulesRequest extends Model
                     $model->forwardingRules[$n++] = null !== $item ? forwardingRules::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ListenerId'])) {
+            $model->listenerId = $map['ListenerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

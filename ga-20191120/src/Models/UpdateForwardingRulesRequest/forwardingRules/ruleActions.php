@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ruleActions extends Model
 {
     /**
+     * @var forwardGroupConfig
+     */
+    public $forwardGroupConfig;
+
+    /**
      * @var int
      */
     public $order;
@@ -18,15 +23,10 @@ class ruleActions extends Model
      * @var string
      */
     public $ruleActionType;
-
-    /**
-     * @var forwardGroupConfig
-     */
-    public $forwardGroupConfig;
     protected $_name = [
+        'forwardGroupConfig' => 'ForwardGroupConfig',
         'order'              => 'Order',
         'ruleActionType'     => 'RuleActionType',
-        'forwardGroupConfig' => 'ForwardGroupConfig',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class ruleActions extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->forwardGroupConfig) {
+            $res['ForwardGroupConfig'] = null !== $this->forwardGroupConfig ? $this->forwardGroupConfig->toMap() : null;
+        }
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
         if (null !== $this->ruleActionType) {
             $res['RuleActionType'] = $this->ruleActionType;
-        }
-        if (null !== $this->forwardGroupConfig) {
-            $res['ForwardGroupConfig'] = null !== $this->forwardGroupConfig ? $this->forwardGroupConfig->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class ruleActions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ForwardGroupConfig'])) {
+            $model->forwardGroupConfig = forwardGroupConfig::fromMap($map['ForwardGroupConfig']);
+        }
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }
         if (isset($map['RuleActionType'])) {
             $model->ruleActionType = $map['RuleActionType'];
-        }
-        if (isset($map['ForwardGroupConfig'])) {
-            $model->forwardGroupConfig = forwardGroupConfig::fromMap($map['ForwardGroupConfig']);
         }
 
         return $model;

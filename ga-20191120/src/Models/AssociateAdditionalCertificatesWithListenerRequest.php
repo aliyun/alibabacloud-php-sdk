@@ -12,7 +12,12 @@ class AssociateAdditionalCertificatesWithListenerRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $acceleratorId;
+
+    /**
+     * @var certificates[]
+     */
+    public $certificates;
 
     /**
      * @var string
@@ -22,23 +27,18 @@ class AssociateAdditionalCertificatesWithListenerRequest extends Model
     /**
      * @var string
      */
-    public $acceleratorId;
+    public $listenerId;
 
     /**
      * @var string
      */
-    public $listenerId;
-
-    /**
-     * @var certificates[]
-     */
-    public $certificates;
+    public $regionId;
     protected $_name = [
-        'regionId'      => 'RegionId',
-        'clientToken'   => 'ClientToken',
         'acceleratorId' => 'AcceleratorId',
-        'listenerId'    => 'ListenerId',
         'certificates'  => 'Certificates',
+        'clientToken'   => 'ClientToken',
+        'listenerId'    => 'ListenerId',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -48,17 +48,8 @@ class AssociateAdditionalCertificatesWithListenerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
         if (null !== $this->acceleratorId) {
             $res['AcceleratorId'] = $this->acceleratorId;
-        }
-        if (null !== $this->listenerId) {
-            $res['ListenerId'] = $this->listenerId;
         }
         if (null !== $this->certificates) {
             $res['Certificates'] = [];
@@ -68,6 +59,15 @@ class AssociateAdditionalCertificatesWithListenerRequest extends Model
                     $res['Certificates'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->listenerId) {
+            $res['ListenerId'] = $this->listenerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -81,17 +81,8 @@ class AssociateAdditionalCertificatesWithListenerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
         if (isset($map['AcceleratorId'])) {
             $model->acceleratorId = $map['AcceleratorId'];
-        }
-        if (isset($map['ListenerId'])) {
-            $model->listenerId = $map['ListenerId'];
         }
         if (isset($map['Certificates'])) {
             if (!empty($map['Certificates'])) {
@@ -101,6 +92,15 @@ class AssociateAdditionalCertificatesWithListenerRequest extends Model
                     $model->certificates[$n++] = null !== $item ? certificates::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['ListenerId'])) {
+            $model->listenerId = $map['ListenerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

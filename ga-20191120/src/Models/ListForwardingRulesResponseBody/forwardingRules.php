@@ -11,11 +11,6 @@ use AlibabaCloud\Tea\Model;
 class forwardingRules extends Model
 {
     /**
-     * @var int
-     */
-    public $priority;
-
-    /**
      * @var string
      */
     public $forwardingRuleId;
@@ -31,9 +26,14 @@ class forwardingRules extends Model
     public $forwardingRuleStatus;
 
     /**
-     * @var ruleConditions[]
+     * @var string
      */
-    public $ruleConditions;
+    public $listenerId;
+
+    /**
+     * @var int
+     */
+    public $priority;
 
     /**
      * @var ruleActions[]
@@ -41,17 +41,17 @@ class forwardingRules extends Model
     public $ruleActions;
 
     /**
-     * @var string
+     * @var ruleConditions[]
      */
-    public $listenerId;
+    public $ruleConditions;
     protected $_name = [
-        'priority'             => 'Priority',
         'forwardingRuleId'     => 'ForwardingRuleId',
         'forwardingRuleName'   => 'ForwardingRuleName',
         'forwardingRuleStatus' => 'ForwardingRuleStatus',
-        'ruleConditions'       => 'RuleConditions',
-        'ruleActions'          => 'RuleActions',
         'listenerId'           => 'ListenerId',
+        'priority'             => 'Priority',
+        'ruleActions'          => 'RuleActions',
+        'ruleConditions'       => 'RuleConditions',
     ];
 
     public function validate()
@@ -61,9 +61,6 @@ class forwardingRules extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->priority) {
-            $res['Priority'] = $this->priority;
-        }
         if (null !== $this->forwardingRuleId) {
             $res['ForwardingRuleId'] = $this->forwardingRuleId;
         }
@@ -73,14 +70,11 @@ class forwardingRules extends Model
         if (null !== $this->forwardingRuleStatus) {
             $res['ForwardingRuleStatus'] = $this->forwardingRuleStatus;
         }
-        if (null !== $this->ruleConditions) {
-            $res['RuleConditions'] = [];
-            if (null !== $this->ruleConditions && \is_array($this->ruleConditions)) {
-                $n = 0;
-                foreach ($this->ruleConditions as $item) {
-                    $res['RuleConditions'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->listenerId) {
+            $res['ListenerId'] = $this->listenerId;
+        }
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
         if (null !== $this->ruleActions) {
             $res['RuleActions'] = [];
@@ -91,8 +85,14 @@ class forwardingRules extends Model
                 }
             }
         }
-        if (null !== $this->listenerId) {
-            $res['ListenerId'] = $this->listenerId;
+        if (null !== $this->ruleConditions) {
+            $res['RuleConditions'] = [];
+            if (null !== $this->ruleConditions && \is_array($this->ruleConditions)) {
+                $n = 0;
+                foreach ($this->ruleConditions as $item) {
+                    $res['RuleConditions'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -106,9 +106,6 @@ class forwardingRules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Priority'])) {
-            $model->priority = $map['Priority'];
-        }
         if (isset($map['ForwardingRuleId'])) {
             $model->forwardingRuleId = $map['ForwardingRuleId'];
         }
@@ -118,14 +115,11 @@ class forwardingRules extends Model
         if (isset($map['ForwardingRuleStatus'])) {
             $model->forwardingRuleStatus = $map['ForwardingRuleStatus'];
         }
-        if (isset($map['RuleConditions'])) {
-            if (!empty($map['RuleConditions'])) {
-                $model->ruleConditions = [];
-                $n                     = 0;
-                foreach ($map['RuleConditions'] as $item) {
-                    $model->ruleConditions[$n++] = null !== $item ? ruleConditions::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['ListenerId'])) {
+            $model->listenerId = $map['ListenerId'];
+        }
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
         if (isset($map['RuleActions'])) {
             if (!empty($map['RuleActions'])) {
@@ -136,8 +130,14 @@ class forwardingRules extends Model
                 }
             }
         }
-        if (isset($map['ListenerId'])) {
-            $model->listenerId = $map['ListenerId'];
+        if (isset($map['RuleConditions'])) {
+            if (!empty($map['RuleConditions'])) {
+                $model->ruleConditions = [];
+                $n                     = 0;
+                foreach ($map['RuleConditions'] as $item) {
+                    $model->ruleConditions[$n++] = null !== $item ? ruleConditions::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

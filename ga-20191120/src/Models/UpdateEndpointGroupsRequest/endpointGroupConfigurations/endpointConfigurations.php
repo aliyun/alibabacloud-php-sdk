@@ -11,21 +11,21 @@ class endpointConfigurations extends Model
     /**
      * @var string
      */
+    public $endpoint;
+
+    /**
+     * @var string
+     */
     public $type;
 
     /**
      * @var int
      */
     public $weight;
-
-    /**
-     * @var string
-     */
-    public $endpoint;
     protected $_name = [
+        'endpoint' => 'Endpoint',
         'type'     => 'Type',
         'weight'   => 'Weight',
-        'endpoint' => 'Endpoint',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class endpointConfigurations extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endpoint) {
+            $res['Endpoint'] = $this->endpoint;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
-        }
-        if (null !== $this->endpoint) {
-            $res['Endpoint'] = $this->endpoint;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class endpointConfigurations extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Endpoint'])) {
+            $model->endpoint = $map['Endpoint'];
+        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
-        }
-        if (isset($map['Endpoint'])) {
-            $model->endpoint = $map['Endpoint'];
         }
 
         return $model;
