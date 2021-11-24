@@ -34,8 +34,6 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\CreateAppInfoRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\CreateAppInfoResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\CreateAuditRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\CreateAuditResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\CreateDetectionTemplateRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\CreateDetectionTemplateResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\CreateUploadAttachedMediaRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\CreateUploadAttachedMediaResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\CreateUploadImageRequest;
@@ -54,8 +52,6 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteAttachedMediaRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteAttachedMediaResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteCategoryRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteCategoryResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteDetectionTemplateRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteDetectionTemplateResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteDynamicImageRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteDynamicImageResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteEditingProjectRequest;
@@ -108,6 +104,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainLogRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainLogResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealtimeLogDeliveryRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainRealtimeLogDeliveryResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainSrcBpsDataRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainSrcBpsDataResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainTrafficDataRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainTrafficDataResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeVodDomainUsageDataRequest;
@@ -134,8 +132,6 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\DisableVodRealtimeLogDeliveryRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DisableVodRealtimeLogDeliveryResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\EnableVodRealtimeLogDeliveryRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\EnableVodRealtimeLogDeliveryResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\GetAICaptionExtractionJobsRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\GetAICaptionExtractionJobsResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAIImageJobsRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAIImageJobsResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetAIMediaAuditJobRequest;
@@ -154,12 +150,6 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\GetCategoriesRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetCategoriesResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetDefaultAITemplateRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetDefaultAITemplateResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\GetDetectionJobRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\GetDetectionJobResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\GetDetectionResultRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\GetDetectionResultResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\GetDetectionTemplateRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\GetDetectionTemplateResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetEditingProjectMaterialsRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetEditingProjectMaterialsResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetEditingProjectRequest;
@@ -216,14 +206,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\ListAppPoliciesForIdentityRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListAppPoliciesForIdentityResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListAuditSecurityIpRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListAuditSecurityIpResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\ListDetectionJobRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\ListDetectionJobResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\ListDetectionTemplateRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\ListDetectionTemplateResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListDynamicImageRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListDynamicImageResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\ListLetterSendJobRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\ListLetterSendJobResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListLiveRecordVideoRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListLiveRecordVideoResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListMediaDNADeleteJobRequest;
@@ -274,8 +258,6 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\SetMessageCallbackRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SetMessageCallbackResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SetVodDomainCertificateRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SetVodDomainCertificateResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitAICaptionExtractionJobRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitAICaptionExtractionJobResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitAIImageAuditJobRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitAIImageAuditJobResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitAIImageJobRequest;
@@ -284,8 +266,6 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitAIJobRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitAIJobResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitAIMediaAuditJobRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitAIMediaAuditJobResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitDetectionJobRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitDetectionJobResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitDynamicImageJobRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitDynamicImageJobResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\SubmitLiveEditingRequest;
@@ -312,10 +292,6 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateAttachedMediaInfosRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateAttachedMediaInfosResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateCategoryRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateCategoryResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateDetectionJobRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateDetectionJobResponse;
-use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateDetectionTemplateRequest;
-use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateDetectionTemplateResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateEditingProjectRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateEditingProjectResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\UpdateImageInfosRequest;
@@ -343,6 +319,7 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\VerifyVodDomainOwnerResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Vod extends OpenApiClient
@@ -437,11 +414,27 @@ class Vod extends OpenApiClient
     public function addAITemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['TemplateConfig'] = $request->templateConfig;
+        $query['TemplateName']   = $request->templateName;
+        $query['TemplateType']   = $request->templateType;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddAITemplate',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddAITemplateResponse::fromMap($this->doRPCRequest('AddAITemplate', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -465,11 +458,27 @@ class Vod extends OpenApiClient
     public function addCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['CateName'] = $request->cateName;
+        $query['ParentId'] = $request->parentId;
+        $query['Type']     = $request->type;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddCategory',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddCategoryResponse::fromMap($this->doRPCRequest('AddCategory', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -493,11 +502,33 @@ class Vod extends OpenApiClient
     public function addEditingProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CoverURL']             = $request->coverURL;
+        $query['Description']          = $request->description;
+        $query['Division']             = $request->division;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Timeline']             = $request->timeline;
+        $query['Title']                = $request->title;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddEditingProject',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddEditingProjectResponse::fromMap($this->doRPCRequest('AddEditingProject', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -521,11 +552,28 @@ class Vod extends OpenApiClient
     public function addTranscodeTemplateGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                             = [];
+        $query['AppId']                    = $request->appId;
+        $query['Name']                     = $request->name;
+        $query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
+        $query['TranscodeTemplateList']    = $request->transcodeTemplateList;
+        $req                               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddTranscodeTemplateGroup',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddTranscodeTemplateGroupResponse::fromMap($this->doRPCRequest('AddTranscodeTemplateGroup', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -549,11 +597,32 @@ class Vod extends OpenApiClient
     public function addVodDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['CheckUrl']       = $request->checkUrl;
+        $query['DomainName']     = $request->domainName;
+        $query['OwnerAccount']   = $request->ownerAccount;
+        $query['OwnerId']        = $request->ownerId;
+        $query['Scope']          = $request->scope;
+        $query['SecurityToken']  = $request->securityToken;
+        $query['Sources']        = $request->sources;
+        $query['TopLevelDomain'] = $request->topLevelDomain;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddVodDomain',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddVodDomainResponse::fromMap($this->doRPCRequest('AddVodDomain', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddVodDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -577,11 +646,28 @@ class Vod extends OpenApiClient
     public function addVodTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['AppId']          = $request->appId;
+        $query['Name']           = $request->name;
+        $query['TemplateConfig'] = $request->templateConfig;
+        $query['TemplateType']   = $request->templateType;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddVodTemplate',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddVodTemplateResponse::fromMap($this->doRPCRequest('AddVodTemplate', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddVodTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -605,11 +691,29 @@ class Vod extends OpenApiClient
     public function addWatermarkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['AppId']           = $request->appId;
+        $query['FileUrl']         = $request->fileUrl;
+        $query['Name']            = $request->name;
+        $query['Type']            = $request->type;
+        $query['WatermarkConfig'] = $request->watermarkConfig;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddWatermark',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddWatermarkResponse::fromMap($this->doRPCRequest('AddWatermark', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -633,11 +737,28 @@ class Vod extends OpenApiClient
     public function attachAppPolicyToIdentityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['AppId']        = $request->appId;
+        $query['IdentityName'] = $request->identityName;
+        $query['IdentityType'] = $request->identityType;
+        $query['PolicyNames']  = $request->policyNames;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachAppPolicyToIdentity',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AttachAppPolicyToIdentityResponse::fromMap($this->doRPCRequest('AttachAppPolicyToIdentity', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AttachAppPolicyToIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -661,11 +782,29 @@ class Vod extends OpenApiClient
     public function batchSetVodDomainConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainNames']   = $request->domainNames;
+        $query['Functions']     = $request->functions;
+        $query['OwnerAccount']  = $request->ownerAccount;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchSetVodDomainConfigs',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchSetVodDomainConfigsResponse::fromMap($this->doRPCRequest('BatchSetVodDomainConfigs', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchSetVodDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -689,11 +828,27 @@ class Vod extends OpenApiClient
     public function batchStartVodDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainNames']   = $request->domainNames;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchStartVodDomain',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchStartVodDomainResponse::fromMap($this->doRPCRequest('BatchStartVodDomain', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchStartVodDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -717,11 +872,27 @@ class Vod extends OpenApiClient
     public function batchStopVodDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainNames']   = $request->domainNames;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchStopVodDomain',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchStopVodDomainResponse::fromMap($this->doRPCRequest('BatchStopVodDomain', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchStopVodDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -745,11 +916,26 @@ class Vod extends OpenApiClient
     public function cancelUrlUploadJobsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['JobIds']     = $request->jobIds;
+        $query['UploadUrls'] = $request->uploadUrls;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelUrlUploadJobs',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CancelUrlUploadJobsResponse::fromMap($this->doRPCRequest('CancelUrlUploadJobs', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CancelUrlUploadJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -773,11 +959,26 @@ class Vod extends OpenApiClient
     public function createAppInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AppName']     = $request->appName;
+        $query['Description'] = $request->description;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAppInfo',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateAppInfoResponse::fromMap($this->doRPCRequest('CreateAppInfo', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -801,11 +1002,25 @@ class Vod extends OpenApiClient
     public function createAuditWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['AuditContent'] = $request->auditContent;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAudit',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateAuditResponse::fromMap($this->doRPCRequest('CreateAudit', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAuditResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -821,34 +1036,6 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param CreateDetectionTemplateRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return CreateDetectionTemplateResponse
-     */
-    public function createDetectionTemplateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateDetectionTemplateResponse::fromMap($this->doRPCRequest('CreateDetectionTemplate', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateDetectionTemplateRequest $request
-     *
-     * @return CreateDetectionTemplateResponse
-     */
-    public function createDetectionTemplate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDetectionTemplateWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateUploadAttachedMediaRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -857,11 +1044,35 @@ class Vod extends OpenApiClient
     public function createUploadAttachedMediaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['AppId']           = $request->appId;
+        $query['BusinessType']    = $request->businessType;
+        $query['CateIds']         = $request->cateIds;
+        $query['Description']     = $request->description;
+        $query['FileName']        = $request->fileName;
+        $query['FileSize']        = $request->fileSize;
+        $query['MediaExt']        = $request->mediaExt;
+        $query['StorageLocation'] = $request->storageLocation;
+        $query['Tags']            = $request->tags;
+        $query['Title']           = $request->title;
+        $query['UserData']        = $request->userData;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateUploadAttachedMedia',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateUploadAttachedMediaResponse::fromMap($this->doRPCRequest('CreateUploadAttachedMedia', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateUploadAttachedMediaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -885,11 +1096,33 @@ class Vod extends OpenApiClient
     public function createUploadImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['AppId']           = $request->appId;
+        $query['CateId']          = $request->cateId;
+        $query['Description']     = $request->description;
+        $query['ImageExt']        = $request->imageExt;
+        $query['ImageType']       = $request->imageType;
+        $query['StorageLocation'] = $request->storageLocation;
+        $query['Tags']            = $request->tags;
+        $query['Title']           = $request->title;
+        $query['UserData']        = $request->userData;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateUploadImage',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateUploadImageResponse::fromMap($this->doRPCRequest('CreateUploadImage', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateUploadImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -913,11 +1146,36 @@ class Vod extends OpenApiClient
     public function createUploadVideoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['AppId']           = $request->appId;
+        $query['CateId']          = $request->cateId;
+        $query['CoverURL']        = $request->coverURL;
+        $query['Description']     = $request->description;
+        $query['FileName']        = $request->fileName;
+        $query['FileSize']        = $request->fileSize;
+        $query['StorageLocation'] = $request->storageLocation;
+        $query['Tags']            = $request->tags;
+        $query['TemplateGroupId'] = $request->templateGroupId;
+        $query['Title']           = $request->title;
+        $query['UserData']        = $request->userData;
+        $query['WorkflowId']      = $request->workflowId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateUploadVideo',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateUploadVideoResponse::fromMap($this->doRPCRequest('CreateUploadVideo', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateUploadVideoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -943,10 +1201,21 @@ class Vod extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVodRealTimeLogDelivery',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateVodRealTimeLogDeliveryResponse::fromMap($this->doRPCRequest('CreateVodRealTimeLogDelivery', '2017-03-21', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return CreateVodRealTimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -970,11 +1239,25 @@ class Vod extends OpenApiClient
     public function deleteAIImageInfosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['AIImageInfoIds'] = $request->AIImageInfoIds;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAIImageInfos',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAIImageInfosResponse::fromMap($this->doRPCRequest('DeleteAIImageInfos', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAIImageInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -998,11 +1281,25 @@ class Vod extends OpenApiClient
     public function deleteAITemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['TemplateId'] = $request->templateId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAITemplate',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAITemplateResponse::fromMap($this->doRPCRequest('DeleteAITemplate', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1026,11 +1323,25 @@ class Vod extends OpenApiClient
     public function deleteAppInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query          = [];
+        $query['AppId'] = $request->appId;
+        $req            = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAppInfo',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAppInfoResponse::fromMap($this->doRPCRequest('DeleteAppInfo', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1054,11 +1365,25 @@ class Vod extends OpenApiClient
     public function deleteAttachedMediaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['MediaIds'] = $request->mediaIds;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAttachedMedia',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAttachedMediaResponse::fromMap($this->doRPCRequest('DeleteAttachedMedia', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAttachedMediaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1082,11 +1407,25 @@ class Vod extends OpenApiClient
     public function deleteCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query           = [];
+        $query['CateId'] = $request->cateId;
+        $req             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCategory',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteCategoryResponse::fromMap($this->doRPCRequest('DeleteCategory', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1102,34 +1441,6 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param DeleteDetectionTemplateRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DeleteDetectionTemplateResponse
-     */
-    public function deleteDetectionTemplateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteDetectionTemplateResponse::fromMap($this->doRPCRequest('DeleteDetectionTemplate', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteDetectionTemplateRequest $request
-     *
-     * @return DeleteDetectionTemplateResponse
-     */
-    public function deleteDetectionTemplate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteDetectionTemplateWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteDynamicImageRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1138,11 +1449,26 @@ class Vod extends OpenApiClient
     public function deleteDynamicImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['DynamicImageIds'] = $request->dynamicImageIds;
+        $query['VideoId']         = $request->videoId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDynamicImage',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDynamicImageResponse::fromMap($this->doRPCRequest('DeleteDynamicImage', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDynamicImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1166,11 +1492,29 @@ class Vod extends OpenApiClient
     public function deleteEditingProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ProjectIds']           = $request->projectIds;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEditingProject',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteEditingProjectResponse::fromMap($this->doRPCRequest('DeleteEditingProject', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1194,11 +1538,29 @@ class Vod extends OpenApiClient
     public function deleteImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['DeleteImageType'] = $request->deleteImageType;
+        $query['ImageIds']        = $request->imageIds;
+        $query['ImageType']       = $request->imageType;
+        $query['ImageURLs']       = $request->imageURLs;
+        $query['VideoId']         = $request->videoId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteImage',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteImageResponse::fromMap($this->doRPCRequest('DeleteImage', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1222,11 +1584,26 @@ class Vod extends OpenApiClient
     public function deleteMessageCallbackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['AppId']        = $request->appId;
+        $query['OwnerAccount'] = $request->ownerAccount;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMessageCallback',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteMessageCallbackResponse::fromMap($this->doRPCRequest('DeleteMessageCallback', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteMessageCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1250,11 +1627,26 @@ class Vod extends OpenApiClient
     public function deleteMezzaninesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['Force']    = $request->force;
+        $query['VideoIds'] = $request->videoIds;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMezzanines',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteMezzaninesResponse::fromMap($this->doRPCRequest('DeleteMezzanines', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteMezzaninesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1278,11 +1670,27 @@ class Vod extends OpenApiClient
     public function deleteMultipartUploadWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['MediaId']      = $request->mediaId;
+        $query['MediaType']    = $request->mediaType;
+        $query['OwnerAccount'] = $request->ownerAccount;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMultipartUpload',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteMultipartUploadResponse::fromMap($this->doRPCRequest('DeleteMultipartUpload', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteMultipartUploadResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1306,11 +1714,26 @@ class Vod extends OpenApiClient
     public function deleteStreamWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['JobIds']  = $request->jobIds;
+        $query['VideoId'] = $request->videoId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteStream',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteStreamResponse::fromMap($this->doRPCRequest('DeleteStream', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteStreamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1334,11 +1757,27 @@ class Vod extends OpenApiClient
     public function deleteTranscodeTemplateGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                             = [];
+        $query['ForceDelGroup']            = $request->forceDelGroup;
+        $query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
+        $query['TranscodeTemplateIds']     = $request->transcodeTemplateIds;
+        $req                               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTranscodeTemplateGroup',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteTranscodeTemplateGroupResponse::fromMap($this->doRPCRequest('DeleteTranscodeTemplateGroup', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1362,11 +1801,25 @@ class Vod extends OpenApiClient
     public function deleteVideoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['VideoIds'] = $request->videoIds;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVideo',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteVideoResponse::fromMap($this->doRPCRequest('DeleteVideo', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteVideoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1390,11 +1843,28 @@ class Vod extends OpenApiClient
     public function deleteVodDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerAccount']  = $request->ownerAccount;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVodDomain',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteVodDomainResponse::fromMap($this->doRPCRequest('DeleteVodDomain', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteVodDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1420,10 +1890,21 @@ class Vod extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVodRealtimeLogDelivery',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteVodRealtimeLogDeliveryResponse::fromMap($this->doRPCRequest('DeleteVodRealtimeLogDelivery', '2017-03-21', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DeleteVodRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1447,11 +1928,28 @@ class Vod extends OpenApiClient
     public function deleteVodSpecificConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ConfigId']      = $request->configId;
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVodSpecificConfig',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteVodSpecificConfigResponse::fromMap($this->doRPCRequest('DeleteVodSpecificConfig', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteVodSpecificConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1475,11 +1973,25 @@ class Vod extends OpenApiClient
     public function deleteVodTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['VodTemplateId'] = $request->vodTemplateId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVodTemplate',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteVodTemplateResponse::fromMap($this->doRPCRequest('DeleteVodTemplate', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteVodTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1503,11 +2015,25 @@ class Vod extends OpenApiClient
     public function deleteWatermarkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['WatermarkId'] = $request->watermarkId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteWatermark',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteWatermarkResponse::fromMap($this->doRPCRequest('DeleteWatermark', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1531,11 +2057,28 @@ class Vod extends OpenApiClient
     public function describePlayTopVideosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['BizDate']  = $request->bizDate;
+        $query['OwnerId']  = $request->ownerId;
+        $query['PageNo']   = $request->pageNo;
+        $query['PageSize'] = $request->pageSize;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePlayTopVideos',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePlayTopVideosResponse::fromMap($this->doRPCRequest('DescribePlayTopVideos', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePlayTopVideosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1559,11 +2102,27 @@ class Vod extends OpenApiClient
     public function describePlayUserAvgWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['EndTime']   = $request->endTime;
+        $query['OwnerId']   = $request->ownerId;
+        $query['StartTime'] = $request->startTime;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePlayUserAvg',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePlayUserAvgResponse::fromMap($this->doRPCRequest('DescribePlayUserAvg', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePlayUserAvgResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1587,11 +2146,27 @@ class Vod extends OpenApiClient
     public function describePlayUserTotalWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['EndTime']   = $request->endTime;
+        $query['OwnerId']   = $request->ownerId;
+        $query['StartTime'] = $request->startTime;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePlayUserTotal',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePlayUserTotalResponse::fromMap($this->doRPCRequest('DescribePlayUserTotal', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePlayUserTotalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1615,11 +2190,28 @@ class Vod extends OpenApiClient
     public function describePlayVideoStatisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['EndTime']   = $request->endTime;
+        $query['OwnerId']   = $request->ownerId;
+        $query['StartTime'] = $request->startTime;
+        $query['VideoId']   = $request->videoId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePlayVideoStatis',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePlayVideoStatisResponse::fromMap($this->doRPCRequest('DescribePlayVideoStatis', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePlayVideoStatisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1643,11 +2235,29 @@ class Vod extends OpenApiClient
     public function describeVodAIDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['AIType']    = $request->AIType;
+        $query['EndTime']   = $request->endTime;
+        $query['OwnerId']   = $request->ownerId;
+        $query['Region']    = $request->region;
+        $query['StartTime'] = $request->startTime;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodAIData',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVodAIDataResponse::fromMap($this->doRPCRequest('DescribeVodAIData', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVodAIDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1671,11 +2281,27 @@ class Vod extends OpenApiClient
     public function describeVodCertificateListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodCertificateList',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVodCertificateListResponse::fromMap($this->doRPCRequest('DescribeVodCertificateList', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVodCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1699,11 +2325,31 @@ class Vod extends OpenApiClient
     public function describeVodDomainBpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DomainName']     = $request->domainName;
+        $query['EndTime']        = $request->endTime;
+        $query['Interval']       = $request->interval;
+        $query['IspNameEn']      = $request->ispNameEn;
+        $query['LocationNameEn'] = $request->locationNameEn;
+        $query['OwnerId']        = $request->ownerId;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodDomainBpsData',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVodDomainBpsDataResponse::fromMap($this->doRPCRequest('DescribeVodDomainBpsData', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVodDomainBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1727,11 +2373,26 @@ class Vod extends OpenApiClient
     public function describeVodDomainCertificateInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['OwnerId']    = $request->ownerId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodDomainCertificateInfo',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVodDomainCertificateInfoResponse::fromMap($this->doRPCRequest('DescribeVodDomainCertificateInfo', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVodDomainCertificateInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1755,11 +2416,28 @@ class Vod extends OpenApiClient
     public function describeVodDomainConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['FunctionNames'] = $request->functionNames;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodDomainConfigs',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVodDomainConfigsResponse::fromMap($this->doRPCRequest('DescribeVodDomainConfigs', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVodDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1783,11 +2461,27 @@ class Vod extends OpenApiClient
     public function describeVodDomainDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodDomainDetail',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVodDomainDetailResponse::fromMap($this->doRPCRequest('DescribeVodDomainDetail', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVodDomainDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1811,11 +2505,30 @@ class Vod extends OpenApiClient
     public function describeVodDomainLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['OwnerId']    = $request->ownerId;
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodDomainLog',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVodDomainLogResponse::fromMap($this->doRPCRequest('DescribeVodDomainLog', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVodDomainLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1841,10 +2554,21 @@ class Vod extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodDomainRealtimeLogDelivery',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVodDomainRealtimeLogDeliveryResponse::fromMap($this->doRPCRequest('DescribeVodDomainRealtimeLogDelivery', '2017-03-21', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeVodDomainRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1860,6 +2584,52 @@ class Vod extends OpenApiClient
     }
 
     /**
+     * @param DescribeVodDomainSrcBpsDataRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeVodDomainSrcBpsDataResponse
+     */
+    public function describeVodDomainSrcBpsDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['Interval']   = $request->interval;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodDomainSrcBpsData',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVodDomainSrcBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVodDomainSrcBpsDataRequest $request
+     *
+     * @return DescribeVodDomainSrcBpsDataResponse
+     */
+    public function describeVodDomainSrcBpsData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVodDomainSrcBpsDataWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeVodDomainTrafficDataRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -1868,11 +2638,31 @@ class Vod extends OpenApiClient
     public function describeVodDomainTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DomainName']     = $request->domainName;
+        $query['EndTime']        = $request->endTime;
+        $query['Interval']       = $request->interval;
+        $query['IspNameEn']      = $request->ispNameEn;
+        $query['LocationNameEn'] = $request->locationNameEn;
+        $query['OwnerId']        = $request->ownerId;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodDomainTrafficData',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVodDomainTrafficDataResponse::fromMap($this->doRPCRequest('DescribeVodDomainTrafficData', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVodDomainTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1896,11 +2686,31 @@ class Vod extends OpenApiClient
     public function describeVodDomainUsageDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['Area']       = $request->area;
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['Field']      = $request->field;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $query['Type']       = $request->type;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodDomainUsageData',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVodDomainUsageDataResponse::fromMap($this->doRPCRequest('DescribeVodDomainUsageData', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVodDomainUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1924,11 +2734,26 @@ class Vod extends OpenApiClient
     public function describeVodRefreshQuotaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodRefreshQuota',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVodRefreshQuotaResponse::fromMap($this->doRPCRequest('DescribeVodRefreshQuota', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVodRefreshQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1952,11 +2777,35 @@ class Vod extends OpenApiClient
     public function describeVodRefreshTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['EndTime']       = $request->endTime;
+        $query['ObjectPath']    = $request->objectPath;
+        $query['ObjectType']    = $request->objectType;
+        $query['OwnerId']       = $request->ownerId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StartTime']     = $request->startTime;
+        $query['Status']        = $request->status;
+        $query['TaskId']        = $request->taskId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodRefreshTasks',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVodRefreshTasksResponse::fromMap($this->doRPCRequest('DescribeVodRefreshTasks', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVodRefreshTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1980,11 +2829,30 @@ class Vod extends OpenApiClient
     public function describeVodStorageDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['EndTime']     = $request->endTime;
+        $query['OwnerId']     = $request->ownerId;
+        $query['Region']      = $request->region;
+        $query['StartTime']   = $request->startTime;
+        $query['Storage']     = $request->storage;
+        $query['StorageType'] = $request->storageType;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodStorageData',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVodStorageDataResponse::fromMap($this->doRPCRequest('DescribeVodStorageData', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVodStorageDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2008,11 +2876,28 @@ class Vod extends OpenApiClient
     public function describeVodTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['OwnerId']      = $request->ownerId;
+        $query['ResourceId']   = $request->resourceId;
+        $query['ResourceType'] = $request->resourceType;
+        $query['Tag']          = $request->tag;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodTagResources',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVodTagResourcesResponse::fromMap($this->doRPCRequest('DescribeVodTagResources', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVodTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2036,11 +2921,31 @@ class Vod extends OpenApiClient
     public function describeVodTranscodeDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['EndTime']       = $request->endTime;
+        $query['Interval']      = $request->interval;
+        $query['OwnerId']       = $request->ownerId;
+        $query['Region']        = $request->region;
+        $query['Specification'] = $request->specification;
+        $query['StartTime']     = $request->startTime;
+        $query['Storage']       = $request->storage;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodTranscodeData',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVodTranscodeDataResponse::fromMap($this->doRPCRequest('DescribeVodTranscodeData', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVodTranscodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2064,11 +2969,32 @@ class Vod extends OpenApiClient
     public function describeVodUserDomainsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['DomainName']       = $request->domainName;
+        $query['DomainSearchType'] = $request->domainSearchType;
+        $query['DomainStatus']     = $request->domainStatus;
+        $query['OwnerId']          = $request->ownerId;
+        $query['PageNumber']       = $request->pageNumber;
+        $query['PageSize']         = $request->pageSize;
+        $query['SecurityToken']    = $request->securityToken;
+        $query['Tag']              = $request->tag;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodUserDomains',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVodUserDomainsResponse::fromMap($this->doRPCRequest('DescribeVodUserDomains', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVodUserDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2092,11 +3018,25 @@ class Vod extends OpenApiClient
     public function describeVodUserTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodUserTags',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVodUserTagsResponse::fromMap($this->doRPCRequest('DescribeVodUserTags', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVodUserTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2120,11 +3060,26 @@ class Vod extends OpenApiClient
     public function describeVodVerifyContentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['OwnerId']    = $request->ownerId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVodVerifyContent',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVodVerifyContentResponse::fromMap($this->doRPCRequest('DescribeVodVerifyContent', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVodVerifyContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2148,11 +3103,28 @@ class Vod extends OpenApiClient
     public function detachAppPolicyFromIdentityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['AppId']        = $request->appId;
+        $query['IdentityName'] = $request->identityName;
+        $query['IdentityType'] = $request->identityType;
+        $query['PolicyNames']  = $request->policyNames;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachAppPolicyFromIdentity',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DetachAppPolicyFromIdentityResponse::fromMap($this->doRPCRequest('DetachAppPolicyFromIdentity', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetachAppPolicyFromIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2178,10 +3150,21 @@ class Vod extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableVodRealtimeLogDelivery',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableVodRealtimeLogDeliveryResponse::fromMap($this->doRPCRequest('DisableVodRealtimeLogDelivery', '2017-03-21', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DisableVodRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2207,10 +3190,21 @@ class Vod extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableVodRealtimeLogDelivery',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableVodRealtimeLogDeliveryResponse::fromMap($this->doRPCRequest('EnableVodRealtimeLogDelivery', '2017-03-21', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return EnableVodRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2226,34 +3220,6 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetAICaptionExtractionJobsRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return GetAICaptionExtractionJobsResponse
-     */
-    public function getAICaptionExtractionJobsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetAICaptionExtractionJobsResponse::fromMap($this->doRPCRequest('GetAICaptionExtractionJobs', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetAICaptionExtractionJobsRequest $request
-     *
-     * @return GetAICaptionExtractionJobsResponse
-     */
-    public function getAICaptionExtractionJobs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getAICaptionExtractionJobsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetAIImageJobsRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -2262,11 +3228,29 @@ class Vod extends OpenApiClient
     public function getAIImageJobsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobIds']               = $request->jobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAIImageJobs',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAIImageJobsResponse::fromMap($this->doRPCRequest('GetAIImageJobs', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAIImageJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2290,11 +3274,25 @@ class Vod extends OpenApiClient
     public function getAIMediaAuditJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query          = [];
+        $query['JobId'] = $request->jobId;
+        $req            = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAIMediaAuditJob',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAIMediaAuditJobResponse::fromMap($this->doRPCRequest('GetAIMediaAuditJob', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAIMediaAuditJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2318,11 +3316,25 @@ class Vod extends OpenApiClient
     public function getAITemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['TemplateId'] = $request->templateId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAITemplate',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAITemplateResponse::fromMap($this->doRPCRequest('GetAITemplate', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2346,11 +3358,29 @@ class Vod extends OpenApiClient
     public function getAIVideoTagResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['MediaId']              = $request->mediaId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAIVideoTagResult',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAIVideoTagResultResponse::fromMap($this->doRPCRequest('GetAIVideoTagResult', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAIVideoTagResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2374,11 +3404,25 @@ class Vod extends OpenApiClient
     public function getAppInfosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query           = [];
+        $query['AppIds'] = $request->appIds;
+        $req             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAppInfos',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAppInfosResponse::fromMap($this->doRPCRequest('GetAppInfos', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAppInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2402,11 +3446,27 @@ class Vod extends OpenApiClient
     public function getAttachedMediaInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AuthTimeout'] = $request->authTimeout;
+        $query['MediaIds']    = $request->mediaIds;
+        $query['OutputType']  = $request->outputType;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAttachedMediaInfo',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAttachedMediaInfoResponse::fromMap($this->doRPCRequest('GetAttachedMediaInfo', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAttachedMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2430,11 +3490,28 @@ class Vod extends OpenApiClient
     public function getAuditHistoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['PageNo']   = $request->pageNo;
+        $query['PageSize'] = $request->pageSize;
+        $query['SortBy']   = $request->sortBy;
+        $query['VideoId']  = $request->videoId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAuditHistory',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAuditHistoryResponse::fromMap($this->doRPCRequest('GetAuditHistory', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAuditHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2458,11 +3535,29 @@ class Vod extends OpenApiClient
     public function getCategoriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['CateId']   = $request->cateId;
+        $query['PageNo']   = $request->pageNo;
+        $query['PageSize'] = $request->pageSize;
+        $query['SortBy']   = $request->sortBy;
+        $query['Type']     = $request->type;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCategories',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetCategoriesResponse::fromMap($this->doRPCRequest('GetCategories', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2486,11 +3581,25 @@ class Vod extends OpenApiClient
     public function getDefaultAITemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['TemplateType'] = $request->templateType;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDefaultAITemplate',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetDefaultAITemplateResponse::fromMap($this->doRPCRequest('GetDefaultAITemplate', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDefaultAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2506,93 +3615,6 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param GetDetectionJobRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetDetectionJobResponse
-     */
-    public function getDetectionJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return GetDetectionJobResponse::fromMap($this->doRPCRequest('GetDetectionJob', '2017-03-21', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetDetectionJobRequest $request
-     *
-     * @return GetDetectionJobResponse
-     */
-    public function getDetectionJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDetectionJobWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetDetectionResultRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetDetectionResultResponse
-     */
-    public function getDetectionResultWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return GetDetectionResultResponse::fromMap($this->doRPCRequest('GetDetectionResult', '2017-03-21', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetDetectionResultRequest $request
-     *
-     * @return GetDetectionResultResponse
-     */
-    public function getDetectionResult($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDetectionResultWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetDetectionTemplateRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetDetectionTemplateResponse
-     */
-    public function getDetectionTemplateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return GetDetectionTemplateResponse::fromMap($this->doRPCRequest('GetDetectionTemplate', '2017-03-21', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetDetectionTemplateRequest $request
-     *
-     * @return GetDetectionTemplateResponse
-     */
-    public function getDetectionTemplate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getDetectionTemplateWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetEditingProjectRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -2601,11 +3623,29 @@ class Vod extends OpenApiClient
     public function getEditingProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ProjectId']            = $request->projectId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEditingProject',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetEditingProjectResponse::fromMap($this->doRPCRequest('GetEditingProject', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2629,11 +3669,31 @@ class Vod extends OpenApiClient
     public function getEditingProjectMaterialsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['MaterialType']         = $request->materialType;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ProjectId']            = $request->projectId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Type']                 = $request->type;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEditingProjectMaterials',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetEditingProjectMaterialsResponse::fromMap($this->doRPCRequest('GetEditingProjectMaterials', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2657,11 +3717,27 @@ class Vod extends OpenApiClient
     public function getImageInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AuthTimeout'] = $request->authTimeout;
+        $query['ImageId']     = $request->imageId;
+        $query['OutputType']  = $request->outputType;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetImageInfo',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetImageInfoResponse::fromMap($this->doRPCRequest('GetImageInfo', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetImageInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2685,11 +3761,30 @@ class Vod extends OpenApiClient
     public function getMediaAuditAudioResultDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['MediaId']              = $request->mediaId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageNo']               = $request->pageNo;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMediaAuditAudioResultDetail',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMediaAuditAudioResultDetailResponse::fromMap($this->doRPCRequest('GetMediaAuditAudioResultDetail', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetMediaAuditAudioResultDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2713,11 +3808,25 @@ class Vod extends OpenApiClient
     public function getMediaAuditResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['MediaId'] = $request->mediaId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMediaAuditResult',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMediaAuditResultResponse::fromMap($this->doRPCRequest('GetMediaAuditResult', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetMediaAuditResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2741,11 +3850,26 @@ class Vod extends OpenApiClient
     public function getMediaAuditResultDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['MediaId'] = $request->mediaId;
+        $query['PageNo']  = $request->pageNo;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMediaAuditResultDetail',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMediaAuditResultDetailResponse::fromMap($this->doRPCRequest('GetMediaAuditResultDetail', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetMediaAuditResultDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2769,11 +3893,25 @@ class Vod extends OpenApiClient
     public function getMediaAuditResultTimelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['MediaId'] = $request->mediaId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMediaAuditResultTimeline',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMediaAuditResultTimelineResponse::fromMap($this->doRPCRequest('GetMediaAuditResultTimeline', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetMediaAuditResultTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2797,11 +3935,29 @@ class Vod extends OpenApiClient
     public function getMediaDNAResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['MediaId']              = $request->mediaId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMediaDNAResult',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMediaDNAResultResponse::fromMap($this->doRPCRequest('GetMediaDNAResult', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetMediaDNAResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2825,11 +3981,26 @@ class Vod extends OpenApiClient
     public function getMessageCallbackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['AppId']        = $request->appId;
+        $query['OwnerAccount'] = $request->ownerAccount;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMessageCallback',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMessageCallbackResponse::fromMap($this->doRPCRequest('GetMessageCallback', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetMessageCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2853,11 +4024,28 @@ class Vod extends OpenApiClient
     public function getMezzanineInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['AdditionType'] = $request->additionType;
+        $query['AuthTimeout']  = $request->authTimeout;
+        $query['OutputType']   = $request->outputType;
+        $query['VideoId']      = $request->videoId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMezzanineInfo',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMezzanineInfoResponse::fromMap($this->doRPCRequest('GetMezzanineInfo', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetMezzanineInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2881,11 +4069,34 @@ class Vod extends OpenApiClient
     public function getPlayInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['AdditionType'] = $request->additionType;
+        $query['AuthTimeout']  = $request->authTimeout;
+        $query['Definition']   = $request->definition;
+        $query['Formats']      = $request->formats;
+        $query['OutputType']   = $request->outputType;
+        $query['PlayConfig']   = $request->playConfig;
+        $query['ReAuthInfo']   = $request->reAuthInfo;
+        $query['ResultType']   = $request->resultType;
+        $query['StreamType']   = $request->streamType;
+        $query['VideoId']      = $request->videoId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPlayInfo',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetPlayInfoResponse::fromMap($this->doRPCRequest('GetPlayInfo', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetPlayInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2909,11 +4120,25 @@ class Vod extends OpenApiClient
     public function getTranscodeSummaryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['VideoIds'] = $request->videoIds;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTranscodeSummary',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTranscodeSummaryResponse::fromMap($this->doRPCRequest('GetTranscodeSummary', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTranscodeSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2937,11 +4162,25 @@ class Vod extends OpenApiClient
     public function getTranscodeTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['TranscodeTaskId'] = $request->transcodeTaskId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTranscodeTask',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTranscodeTaskResponse::fromMap($this->doRPCRequest('GetTranscodeTask', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTranscodeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2965,11 +4204,25 @@ class Vod extends OpenApiClient
     public function getTranscodeTemplateGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                             = [];
+        $query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
+        $req                               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTranscodeTemplateGroup',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTranscodeTemplateGroupResponse::fromMap($this->doRPCRequest('GetTranscodeTemplateGroup', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2993,11 +4246,26 @@ class Vod extends OpenApiClient
     public function getURLUploadInfosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['JobIds']     = $request->jobIds;
+        $query['UploadURLs'] = $request->uploadURLs;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetURLUploadInfos',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetURLUploadInfosResponse::fromMap($this->doRPCRequest('GetURLUploadInfos', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetURLUploadInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3021,11 +4289,26 @@ class Vod extends OpenApiClient
     public function getUploadDetailsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['MediaIds']  = $request->mediaIds;
+        $query['MediaType'] = $request->mediaType;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUploadDetails',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetUploadDetailsResponse::fromMap($this->doRPCRequest('GetUploadDetails', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetUploadDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3049,11 +4332,25 @@ class Vod extends OpenApiClient
     public function getVideoInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['VideoId'] = $request->videoId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVideoInfo',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetVideoInfoResponse::fromMap($this->doRPCRequest('GetVideoInfo', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetVideoInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3077,11 +4374,25 @@ class Vod extends OpenApiClient
     public function getVideoInfosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['VideoIds'] = $request->videoIds;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVideoInfos',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetVideoInfosResponse::fromMap($this->doRPCRequest('GetVideoInfos', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetVideoInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3105,11 +4416,32 @@ class Vod extends OpenApiClient
     public function getVideoListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['CateId']          = $request->cateId;
+        $query['EndTime']         = $request->endTime;
+        $query['PageNo']          = $request->pageNo;
+        $query['PageSize']        = $request->pageSize;
+        $query['SortBy']          = $request->sortBy;
+        $query['StartTime']       = $request->startTime;
+        $query['Status']          = $request->status;
+        $query['StorageLocation'] = $request->storageLocation;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVideoList',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetVideoListResponse::fromMap($this->doRPCRequest('GetVideoList', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetVideoListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3133,11 +4465,27 @@ class Vod extends OpenApiClient
     public function getVideoPlayAuthWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ApiVersion']      = $request->apiVersion;
+        $query['AuthInfoTimeout'] = $request->authInfoTimeout;
+        $query['VideoId']         = $request->videoId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVideoPlayAuth',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetVideoPlayAuthResponse::fromMap($this->doRPCRequest('GetVideoPlayAuth', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetVideoPlayAuthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3161,11 +4509,25 @@ class Vod extends OpenApiClient
     public function getVodTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['VodTemplateId'] = $request->vodTemplateId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVodTemplate',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetVodTemplateResponse::fromMap($this->doRPCRequest('GetVodTemplate', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetVodTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3189,11 +4551,25 @@ class Vod extends OpenApiClient
     public function getWatermarkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['WatermarkId'] = $request->watermarkId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetWatermark',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetWatermarkResponse::fromMap($this->doRPCRequest('GetWatermark', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3217,11 +4593,25 @@ class Vod extends OpenApiClient
     public function listAIImageInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['VideoId'] = $request->videoId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAIImageInfo',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAIImageInfoResponse::fromMap($this->doRPCRequest('ListAIImageInfo', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAIImageInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3245,11 +4635,29 @@ class Vod extends OpenApiClient
     public function listAIJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobIds']               = $request->jobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAIJob',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAIJobResponse::fromMap($this->doRPCRequest('ListAIJob', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAIJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3273,11 +4681,25 @@ class Vod extends OpenApiClient
     public function listAITemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['TemplateType'] = $request->templateType;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAITemplate',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAITemplateResponse::fromMap($this->doRPCRequest('ListAITemplate', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3301,11 +4723,27 @@ class Vod extends OpenApiClient
     public function listAppInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['PageNo']   = $request->pageNo;
+        $query['PageSize'] = $request->pageSize;
+        $query['Status']   = $request->status;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAppInfo',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAppInfoResponse::fromMap($this->doRPCRequest('ListAppInfo', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3329,11 +4767,27 @@ class Vod extends OpenApiClient
     public function listAppPoliciesForIdentityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['AppId']        = $request->appId;
+        $query['IdentityName'] = $request->identityName;
+        $query['IdentityType'] = $request->identityType;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAppPoliciesForIdentity',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAppPoliciesForIdentityResponse::fromMap($this->doRPCRequest('ListAppPoliciesForIdentity', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAppPoliciesForIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3357,11 +4811,25 @@ class Vod extends OpenApiClient
     public function listAuditSecurityIpWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['SecurityGroupName'] = $request->securityGroupName;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAuditSecurityIp',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAuditSecurityIpResponse::fromMap($this->doRPCRequest('ListAuditSecurityIp', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAuditSecurityIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3377,64 +4845,6 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param ListDetectionJobRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListDetectionJobResponse
-     */
-    public function listDetectionJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return ListDetectionJobResponse::fromMap($this->doRPCRequest('ListDetectionJob', '2017-03-21', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListDetectionJobRequest $request
-     *
-     * @return ListDetectionJobResponse
-     */
-    public function listDetectionJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDetectionJobWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListDetectionTemplateRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ListDetectionTemplateResponse
-     */
-    public function listDetectionTemplateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return ListDetectionTemplateResponse::fromMap($this->doRPCRequest('ListDetectionTemplate', '2017-03-21', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListDetectionTemplateRequest $request
-     *
-     * @return ListDetectionTemplateResponse
-     */
-    public function listDetectionTemplate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDetectionTemplateWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListDynamicImageRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -3443,11 +4853,25 @@ class Vod extends OpenApiClient
     public function listDynamicImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['VideoId'] = $request->videoId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDynamicImage',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDynamicImageResponse::fromMap($this->doRPCRequest('ListDynamicImage', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDynamicImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3463,35 +4887,6 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param ListLetterSendJobRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListLetterSendJobResponse
-     */
-    public function listLetterSendJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return ListLetterSendJobResponse::fromMap($this->doRPCRequest('ListLetterSendJob', '2017-03-21', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListLetterSendJobRequest $request
-     *
-     * @return ListLetterSendJobResponse
-     */
-    public function listLetterSendJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listLetterSendJobWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListLiveRecordVideoRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -3500,11 +4895,32 @@ class Vod extends OpenApiClient
     public function listLiveRecordVideoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['AppName']    = $request->appName;
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['PageNo']     = $request->pageNo;
+        $query['PageSize']   = $request->pageSize;
+        $query['SortBy']     = $request->sortBy;
+        $query['StartTime']  = $request->startTime;
+        $query['StreamName'] = $request->streamName;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListLiveRecordVideo',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListLiveRecordVideoResponse::fromMap($this->doRPCRequest('ListLiveRecordVideo', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListLiveRecordVideoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3528,11 +4944,29 @@ class Vod extends OpenApiClient
     public function listMediaDNADeleteJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobIds']               = $request->jobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMediaDNADeleteJob',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListMediaDNADeleteJobResponse::fromMap($this->doRPCRequest('ListMediaDNADeleteJob', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListMediaDNADeleteJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3556,11 +4990,29 @@ class Vod extends OpenApiClient
     public function listSnapshotsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['AuthTimeout']  = $request->authTimeout;
+        $query['PageNo']       = $request->pageNo;
+        $query['PageSize']     = $request->pageSize;
+        $query['SnapshotType'] = $request->snapshotType;
+        $query['VideoId']      = $request->videoId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSnapshots',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListSnapshotsResponse::fromMap($this->doRPCRequest('ListSnapshots', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSnapshotsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3584,11 +5036,29 @@ class Vod extends OpenApiClient
     public function listTranscodeTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['EndTime']   = $request->endTime;
+        $query['PageNo']    = $request->pageNo;
+        $query['PageSize']  = $request->pageSize;
+        $query['StartTime'] = $request->startTime;
+        $query['VideoId']   = $request->videoId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTranscodeTask',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTranscodeTaskResponse::fromMap($this->doRPCRequest('ListTranscodeTask', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTranscodeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3612,11 +5082,25 @@ class Vod extends OpenApiClient
     public function listTranscodeTemplateGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query          = [];
+        $query['AppId'] = $request->appId;
+        $req            = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTranscodeTemplateGroup',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTranscodeTemplateGroupResponse::fromMap($this->doRPCRequest('ListTranscodeTemplateGroup', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3642,10 +5126,21 @@ class Vod extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVodRealtimeLogDeliveryDomains',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListVodRealtimeLogDeliveryDomainsResponse::fromMap($this->doRPCRequest('ListVodRealtimeLogDeliveryDomains', '2017-03-21', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListVodRealtimeLogDeliveryDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3671,10 +5166,21 @@ class Vod extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVodRealtimeLogDeliveryInfos',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListVodRealtimeLogDeliveryInfosResponse::fromMap($this->doRPCRequest('ListVodRealtimeLogDeliveryInfos', '2017-03-21', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListVodRealtimeLogDeliveryInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3698,11 +5204,26 @@ class Vod extends OpenApiClient
     public function listVodTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['AppId']        = $request->appId;
+        $query['TemplateType'] = $request->templateType;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVodTemplate',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListVodTemplateResponse::fromMap($this->doRPCRequest('ListVodTemplate', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListVodTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3726,11 +5247,25 @@ class Vod extends OpenApiClient
     public function listWatermarkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query          = [];
+        $query['AppId'] = $request->appId;
+        $req            = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWatermark',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListWatermarkResponse::fromMap($this->doRPCRequest('ListWatermark', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3754,11 +5289,27 @@ class Vod extends OpenApiClient
     public function moveAppResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['ResourceIds']  = $request->resourceIds;
+        $query['ResourceType'] = $request->resourceType;
+        $query['TargetAppId']  = $request->targetAppId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'MoveAppResource',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return MoveAppResourceResponse::fromMap($this->doRPCRequest('MoveAppResource', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return MoveAppResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3782,11 +5333,27 @@ class Vod extends OpenApiClient
     public function preloadVodObjectCachesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ObjectPath']    = $request->objectPath;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'PreloadVodObjectCaches',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return PreloadVodObjectCachesResponse::fromMap($this->doRPCRequest('PreloadVodObjectCaches', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PreloadVodObjectCachesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3810,11 +5377,35 @@ class Vod extends OpenApiClient
     public function produceEditingProjectVideoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CoverURL']             = $request->coverURL;
+        $query['Description']          = $request->description;
+        $query['MediaMetadata']        = $request->mediaMetadata;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ProduceConfig']        = $request->produceConfig;
+        $query['ProjectId']            = $request->projectId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Timeline']             = $request->timeline;
+        $query['Title']                = $request->title;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ProduceEditingProjectVideo',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ProduceEditingProjectVideoResponse::fromMap($this->doRPCRequest('ProduceEditingProjectVideo', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ProduceEditingProjectVideoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3838,11 +5429,28 @@ class Vod extends OpenApiClient
     public function refreshUploadVideoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['VideoId']              = $request->videoId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshUploadVideo',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RefreshUploadVideoResponse::fromMap($this->doRPCRequest('RefreshUploadVideo', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RefreshUploadVideoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3866,11 +5474,28 @@ class Vod extends OpenApiClient
     public function refreshVodObjectCachesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ObjectPath']    = $request->objectPath;
+        $query['ObjectType']    = $request->objectType;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshVodObjectCaches',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RefreshVodObjectCachesResponse::fromMap($this->doRPCRequest('RefreshVodObjectCaches', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RefreshVodObjectCachesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3894,11 +5519,28 @@ class Vod extends OpenApiClient
     public function registerMediaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['RegisterMetadatas'] = $request->registerMetadatas;
+        $query['TemplateGroupId']   = $request->templateGroupId;
+        $query['UserData']          = $request->userData;
+        $query['WorkflowId']        = $request->workflowId;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RegisterMedia',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RegisterMediaResponse::fromMap($this->doRPCRequest('RegisterMedia', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RegisterMediaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3922,11 +5564,35 @@ class Vod extends OpenApiClient
     public function searchEditingProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['EndTime']              = $request->endTime;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageNo']               = $request->pageNo;
+        $query['PageSize']             = $request->pageSize;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['SortBy']               = $request->sortBy;
+        $query['StartTime']            = $request->startTime;
+        $query['Status']               = $request->status;
+        $query['Title']                = $request->title;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchEditingProject',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SearchEditingProjectResponse::fromMap($this->doRPCRequest('SearchEditingProject', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SearchEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3950,11 +5616,31 @@ class Vod extends OpenApiClient
     public function searchMediaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['Fields']      = $request->fields;
+        $query['Match']       = $request->match;
+        $query['PageNo']      = $request->pageNo;
+        $query['PageSize']    = $request->pageSize;
+        $query['ScrollToken'] = $request->scrollToken;
+        $query['SearchType']  = $request->searchType;
+        $query['SortBy']      = $request->sortBy;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchMedia',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SearchMediaResponse::fromMap($this->doRPCRequest('SearchMedia', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SearchMediaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3978,11 +5664,27 @@ class Vod extends OpenApiClient
     public function setAuditSecurityIpWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['Ips']               = $request->ips;
+        $query['OperateMode']       = $request->operateMode;
+        $query['SecurityGroupName'] = $request->securityGroupName;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetAuditSecurityIp',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetAuditSecurityIpResponse::fromMap($this->doRPCRequest('SetAuditSecurityIp', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetAuditSecurityIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4006,11 +5708,31 @@ class Vod extends OpenApiClient
     public function setCrossdomainContentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Content']              = $request->content;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['ResourceRealOwnerId']  = $request->resourceRealOwnerId;
+        $query['StorageLocation']      = $request->storageLocation;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetCrossdomainContent',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetCrossdomainContentResponse::fromMap($this->doRPCRequest('SetCrossdomainContent', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetCrossdomainContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4034,11 +5756,25 @@ class Vod extends OpenApiClient
     public function setDefaultAITemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['TemplateId'] = $request->templateId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDefaultAITemplate',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDefaultAITemplateResponse::fromMap($this->doRPCRequest('SetDefaultAITemplate', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDefaultAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4062,11 +5798,25 @@ class Vod extends OpenApiClient
     public function setDefaultTranscodeTemplateGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                             = [];
+        $query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
+        $req                               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDefaultTranscodeTemplateGroup',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDefaultTranscodeTemplateGroupResponse::fromMap($this->doRPCRequest('SetDefaultTranscodeTemplateGroup', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDefaultTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4090,11 +5840,25 @@ class Vod extends OpenApiClient
     public function setDefaultWatermarkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['WatermarkId'] = $request->watermarkId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDefaultWatermark',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDefaultWatermarkResponse::fromMap($this->doRPCRequest('SetDefaultWatermark', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDefaultWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4118,11 +5882,30 @@ class Vod extends OpenApiClient
     public function setEditingProjectMaterialsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['MaterialIds']          = $request->materialIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ProjectId']            = $request->projectId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetEditingProjectMaterials',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetEditingProjectMaterialsResponse::fromMap($this->doRPCRequest('SetEditingProjectMaterials', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4146,11 +5929,33 @@ class Vod extends OpenApiClient
     public function setMessageCallbackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AppId']         = $request->appId;
+        $query['AuthKey']       = $request->authKey;
+        $query['AuthSwitch']    = $request->authSwitch;
+        $query['CallbackType']  = $request->callbackType;
+        $query['CallbackURL']   = $request->callbackURL;
+        $query['EventTypeList'] = $request->eventTypeList;
+        $query['MnsEndpoint']   = $request->mnsEndpoint;
+        $query['MnsQueueName']  = $request->mnsQueueName;
+        $query['OwnerAccount']  = $request->ownerAccount;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetMessageCallback',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetMessageCallbackResponse::fromMap($this->doRPCRequest('SetMessageCallback', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetMessageCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4174,11 +5979,31 @@ class Vod extends OpenApiClient
     public function setVodDomainCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['CertName']      = $request->certName;
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SSLPri']        = $request->SSLPri;
+        $query['SSLProtocol']   = $request->SSLProtocol;
+        $query['SSLPub']        = $request->SSLPub;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetVodDomainCertificate',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetVodDomainCertificateResponse::fromMap($this->doRPCRequest('SetVodDomainCertificate', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetVodDomainCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4194,34 +6019,6 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SubmitAICaptionExtractionJobRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return SubmitAICaptionExtractionJobResponse
-     */
-    public function submitAICaptionExtractionJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SubmitAICaptionExtractionJobResponse::fromMap($this->doRPCRequest('SubmitAICaptionExtractionJob', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SubmitAICaptionExtractionJobRequest $request
-     *
-     * @return SubmitAICaptionExtractionJobResponse
-     */
-    public function submitAICaptionExtractionJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->submitAICaptionExtractionJobWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SubmitAIImageAuditJobRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -4230,11 +6027,31 @@ class Vod extends OpenApiClient
     public function submitAIImageAuditJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                            = [];
+        $query['MediaAuditConfiguration'] = $request->mediaAuditConfiguration;
+        $query['MediaId']                 = $request->mediaId;
+        $query['OwnerAccount']            = $request->ownerAccount;
+        $query['OwnerId']                 = $request->ownerId;
+        $query['ResourceOwnerAccount']    = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']         = $request->resourceOwnerId;
+        $query['TemplateId']              = $request->templateId;
+        $req                              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitAIImageAuditJob',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitAIImageAuditJobResponse::fromMap($this->doRPCRequest('SubmitAIImageAuditJob', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitAIImageAuditJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4258,11 +6075,32 @@ class Vod extends OpenApiClient
     public function submitAIImageJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AIPipelineId']         = $request->AIPipelineId;
+        $query['AITemplateId']         = $request->AITemplateId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['UserData']             = $request->userData;
+        $query['VideoId']              = $request->videoId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitAIImageJob',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitAIImageJobResponse::fromMap($this->doRPCRequest('SubmitAIImageJob', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitAIImageJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4286,11 +6124,32 @@ class Vod extends OpenApiClient
     public function submitAIJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Config']               = $request->config;
+        $query['MediaId']              = $request->mediaId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Types']                = $request->types;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitAIJob',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitAIJobResponse::fromMap($this->doRPCRequest('SubmitAIJob', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitAIJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4314,11 +6173,29 @@ class Vod extends OpenApiClient
     public function submitAIMediaAuditJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                            = [];
+        $query['MediaAuditConfiguration'] = $request->mediaAuditConfiguration;
+        $query['MediaId']                 = $request->mediaId;
+        $query['MediaType']               = $request->mediaType;
+        $query['TemplateId']              = $request->templateId;
+        $query['UserData']                = $request->userData;
+        $req                              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitAIMediaAuditJob',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitAIMediaAuditJobResponse::fromMap($this->doRPCRequest('SubmitAIMediaAuditJob', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitAIMediaAuditJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4334,34 +6211,6 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param SubmitDetectionJobRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SubmitDetectionJobResponse
-     */
-    public function submitDetectionJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SubmitDetectionJobResponse::fromMap($this->doRPCRequest('SubmitDetectionJob', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SubmitDetectionJobRequest $request
-     *
-     * @return SubmitDetectionJobResponse
-     */
-    public function submitDetectionJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->submitDetectionJobWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SubmitDynamicImageJobRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -4370,11 +6219,27 @@ class Vod extends OpenApiClient
     public function submitDynamicImageJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                           = [];
+        $query['DynamicImageTemplateId'] = $request->dynamicImageTemplateId;
+        $query['OverrideParams']         = $request->overrideParams;
+        $query['VideoId']                = $request->videoId;
+        $req                             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitDynamicImageJob',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitDynamicImageJobResponse::fromMap($this->doRPCRequest('SubmitDynamicImageJob', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitDynamicImageJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4398,11 +6263,37 @@ class Vod extends OpenApiClient
     public function submitLiveEditingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AppName']              = $request->appName;
+        $query['Clips']                = $request->clips;
+        $query['CoverURL']             = $request->coverURL;
+        $query['Description']          = $request->description;
+        $query['DomainName']           = $request->domainName;
+        $query['MediaMetadata']        = $request->mediaMetadata;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ProduceConfig']        = $request->produceConfig;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['StreamName']           = $request->streamName;
+        $query['Title']                = $request->title;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitLiveEditing',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitLiveEditingResponse::fromMap($this->doRPCRequest('SubmitLiveEditing', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitLiveEditingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4426,11 +6317,29 @@ class Vod extends OpenApiClient
     public function submitMediaDNADeleteJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['MediaId']              = $request->mediaId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitMediaDNADeleteJob',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitMediaDNADeleteJobResponse::fromMap($this->doRPCRequest('SubmitMediaDNADeleteJob', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitMediaDNADeleteJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4454,11 +6363,26 @@ class Vod extends OpenApiClient
     public function submitPreprocessJobsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['PreprocessType'] = $request->preprocessType;
+        $query['VideoId']        = $request->videoId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitPreprocessJobs',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitPreprocessJobsResponse::fromMap($this->doRPCRequest('SubmitPreprocessJobs', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitPreprocessJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4482,11 +6406,33 @@ class Vod extends OpenApiClient
     public function submitSnapshotJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Count']                = $request->count;
+        $query['Height']               = $request->height;
+        $query['Interval']             = $request->interval;
+        $query['SnapshotTemplateId']   = $request->snapshotTemplateId;
+        $query['SpecifiedOffsetTime']  = $request->specifiedOffsetTime;
+        $query['SpriteSnapshotConfig'] = $request->spriteSnapshotConfig;
+        $query['UserData']             = $request->userData;
+        $query['VideoId']              = $request->videoId;
+        $query['Width']                = $request->width;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitSnapshotJob',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitSnapshotJobResponse::fromMap($this->doRPCRequest('SubmitSnapshotJob', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitSnapshotJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4510,11 +6456,31 @@ class Vod extends OpenApiClient
     public function submitTranscodeJobsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['EncryptConfig']   = $request->encryptConfig;
+        $query['OverrideParams']  = $request->overrideParams;
+        $query['PipelineId']      = $request->pipelineId;
+        $query['Priority']        = $request->priority;
+        $query['TemplateGroupId'] = $request->templateGroupId;
+        $query['UserData']        = $request->userData;
+        $query['VideoId']         = $request->videoId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitTranscodeJobs',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitTranscodeJobsResponse::fromMap($this->doRPCRequest('SubmitTranscodeJobs', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitTranscodeJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4538,11 +6504,26 @@ class Vod extends OpenApiClient
     public function submitWorkflowJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['MediaId']    = $request->mediaId;
+        $query['WorkflowId'] = $request->workflowId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitWorkflowJob',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitWorkflowJobResponse::fromMap($this->doRPCRequest('SubmitWorkflowJob', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitWorkflowJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4566,11 +6547,28 @@ class Vod extends OpenApiClient
     public function tagVodResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['OwnerId']      = $request->ownerId;
+        $query['ResourceId']   = $request->resourceId;
+        $query['ResourceType'] = $request->resourceType;
+        $query['Tag']          = $request->tag;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'TagVodResources',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return TagVodResourcesResponse::fromMap($this->doRPCRequest('TagVodResources', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TagVodResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4594,11 +6592,29 @@ class Vod extends OpenApiClient
     public function unTagVodResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['All']          = $request->all;
+        $query['OwnerId']      = $request->ownerId;
+        $query['ResourceId']   = $request->resourceId;
+        $query['ResourceType'] = $request->resourceType;
+        $query['TagKey']       = $request->tagKey;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UnTagVodResources',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UnTagVodResourcesResponse::fromMap($this->doRPCRequest('UnTagVodResources', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnTagVodResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4622,11 +6638,27 @@ class Vod extends OpenApiClient
     public function updateAITemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['TemplateConfig'] = $request->templateConfig;
+        $query['TemplateId']     = $request->templateId;
+        $query['TemplateName']   = $request->templateName;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAITemplate',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateAITemplateResponse::fromMap($this->doRPCRequest('UpdateAITemplate', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4650,11 +6682,28 @@ class Vod extends OpenApiClient
     public function updateAppInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AppId']       = $request->appId;
+        $query['AppName']     = $request->appName;
+        $query['Description'] = $request->description;
+        $query['Status']      = $request->status;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAppInfo',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateAppInfoResponse::fromMap($this->doRPCRequest('UpdateAppInfo', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4678,11 +6727,25 @@ class Vod extends OpenApiClient
     public function updateAttachedMediaInfosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['UpdateContent'] = $request->updateContent;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAttachedMediaInfos',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateAttachedMediaInfosResponse::fromMap($this->doRPCRequest('UpdateAttachedMediaInfos', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateAttachedMediaInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4706,11 +6769,26 @@ class Vod extends OpenApiClient
     public function updateCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['CateId']   = $request->cateId;
+        $query['CateName'] = $request->cateName;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCategory',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateCategoryResponse::fromMap($this->doRPCRequest('UpdateCategory', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4726,62 +6804,6 @@ class Vod extends OpenApiClient
     }
 
     /**
-     * @param UpdateDetectionJobRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return UpdateDetectionJobResponse
-     */
-    public function updateDetectionJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateDetectionJobResponse::fromMap($this->doRPCRequest('UpdateDetectionJob', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateDetectionJobRequest $request
-     *
-     * @return UpdateDetectionJobResponse
-     */
-    public function updateDetectionJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateDetectionJobWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateDetectionTemplateRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return UpdateDetectionTemplateResponse
-     */
-    public function updateDetectionTemplateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateDetectionTemplateResponse::fromMap($this->doRPCRequest('UpdateDetectionTemplate', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateDetectionTemplateRequest $request
-     *
-     * @return UpdateDetectionTemplateResponse
-     */
-    public function updateDetectionTemplate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateDetectionTemplateWithOptions($request, $runtime);
-    }
-
-    /**
      * @param UpdateEditingProjectRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -4790,11 +6812,33 @@ class Vod extends OpenApiClient
     public function updateEditingProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CoverURL']             = $request->coverURL;
+        $query['Description']          = $request->description;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ProjectId']            = $request->projectId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Timeline']             = $request->timeline;
+        $query['Title']                = $request->title;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEditingProject',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateEditingProjectResponse::fromMap($this->doRPCRequest('UpdateEditingProject', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4818,11 +6862,25 @@ class Vod extends OpenApiClient
     public function updateImageInfosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['UpdateContent'] = $request->updateContent;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateImageInfos',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateImageInfosResponse::fromMap($this->doRPCRequest('UpdateImageInfos', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateImageInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4846,11 +6904,26 @@ class Vod extends OpenApiClient
     public function updateStreamInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['JobId']   = $request->jobId;
+        $query['MediaId'] = $request->mediaId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateStreamInfo',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateStreamInfoResponse::fromMap($this->doRPCRequest('UpdateStreamInfo', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateStreamInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4874,11 +6947,28 @@ class Vod extends OpenApiClient
     public function updateTranscodeTemplateGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                             = [];
+        $query['Locked']                   = $request->locked;
+        $query['Name']                     = $request->name;
+        $query['TranscodeTemplateGroupId'] = $request->transcodeTemplateGroupId;
+        $query['TranscodeTemplateList']    = $request->transcodeTemplateList;
+        $req                               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTranscodeTemplateGroup',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateTranscodeTemplateGroupResponse::fromMap($this->doRPCRequest('UpdateTranscodeTemplateGroup', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4902,11 +6992,30 @@ class Vod extends OpenApiClient
     public function updateVideoInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['CateId']      = $request->cateId;
+        $query['CoverURL']    = $request->coverURL;
+        $query['Description'] = $request->description;
+        $query['Tags']        = $request->tags;
+        $query['Title']       = $request->title;
+        $query['VideoId']     = $request->videoId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateVideoInfo',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateVideoInfoResponse::fromMap($this->doRPCRequest('UpdateVideoInfo', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateVideoInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4930,11 +7039,25 @@ class Vod extends OpenApiClient
     public function updateVideoInfosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['UpdateContent'] = $request->updateContent;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateVideoInfos',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateVideoInfosResponse::fromMap($this->doRPCRequest('UpdateVideoInfos', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateVideoInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4958,11 +7081,29 @@ class Vod extends OpenApiClient
     public function updateVodDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DomainName']     = $request->domainName;
+        $query['OwnerId']        = $request->ownerId;
+        $query['SecurityToken']  = $request->securityToken;
+        $query['Sources']        = $request->sources;
+        $query['TopLevelDomain'] = $request->topLevelDomain;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateVodDomain',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateVodDomainResponse::fromMap($this->doRPCRequest('UpdateVodDomain', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateVodDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4986,11 +7127,27 @@ class Vod extends OpenApiClient
     public function updateVodTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['Name']           = $request->name;
+        $query['TemplateConfig'] = $request->templateConfig;
+        $query['VodTemplateId']  = $request->vodTemplateId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateVodTemplate',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateVodTemplateResponse::fromMap($this->doRPCRequest('UpdateVodTemplate', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateVodTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5014,11 +7171,27 @@ class Vod extends OpenApiClient
     public function updateWatermarkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Name']            = $request->name;
+        $query['WatermarkConfig'] = $request->watermarkConfig;
+        $query['WatermarkId']     = $request->watermarkId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateWatermark',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateWatermarkResponse::fromMap($this->doRPCRequest('UpdateWatermark', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5042,11 +7215,31 @@ class Vod extends OpenApiClient
     public function uploadMediaByURLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['AppId']           = $request->appId;
+        $query['StorageLocation'] = $request->storageLocation;
+        $query['TemplateGroupId'] = $request->templateGroupId;
+        $query['UploadMetadatas'] = $request->uploadMetadatas;
+        $query['UploadURLs']      = $request->uploadURLs;
+        $query['UserData']        = $request->userData;
+        $query['WorkflowId']      = $request->workflowId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UploadMediaByURL',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UploadMediaByURLResponse::fromMap($this->doRPCRequest('UploadMediaByURL', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UploadMediaByURLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5070,11 +7263,30 @@ class Vod extends OpenApiClient
     public function uploadStreamByURLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['Definition']    = $request->definition;
+        $query['FileExtension'] = $request->fileExtension;
+        $query['HDRType']       = $request->HDRType;
+        $query['MediaId']       = $request->mediaId;
+        $query['StreamURL']     = $request->streamURL;
+        $query['UserData']      = $request->userData;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UploadStreamByURL',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UploadStreamByURLResponse::fromMap($this->doRPCRequest('UploadStreamByURL', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UploadStreamByURLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5098,11 +7310,27 @@ class Vod extends OpenApiClient
     public function verifyVodDomainOwnerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['OwnerId']    = $request->ownerId;
+        $query['VerifyType'] = $request->verifyType;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'VerifyVodDomainOwner',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return VerifyVodDomainOwnerResponse::fromMap($this->doRPCRequest('VerifyVodDomainOwner', '2017-03-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return VerifyVodDomainOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

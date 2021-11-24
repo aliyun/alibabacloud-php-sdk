@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Vod\V20170321\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetDetectionJobResponse extends Model
+class DescribeVodDomainSrcBpsDataResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class GetDetectionJobResponse extends Model
     public $headers;
 
     /**
-     * @var GetDetectionJobResponseBody
+     * @var DescribeVodDomainSrcBpsDataResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class GetDetectionJobResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetDetectionJobResponse
+     * @return DescribeVodDomainSrcBpsDataResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class GetDetectionJobResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = GetDetectionJobResponseBody::fromMap($map['body']);
+            $model->body = DescribeVodDomainSrcBpsDataResponseBody::fromMap($map['body']);
         }
 
         return $model;
