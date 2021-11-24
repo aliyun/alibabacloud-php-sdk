@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Rtc\V20180111;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\AddRecordTemplateRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\AddRecordTemplateResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAutoLiveStreamRuleRequest;
@@ -13,8 +14,6 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateEventSubscribeRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateEventSubscribeResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateMPULayoutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateMPULayoutResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateRecordIndexFileRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateRecordIndexFileResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAutoLiveStreamRuleRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAutoLiveStreamRuleResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteEventSubscribeRequest;
@@ -33,8 +32,6 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeMPULayoutInfoListRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeMPULayoutInfoListResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRecordFilesRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRecordFilesResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRecordTasksRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRecordTasksResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRecordTemplatesRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRecordTemplatesResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeUserInfoInChannelRequest;
@@ -70,6 +67,7 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateRecordTemplateResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Rtc extends OpenApiClient
@@ -114,11 +112,42 @@ class Rtc extends OpenApiClient
     public function addRecordTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['AppId']              = $request->appId;
+        $query['BackgroundColor']    = $request->backgroundColor;
+        $query['Backgrounds']        = $request->backgrounds;
+        $query['ClockWidgets']       = $request->clockWidgets;
+        $query['DelayStopTime']      = $request->delayStopTime;
+        $query['EnableM3u8DateTime'] = $request->enableM3u8DateTime;
+        $query['FileSplitInterval']  = $request->fileSplitInterval;
+        $query['Formats']            = $request->formats;
+        $query['HttpCallbackUrl']    = $request->httpCallbackUrl;
+        $query['LayoutIds']          = $request->layoutIds;
+        $query['MediaEncode']        = $request->mediaEncode;
+        $query['MnsQueue']           = $request->mnsQueue;
+        $query['Name']               = $request->name;
+        $query['OssBucket']          = $request->ossBucket;
+        $query['OssFilePrefix']      = $request->ossFilePrefix;
+        $query['OwnerId']            = $request->ownerId;
+        $query['TaskProfile']        = $request->taskProfile;
+        $query['Watermarks']         = $request->watermarks;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddRecordTemplate',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddRecordTemplateResponse::fromMap($this->doRPCRequest('AddRecordTemplate', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -142,11 +171,32 @@ class Rtc extends OpenApiClient
     public function createAutoLiveStreamRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['AppId']             = $request->appId;
+        $query['CallBack']          = $request->callBack;
+        $query['ChannelIdPrefixes'] = $request->channelIdPrefixes;
+        $query['ChannelIds']        = $request->channelIds;
+        $query['MediaEncode']       = $request->mediaEncode;
+        $query['OwnerId']           = $request->ownerId;
+        $query['PlayDomain']        = $request->playDomain;
+        $query['RuleName']          = $request->ruleName;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAutoLiveStreamRule',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateAutoLiveStreamRuleResponse::fromMap($this->doRPCRequest('CreateAutoLiveStreamRule', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAutoLiveStreamRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -170,11 +220,31 @@ class Rtc extends OpenApiClient
     public function createEventSubscribeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AppId']       = $request->appId;
+        $query['CallbackUrl'] = $request->callbackUrl;
+        $query['ChannelId']   = $request->channelId;
+        $query['ClientToken'] = $request->clientToken;
+        $query['Events']      = $request->events;
+        $query['OwnerId']     = $request->ownerId;
+        $query['Users']       = $request->users;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEventSubscribe',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateEventSubscribeResponse::fromMap($this->doRPCRequest('CreateEventSubscribe', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateEventSubscribeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -198,11 +268,29 @@ class Rtc extends OpenApiClient
     public function createMPULayoutWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AppId']         = $request->appId;
+        $query['AudioMixCount'] = $request->audioMixCount;
+        $query['Name']          = $request->name;
+        $query['OwnerId']       = $request->ownerId;
+        $query['Panes']         = $request->panes;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMPULayout',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateMPULayoutResponse::fromMap($this->doRPCRequest('CreateMPULayout', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateMPULayoutResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -218,34 +306,6 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param CreateRecordIndexFileRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return CreateRecordIndexFileResponse
-     */
-    public function createRecordIndexFileWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateRecordIndexFileResponse::fromMap($this->doRPCRequest('CreateRecordIndexFile', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateRecordIndexFileRequest $request
-     *
-     * @return CreateRecordIndexFileResponse
-     */
-    public function createRecordIndexFile($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createRecordIndexFileWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteAutoLiveStreamRuleRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -254,11 +314,27 @@ class Rtc extends OpenApiClient
     public function deleteAutoLiveStreamRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['AppId']   = $request->appId;
+        $query['OwnerId'] = $request->ownerId;
+        $query['RuleId']  = $request->ruleId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAutoLiveStreamRule',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAutoLiveStreamRuleResponse::fromMap($this->doRPCRequest('DeleteAutoLiveStreamRule', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAutoLiveStreamRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -282,11 +358,27 @@ class Rtc extends OpenApiClient
     public function deleteEventSubscribeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AppId']       = $request->appId;
+        $query['OwnerId']     = $request->ownerId;
+        $query['SubscribeId'] = $request->subscribeId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEventSubscribe',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteEventSubscribeResponse::fromMap($this->doRPCRequest('DeleteEventSubscribe', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteEventSubscribeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -310,11 +402,27 @@ class Rtc extends OpenApiClient
     public function deleteMPULayoutWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['AppId']    = $request->appId;
+        $query['LayoutId'] = $request->layoutId;
+        $query['OwnerId']  = $request->ownerId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMPULayout',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteMPULayoutResponse::fromMap($this->doRPCRequest('DeleteMPULayout', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteMPULayoutResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -338,11 +446,27 @@ class Rtc extends OpenApiClient
     public function deleteRecordTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['AppId']      = $request->appId;
+        $query['OwnerId']    = $request->ownerId;
+        $query['TemplateId'] = $request->templateId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRecordTemplate',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteRecordTemplateResponse::fromMap($this->doRPCRequest('DeleteRecordTemplate', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -366,11 +490,26 @@ class Rtc extends OpenApiClient
     public function describeAutoLiveStreamRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['AppId']   = $request->appId;
+        $query['OwnerId'] = $request->ownerId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAutoLiveStreamRule',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAutoLiveStreamRuleResponse::fromMap($this->doRPCRequest('DescribeAutoLiveStreamRule', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAutoLiveStreamRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -394,11 +533,30 @@ class Rtc extends OpenApiClient
     public function describeChannelParticipantsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['AppId']     = $request->appId;
+        $query['ChannelId'] = $request->channelId;
+        $query['Order']     = $request->order;
+        $query['OwnerId']   = $request->ownerId;
+        $query['PageNum']   = $request->pageNum;
+        $query['PageSize']  = $request->pageSize;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeChannelParticipants',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeChannelParticipantsResponse::fromMap($this->doRPCRequest('DescribeChannelParticipants', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeChannelParticipantsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -422,11 +580,27 @@ class Rtc extends OpenApiClient
     public function describeChannelUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['AppId']     = $request->appId;
+        $query['ChannelId'] = $request->channelId;
+        $query['OwnerId']   = $request->ownerId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeChannelUsers',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeChannelUsersResponse::fromMap($this->doRPCRequest('DescribeChannelUsers', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeChannelUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -450,11 +624,30 @@ class Rtc extends OpenApiClient
     public function describeMPULayoutInfoListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['AppId']    = $request->appId;
+        $query['LayoutId'] = $request->layoutId;
+        $query['Name']     = $request->name;
+        $query['OwnerId']  = $request->ownerId;
+        $query['PageNum']  = $request->pageNum;
+        $query['PageSize'] = $request->pageSize;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMPULayoutInfoList',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMPULayoutInfoListResponse::fromMap($this->doRPCRequest('DescribeMPULayoutInfoList', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMPULayoutInfoListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -478,11 +671,32 @@ class Rtc extends OpenApiClient
     public function describeRecordFilesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['AppId']     = $request->appId;
+        $query['ChannelId'] = $request->channelId;
+        $query['EndTime']   = $request->endTime;
+        $query['OwnerId']   = $request->ownerId;
+        $query['PageNum']   = $request->pageNum;
+        $query['PageSize']  = $request->pageSize;
+        $query['StartTime'] = $request->startTime;
+        $query['TaskIds']   = $request->taskIds;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRecordFiles',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRecordFilesResponse::fromMap($this->doRPCRequest('DescribeRecordFiles', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRecordFilesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -498,34 +712,6 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecordTasksRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeRecordTasksResponse
-     */
-    public function describeRecordTasksWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeRecordTasksResponse::fromMap($this->doRPCRequest('DescribeRecordTasks', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRecordTasksRequest $request
-     *
-     * @return DescribeRecordTasksResponse
-     */
-    public function describeRecordTasks($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRecordTasksWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeRecordTemplatesRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -534,11 +720,29 @@ class Rtc extends OpenApiClient
     public function describeRecordTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AppId']       = $request->appId;
+        $query['OwnerId']     = $request->ownerId;
+        $query['PageNum']     = $request->pageNum;
+        $query['PageSize']    = $request->pageSize;
+        $query['TemplateIds'] = $request->templateIds;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRecordTemplates',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRecordTemplatesResponse::fromMap($this->doRPCRequest('DescribeRecordTemplates', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRecordTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -562,11 +766,28 @@ class Rtc extends OpenApiClient
     public function describeUserInfoInChannelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['AppId']     = $request->appId;
+        $query['ChannelId'] = $request->channelId;
+        $query['OwnerId']   = $request->ownerId;
+        $query['UserId']    = $request->userId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserInfoInChannel',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeUserInfoInChannelResponse::fromMap($this->doRPCRequest('DescribeUserInfoInChannel', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeUserInfoInChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -590,11 +811,27 @@ class Rtc extends OpenApiClient
     public function disableAutoLiveStreamRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['AppId']   = $request->appId;
+        $query['OwnerId'] = $request->ownerId;
+        $query['RuleId']  = $request->ruleId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableAutoLiveStreamRule',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableAutoLiveStreamRuleResponse::fromMap($this->doRPCRequest('DisableAutoLiveStreamRule', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableAutoLiveStreamRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -618,11 +855,27 @@ class Rtc extends OpenApiClient
     public function enableAutoLiveStreamRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['AppId']   = $request->appId;
+        $query['OwnerId'] = $request->ownerId;
+        $query['RuleId']  = $request->ruleId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableAutoLiveStreamRule',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableAutoLiveStreamRuleResponse::fromMap($this->doRPCRequest('EnableAutoLiveStreamRule', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableAutoLiveStreamRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -646,11 +899,27 @@ class Rtc extends OpenApiClient
     public function getMPUTaskStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['AppId']   = $request->appId;
+        $query['OwnerId'] = $request->ownerId;
+        $query['TaskId']  = $request->taskId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMPUTaskStatus',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMPUTaskStatusResponse::fromMap($this->doRPCRequest('GetMPUTaskStatus', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetMPUTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -674,11 +943,30 @@ class Rtc extends OpenApiClient
     public function modifyMPULayoutWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AppId']         = $request->appId;
+        $query['AudioMixCount'] = $request->audioMixCount;
+        $query['LayoutId']      = $request->layoutId;
+        $query['Name']          = $request->name;
+        $query['OwnerId']       = $request->ownerId;
+        $query['Panes']         = $request->panes;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyMPULayout',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyMPULayoutResponse::fromMap($this->doRPCRequest('ModifyMPULayout', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyMPULayoutResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -702,11 +990,28 @@ class Rtc extends OpenApiClient
     public function removeTerminalsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AppId']       = $request->appId;
+        $query['ChannelId']   = $request->channelId;
+        $query['OwnerId']     = $request->ownerId;
+        $query['TerminalIds'] = $request->terminalIds;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveTerminals',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveTerminalsResponse::fromMap($this->doRPCRequest('RemoveTerminals', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveTerminalsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -730,11 +1035,53 @@ class Rtc extends OpenApiClient
     public function startMPUTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                              = [];
+        $query['AppId']                     = $request->appId;
+        $query['BackgroundColor']           = $request->backgroundColor;
+        $query['Backgrounds']               = $request->backgrounds;
+        $query['ChannelId']                 = $request->channelId;
+        $query['ClockWidgets']              = $request->clockWidgets;
+        $query['CropMode']                  = $request->cropMode;
+        $query['LayoutIds']                 = $request->layoutIds;
+        $query['MediaEncode']               = $request->mediaEncode;
+        $query['MixMode']                   = $request->mixMode;
+        $query['OwnerId']                   = $request->ownerId;
+        $query['PayloadType']               = $request->payloadType;
+        $query['ReportVad']                 = $request->reportVad;
+        $query['RtpExtInfo']                = $request->rtpExtInfo;
+        $query['SourceType']                = $request->sourceType;
+        $query['StreamType']                = $request->streamType;
+        $query['StreamURL']                 = $request->streamURL;
+        $query['SubSpecAudioUsers']         = $request->subSpecAudioUsers;
+        $query['SubSpecCameraUsers']        = $request->subSpecCameraUsers;
+        $query['SubSpecShareScreenUsers']   = $request->subSpecShareScreenUsers;
+        $query['SubSpecUsers']              = $request->subSpecUsers;
+        $query['TaskId']                    = $request->taskId;
+        $query['TaskType']                  = $request->taskType;
+        $query['TimeStampRef']              = $request->timeStampRef;
+        $query['UnsubSpecAudioUsers']       = $request->unsubSpecAudioUsers;
+        $query['UnsubSpecCameraUsers']      = $request->unsubSpecCameraUsers;
+        $query['UnsubSpecShareScreenUsers'] = $request->unsubSpecShareScreenUsers;
+        $query['UserPanes']                 = $request->userPanes;
+        $query['VadInterval']               = $request->vadInterval;
+        $query['Watermarks']                = $request->watermarks;
+        $req                                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'StartMPUTask',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StartMPUTaskResponse::fromMap($this->doRPCRequest('StartMPUTask', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartMPUTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -758,11 +1105,44 @@ class Rtc extends OpenApiClient
     public function startRecordTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                              = [];
+        $query['AppId']                     = $request->appId;
+        $query['ChannelId']                 = $request->channelId;
+        $query['CropMode']                  = $request->cropMode;
+        $query['LayoutIds']                 = $request->layoutIds;
+        $query['MediaEncode']               = $request->mediaEncode;
+        $query['MixMode']                   = $request->mixMode;
+        $query['OwnerId']                   = $request->ownerId;
+        $query['SourceType']                = $request->sourceType;
+        $query['StreamType']                = $request->streamType;
+        $query['SubSpecAudioUsers']         = $request->subSpecAudioUsers;
+        $query['SubSpecCameraUsers']        = $request->subSpecCameraUsers;
+        $query['SubSpecShareScreenUsers']   = $request->subSpecShareScreenUsers;
+        $query['SubSpecUsers']              = $request->subSpecUsers;
+        $query['TaskId']                    = $request->taskId;
+        $query['TaskProfile']               = $request->taskProfile;
+        $query['TemplateId']                = $request->templateId;
+        $query['UnsubSpecAudioUsers']       = $request->unsubSpecAudioUsers;
+        $query['UnsubSpecCameraUsers']      = $request->unsubSpecCameraUsers;
+        $query['UnsubSpecShareScreenUsers'] = $request->unsubSpecShareScreenUsers;
+        $query['UserPanes']                 = $request->userPanes;
+        $req                                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'StartRecordTask',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StartRecordTaskResponse::fromMap($this->doRPCRequest('StartRecordTask', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartRecordTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -786,11 +1166,28 @@ class Rtc extends OpenApiClient
     public function stopChannelUserPublishWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['AppId']     = $request->appId;
+        $query['ChannelId'] = $request->channelId;
+        $query['OwnerId']   = $request->ownerId;
+        $query['UserId']    = $request->userId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'StopChannelUserPublish',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StopChannelUserPublishResponse::fromMap($this->doRPCRequest('StopChannelUserPublish', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopChannelUserPublishResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -814,11 +1211,27 @@ class Rtc extends OpenApiClient
     public function stopMPUTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['AppId']   = $request->appId;
+        $query['OwnerId'] = $request->ownerId;
+        $query['TaskId']  = $request->taskId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'StopMPUTask',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StopMPUTaskResponse::fromMap($this->doRPCRequest('StopMPUTask', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopMPUTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -842,11 +1255,27 @@ class Rtc extends OpenApiClient
     public function stopRecordTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['AppId']   = $request->appId;
+        $query['OwnerId'] = $request->ownerId;
+        $query['TaskId']  = $request->taskId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'StopRecordTask',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StopRecordTaskResponse::fromMap($this->doRPCRequest('StopRecordTask', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopRecordTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -870,11 +1299,33 @@ class Rtc extends OpenApiClient
     public function updateAutoLiveStreamRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['AppId']             = $request->appId;
+        $query['CallBack']          = $request->callBack;
+        $query['ChannelIdPrefixes'] = $request->channelIdPrefixes;
+        $query['ChannelIds']        = $request->channelIds;
+        $query['MediaEncode']       = $request->mediaEncode;
+        $query['OwnerId']           = $request->ownerId;
+        $query['PlayDomain']        = $request->playDomain;
+        $query['RuleId']            = $request->ruleId;
+        $query['RuleName']          = $request->ruleName;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAutoLiveStreamRule',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateAutoLiveStreamRuleResponse::fromMap($this->doRPCRequest('UpdateAutoLiveStreamRule', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateAutoLiveStreamRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -898,11 +1349,45 @@ class Rtc extends OpenApiClient
     public function updateMPUTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                              = [];
+        $query['AppId']                     = $request->appId;
+        $query['BackgroundColor']           = $request->backgroundColor;
+        $query['Backgrounds']               = $request->backgrounds;
+        $query['ClockWidgets']              = $request->clockWidgets;
+        $query['CropMode']                  = $request->cropMode;
+        $query['LayoutIds']                 = $request->layoutIds;
+        $query['MediaEncode']               = $request->mediaEncode;
+        $query['MixMode']                   = $request->mixMode;
+        $query['OwnerId']                   = $request->ownerId;
+        $query['SourceType']                = $request->sourceType;
+        $query['StreamType']                = $request->streamType;
+        $query['SubSpecAudioUsers']         = $request->subSpecAudioUsers;
+        $query['SubSpecCameraUsers']        = $request->subSpecCameraUsers;
+        $query['SubSpecShareScreenUsers']   = $request->subSpecShareScreenUsers;
+        $query['SubSpecUsers']              = $request->subSpecUsers;
+        $query['TaskId']                    = $request->taskId;
+        $query['UnsubSpecAudioUsers']       = $request->unsubSpecAudioUsers;
+        $query['UnsubSpecCameraUsers']      = $request->unsubSpecCameraUsers;
+        $query['UnsubSpecShareScreenUsers'] = $request->unsubSpecShareScreenUsers;
+        $query['UserPanes']                 = $request->userPanes;
+        $query['Watermarks']                = $request->watermarks;
+        $req                                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMPUTask',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateMPUTaskResponse::fromMap($this->doRPCRequest('UpdateMPUTask', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateMPUTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -926,11 +1411,38 @@ class Rtc extends OpenApiClient
     public function updateRecordTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                              = [];
+        $query['AppId']                     = $request->appId;
+        $query['ChannelId']                 = $request->channelId;
+        $query['LayoutIds']                 = $request->layoutIds;
+        $query['OwnerId']                   = $request->ownerId;
+        $query['SubSpecAudioUsers']         = $request->subSpecAudioUsers;
+        $query['SubSpecCameraUsers']        = $request->subSpecCameraUsers;
+        $query['SubSpecShareScreenUsers']   = $request->subSpecShareScreenUsers;
+        $query['SubSpecUsers']              = $request->subSpecUsers;
+        $query['TaskId']                    = $request->taskId;
+        $query['TemplateId']                = $request->templateId;
+        $query['UnsubSpecAudioUsers']       = $request->unsubSpecAudioUsers;
+        $query['UnsubSpecCameraUsers']      = $request->unsubSpecCameraUsers;
+        $query['UnsubSpecShareScreenUsers'] = $request->unsubSpecShareScreenUsers;
+        $query['UserPanes']                 = $request->userPanes;
+        $req                                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRecordTask',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateRecordTaskResponse::fromMap($this->doRPCRequest('UpdateRecordTask', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateRecordTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -954,11 +1466,43 @@ class Rtc extends OpenApiClient
     public function updateRecordTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['AppId']              = $request->appId;
+        $query['BackgroundColor']    = $request->backgroundColor;
+        $query['Backgrounds']        = $request->backgrounds;
+        $query['ClockWidgets']       = $request->clockWidgets;
+        $query['DelayStopTime']      = $request->delayStopTime;
+        $query['EnableM3u8DateTime'] = $request->enableM3u8DateTime;
+        $query['FileSplitInterval']  = $request->fileSplitInterval;
+        $query['Formats']            = $request->formats;
+        $query['HttpCallbackUrl']    = $request->httpCallbackUrl;
+        $query['LayoutIds']          = $request->layoutIds;
+        $query['MediaEncode']        = $request->mediaEncode;
+        $query['MnsQueue']           = $request->mnsQueue;
+        $query['Name']               = $request->name;
+        $query['OssBucket']          = $request->ossBucket;
+        $query['OssFilePrefix']      = $request->ossFilePrefix;
+        $query['OwnerId']            = $request->ownerId;
+        $query['TaskProfile']        = $request->taskProfile;
+        $query['TemplateId']         = $request->templateId;
+        $query['Watermarks']         = $request->watermarks;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRecordTemplate',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateRecordTemplateResponse::fromMap($this->doRPCRequest('UpdateRecordTemplate', '2018-01-11', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateRecordTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
