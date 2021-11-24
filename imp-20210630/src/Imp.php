@@ -93,6 +93,8 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\ListAppsRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListAppsResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListAppTemplatesRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListAppTemplatesResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\ListClassesRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\ListClassesResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListCommentsRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListCommentsResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListComponentsRequest;
@@ -1378,6 +1380,34 @@ class Imp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAppsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListClassesRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListClassesResponse
+     */
+    public function listClassesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListClassesResponse::fromMap($this->doRPCRequest('ListClasses', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListClassesRequest $request
+     *
+     * @return ListClassesResponse
+     */
+    public function listClasses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listClassesWithOptions($request, $runtime);
     }
 
     /**

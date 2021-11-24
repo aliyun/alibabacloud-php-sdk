@@ -4,20 +4,20 @@
 
 namespace AlibabaCloud\SDK\Imp\V20210630\Models;
 
-use AlibabaCloud\SDK\Imp\V20210630\Models\UpdateAppTemplateConfigResponseBody\result;
+use AlibabaCloud\SDK\Imp\V20210630\Models\ListClassesResponseBody\result;
 use AlibabaCloud\Tea\Model;
 
-class UpdateAppTemplateConfigResponseBody extends Model
+class ListClassesResponseBody extends Model
 {
     /**
-     * @description 请求ID
+     * @description Id of the request
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 返回结果
+     * @description 创建课程返回的结果。
      *
      * @var result
      */
@@ -47,7 +47,7 @@ class UpdateAppTemplateConfigResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return UpdateAppTemplateConfigResponseBody
+     * @return ListClassesResponseBody
      */
     public static function fromMap($map = [])
     {
