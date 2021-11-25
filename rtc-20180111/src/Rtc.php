@@ -16,12 +16,16 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateMPULayoutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateMPULayoutResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAutoLiveStreamRuleRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAutoLiveStreamRuleResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteChannelRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteChannelResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteEventSubscribeRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteEventSubscribeResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteMPULayoutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteMPULayoutResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteRecordTemplateRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteRecordTemplateResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppsRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppsResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAutoLiveStreamRuleRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAutoLiveStreamRuleResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelParticipantsRequest;
@@ -42,6 +46,8 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\EnableAutoLiveStreamRuleRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\EnableAutoLiveStreamRuleResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\GetMPUTaskStatusRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\GetMPUTaskStatusResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyMPULayoutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyMPULayoutResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveTerminalsRequest;
@@ -50,8 +56,6 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\StartMPUTaskRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartMPUTaskResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartRecordTaskRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartRecordTaskResponse;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\StopChannelUserPublishRequest;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\StopChannelUserPublishResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopMPUTaskRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopMPUTaskResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopRecordTaskRequest;
@@ -350,6 +354,50 @@ class Rtc extends OpenApiClient
     }
 
     /**
+     * @param DeleteChannelRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteChannelResponse
+     */
+    public function deleteChannelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query              = [];
+        $query['AppId']     = $request->appId;
+        $query['ChannelId'] = $request->channelId;
+        $query['OwnerId']   = $request->ownerId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteChannel',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteChannelRequest $request
+     *
+     * @return DeleteChannelResponse
+     */
+    public function deleteChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteChannelWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteEventSubscribeRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -479,6 +527,53 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteRecordTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAppsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeAppsResponse
+     */
+    public function describeAppsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query             = [];
+        $query['AppId']    = $request->appId;
+        $query['Order']    = $request->order;
+        $query['OwnerId']  = $request->ownerId;
+        $query['PageNum']  = $request->pageNum;
+        $query['PageSize'] = $request->pageSize;
+        $query['Status']   = $request->status;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApps',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAppsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAppsRequest $request
+     *
+     * @return DescribeAppsResponse
+     */
+    public function describeApps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAppsWithOptions($request, $runtime);
     }
 
     /**
@@ -935,6 +1030,50 @@ class Rtc extends OpenApiClient
     }
 
     /**
+     * @param ModifyAppRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ModifyAppResponse
+     */
+    public function modifyAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query            = [];
+        $query['AppId']   = $request->appId;
+        $query['AppName'] = $request->appName;
+        $query['OwnerId'] = $request->ownerId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyApp',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyAppRequest $request
+     *
+     * @return ModifyAppResponse
+     */
+    public function modifyApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAppWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyMPULayoutRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1155,51 +1294,6 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startRecordTaskWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param StopChannelUserPublishRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return StopChannelUserPublishResponse
-     */
-    public function stopChannelUserPublishWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query              = [];
-        $query['AppId']     = $request->appId;
-        $query['ChannelId'] = $request->channelId;
-        $query['OwnerId']   = $request->ownerId;
-        $query['UserId']    = $request->userId;
-        $req                = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'StopChannelUserPublish',
-            'version'     => '2018-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return StopChannelUserPublishResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param StopChannelUserPublishRequest $request
-     *
-     * @return StopChannelUserPublishResponse
-     */
-    public function stopChannelUserPublish($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->stopChannelUserPublishWithOptions($request, $runtime);
     }
 
     /**

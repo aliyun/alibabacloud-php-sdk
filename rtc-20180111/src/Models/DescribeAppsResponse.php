@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class StopChannelUserPublishResponse extends Model
+class DescribeAppsResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class StopChannelUserPublishResponse extends Model
     public $headers;
 
     /**
-     * @var StopChannelUserPublishResponseBody
+     * @var DescribeAppsResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class StopChannelUserPublishResponse extends Model
     /**
      * @param array $map
      *
-     * @return StopChannelUserPublishResponse
+     * @return DescribeAppsResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class StopChannelUserPublishResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = StopChannelUserPublishResponseBody::fromMap($map['body']);
+            $model->body = DescribeAppsResponseBody::fromMap($map['body']);
         }
 
         return $model;

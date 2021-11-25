@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class StopChannelUserPublishRequest extends Model
+class DeleteChannelRequest extends Model
 {
     /**
      * @var string
@@ -22,16 +22,10 @@ class StopChannelUserPublishRequest extends Model
      * @var int
      */
     public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $userId;
     protected $_name = [
         'appId'     => 'AppId',
         'channelId' => 'ChannelId',
         'ownerId'   => 'OwnerId',
-        'userId'    => 'UserId',
     ];
 
     public function validate()
@@ -50,9 +44,6 @@ class StopChannelUserPublishRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
 
         return $res;
     }
@@ -60,7 +51,7 @@ class StopChannelUserPublishRequest extends Model
     /**
      * @param array $map
      *
-     * @return StopChannelUserPublishRequest
+     * @return DeleteChannelRequest
      */
     public static function fromMap($map = [])
     {
@@ -73,9 +64,6 @@ class StopChannelUserPublishRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
         }
 
         return $model;

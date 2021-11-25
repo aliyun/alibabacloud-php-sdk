@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class StopChannelUserPublishResponseBody extends Model
+class ModifyAppResponseBody extends Model
 {
     /**
      * @var string
@@ -33,7 +33,7 @@ class StopChannelUserPublishResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return StopChannelUserPublishResponseBody
+     * @return ModifyAppResponseBody
      */
     public static function fromMap($map = [])
     {
