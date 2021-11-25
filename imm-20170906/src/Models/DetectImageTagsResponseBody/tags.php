@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @var float
+     */
+    public $centricScore;
+
+    /**
      * @var string
      */
     public $parentTagEnName;
@@ -16,7 +21,7 @@ class tags extends Model
     /**
      * @var string
      */
-    public $tagName;
+    public $parentTagName;
 
     /**
      * @var float
@@ -36,14 +41,15 @@ class tags extends Model
     /**
      * @var string
      */
-    public $parentTagName;
+    public $tagName;
     protected $_name = [
+        'centricScore'    => 'CentricScore',
         'parentTagEnName' => 'ParentTagEnName',
-        'tagName'         => 'TagName',
+        'parentTagName'   => 'ParentTagName',
         'tagConfidence'   => 'TagConfidence',
         'tagEnName'       => 'TagEnName',
         'tagLevel'        => 'TagLevel',
-        'parentTagName'   => 'ParentTagName',
+        'tagName'         => 'TagName',
     ];
 
     public function validate()
@@ -53,11 +59,14 @@ class tags extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->centricScore) {
+            $res['CentricScore'] = $this->centricScore;
+        }
         if (null !== $this->parentTagEnName) {
             $res['ParentTagEnName'] = $this->parentTagEnName;
         }
-        if (null !== $this->tagName) {
-            $res['TagName'] = $this->tagName;
+        if (null !== $this->parentTagName) {
+            $res['ParentTagName'] = $this->parentTagName;
         }
         if (null !== $this->tagConfidence) {
             $res['TagConfidence'] = $this->tagConfidence;
@@ -68,8 +77,8 @@ class tags extends Model
         if (null !== $this->tagLevel) {
             $res['TagLevel'] = $this->tagLevel;
         }
-        if (null !== $this->parentTagName) {
-            $res['ParentTagName'] = $this->parentTagName;
+        if (null !== $this->tagName) {
+            $res['TagName'] = $this->tagName;
         }
 
         return $res;
@@ -83,11 +92,14 @@ class tags extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CentricScore'])) {
+            $model->centricScore = $map['CentricScore'];
+        }
         if (isset($map['ParentTagEnName'])) {
             $model->parentTagEnName = $map['ParentTagEnName'];
         }
-        if (isset($map['TagName'])) {
-            $model->tagName = $map['TagName'];
+        if (isset($map['ParentTagName'])) {
+            $model->parentTagName = $map['ParentTagName'];
         }
         if (isset($map['TagConfidence'])) {
             $model->tagConfidence = $map['TagConfidence'];
@@ -98,8 +110,8 @@ class tags extends Model
         if (isset($map['TagLevel'])) {
             $model->tagLevel = $map['TagLevel'];
         }
-        if (isset($map['ParentTagName'])) {
-            $model->parentTagName = $map['ParentTagName'];
+        if (isset($map['TagName'])) {
+            $model->tagName = $map['TagName'];
         }
 
         return $model;

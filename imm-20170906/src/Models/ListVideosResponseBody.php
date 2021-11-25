@@ -12,12 +12,12 @@ class ListVideosResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $nextMarker;
 
     /**
      * @var string
      */
-    public $nextMarker;
+    public $requestId;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class ListVideosResponseBody extends Model
      */
     public $videos;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'nextMarker' => 'NextMarker',
+        'requestId'  => 'RequestId',
         'setId'      => 'SetId',
         'videos'     => 'Videos',
     ];
@@ -42,11 +42,11 @@ class ListVideosResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->nextMarker) {
             $res['NextMarker'] = $this->nextMarker;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->setId) {
             $res['SetId'] = $this->setId;
@@ -72,11 +72,11 @@ class ListVideosResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['NextMarker'])) {
             $model->nextMarker = $map['NextMarker'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['SetId'])) {
             $model->setId = $map['SetId'];

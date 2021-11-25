@@ -11,21 +11,21 @@ class failDetails extends Model
     /**
      * @var string
      */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
     public $errorMessage;
 
     /**
      * @var string
      */
     public $srcUri;
-
-    /**
-     * @var string
-     */
-    public $errorCode;
     protected $_name = [
+        'errorCode'    => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
         'srcUri'       => 'SrcUri',
-        'errorCode'    => 'ErrorCode',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class failDetails extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->srcUri) {
             $res['SrcUri'] = $this->srcUri;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class failDetails extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['SrcUri'])) {
             $model->srcUri = $map['SrcUri'];
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
         }
 
         return $model;

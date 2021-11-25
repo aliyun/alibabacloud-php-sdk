@@ -11,20 +11,20 @@ class UpdateFaceGroupResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $groupId;
 
     /**
      * @var string
      */
-    public $groupId;
+    public $requestId;
 
     /**
      * @var string
      */
     public $setId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'groupId'   => 'GroupId',
+        'requestId' => 'RequestId',
         'setId'     => 'SetId',
     ];
 
@@ -35,11 +35,11 @@ class UpdateFaceGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->setId) {
             $res['SetId'] = $this->setId;
@@ -56,11 +56,11 @@ class UpdateFaceGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['SetId'])) {
             $model->setId = $map['SetId'];

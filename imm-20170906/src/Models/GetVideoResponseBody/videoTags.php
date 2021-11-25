@@ -11,7 +11,7 @@ class videoTags extends Model
     /**
      * @var string
      */
-    public $tagName;
+    public $parentTagName;
 
     /**
      * @var float
@@ -26,12 +26,12 @@ class videoTags extends Model
     /**
      * @var string
      */
-    public $parentTagName;
+    public $tagName;
     protected $_name = [
-        'tagName'       => 'TagName',
+        'parentTagName' => 'ParentTagName',
         'tagConfidence' => 'TagConfidence',
         'tagLevel'      => 'TagLevel',
-        'parentTagName' => 'ParentTagName',
+        'tagName'       => 'TagName',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class videoTags extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tagName) {
-            $res['TagName'] = $this->tagName;
+        if (null !== $this->parentTagName) {
+            $res['ParentTagName'] = $this->parentTagName;
         }
         if (null !== $this->tagConfidence) {
             $res['TagConfidence'] = $this->tagConfidence;
@@ -50,8 +50,8 @@ class videoTags extends Model
         if (null !== $this->tagLevel) {
             $res['TagLevel'] = $this->tagLevel;
         }
-        if (null !== $this->parentTagName) {
-            $res['ParentTagName'] = $this->parentTagName;
+        if (null !== $this->tagName) {
+            $res['TagName'] = $this->tagName;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class videoTags extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TagName'])) {
-            $model->tagName = $map['TagName'];
+        if (isset($map['ParentTagName'])) {
+            $model->parentTagName = $map['ParentTagName'];
         }
         if (isset($map['TagConfidence'])) {
             $model->tagConfidence = $map['TagConfidence'];
@@ -74,8 +74,8 @@ class videoTags extends Model
         if (isset($map['TagLevel'])) {
             $model->tagLevel = $map['TagLevel'];
         }
-        if (isset($map['ParentTagName'])) {
-            $model->parentTagName = $map['ParentTagName'];
+        if (isset($map['TagName'])) {
+            $model->tagName = $map['TagName'];
         }
 
         return $model;

@@ -11,21 +11,21 @@ class DeleteImageResponseBody extends Model
     /**
      * @var string
      */
+    public $imageUri;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
      * @var string
      */
     public $setId;
-
-    /**
-     * @var string
-     */
-    public $imageUri;
     protected $_name = [
+        'imageUri'  => 'ImageUri',
         'requestId' => 'RequestId',
         'setId'     => 'SetId',
-        'imageUri'  => 'ImageUri',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteImageResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->imageUri) {
+            $res['ImageUri'] = $this->imageUri;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->setId) {
             $res['SetId'] = $this->setId;
-        }
-        if (null !== $this->imageUri) {
-            $res['ImageUri'] = $this->imageUri;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DeleteImageResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ImageUri'])) {
+            $model->imageUri = $map['ImageUri'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['SetId'])) {
             $model->setId = $map['SetId'];
-        }
-        if (isset($map['ImageUri'])) {
-            $model->imageUri = $map['ImageUri'];
         }
 
         return $model;

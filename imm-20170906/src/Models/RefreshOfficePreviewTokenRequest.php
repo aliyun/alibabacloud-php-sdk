@@ -11,20 +11,20 @@ class RefreshOfficePreviewTokenRequest extends Model
     /**
      * @var string
      */
-    public $project;
+    public $accessToken;
 
     /**
      * @var string
      */
-    public $accessToken;
+    public $project;
 
     /**
      * @var string
      */
     public $refreshToken;
     protected $_name = [
-        'project'      => 'Project',
         'accessToken'  => 'AccessToken',
+        'project'      => 'Project',
         'refreshToken' => 'RefreshToken',
     ];
 
@@ -35,11 +35,11 @@ class RefreshOfficePreviewTokenRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->project) {
-            $res['Project'] = $this->project;
-        }
         if (null !== $this->accessToken) {
             $res['AccessToken'] = $this->accessToken;
+        }
+        if (null !== $this->project) {
+            $res['Project'] = $this->project;
         }
         if (null !== $this->refreshToken) {
             $res['RefreshToken'] = $this->refreshToken;
@@ -56,11 +56,11 @@ class RefreshOfficePreviewTokenRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Project'])) {
-            $model->project = $map['Project'];
-        }
         if (isset($map['AccessToken'])) {
             $model->accessToken = $map['AccessToken'];
+        }
+        if (isset($map['Project'])) {
+            $model->project = $map['Project'];
         }
         if (isset($map['RefreshToken'])) {
             $model->refreshToken = $map['RefreshToken'];

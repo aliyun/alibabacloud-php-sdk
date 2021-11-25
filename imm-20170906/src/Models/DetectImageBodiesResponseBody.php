@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DetectImageBodiesResponseBody extends Model
 {
     /**
+     * @var bodies[]
+     */
+    public $bodies;
+
+    /**
      * @var string
      */
     public $imageUri;
@@ -18,15 +23,10 @@ class DetectImageBodiesResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var bodies[]
-     */
-    public $bodies;
     protected $_name = [
+        'bodies'    => 'Bodies',
         'imageUri'  => 'ImageUri',
         'requestId' => 'RequestId',
-        'bodies'    => 'Bodies',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class DetectImageBodiesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageUri) {
-            $res['ImageUri'] = $this->imageUri;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->bodies) {
             $res['Bodies'] = [];
             if (null !== $this->bodies && \is_array($this->bodies)) {
@@ -50,6 +44,12 @@ class DetectImageBodiesResponseBody extends Model
                     $res['Bodies'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->imageUri) {
+            $res['ImageUri'] = $this->imageUri;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class DetectImageBodiesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageUri'])) {
-            $model->imageUri = $map['ImageUri'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Bodies'])) {
             if (!empty($map['Bodies'])) {
                 $model->bodies = [];
@@ -77,6 +71,12 @@ class DetectImageBodiesResponseBody extends Model
                     $model->bodies[$n++] = null !== $item ? bodies::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ImageUri'])) {
+            $model->imageUri = $map['ImageUri'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

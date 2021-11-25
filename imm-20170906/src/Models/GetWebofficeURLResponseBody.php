@@ -11,17 +11,17 @@ class GetWebofficeURLResponseBody extends Model
     /**
      * @var string
      */
-    public $refreshToken;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $accessToken;
+
+    /**
+     * @var string
+     */
+    public $accessTokenExpiredTime;
+
+    /**
+     * @var string
+     */
+    public $refreshToken;
 
     /**
      * @var string
@@ -31,19 +31,19 @@ class GetWebofficeURLResponseBody extends Model
     /**
      * @var string
      */
-    public $webofficeURL;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $accessTokenExpiredTime;
+    public $webofficeURL;
     protected $_name = [
-        'refreshToken'            => 'RefreshToken',
-        'requestId'               => 'RequestId',
         'accessToken'             => 'AccessToken',
-        'refreshTokenExpiredTime' => 'RefreshTokenExpiredTime',
-        'webofficeURL'            => 'WebofficeURL',
         'accessTokenExpiredTime'  => 'AccessTokenExpiredTime',
+        'refreshToken'            => 'RefreshToken',
+        'refreshTokenExpiredTime' => 'RefreshTokenExpiredTime',
+        'requestId'               => 'RequestId',
+        'webofficeURL'            => 'WebofficeURL',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class GetWebofficeURLResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->refreshToken) {
-            $res['RefreshToken'] = $this->refreshToken;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->accessToken) {
             $res['AccessToken'] = $this->accessToken;
+        }
+        if (null !== $this->accessTokenExpiredTime) {
+            $res['AccessTokenExpiredTime'] = $this->accessTokenExpiredTime;
+        }
+        if (null !== $this->refreshToken) {
+            $res['RefreshToken'] = $this->refreshToken;
         }
         if (null !== $this->refreshTokenExpiredTime) {
             $res['RefreshTokenExpiredTime'] = $this->refreshTokenExpiredTime;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->webofficeURL) {
             $res['WebofficeURL'] = $this->webofficeURL;
-        }
-        if (null !== $this->accessTokenExpiredTime) {
-            $res['AccessTokenExpiredTime'] = $this->accessTokenExpiredTime;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class GetWebofficeURLResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RefreshToken'])) {
-            $model->refreshToken = $map['RefreshToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AccessToken'])) {
             $model->accessToken = $map['AccessToken'];
+        }
+        if (isset($map['AccessTokenExpiredTime'])) {
+            $model->accessTokenExpiredTime = $map['AccessTokenExpiredTime'];
+        }
+        if (isset($map['RefreshToken'])) {
+            $model->refreshToken = $map['RefreshToken'];
         }
         if (isset($map['RefreshTokenExpiredTime'])) {
             $model->refreshTokenExpiredTime = $map['RefreshTokenExpiredTime'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['WebofficeURL'])) {
             $model->webofficeURL = $map['WebofficeURL'];
-        }
-        if (isset($map['AccessTokenExpiredTime'])) {
-            $model->accessTokenExpiredTime = $map['AccessTokenExpiredTime'];
         }
 
         return $model;

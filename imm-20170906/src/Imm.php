@@ -53,8 +53,6 @@ use AlibabaCloud\SDK\Imm\V20170906\Models\DetectImageBodiesRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\DetectImageBodiesResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\DetectImageFacesRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\DetectImageFacesResponse;
-use AlibabaCloud\SDK\Imm\V20170906\Models\DetectImageLogosRequest;
-use AlibabaCloud\SDK\Imm\V20170906\Models\DetectImageLogosResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\DetectImageQRCodesRequest;
 use AlibabaCloud\SDK\Imm\V20170906\Models\DetectImageQRCodesResponse;
 use AlibabaCloud\SDK\Imm\V20170906\Models\DetectImageTagsRequest;
@@ -848,34 +846,6 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DetectImageLogosRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DetectImageLogosResponse
-     */
-    public function detectImageLogosWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DetectImageLogosResponse::fromMap($this->doRPCRequest('DetectImageLogos', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DetectImageLogosRequest $request
-     *
-     * @return DetectImageLogosResponse
-     */
-    public function detectImageLogos($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->detectImageLogosWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DetectImageQRCodesRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1632,34 +1602,6 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ListSetsRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return ListSetsResponse
-     */
-    public function listSetsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListSetsResponse::fromMap($this->doRPCRequest('ListSets', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListSetsRequest $request
-     *
-     * @return ListSetsResponse
-     */
-    public function listSets($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listSetsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListSetTagsRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -1685,6 +1627,34 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSetTagsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSetsRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListSetsResponse
+     */
+    public function listSetsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListSetsResponse::fromMap($this->doRPCRequest('ListSets', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListSetsRequest $request
+     *
+     * @return ListSetsResponse
+     */
+    public function listSets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSetsWithOptions($request, $runtime);
     }
 
     /**
@@ -1744,34 +1714,6 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ListVideosRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return ListVideosResponse
-     */
-    public function listVideosWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListVideosResponse::fromMap($this->doRPCRequest('ListVideos', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListVideosRequest $request
-     *
-     * @return ListVideosResponse
-     */
-    public function listVideos($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listVideosWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListVideoTasksRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1797,6 +1739,34 @@ class Imm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listVideoTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListVideosRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListVideosResponse
+     */
+    public function listVideosWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListVideosResponse::fromMap($this->doRPCRequest('ListVideos', '2017-09-06', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListVideosRequest $request
+     *
+     * @return ListVideosResponse
+     */
+    public function listVideos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVideosWithOptions($request, $runtime);
     }
 
     /**

@@ -11,22 +11,17 @@ class ListFaceGroupsRequest extends Model
     /**
      * @var string
      */
-    public $project;
-
-    /**
-     * @var string
-     */
-    public $setId;
-
-    /**
-     * @var string
-     */
-    public $marker;
+    public $externalId;
 
     /**
      * @var int
      */
     public $limit;
+
+    /**
+     * @var string
+     */
+    public $marker;
 
     /**
      * @var string
@@ -41,7 +36,22 @@ class ListFaceGroupsRequest extends Model
     /**
      * @var string
      */
+    public $project;
+
+    /**
+     * @var string
+     */
     public $remarksAQuery;
+
+    /**
+     * @var string
+     */
+    public $remarksArrayAQuery;
+
+    /**
+     * @var string
+     */
+    public $remarksArrayBQuery;
 
     /**
      * @var string
@@ -61,31 +71,21 @@ class ListFaceGroupsRequest extends Model
     /**
      * @var string
      */
-    public $remarksArrayAQuery;
-
-    /**
-     * @var string
-     */
-    public $remarksArrayBQuery;
-
-    /**
-     * @var string
-     */
-    public $externalId;
+    public $setId;
     protected $_name = [
-        'project'            => 'Project',
-        'setId'              => 'SetId',
-        'marker'             => 'Marker',
+        'externalId'         => 'ExternalId',
         'limit'              => 'Limit',
+        'marker'             => 'Marker',
         'order'              => 'Order',
         'orderBy'            => 'OrderBy',
+        'project'            => 'Project',
         'remarksAQuery'      => 'RemarksAQuery',
+        'remarksArrayAQuery' => 'RemarksArrayAQuery',
+        'remarksArrayBQuery' => 'RemarksArrayBQuery',
         'remarksBQuery'      => 'RemarksBQuery',
         'remarksCQuery'      => 'RemarksCQuery',
         'remarksDQuery'      => 'RemarksDQuery',
-        'remarksArrayAQuery' => 'RemarksArrayAQuery',
-        'remarksArrayBQuery' => 'RemarksArrayBQuery',
-        'externalId'         => 'ExternalId',
+        'setId'              => 'SetId',
     ];
 
     public function validate()
@@ -95,17 +95,14 @@ class ListFaceGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->project) {
-            $res['Project'] = $this->project;
-        }
-        if (null !== $this->setId) {
-            $res['SetId'] = $this->setId;
-        }
-        if (null !== $this->marker) {
-            $res['Marker'] = $this->marker;
+        if (null !== $this->externalId) {
+            $res['ExternalId'] = $this->externalId;
         }
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
+        }
+        if (null !== $this->marker) {
+            $res['Marker'] = $this->marker;
         }
         if (null !== $this->order) {
             $res['Order'] = $this->order;
@@ -113,8 +110,17 @@ class ListFaceGroupsRequest extends Model
         if (null !== $this->orderBy) {
             $res['OrderBy'] = $this->orderBy;
         }
+        if (null !== $this->project) {
+            $res['Project'] = $this->project;
+        }
         if (null !== $this->remarksAQuery) {
             $res['RemarksAQuery'] = $this->remarksAQuery;
+        }
+        if (null !== $this->remarksArrayAQuery) {
+            $res['RemarksArrayAQuery'] = $this->remarksArrayAQuery;
+        }
+        if (null !== $this->remarksArrayBQuery) {
+            $res['RemarksArrayBQuery'] = $this->remarksArrayBQuery;
         }
         if (null !== $this->remarksBQuery) {
             $res['RemarksBQuery'] = $this->remarksBQuery;
@@ -125,14 +131,8 @@ class ListFaceGroupsRequest extends Model
         if (null !== $this->remarksDQuery) {
             $res['RemarksDQuery'] = $this->remarksDQuery;
         }
-        if (null !== $this->remarksArrayAQuery) {
-            $res['RemarksArrayAQuery'] = $this->remarksArrayAQuery;
-        }
-        if (null !== $this->remarksArrayBQuery) {
-            $res['RemarksArrayBQuery'] = $this->remarksArrayBQuery;
-        }
-        if (null !== $this->externalId) {
-            $res['ExternalId'] = $this->externalId;
+        if (null !== $this->setId) {
+            $res['SetId'] = $this->setId;
         }
 
         return $res;
@@ -146,17 +146,14 @@ class ListFaceGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Project'])) {
-            $model->project = $map['Project'];
-        }
-        if (isset($map['SetId'])) {
-            $model->setId = $map['SetId'];
-        }
-        if (isset($map['Marker'])) {
-            $model->marker = $map['Marker'];
+        if (isset($map['ExternalId'])) {
+            $model->externalId = $map['ExternalId'];
         }
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
+        }
+        if (isset($map['Marker'])) {
+            $model->marker = $map['Marker'];
         }
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
@@ -164,8 +161,17 @@ class ListFaceGroupsRequest extends Model
         if (isset($map['OrderBy'])) {
             $model->orderBy = $map['OrderBy'];
         }
+        if (isset($map['Project'])) {
+            $model->project = $map['Project'];
+        }
         if (isset($map['RemarksAQuery'])) {
             $model->remarksAQuery = $map['RemarksAQuery'];
+        }
+        if (isset($map['RemarksArrayAQuery'])) {
+            $model->remarksArrayAQuery = $map['RemarksArrayAQuery'];
+        }
+        if (isset($map['RemarksArrayBQuery'])) {
+            $model->remarksArrayBQuery = $map['RemarksArrayBQuery'];
         }
         if (isset($map['RemarksBQuery'])) {
             $model->remarksBQuery = $map['RemarksBQuery'];
@@ -176,14 +182,8 @@ class ListFaceGroupsRequest extends Model
         if (isset($map['RemarksDQuery'])) {
             $model->remarksDQuery = $map['RemarksDQuery'];
         }
-        if (isset($map['RemarksArrayAQuery'])) {
-            $model->remarksArrayAQuery = $map['RemarksArrayAQuery'];
-        }
-        if (isset($map['RemarksArrayBQuery'])) {
-            $model->remarksArrayBQuery = $map['RemarksArrayBQuery'];
-        }
-        if (isset($map['ExternalId'])) {
-            $model->externalId = $map['ExternalId'];
+        if (isset($map['SetId'])) {
+            $model->setId = $map['SetId'];
         }
 
         return $model;

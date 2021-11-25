@@ -11,17 +11,22 @@ class IndexVideoRequest extends Model
     /**
      * @var string
      */
+    public $externalId;
+
+    /**
+     * @var string
+     */
+    public $notifyEndpoint;
+
+    /**
+     * @var string
+     */
+    public $notifyTopicName;
+
+    /**
+     * @var string
+     */
     public $project;
-
-    /**
-     * @var string
-     */
-    public $setId;
-
-    /**
-     * @var string
-     */
-    public $videoUri;
 
     /**
      * @var string
@@ -36,11 +41,6 @@ class IndexVideoRequest extends Model
     /**
      * @var string
      */
-    public $tgtUri;
-
-    /**
-     * @var string
-     */
     public $remarksC;
 
     /**
@@ -51,29 +51,29 @@ class IndexVideoRequest extends Model
     /**
      * @var string
      */
-    public $externalId;
+    public $setId;
 
     /**
      * @var string
      */
-    public $notifyTopicName;
+    public $tgtUri;
 
     /**
      * @var string
      */
-    public $notifyEndpoint;
+    public $videoUri;
     protected $_name = [
+        'externalId'      => 'ExternalId',
+        'notifyEndpoint'  => 'NotifyEndpoint',
+        'notifyTopicName' => 'NotifyTopicName',
         'project'         => 'Project',
-        'setId'           => 'SetId',
-        'videoUri'        => 'VideoUri',
         'remarksA'        => 'RemarksA',
         'remarksB'        => 'RemarksB',
-        'tgtUri'          => 'TgtUri',
         'remarksC'        => 'RemarksC',
         'remarksD'        => 'RemarksD',
-        'externalId'      => 'ExternalId',
-        'notifyTopicName' => 'NotifyTopicName',
-        'notifyEndpoint'  => 'NotifyEndpoint',
+        'setId'           => 'SetId',
+        'tgtUri'          => 'TgtUri',
+        'videoUri'        => 'VideoUri',
     ];
 
     public function validate()
@@ -83,14 +83,17 @@ class IndexVideoRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->externalId) {
+            $res['ExternalId'] = $this->externalId;
+        }
+        if (null !== $this->notifyEndpoint) {
+            $res['NotifyEndpoint'] = $this->notifyEndpoint;
+        }
+        if (null !== $this->notifyTopicName) {
+            $res['NotifyTopicName'] = $this->notifyTopicName;
+        }
         if (null !== $this->project) {
             $res['Project'] = $this->project;
-        }
-        if (null !== $this->setId) {
-            $res['SetId'] = $this->setId;
-        }
-        if (null !== $this->videoUri) {
-            $res['VideoUri'] = $this->videoUri;
         }
         if (null !== $this->remarksA) {
             $res['RemarksA'] = $this->remarksA;
@@ -98,23 +101,20 @@ class IndexVideoRequest extends Model
         if (null !== $this->remarksB) {
             $res['RemarksB'] = $this->remarksB;
         }
-        if (null !== $this->tgtUri) {
-            $res['TgtUri'] = $this->tgtUri;
-        }
         if (null !== $this->remarksC) {
             $res['RemarksC'] = $this->remarksC;
         }
         if (null !== $this->remarksD) {
             $res['RemarksD'] = $this->remarksD;
         }
-        if (null !== $this->externalId) {
-            $res['ExternalId'] = $this->externalId;
+        if (null !== $this->setId) {
+            $res['SetId'] = $this->setId;
         }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
+        if (null !== $this->tgtUri) {
+            $res['TgtUri'] = $this->tgtUri;
         }
-        if (null !== $this->notifyEndpoint) {
-            $res['NotifyEndpoint'] = $this->notifyEndpoint;
+        if (null !== $this->videoUri) {
+            $res['VideoUri'] = $this->videoUri;
         }
 
         return $res;
@@ -128,14 +128,17 @@ class IndexVideoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExternalId'])) {
+            $model->externalId = $map['ExternalId'];
+        }
+        if (isset($map['NotifyEndpoint'])) {
+            $model->notifyEndpoint = $map['NotifyEndpoint'];
+        }
+        if (isset($map['NotifyTopicName'])) {
+            $model->notifyTopicName = $map['NotifyTopicName'];
+        }
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
-        }
-        if (isset($map['SetId'])) {
-            $model->setId = $map['SetId'];
-        }
-        if (isset($map['VideoUri'])) {
-            $model->videoUri = $map['VideoUri'];
         }
         if (isset($map['RemarksA'])) {
             $model->remarksA = $map['RemarksA'];
@@ -143,23 +146,20 @@ class IndexVideoRequest extends Model
         if (isset($map['RemarksB'])) {
             $model->remarksB = $map['RemarksB'];
         }
-        if (isset($map['TgtUri'])) {
-            $model->tgtUri = $map['TgtUri'];
-        }
         if (isset($map['RemarksC'])) {
             $model->remarksC = $map['RemarksC'];
         }
         if (isset($map['RemarksD'])) {
             $model->remarksD = $map['RemarksD'];
         }
-        if (isset($map['ExternalId'])) {
-            $model->externalId = $map['ExternalId'];
+        if (isset($map['SetId'])) {
+            $model->setId = $map['SetId'];
         }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
+        if (isset($map['TgtUri'])) {
+            $model->tgtUri = $map['TgtUri'];
         }
-        if (isset($map['NotifyEndpoint'])) {
-            $model->notifyEndpoint = $map['NotifyEndpoint'];
+        if (isset($map['VideoUri'])) {
+            $model->videoUri = $map['VideoUri'];
         }
 
         return $model;

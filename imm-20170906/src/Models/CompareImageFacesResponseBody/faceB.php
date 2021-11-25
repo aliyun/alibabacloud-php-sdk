@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class faceB extends Model
 {
     /**
-     * @var string
-     */
-    public $faceId;
-
-    /**
      * @var faceAttributes
      */
     public $faceAttributes;
+
+    /**
+     * @var string
+     */
+    public $faceId;
     protected $_name = [
-        'faceId'         => 'FaceId',
         'faceAttributes' => 'FaceAttributes',
+        'faceId'         => 'FaceId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class faceB extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->faceId) {
-            $res['FaceId'] = $this->faceId;
-        }
         if (null !== $this->faceAttributes) {
             $res['FaceAttributes'] = null !== $this->faceAttributes ? $this->faceAttributes->toMap() : null;
+        }
+        if (null !== $this->faceId) {
+            $res['FaceId'] = $this->faceId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class faceB extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FaceId'])) {
-            $model->faceId = $map['FaceId'];
-        }
         if (isset($map['FaceAttributes'])) {
             $model->faceAttributes = faceAttributes::fromMap($map['FaceAttributes']);
+        }
+        if (isset($map['FaceId'])) {
+            $model->faceId = $map['FaceId'];
         }
 
         return $model;

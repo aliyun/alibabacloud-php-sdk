@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class croppingSuggestion extends Model
 {
     /**
-     * @var float
+     * @var string
      */
-    public $score;
+    public $aspectRatio;
 
     /**
      * @var croppingBoundary
@@ -20,13 +20,13 @@ class croppingSuggestion extends Model
     public $croppingBoundary;
 
     /**
-     * @var string
+     * @var float
      */
-    public $aspectRatio;
+    public $score;
     protected $_name = [
-        'score'            => 'Score',
-        'croppingBoundary' => 'CroppingBoundary',
         'aspectRatio'      => 'AspectRatio',
+        'croppingBoundary' => 'CroppingBoundary',
+        'score'            => 'Score',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class croppingSuggestion extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->score) {
-            $res['Score'] = $this->score;
+        if (null !== $this->aspectRatio) {
+            $res['AspectRatio'] = $this->aspectRatio;
         }
         if (null !== $this->croppingBoundary) {
             $res['CroppingBoundary'] = null !== $this->croppingBoundary ? $this->croppingBoundary->toMap() : null;
         }
-        if (null !== $this->aspectRatio) {
-            $res['AspectRatio'] = $this->aspectRatio;
+        if (null !== $this->score) {
+            $res['Score'] = $this->score;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class croppingSuggestion extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Score'])) {
-            $model->score = $map['Score'];
+        if (isset($map['AspectRatio'])) {
+            $model->aspectRatio = $map['AspectRatio'];
         }
         if (isset($map['CroppingBoundary'])) {
             $model->croppingBoundary = croppingBoundary::fromMap($map['CroppingBoundary']);
         }
-        if (isset($map['AspectRatio'])) {
-            $model->aspectRatio = $map['AspectRatio'];
+        if (isset($map['Score'])) {
+            $model->score = $map['Score'];
         }
 
         return $model;

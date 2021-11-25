@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class faceGroups extends Model
 {
     /**
-     * @var string
+     * @var float
      */
-    public $gender;
+    public $averageAge;
 
     /**
      * @var string
@@ -22,12 +22,7 @@ class faceGroups extends Model
     /**
      * @var string
      */
-    public $remarksC;
-
-    /**
-     * @var groupCoverFace
-     */
-    public $groupCoverFace;
+    public $externalId;
 
     /**
      * @var int
@@ -37,17 +32,12 @@ class faceGroups extends Model
     /**
      * @var string
      */
-    public $remarksArrayB;
+    public $gender;
 
     /**
-     * @var string
+     * @var groupCoverFace
      */
-    public $remarksD;
-
-    /**
-     * @var float
-     */
-    public $maxAge;
+    public $groupCoverFace;
 
     /**
      * @var string
@@ -60,19 +50,14 @@ class faceGroups extends Model
     public $groupName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $remarksA;
+    public $imageCount;
 
     /**
      * @var float
      */
-    public $averageAge;
-
-    /**
-     * @var string
-     */
-    public $remarksArrayA;
+    public $maxAge;
 
     /**
      * @var float
@@ -80,14 +65,24 @@ class faceGroups extends Model
     public $minAge;
 
     /**
-     * @var int
+     * @var string
      */
-    public $imageCount;
+    public $modifyTime;
 
     /**
      * @var string
      */
-    public $externalId;
+    public $remarksA;
+
+    /**
+     * @var string
+     */
+    public $remarksArrayA;
+
+    /**
+     * @var string
+     */
+    public $remarksArrayB;
 
     /**
      * @var string
@@ -97,26 +92,31 @@ class faceGroups extends Model
     /**
      * @var string
      */
-    public $modifyTime;
+    public $remarksC;
+
+    /**
+     * @var string
+     */
+    public $remarksD;
     protected $_name = [
-        'gender'         => 'Gender',
+        'averageAge'     => 'AverageAge',
         'createTime'     => 'CreateTime',
-        'remarksC'       => 'RemarksC',
-        'groupCoverFace' => 'GroupCoverFace',
+        'externalId'     => 'ExternalId',
         'faceCount'      => 'FaceCount',
-        'remarksArrayB'  => 'RemarksArrayB',
-        'remarksD'       => 'RemarksD',
-        'maxAge'         => 'MaxAge',
+        'gender'         => 'Gender',
+        'groupCoverFace' => 'GroupCoverFace',
         'groupId'        => 'GroupId',
         'groupName'      => 'GroupName',
-        'remarksA'       => 'RemarksA',
-        'averageAge'     => 'AverageAge',
-        'remarksArrayA'  => 'RemarksArrayA',
-        'minAge'         => 'MinAge',
         'imageCount'     => 'ImageCount',
-        'externalId'     => 'ExternalId',
-        'remarksB'       => 'RemarksB',
+        'maxAge'         => 'MaxAge',
+        'minAge'         => 'MinAge',
         'modifyTime'     => 'ModifyTime',
+        'remarksA'       => 'RemarksA',
+        'remarksArrayA'  => 'RemarksArrayA',
+        'remarksArrayB'  => 'RemarksArrayB',
+        'remarksB'       => 'RemarksB',
+        'remarksC'       => 'RemarksC',
+        'remarksD'       => 'RemarksD',
     ];
 
     public function validate()
@@ -126,29 +126,23 @@ class faceGroups extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->gender) {
-            $res['Gender'] = $this->gender;
+        if (null !== $this->averageAge) {
+            $res['AverageAge'] = $this->averageAge;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->remarksC) {
-            $res['RemarksC'] = $this->remarksC;
-        }
-        if (null !== $this->groupCoverFace) {
-            $res['GroupCoverFace'] = null !== $this->groupCoverFace ? $this->groupCoverFace->toMap() : null;
+        if (null !== $this->externalId) {
+            $res['ExternalId'] = $this->externalId;
         }
         if (null !== $this->faceCount) {
             $res['FaceCount'] = $this->faceCount;
         }
-        if (null !== $this->remarksArrayB) {
-            $res['RemarksArrayB'] = $this->remarksArrayB;
+        if (null !== $this->gender) {
+            $res['Gender'] = $this->gender;
         }
-        if (null !== $this->remarksD) {
-            $res['RemarksD'] = $this->remarksD;
-        }
-        if (null !== $this->maxAge) {
-            $res['MaxAge'] = $this->maxAge;
+        if (null !== $this->groupCoverFace) {
+            $res['GroupCoverFace'] = null !== $this->groupCoverFace ? $this->groupCoverFace->toMap() : null;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -156,29 +150,35 @@ class faceGroups extends Model
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
-        if (null !== $this->remarksA) {
-            $res['RemarksA'] = $this->remarksA;
+        if (null !== $this->imageCount) {
+            $res['ImageCount'] = $this->imageCount;
         }
-        if (null !== $this->averageAge) {
-            $res['AverageAge'] = $this->averageAge;
-        }
-        if (null !== $this->remarksArrayA) {
-            $res['RemarksArrayA'] = $this->remarksArrayA;
+        if (null !== $this->maxAge) {
+            $res['MaxAge'] = $this->maxAge;
         }
         if (null !== $this->minAge) {
             $res['MinAge'] = $this->minAge;
         }
-        if (null !== $this->imageCount) {
-            $res['ImageCount'] = $this->imageCount;
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
         }
-        if (null !== $this->externalId) {
-            $res['ExternalId'] = $this->externalId;
+        if (null !== $this->remarksA) {
+            $res['RemarksA'] = $this->remarksA;
+        }
+        if (null !== $this->remarksArrayA) {
+            $res['RemarksArrayA'] = $this->remarksArrayA;
+        }
+        if (null !== $this->remarksArrayB) {
+            $res['RemarksArrayB'] = $this->remarksArrayB;
         }
         if (null !== $this->remarksB) {
             $res['RemarksB'] = $this->remarksB;
         }
-        if (null !== $this->modifyTime) {
-            $res['ModifyTime'] = $this->modifyTime;
+        if (null !== $this->remarksC) {
+            $res['RemarksC'] = $this->remarksC;
+        }
+        if (null !== $this->remarksD) {
+            $res['RemarksD'] = $this->remarksD;
         }
 
         return $res;
@@ -192,29 +192,23 @@ class faceGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Gender'])) {
-            $model->gender = $map['Gender'];
+        if (isset($map['AverageAge'])) {
+            $model->averageAge = $map['AverageAge'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['RemarksC'])) {
-            $model->remarksC = $map['RemarksC'];
-        }
-        if (isset($map['GroupCoverFace'])) {
-            $model->groupCoverFace = groupCoverFace::fromMap($map['GroupCoverFace']);
+        if (isset($map['ExternalId'])) {
+            $model->externalId = $map['ExternalId'];
         }
         if (isset($map['FaceCount'])) {
             $model->faceCount = $map['FaceCount'];
         }
-        if (isset($map['RemarksArrayB'])) {
-            $model->remarksArrayB = $map['RemarksArrayB'];
+        if (isset($map['Gender'])) {
+            $model->gender = $map['Gender'];
         }
-        if (isset($map['RemarksD'])) {
-            $model->remarksD = $map['RemarksD'];
-        }
-        if (isset($map['MaxAge'])) {
-            $model->maxAge = $map['MaxAge'];
+        if (isset($map['GroupCoverFace'])) {
+            $model->groupCoverFace = groupCoverFace::fromMap($map['GroupCoverFace']);
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
@@ -222,29 +216,35 @@ class faceGroups extends Model
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
-        if (isset($map['RemarksA'])) {
-            $model->remarksA = $map['RemarksA'];
+        if (isset($map['ImageCount'])) {
+            $model->imageCount = $map['ImageCount'];
         }
-        if (isset($map['AverageAge'])) {
-            $model->averageAge = $map['AverageAge'];
-        }
-        if (isset($map['RemarksArrayA'])) {
-            $model->remarksArrayA = $map['RemarksArrayA'];
+        if (isset($map['MaxAge'])) {
+            $model->maxAge = $map['MaxAge'];
         }
         if (isset($map['MinAge'])) {
             $model->minAge = $map['MinAge'];
         }
-        if (isset($map['ImageCount'])) {
-            $model->imageCount = $map['ImageCount'];
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
         }
-        if (isset($map['ExternalId'])) {
-            $model->externalId = $map['ExternalId'];
+        if (isset($map['RemarksA'])) {
+            $model->remarksA = $map['RemarksA'];
+        }
+        if (isset($map['RemarksArrayA'])) {
+            $model->remarksArrayA = $map['RemarksArrayA'];
+        }
+        if (isset($map['RemarksArrayB'])) {
+            $model->remarksArrayB = $map['RemarksArrayB'];
         }
         if (isset($map['RemarksB'])) {
             $model->remarksB = $map['RemarksB'];
         }
-        if (isset($map['ModifyTime'])) {
-            $model->modifyTime = $map['ModifyTime'];
+        if (isset($map['RemarksC'])) {
+            $model->remarksC = $map['RemarksC'];
+        }
+        if (isset($map['RemarksD'])) {
+            $model->remarksD = $map['RemarksD'];
         }
 
         return $model;

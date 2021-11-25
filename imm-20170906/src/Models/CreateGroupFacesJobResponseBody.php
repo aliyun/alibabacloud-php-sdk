@@ -11,6 +11,11 @@ class CreateGroupFacesJobResponseBody extends Model
     /**
      * @var string
      */
+    public $jobId;
+
+    /**
+     * @var string
+     */
     public $jobType;
 
     /**
@@ -22,16 +27,11 @@ class CreateGroupFacesJobResponseBody extends Model
      * @var string
      */
     public $setId;
-
-    /**
-     * @var string
-     */
-    public $jobId;
     protected $_name = [
+        'jobId'     => 'JobId',
         'jobType'   => 'JobType',
         'requestId' => 'RequestId',
         'setId'     => 'SetId',
-        'jobId'     => 'JobId',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class CreateGroupFacesJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
         }
@@ -49,9 +52,6 @@ class CreateGroupFacesJobResponseBody extends Model
         }
         if (null !== $this->setId) {
             $res['SetId'] = $this->setId;
-        }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class CreateGroupFacesJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
         }
@@ -73,9 +76,6 @@ class CreateGroupFacesJobResponseBody extends Model
         }
         if (isset($map['SetId'])) {
             $model->setId = $map['SetId'];
-        }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
         }
 
         return $model;

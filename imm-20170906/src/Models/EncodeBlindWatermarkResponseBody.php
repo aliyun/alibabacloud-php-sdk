@@ -11,21 +11,21 @@ class EncodeBlindWatermarkResponseBody extends Model
     /**
      * @var string
      */
+    public $content;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
      * @var string
      */
     public $targetUri;
-
-    /**
-     * @var string
-     */
-    public $content;
     protected $_name = [
+        'content'   => 'Content',
         'requestId' => 'RequestId',
         'targetUri' => 'TargetUri',
-        'content'   => 'Content',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class EncodeBlindWatermarkResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->targetUri) {
             $res['TargetUri'] = $this->targetUri;
-        }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class EncodeBlindWatermarkResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['TargetUri'])) {
             $model->targetUri = $map['TargetUri'];
-        }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
         }
 
         return $model;

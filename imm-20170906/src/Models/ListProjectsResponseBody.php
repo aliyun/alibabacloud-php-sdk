@@ -15,18 +15,18 @@ class ListProjectsResponseBody extends Model
     public $nextMarker;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var projects[]
      */
     public $projects;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'nextMarker' => 'NextMarker',
-        'requestId'  => 'RequestId',
         'projects'   => 'Projects',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -39,9 +39,6 @@ class ListProjectsResponseBody extends Model
         if (null !== $this->nextMarker) {
             $res['NextMarker'] = $this->nextMarker;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->projects) {
             $res['Projects'] = [];
             if (null !== $this->projects && \is_array($this->projects)) {
@@ -50,6 +47,9 @@ class ListProjectsResponseBody extends Model
                     $res['Projects'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -66,9 +66,6 @@ class ListProjectsResponseBody extends Model
         if (isset($map['NextMarker'])) {
             $model->nextMarker = $map['NextMarker'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Projects'])) {
             if (!empty($map['Projects'])) {
                 $model->projects = [];
@@ -77,6 +74,9 @@ class ListProjectsResponseBody extends Model
                     $model->projects[$n++] = null !== $item ? projects::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

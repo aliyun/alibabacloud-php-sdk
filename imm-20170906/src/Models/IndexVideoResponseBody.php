@@ -11,16 +11,6 @@ class IndexVideoResponseBody extends Model
     /**
      * @var string
      */
-    public $modifyTime;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $createTime;
 
     /**
@@ -31,7 +21,7 @@ class IndexVideoResponseBody extends Model
     /**
      * @var string
      */
-    public $videoUri;
+    public $modifyTime;
 
     /**
      * @var string
@@ -56,18 +46,28 @@ class IndexVideoResponseBody extends Model
     /**
      * @var string
      */
+    public $requestId;
+
+    /**
+     * @var string
+     */
     public $setId;
+
+    /**
+     * @var string
+     */
+    public $videoUri;
     protected $_name = [
-        'modifyTime' => 'ModifyTime',
-        'requestId'  => 'RequestId',
         'createTime' => 'CreateTime',
         'externalId' => 'ExternalId',
-        'videoUri'   => 'VideoUri',
+        'modifyTime' => 'ModifyTime',
         'remarksA'   => 'RemarksA',
         'remarksB'   => 'RemarksB',
         'remarksC'   => 'RemarksC',
         'remarksD'   => 'RemarksD',
+        'requestId'  => 'RequestId',
         'setId'      => 'SetId',
+        'videoUri'   => 'VideoUri',
     ];
 
     public function validate()
@@ -77,20 +77,14 @@ class IndexVideoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->modifyTime) {
-            $res['ModifyTime'] = $this->modifyTime;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->externalId) {
             $res['ExternalId'] = $this->externalId;
         }
-        if (null !== $this->videoUri) {
-            $res['VideoUri'] = $this->videoUri;
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
         }
         if (null !== $this->remarksA) {
             $res['RemarksA'] = $this->remarksA;
@@ -104,8 +98,14 @@ class IndexVideoResponseBody extends Model
         if (null !== $this->remarksD) {
             $res['RemarksD'] = $this->remarksD;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->setId) {
             $res['SetId'] = $this->setId;
+        }
+        if (null !== $this->videoUri) {
+            $res['VideoUri'] = $this->videoUri;
         }
 
         return $res;
@@ -119,20 +119,14 @@ class IndexVideoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ModifyTime'])) {
-            $model->modifyTime = $map['ModifyTime'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
         if (isset($map['ExternalId'])) {
             $model->externalId = $map['ExternalId'];
         }
-        if (isset($map['VideoUri'])) {
-            $model->videoUri = $map['VideoUri'];
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
         }
         if (isset($map['RemarksA'])) {
             $model->remarksA = $map['RemarksA'];
@@ -146,8 +140,14 @@ class IndexVideoResponseBody extends Model
         if (isset($map['RemarksD'])) {
             $model->remarksD = $map['RemarksD'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['SetId'])) {
             $model->setId = $map['SetId'];
+        }
+        if (isset($map['VideoUri'])) {
+            $model->videoUri = $map['VideoUri'];
         }
 
         return $model;

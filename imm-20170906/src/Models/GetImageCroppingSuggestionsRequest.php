@@ -11,7 +11,7 @@ class GetImageCroppingSuggestionsRequest extends Model
     /**
      * @var string
      */
-    public $project;
+    public $aspectRatios;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class GetImageCroppingSuggestionsRequest extends Model
     /**
      * @var string
      */
-    public $aspectRatios;
+    public $project;
     protected $_name = [
-        'project'      => 'Project',
-        'imageUri'     => 'ImageUri',
         'aspectRatios' => 'AspectRatios',
+        'imageUri'     => 'ImageUri',
+        'project'      => 'Project',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetImageCroppingSuggestionsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->project) {
-            $res['Project'] = $this->project;
+        if (null !== $this->aspectRatios) {
+            $res['AspectRatios'] = $this->aspectRatios;
         }
         if (null !== $this->imageUri) {
             $res['ImageUri'] = $this->imageUri;
         }
-        if (null !== $this->aspectRatios) {
-            $res['AspectRatios'] = $this->aspectRatios;
+        if (null !== $this->project) {
+            $res['Project'] = $this->project;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetImageCroppingSuggestionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Project'])) {
-            $model->project = $map['Project'];
+        if (isset($map['AspectRatios'])) {
+            $model->aspectRatios = $map['AspectRatios'];
         }
         if (isset($map['ImageUri'])) {
             $model->imageUri = $map['ImageUri'];
         }
-        if (isset($map['AspectRatios'])) {
-            $model->aspectRatios = $map['AspectRatios'];
+        if (isset($map['Project'])) {
+            $model->project = $map['Project'];
         }
 
         return $model;

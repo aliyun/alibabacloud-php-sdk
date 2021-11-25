@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DecodeBlindWatermarkRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $project;
+    public $imageQuality;
 
     /**
      * @var string
@@ -21,29 +21,29 @@ class DecodeBlindWatermarkRequest extends Model
     /**
      * @var string
      */
+    public $model;
+
+    /**
+     * @var string
+     */
     public $originalImageUri;
 
     /**
      * @var string
      */
-    public $targetUri;
-
-    /**
-     * @var int
-     */
-    public $imageQuality;
+    public $project;
 
     /**
      * @var string
      */
-    public $model;
+    public $targetUri;
     protected $_name = [
-        'project'          => 'Project',
-        'imageUri'         => 'ImageUri',
-        'originalImageUri' => 'OriginalImageUri',
-        'targetUri'        => 'TargetUri',
         'imageQuality'     => 'ImageQuality',
+        'imageUri'         => 'ImageUri',
         'model'            => 'Model',
+        'originalImageUri' => 'OriginalImageUri',
+        'project'          => 'Project',
+        'targetUri'        => 'TargetUri',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class DecodeBlindWatermarkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->project) {
-            $res['Project'] = $this->project;
+        if (null !== $this->imageQuality) {
+            $res['ImageQuality'] = $this->imageQuality;
         }
         if (null !== $this->imageUri) {
             $res['ImageUri'] = $this->imageUri;
         }
+        if (null !== $this->model) {
+            $res['Model'] = $this->model;
+        }
         if (null !== $this->originalImageUri) {
             $res['OriginalImageUri'] = $this->originalImageUri;
         }
+        if (null !== $this->project) {
+            $res['Project'] = $this->project;
+        }
         if (null !== $this->targetUri) {
             $res['TargetUri'] = $this->targetUri;
-        }
-        if (null !== $this->imageQuality) {
-            $res['ImageQuality'] = $this->imageQuality;
-        }
-        if (null !== $this->model) {
-            $res['Model'] = $this->model;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class DecodeBlindWatermarkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Project'])) {
-            $model->project = $map['Project'];
+        if (isset($map['ImageQuality'])) {
+            $model->imageQuality = $map['ImageQuality'];
         }
         if (isset($map['ImageUri'])) {
             $model->imageUri = $map['ImageUri'];
         }
+        if (isset($map['Model'])) {
+            $model->model = $map['Model'];
+        }
         if (isset($map['OriginalImageUri'])) {
             $model->originalImageUri = $map['OriginalImageUri'];
         }
+        if (isset($map['Project'])) {
+            $model->project = $map['Project'];
+        }
         if (isset($map['TargetUri'])) {
             $model->targetUri = $map['TargetUri'];
-        }
-        if (isset($map['ImageQuality'])) {
-            $model->imageQuality = $map['ImageQuality'];
-        }
-        if (isset($map['Model'])) {
-            $model->model = $map['Model'];
         }
 
         return $model;

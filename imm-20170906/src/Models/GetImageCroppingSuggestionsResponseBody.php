@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetImageCroppingSuggestionsResponseBody extends Model
 {
     /**
+     * @var croppingSuggestions[]
+     */
+    public $croppingSuggestions;
+
+    /**
      * @var string
      */
     public $imageUri;
@@ -18,15 +23,10 @@ class GetImageCroppingSuggestionsResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var croppingSuggestions[]
-     */
-    public $croppingSuggestions;
     protected $_name = [
+        'croppingSuggestions' => 'CroppingSuggestions',
         'imageUri'            => 'ImageUri',
         'requestId'           => 'RequestId',
-        'croppingSuggestions' => 'CroppingSuggestions',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class GetImageCroppingSuggestionsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageUri) {
-            $res['ImageUri'] = $this->imageUri;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->croppingSuggestions) {
             $res['CroppingSuggestions'] = [];
             if (null !== $this->croppingSuggestions && \is_array($this->croppingSuggestions)) {
@@ -50,6 +44,12 @@ class GetImageCroppingSuggestionsResponseBody extends Model
                     $res['CroppingSuggestions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->imageUri) {
+            $res['ImageUri'] = $this->imageUri;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class GetImageCroppingSuggestionsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageUri'])) {
-            $model->imageUri = $map['ImageUri'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CroppingSuggestions'])) {
             if (!empty($map['CroppingSuggestions'])) {
                 $model->croppingSuggestions = [];
@@ -77,6 +71,12 @@ class GetImageCroppingSuggestionsResponseBody extends Model
                     $model->croppingSuggestions[$n++] = null !== $item ? croppingSuggestions::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ImageUri'])) {
+            $model->imageUri = $map['ImageUri'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

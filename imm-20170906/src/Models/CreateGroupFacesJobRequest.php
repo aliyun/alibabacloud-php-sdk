@@ -11,12 +11,7 @@ class CreateGroupFacesJobRequest extends Model
     /**
      * @var string
      */
-    public $project;
-
-    /**
-     * @var string
-     */
-    public $setId;
+    public $notifyEndpoint;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class CreateGroupFacesJobRequest extends Model
     /**
      * @var string
      */
-    public $notifyEndpoint;
+    public $project;
+
+    /**
+     * @var string
+     */
+    public $setId;
     protected $_name = [
+        'notifyEndpoint'  => 'NotifyEndpoint',
+        'notifyTopicName' => 'NotifyTopicName',
         'project'         => 'Project',
         'setId'           => 'SetId',
-        'notifyTopicName' => 'NotifyTopicName',
-        'notifyEndpoint'  => 'NotifyEndpoint',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class CreateGroupFacesJobRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->notifyEndpoint) {
+            $res['NotifyEndpoint'] = $this->notifyEndpoint;
+        }
+        if (null !== $this->notifyTopicName) {
+            $res['NotifyTopicName'] = $this->notifyTopicName;
+        }
         if (null !== $this->project) {
             $res['Project'] = $this->project;
         }
         if (null !== $this->setId) {
             $res['SetId'] = $this->setId;
-        }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
-        }
-        if (null !== $this->notifyEndpoint) {
-            $res['NotifyEndpoint'] = $this->notifyEndpoint;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class CreateGroupFacesJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NotifyEndpoint'])) {
+            $model->notifyEndpoint = $map['NotifyEndpoint'];
+        }
+        if (isset($map['NotifyTopicName'])) {
+            $model->notifyTopicName = $map['NotifyTopicName'];
+        }
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
         }
         if (isset($map['SetId'])) {
             $model->setId = $map['SetId'];
-        }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
-        }
-        if (isset($map['NotifyEndpoint'])) {
-            $model->notifyEndpoint = $map['NotifyEndpoint'];
         }
 
         return $model;

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @var int
+     * @var float
      */
-    public $tagLevel;
+    public $centricScore;
 
     /**
      * @var string
@@ -24,13 +24,19 @@ class tags extends Model
     public $tagConfidence;
 
     /**
+     * @var int
+     */
+    public $tagLevel;
+
+    /**
      * @var string
      */
     public $tagName;
     protected $_name = [
-        'tagLevel'      => 'TagLevel',
+        'centricScore'  => 'CentricScore',
         'parentTagName' => 'ParentTagName',
         'tagConfidence' => 'TagConfidence',
+        'tagLevel'      => 'TagLevel',
         'tagName'       => 'TagName',
     ];
 
@@ -41,14 +47,17 @@ class tags extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tagLevel) {
-            $res['TagLevel'] = $this->tagLevel;
+        if (null !== $this->centricScore) {
+            $res['CentricScore'] = $this->centricScore;
         }
         if (null !== $this->parentTagName) {
             $res['ParentTagName'] = $this->parentTagName;
         }
         if (null !== $this->tagConfidence) {
             $res['TagConfidence'] = $this->tagConfidence;
+        }
+        if (null !== $this->tagLevel) {
+            $res['TagLevel'] = $this->tagLevel;
         }
         if (null !== $this->tagName) {
             $res['TagName'] = $this->tagName;
@@ -65,14 +74,17 @@ class tags extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TagLevel'])) {
-            $model->tagLevel = $map['TagLevel'];
+        if (isset($map['CentricScore'])) {
+            $model->centricScore = $map['CentricScore'];
         }
         if (isset($map['ParentTagName'])) {
             $model->parentTagName = $map['ParentTagName'];
         }
         if (isset($map['TagConfidence'])) {
             $model->tagConfidence = $map['TagConfidence'];
+        }
+        if (isset($map['TagLevel'])) {
+            $model->tagLevel = $map['TagLevel'];
         }
         if (isset($map['TagName'])) {
             $model->tagName = $map['TagName'];

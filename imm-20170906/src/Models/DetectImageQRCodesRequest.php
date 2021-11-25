@@ -11,15 +11,15 @@ class DetectImageQRCodesRequest extends Model
     /**
      * @var string
      */
-    public $project;
+    public $imageUri;
 
     /**
      * @var string
      */
-    public $imageUri;
+    public $project;
     protected $_name = [
-        'project'  => 'Project',
         'imageUri' => 'ImageUri',
+        'project'  => 'Project',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DetectImageQRCodesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->project) {
-            $res['Project'] = $this->project;
-        }
         if (null !== $this->imageUri) {
             $res['ImageUri'] = $this->imageUri;
+        }
+        if (null !== $this->project) {
+            $res['Project'] = $this->project;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DetectImageQRCodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Project'])) {
-            $model->project = $map['Project'];
-        }
         if (isset($map['ImageUri'])) {
             $model->imageUri = $map['ImageUri'];
+        }
+        if (isset($map['Project'])) {
+            $model->project = $map['Project'];
         }
 
         return $model;

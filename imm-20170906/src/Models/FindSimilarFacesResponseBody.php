@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class FindSimilarFacesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var faces[]
      */
     public $faces;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'faces'     => 'Faces',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class FindSimilarFacesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->faces) {
             $res['Faces'] = [];
             if (null !== $this->faces && \is_array($this->faces)) {
@@ -41,6 +38,9 @@ class FindSimilarFacesResponseBody extends Model
                     $res['Faces'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class FindSimilarFacesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Faces'])) {
             if (!empty($map['Faces'])) {
                 $model->faces = [];
@@ -65,6 +62,9 @@ class FindSimilarFacesResponseBody extends Model
                     $model->faces[$n++] = null !== $item ? faces::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

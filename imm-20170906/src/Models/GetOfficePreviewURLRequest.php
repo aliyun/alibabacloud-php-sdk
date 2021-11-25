@@ -16,22 +16,12 @@ class GetOfficePreviewURLRequest extends Model
     /**
      * @var string
      */
-    public $srcUri;
-
-    /**
-     * @var string
-     */
     public $srcType;
 
     /**
-     * @var int
-     */
-    public $watermarkType;
-
-    /**
      * @var string
      */
-    public $watermarkValue;
+    public $srcUri;
 
     /**
      * @var string
@@ -44,6 +34,11 @@ class GetOfficePreviewURLRequest extends Model
     public $watermarkFont;
 
     /**
+     * @var int
+     */
+    public $watermarkHorizontal;
+
+    /**
      * @var float
      */
     public $watermarkRotate;
@@ -51,7 +46,12 @@ class GetOfficePreviewURLRequest extends Model
     /**
      * @var int
      */
-    public $watermarkHorizontal;
+    public $watermarkType;
+
+    /**
+     * @var string
+     */
+    public $watermarkValue;
 
     /**
      * @var int
@@ -59,14 +59,14 @@ class GetOfficePreviewURLRequest extends Model
     public $watermarkVertical;
     protected $_name = [
         'project'             => 'Project',
-        'srcUri'              => 'SrcUri',
         'srcType'             => 'SrcType',
-        'watermarkType'       => 'WatermarkType',
-        'watermarkValue'      => 'WatermarkValue',
+        'srcUri'              => 'SrcUri',
         'watermarkFillStyle'  => 'WatermarkFillStyle',
         'watermarkFont'       => 'WatermarkFont',
-        'watermarkRotate'     => 'WatermarkRotate',
         'watermarkHorizontal' => 'WatermarkHorizontal',
+        'watermarkRotate'     => 'WatermarkRotate',
+        'watermarkType'       => 'WatermarkType',
+        'watermarkValue'      => 'WatermarkValue',
         'watermarkVertical'   => 'WatermarkVertical',
     ];
 
@@ -80,17 +80,11 @@ class GetOfficePreviewURLRequest extends Model
         if (null !== $this->project) {
             $res['Project'] = $this->project;
         }
-        if (null !== $this->srcUri) {
-            $res['SrcUri'] = $this->srcUri;
-        }
         if (null !== $this->srcType) {
             $res['SrcType'] = $this->srcType;
         }
-        if (null !== $this->watermarkType) {
-            $res['WatermarkType'] = $this->watermarkType;
-        }
-        if (null !== $this->watermarkValue) {
-            $res['WatermarkValue'] = $this->watermarkValue;
+        if (null !== $this->srcUri) {
+            $res['SrcUri'] = $this->srcUri;
         }
         if (null !== $this->watermarkFillStyle) {
             $res['WatermarkFillStyle'] = $this->watermarkFillStyle;
@@ -98,11 +92,17 @@ class GetOfficePreviewURLRequest extends Model
         if (null !== $this->watermarkFont) {
             $res['WatermarkFont'] = $this->watermarkFont;
         }
+        if (null !== $this->watermarkHorizontal) {
+            $res['WatermarkHorizontal'] = $this->watermarkHorizontal;
+        }
         if (null !== $this->watermarkRotate) {
             $res['WatermarkRotate'] = $this->watermarkRotate;
         }
-        if (null !== $this->watermarkHorizontal) {
-            $res['WatermarkHorizontal'] = $this->watermarkHorizontal;
+        if (null !== $this->watermarkType) {
+            $res['WatermarkType'] = $this->watermarkType;
+        }
+        if (null !== $this->watermarkValue) {
+            $res['WatermarkValue'] = $this->watermarkValue;
         }
         if (null !== $this->watermarkVertical) {
             $res['WatermarkVertical'] = $this->watermarkVertical;
@@ -122,17 +122,11 @@ class GetOfficePreviewURLRequest extends Model
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
         }
-        if (isset($map['SrcUri'])) {
-            $model->srcUri = $map['SrcUri'];
-        }
         if (isset($map['SrcType'])) {
             $model->srcType = $map['SrcType'];
         }
-        if (isset($map['WatermarkType'])) {
-            $model->watermarkType = $map['WatermarkType'];
-        }
-        if (isset($map['WatermarkValue'])) {
-            $model->watermarkValue = $map['WatermarkValue'];
+        if (isset($map['SrcUri'])) {
+            $model->srcUri = $map['SrcUri'];
         }
         if (isset($map['WatermarkFillStyle'])) {
             $model->watermarkFillStyle = $map['WatermarkFillStyle'];
@@ -140,11 +134,17 @@ class GetOfficePreviewURLRequest extends Model
         if (isset($map['WatermarkFont'])) {
             $model->watermarkFont = $map['WatermarkFont'];
         }
+        if (isset($map['WatermarkHorizontal'])) {
+            $model->watermarkHorizontal = $map['WatermarkHorizontal'];
+        }
         if (isset($map['WatermarkRotate'])) {
             $model->watermarkRotate = $map['WatermarkRotate'];
         }
-        if (isset($map['WatermarkHorizontal'])) {
-            $model->watermarkHorizontal = $map['WatermarkHorizontal'];
+        if (isset($map['WatermarkType'])) {
+            $model->watermarkType = $map['WatermarkType'];
+        }
+        if (isset($map['WatermarkValue'])) {
+            $model->watermarkValue = $map['WatermarkValue'];
         }
         if (isset($map['WatermarkVertical'])) {
             $model->watermarkVertical = $map['WatermarkVertical'];

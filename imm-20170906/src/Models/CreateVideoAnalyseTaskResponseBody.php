@@ -11,21 +11,21 @@ class CreateVideoAnalyseTaskResponseBody extends Model
     /**
      * @var string
      */
-    public $taskType;
-
-    /**
-     * @var string
-     */
     public $requestId;
 
     /**
      * @var string
      */
     public $taskId;
+
+    /**
+     * @var string
+     */
+    public $taskType;
     protected $_name = [
-        'taskType'  => 'TaskType',
         'requestId' => 'RequestId',
         'taskId'    => 'TaskId',
+        'taskType'  => 'TaskType',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CreateVideoAnalyseTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskType) {
-            $res['TaskType'] = $this->taskType;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->taskType) {
+            $res['TaskType'] = $this->taskType;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CreateVideoAnalyseTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskType'])) {
-            $model->taskType = $map['TaskType'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['TaskType'])) {
+            $model->taskType = $map['TaskType'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class GetMediaMetaRequest extends Model
     /**
      * @var string
      */
-    public $project;
+    public $mediaUri;
 
     /**
      * @var string
      */
-    public $mediaUri;
+    public $project;
     protected $_name = [
-        'project'  => 'Project',
         'mediaUri' => 'MediaUri',
+        'project'  => 'Project',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetMediaMetaRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->project) {
-            $res['Project'] = $this->project;
-        }
         if (null !== $this->mediaUri) {
             $res['MediaUri'] = $this->mediaUri;
+        }
+        if (null !== $this->project) {
+            $res['Project'] = $this->project;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetMediaMetaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Project'])) {
-            $model->project = $map['Project'];
-        }
         if (isset($map['MediaUri'])) {
             $model->mediaUri = $map['MediaUri'];
+        }
+        if (isset($map['Project'])) {
+            $model->project = $map['Project'];
         }
 
         return $model;

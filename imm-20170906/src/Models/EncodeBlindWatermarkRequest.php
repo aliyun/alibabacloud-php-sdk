@@ -11,22 +11,7 @@ class EncodeBlindWatermarkRequest extends Model
     /**
      * @var string
      */
-    public $project;
-
-    /**
-     * @var string
-     */
-    public $imageUri;
-
-    /**
-     * @var string
-     */
-    public $watermarkUri;
-
-    /**
-     * @var string
-     */
-    public $targetUri;
+    public $content;
 
     /**
      * @var string
@@ -36,7 +21,17 @@ class EncodeBlindWatermarkRequest extends Model
     /**
      * @var string
      */
-    public $content;
+    public $imageUri;
+
+    /**
+     * @var string
+     */
+    public $model;
+
+    /**
+     * @var string
+     */
+    public $project;
 
     /**
      * @var string
@@ -46,16 +41,21 @@ class EncodeBlindWatermarkRequest extends Model
     /**
      * @var string
      */
-    public $model;
+    public $targetUri;
+
+    /**
+     * @var string
+     */
+    public $watermarkUri;
     protected $_name = [
-        'project'         => 'Project',
-        'imageUri'        => 'ImageUri',
-        'watermarkUri'    => 'WatermarkUri',
-        'targetUri'       => 'TargetUri',
-        'imageQuality'    => 'ImageQuality',
         'content'         => 'Content',
-        'targetImageType' => 'TargetImageType',
+        'imageQuality'    => 'ImageQuality',
+        'imageUri'        => 'ImageUri',
         'model'           => 'Model',
+        'project'         => 'Project',
+        'targetImageType' => 'TargetImageType',
+        'targetUri'       => 'TargetUri',
+        'watermarkUri'    => 'WatermarkUri',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class EncodeBlindWatermarkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->project) {
-            $res['Project'] = $this->project;
-        }
-        if (null !== $this->imageUri) {
-            $res['ImageUri'] = $this->imageUri;
-        }
-        if (null !== $this->watermarkUri) {
-            $res['WatermarkUri'] = $this->watermarkUri;
-        }
-        if (null !== $this->targetUri) {
-            $res['TargetUri'] = $this->targetUri;
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
         if (null !== $this->imageQuality) {
             $res['ImageQuality'] = $this->imageQuality;
         }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
+        if (null !== $this->imageUri) {
+            $res['ImageUri'] = $this->imageUri;
+        }
+        if (null !== $this->model) {
+            $res['Model'] = $this->model;
+        }
+        if (null !== $this->project) {
+            $res['Project'] = $this->project;
         }
         if (null !== $this->targetImageType) {
             $res['TargetImageType'] = $this->targetImageType;
         }
-        if (null !== $this->model) {
-            $res['Model'] = $this->model;
+        if (null !== $this->targetUri) {
+            $res['TargetUri'] = $this->targetUri;
+        }
+        if (null !== $this->watermarkUri) {
+            $res['WatermarkUri'] = $this->watermarkUri;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class EncodeBlindWatermarkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Project'])) {
-            $model->project = $map['Project'];
-        }
-        if (isset($map['ImageUri'])) {
-            $model->imageUri = $map['ImageUri'];
-        }
-        if (isset($map['WatermarkUri'])) {
-            $model->watermarkUri = $map['WatermarkUri'];
-        }
-        if (isset($map['TargetUri'])) {
-            $model->targetUri = $map['TargetUri'];
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
         if (isset($map['ImageQuality'])) {
             $model->imageQuality = $map['ImageQuality'];
         }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
+        if (isset($map['ImageUri'])) {
+            $model->imageUri = $map['ImageUri'];
+        }
+        if (isset($map['Model'])) {
+            $model->model = $map['Model'];
+        }
+        if (isset($map['Project'])) {
+            $model->project = $map['Project'];
         }
         if (isset($map['TargetImageType'])) {
             $model->targetImageType = $map['TargetImageType'];
         }
-        if (isset($map['Model'])) {
-            $model->model = $map['Model'];
+        if (isset($map['TargetUri'])) {
+            $model->targetUri = $map['TargetUri'];
+        }
+        if (isset($map['WatermarkUri'])) {
+            $model->watermarkUri = $map['WatermarkUri'];
         }
 
         return $model;

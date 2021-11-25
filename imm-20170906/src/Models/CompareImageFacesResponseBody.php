@@ -11,21 +11,6 @@ use AlibabaCloud\Tea\Model;
 class CompareImageFacesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var float
-     */
-    public $similarity;
-
-    /**
-     * @var string
-     */
-    public $setId;
-
-    /**
      * @var faceA
      */
     public $faceA;
@@ -34,12 +19,27 @@ class CompareImageFacesResponseBody extends Model
      * @var faceB
      */
     public $faceB;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $setId;
+
+    /**
+     * @var float
+     */
+    public $similarity;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'similarity' => 'Similarity',
-        'setId'      => 'SetId',
         'faceA'      => 'FaceA',
         'faceB'      => 'FaceB',
+        'requestId'  => 'RequestId',
+        'setId'      => 'SetId',
+        'similarity' => 'Similarity',
     ];
 
     public function validate()
@@ -49,20 +49,20 @@ class CompareImageFacesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->similarity) {
-            $res['Similarity'] = $this->similarity;
-        }
-        if (null !== $this->setId) {
-            $res['SetId'] = $this->setId;
-        }
         if (null !== $this->faceA) {
             $res['FaceA'] = null !== $this->faceA ? $this->faceA->toMap() : null;
         }
         if (null !== $this->faceB) {
             $res['FaceB'] = null !== $this->faceB ? $this->faceB->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->setId) {
+            $res['SetId'] = $this->setId;
+        }
+        if (null !== $this->similarity) {
+            $res['Similarity'] = $this->similarity;
         }
 
         return $res;
@@ -76,20 +76,20 @@ class CompareImageFacesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Similarity'])) {
-            $model->similarity = $map['Similarity'];
-        }
-        if (isset($map['SetId'])) {
-            $model->setId = $map['SetId'];
-        }
         if (isset($map['FaceA'])) {
             $model->faceA = faceA::fromMap($map['FaceA']);
         }
         if (isset($map['FaceB'])) {
             $model->faceB = faceB::fromMap($map['FaceB']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SetId'])) {
+            $model->setId = $map['SetId'];
+        }
+        if (isset($map['Similarity'])) {
+            $model->similarity = $map['Similarity'];
         }
 
         return $model;

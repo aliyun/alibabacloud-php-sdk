@@ -11,15 +11,15 @@ class ListSetsRequest extends Model
     /**
      * @var string
      */
-    public $project;
+    public $marker;
 
     /**
      * @var string
      */
-    public $marker;
+    public $project;
     protected $_name = [
-        'project' => 'Project',
         'marker'  => 'Marker',
+        'project' => 'Project',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ListSetsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->project) {
-            $res['Project'] = $this->project;
-        }
         if (null !== $this->marker) {
             $res['Marker'] = $this->marker;
+        }
+        if (null !== $this->project) {
+            $res['Project'] = $this->project;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ListSetsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Project'])) {
-            $model->project = $map['Project'];
-        }
         if (isset($map['Marker'])) {
             $model->marker = $map['Marker'];
+        }
+        if (isset($map['Project'])) {
+            $model->project = $map['Project'];
         }
 
         return $model;

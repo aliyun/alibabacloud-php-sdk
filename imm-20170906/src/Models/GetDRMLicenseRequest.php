@@ -11,7 +11,7 @@ class GetDRMLicenseRequest extends Model
     /**
      * @var string
      */
-    public $project;
+    public $DRMLicense;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class GetDRMLicenseRequest extends Model
     /**
      * @var string
      */
-    public $DRMLicense;
+    public $project;
     protected $_name = [
-        'project'    => 'Project',
-        'DRMType'    => 'DRMType',
         'DRMLicense' => 'DRMLicense',
+        'DRMType'    => 'DRMType',
+        'project'    => 'Project',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetDRMLicenseRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->project) {
-            $res['Project'] = $this->project;
+        if (null !== $this->DRMLicense) {
+            $res['DRMLicense'] = $this->DRMLicense;
         }
         if (null !== $this->DRMType) {
             $res['DRMType'] = $this->DRMType;
         }
-        if (null !== $this->DRMLicense) {
-            $res['DRMLicense'] = $this->DRMLicense;
+        if (null !== $this->project) {
+            $res['Project'] = $this->project;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetDRMLicenseRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Project'])) {
-            $model->project = $map['Project'];
+        if (isset($map['DRMLicense'])) {
+            $model->DRMLicense = $map['DRMLicense'];
         }
         if (isset($map['DRMType'])) {
             $model->DRMType = $map['DRMType'];
         }
-        if (isset($map['DRMLicense'])) {
-            $model->DRMLicense = $map['DRMLicense'];
+        if (isset($map['Project'])) {
+            $model->project = $map['Project'];
         }
 
         return $model;

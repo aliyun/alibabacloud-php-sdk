@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListVideoFramesResponseBody extends Model
 {
     /**
-     * @var string
+     * @var frames[]
      */
-    public $videoUri;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $frames;
 
     /**
      * @var string
@@ -27,18 +22,23 @@ class ListVideoFramesResponseBody extends Model
     /**
      * @var string
      */
+    public $requestId;
+
+    /**
+     * @var string
+     */
     public $setId;
 
     /**
-     * @var frames[]
+     * @var string
      */
-    public $frames;
+    public $videoUri;
     protected $_name = [
-        'videoUri'   => 'VideoUri',
-        'requestId'  => 'RequestId',
-        'nextMarker' => 'NextMarker',
-        'setId'      => 'SetId',
         'frames'     => 'Frames',
+        'nextMarker' => 'NextMarker',
+        'requestId'  => 'RequestId',
+        'setId'      => 'SetId',
+        'videoUri'   => 'VideoUri',
     ];
 
     public function validate()
@@ -48,18 +48,6 @@ class ListVideoFramesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoUri) {
-            $res['VideoUri'] = $this->videoUri;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->nextMarker) {
-            $res['NextMarker'] = $this->nextMarker;
-        }
-        if (null !== $this->setId) {
-            $res['SetId'] = $this->setId;
-        }
         if (null !== $this->frames) {
             $res['Frames'] = [];
             if (null !== $this->frames && \is_array($this->frames)) {
@@ -68,6 +56,18 @@ class ListVideoFramesResponseBody extends Model
                     $res['Frames'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->nextMarker) {
+            $res['NextMarker'] = $this->nextMarker;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->setId) {
+            $res['SetId'] = $this->setId;
+        }
+        if (null !== $this->videoUri) {
+            $res['VideoUri'] = $this->videoUri;
         }
 
         return $res;
@@ -81,18 +81,6 @@ class ListVideoFramesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoUri'])) {
-            $model->videoUri = $map['VideoUri'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['NextMarker'])) {
-            $model->nextMarker = $map['NextMarker'];
-        }
-        if (isset($map['SetId'])) {
-            $model->setId = $map['SetId'];
-        }
         if (isset($map['Frames'])) {
             if (!empty($map['Frames'])) {
                 $model->frames = [];
@@ -101,6 +89,18 @@ class ListVideoFramesResponseBody extends Model
                     $model->frames[$n++] = null !== $item ? frames::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['NextMarker'])) {
+            $model->nextMarker = $map['NextMarker'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SetId'])) {
+            $model->setId = $map['SetId'];
+        }
+        if (isset($map['VideoUri'])) {
+            $model->videoUri = $map['VideoUri'];
         }
 
         return $model;

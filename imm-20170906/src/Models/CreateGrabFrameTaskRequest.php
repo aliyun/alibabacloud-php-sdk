@@ -11,17 +11,7 @@ class CreateGrabFrameTaskRequest extends Model
     /**
      * @var string
      */
-    public $project;
-
-    /**
-     * @var string
-     */
-    public $videoUri;
-
-    /**
-     * @var string
-     */
-    public $notifyTopicName;
+    public $customMessage;
 
     /**
      * @var string
@@ -31,19 +21,29 @@ class CreateGrabFrameTaskRequest extends Model
     /**
      * @var string
      */
+    public $notifyTopicName;
+
+    /**
+     * @var string
+     */
+    public $project;
+
+    /**
+     * @var string
+     */
     public $targetList;
 
     /**
      * @var string
      */
-    public $customMessage;
+    public $videoUri;
     protected $_name = [
-        'project'         => 'Project',
-        'videoUri'        => 'VideoUri',
-        'notifyTopicName' => 'NotifyTopicName',
-        'notifyEndpoint'  => 'NotifyEndpoint',
-        'targetList'      => 'TargetList',
         'customMessage'   => 'CustomMessage',
+        'notifyEndpoint'  => 'NotifyEndpoint',
+        'notifyTopicName' => 'NotifyTopicName',
+        'project'         => 'Project',
+        'targetList'      => 'TargetList',
+        'videoUri'        => 'VideoUri',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class CreateGrabFrameTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->project) {
-            $res['Project'] = $this->project;
-        }
-        if (null !== $this->videoUri) {
-            $res['VideoUri'] = $this->videoUri;
-        }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
+        if (null !== $this->customMessage) {
+            $res['CustomMessage'] = $this->customMessage;
         }
         if (null !== $this->notifyEndpoint) {
             $res['NotifyEndpoint'] = $this->notifyEndpoint;
         }
+        if (null !== $this->notifyTopicName) {
+            $res['NotifyTopicName'] = $this->notifyTopicName;
+        }
+        if (null !== $this->project) {
+            $res['Project'] = $this->project;
+        }
         if (null !== $this->targetList) {
             $res['TargetList'] = $this->targetList;
         }
-        if (null !== $this->customMessage) {
-            $res['CustomMessage'] = $this->customMessage;
+        if (null !== $this->videoUri) {
+            $res['VideoUri'] = $this->videoUri;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class CreateGrabFrameTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Project'])) {
-            $model->project = $map['Project'];
-        }
-        if (isset($map['VideoUri'])) {
-            $model->videoUri = $map['VideoUri'];
-        }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
+        if (isset($map['CustomMessage'])) {
+            $model->customMessage = $map['CustomMessage'];
         }
         if (isset($map['NotifyEndpoint'])) {
             $model->notifyEndpoint = $map['NotifyEndpoint'];
         }
+        if (isset($map['NotifyTopicName'])) {
+            $model->notifyTopicName = $map['NotifyTopicName'];
+        }
+        if (isset($map['Project'])) {
+            $model->project = $map['Project'];
+        }
         if (isset($map['TargetList'])) {
             $model->targetList = $map['TargetList'];
         }
-        if (isset($map['CustomMessage'])) {
-            $model->customMessage = $map['CustomMessage'];
+        if (isset($map['VideoUri'])) {
+            $model->videoUri = $map['VideoUri'];
         }
 
         return $model;

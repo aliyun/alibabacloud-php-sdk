@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class FindImagesResponseBody extends Model
 {
     /**
-     * @var string
+     * @var images[]
      */
-    public $requestId;
+    public $images;
 
     /**
      * @var string
@@ -22,17 +22,17 @@ class FindImagesResponseBody extends Model
     /**
      * @var string
      */
-    public $setId;
+    public $requestId;
 
     /**
-     * @var images[]
+     * @var string
      */
-    public $images;
+    public $setId;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'nextMarker' => 'NextMarker',
-        'setId'      => 'SetId',
         'images'     => 'Images',
+        'nextMarker' => 'NextMarker',
+        'requestId'  => 'RequestId',
+        'setId'      => 'SetId',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class FindImagesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->nextMarker) {
-            $res['NextMarker'] = $this->nextMarker;
-        }
-        if (null !== $this->setId) {
-            $res['SetId'] = $this->setId;
-        }
         if (null !== $this->images) {
             $res['Images'] = [];
             if (null !== $this->images && \is_array($this->images)) {
@@ -59,6 +50,15 @@ class FindImagesResponseBody extends Model
                     $res['Images'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->nextMarker) {
+            $res['NextMarker'] = $this->nextMarker;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->setId) {
+            $res['SetId'] = $this->setId;
         }
 
         return $res;
@@ -72,15 +72,6 @@ class FindImagesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['NextMarker'])) {
-            $model->nextMarker = $map['NextMarker'];
-        }
-        if (isset($map['SetId'])) {
-            $model->setId = $map['SetId'];
-        }
         if (isset($map['Images'])) {
             if (!empty($map['Images'])) {
                 $model->images = [];
@@ -89,6 +80,15 @@ class FindImagesResponseBody extends Model
                     $model->images[$n++] = null !== $item ? images::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['NextMarker'])) {
+            $model->nextMarker = $map['NextMarker'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SetId'])) {
+            $model->setId = $map['SetId'];
         }
 
         return $model;

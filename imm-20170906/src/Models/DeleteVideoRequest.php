@@ -14,6 +14,11 @@ class DeleteVideoRequest extends Model
     public $project;
 
     /**
+     * @var bool
+     */
+    public $resources;
+
+    /**
      * @var string
      */
     public $setId;
@@ -22,16 +27,11 @@ class DeleteVideoRequest extends Model
      * @var string
      */
     public $videoUri;
-
-    /**
-     * @var bool
-     */
-    public $resources;
     protected $_name = [
         'project'   => 'Project',
+        'resources' => 'Resources',
         'setId'     => 'SetId',
         'videoUri'  => 'VideoUri',
-        'resources' => 'Resources',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class DeleteVideoRequest extends Model
         if (null !== $this->project) {
             $res['Project'] = $this->project;
         }
+        if (null !== $this->resources) {
+            $res['Resources'] = $this->resources;
+        }
         if (null !== $this->setId) {
             $res['SetId'] = $this->setId;
         }
         if (null !== $this->videoUri) {
             $res['VideoUri'] = $this->videoUri;
-        }
-        if (null !== $this->resources) {
-            $res['Resources'] = $this->resources;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class DeleteVideoRequest extends Model
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
         }
+        if (isset($map['Resources'])) {
+            $model->resources = $map['Resources'];
+        }
         if (isset($map['SetId'])) {
             $model->setId = $map['SetId'];
         }
         if (isset($map['VideoUri'])) {
             $model->videoUri = $map['VideoUri'];
-        }
-        if (isset($map['Resources'])) {
-            $model->resources = $map['Resources'];
         }
 
         return $model;

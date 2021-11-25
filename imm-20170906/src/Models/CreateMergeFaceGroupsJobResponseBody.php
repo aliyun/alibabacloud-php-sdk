@@ -16,6 +16,16 @@ class CreateMergeFaceGroupsJobResponseBody extends Model
     /**
      * @var string
      */
+    public $groupIdTo;
+
+    /**
+     * @var string
+     */
+    public $jobId;
+
+    /**
+     * @var string
+     */
     public $jobType;
 
     /**
@@ -27,23 +37,13 @@ class CreateMergeFaceGroupsJobResponseBody extends Model
      * @var string
      */
     public $setId;
-
-    /**
-     * @var string
-     */
-    public $groupIdTo;
-
-    /**
-     * @var string
-     */
-    public $jobId;
     protected $_name = [
         'groupIdFrom' => 'GroupIdFrom',
+        'groupIdTo'   => 'GroupIdTo',
+        'jobId'       => 'JobId',
         'jobType'     => 'JobType',
         'requestId'   => 'RequestId',
         'setId'       => 'SetId',
-        'groupIdTo'   => 'GroupIdTo',
-        'jobId'       => 'JobId',
     ];
 
     public function validate()
@@ -56,6 +56,12 @@ class CreateMergeFaceGroupsJobResponseBody extends Model
         if (null !== $this->groupIdFrom) {
             $res['GroupIdFrom'] = $this->groupIdFrom;
         }
+        if (null !== $this->groupIdTo) {
+            $res['GroupIdTo'] = $this->groupIdTo;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
         }
@@ -64,12 +70,6 @@ class CreateMergeFaceGroupsJobResponseBody extends Model
         }
         if (null !== $this->setId) {
             $res['SetId'] = $this->setId;
-        }
-        if (null !== $this->groupIdTo) {
-            $res['GroupIdTo'] = $this->groupIdTo;
-        }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
         }
 
         return $res;
@@ -86,6 +86,12 @@ class CreateMergeFaceGroupsJobResponseBody extends Model
         if (isset($map['GroupIdFrom'])) {
             $model->groupIdFrom = $map['GroupIdFrom'];
         }
+        if (isset($map['GroupIdTo'])) {
+            $model->groupIdTo = $map['GroupIdTo'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
         }
@@ -94,12 +100,6 @@ class CreateMergeFaceGroupsJobResponseBody extends Model
         }
         if (isset($map['SetId'])) {
             $model->setId = $map['SetId'];
-        }
-        if (isset($map['GroupIdTo'])) {
-            $model->groupIdTo = $map['GroupIdTo'];
-        }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
         }
 
         return $model;

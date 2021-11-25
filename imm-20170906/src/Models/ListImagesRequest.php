@@ -11,17 +11,12 @@ class ListImagesRequest extends Model
     /**
      * @var string
      */
-    public $project;
-
-    /**
-     * @var string
-     */
-    public $setId;
-
-    /**
-     * @var string
-     */
     public $createTimeStart;
+
+    /**
+     * @var int
+     */
+    public $limit;
 
     /**
      * @var string
@@ -29,15 +24,20 @@ class ListImagesRequest extends Model
     public $marker;
 
     /**
-     * @var int
+     * @var string
      */
-    public $limit;
+    public $project;
+
+    /**
+     * @var string
+     */
+    public $setId;
     protected $_name = [
+        'createTimeStart' => 'CreateTimeStart',
+        'limit'           => 'Limit',
+        'marker'          => 'Marker',
         'project'         => 'Project',
         'setId'           => 'SetId',
-        'createTimeStart' => 'CreateTimeStart',
-        'marker'          => 'Marker',
-        'limit'           => 'Limit',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class ListImagesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createTimeStart) {
+            $res['CreateTimeStart'] = $this->createTimeStart;
+        }
+        if (null !== $this->limit) {
+            $res['Limit'] = $this->limit;
+        }
+        if (null !== $this->marker) {
+            $res['Marker'] = $this->marker;
+        }
         if (null !== $this->project) {
             $res['Project'] = $this->project;
         }
         if (null !== $this->setId) {
             $res['SetId'] = $this->setId;
-        }
-        if (null !== $this->createTimeStart) {
-            $res['CreateTimeStart'] = $this->createTimeStart;
-        }
-        if (null !== $this->marker) {
-            $res['Marker'] = $this->marker;
-        }
-        if (null !== $this->limit) {
-            $res['Limit'] = $this->limit;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class ListImagesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateTimeStart'])) {
+            $model->createTimeStart = $map['CreateTimeStart'];
+        }
+        if (isset($map['Limit'])) {
+            $model->limit = $map['Limit'];
+        }
+        if (isset($map['Marker'])) {
+            $model->marker = $map['Marker'];
+        }
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
         }
         if (isset($map['SetId'])) {
             $model->setId = $map['SetId'];
-        }
-        if (isset($map['CreateTimeStart'])) {
-            $model->createTimeStart = $map['CreateTimeStart'];
-        }
-        if (isset($map['Marker'])) {
-            $model->marker = $map['Marker'];
-        }
-        if (isset($map['Limit'])) {
-            $model->limit = $map['Limit'];
         }
 
         return $model;

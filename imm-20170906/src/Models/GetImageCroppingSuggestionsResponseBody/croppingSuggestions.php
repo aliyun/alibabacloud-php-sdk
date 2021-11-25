@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class croppingSuggestions extends Model
 {
     /**
-     * @var float
-     */
-    public $score;
-
-    /**
      * @var string
      */
     public $aspectRatio;
@@ -23,10 +18,15 @@ class croppingSuggestions extends Model
      * @var croppingBoundary
      */
     public $croppingBoundary;
+
+    /**
+     * @var float
+     */
+    public $score;
     protected $_name = [
-        'score'            => 'Score',
         'aspectRatio'      => 'AspectRatio',
         'croppingBoundary' => 'CroppingBoundary',
+        'score'            => 'Score',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class croppingSuggestions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->score) {
-            $res['Score'] = $this->score;
-        }
         if (null !== $this->aspectRatio) {
             $res['AspectRatio'] = $this->aspectRatio;
         }
         if (null !== $this->croppingBoundary) {
             $res['CroppingBoundary'] = null !== $this->croppingBoundary ? $this->croppingBoundary->toMap() : null;
+        }
+        if (null !== $this->score) {
+            $res['Score'] = $this->score;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class croppingSuggestions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Score'])) {
-            $model->score = $map['Score'];
-        }
         if (isset($map['AspectRatio'])) {
             $model->aspectRatio = $map['AspectRatio'];
         }
         if (isset($map['CroppingBoundary'])) {
             $model->croppingBoundary = croppingBoundary::fromMap($map['CroppingBoundary']);
+        }
+        if (isset($map['Score'])) {
+            $model->score = $map['Score'];
         }
 
         return $model;

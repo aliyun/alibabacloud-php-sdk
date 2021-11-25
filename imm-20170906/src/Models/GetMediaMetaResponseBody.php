@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetMediaMetaResponseBody extends Model
 {
     /**
+     * @var mediaMeta
+     */
+    public $mediaMeta;
+
+    /**
      * @var string
      */
     public $mediaUri;
@@ -18,15 +23,10 @@ class GetMediaMetaResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var mediaMeta
-     */
-    public $mediaMeta;
     protected $_name = [
+        'mediaMeta' => 'MediaMeta',
         'mediaUri'  => 'MediaUri',
         'requestId' => 'RequestId',
-        'mediaMeta' => 'MediaMeta',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class GetMediaMetaResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->mediaMeta) {
+            $res['MediaMeta'] = null !== $this->mediaMeta ? $this->mediaMeta->toMap() : null;
+        }
         if (null !== $this->mediaUri) {
             $res['MediaUri'] = $this->mediaUri;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->mediaMeta) {
-            $res['MediaMeta'] = null !== $this->mediaMeta ? $this->mediaMeta->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class GetMediaMetaResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MediaMeta'])) {
+            $model->mediaMeta = mediaMeta::fromMap($map['MediaMeta']);
+        }
         if (isset($map['MediaUri'])) {
             $model->mediaUri = $map['MediaUri'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['MediaMeta'])) {
-            $model->mediaMeta = mediaMeta::fromMap($map['MediaMeta']);
         }
 
         return $model;

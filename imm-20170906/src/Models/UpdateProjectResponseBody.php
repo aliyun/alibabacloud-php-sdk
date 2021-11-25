@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateProjectResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $CU;
@@ -31,7 +21,7 @@ class UpdateProjectResponseBody extends Model
     /**
      * @var string
      */
-    public $serviceRole;
+    public $modifyTime;
 
     /**
      * @var string
@@ -46,16 +36,26 @@ class UpdateProjectResponseBody extends Model
     /**
      * @var string
      */
-    public $modifyTime;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $serviceRole;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'        => 'Type',
-        'requestId'   => 'RequestId',
         'CU'          => 'CU',
         'createTime'  => 'CreateTime',
-        'serviceRole' => 'ServiceRole',
+        'modifyTime'  => 'ModifyTime',
         'project'     => 'Project',
         'regionId'    => 'RegionId',
-        'modifyTime'  => 'ModifyTime',
+        'requestId'   => 'RequestId',
+        'serviceRole' => 'ServiceRole',
+        'type'        => 'Type',
     ];
 
     public function validate()
@@ -65,20 +65,14 @@ class UpdateProjectResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->CU) {
             $res['CU'] = $this->CU;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->serviceRole) {
-            $res['ServiceRole'] = $this->serviceRole;
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
         }
         if (null !== $this->project) {
             $res['Project'] = $this->project;
@@ -86,8 +80,14 @@ class UpdateProjectResponseBody extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->modifyTime) {
-            $res['ModifyTime'] = $this->modifyTime;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->serviceRole) {
+            $res['ServiceRole'] = $this->serviceRole;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -101,20 +101,14 @@ class UpdateProjectResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CU'])) {
             $model->CU = $map['CU'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['ServiceRole'])) {
-            $model->serviceRole = $map['ServiceRole'];
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
         }
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
@@ -122,8 +116,14 @@ class UpdateProjectResponseBody extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ModifyTime'])) {
-            $model->modifyTime = $map['ModifyTime'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ServiceRole'])) {
+            $model->serviceRole = $map['ServiceRole'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

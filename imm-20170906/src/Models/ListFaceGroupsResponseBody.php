@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListFaceGroupsResponseBody extends Model
 {
     /**
-     * @var string
+     * @var faceGroups[]
      */
-    public $requestId;
+    public $faceGroups;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class ListFaceGroupsResponseBody extends Model
     public $nextMarker;
 
     /**
-     * @var faceGroups[]
+     * @var string
      */
-    public $faceGroups;
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'nextMarker' => 'NextMarker',
         'faceGroups' => 'FaceGroups',
+        'nextMarker' => 'NextMarker',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class ListFaceGroupsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->nextMarker) {
-            $res['NextMarker'] = $this->nextMarker;
-        }
         if (null !== $this->faceGroups) {
             $res['FaceGroups'] = [];
             if (null !== $this->faceGroups && \is_array($this->faceGroups)) {
@@ -50,6 +44,12 @@ class ListFaceGroupsResponseBody extends Model
                     $res['FaceGroups'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->nextMarker) {
+            $res['NextMarker'] = $this->nextMarker;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class ListFaceGroupsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['NextMarker'])) {
-            $model->nextMarker = $map['NextMarker'];
-        }
         if (isset($map['FaceGroups'])) {
             if (!empty($map['FaceGroups'])) {
                 $model->faceGroups = [];
@@ -77,6 +71,12 @@ class ListFaceGroupsResponseBody extends Model
                     $model->faceGroups[$n++] = null !== $item ? faceGroups::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['NextMarker'])) {
+            $model->nextMarker = $map['NextMarker'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

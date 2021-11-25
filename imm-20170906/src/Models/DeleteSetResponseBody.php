@@ -11,15 +11,15 @@ class DeleteSetResponseBody extends Model
     /**
      * @var string
      */
-    public $setId;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $setId;
     protected $_name = [
-        'setId'     => 'SetId',
         'requestId' => 'RequestId',
+        'setId'     => 'SetId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteSetResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->setId) {
-            $res['SetId'] = $this->setId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->setId) {
+            $res['SetId'] = $this->setId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteSetResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SetId'])) {
-            $model->setId = $map['SetId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SetId'])) {
+            $model->setId = $map['SetId'];
         }
 
         return $model;

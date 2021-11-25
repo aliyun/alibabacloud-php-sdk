@@ -16,16 +16,16 @@ class DeleteVideoTaskRequest extends Model
     /**
      * @var string
      */
-    public $taskType;
+    public $taskId;
 
     /**
      * @var string
      */
-    public $taskId;
+    public $taskType;
     protected $_name = [
         'project'  => 'Project',
-        'taskType' => 'TaskType',
         'taskId'   => 'TaskId',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DeleteVideoTaskRequest extends Model
         if (null !== $this->project) {
             $res['Project'] = $this->project;
         }
-        if (null !== $this->taskType) {
-            $res['TaskType'] = $this->taskType;
-        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->taskType) {
+            $res['TaskType'] = $this->taskType;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DeleteVideoTaskRequest extends Model
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
         }
-        if (isset($map['TaskType'])) {
-            $model->taskType = $map['TaskType'];
-        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['TaskType'])) {
+            $model->taskType = $map['TaskType'];
         }
 
         return $model;

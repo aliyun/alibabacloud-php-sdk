@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListProjectAPIsResponseBody extends Model
 {
     /**
+     * @var string[]
+     */
+    public $APIs;
+
+    /**
      * @var string
      */
     public $project;
@@ -17,15 +22,10 @@ class ListProjectAPIsResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string[]
-     */
-    public $APIs;
     protected $_name = [
+        'APIs'      => 'APIs',
         'project'   => 'Project',
         'requestId' => 'RequestId',
-        'APIs'      => 'APIs',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ListProjectAPIsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->APIs) {
+            $res['APIs'] = $this->APIs;
+        }
         if (null !== $this->project) {
             $res['Project'] = $this->project;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->APIs) {
-            $res['APIs'] = $this->APIs;
         }
 
         return $res;
@@ -56,16 +56,16 @@ class ListProjectAPIsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['APIs'])) {
+            if (!empty($map['APIs'])) {
+                $model->APIs = $map['APIs'];
+            }
+        }
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['APIs'])) {
-            if (!empty($map['APIs'])) {
-                $model->APIs = $map['APIs'];
-            }
         }
 
         return $model;

@@ -11,7 +11,7 @@ class RefreshOfficeEditTokenResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $accessToken;
 
     /**
      * @var string
@@ -26,18 +26,18 @@ class RefreshOfficeEditTokenResponseBody extends Model
     /**
      * @var string
      */
-    public $accessToken;
+    public $refreshTokenExpiredTime;
 
     /**
      * @var string
      */
-    public $refreshTokenExpiredTime;
+    public $requestId;
     protected $_name = [
-        'requestId'               => 'RequestId',
+        'accessToken'             => 'AccessToken',
         'accessTokenExpiredTime'  => 'AccessTokenExpiredTime',
         'refreshToken'            => 'RefreshToken',
-        'accessToken'             => 'AccessToken',
         'refreshTokenExpiredTime' => 'RefreshTokenExpiredTime',
+        'requestId'               => 'RequestId',
     ];
 
     public function validate()
@@ -47,8 +47,8 @@ class RefreshOfficeEditTokenResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->accessToken) {
+            $res['AccessToken'] = $this->accessToken;
         }
         if (null !== $this->accessTokenExpiredTime) {
             $res['AccessTokenExpiredTime'] = $this->accessTokenExpiredTime;
@@ -56,11 +56,11 @@ class RefreshOfficeEditTokenResponseBody extends Model
         if (null !== $this->refreshToken) {
             $res['RefreshToken'] = $this->refreshToken;
         }
-        if (null !== $this->accessToken) {
-            $res['AccessToken'] = $this->accessToken;
-        }
         if (null !== $this->refreshTokenExpiredTime) {
             $res['RefreshTokenExpiredTime'] = $this->refreshTokenExpiredTime;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -74,8 +74,8 @@ class RefreshOfficeEditTokenResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['AccessToken'])) {
+            $model->accessToken = $map['AccessToken'];
         }
         if (isset($map['AccessTokenExpiredTime'])) {
             $model->accessTokenExpiredTime = $map['AccessTokenExpiredTime'];
@@ -83,11 +83,11 @@ class RefreshOfficeEditTokenResponseBody extends Model
         if (isset($map['RefreshToken'])) {
             $model->refreshToken = $map['RefreshToken'];
         }
-        if (isset($map['AccessToken'])) {
-            $model->accessToken = $map['AccessToken'];
-        }
         if (isset($map['RefreshTokenExpiredTime'])) {
             $model->refreshTokenExpiredTime = $map['RefreshTokenExpiredTime'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

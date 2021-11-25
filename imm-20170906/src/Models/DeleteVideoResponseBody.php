@@ -16,16 +16,16 @@ class DeleteVideoResponseBody extends Model
     /**
      * @var string
      */
-    public $videoUri;
+    public $setId;
 
     /**
      * @var string
      */
-    public $setId;
+    public $videoUri;
     protected $_name = [
         'requestId' => 'RequestId',
-        'videoUri'  => 'VideoUri',
         'setId'     => 'SetId',
+        'videoUri'  => 'VideoUri',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DeleteVideoResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->videoUri) {
-            $res['VideoUri'] = $this->videoUri;
-        }
         if (null !== $this->setId) {
             $res['SetId'] = $this->setId;
+        }
+        if (null !== $this->videoUri) {
+            $res['VideoUri'] = $this->videoUri;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DeleteVideoResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['VideoUri'])) {
-            $model->videoUri = $map['VideoUri'];
-        }
         if (isset($map['SetId'])) {
             $model->setId = $map['SetId'];
+        }
+        if (isset($map['VideoUri'])) {
+            $model->videoUri = $map['VideoUri'];
         }
 
         return $model;

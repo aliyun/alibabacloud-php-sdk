@@ -11,12 +11,7 @@ class GetWebofficeURLRequest extends Model
     /**
      * @var string
      */
-    public $project;
-
-    /**
-     * @var string
-     */
-    public $srcType;
+    public $file;
 
     /**
      * @var string
@@ -24,19 +19,9 @@ class GetWebofficeURLRequest extends Model
     public $fileID;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $user;
-
-    /**
-     * @var string
-     */
-    public $permission;
-
-    /**
-     * @var string
-     */
-    public $file;
+    public $hidecmb;
 
     /**
      * @var string
@@ -51,23 +36,38 @@ class GetWebofficeURLRequest extends Model
     /**
      * @var string
      */
-    public $watermark;
+    public $permission;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $hidecmb;
+    public $project;
+
+    /**
+     * @var string
+     */
+    public $srcType;
+
+    /**
+     * @var string
+     */
+    public $user;
+
+    /**
+     * @var string
+     */
+    public $watermark;
     protected $_name = [
-        'project'         => 'Project',
-        'srcType'         => 'SrcType',
-        'fileID'          => 'FileID',
-        'user'            => 'User',
-        'permission'      => 'Permission',
         'file'            => 'File',
+        'fileID'          => 'FileID',
+        'hidecmb'         => 'Hidecmb',
         'notifyEndpoint'  => 'NotifyEndpoint',
         'notifyTopicName' => 'NotifyTopicName',
+        'permission'      => 'Permission',
+        'project'         => 'Project',
+        'srcType'         => 'SrcType',
+        'user'            => 'User',
         'watermark'       => 'Watermark',
-        'hidecmb'         => 'Hidecmb',
     ];
 
     public function validate()
@@ -77,23 +77,14 @@ class GetWebofficeURLRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->project) {
-            $res['Project'] = $this->project;
-        }
-        if (null !== $this->srcType) {
-            $res['SrcType'] = $this->srcType;
+        if (null !== $this->file) {
+            $res['File'] = $this->file;
         }
         if (null !== $this->fileID) {
             $res['FileID'] = $this->fileID;
         }
-        if (null !== $this->user) {
-            $res['User'] = $this->user;
-        }
-        if (null !== $this->permission) {
-            $res['Permission'] = $this->permission;
-        }
-        if (null !== $this->file) {
-            $res['File'] = $this->file;
+        if (null !== $this->hidecmb) {
+            $res['Hidecmb'] = $this->hidecmb;
         }
         if (null !== $this->notifyEndpoint) {
             $res['NotifyEndpoint'] = $this->notifyEndpoint;
@@ -101,11 +92,20 @@ class GetWebofficeURLRequest extends Model
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
         }
+        if (null !== $this->permission) {
+            $res['Permission'] = $this->permission;
+        }
+        if (null !== $this->project) {
+            $res['Project'] = $this->project;
+        }
+        if (null !== $this->srcType) {
+            $res['SrcType'] = $this->srcType;
+        }
+        if (null !== $this->user) {
+            $res['User'] = $this->user;
+        }
         if (null !== $this->watermark) {
             $res['Watermark'] = $this->watermark;
-        }
-        if (null !== $this->hidecmb) {
-            $res['Hidecmb'] = $this->hidecmb;
         }
 
         return $res;
@@ -119,23 +119,14 @@ class GetWebofficeURLRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Project'])) {
-            $model->project = $map['Project'];
-        }
-        if (isset($map['SrcType'])) {
-            $model->srcType = $map['SrcType'];
+        if (isset($map['File'])) {
+            $model->file = $map['File'];
         }
         if (isset($map['FileID'])) {
             $model->fileID = $map['FileID'];
         }
-        if (isset($map['User'])) {
-            $model->user = $map['User'];
-        }
-        if (isset($map['Permission'])) {
-            $model->permission = $map['Permission'];
-        }
-        if (isset($map['File'])) {
-            $model->file = $map['File'];
+        if (isset($map['Hidecmb'])) {
+            $model->hidecmb = $map['Hidecmb'];
         }
         if (isset($map['NotifyEndpoint'])) {
             $model->notifyEndpoint = $map['NotifyEndpoint'];
@@ -143,11 +134,20 @@ class GetWebofficeURLRequest extends Model
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];
         }
+        if (isset($map['Permission'])) {
+            $model->permission = $map['Permission'];
+        }
+        if (isset($map['Project'])) {
+            $model->project = $map['Project'];
+        }
+        if (isset($map['SrcType'])) {
+            $model->srcType = $map['SrcType'];
+        }
+        if (isset($map['User'])) {
+            $model->user = $map['User'];
+        }
         if (isset($map['Watermark'])) {
             $model->watermark = $map['Watermark'];
-        }
-        if (isset($map['Hidecmb'])) {
-            $model->hidecmb = $map['Hidecmb'];
         }
 
         return $model;

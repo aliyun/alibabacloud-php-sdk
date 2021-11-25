@@ -11,6 +11,11 @@ class ListVideoFramesRequest extends Model
     /**
      * @var string
      */
+    public $marker;
+
+    /**
+     * @var string
+     */
     public $project;
 
     /**
@@ -22,16 +27,11 @@ class ListVideoFramesRequest extends Model
      * @var string
      */
     public $videoUri;
-
-    /**
-     * @var string
-     */
-    public $marker;
     protected $_name = [
+        'marker'   => 'Marker',
         'project'  => 'Project',
         'setId'    => 'SetId',
         'videoUri' => 'VideoUri',
-        'marker'   => 'Marker',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class ListVideoFramesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->marker) {
+            $res['Marker'] = $this->marker;
+        }
         if (null !== $this->project) {
             $res['Project'] = $this->project;
         }
@@ -49,9 +52,6 @@ class ListVideoFramesRequest extends Model
         }
         if (null !== $this->videoUri) {
             $res['VideoUri'] = $this->videoUri;
-        }
-        if (null !== $this->marker) {
-            $res['Marker'] = $this->marker;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class ListVideoFramesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Marker'])) {
+            $model->marker = $map['Marker'];
+        }
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
         }
@@ -73,9 +76,6 @@ class ListVideoFramesRequest extends Model
         }
         if (isset($map['VideoUri'])) {
             $model->videoUri = $map['VideoUri'];
-        }
-        if (isset($map['Marker'])) {
-            $model->marker = $map['Marker'];
         }
 
         return $model;

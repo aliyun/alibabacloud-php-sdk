@@ -15,18 +15,18 @@ class DetectImageQRCodesResponseBody extends Model
     public $imageUri;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var QRCodes[]
      */
     public $QRCodes;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'imageUri'  => 'ImageUri',
-        'requestId' => 'RequestId',
         'QRCodes'   => 'QRCodes',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -39,9 +39,6 @@ class DetectImageQRCodesResponseBody extends Model
         if (null !== $this->imageUri) {
             $res['ImageUri'] = $this->imageUri;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->QRCodes) {
             $res['QRCodes'] = [];
             if (null !== $this->QRCodes && \is_array($this->QRCodes)) {
@@ -50,6 +47,9 @@ class DetectImageQRCodesResponseBody extends Model
                     $res['QRCodes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -66,9 +66,6 @@ class DetectImageQRCodesResponseBody extends Model
         if (isset($map['ImageUri'])) {
             $model->imageUri = $map['ImageUri'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['QRCodes'])) {
             if (!empty($map['QRCodes'])) {
                 $model->QRCodes = [];
@@ -77,6 +74,9 @@ class DetectImageQRCodesResponseBody extends Model
                     $model->QRCodes[$n++] = null !== $item ? QRCodes::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

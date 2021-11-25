@@ -11,7 +11,7 @@ class DeleteImageJobRequest extends Model
     /**
      * @var string
      */
-    public $project;
+    public $jobId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class DeleteImageJobRequest extends Model
     /**
      * @var string
      */
-    public $jobId;
+    public $project;
     protected $_name = [
-        'project' => 'Project',
-        'jobType' => 'JobType',
         'jobId'   => 'JobId',
+        'jobType' => 'JobType',
+        'project' => 'Project',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteImageJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->project) {
-            $res['Project'] = $this->project;
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
         }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
+        if (null !== $this->project) {
+            $res['Project'] = $this->project;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DeleteImageJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Project'])) {
-            $model->project = $map['Project'];
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
         }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
+        if (isset($map['Project'])) {
+            $model->project = $map['Project'];
         }
 
         return $model;

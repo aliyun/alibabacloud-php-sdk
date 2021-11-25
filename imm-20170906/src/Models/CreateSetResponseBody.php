@@ -9,9 +9,24 @@ use AlibabaCloud\Tea\Model;
 class CreateSetResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $createTime;
+
+    /**
      * @var int
      */
-    public $videoCount;
+    public $faceCount;
+
+    /**
+     * @var int
+     */
+    public $imageCount;
+
+    /**
+     * @var string
+     */
+    public $modifyTime;
 
     /**
      * @var string
@@ -21,27 +36,7 @@ class CreateSetResponseBody extends Model
     /**
      * @var string
      */
-    public $createTime;
-
-    /**
-     * @var int
-     */
-    public $videoLength;
-
-    /**
-     * @var string
-     */
     public $setId;
-
-    /**
-     * @var int
-     */
-    public $imageCount;
-
-    /**
-     * @var int
-     */
-    public $faceCount;
 
     /**
      * @var string
@@ -49,19 +44,24 @@ class CreateSetResponseBody extends Model
     public $setName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $modifyTime;
+    public $videoCount;
+
+    /**
+     * @var int
+     */
+    public $videoLength;
     protected $_name = [
-        'videoCount'  => 'VideoCount',
-        'requestId'   => 'RequestId',
         'createTime'  => 'CreateTime',
-        'videoLength' => 'VideoLength',
-        'setId'       => 'SetId',
-        'imageCount'  => 'ImageCount',
         'faceCount'   => 'FaceCount',
-        'setName'     => 'SetName',
+        'imageCount'  => 'ImageCount',
         'modifyTime'  => 'ModifyTime',
+        'requestId'   => 'RequestId',
+        'setId'       => 'SetId',
+        'setName'     => 'SetName',
+        'videoCount'  => 'VideoCount',
+        'videoLength' => 'VideoLength',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class CreateSetResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoCount) {
-            $res['VideoCount'] = $this->videoCount;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->videoLength) {
-            $res['VideoLength'] = $this->videoLength;
-        }
-        if (null !== $this->setId) {
-            $res['SetId'] = $this->setId;
-        }
-        if (null !== $this->imageCount) {
-            $res['ImageCount'] = $this->imageCount;
         }
         if (null !== $this->faceCount) {
             $res['FaceCount'] = $this->faceCount;
         }
-        if (null !== $this->setName) {
-            $res['SetName'] = $this->setName;
+        if (null !== $this->imageCount) {
+            $res['ImageCount'] = $this->imageCount;
         }
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->setId) {
+            $res['SetId'] = $this->setId;
+        }
+        if (null !== $this->setName) {
+            $res['SetName'] = $this->setName;
+        }
+        if (null !== $this->videoCount) {
+            $res['VideoCount'] = $this->videoCount;
+        }
+        if (null !== $this->videoLength) {
+            $res['VideoLength'] = $this->videoLength;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class CreateSetResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoCount'])) {
-            $model->videoCount = $map['VideoCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['VideoLength'])) {
-            $model->videoLength = $map['VideoLength'];
-        }
-        if (isset($map['SetId'])) {
-            $model->setId = $map['SetId'];
-        }
-        if (isset($map['ImageCount'])) {
-            $model->imageCount = $map['ImageCount'];
         }
         if (isset($map['FaceCount'])) {
             $model->faceCount = $map['FaceCount'];
         }
-        if (isset($map['SetName'])) {
-            $model->setName = $map['SetName'];
+        if (isset($map['ImageCount'])) {
+            $model->imageCount = $map['ImageCount'];
         }
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SetId'])) {
+            $model->setId = $map['SetId'];
+        }
+        if (isset($map['SetName'])) {
+            $model->setName = $map['SetName'];
+        }
+        if (isset($map['VideoCount'])) {
+            $model->videoCount = $map['VideoCount'];
+        }
+        if (isset($map['VideoLength'])) {
+            $model->videoLength = $map['VideoLength'];
         }
 
         return $model;

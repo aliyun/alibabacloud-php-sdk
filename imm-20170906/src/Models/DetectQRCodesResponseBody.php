@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class DetectQRCodesResponseBody extends Model
 {
     /**
+     * @var failDetails[]
+     */
+    public $failDetails;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -19,15 +24,10 @@ class DetectQRCodesResponseBody extends Model
      * @var successDetails[]
      */
     public $successDetails;
-
-    /**
-     * @var failDetails[]
-     */
-    public $failDetails;
     protected $_name = [
+        'failDetails'    => 'FailDetails',
         'requestId'      => 'RequestId',
         'successDetails' => 'SuccessDetails',
-        'failDetails'    => 'FailDetails',
     ];
 
     public function validate()
@@ -37,6 +37,15 @@ class DetectQRCodesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->failDetails) {
+            $res['FailDetails'] = [];
+            if (null !== $this->failDetails && \is_array($this->failDetails)) {
+                $n = 0;
+                foreach ($this->failDetails as $item) {
+                    $res['FailDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,15 +55,6 @@ class DetectQRCodesResponseBody extends Model
                 $n = 0;
                 foreach ($this->successDetails as $item) {
                     $res['SuccessDetails'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->failDetails) {
-            $res['FailDetails'] = [];
-            if (null !== $this->failDetails && \is_array($this->failDetails)) {
-                $n = 0;
-                foreach ($this->failDetails as $item) {
-                    $res['FailDetails'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -70,6 +70,15 @@ class DetectQRCodesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FailDetails'])) {
+            if (!empty($map['FailDetails'])) {
+                $model->failDetails = [];
+                $n                  = 0;
+                foreach ($map['FailDetails'] as $item) {
+                    $model->failDetails[$n++] = null !== $item ? failDetails::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -79,15 +88,6 @@ class DetectQRCodesResponseBody extends Model
                 $n                     = 0;
                 foreach ($map['SuccessDetails'] as $item) {
                     $model->successDetails[$n++] = null !== $item ? successDetails::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['FailDetails'])) {
-            if (!empty($map['FailDetails'])) {
-                $model->failDetails = [];
-                $n                  = 0;
-                foreach ($map['FailDetails'] as $item) {
-                    $model->failDetails[$n++] = null !== $item ? failDetails::fromMap($item) : $item;
                 }
             }
         }

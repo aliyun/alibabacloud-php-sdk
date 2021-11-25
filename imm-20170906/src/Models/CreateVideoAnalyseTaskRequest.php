@@ -11,17 +11,7 @@ class CreateVideoAnalyseTaskRequest extends Model
     /**
      * @var string
      */
-    public $project;
-
-    /**
-     * @var string
-     */
-    public $videoUri;
-
-    /**
-     * @var string
-     */
-    public $tgtUri;
+    public $notifyEndpoint;
 
     /**
      * @var string
@@ -31,13 +21,23 @@ class CreateVideoAnalyseTaskRequest extends Model
     /**
      * @var string
      */
-    public $notifyEndpoint;
+    public $project;
+
+    /**
+     * @var string
+     */
+    public $tgtUri;
+
+    /**
+     * @var string
+     */
+    public $videoUri;
     protected $_name = [
-        'project'         => 'Project',
-        'videoUri'        => 'VideoUri',
-        'tgtUri'          => 'TgtUri',
-        'notifyTopicName' => 'NotifyTopicName',
         'notifyEndpoint'  => 'NotifyEndpoint',
+        'notifyTopicName' => 'NotifyTopicName',
+        'project'         => 'Project',
+        'tgtUri'          => 'TgtUri',
+        'videoUri'        => 'VideoUri',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class CreateVideoAnalyseTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->project) {
-            $res['Project'] = $this->project;
-        }
-        if (null !== $this->videoUri) {
-            $res['VideoUri'] = $this->videoUri;
-        }
-        if (null !== $this->tgtUri) {
-            $res['TgtUri'] = $this->tgtUri;
+        if (null !== $this->notifyEndpoint) {
+            $res['NotifyEndpoint'] = $this->notifyEndpoint;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
         }
-        if (null !== $this->notifyEndpoint) {
-            $res['NotifyEndpoint'] = $this->notifyEndpoint;
+        if (null !== $this->project) {
+            $res['Project'] = $this->project;
+        }
+        if (null !== $this->tgtUri) {
+            $res['TgtUri'] = $this->tgtUri;
+        }
+        if (null !== $this->videoUri) {
+            $res['VideoUri'] = $this->videoUri;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class CreateVideoAnalyseTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Project'])) {
-            $model->project = $map['Project'];
-        }
-        if (isset($map['VideoUri'])) {
-            $model->videoUri = $map['VideoUri'];
-        }
-        if (isset($map['TgtUri'])) {
-            $model->tgtUri = $map['TgtUri'];
+        if (isset($map['NotifyEndpoint'])) {
+            $model->notifyEndpoint = $map['NotifyEndpoint'];
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];
         }
-        if (isset($map['NotifyEndpoint'])) {
-            $model->notifyEndpoint = $map['NotifyEndpoint'];
+        if (isset($map['Project'])) {
+            $model->project = $map['Project'];
+        }
+        if (isset($map['TgtUri'])) {
+            $model->tgtUri = $map['TgtUri'];
+        }
+        if (isset($map['VideoUri'])) {
+            $model->videoUri = $map['VideoUri'];
         }
 
         return $model;

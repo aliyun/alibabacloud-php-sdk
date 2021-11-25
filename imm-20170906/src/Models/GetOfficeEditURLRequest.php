@@ -11,12 +11,27 @@ class GetOfficeEditURLRequest extends Model
     /**
      * @var string
      */
-    public $project;
+    public $fileID;
 
     /**
      * @var string
      */
-    public $srcUri;
+    public $fileName;
+
+    /**
+     * @var string
+     */
+    public $notifyEndpoint;
+
+    /**
+     * @var string
+     */
+    public $notifyTopicName;
+
+    /**
+     * @var string
+     */
+    public $project;
 
     /**
      * @var string
@@ -26,7 +41,7 @@ class GetOfficeEditURLRequest extends Model
     /**
      * @var string
      */
-    public $fileID;
+    public $srcUri;
 
     /**
      * @var string
@@ -42,32 +57,17 @@ class GetOfficeEditURLRequest extends Model
      * @var string
      */
     public $userName;
-
-    /**
-     * @var string
-     */
-    public $notifyEndpoint;
-
-    /**
-     * @var string
-     */
-    public $notifyTopicName;
-
-    /**
-     * @var string
-     */
-    public $fileName;
     protected $_name = [
-        'project'         => 'Project',
-        'srcUri'          => 'SrcUri',
-        'srcType'         => 'SrcType',
         'fileID'          => 'FileID',
+        'fileName'        => 'FileName',
+        'notifyEndpoint'  => 'NotifyEndpoint',
+        'notifyTopicName' => 'NotifyTopicName',
+        'project'         => 'Project',
+        'srcType'         => 'SrcType',
+        'srcUri'          => 'SrcUri',
         'tgtUri'          => 'TgtUri',
         'userID'          => 'UserID',
         'userName'        => 'UserName',
-        'notifyEndpoint'  => 'NotifyEndpoint',
-        'notifyTopicName' => 'NotifyTopicName',
-        'fileName'        => 'FileName',
     ];
 
     public function validate()
@@ -77,17 +77,26 @@ class GetOfficeEditURLRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fileID) {
+            $res['FileID'] = $this->fileID;
+        }
+        if (null !== $this->fileName) {
+            $res['FileName'] = $this->fileName;
+        }
+        if (null !== $this->notifyEndpoint) {
+            $res['NotifyEndpoint'] = $this->notifyEndpoint;
+        }
+        if (null !== $this->notifyTopicName) {
+            $res['NotifyTopicName'] = $this->notifyTopicName;
+        }
         if (null !== $this->project) {
             $res['Project'] = $this->project;
-        }
-        if (null !== $this->srcUri) {
-            $res['SrcUri'] = $this->srcUri;
         }
         if (null !== $this->srcType) {
             $res['SrcType'] = $this->srcType;
         }
-        if (null !== $this->fileID) {
-            $res['FileID'] = $this->fileID;
+        if (null !== $this->srcUri) {
+            $res['SrcUri'] = $this->srcUri;
         }
         if (null !== $this->tgtUri) {
             $res['TgtUri'] = $this->tgtUri;
@@ -97,15 +106,6 @@ class GetOfficeEditURLRequest extends Model
         }
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
-        }
-        if (null !== $this->notifyEndpoint) {
-            $res['NotifyEndpoint'] = $this->notifyEndpoint;
-        }
-        if (null !== $this->notifyTopicName) {
-            $res['NotifyTopicName'] = $this->notifyTopicName;
-        }
-        if (null !== $this->fileName) {
-            $res['FileName'] = $this->fileName;
         }
 
         return $res;
@@ -119,17 +119,26 @@ class GetOfficeEditURLRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FileID'])) {
+            $model->fileID = $map['FileID'];
+        }
+        if (isset($map['FileName'])) {
+            $model->fileName = $map['FileName'];
+        }
+        if (isset($map['NotifyEndpoint'])) {
+            $model->notifyEndpoint = $map['NotifyEndpoint'];
+        }
+        if (isset($map['NotifyTopicName'])) {
+            $model->notifyTopicName = $map['NotifyTopicName'];
+        }
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
-        }
-        if (isset($map['SrcUri'])) {
-            $model->srcUri = $map['SrcUri'];
         }
         if (isset($map['SrcType'])) {
             $model->srcType = $map['SrcType'];
         }
-        if (isset($map['FileID'])) {
-            $model->fileID = $map['FileID'];
+        if (isset($map['SrcUri'])) {
+            $model->srcUri = $map['SrcUri'];
         }
         if (isset($map['TgtUri'])) {
             $model->tgtUri = $map['TgtUri'];
@@ -139,15 +148,6 @@ class GetOfficeEditURLRequest extends Model
         }
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
-        }
-        if (isset($map['NotifyEndpoint'])) {
-            $model->notifyEndpoint = $map['NotifyEndpoint'];
-        }
-        if (isset($map['NotifyTopicName'])) {
-            $model->notifyTopicName = $map['NotifyTopicName'];
-        }
-        if (isset($map['FileName'])) {
-            $model->fileName = $map['FileName'];
         }
 
         return $model;

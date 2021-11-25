@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class successDetails extends Model
 {
     /**
-     * @var string
-     */
-    public $srcUri;
-
-    /**
      * @var QRCodes[]
      */
     public $QRCodes;
+
+    /**
+     * @var string
+     */
+    public $srcUri;
     protected $_name = [
-        'srcUri'  => 'SrcUri',
         'QRCodes' => 'QRCodes',
+        'srcUri'  => 'SrcUri',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class successDetails extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->srcUri) {
-            $res['SrcUri'] = $this->srcUri;
-        }
         if (null !== $this->QRCodes) {
             $res['QRCodes'] = [];
             if (null !== $this->QRCodes && \is_array($this->QRCodes)) {
@@ -41,6 +38,9 @@ class successDetails extends Model
                     $res['QRCodes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->srcUri) {
+            $res['SrcUri'] = $this->srcUri;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class successDetails extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SrcUri'])) {
-            $model->srcUri = $map['SrcUri'];
-        }
         if (isset($map['QRCodes'])) {
             if (!empty($map['QRCodes'])) {
                 $model->QRCodes = [];
@@ -65,6 +62,9 @@ class successDetails extends Model
                     $model->QRCodes[$n++] = null !== $item ? QRCodes::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['SrcUri'])) {
+            $model->srcUri = $map['SrcUri'];
         }
 
         return $model;

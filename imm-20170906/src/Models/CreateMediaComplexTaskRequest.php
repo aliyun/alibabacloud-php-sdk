@@ -11,12 +11,7 @@ class CreateMediaComplexTaskRequest extends Model
     /**
      * @var string
      */
-    public $project;
-
-    /**
-     * @var string
-     */
-    public $parameters;
+    public $notifyEndpoint;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class CreateMediaComplexTaskRequest extends Model
     /**
      * @var string
      */
-    public $notifyEndpoint;
+    public $parameters;
+
+    /**
+     * @var string
+     */
+    public $project;
     protected $_name = [
-        'project'         => 'Project',
-        'parameters'      => 'Parameters',
-        'notifyTopicName' => 'NotifyTopicName',
         'notifyEndpoint'  => 'NotifyEndpoint',
+        'notifyTopicName' => 'NotifyTopicName',
+        'parameters'      => 'Parameters',
+        'project'         => 'Project',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class CreateMediaComplexTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->project) {
-            $res['Project'] = $this->project;
-        }
-        if (null !== $this->parameters) {
-            $res['Parameters'] = $this->parameters;
+        if (null !== $this->notifyEndpoint) {
+            $res['NotifyEndpoint'] = $this->notifyEndpoint;
         }
         if (null !== $this->notifyTopicName) {
             $res['NotifyTopicName'] = $this->notifyTopicName;
         }
-        if (null !== $this->notifyEndpoint) {
-            $res['NotifyEndpoint'] = $this->notifyEndpoint;
+        if (null !== $this->parameters) {
+            $res['Parameters'] = $this->parameters;
+        }
+        if (null !== $this->project) {
+            $res['Project'] = $this->project;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class CreateMediaComplexTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Project'])) {
-            $model->project = $map['Project'];
-        }
-        if (isset($map['Parameters'])) {
-            $model->parameters = $map['Parameters'];
+        if (isset($map['NotifyEndpoint'])) {
+            $model->notifyEndpoint = $map['NotifyEndpoint'];
         }
         if (isset($map['NotifyTopicName'])) {
             $model->notifyTopicName = $map['NotifyTopicName'];
         }
-        if (isset($map['NotifyEndpoint'])) {
-            $model->notifyEndpoint = $map['NotifyEndpoint'];
+        if (isset($map['Parameters'])) {
+            $model->parameters = $map['Parameters'];
+        }
+        if (isset($map['Project'])) {
+            $model->project = $map['Project'];
         }
 
         return $model;

@@ -11,12 +11,12 @@ class CompareImageFacesRequest extends Model
     /**
      * @var string
      */
-    public $project;
+    public $faceIdA;
 
     /**
      * @var string
      */
-    public $setId;
+    public $faceIdB;
 
     /**
      * @var string
@@ -31,19 +31,19 @@ class CompareImageFacesRequest extends Model
     /**
      * @var string
      */
-    public $faceIdA;
+    public $project;
 
     /**
      * @var string
      */
-    public $faceIdB;
+    public $setId;
     protected $_name = [
-        'project'   => 'Project',
-        'setId'     => 'SetId',
-        'imageUriA' => 'ImageUriA',
-        'imageUriB' => 'ImageUriB',
         'faceIdA'   => 'FaceIdA',
         'faceIdB'   => 'FaceIdB',
+        'imageUriA' => 'ImageUriA',
+        'imageUriB' => 'ImageUriB',
+        'project'   => 'Project',
+        'setId'     => 'SetId',
     ];
 
     public function validate()
@@ -53,11 +53,11 @@ class CompareImageFacesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->project) {
-            $res['Project'] = $this->project;
+        if (null !== $this->faceIdA) {
+            $res['FaceIdA'] = $this->faceIdA;
         }
-        if (null !== $this->setId) {
-            $res['SetId'] = $this->setId;
+        if (null !== $this->faceIdB) {
+            $res['FaceIdB'] = $this->faceIdB;
         }
         if (null !== $this->imageUriA) {
             $res['ImageUriA'] = $this->imageUriA;
@@ -65,11 +65,11 @@ class CompareImageFacesRequest extends Model
         if (null !== $this->imageUriB) {
             $res['ImageUriB'] = $this->imageUriB;
         }
-        if (null !== $this->faceIdA) {
-            $res['FaceIdA'] = $this->faceIdA;
+        if (null !== $this->project) {
+            $res['Project'] = $this->project;
         }
-        if (null !== $this->faceIdB) {
-            $res['FaceIdB'] = $this->faceIdB;
+        if (null !== $this->setId) {
+            $res['SetId'] = $this->setId;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class CompareImageFacesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Project'])) {
-            $model->project = $map['Project'];
+        if (isset($map['FaceIdA'])) {
+            $model->faceIdA = $map['FaceIdA'];
         }
-        if (isset($map['SetId'])) {
-            $model->setId = $map['SetId'];
+        if (isset($map['FaceIdB'])) {
+            $model->faceIdB = $map['FaceIdB'];
         }
         if (isset($map['ImageUriA'])) {
             $model->imageUriA = $map['ImageUriA'];
@@ -95,11 +95,11 @@ class CompareImageFacesRequest extends Model
         if (isset($map['ImageUriB'])) {
             $model->imageUriB = $map['ImageUriB'];
         }
-        if (isset($map['FaceIdA'])) {
-            $model->faceIdA = $map['FaceIdA'];
+        if (isset($map['Project'])) {
+            $model->project = $map['Project'];
         }
-        if (isset($map['FaceIdB'])) {
-            $model->faceIdB = $map['FaceIdB'];
+        if (isset($map['SetId'])) {
+            $model->setId = $map['SetId'];
         }
 
         return $model;

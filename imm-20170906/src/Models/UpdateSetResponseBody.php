@@ -11,17 +11,7 @@ class UpdateSetResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $createTime;
-
-    /**
-     * @var string
-     */
-    public $setName;
 
     /**
      * @var string
@@ -31,13 +21,23 @@ class UpdateSetResponseBody extends Model
     /**
      * @var string
      */
+    public $requestId;
+
+    /**
+     * @var string
+     */
     public $setId;
+
+    /**
+     * @var string
+     */
+    public $setName;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'createTime' => 'CreateTime',
-        'setName'    => 'SetName',
         'modifyTime' => 'ModifyTime',
+        'requestId'  => 'RequestId',
         'setId'      => 'SetId',
+        'setName'    => 'SetName',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class UpdateSetResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->setName) {
-            $res['SetName'] = $this->setName;
         }
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->setId) {
             $res['SetId'] = $this->setId;
+        }
+        if (null !== $this->setName) {
+            $res['SetName'] = $this->setName;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class UpdateSetResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['SetName'])) {
-            $model->setName = $map['SetName'];
         }
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['SetId'])) {
             $model->setId = $map['SetId'];
+        }
+        if (isset($map['SetName'])) {
+            $model->setName = $map['SetName'];
         }
 
         return $model;

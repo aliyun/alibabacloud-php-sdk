@@ -11,7 +11,7 @@ class projects extends Model
     /**
      * @var string
      */
-    public $type;
+    public $billingType;
 
     /**
      * @var int
@@ -26,12 +26,12 @@ class projects extends Model
     /**
      * @var string
      */
-    public $serviceRole;
+    public $endpoint;
 
     /**
      * @var string
      */
-    public $endpoint;
+    public $modifyTime;
 
     /**
      * @var string
@@ -46,22 +46,22 @@ class projects extends Model
     /**
      * @var string
      */
-    public $billingType;
+    public $serviceRole;
 
     /**
      * @var string
      */
-    public $modifyTime;
+    public $type;
     protected $_name = [
-        'type'        => 'Type',
+        'billingType' => 'BillingType',
         'CU'          => 'CU',
         'createTime'  => 'CreateTime',
-        'serviceRole' => 'ServiceRole',
         'endpoint'    => 'Endpoint',
+        'modifyTime'  => 'ModifyTime',
         'project'     => 'Project',
         'regionId'    => 'RegionId',
-        'billingType' => 'BillingType',
-        'modifyTime'  => 'ModifyTime',
+        'serviceRole' => 'ServiceRole',
+        'type'        => 'Type',
     ];
 
     public function validate()
@@ -71,8 +71,8 @@ class projects extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->billingType) {
+            $res['BillingType'] = $this->billingType;
         }
         if (null !== $this->CU) {
             $res['CU'] = $this->CU;
@@ -80,11 +80,11 @@ class projects extends Model
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->serviceRole) {
-            $res['ServiceRole'] = $this->serviceRole;
-        }
         if (null !== $this->endpoint) {
             $res['Endpoint'] = $this->endpoint;
+        }
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
         }
         if (null !== $this->project) {
             $res['Project'] = $this->project;
@@ -92,11 +92,11 @@ class projects extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->billingType) {
-            $res['BillingType'] = $this->billingType;
+        if (null !== $this->serviceRole) {
+            $res['ServiceRole'] = $this->serviceRole;
         }
-        if (null !== $this->modifyTime) {
-            $res['ModifyTime'] = $this->modifyTime;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -110,8 +110,8 @@ class projects extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['BillingType'])) {
+            $model->billingType = $map['BillingType'];
         }
         if (isset($map['CU'])) {
             $model->CU = $map['CU'];
@@ -119,11 +119,11 @@ class projects extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['ServiceRole'])) {
-            $model->serviceRole = $map['ServiceRole'];
-        }
         if (isset($map['Endpoint'])) {
             $model->endpoint = $map['Endpoint'];
+        }
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
         }
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
@@ -131,11 +131,11 @@ class projects extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['BillingType'])) {
-            $model->billingType = $map['BillingType'];
+        if (isset($map['ServiceRole'])) {
+            $model->serviceRole = $map['ServiceRole'];
         }
-        if (isset($map['ModifyTime'])) {
-            $model->modifyTime = $map['ModifyTime'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

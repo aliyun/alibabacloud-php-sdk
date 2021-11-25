@@ -11,14 +11,34 @@ use AlibabaCloud\Tea\Model;
 class faceAttributes extends Model
 {
     /**
+     * @var string
+     */
+    public $beard;
+
+    /**
      * @var float
      */
-    public $glassesConfidence;
+    public $beardConfidence;
+
+    /**
+     * @var faceBoundary
+     */
+    public $faceBoundary;
 
     /**
      * @var string
      */
     public $glasses;
+
+    /**
+     * @var float
+     */
+    public $glassesConfidence;
+
+    /**
+     * @var headPose
+     */
+    public $headPose;
 
     /**
      * @var string
@@ -28,36 +48,16 @@ class faceAttributes extends Model
     /**
      * @var float
      */
-    public $beardConfidence;
-
-    /**
-     * @var float
-     */
     public $maskConfidence;
-
-    /**
-     * @var string
-     */
-    public $beard;
-
-    /**
-     * @var faceBoundary
-     */
-    public $faceBoundary;
-
-    /**
-     * @var headPose
-     */
-    public $headPose;
     protected $_name = [
-        'glassesConfidence' => 'GlassesConfidence',
-        'glasses'           => 'Glasses',
-        'mask'              => 'Mask',
-        'beardConfidence'   => 'BeardConfidence',
-        'maskConfidence'    => 'MaskConfidence',
         'beard'             => 'Beard',
+        'beardConfidence'   => 'BeardConfidence',
         'faceBoundary'      => 'FaceBoundary',
+        'glasses'           => 'Glasses',
+        'glassesConfidence' => 'GlassesConfidence',
         'headPose'          => 'HeadPose',
+        'mask'              => 'Mask',
+        'maskConfidence'    => 'MaskConfidence',
     ];
 
     public function validate()
@@ -67,29 +67,29 @@ class faceAttributes extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->glassesConfidence) {
-            $res['GlassesConfidence'] = $this->glassesConfidence;
-        }
-        if (null !== $this->glasses) {
-            $res['Glasses'] = $this->glasses;
-        }
-        if (null !== $this->mask) {
-            $res['Mask'] = $this->mask;
+        if (null !== $this->beard) {
+            $res['Beard'] = $this->beard;
         }
         if (null !== $this->beardConfidence) {
             $res['BeardConfidence'] = $this->beardConfidence;
         }
-        if (null !== $this->maskConfidence) {
-            $res['MaskConfidence'] = $this->maskConfidence;
-        }
-        if (null !== $this->beard) {
-            $res['Beard'] = $this->beard;
-        }
         if (null !== $this->faceBoundary) {
             $res['FaceBoundary'] = null !== $this->faceBoundary ? $this->faceBoundary->toMap() : null;
         }
+        if (null !== $this->glasses) {
+            $res['Glasses'] = $this->glasses;
+        }
+        if (null !== $this->glassesConfidence) {
+            $res['GlassesConfidence'] = $this->glassesConfidence;
+        }
         if (null !== $this->headPose) {
             $res['HeadPose'] = null !== $this->headPose ? $this->headPose->toMap() : null;
+        }
+        if (null !== $this->mask) {
+            $res['Mask'] = $this->mask;
+        }
+        if (null !== $this->maskConfidence) {
+            $res['MaskConfidence'] = $this->maskConfidence;
         }
 
         return $res;
@@ -103,29 +103,29 @@ class faceAttributes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GlassesConfidence'])) {
-            $model->glassesConfidence = $map['GlassesConfidence'];
-        }
-        if (isset($map['Glasses'])) {
-            $model->glasses = $map['Glasses'];
-        }
-        if (isset($map['Mask'])) {
-            $model->mask = $map['Mask'];
+        if (isset($map['Beard'])) {
+            $model->beard = $map['Beard'];
         }
         if (isset($map['BeardConfidence'])) {
             $model->beardConfidence = $map['BeardConfidence'];
         }
-        if (isset($map['MaskConfidence'])) {
-            $model->maskConfidence = $map['MaskConfidence'];
-        }
-        if (isset($map['Beard'])) {
-            $model->beard = $map['Beard'];
-        }
         if (isset($map['FaceBoundary'])) {
             $model->faceBoundary = faceBoundary::fromMap($map['FaceBoundary']);
         }
+        if (isset($map['Glasses'])) {
+            $model->glasses = $map['Glasses'];
+        }
+        if (isset($map['GlassesConfidence'])) {
+            $model->glassesConfidence = $map['GlassesConfidence'];
+        }
         if (isset($map['HeadPose'])) {
             $model->headPose = headPose::fromMap($map['HeadPose']);
+        }
+        if (isset($map['Mask'])) {
+            $model->mask = $map['Mask'];
+        }
+        if (isset($map['MaskConfidence'])) {
+            $model->maskConfidence = $map['MaskConfidence'];
         }
 
         return $model;

@@ -11,6 +11,11 @@ class OCRBoundary extends Model
     /**
      * @var int
      */
+    public $height;
+
+    /**
+     * @var int
+     */
     public $left;
 
     /**
@@ -22,16 +27,11 @@ class OCRBoundary extends Model
      * @var int
      */
     public $width;
-
-    /**
-     * @var int
-     */
-    public $height;
     protected $_name = [
+        'height' => 'Height',
         'left'   => 'Left',
         'top'    => 'Top',
         'width'  => 'Width',
-        'height' => 'Height',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class OCRBoundary extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->height) {
+            $res['Height'] = $this->height;
+        }
         if (null !== $this->left) {
             $res['Left'] = $this->left;
         }
@@ -49,9 +52,6 @@ class OCRBoundary extends Model
         }
         if (null !== $this->width) {
             $res['Width'] = $this->width;
-        }
-        if (null !== $this->height) {
-            $res['Height'] = $this->height;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class OCRBoundary extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Height'])) {
+            $model->height = $map['Height'];
+        }
         if (isset($map['Left'])) {
             $model->left = $map['Left'];
         }
@@ -73,9 +76,6 @@ class OCRBoundary extends Model
         }
         if (isset($map['Width'])) {
             $model->width = $map['Width'];
-        }
-        if (isset($map['Height'])) {
-            $model->height = $map['Height'];
         }
 
         return $model;

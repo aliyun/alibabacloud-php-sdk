@@ -11,21 +11,21 @@ class GetImageRequest extends Model
     /**
      * @var string
      */
+    public $imageUri;
+
+    /**
+     * @var string
+     */
     public $project;
 
     /**
      * @var string
      */
     public $setId;
-
-    /**
-     * @var string
-     */
-    public $imageUri;
     protected $_name = [
+        'imageUri' => 'ImageUri',
         'project'  => 'Project',
         'setId'    => 'SetId',
-        'imageUri' => 'ImageUri',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetImageRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->imageUri) {
+            $res['ImageUri'] = $this->imageUri;
+        }
         if (null !== $this->project) {
             $res['Project'] = $this->project;
         }
         if (null !== $this->setId) {
             $res['SetId'] = $this->setId;
-        }
-        if (null !== $this->imageUri) {
-            $res['ImageUri'] = $this->imageUri;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetImageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ImageUri'])) {
+            $model->imageUri = $map['ImageUri'];
+        }
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
         }
         if (isset($map['SetId'])) {
             $model->setId = $map['SetId'];
-        }
-        if (isset($map['ImageUri'])) {
-            $model->imageUri = $map['ImageUri'];
         }
 
         return $model;

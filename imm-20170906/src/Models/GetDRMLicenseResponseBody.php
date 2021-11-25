@@ -11,7 +11,7 @@ class GetDRMLicenseResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $DRMData;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class GetDRMLicenseResponseBody extends Model
     /**
      * @var string
      */
-    public $DRMData;
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'deviceInfo' => 'DeviceInfo',
         'DRMData'    => 'DRMData',
+        'deviceInfo' => 'DeviceInfo',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetDRMLicenseResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->DRMData) {
+            $res['DRMData'] = $this->DRMData;
         }
         if (null !== $this->deviceInfo) {
             $res['DeviceInfo'] = $this->deviceInfo;
         }
-        if (null !== $this->DRMData) {
-            $res['DRMData'] = $this->DRMData;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetDRMLicenseResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['DRMData'])) {
+            $model->DRMData = $map['DRMData'];
         }
         if (isset($map['DeviceInfo'])) {
             $model->deviceInfo = $map['DeviceInfo'];
         }
-        if (isset($map['DRMData'])) {
-            $model->DRMData = $map['DRMData'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

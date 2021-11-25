@@ -12,11 +12,6 @@ use AlibabaCloud\Tea\Model;
 class mediaStreams extends Model
 {
     /**
-     * @var videoStreams[]
-     */
-    public $videoStreams;
-
-    /**
      * @var audioStreams[]
      */
     public $audioStreams;
@@ -25,10 +20,15 @@ class mediaStreams extends Model
      * @var subtitleStreams[]
      */
     public $subtitleStreams;
+
+    /**
+     * @var videoStreams[]
+     */
+    public $videoStreams;
     protected $_name = [
-        'videoStreams'    => 'VideoStreams',
         'audioStreams'    => 'AudioStreams',
         'subtitleStreams' => 'SubtitleStreams',
+        'videoStreams'    => 'VideoStreams',
     ];
 
     public function validate()
@@ -38,15 +38,6 @@ class mediaStreams extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoStreams) {
-            $res['VideoStreams'] = [];
-            if (null !== $this->videoStreams && \is_array($this->videoStreams)) {
-                $n = 0;
-                foreach ($this->videoStreams as $item) {
-                    $res['VideoStreams'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->audioStreams) {
             $res['AudioStreams'] = [];
             if (null !== $this->audioStreams && \is_array($this->audioStreams)) {
@@ -65,6 +56,15 @@ class mediaStreams extends Model
                 }
             }
         }
+        if (null !== $this->videoStreams) {
+            $res['VideoStreams'] = [];
+            if (null !== $this->videoStreams && \is_array($this->videoStreams)) {
+                $n = 0;
+                foreach ($this->videoStreams as $item) {
+                    $res['VideoStreams'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -77,15 +77,6 @@ class mediaStreams extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoStreams'])) {
-            if (!empty($map['VideoStreams'])) {
-                $model->videoStreams = [];
-                $n                   = 0;
-                foreach ($map['VideoStreams'] as $item) {
-                    $model->videoStreams[$n++] = null !== $item ? videoStreams::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['AudioStreams'])) {
             if (!empty($map['AudioStreams'])) {
                 $model->audioStreams = [];
@@ -101,6 +92,15 @@ class mediaStreams extends Model
                 $n                      = 0;
                 foreach ($map['SubtitleStreams'] as $item) {
                     $model->subtitleStreams[$n++] = null !== $item ? subtitleStreams::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['VideoStreams'])) {
+            if (!empty($map['VideoStreams'])) {
+                $model->videoStreams = [];
+                $n                   = 0;
+                foreach ($map['VideoStreams'] as $item) {
+                    $model->videoStreams[$n++] = null !== $item ? videoStreams::fromMap($item) : $item;
                 }
             }
         }
