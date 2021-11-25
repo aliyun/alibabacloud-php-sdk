@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
 class RecognizeEduPaperCutRequest extends Model
 {
@@ -30,16 +31,24 @@ class RecognizeEduPaperCutRequest extends Model
     public $subject;
 
     /**
-     * @description 图片链接（长度不超 1014，不支持 base64）
+     * @description 图片链接（长度不超 2048，不支持 base64）
      *
      * @var string
      */
     public $url;
+
+    /**
+     * @description 图片二进制字节流，最大10MB
+     *
+     * @var Stream
+     */
+    public $body;
     protected $_name = [
         'cutType'   => 'CutType',
         'imageType' => 'ImageType',
         'subject'   => 'Subject',
         'url'       => 'Url',
+        'body'      => 'body',
     ];
 
     public function validate()
@@ -60,6 +69,9 @@ class RecognizeEduPaperCutRequest extends Model
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
+        }
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
         }
 
         return $res;
@@ -84,6 +96,9 @@ class RecognizeEduPaperCutRequest extends Model
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
+        }
+        if (isset($map['body'])) {
+            $model->body = $map['body'];
         }
 
         return $model;

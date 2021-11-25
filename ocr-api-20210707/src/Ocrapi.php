@@ -100,6 +100,7 @@ use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeWaybillResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Ocrapi extends OpenApiClient
@@ -144,12 +145,30 @@ class Ocrapi extends OpenApiClient
     public function recognizeAdvancedWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query                   = [];
+        $query['NeedRotate']     = $request->needRotate;
+        $query['NeedSortPage']   = $request->needSortPage;
+        $query['OutputCharInfo'] = $request->outputCharInfo;
+        $query['OutputTable']    = $request->outputTable;
+        $query['Url']            = $request->url;
+        $req                     = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeAdvanced',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeAdvancedResponse::fromMap($this->doRPCRequest('RecognizeAdvanced', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeAdvancedResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -173,12 +192,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeAirItineraryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeAirItinerary',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeAirItineraryResponse::fromMap($this->doRPCRequest('RecognizeAirItinerary', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeAirItineraryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -202,12 +235,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeBankAccountLicenseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeBankAccountLicense',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeBankAccountLicenseResponse::fromMap($this->doRPCRequest('RecognizeBankAccountLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeBankAccountLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -231,12 +278,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeBankCardWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeBankCard',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeBankCardResponse::fromMap($this->doRPCRequest('RecognizeBankCard', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeBankCardResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -260,12 +321,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeBasicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeBasic',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeBasicResponse::fromMap($this->doRPCRequest('RecognizeBasic', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeBasicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -289,12 +364,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeBirthCertificationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeBirthCertification',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeBirthCertificationResponse::fromMap($this->doRPCRequest('RecognizeBirthCertification', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeBirthCertificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -318,12 +407,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeBusinessLicenseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeBusinessLicense',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeBusinessLicenseResponse::fromMap($this->doRPCRequest('RecognizeBusinessLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeBusinessLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -347,12 +450,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeCarInvoiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeCarInvoice',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeCarInvoiceResponse::fromMap($this->doRPCRequest('RecognizeCarInvoice', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeCarInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -376,12 +493,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeCarNumberWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeCarNumber',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeCarNumberResponse::fromMap($this->doRPCRequest('RecognizeCarNumber', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeCarNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -405,12 +536,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeCarVinCodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeCarVinCode',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeCarVinCodeResponse::fromMap($this->doRPCRequest('RecognizeCarVinCode', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeCarVinCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -434,12 +579,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeCtwoMedicalDeviceManageLicenseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeCtwoMedicalDeviceManageLicense',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeCtwoMedicalDeviceManageLicenseResponse::fromMap($this->doRPCRequest('RecognizeCtwoMedicalDeviceManageLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeCtwoMedicalDeviceManageLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -463,12 +622,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeDrivingLicenseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeDrivingLicense',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeDrivingLicenseResponse::fromMap($this->doRPCRequest('RecognizeDrivingLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeDrivingLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -492,12 +665,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeEduFormulaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeEduFormula',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeEduFormulaResponse::fromMap($this->doRPCRequest('RecognizeEduFormula', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeEduFormulaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -521,12 +708,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeEduOralCalculationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeEduOralCalculation',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeEduOralCalculationResponse::fromMap($this->doRPCRequest('RecognizeEduOralCalculation', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeEduOralCalculationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -550,12 +751,29 @@ class Ocrapi extends OpenApiClient
     public function recognizeEduPaperCutWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query              = [];
+        $query['CutType']   = $request->cutType;
+        $query['ImageType'] = $request->imageType;
+        $query['Subject']   = $request->subject;
+        $query['Url']       = $request->url;
+        $req                = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeEduPaperCut',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeEduPaperCutResponse::fromMap($this->doRPCRequest('RecognizeEduPaperCut', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeEduPaperCutResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -579,12 +797,29 @@ class Ocrapi extends OpenApiClient
     public function recognizeEduPaperOcrWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query                   = [];
+        $query['ImageType']      = $request->imageType;
+        $query['OutputOricoord'] = $request->outputOricoord;
+        $query['Subject']        = $request->subject;
+        $query['Url']            = $request->url;
+        $req                     = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeEduPaperOcr',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeEduPaperOcrResponse::fromMap($this->doRPCRequest('RecognizeEduPaperOcr', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeEduPaperOcrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -608,12 +843,27 @@ class Ocrapi extends OpenApiClient
     public function recognizeEduPaperStructedWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query               = [];
+        $query['NeedRotate'] = $request->needRotate;
+        $query['Url']        = $request->url;
+        $req                 = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeEduPaperStructed',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeEduPaperStructedResponse::fromMap($this->doRPCRequest('RecognizeEduPaperStructed', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeEduPaperStructedResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -637,12 +887,27 @@ class Ocrapi extends OpenApiClient
     public function recognizeEduQuestionOcrWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query               = [];
+        $query['NeedRotate'] = $request->needRotate;
+        $query['Url']        = $request->url;
+        $req                 = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeEduQuestionOcr',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeEduQuestionOcrResponse::fromMap($this->doRPCRequest('RecognizeEduQuestionOcr', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeEduQuestionOcrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -666,12 +931,28 @@ class Ocrapi extends OpenApiClient
     public function recognizeEnglishWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query                = [];
+        $query['NeedRotate']  = $request->needRotate;
+        $query['OutputTable'] = $request->outputTable;
+        $query['Url']         = $request->url;
+        $req                  = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeEnglish',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeEnglishResponse::fromMap($this->doRPCRequest('RecognizeEnglish', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeEnglishResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -695,12 +976,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeEstateCertificationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeEstateCertification',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeEstateCertificationResponse::fromMap($this->doRPCRequest('RecognizeEstateCertification', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeEstateCertificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -724,12 +1019,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeFoodManageLicenseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeFoodManageLicense',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeFoodManageLicenseResponse::fromMap($this->doRPCRequest('RecognizeFoodManageLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeFoodManageLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -753,12 +1062,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeFoodProduceLicenseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeFoodProduceLicense',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeFoodProduceLicenseResponse::fromMap($this->doRPCRequest('RecognizeFoodProduceLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeFoodProduceLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -782,12 +1105,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeGeneralWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeGeneral',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeGeneralResponse::fromMap($this->doRPCRequest('RecognizeGeneral', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeGeneralResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -811,12 +1148,30 @@ class Ocrapi extends OpenApiClient
     public function recognizeHandwritingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query                   = [];
+        $query['NeedRotate']     = $request->needRotate;
+        $query['NeedSortPage']   = $request->needSortPage;
+        $query['OutputCharInfo'] = $request->outputCharInfo;
+        $query['OutputTable']    = $request->outputTable;
+        $query['Url']            = $request->url;
+        $req                     = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeHandwriting',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeHandwritingResponse::fromMap($this->doRPCRequest('RecognizeHandwriting', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeHandwritingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -840,12 +1195,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeHouseholdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeHousehold',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeHouseholdResponse::fromMap($this->doRPCRequest('RecognizeHousehold', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeHouseholdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -869,12 +1238,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeIdcardWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeIdcard',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeIdcardResponse::fromMap($this->doRPCRequest('RecognizeIdcard', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeIdcardResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -898,12 +1281,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeInvoiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeInvoice',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeInvoiceResponse::fromMap($this->doRPCRequest('RecognizeInvoice', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -927,12 +1324,29 @@ class Ocrapi extends OpenApiClient
     public function recognizeJanpaneseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query                   = [];
+        $query['NeedRotate']     = $request->needRotate;
+        $query['OutputCharInfo'] = $request->outputCharInfo;
+        $query['OutputTable']    = $request->outputTable;
+        $query['Url']            = $request->url;
+        $req                     = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeJanpanese',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeJanpaneseResponse::fromMap($this->doRPCRequest('RecognizeJanpanese', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeJanpaneseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -956,12 +1370,29 @@ class Ocrapi extends OpenApiClient
     public function recognizeKoreanWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query                   = [];
+        $query['NeedRotate']     = $request->needRotate;
+        $query['OutputCharInfo'] = $request->outputCharInfo;
+        $query['OutputTable']    = $request->outputTable;
+        $query['Url']            = $request->url;
+        $req                     = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeKorean',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeKoreanResponse::fromMap($this->doRPCRequest('RecognizeKorean', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeKoreanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -985,12 +1416,29 @@ class Ocrapi extends OpenApiClient
     public function recognizeLatinWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query                   = [];
+        $query['NeedRotate']     = $request->needRotate;
+        $query['OutputCharInfo'] = $request->outputCharInfo;
+        $query['OutputTable']    = $request->outputTable;
+        $query['Url']            = $request->url;
+        $req                     = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeLatin',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeLatinResponse::fromMap($this->doRPCRequest('RecognizeLatin', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeLatinResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1014,12 +1462,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeMedicalDeviceManageLicenseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeMedicalDeviceManageLicense',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeMedicalDeviceManageLicenseResponse::fromMap($this->doRPCRequest('RecognizeMedicalDeviceManageLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeMedicalDeviceManageLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1043,12 +1505,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeMedicalDeviceProduceLicenseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeMedicalDeviceProduceLicense',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeMedicalDeviceProduceLicenseResponse::fromMap($this->doRPCRequest('RecognizeMedicalDeviceProduceLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeMedicalDeviceProduceLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1072,12 +1548,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeMixedInvoicesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeMixedInvoices',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeMixedInvoicesResponse::fromMap($this->doRPCRequest('RecognizeMixedInvoices', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeMixedInvoicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1106,12 +1596,31 @@ class Ocrapi extends OpenApiClient
         if (!Utils::isUnset($tmpReq->languages)) {
             $request->languagesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->languages, 'Languages', 'simple');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query                   = [];
+        $query['Languages']      = $request->languagesShrink;
+        $query['NeedRotate']     = $request->needRotate;
+        $query['NeedSortPage']   = $request->needSortPage;
+        $query['OutputCharInfo'] = $request->outputCharInfo;
+        $query['OutputTable']    = $request->outputTable;
+        $query['Url']            = $request->url;
+        $req                     = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeMultiLanguage',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeMultiLanguageResponse::fromMap($this->doRPCRequest('RecognizeMultiLanguage', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeMultiLanguageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1135,12 +1644,26 @@ class Ocrapi extends OpenApiClient
     public function recognizePassportWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizePassport',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizePassportResponse::fromMap($this->doRPCRequest('RecognizePassport', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizePassportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1164,12 +1687,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeQuotaInvoiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeQuotaInvoice',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeQuotaInvoiceResponse::fromMap($this->doRPCRequest('RecognizeQuotaInvoice', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeQuotaInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1193,12 +1730,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeRollTicketWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeRollTicket',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeRollTicketResponse::fromMap($this->doRPCRequest('RecognizeRollTicket', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeRollTicketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1222,12 +1773,29 @@ class Ocrapi extends OpenApiClient
     public function recognizeRussianWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query                   = [];
+        $query['NeedRotate']     = $request->needRotate;
+        $query['OutputCharInfo'] = $request->outputCharInfo;
+        $query['OutputTable']    = $request->outputTable;
+        $query['Url']            = $request->url;
+        $req                     = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeRussian',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeRussianResponse::fromMap($this->doRPCRequest('RecognizeRussian', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeRussianResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1251,12 +1819,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeTableOcrWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeTableOcr',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeTableOcrResponse::fromMap($this->doRPCRequest('RecognizeTableOcr', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeTableOcrResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1280,12 +1862,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeTaxiInvoiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeTaxiInvoice',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeTaxiInvoiceResponse::fromMap($this->doRPCRequest('RecognizeTaxiInvoice', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeTaxiInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1309,12 +1905,29 @@ class Ocrapi extends OpenApiClient
     public function recognizeThaiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query                   = [];
+        $query['NeedRotate']     = $request->needRotate;
+        $query['OutputCharInfo'] = $request->outputCharInfo;
+        $query['OutputTable']    = $request->outputTable;
+        $query['Url']            = $request->url;
+        $req                     = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeThai',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeThaiResponse::fromMap($this->doRPCRequest('RecognizeThai', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeThaiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1338,12 +1951,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeTradeMarkCertificationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeTradeMarkCertification',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeTradeMarkCertificationResponse::fromMap($this->doRPCRequest('RecognizeTradeMarkCertification', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeTradeMarkCertificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1367,12 +1994,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeTrainInvoiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeTrainInvoice',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeTrainInvoiceResponse::fromMap($this->doRPCRequest('RecognizeTrainInvoice', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeTrainInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1396,12 +2037,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeVehicleLicenseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeVehicleLicense',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeVehicleLicenseResponse::fromMap($this->doRPCRequest('RecognizeVehicleLicense', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeVehicleLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1425,12 +2080,26 @@ class Ocrapi extends OpenApiClient
     public function recognizeWaybillWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
+        $query        = [];
+        $query['Url'] = $request->url;
+        $req          = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => Utils::toMap($request),
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeWaybill',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeWaybillResponse::fromMap($this->doRPCRequest('RecognizeWaybill', '2021-07-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecognizeWaybillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
