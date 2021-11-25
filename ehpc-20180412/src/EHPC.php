@@ -242,6 +242,7 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\UpgradeClientResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class EHPC extends OpenApiClient
@@ -288,10 +289,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddContainerApp',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddContainerAppResponse::fromMap($this->doRPCRequest('AddContainerApp', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return AddContainerAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -317,10 +329,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddExistedNodes',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddExistedNodesResponse::fromMap($this->doRPCRequest('AddExistedNodes', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return AddExistedNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -346,10 +369,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddLocalNodes',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddLocalNodesResponse::fromMap($this->doRPCRequest('AddLocalNodes', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return AddLocalNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -375,10 +409,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddNodes',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddNodesResponse::fromMap($this->doRPCRequest('AddNodes', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return AddNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -404,10 +449,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddQueue',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddQueueResponse::fromMap($this->doRPCRequest('AddQueue', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return AddQueueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -433,10 +489,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddSecurityGroup',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddSecurityGroupResponse::fromMap($this->doRPCRequest('AddSecurityGroup', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return AddSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -462,10 +529,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddUsers',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddUsersResponse::fromMap($this->doRPCRequest('AddUsers', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return AddUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -491,10 +569,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ApplyNodes',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ApplyNodesResponse::fromMap($this->doRPCRequest('ApplyNodes', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ApplyNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -520,10 +609,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCluster',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateClusterResponse::fromMap($this->doRPCRequest('CreateCluster', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return CreateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -549,10 +649,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGWSCluster',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateGWSClusterResponse::fromMap($this->doRPCRequest('CreateGWSCluster', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return CreateGWSClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -578,10 +689,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGWSImage',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateGWSImageResponse::fromMap($this->doRPCRequest('CreateGWSImage', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return CreateGWSImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -607,10 +729,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGWSInstance',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateGWSInstanceResponse::fromMap($this->doRPCRequest('CreateGWSInstance', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return CreateGWSInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -636,10 +769,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateHybridCluster',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateHybridClusterResponse::fromMap($this->doRPCRequest('CreateHybridCluster', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return CreateHybridClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -665,10 +809,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateJobFile',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateJobFileResponse::fromMap($this->doRPCRequest('CreateJobFile', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return CreateJobFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -694,10 +849,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateJobTemplate',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateJobTemplateResponse::fromMap($this->doRPCRequest('CreateJobTemplate', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return CreateJobTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -723,10 +889,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCluster',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteClusterResponse::fromMap($this->doRPCRequest('DeleteCluster', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DeleteClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -752,10 +929,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteContainerApps',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteContainerAppsResponse::fromMap($this->doRPCRequest('DeleteContainerApps', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DeleteContainerAppsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -781,10 +969,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGWSCluster',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteGWSClusterResponse::fromMap($this->doRPCRequest('DeleteGWSCluster', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DeleteGWSClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -810,10 +1009,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGWSInstance',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteGWSInstanceResponse::fromMap($this->doRPCRequest('DeleteGWSInstance', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DeleteGWSInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -839,10 +1049,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteImage',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteImageResponse::fromMap($this->doRPCRequest('DeleteImage', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DeleteImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -868,10 +1089,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteJobTemplates',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteJobTemplatesResponse::fromMap($this->doRPCRequest('DeleteJobTemplates', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DeleteJobTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -897,10 +1129,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteJobs',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteJobsResponse::fromMap($this->doRPCRequest('DeleteJobs', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DeleteJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -926,10 +1169,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteNodes',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteNodesResponse::fromMap($this->doRPCRequest('DeleteNodes', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DeleteNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -955,10 +1209,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteQueue',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteQueueResponse::fromMap($this->doRPCRequest('DeleteQueue', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DeleteQueueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -984,10 +1249,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSecurityGroup',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteSecurityGroupResponse::fromMap($this->doRPCRequest('DeleteSecurityGroup', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DeleteSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1013,10 +1289,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteUsers',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteUsersResponse::fromMap($this->doRPCRequest('DeleteUsers', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DeleteUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1042,10 +1329,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAutoScaleConfig',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAutoScaleConfigResponse::fromMap($this->doRPCRequest('DescribeAutoScaleConfig', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeAutoScaleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1071,10 +1369,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCluster',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeClusterResponse::fromMap($this->doRPCRequest('DescribeCluster', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1100,10 +1409,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeContainerApp',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeContainerAppResponse::fromMap($this->doRPCRequest('DescribeContainerApp', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeContainerAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1127,11 +1447,27 @@ class EHPC extends OpenApiClient
     public function describeGWSClusterPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['AsyncMode'] = $request->asyncMode;
+        $query['ClusterId'] = $request->clusterId;
+        $query['TaskId']    = $request->taskId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGWSClusterPolicy',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGWSClusterPolicyResponse::fromMap($this->doRPCRequest('DescribeGWSClusterPolicy', '2018-04-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeGWSClusterPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1157,10 +1493,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGWSClusters',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGWSClustersResponse::fromMap($this->doRPCRequest('DescribeGWSClusters', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeGWSClustersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1186,10 +1533,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGWSImages',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGWSImagesResponse::fromMap($this->doRPCRequest('DescribeGWSImages', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeGWSImagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1215,10 +1573,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGWSInstances',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeGWSInstancesResponse::fromMap($this->doRPCRequest('DescribeGWSInstances', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeGWSInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1244,10 +1613,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeImage',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeImageResponse::fromMap($this->doRPCRequest('DescribeImage', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1273,10 +1653,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeImageGatewayConfig',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeImageGatewayConfigResponse::fromMap($this->doRPCRequest('DescribeImageGatewayConfig', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeImageGatewayConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1302,10 +1693,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeImagePrice',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeImagePriceResponse::fromMap($this->doRPCRequest('DescribeImagePrice', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeImagePriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1331,10 +1733,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeJob',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeJobResponse::fromMap($this->doRPCRequest('DescribeJob', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1360,10 +1773,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNFSClientStatus',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeNFSClientStatusResponse::fromMap($this->doRPCRequest('DescribeNFSClientStatus', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeNFSClientStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1389,10 +1813,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePrice',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePriceResponse::fromMap($this->doRPCRequest('DescribePrice', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribePriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1418,10 +1853,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EcdDeleteDesktops',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return EcdDeleteDesktopsResponse::fromMap($this->doRPCRequest('EcdDeleteDesktops', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return EcdDeleteDesktopsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1447,10 +1893,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EditJobTemplate',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return EditJobTemplateResponse::fromMap($this->doRPCRequest('EditJobTemplate', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return EditJobTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1476,10 +1933,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAccountingReport',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAccountingReportResponse::fromMap($this->doRPCRequest('GetAccountingReport', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetAccountingReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1505,10 +1973,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAutoScaleConfig',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAutoScaleConfigResponse::fromMap($this->doRPCRequest('GetAutoScaleConfig', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetAutoScaleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1534,10 +2013,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCloudMetricLogs',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetCloudMetricLogsResponse::fromMap($this->doRPCRequest('GetCloudMetricLogs', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetCloudMetricLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1563,10 +2053,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCloudMetricProfiling',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetCloudMetricProfilingResponse::fromMap($this->doRPCRequest('GetCloudMetricProfiling', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetCloudMetricProfilingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1592,10 +2093,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetClusterVolumes',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetClusterVolumesResponse::fromMap($this->doRPCRequest('GetClusterVolumes', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetClusterVolumesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1621,10 +2133,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetGWSConnectTicket',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetGWSConnectTicketResponse::fromMap($this->doRPCRequest('GetGWSConnectTicket', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetGWSConnectTicketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1650,10 +2173,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetHealthMonitorLogs',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetHealthMonitorLogsResponse::fromMap($this->doRPCRequest('GetHealthMonitorLogs', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetHealthMonitorLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1679,10 +2213,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetHybridClusterConfig',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetHybridClusterConfigResponse::fromMap($this->doRPCRequest('GetHybridClusterConfig', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetHybridClusterConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1708,10 +2253,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetIfEcsTypeSupportHtConfig',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetIfEcsTypeSupportHtConfigResponse::fromMap($this->doRPCRequest('GetIfEcsTypeSupportHtConfig', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetIfEcsTypeSupportHtConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1737,10 +2293,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSchedulerInfo',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetSchedulerInfoResponse::fromMap($this->doRPCRequest('GetSchedulerInfo', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetSchedulerInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1766,10 +2333,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVisualServiceStatus',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetVisualServiceStatusResponse::fromMap($this->doRPCRequest('GetVisualServiceStatus', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetVisualServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1795,10 +2373,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetWorkbenchToken',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetWorkbenchTokenResponse::fromMap($this->doRPCRequest('GetWorkbenchToken', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetWorkbenchTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1824,10 +2413,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InitializeEHPC',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return InitializeEHPCResponse::fromMap($this->doRPCRequest('InitializeEHPC', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return InitializeEHPCResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1853,10 +2453,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InstallSoftware',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return InstallSoftwareResponse::fromMap($this->doRPCRequest('InstallSoftware', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return InstallSoftwareResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1882,10 +2493,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InvokeShellCommand',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return InvokeShellCommandResponse::fromMap($this->doRPCRequest('InvokeShellCommand', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return InvokeShellCommandResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1911,10 +2533,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAvailableEcsTypes',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAvailableEcsTypesResponse::fromMap($this->doRPCRequest('ListAvailableEcsTypes', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListAvailableEcsTypesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1940,10 +2573,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCloudMetricProfilings',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListCloudMetricProfilingsResponse::fromMap($this->doRPCRequest('ListCloudMetricProfilings', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListCloudMetricProfilingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1969,10 +2613,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClusterLogs',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListClusterLogsResponse::fromMap($this->doRPCRequest('ListClusterLogs', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListClusterLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1998,10 +2653,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClusters',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListClustersResponse::fromMap($this->doRPCRequest('ListClusters', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListClustersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2027,10 +2693,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClustersMeta',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListClustersMetaResponse::fromMap($this->doRPCRequest('ListClustersMeta', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListClustersMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2056,10 +2733,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCommands',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListCommandsResponse::fromMap($this->doRPCRequest('ListCommands', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListCommandsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2085,10 +2773,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListContainerApps',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListContainerAppsResponse::fromMap($this->doRPCRequest('ListContainerApps', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListContainerAppsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2114,10 +2813,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListContainerImages',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListContainerImagesResponse::fromMap($this->doRPCRequest('ListContainerImages', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListContainerImagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2143,10 +2853,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCpfsFileSystems',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListCpfsFileSystemsResponse::fromMap($this->doRPCRequest('ListCpfsFileSystems', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListCpfsFileSystemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2168,9 +2889,20 @@ class EHPC extends OpenApiClient
      */
     public function listCurrentClientVersionWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListCurrentClientVersion',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListCurrentClientVersionResponse::fromMap($this->doRPCRequest('ListCurrentClientVersion', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListCurrentClientVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2194,10 +2926,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCustomImages',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListCustomImagesResponse::fromMap($this->doRPCRequest('ListCustomImages', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListCustomImagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2223,10 +2966,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFileSystemWithMountTargets',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFileSystemWithMountTargetsResponse::fromMap($this->doRPCRequest('ListFileSystemWithMountTargets', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListFileSystemWithMountTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2252,10 +3006,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListImages',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListImagesResponse::fromMap($this->doRPCRequest('ListImages', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListImagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2281,10 +3046,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInstalledSoftware',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListInstalledSoftwareResponse::fromMap($this->doRPCRequest('ListInstalledSoftware', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListInstalledSoftwareResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2310,10 +3086,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInvocationResults',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListInvocationResultsResponse::fromMap($this->doRPCRequest('ListInvocationResults', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListInvocationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2339,10 +3126,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInvocationStatus',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListInvocationStatusResponse::fromMap($this->doRPCRequest('ListInvocationStatus', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListInvocationStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2368,10 +3166,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListJobTemplates',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListJobTemplatesResponse::fromMap($this->doRPCRequest('ListJobTemplates', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListJobTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2397,10 +3206,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListJobs',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListJobsResponse::fromMap($this->doRPCRequest('ListJobs', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2426,10 +3246,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListNodes',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListNodesResponse::fromMap($this->doRPCRequest('ListNodes', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2455,10 +3286,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListNodesByQueue',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListNodesByQueueResponse::fromMap($this->doRPCRequest('ListNodesByQueue', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListNodesByQueueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2484,10 +3326,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListNodesNoPaging',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListNodesNoPagingResponse::fromMap($this->doRPCRequest('ListNodesNoPaging', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListNodesNoPagingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2513,10 +3366,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPreferredEcsTypes',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListPreferredEcsTypesResponse::fromMap($this->doRPCRequest('ListPreferredEcsTypes', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListPreferredEcsTypesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2542,10 +3406,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListQueues',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListQueuesResponse::fromMap($this->doRPCRequest('ListQueues', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListQueuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2567,9 +3442,20 @@ class EHPC extends OpenApiClient
      */
     public function listRegionsWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListRegions',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListRegionsResponse::fromMap($this->doRPCRequest('ListRegions', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2593,10 +3479,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSecurityGroups',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListSecurityGroupsResponse::fromMap($this->doRPCRequest('ListSecurityGroups', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListSecurityGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2622,10 +3519,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSoftwares',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListSoftwaresResponse::fromMap($this->doRPCRequest('ListSoftwares', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListSoftwaresResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2651,10 +3559,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTasks',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTasksResponse::fromMap($this->doRPCRequest('ListTasks', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2680,10 +3599,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUsers',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListUsersResponse::fromMap($this->doRPCRequest('ListUsers', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2709,10 +3639,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVolumes',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListVolumesResponse::fromMap($this->doRPCRequest('ListVolumes', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListVolumesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2738,10 +3679,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyClusterAttributes',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyClusterAttributesResponse::fromMap($this->doRPCRequest('ModifyClusterAttributes', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ModifyClusterAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2767,10 +3719,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyContainerAppAttributes',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyContainerAppAttributesResponse::fromMap($this->doRPCRequest('ModifyContainerAppAttributes', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ModifyContainerAppAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2796,10 +3759,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyImageGatewayConfig',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyImageGatewayConfigResponse::fromMap($this->doRPCRequest('ModifyImageGatewayConfig', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ModifyImageGatewayConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2825,10 +3799,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyUserGroups',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyUserGroupsResponse::fromMap($this->doRPCRequest('ModifyUserGroups', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ModifyUserGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2854,10 +3839,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyUserPasswords',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyUserPasswordsResponse::fromMap($this->doRPCRequest('ModifyUserPasswords', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ModifyUserPasswordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2883,10 +3879,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyVisualServicePasswd',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyVisualServicePasswdResponse::fromMap($this->doRPCRequest('ModifyVisualServicePasswd', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ModifyVisualServicePasswdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2912,10 +3919,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MountNFS',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return MountNFSResponse::fromMap($this->doRPCRequest('MountNFS', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return MountNFSResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2941,10 +3959,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PullImage',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return PullImageResponse::fromMap($this->doRPCRequest('PullImage', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return PullImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2966,9 +3995,20 @@ class EHPC extends OpenApiClient
      */
     public function queryServicePackAndPriceWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'QueryServicePackAndPrice',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return QueryServicePackAndPriceResponse::fromMap($this->doRPCRequest('QueryServicePackAndPrice', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return QueryServicePackAndPriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2992,10 +4032,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RecoverCluster',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecoverClusterResponse::fromMap($this->doRPCRequest('RecoverCluster', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RecoverClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3021,10 +4072,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RerunJobs',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RerunJobsResponse::fromMap($this->doRPCRequest('RerunJobs', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RerunJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3050,10 +4112,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResetNodes',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ResetNodesResponse::fromMap($this->doRPCRequest('ResetNodes', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ResetNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3079,10 +4152,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RunCloudMetricProfiling',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RunCloudMetricProfilingResponse::fromMap($this->doRPCRequest('RunCloudMetricProfiling', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RunCloudMetricProfilingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3108,10 +4192,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetAutoScaleConfig',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetAutoScaleConfigResponse::fromMap($this->doRPCRequest('SetAutoScaleConfig', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return SetAutoScaleConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3135,11 +4230,31 @@ class EHPC extends OpenApiClient
     public function setGWSClusterPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AsyncMode']   = $request->asyncMode;
+        $query['Clipboard']   = $request->clipboard;
+        $query['ClusterId']   = $request->clusterId;
+        $query['LocalDrive']  = $request->localDrive;
+        $query['UdpPort']     = $request->udpPort;
+        $query['UsbRedirect'] = $request->usbRedirect;
+        $query['Watermark']   = $request->watermark;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetGWSClusterPolicy',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetGWSClusterPolicyResponse::fromMap($this->doRPCRequest('SetGWSClusterPolicy', '2018-04-12', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetGWSClusterPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3165,10 +4280,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetGWSInstanceName',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetGWSInstanceNameResponse::fromMap($this->doRPCRequest('SetGWSInstanceName', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return SetGWSInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3194,10 +4320,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetGWSInstanceUser',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetGWSInstanceUserResponse::fromMap($this->doRPCRequest('SetGWSInstanceUser', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return SetGWSInstanceUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3223,10 +4360,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetQueue',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetQueueResponse::fromMap($this->doRPCRequest('SetQueue', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return SetQueueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3252,10 +4400,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetSchedulerInfo',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetSchedulerInfoResponse::fromMap($this->doRPCRequest('SetSchedulerInfo', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return SetSchedulerInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3281,10 +4440,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartCluster',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StartClusterResponse::fromMap($this->doRPCRequest('StartCluster', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return StartClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3310,10 +4480,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartGWSInstance',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StartGWSInstanceResponse::fromMap($this->doRPCRequest('StartGWSInstance', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return StartGWSInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3339,10 +4520,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartNodes',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StartNodesResponse::fromMap($this->doRPCRequest('StartNodes', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return StartNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3368,10 +4560,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartVisualService',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StartVisualServiceResponse::fromMap($this->doRPCRequest('StartVisualService', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return StartVisualServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3397,10 +4600,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopCluster',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StopClusterResponse::fromMap($this->doRPCRequest('StopCluster', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return StopClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3426,10 +4640,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopGWSInstance',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StopGWSInstanceResponse::fromMap($this->doRPCRequest('StopGWSInstance', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return StopGWSInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3455,10 +4680,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopJobs',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StopJobsResponse::fromMap($this->doRPCRequest('StopJobs', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return StopJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3484,10 +4720,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopNodes',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StopNodesResponse::fromMap($this->doRPCRequest('StopNodes', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return StopNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3513,10 +4760,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopVisualService',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StopVisualServiceResponse::fromMap($this->doRPCRequest('StopVisualService', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return StopVisualServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3542,10 +4800,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitJob',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitJobResponse::fromMap($this->doRPCRequest('SubmitJob', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return SubmitJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3571,10 +4840,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UninstallSoftware',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UninstallSoftwareResponse::fromMap($this->doRPCRequest('UninstallSoftware', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return UninstallSoftwareResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3600,10 +4880,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateClusterVolumes',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateClusterVolumesResponse::fromMap($this->doRPCRequest('UpdateClusterVolumes', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return UpdateClusterVolumesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3629,10 +4920,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateQueueConfig',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateQueueConfigResponse::fromMap($this->doRPCRequest('UpdateQueueConfig', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return UpdateQueueConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3658,10 +4960,21 @@ class EHPC extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradeClient',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpgradeClientResponse::fromMap($this->doRPCRequest('UpgradeClient', '2018-04-12', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return UpgradeClientResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

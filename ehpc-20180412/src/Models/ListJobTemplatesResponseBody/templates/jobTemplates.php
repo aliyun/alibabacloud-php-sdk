@@ -36,6 +36,11 @@ class jobTemplates extends Model
     /**
      * @var string
      */
+    public $inputFileUrl;
+
+    /**
+     * @var string
+     */
     public $mem;
 
     /**
@@ -96,13 +101,24 @@ class jobTemplates extends Model
     /**
      * @var string
      */
+    public $unzipCmd;
+
+    /**
+     * @var string
+     */
     public $variables;
+
+    /**
+     * @var bool
+     */
+    public $withUnzipCmd;
     protected $_name = [
         'arrayRequest'       => 'ArrayRequest',
         'clockTime'          => 'ClockTime',
         'commandLine'        => 'CommandLine',
         'gpu'                => 'Gpu',
         'id'                 => 'Id',
+        'inputFileUrl'       => 'InputFileUrl',
         'mem'                => 'Mem',
         'name'               => 'Name',
         'node'               => 'Node',
@@ -115,7 +131,9 @@ class jobTemplates extends Model
         'stdoutRedirectPath' => 'StdoutRedirectPath',
         'task'               => 'Task',
         'thread'             => 'Thread',
+        'unzipCmd'           => 'UnzipCmd',
         'variables'          => 'Variables',
+        'withUnzipCmd'       => 'WithUnzipCmd',
     ];
 
     public function validate()
@@ -139,6 +157,9 @@ class jobTemplates extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->inputFileUrl) {
+            $res['InputFileUrl'] = $this->inputFileUrl;
         }
         if (null !== $this->mem) {
             $res['Mem'] = $this->mem;
@@ -176,8 +197,14 @@ class jobTemplates extends Model
         if (null !== $this->thread) {
             $res['Thread'] = $this->thread;
         }
+        if (null !== $this->unzipCmd) {
+            $res['UnzipCmd'] = $this->unzipCmd;
+        }
         if (null !== $this->variables) {
             $res['Variables'] = $this->variables;
+        }
+        if (null !== $this->withUnzipCmd) {
+            $res['WithUnzipCmd'] = $this->withUnzipCmd;
         }
 
         return $res;
@@ -205,6 +232,9 @@ class jobTemplates extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['InputFileUrl'])) {
+            $model->inputFileUrl = $map['InputFileUrl'];
         }
         if (isset($map['Mem'])) {
             $model->mem = $map['Mem'];
@@ -242,8 +272,14 @@ class jobTemplates extends Model
         if (isset($map['Thread'])) {
             $model->thread = $map['Thread'];
         }
+        if (isset($map['UnzipCmd'])) {
+            $model->unzipCmd = $map['UnzipCmd'];
+        }
         if (isset($map['Variables'])) {
             $model->variables = $map['Variables'];
+        }
+        if (isset($map['WithUnzipCmd'])) {
+            $model->withUnzipCmd = $map['WithUnzipCmd'];
         }
 
         return $model;

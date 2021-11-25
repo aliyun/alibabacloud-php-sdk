@@ -153,6 +153,11 @@ class CreateClusterRequest extends Model
     public $periodUnit;
 
     /**
+     * @var string
+     */
+    public $plugin;
+
+    /**
      * @var postInstallScript[]
      */
     public $postInstallScript;
@@ -240,6 +245,11 @@ class CreateClusterRequest extends Model
     /**
      * @var bool
      */
+    public $withoutAgent;
+
+    /**
+     * @var bool
+     */
     public $withoutElasticIp;
 
     /**
@@ -275,6 +285,7 @@ class CreateClusterRequest extends Model
         'password'              => 'Password',
         'period'                => 'Period',
         'periodUnit'            => 'PeriodUnit',
+        'plugin'                => 'Plugin',
         'postInstallScript'     => 'PostInstallScript',
         'remoteDirectory'       => 'RemoteDirectory',
         'remoteVisEnable'       => 'RemoteVisEnable',
@@ -292,6 +303,7 @@ class CreateClusterRequest extends Model
         'volumeProtocol'        => 'VolumeProtocol',
         'volumeType'            => 'VolumeType',
         'vpcId'                 => 'VpcId',
+        'withoutAgent'          => 'WithoutAgent',
         'withoutElasticIp'      => 'WithoutElasticIp',
         'zoneId'                => 'ZoneId',
     ];
@@ -399,6 +411,9 @@ class CreateClusterRequest extends Model
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
         }
+        if (null !== $this->plugin) {
+            $res['Plugin'] = $this->plugin;
+        }
         if (null !== $this->postInstallScript) {
             $res['PostInstallScript'] = [];
             if (null !== $this->postInstallScript && \is_array($this->postInstallScript)) {
@@ -455,6 +470,9 @@ class CreateClusterRequest extends Model
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->withoutAgent) {
+            $res['WithoutAgent'] = $this->withoutAgent;
         }
         if (null !== $this->withoutElasticIp) {
             $res['WithoutElasticIp'] = $this->withoutElasticIp;
@@ -570,6 +588,9 @@ class CreateClusterRequest extends Model
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
         }
+        if (isset($map['Plugin'])) {
+            $model->plugin = $map['Plugin'];
+        }
         if (isset($map['PostInstallScript'])) {
             if (!empty($map['PostInstallScript'])) {
                 $model->postInstallScript = [];
@@ -626,6 +647,9 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['WithoutAgent'])) {
+            $model->withoutAgent = $map['WithoutAgent'];
         }
         if (isset($map['WithoutElasticIp'])) {
             $model->withoutElasticIp = $map['WithoutElasticIp'];

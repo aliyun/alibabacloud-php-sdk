@@ -31,6 +31,11 @@ class EditJobTemplateRequest extends Model
     /**
      * @var string
      */
+    public $inputFileUrl;
+
+    /**
+     * @var string
+     */
     public $mem;
 
     /**
@@ -96,12 +101,23 @@ class EditJobTemplateRequest extends Model
     /**
      * @var string
      */
+    public $unzipCmd;
+
+    /**
+     * @var string
+     */
     public $variables;
+
+    /**
+     * @var bool
+     */
+    public $withUnzipCmd;
     protected $_name = [
         'arrayRequest'       => 'ArrayRequest',
         'clockTime'          => 'ClockTime',
         'commandLine'        => 'CommandLine',
         'gpu'                => 'Gpu',
+        'inputFileUrl'       => 'InputFileUrl',
         'mem'                => 'Mem',
         'name'               => 'Name',
         'node'               => 'Node',
@@ -115,7 +131,9 @@ class EditJobTemplateRequest extends Model
         'task'               => 'Task',
         'templateId'         => 'TemplateId',
         'thread'             => 'Thread',
+        'unzipCmd'           => 'UnzipCmd',
         'variables'          => 'Variables',
+        'withUnzipCmd'       => 'WithUnzipCmd',
     ];
 
     public function validate()
@@ -136,6 +154,9 @@ class EditJobTemplateRequest extends Model
         }
         if (null !== $this->gpu) {
             $res['Gpu'] = $this->gpu;
+        }
+        if (null !== $this->inputFileUrl) {
+            $res['InputFileUrl'] = $this->inputFileUrl;
         }
         if (null !== $this->mem) {
             $res['Mem'] = $this->mem;
@@ -176,8 +197,14 @@ class EditJobTemplateRequest extends Model
         if (null !== $this->thread) {
             $res['Thread'] = $this->thread;
         }
+        if (null !== $this->unzipCmd) {
+            $res['UnzipCmd'] = $this->unzipCmd;
+        }
         if (null !== $this->variables) {
             $res['Variables'] = $this->variables;
+        }
+        if (null !== $this->withUnzipCmd) {
+            $res['WithUnzipCmd'] = $this->withUnzipCmd;
         }
 
         return $res;
@@ -202,6 +229,9 @@ class EditJobTemplateRequest extends Model
         }
         if (isset($map['Gpu'])) {
             $model->gpu = $map['Gpu'];
+        }
+        if (isset($map['InputFileUrl'])) {
+            $model->inputFileUrl = $map['InputFileUrl'];
         }
         if (isset($map['Mem'])) {
             $model->mem = $map['Mem'];
@@ -242,8 +272,14 @@ class EditJobTemplateRequest extends Model
         if (isset($map['Thread'])) {
             $model->thread = $map['Thread'];
         }
+        if (isset($map['UnzipCmd'])) {
+            $model->unzipCmd = $map['UnzipCmd'];
+        }
         if (isset($map['Variables'])) {
             $model->variables = $map['Variables'];
+        }
+        if (isset($map['WithUnzipCmd'])) {
+            $model->withUnzipCmd = $map['WithUnzipCmd'];
         }
 
         return $model;
