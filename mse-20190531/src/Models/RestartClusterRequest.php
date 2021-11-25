@@ -21,10 +21,16 @@ class RestartClusterRequest extends Model
     /**
      * @var string
      */
+    public $podNameList;
+
+    /**
+     * @var string
+     */
     public $requestPars;
     protected $_name = [
         'clusterId'   => 'ClusterId',
         'instanceId'  => 'InstanceId',
+        'podNameList' => 'PodNameList',
         'requestPars' => 'RequestPars',
     ];
 
@@ -40,6 +46,9 @@ class RestartClusterRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->podNameList) {
+            $res['PodNameList'] = $this->podNameList;
         }
         if (null !== $this->requestPars) {
             $res['RequestPars'] = $this->requestPars;
@@ -61,6 +70,9 @@ class RestartClusterRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['PodNameList'])) {
+            $model->podNameList = $map['PodNameList'];
         }
         if (isset($map['RequestPars'])) {
             $model->requestPars = $map['RequestPars'];

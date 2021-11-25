@@ -11,6 +11,11 @@ class instanceModels extends Model
     /**
      * @var string
      */
+    public $creationTimestamp;
+
+    /**
+     * @var string
+     */
     public $healthStatus;
 
     /**
@@ -38,12 +43,13 @@ class instanceModels extends Model
      */
     public $singleTunnelVip;
     protected $_name = [
-        'healthStatus'    => 'HealthStatus',
-        'internetIp'      => 'InternetIp',
-        'ip'              => 'Ip',
-        'podName'         => 'PodName',
-        'role'            => 'Role',
-        'singleTunnelVip' => 'SingleTunnelVip',
+        'creationTimestamp' => 'CreationTimestamp',
+        'healthStatus'      => 'HealthStatus',
+        'internetIp'        => 'InternetIp',
+        'ip'                => 'Ip',
+        'podName'           => 'PodName',
+        'role'              => 'Role',
+        'singleTunnelVip'   => 'SingleTunnelVip',
     ];
 
     public function validate()
@@ -53,6 +59,9 @@ class instanceModels extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->creationTimestamp) {
+            $res['CreationTimestamp'] = $this->creationTimestamp;
+        }
         if (null !== $this->healthStatus) {
             $res['HealthStatus'] = $this->healthStatus;
         }
@@ -83,6 +92,9 @@ class instanceModels extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreationTimestamp'])) {
+            $model->creationTimestamp = $map['CreationTimestamp'];
+        }
         if (isset($map['HealthStatus'])) {
             $model->healthStatus = $map['HealthStatus'];
         }
