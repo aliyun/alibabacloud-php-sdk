@@ -25,6 +25,7 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\GetOrganizationMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineRunResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetVariableGroupResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetVMDeployOrderResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkspaceResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListHostGroupsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListHostGroupsResponse;
@@ -42,16 +43,22 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListVariableGroupsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkspacesResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkspacesShrinkRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\LogPipelineJobRunResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\LogVMDeployMachineResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\PassPipelineValidateResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\RefusePipelineValidateResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ReleaseWorkspaceResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ResetSshKeyResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ResumeVMDeployOrderResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\RetryPipelineJobRunResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\RetryVMDeployMachineResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\SkipPipelineJobRunResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\SkipVMDeployMachineResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\StartPipelineRunRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\StartPipelineRunResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\StopPipelineJobRunResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\StopPipelineRunResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\StopVMDeployOrderResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateHostGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateHostGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateResourceMemberRequest;
@@ -61,6 +68,7 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateVariableGroupResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Devops extends OpenApiClient
@@ -157,8 +165,19 @@ class Devops extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateHostGroup',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/hostGroups',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateHostGroupResponse::fromMap($this->doROARequestWithForm('CreateHostGroup', '2021-06-25', 'HTTPS', 'POST', 'AK', '/organization/' . $organizationId . '/hostGroups', 'json', $req, $runtime));
+        return CreateHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -204,8 +223,19 @@ class Devops extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateResourceMember',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/{resourceType}/{resourceId}/members',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateResourceMemberResponse::fromMap($this->doROARequestWithForm('CreateResourceMember', '2021-06-25', 'HTTPS', 'POST', 'AK', '/organization/' . $organizationId . '/' . $resourceType . '/' . $resourceId . '/members', 'json', $req, $runtime));
+        return CreateResourceMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -234,8 +264,19 @@ class Devops extends OpenApiClient
         $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'CreateSshKey',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/sshKey',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateSshKeyResponse::fromMap($this->doROARequest('CreateSshKey', '2021-06-25', 'HTTPS', 'POST', 'AK', '/organization/' . $organizationId . '/sshKey', 'json', $req, $runtime));
+        return CreateSshKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -278,8 +319,19 @@ class Devops extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateVariableGroup',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/variableGroups',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateVariableGroupResponse::fromMap($this->doROARequestWithForm('CreateVariableGroup', '2021-06-25', 'HTTPS', 'POST', 'AK', '/organization/' . $organizationId . '/variableGroups', 'json', $req, $runtime));
+        return CreateVariableGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -334,8 +386,19 @@ class Devops extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateWorkspace',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/workspaces',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateWorkspaceResponse::fromMap($this->doROARequestWithForm('CreateWorkspace', '2021-06-25', 'HTTPS', 'POST', 'AK', '/api/workspaces', 'json', $req, $runtime));
+        return CreateWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -367,8 +430,19 @@ class Devops extends OpenApiClient
         $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteHostGroup',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/hostGroups/{id}',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteHostGroupResponse::fromMap($this->doROARequest('DeleteHostGroup', '2021-06-25', 'HTTPS', 'DELETE', 'AK', '/organization/' . $organizationId . '/hostGroups/' . $id . '', 'json', $req, $runtime));
+        return DeleteHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -400,8 +474,19 @@ class Devops extends OpenApiClient
         $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DeletePipeline',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/pipelines/{pipelineId}',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeletePipelineResponse::fromMap($this->doROARequest('DeletePipeline', '2021-06-25', 'HTTPS', 'DELETE', 'AK', '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '', 'json', $req, $runtime));
+        return DeletePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -439,8 +524,19 @@ class Devops extends OpenApiClient
         $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteResourceMember',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/{resourceType}/{resourceId}/members/{accountId}',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteResourceMemberResponse::fromMap($this->doROARequest('DeleteResourceMember', '2021-06-25', 'HTTPS', 'DELETE', 'AK', '/organization/' . $organizationId . '/' . $resourceType . '/' . $resourceId . '/members/' . $accountId . '', 'json', $req, $runtime));
+        return DeleteResourceMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -472,8 +568,19 @@ class Devops extends OpenApiClient
         $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteVariableGroup',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/variableGroups/{id}',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteVariableGroupResponse::fromMap($this->doROARequest('DeleteVariableGroup', '2021-06-25', 'HTTPS', 'DELETE', 'AK', '/organization/' . $organizationId . '/variableGroups/' . $id . '', 'json', $req, $runtime));
+        return DeleteVariableGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -502,8 +609,19 @@ class Devops extends OpenApiClient
         $req         = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'FrozenWorkspace',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/workspaces/' . $workspaceId . '/frozen',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return FrozenWorkspaceResponse::fromMap($this->doROARequest('FrozenWorkspace', '2021-06-25', 'HTTPS', 'PUT', 'AK', '/api/workspaces/' . $workspaceId . '/frozen', 'json', $req, $runtime));
+        return FrozenWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -535,8 +653,19 @@ class Devops extends OpenApiClient
         $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetHostGroup',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/hostGroups/{id}',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetHostGroupResponse::fromMap($this->doROARequest('GetHostGroup', '2021-06-25', 'HTTPS', 'GET', 'AK', '/organization/' . $organizationId . '/hostGroups/' . $id . '', 'json', $req, $runtime));
+        return GetHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -568,8 +697,19 @@ class Devops extends OpenApiClient
         $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetOrganizationMember',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/members/{accountId}',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetOrganizationMemberResponse::fromMap($this->doROARequest('GetOrganizationMember', '2021-06-25', 'HTTPS', 'GET', 'AK', '/organization/' . $organizationId . '/members/' . $accountId . '', 'json', $req, $runtime));
+        return GetOrganizationMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -601,8 +741,19 @@ class Devops extends OpenApiClient
         $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetPipeline',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/pipelines/{pipelineId}',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetPipelineResponse::fromMap($this->doROARequest('GetPipeline', '2021-06-25', 'HTTPS', 'GET', 'AK', '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '', 'json', $req, $runtime));
+        return GetPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -637,8 +788,66 @@ class Devops extends OpenApiClient
         $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetPipelineRun',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/pipelines/{pipelineId}/pipelineRuns/{pipelineRunId}',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetPipelineRunResponse::fromMap($this->doROARequest('GetPipelineRun', '2021-06-25', 'HTTPS', 'GET', 'AK', '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '/pipelineRuns/' . $pipelineRunId . '', 'json', $req, $runtime));
+        return GetPipelineRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $organizationId
+     * @param string $pipelineId
+     * @param string $deployOrderId
+     *
+     * @return GetVMDeployOrderResponse
+     */
+    public function getVMDeployOrder($organizationId, $pipelineId, $deployOrderId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getVMDeployOrderWithOptions($organizationId, $pipelineId, $deployOrderId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $organizationId
+     * @param string         $pipelineId
+     * @param string         $deployOrderId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetVMDeployOrderResponse
+     */
+    public function getVMDeployOrderWithOptions($organizationId, $pipelineId, $deployOrderId, $headers, $runtime)
+    {
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
+        $deployOrderId  = OpenApiUtilClient::getEncodeParam($deployOrderId);
+        $req            = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetVMDeployOrder',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/pipelines/{pipelineId}/deploy/{deployOrderId}',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetVMDeployOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -670,8 +879,19 @@ class Devops extends OpenApiClient
         $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetVariableGroup',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/variableGroups/{id}',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetVariableGroupResponse::fromMap($this->doROARequest('GetVariableGroup', '2021-06-25', 'HTTPS', 'GET', 'AK', '/organization/' . $organizationId . '/variableGroups/' . $id . '', 'json', $req, $runtime));
+        return GetVariableGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -700,8 +920,19 @@ class Devops extends OpenApiClient
         $req         = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetWorkspace',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/workspaces/' . $workspaceId . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetWorkspaceResponse::fromMap($this->doROARequest('GetWorkspace', '2021-06-25', 'HTTPS', 'GET', 'AK', '/api/workspaces/' . $workspaceId . '', 'json', $req, $runtime));
+        return GetWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -762,8 +993,19 @@ class Devops extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListHostGroups',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/hostGroups',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListHostGroupsResponse::fromMap($this->doROARequest('ListHostGroups', '2021-06-25', 'HTTPS', 'GET', 'AK', '/organization/' . $organizationId . '/hostGroups', 'json', $req, $runtime));
+        return ListHostGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -821,8 +1063,19 @@ class Devops extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListOrganizationMembers',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/members',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListOrganizationMembersResponse::fromMap($this->doROARequest('ListOrganizationMembers', '2021-06-25', 'HTTPS', 'GET', 'AK', '/organization/' . $organizationId . '/members', 'json', $req, $runtime));
+        return ListOrganizationMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -877,8 +1130,19 @@ class Devops extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListPipelineRuns',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/pipelines/{pipelineId}/pipelineRuns',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListPipelineRunsResponse::fromMap($this->doROARequest('ListPipelineRuns', '2021-06-25', 'HTTPS', 'GET', 'AK', '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '/pipelineRuns', 'json', $req, $runtime));
+        return ListPipelineRunsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -942,8 +1206,19 @@ class Devops extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListPipelines',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/pipelines',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListPipelinesResponse::fromMap($this->doROARequest('ListPipelines', '2021-06-25', 'HTTPS', 'GET', 'AK', '/organization/' . $organizationId . '/pipelines', 'json', $req, $runtime));
+        return ListPipelinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -978,8 +1253,19 @@ class Devops extends OpenApiClient
         $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'ListResourceMembers',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/{resourceType}/{resourceId}/members',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListResourceMembersResponse::fromMap($this->doROARequest('ListResourceMembers', '2021-06-25', 'HTTPS', 'GET', 'AK', '/organization/' . $organizationId . '/' . $resourceType . '/' . $resourceId . '/members', 'json', $req, $runtime));
+        return ListResourceMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1016,8 +1302,19 @@ class Devops extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListServiceConnections',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/serviceConnections',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListServiceConnectionsResponse::fromMap($this->doROARequest('ListServiceConnections', '2021-06-25', 'HTTPS', 'GET', 'AK', '/organization/' . $organizationId . '/serviceConnections', 'json', $req, $runtime));
+        return ListServiceConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1063,8 +1360,19 @@ class Devops extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListVariableGroups',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/variableGroups',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListVariableGroupsResponse::fromMap($this->doROARequest('ListVariableGroups', '2021-06-25', 'HTTPS', 'GET', 'AK', '/organization/' . $organizationId . '/variableGroups', 'json', $req, $runtime));
+        return ListVariableGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1115,8 +1423,119 @@ class Devops extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListWorkspaces',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/workspaces',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListWorkspacesResponse::fromMap($this->doROARequest('ListWorkspaces', '2021-06-25', 'HTTPS', 'GET', 'AK', '/api/workspaces', 'json', $req, $runtime));
+        return ListWorkspacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $organizationId
+     * @param string $pipelineId
+     * @param string $jobId
+     * @param string $pipelineRunId
+     *
+     * @return LogPipelineJobRunResponse
+     */
+    public function logPipelineJobRun($organizationId, $pipelineId, $jobId, $pipelineRunId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->logPipelineJobRunWithOptions($organizationId, $pipelineId, $jobId, $pipelineRunId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $organizationId
+     * @param string         $pipelineId
+     * @param string         $jobId
+     * @param string         $pipelineRunId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return LogPipelineJobRunResponse
+     */
+    public function logPipelineJobRunWithOptions($organizationId, $pipelineId, $jobId, $pipelineRunId, $headers, $runtime)
+    {
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
+        $jobId          = OpenApiUtilClient::getEncodeParam($jobId);
+        $pipelineRunId  = OpenApiUtilClient::getEncodeParam($pipelineRunId);
+        $req            = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'LogPipelineJobRun',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/pipeline/{pipelineId}/pipelineRun/{pipelineRunId}/job/{jobId}/logs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return LogPipelineJobRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $organizationId
+     * @param string $pipelineId
+     * @param string $deployOrderId
+     * @param string $machineSn
+     *
+     * @return LogVMDeployMachineResponse
+     */
+    public function logVMDeployMachine($organizationId, $pipelineId, $deployOrderId, $machineSn)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->logVMDeployMachineWithOptions($organizationId, $pipelineId, $deployOrderId, $machineSn, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $organizationId
+     * @param string         $pipelineId
+     * @param string         $deployOrderId
+     * @param string         $machineSn
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return LogVMDeployMachineResponse
+     */
+    public function logVMDeployMachineWithOptions($organizationId, $pipelineId, $deployOrderId, $machineSn, $headers, $runtime)
+    {
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
+        $deployOrderId  = OpenApiUtilClient::getEncodeParam($deployOrderId);
+        $machineSn      = OpenApiUtilClient::getEncodeParam($machineSn);
+        $req            = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'LogVMDeployMachine',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/pipelines/{pipelineId}/deploy/{deployOrderId}/machine/{machineSn}/log',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return LogVMDeployMachineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1154,8 +1573,19 @@ class Devops extends OpenApiClient
         $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'PassPipelineValidate',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/pipelines/{pipelineId}/pipelineRuns/{pipelineRunId}/jobs/{jobId}/pass',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return PassPipelineValidateResponse::fromMap($this->doROARequest('PassPipelineValidate', '2021-06-25', 'HTTPS', 'POST', 'AK', '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '/pipelineRuns/' . $pipelineRunId . '/jobs/' . $jobId . '/pass', 'json', $req, $runtime));
+        return PassPipelineValidateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1193,8 +1623,19 @@ class Devops extends OpenApiClient
         $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'RefusePipelineValidate',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/pipelines/{pipelineId}/pipelineRuns/{pipelineRunId}/jobs/{jobId}/refuse',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return RefusePipelineValidateResponse::fromMap($this->doROARequest('RefusePipelineValidate', '2021-06-25', 'HTTPS', 'POST', 'AK', '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '/pipelineRuns/' . $pipelineRunId . '/jobs/' . $jobId . '/refuse', 'json', $req, $runtime));
+        return RefusePipelineValidateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1223,8 +1664,19 @@ class Devops extends OpenApiClient
         $req         = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'ReleaseWorkspace',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/workspaces/' . $workspaceId . '/release',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ReleaseWorkspaceResponse::fromMap($this->doROARequest('ReleaseWorkspace', '2021-06-25', 'HTTPS', 'DELETE', 'AK', '/api/workspaces/' . $workspaceId . '/release', 'json', $req, $runtime));
+        return ReleaseWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1253,8 +1705,66 @@ class Devops extends OpenApiClient
         $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'ResetSshKey',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/sshKey',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ResetSshKeyResponse::fromMap($this->doROARequest('ResetSshKey', '2021-06-25', 'HTTPS', 'PUT', 'AK', '/organization/' . $organizationId . '/sshKey', 'json', $req, $runtime));
+        return ResetSshKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $organizationId
+     * @param string $pipelineId
+     * @param string $deployOrderId
+     *
+     * @return ResumeVMDeployOrderResponse
+     */
+    public function resumeVMDeployOrder($organizationId, $pipelineId, $deployOrderId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->resumeVMDeployOrderWithOptions($organizationId, $pipelineId, $deployOrderId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $organizationId
+     * @param string         $pipelineId
+     * @param string         $deployOrderId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ResumeVMDeployOrderResponse
+     */
+    public function resumeVMDeployOrderWithOptions($organizationId, $pipelineId, $deployOrderId, $headers, $runtime)
+    {
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
+        $deployOrderId  = OpenApiUtilClient::getEncodeParam($deployOrderId);
+        $req            = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ResumeVMDeployOrder',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/pipelines/{pipelineId}/deploy/{deployOrderId}/resume',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResumeVMDeployOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1292,8 +1802,69 @@ class Devops extends OpenApiClient
         $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'RetryPipelineJobRun',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/pipelines/{pipelineId}/pipelineRuns/{pipelineRunId}/jobs/{jobId}',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return RetryPipelineJobRunResponse::fromMap($this->doROARequest('RetryPipelineJobRun', '2021-06-25', 'HTTPS', 'PUT', 'AK', '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '/pipelineRuns/' . $pipelineRunId . '/jobs/' . $jobId . '', 'json', $req, $runtime));
+        return RetryPipelineJobRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $organizationId
+     * @param string $pipelineId
+     * @param string $deployOrderId
+     * @param string $machineSn
+     *
+     * @return RetryVMDeployMachineResponse
+     */
+    public function retryVMDeployMachine($organizationId, $pipelineId, $deployOrderId, $machineSn)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->retryVMDeployMachineWithOptions($organizationId, $pipelineId, $deployOrderId, $machineSn, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $organizationId
+     * @param string         $pipelineId
+     * @param string         $deployOrderId
+     * @param string         $machineSn
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return RetryVMDeployMachineResponse
+     */
+    public function retryVMDeployMachineWithOptions($organizationId, $pipelineId, $deployOrderId, $machineSn, $headers, $runtime)
+    {
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
+        $deployOrderId  = OpenApiUtilClient::getEncodeParam($deployOrderId);
+        $machineSn      = OpenApiUtilClient::getEncodeParam($machineSn);
+        $req            = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'RetryVMDeployMachine',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/pipelines/{pipelineId}/deploy/{deployOrderId}/machine/{machineSn}/retry',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RetryVMDeployMachineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1331,8 +1902,69 @@ class Devops extends OpenApiClient
         $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'SkipPipelineJobRun',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/pipelines/{pipelineId}/pipelineRuns/{pipelineRunId}/jobs/{jobId}/skip',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return SkipPipelineJobRunResponse::fromMap($this->doROARequest('SkipPipelineJobRun', '2021-06-25', 'HTTPS', 'PUT', 'AK', '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '/pipelineRuns/' . $pipelineRunId . '/jobs/' . $jobId . '/skip', 'json', $req, $runtime));
+        return SkipPipelineJobRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $organizationId
+     * @param string $pipelineId
+     * @param string $deployOrderId
+     * @param string $machineSn
+     *
+     * @return SkipVMDeployMachineResponse
+     */
+    public function skipVMDeployMachine($organizationId, $pipelineId, $deployOrderId, $machineSn)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->skipVMDeployMachineWithOptions($organizationId, $pipelineId, $deployOrderId, $machineSn, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $organizationId
+     * @param string         $pipelineId
+     * @param string         $deployOrderId
+     * @param string         $machineSn
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return SkipVMDeployMachineResponse
+     */
+    public function skipVMDeployMachineWithOptions($organizationId, $pipelineId, $deployOrderId, $machineSn, $headers, $runtime)
+    {
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
+        $deployOrderId  = OpenApiUtilClient::getEncodeParam($deployOrderId);
+        $machineSn      = OpenApiUtilClient::getEncodeParam($machineSn);
+        $req            = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'SkipVMDeployMachine',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/pipelines/{pipelineId}/deploy/{deployOrderId}/machine/{machineSn}/skip',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SkipVMDeployMachineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1372,8 +2004,19 @@ class Devops extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'StartPipelineRun',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organizations/' . $organizationId . '/pipelines/{pipelineId}/run',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return StartPipelineRunResponse::fromMap($this->doROARequestWithForm('StartPipelineRun', '2021-06-25', 'HTTPS', 'POST', 'AK', '/organizations/' . $organizationId . '/pipelines/' . $pipelineId . '/run', 'json', $req, $runtime));
+        return StartPipelineRunResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1411,8 +2054,19 @@ class Devops extends OpenApiClient
         $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'StopPipelineJobRun',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/pipelines/{pipelineId}/pipelineRuns/{pipelineRunId}/jobs/{jobId}/stop',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return StopPipelineJobRunResponse::fromMap($this->doROARequest('StopPipelineJobRun', '2021-06-25', 'HTTPS', 'PUT', 'AK', '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '/pipelineRuns/' . $pipelineRunId . '/jobs/' . $jobId . '/stop', 'json', $req, $runtime));
+        return StopPipelineJobRunResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1447,8 +2101,66 @@ class Devops extends OpenApiClient
         $req            = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'StopPipelineRun',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/pipelines/{pipelineId}/pipelineRuns/{pipelineRunId}/stop',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return StopPipelineRunResponse::fromMap($this->doROARequest('StopPipelineRun', '2021-06-25', 'HTTPS', 'PUT', 'AK', '/organization/' . $organizationId . '/pipelines/' . $pipelineId . '/pipelineRuns/' . $pipelineRunId . '/stop', 'json', $req, $runtime));
+        return StopPipelineRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $organizationId
+     * @param string $pipelineId
+     * @param string $deployOrderId
+     *
+     * @return StopVMDeployOrderResponse
+     */
+    public function stopVMDeployOrder($organizationId, $pipelineId, $deployOrderId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopVMDeployOrderWithOptions($organizationId, $pipelineId, $deployOrderId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $organizationId
+     * @param string         $pipelineId
+     * @param string         $deployOrderId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopVMDeployOrderResponse
+     */
+    public function stopVMDeployOrderWithOptions($organizationId, $pipelineId, $deployOrderId, $headers, $runtime)
+    {
+        $organizationId = OpenApiUtilClient::getEncodeParam($organizationId);
+        $pipelineId     = OpenApiUtilClient::getEncodeParam($pipelineId);
+        $deployOrderId  = OpenApiUtilClient::getEncodeParam($deployOrderId);
+        $req            = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'StopVMDeployOrder',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/pipelines/{pipelineId}/deploy/{deployOrderId}/stop',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopVMDeployOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1515,8 +2227,19 @@ class Devops extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateHostGroup',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/hostGroups/{id}',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateHostGroupResponse::fromMap($this->doROARequestWithForm('UpdateHostGroup', '2021-06-25', 'HTTPS', 'PUT', 'AK', '/organization/' . $organizationId . '/hostGroups/' . $id . '', 'json', $req, $runtime));
+        return UpdateHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1562,8 +2285,19 @@ class Devops extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateResourceMember',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/{resourceType}/{resourceId}/members/{accountId}',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateResourceMemberResponse::fromMap($this->doROARequestWithForm('UpdateResourceMember', '2021-06-25', 'HTTPS', 'PUT', 'AK', '/organization/' . $organizationId . '/' . $resourceType . '/' . $resourceId . '/members/' . $accountId . '', 'json', $req, $runtime));
+        return UpdateResourceMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1609,7 +2343,18 @@ class Devops extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateVariableGroup',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . $organizationId . '/variableGroups/{id}',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateVariableGroupResponse::fromMap($this->doROARequestWithForm('UpdateVariableGroup', '2021-06-25', 'HTTPS', 'PUT', 'AK', '/organization/' . $organizationId . '/variableGroups/' . $id . '', 'json', $req, $runtime));
+        return UpdateVariableGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 }
