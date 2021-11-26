@@ -35,11 +35,19 @@ class RectVerticalResponseBody extends Model
      * @var bool
      */
     public $success;
+
+    /**
+     * @description 错误消息
+     *
+     * @var string
+     */
+    public $taskId;
     protected $_name = [
         'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
+        'taskId'    => 'TaskId',
     ];
 
     public function validate()
@@ -60,6 +68,9 @@ class RectVerticalResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -84,6 +95,9 @@ class RectVerticalResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

@@ -21,9 +21,17 @@ class AddSubSceneRequest extends Model
      * @var string
      */
     public $sceneId;
+
+    /**
+     * @description 类型 图片：IMAGE 视频：VIDEO
+     *
+     * @var string
+     */
+    public $uploadType;
     protected $_name = [
-        'name'    => 'Name',
-        'sceneId' => 'SceneId',
+        'name'       => 'Name',
+        'sceneId'    => 'SceneId',
+        'uploadType' => 'UploadType',
     ];
 
     public function validate()
@@ -38,6 +46,9 @@ class AddSubSceneRequest extends Model
         }
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
+        }
+        if (null !== $this->uploadType) {
+            $res['UploadType'] = $this->uploadType;
         }
 
         return $res;
@@ -56,6 +67,9 @@ class AddSubSceneRequest extends Model
         }
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];
+        }
+        if (isset($map['UploadType'])) {
+            $model->uploadType = $map['UploadType'];
         }
 
         return $model;

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Tdsr\V20200101;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddMosaicsRequest;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddMosaicsResponse;
 use AlibabaCloud\SDK\Tdsr\V20200101\Models\AddProjectRequest;
@@ -122,6 +123,7 @@ use AlibabaCloud\SDK\Tdsr\V20200101\Models\UpdateSubSceneResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Tdsr extends OpenApiClient
@@ -169,11 +171,26 @@ class Tdsr extends OpenApiClient
     public function addMosaicsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['MarkPosition'] = $request->markPosition;
+        $query['SubSceneId']   = $request->subSceneId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddMosaics',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddMosaicsResponse::fromMap($this->doRPCRequest('AddMosaics', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddMosaicsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -197,11 +214,26 @@ class Tdsr extends OpenApiClient
     public function addProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['BusinessId'] = $request->businessId;
+        $query['Name']       = $request->name;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddProject',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddProjectResponse::fromMap($this->doRPCRequest('AddProject', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -225,11 +257,26 @@ class Tdsr extends OpenApiClient
     public function addRelativePositionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['RelativePosition'] = $request->relativePosition;
+        $query['SceneId']          = $request->sceneId;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddRelativePosition',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddRelativePositionResponse::fromMap($this->doRPCRequest('AddRelativePosition', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddRelativePositionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -253,11 +300,27 @@ class Tdsr extends OpenApiClient
     public function addSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['Name']      = $request->name;
+        $query['ProjectId'] = $request->projectId;
+        $query['Type']      = $request->type;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddScene',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddSceneResponse::fromMap($this->doRPCRequest('AddScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -281,11 +344,27 @@ class Tdsr extends OpenApiClient
     public function addSubSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['Name']       = $request->name;
+        $query['SceneId']    = $request->sceneId;
+        $query['UploadType'] = $request->uploadType;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddSubScene',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddSubSceneResponse::fromMap($this->doRPCRequest('AddSubScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddSubSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -309,11 +388,38 @@ class Tdsr extends OpenApiClient
     public function checkResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['Bid']            = $request->bid;
+        $query['Country']        = $request->country;
+        $query['GmtWakeup']      = $request->gmtWakeup;
+        $query['Hid']            = $request->hid;
+        $query['Interrupt']      = $request->interrupt;
+        $query['Invoker']        = $request->invoker;
+        $query['Level']          = $request->level;
+        $query['Message']        = $request->message;
+        $query['Pk']             = $request->pk;
+        $query['Prompt']         = $request->prompt;
+        $query['Success']        = $request->success;
+        $query['TaskExtraData']  = $request->taskExtraData;
+        $query['TaskIdentifier'] = $request->taskIdentifier;
+        $query['Url']            = $request->url;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckResource',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CheckResourceResponse::fromMap($this->doRPCRequest('CheckResource', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CheckResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -337,11 +443,29 @@ class Tdsr extends OpenApiClient
     public function createProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['BuilderUserIdList']  = $request->builderUserIdList;
+        $query['BusinessId']         = $request->businessId;
+        $query['BusinessUserIdList'] = $request->businessUserIdList;
+        $query['GatherUserIdList']   = $request->gatherUserIdList;
+        $query['Name']               = $request->name;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateProject',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateProjectResponse::fromMap($this->doRPCRequest('CreateProject', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -365,11 +489,26 @@ class Tdsr extends OpenApiClient
     public function createSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['Name']      = $request->name;
+        $query['ProjectId'] = $request->projectId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateScene',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateSceneResponse::fromMap($this->doRPCRequest('CreateScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -393,11 +532,26 @@ class Tdsr extends OpenApiClient
     public function deleteFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['ParamFile']    = $request->paramFile;
+        $query['SubSceneUuid'] = $request->subSceneUuid;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFile',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteFileResponse::fromMap($this->doRPCRequest('DeleteFile', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -421,11 +575,25 @@ class Tdsr extends OpenApiClient
     public function deleteProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ProjectId'] = $request->projectId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteProject',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteProjectResponse::fromMap($this->doRPCRequest('DeleteProject', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -449,11 +617,25 @@ class Tdsr extends OpenApiClient
     public function detailProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query       = [];
+        $query['Id'] = $request->id;
+        $req         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DetailProject',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DetailProjectResponse::fromMap($this->doRPCRequest('DetailProject', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetailProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -477,11 +659,25 @@ class Tdsr extends OpenApiClient
     public function detailSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query       = [];
+        $query['Id'] = $request->id;
+        $req         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DetailScene',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DetailSceneResponse::fromMap($this->doRPCRequest('DetailScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetailSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -505,11 +701,25 @@ class Tdsr extends OpenApiClient
     public function detailSubSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query       = [];
+        $query['Id'] = $request->id;
+        $req         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DetailSubScene',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DetailSubSceneResponse::fromMap($this->doRPCRequest('DetailSubScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetailSubSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -533,11 +743,25 @@ class Tdsr extends OpenApiClient
     public function dropProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ProjectId'] = $request->projectId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DropProject',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DropProjectResponse::fromMap($this->doRPCRequest('DropProject', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DropProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -561,11 +785,25 @@ class Tdsr extends OpenApiClient
     public function dropSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query       = [];
+        $query['Id'] = $request->id;
+        $req         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DropScene',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DropSceneResponse::fromMap($this->doRPCRequest('DropScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DropSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -589,11 +827,25 @@ class Tdsr extends OpenApiClient
     public function dropSubSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query       = [];
+        $query['Id'] = $request->id;
+        $req         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DropSubScene',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DropSubSceneResponse::fromMap($this->doRPCRequest('DropSubScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DropSubSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -617,11 +869,25 @@ class Tdsr extends OpenApiClient
     public function getConnDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['SceneId'] = $request->sceneId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetConnData',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetConnDataResponse::fromMap($this->doRPCRequest('GetConnData', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetConnDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -645,11 +911,28 @@ class Tdsr extends OpenApiClient
     public function getHotspotConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['Domain']       = $request->domain;
+        $query['Enabled']      = $request->enabled;
+        $query['PreviewToken'] = $request->previewToken;
+        $query['Type']         = $request->type;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetHotspotConfig',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetHotspotConfigResponse::fromMap($this->doRPCRequest('GetHotspotConfig', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetHotspotConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -673,11 +956,28 @@ class Tdsr extends OpenApiClient
     public function getHotspotSceneDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['Domain']       = $request->domain;
+        $query['Enabled']      = $request->enabled;
+        $query['PreviewToken'] = $request->previewToken;
+        $query['Type']         = $request->type;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetHotspotSceneData',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetHotspotSceneDataResponse::fromMap($this->doRPCRequest('GetHotspotSceneData', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetHotspotSceneDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -701,11 +1001,29 @@ class Tdsr extends OpenApiClient
     public function getHotspotTagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['Domain']       = $request->domain;
+        $query['Enabled']      = $request->enabled;
+        $query['PreviewToken'] = $request->previewToken;
+        $query['SubSceneUuid'] = $request->subSceneUuid;
+        $query['Type']         = $request->type;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetHotspotTag',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetHotspotTagResponse::fromMap($this->doRPCRequest('GetHotspotTag', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetHotspotTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -729,11 +1047,25 @@ class Tdsr extends OpenApiClient
     public function getLayoutDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['SubSceneId'] = $request->subSceneId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLayoutData',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetLayoutDataResponse::fromMap($this->doRPCRequest('GetLayoutData', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetLayoutDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -757,11 +1089,25 @@ class Tdsr extends OpenApiClient
     public function getOriginLayoutDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['SubSceneId'] = $request->subSceneId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOriginLayoutData',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetOriginLayoutDataResponse::fromMap($this->doRPCRequest('GetOriginLayoutData', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetOriginLayoutDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -785,11 +1131,25 @@ class Tdsr extends OpenApiClient
     public function getOssPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['SubSceneId'] = $request->subSceneId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOssPolicy',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetOssPolicyResponse::fromMap($this->doRPCRequest('GetOssPolicy', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetOssPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -813,11 +1173,26 @@ class Tdsr extends OpenApiClient
     public function getPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['SubSceneUuid'] = $request->subSceneUuid;
+        $query['Type']         = $request->type;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPolicy',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetPolicyResponse::fromMap($this->doRPCRequest('GetPolicy', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -841,11 +1216,25 @@ class Tdsr extends OpenApiClient
     public function getRectifyImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['SubSceneId'] = $request->subSceneId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRectifyImage',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetRectifyImageResponse::fromMap($this->doRPCRequest('GetRectifyImage', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetRectifyImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -869,11 +1258,25 @@ class Tdsr extends OpenApiClient
     public function getSceneBuildTaskStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['SceneId'] = $request->sceneId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSceneBuildTaskStatus',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetSceneBuildTaskStatusResponse::fromMap($this->doRPCRequest('GetSceneBuildTaskStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetSceneBuildTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -897,11 +1300,27 @@ class Tdsr extends OpenApiClient
     public function getScenePreviewInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['Domain']     = $request->domain;
+        $query['Enabled']    = $request->enabled;
+        $query['ModelToken'] = $request->modelToken;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetScenePreviewInfo',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetScenePreviewInfoResponse::fromMap($this->doRPCRequest('GetScenePreviewInfo', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetScenePreviewInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -925,11 +1344,25 @@ class Tdsr extends OpenApiClient
     public function getSingleConnDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['SubSceneId'] = $request->subSceneId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSingleConnData',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetSingleConnDataResponse::fromMap($this->doRPCRequest('GetSingleConnData', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetSingleConnDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -953,11 +1386,25 @@ class Tdsr extends OpenApiClient
     public function getSubSceneTaskStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['SubSceneId'] = $request->subSceneId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSubSceneTaskStatus',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetSubSceneTaskStatusResponse::fromMap($this->doRPCRequest('GetSubSceneTaskStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetSubSceneTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -981,11 +1428,25 @@ class Tdsr extends OpenApiClient
     public function getTaskStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query           = [];
+        $query['TaskId'] = $request->taskId;
+        $req             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTaskStatus',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTaskStatusResponse::fromMap($this->doRPCRequest('GetTaskStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1009,11 +1470,25 @@ class Tdsr extends OpenApiClient
     public function getWindowConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['PreviewToken'] = $request->previewToken;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetWindowConfig',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetWindowConfigResponse::fromMap($this->doRPCRequest('GetWindowConfig', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetWindowConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1037,11 +1512,26 @@ class Tdsr extends OpenApiClient
     public function labelBuildWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['Mode']    = $request->mode;
+        $query['SceneId'] = $request->sceneId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'LabelBuild',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return LabelBuildResponse::fromMap($this->doRPCRequest('LabelBuild', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return LabelBuildResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1065,11 +1555,28 @@ class Tdsr extends OpenApiClient
     public function linkImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['CameraHeight'] = $request->cameraHeight;
+        $query['FileName']     = $request->fileName;
+        $query['Platform']     = $request->platform;
+        $query['SubSceneId']   = $request->subSceneId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'LinkImage',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return LinkImageResponse::fromMap($this->doRPCRequest('LinkImage', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return LinkImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1093,11 +1600,27 @@ class Tdsr extends OpenApiClient
     public function listProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['Name']     = $request->name;
+        $query['PageNum']  = $request->pageNum;
+        $query['PageSize'] = $request->pageSize;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListProject',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListProjectResponse::fromMap($this->doRPCRequest('ListProject', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1121,11 +1644,28 @@ class Tdsr extends OpenApiClient
     public function listSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['Name']      = $request->name;
+        $query['PageNum']   = $request->pageNum;
+        $query['PageSize']  = $request->pageSize;
+        $query['ProjectId'] = $request->projectId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListScene',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListSceneResponse::fromMap($this->doRPCRequest('ListScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1149,11 +1689,26 @@ class Tdsr extends OpenApiClient
     public function listScenesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['IsPublishQuery'] = $request->isPublishQuery;
+        $query['ProjectId']      = $request->projectId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListScenes',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListScenesResponse::fromMap($this->doRPCRequest('ListScenes', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListScenesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1177,11 +1732,28 @@ class Tdsr extends OpenApiClient
     public function listSubSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['PageNum']        = $request->pageNum;
+        $query['PageSize']       = $request->pageSize;
+        $query['SceneId']        = $request->sceneId;
+        $query['ShowLayoutData'] = $request->showLayoutData;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSubScene',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListSubSceneResponse::fromMap($this->doRPCRequest('ListSubScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSubSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1205,11 +1777,25 @@ class Tdsr extends OpenApiClient
     public function optimizeRightAngleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['SubSceneId'] = $request->subSceneId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'OptimizeRightAngle',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return OptimizeRightAngleResponse::fromMap($this->doRPCRequest('OptimizeRightAngle', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OptimizeRightAngleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1233,11 +1819,28 @@ class Tdsr extends OpenApiClient
     public function predImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['CorrectVertical'] = $request->correctVertical;
+        $query['CountDetectDoor'] = $request->countDetectDoor;
+        $query['DetectDoor']      = $request->detectDoor;
+        $query['SubSceneId']      = $request->subSceneId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'PredImage',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return PredImageResponse::fromMap($this->doRPCRequest('PredImage', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PredImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1261,11 +1864,26 @@ class Tdsr extends OpenApiClient
     public function predictionWallLineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['CameraHeight'] = $request->cameraHeight;
+        $query['Url']          = $request->url;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'PredictionWallLine',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return PredictionWallLineResponse::fromMap($this->doRPCRequest('PredictionWallLine', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PredictionWallLineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1289,11 +1907,26 @@ class Tdsr extends OpenApiClient
     public function publishHotspotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['ParamTag']     = $request->paramTag;
+        $query['SubSceneUuid'] = $request->subSceneUuid;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'PublishHotspot',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return PublishHotspotResponse::fromMap($this->doRPCRequest('PublishHotspot', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PublishHotspotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1317,11 +1950,25 @@ class Tdsr extends OpenApiClient
     public function publishSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['SceneId'] = $request->sceneId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'PublishScene',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return PublishSceneResponse::fromMap($this->doRPCRequest('PublishScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PublishSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1345,11 +1992,25 @@ class Tdsr extends OpenApiClient
     public function publishStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['SceneId'] = $request->sceneId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'PublishStatus',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return PublishStatusResponse::fromMap($this->doRPCRequest('PublishStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PublishStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1373,11 +2034,25 @@ class Tdsr extends OpenApiClient
     public function recoveryOriginImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['SubSceneId'] = $request->subSceneId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RecoveryOriginImage',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RecoveryOriginImageResponse::fromMap($this->doRPCRequest('RecoveryOriginImage', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecoveryOriginImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1401,11 +2076,28 @@ class Tdsr extends OpenApiClient
     public function rectVerticalWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['CountDetectDoor'] = $request->countDetectDoor;
+        $query['DetectDoor']      = $request->detectDoor;
+        $query['SubSceneId']      = $request->subSceneId;
+        $query['VerticalRect']    = $request->verticalRect;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RectVertical',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RectVerticalResponse::fromMap($this->doRPCRequest('RectVertical', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RectVerticalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1429,11 +2121,26 @@ class Tdsr extends OpenApiClient
     public function rectifyImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['CameraHeight'] = $request->cameraHeight;
+        $query['Url']          = $request->url;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RectifyImage',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RectifyImageResponse::fromMap($this->doRPCRequest('RectifyImage', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RectifyImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1457,11 +2164,25 @@ class Tdsr extends OpenApiClient
     public function rollbackSubSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query       = [];
+        $query['Id'] = $request->id;
+        $req         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RollbackSubScene',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RollbackSubSceneResponse::fromMap($this->doRPCRequest('RollbackSubScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RollbackSubSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1485,11 +2206,26 @@ class Tdsr extends OpenApiClient
     public function saveHotspotConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['ParamTag']     = $request->paramTag;
+        $query['PreviewToken'] = $request->previewToken;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveHotspotConfig',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SaveHotspotConfigResponse::fromMap($this->doRPCRequest('SaveHotspotConfig', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SaveHotspotConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1513,11 +2249,26 @@ class Tdsr extends OpenApiClient
     public function saveHotspotTagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['ParamTag']     = $request->paramTag;
+        $query['SubSceneUuid'] = $request->subSceneUuid;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveHotspotTag',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SaveHotspotTagResponse::fromMap($this->doRPCRequest('SaveHotspotTag', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SaveHotspotTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1541,11 +2292,25 @@ class Tdsr extends OpenApiClient
     public function scenePublishWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['SceneId'] = $request->sceneId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ScenePublish',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ScenePublishResponse::fromMap($this->doRPCRequest('ScenePublish', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ScenePublishResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1569,11 +2334,25 @@ class Tdsr extends OpenApiClient
     public function tempPreviewWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['SceneId'] = $request->sceneId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'TempPreview',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return TempPreviewResponse::fromMap($this->doRPCRequest('TempPreview', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TempPreviewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1597,11 +2376,25 @@ class Tdsr extends OpenApiClient
     public function tempPreviewStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['SceneId'] = $request->sceneId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'TempPreviewStatus',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return TempPreviewStatusResponse::fromMap($this->doRPCRequest('TempPreviewStatus', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TempPreviewStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1625,11 +2418,26 @@ class Tdsr extends OpenApiClient
     public function updateConnDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['ConnData'] = $request->connData;
+        $query['SceneId']  = $request->sceneId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateConnData',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateConnDataResponse::fromMap($this->doRPCRequest('UpdateConnData', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateConnDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1653,11 +2461,26 @@ class Tdsr extends OpenApiClient
     public function updateLayoutDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['LayoutData'] = $request->layoutData;
+        $query['SubSceneId'] = $request->subSceneId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateLayoutData',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateLayoutDataResponse::fromMap($this->doRPCRequest('UpdateLayoutData', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateLayoutDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1681,11 +2504,27 @@ class Tdsr extends OpenApiClient
     public function updateProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['BusinessId'] = $request->businessId;
+        $query['Id']         = $request->id;
+        $query['Name']       = $request->name;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateProject',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateProjectResponse::fromMap($this->doRPCRequest('UpdateProject', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1709,11 +2548,26 @@ class Tdsr extends OpenApiClient
     public function updateSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query         = [];
+        $query['Id']   = $request->id;
+        $query['Name'] = $request->name;
+        $req           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateScene',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateSceneResponse::fromMap($this->doRPCRequest('UpdateScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1737,11 +2591,26 @@ class Tdsr extends OpenApiClient
     public function updateSubSceneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query         = [];
+        $query['Id']   = $request->id;
+        $query['Name'] = $request->name;
+        $req           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSubScene',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateSubSceneResponse::fromMap($this->doRPCRequest('UpdateSubScene', '2020-01-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateSubSceneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

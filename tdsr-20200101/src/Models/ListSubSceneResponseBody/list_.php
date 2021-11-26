@@ -100,6 +100,13 @@ class list_ extends Model
     public $status;
 
     /**
+     * @description 上传资源类型
+     *
+     * @var string
+     */
+    public $type;
+
+    /**
      * @description 图片路径/视频路径
      *
      * @var string
@@ -119,6 +126,7 @@ class list_ extends Model
         'resourceId'   => 'ResourceId',
         'resourceName' => 'ResourceName',
         'status'       => 'Status',
+        'type'         => 'Type',
         'url'          => 'Url',
     ];
 
@@ -167,6 +175,9 @@ class list_ extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
@@ -221,6 +232,9 @@ class list_ extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
