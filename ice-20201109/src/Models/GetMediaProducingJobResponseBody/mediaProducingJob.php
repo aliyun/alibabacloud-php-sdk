@@ -77,6 +77,11 @@ class mediaProducingJob extends Model
      * @var string
      */
     public $timeline;
+
+    /**
+     * @var string
+     */
+    public $vodMediaId;
     protected $_name = [
         'clipsParam'   => 'ClipsParam',
         'code'         => 'Code',
@@ -92,6 +97,7 @@ class mediaProducingJob extends Model
         'status'       => 'Status',
         'templateId'   => 'TemplateId',
         'timeline'     => 'Timeline',
+        'vodMediaId'   => 'VodMediaId',
     ];
 
     public function validate()
@@ -142,6 +148,9 @@ class mediaProducingJob extends Model
         }
         if (null !== $this->timeline) {
             $res['Timeline'] = $this->timeline;
+        }
+        if (null !== $this->vodMediaId) {
+            $res['VodMediaId'] = $this->vodMediaId;
         }
 
         return $res;
@@ -196,6 +205,9 @@ class mediaProducingJob extends Model
         }
         if (isset($map['Timeline'])) {
             $model->timeline = $map['Timeline'];
+        }
+        if (isset($map['VodMediaId'])) {
+            $model->vodMediaId = $map['VodMediaId'];
         }
 
         return $model;

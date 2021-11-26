@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\ListAllPublicMediaTagsResponseBody;
 
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListAllPublicMediaTagsResponseBody\mediaTagList\options;
 use AlibabaCloud\Tea\Model;
 
 class mediaTagList extends Model
@@ -28,10 +29,16 @@ class mediaTagList extends Model
      * @var string
      */
     public $mediaTagNameEnglish;
+
+    /**
+     * @var options[]
+     */
+    public $options;
     protected $_name = [
         'mediaTagId'          => 'MediaTagId',
         'mediaTagNameChinese' => 'MediaTagNameChinese',
         'mediaTagNameEnglish' => 'MediaTagNameEnglish',
+        'options'             => 'Options',
     ];
 
     public function validate()
@@ -49,6 +56,15 @@ class mediaTagList extends Model
         }
         if (null !== $this->mediaTagNameEnglish) {
             $res['MediaTagNameEnglish'] = $this->mediaTagNameEnglish;
+        }
+        if (null !== $this->options) {
+            $res['Options'] = [];
+            if (null !== $this->options && \is_array($this->options)) {
+                $n = 0;
+                foreach ($this->options as $item) {
+                    $res['Options'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -70,6 +86,15 @@ class mediaTagList extends Model
         }
         if (isset($map['MediaTagNameEnglish'])) {
             $model->mediaTagNameEnglish = $map['MediaTagNameEnglish'];
+        }
+        if (isset($map['Options'])) {
+            if (!empty($map['Options'])) {
+                $model->options = [];
+                $n              = 0;
+                foreach ($map['Options'] as $item) {
+                    $model->options[$n++] = null !== $item ? options::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class SubmitAudioProduceJobRequest extends Model
 {
     /**
+     * @description 任务描述
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description 音频生产配置
+     *
      * @var string
      */
     public $editingConfig;
 
     /**
+     * @description 文本内容。  最大支持300个汉字
+     *
      * @var string
      */
     public $inputConfig;
 
     /**
+     * @description 音频输出配置
+     *
      * @var string
      */
     public $outputConfig;
 
     /**
+     * @description 是否覆盖现有OSS文件
+     *
      * @var bool
      */
     public $overwrite;
 
     /**
+     * @description 任务标题
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description 自定义数据
+     *
      * @var string
      */
     public $userData;

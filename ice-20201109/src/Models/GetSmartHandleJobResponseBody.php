@@ -10,43 +10,47 @@ use AlibabaCloud\Tea\Model;
 class GetSmartHandleJobResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $FEExtend;
-
-    /**
+     * @description 任务Id
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description 任务结果
+     *
      * @var string
      */
     public $output;
 
     /**
-     * @description Id of the request
+     * @description 请求Id
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description 智能任务信息
+     *
      * @var smartJobInfo
      */
     public $smartJobInfo;
 
     /**
+     * @description 任务状态
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description 用户自定义信息
+     *
      * @var string
      */
     public $userData;
     protected $_name = [
-        'FEExtend'     => 'FEExtend',
         'jobId'        => 'JobId',
         'output'       => 'Output',
         'requestId'    => 'RequestId',
@@ -62,9 +66,6 @@ class GetSmartHandleJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->FEExtend) {
-            $res['FEExtend'] = $this->FEExtend;
-        }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
@@ -95,9 +96,6 @@ class GetSmartHandleJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FEExtend'])) {
-            $model->FEExtend = $map['FEExtend'];
-        }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }

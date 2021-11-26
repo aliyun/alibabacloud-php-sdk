@@ -6,16 +6,14 @@ namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetSmartHandleJobRequest extends Model
+class CancelFavoritePublicMediaRequest extends Model
 {
     /**
-     * @description 任务Id
-     *
      * @var string
      */
-    public $jobId;
+    public $mediaIds;
     protected $_name = [
-        'jobId' => 'JobId',
+        'mediaIds' => 'MediaIds',
     ];
 
     public function validate()
@@ -25,8 +23,8 @@ class GetSmartHandleJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
+        if (null !== $this->mediaIds) {
+            $res['MediaIds'] = $this->mediaIds;
         }
 
         return $res;
@@ -35,13 +33,13 @@ class GetSmartHandleJobRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetSmartHandleJobRequest
+     * @return CancelFavoritePublicMediaRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
+        if (isset($map['MediaIds'])) {
+            $model->mediaIds = $map['MediaIds'];
         }
 
         return $model;

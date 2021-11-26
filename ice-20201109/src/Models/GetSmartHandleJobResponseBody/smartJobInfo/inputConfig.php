@@ -9,17 +9,13 @@ use AlibabaCloud\Tea\Model;
 class inputConfig extends Model
 {
     /**
+     * @description OSS地址 或 内容库素材ID
+     *
      * @var string
      */
     public $inputFile;
-
-    /**
-     * @var string
-     */
-    public $jobParameters;
     protected $_name = [
-        'inputFile'     => 'InputFile',
-        'jobParameters' => 'JobParameters',
+        'inputFile' => 'InputFile',
     ];
 
     public function validate()
@@ -31,9 +27,6 @@ class inputConfig extends Model
         $res = [];
         if (null !== $this->inputFile) {
             $res['InputFile'] = $this->inputFile;
-        }
-        if (null !== $this->jobParameters) {
-            $res['JobParameters'] = $this->jobParameters;
         }
 
         return $res;
@@ -49,9 +42,6 @@ class inputConfig extends Model
         $model = new self();
         if (isset($map['InputFile'])) {
             $model->inputFile = $map['InputFile'];
-        }
-        if (isset($map['JobParameters'])) {
-            $model->jobParameters = $map['JobParameters'];
         }
 
         return $model;

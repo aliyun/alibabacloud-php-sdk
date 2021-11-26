@@ -28,7 +28,7 @@ class GetEditingProjectMaterialsResponseBody extends Model
     public $projectId;
 
     /**
-     * @var string
+     * @var string[]
      */
     public $projectMaterials;
 
@@ -114,7 +114,9 @@ class GetEditingProjectMaterialsResponseBody extends Model
             $model->projectId = $map['ProjectId'];
         }
         if (isset($map['ProjectMaterials'])) {
-            $model->projectMaterials = $map['ProjectMaterials'];
+            if (!empty($map['ProjectMaterials'])) {
+                $model->projectMaterials = $map['ProjectMaterials'];
+            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

@@ -4,34 +4,25 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetPublicMediaInfoResponseBody\mediaInfo;
 use AlibabaCloud\Tea\Model;
 
-class SubmitAudioProduceJobResponseBody extends Model
+class GetPublicMediaInfoResponseBody extends Model
 {
     /**
-     * @description 任务ID
-     *
-     * @var string
+     * @var mediaInfo
      */
-    public $jobId;
+    public $mediaInfo;
 
     /**
-     * @description 请求Id
+     * @description RequestId
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @description 任务状态
-     *
-     * @var string
-     */
-    public $state;
     protected $_name = [
-        'jobId'     => 'JobId',
+        'mediaInfo' => 'MediaInfo',
         'requestId' => 'RequestId',
-        'state'     => 'State',
     ];
 
     public function validate()
@@ -41,14 +32,11 @@ class SubmitAudioProduceJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
+        if (null !== $this->mediaInfo) {
+            $res['MediaInfo'] = null !== $this->mediaInfo ? $this->mediaInfo->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
         }
 
         return $res;
@@ -57,19 +45,16 @@ class SubmitAudioProduceJobResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return SubmitAudioProduceJobResponseBody
+     * @return GetPublicMediaInfoResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
+        if (isset($map['MediaInfo'])) {
+            $model->mediaInfo = mediaInfo::fromMap($map['MediaInfo']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
         }
 
         return $model;

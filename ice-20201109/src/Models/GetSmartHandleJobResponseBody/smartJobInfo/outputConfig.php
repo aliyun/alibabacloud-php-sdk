@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class outputConfig extends Model
 {
     /**
+     * @description OSS Bucket
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @description OSS Object
+     *
      * @var string
      */
     public $object;

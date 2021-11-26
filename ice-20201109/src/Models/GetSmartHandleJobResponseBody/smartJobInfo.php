@@ -11,59 +11,69 @@ use AlibabaCloud\Tea\Model;
 class smartJobInfo extends Model
 {
     /**
+     * @description 创建时间
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description 任务描述
+     *
      * @var string
      */
     public $description;
 
     /**
-     * @var string
-     */
-    public $editingConfig;
-
-    /**
+     * @description 输入参数
+     *
      * @var inputConfig
      */
     public $inputConfig;
 
     /**
+     * @description 任务类型
+     *
      * @var string
      */
     public $jobType;
 
     /**
+     * @description 修改时间
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @description 输出配置
+     *
      * @var outputConfig
      */
     public $outputConfig;
 
     /**
+     * @description 任务标题
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description userid
+     *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'createTime'    => 'CreateTime',
-        'description'   => 'Description',
-        'editingConfig' => 'EditingConfig',
-        'inputConfig'   => 'InputConfig',
-        'jobType'       => 'JobType',
-        'modifiedTime'  => 'ModifiedTime',
-        'outputConfig'  => 'OutputConfig',
-        'title'         => 'Title',
-        'userId'        => 'UserId',
+        'createTime'   => 'CreateTime',
+        'description'  => 'Description',
+        'inputConfig'  => 'InputConfig',
+        'jobType'      => 'JobType',
+        'modifiedTime' => 'ModifiedTime',
+        'outputConfig' => 'OutputConfig',
+        'title'        => 'Title',
+        'userId'       => 'UserId',
     ];
 
     public function validate()
@@ -78,9 +88,6 @@ class smartJobInfo extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
-        }
-        if (null !== $this->editingConfig) {
-            $res['EditingConfig'] = $this->editingConfig;
         }
         if (null !== $this->inputConfig) {
             $res['InputConfig'] = null !== $this->inputConfig ? $this->inputConfig->toMap() : null;
@@ -117,9 +124,6 @@ class smartJobInfo extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
-        }
-        if (isset($map['EditingConfig'])) {
-            $model->editingConfig = $map['EditingConfig'];
         }
         if (isset($map['InputConfig'])) {
             $model->inputConfig = inputConfig::fromMap($map['InputConfig']);

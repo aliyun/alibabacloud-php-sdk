@@ -8,10 +8,14 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddEditingProjectMaterialsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddEditingProjectMaterialsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AddFavoritePublicMediaRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AddFavoritePublicMediaResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\BatchGetMediaInfosRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\BatchGetMediaInfosResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CancelFavoritePublicMediaRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CancelFavoritePublicMediaResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateEditingProjectRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateEditingProjectResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteEditingProjectMaterialsRequest;
@@ -24,7 +28,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteSmartJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteSmartJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteTemplateResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeIceProductStatusRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeIceProductStatusResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMaterialPackageInfoRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMaterialPackageInfoResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeRelatedAuthorizationStatusResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetDefaultStorageLocationResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetEditingProjectMaterialsRequest;
@@ -40,6 +47,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaProducingJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaProducingJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetPublicMediaInfoRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetPublicMediaInfoResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetSmartHandleJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetSmartHandleJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTemplateMaterialsRequest;
@@ -64,6 +73,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\RegisterMediaInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\RegisterMediaInfoResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchEditingProjectRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchEditingProjectResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SearchPublicMediaInfoRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SearchPublicMediaInfoResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SetDefaultStorageLocationRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SetDefaultStorageLocationResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SetEventCallbackRequest;
@@ -99,6 +110,7 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateTemplateResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class ICE extends OpenApiClient
@@ -201,11 +213,26 @@ class ICE extends OpenApiClient
     public function addEditingProjectMaterialsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['MaterialMaps'] = $request->materialMaps;
+        $query['ProjectId']    = $request->projectId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddEditingProjectMaterials',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddEditingProjectMaterialsResponse::fromMap($this->doRPCRequest('AddEditingProjectMaterials', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -221,6 +248,48 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param AddFavoritePublicMediaRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AddFavoritePublicMediaResponse
+     */
+    public function addFavoritePublicMediaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query             = [];
+        $query['MediaIds'] = $request->mediaIds;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddFavoritePublicMedia',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddFavoritePublicMediaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddFavoritePublicMediaRequest $request
+     *
+     * @return AddFavoritePublicMediaResponse
+     */
+    public function addFavoritePublicMedia($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addFavoritePublicMediaWithOptions($request, $runtime);
+    }
+
+    /**
      * @param AddTemplateRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -229,11 +298,32 @@ class ICE extends OpenApiClient
     public function addTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Config']          = $request->config;
+        $query['CoverUrl']        = $request->coverUrl;
+        $query['Name']            = $request->name;
+        $query['PreviewMedia']    = $request->previewMedia;
+        $query['RelatedMediaids'] = $request->relatedMediaids;
+        $query['Source']          = $request->source;
+        $query['Status']          = $request->status;
+        $query['Type']            = $request->type;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddTemplate',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddTemplateResponse::fromMap($this->doRPCRequest('AddTemplate', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -257,11 +347,26 @@ class ICE extends OpenApiClient
     public function batchGetMediaInfosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['AdditionType'] = $request->additionType;
+        $query['MediaIds']     = $request->mediaIds;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchGetMediaInfos',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchGetMediaInfosResponse::fromMap($this->doRPCRequest('BatchGetMediaInfos', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchGetMediaInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -277,6 +382,48 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param CancelFavoritePublicMediaRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CancelFavoritePublicMediaResponse
+     */
+    public function cancelFavoritePublicMediaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query             = [];
+        $query['MediaIds'] = $request->mediaIds;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelFavoritePublicMedia',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelFavoritePublicMediaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CancelFavoritePublicMediaRequest $request
+     *
+     * @return CancelFavoritePublicMediaResponse
+     */
+    public function cancelFavoritePublicMedia($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelFavoritePublicMediaWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateEditingProjectRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -285,11 +432,33 @@ class ICE extends OpenApiClient
     public function createEditingProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['BusinessConfig'] = $request->businessConfig;
+        $query['ClipsParam']     = $request->clipsParam;
+        $query['CoverURL']       = $request->coverURL;
+        $query['Description']    = $request->description;
+        $query['MaterialMaps']   = $request->materialMaps;
+        $query['ProjectType']    = $request->projectType;
+        $query['TemplateId']     = $request->templateId;
+        $query['Timeline']       = $request->timeline;
+        $query['Title']          = $request->title;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEditingProject',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateEditingProjectResponse::fromMap($this->doRPCRequest('CreateEditingProject', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -315,10 +484,21 @@ class ICE extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEditingProjectMaterials',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteEditingProjectMaterialsResponse::fromMap($this->doRPCRequest('DeleteEditingProjectMaterials', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DeleteEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -342,11 +522,25 @@ class ICE extends OpenApiClient
     public function deleteEditingProjectsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['ProjectIds'] = $request->projectIds;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEditingProjects',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteEditingProjectsResponse::fromMap($this->doRPCRequest('DeleteEditingProjects', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteEditingProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -370,11 +564,26 @@ class ICE extends OpenApiClient
     public function deleteMediaInfosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['InputURLs'] = $request->inputURLs;
+        $query['MediaIds']  = $request->mediaIds;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMediaInfos',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteMediaInfosResponse::fromMap($this->doRPCRequest('DeleteMediaInfos', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteMediaInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -398,11 +607,25 @@ class ICE extends OpenApiClient
     public function deleteSmartJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query          = [];
+        $query['JobId'] = $request->jobId;
+        $req            = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSmartJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteSmartJobResponse::fromMap($this->doRPCRequest('DeleteSmartJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteSmartJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -428,10 +651,21 @@ class ICE extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTemplate',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteTemplateResponse::fromMap($this->doRPCRequest('DeleteTemplate', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DeleteTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -447,25 +681,89 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param DescribeIceProductStatusRequest $request
+     * @param RuntimeOptions                  $runtime
      *
      * @return DescribeIceProductStatusResponse
      */
-    public function describeIceProductStatusWithOptions($runtime)
+    public function describeIceProductStatusWithOptions($request, $runtime)
     {
-        $req = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['CommodityCode'] = $request->commodityCode;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIceProductStatus',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeIceProductStatusResponse::fromMap($this->doRPCRequest('DescribeIceProductStatus', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeIceProductStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param DescribeIceProductStatusRequest $request
+     *
      * @return DescribeIceProductStatusResponse
      */
-    public function describeIceProductStatus()
+    public function describeIceProductStatus($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeIceProductStatusWithOptions($runtime);
+        return $this->describeIceProductStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeMaterialPackageInfoRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeMaterialPackageInfoResponse
+     */
+    public function describeMaterialPackageInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                        = [];
+        $query['MaterialPackageId']   = $request->materialPackageId;
+        $query['MaterialPackageType'] = $request->materialPackageType;
+        $query['Status']              = $request->status;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMaterialPackageInfo',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeMaterialPackageInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeMaterialPackageInfoRequest $request
+     *
+     * @return DescribeMaterialPackageInfoResponse
+     */
+    public function describeMaterialPackageInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMaterialPackageInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -475,9 +773,20 @@ class ICE extends OpenApiClient
      */
     public function describeRelatedAuthorizationStatusWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeRelatedAuthorizationStatus',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeRelatedAuthorizationStatusResponse::fromMap($this->doRPCRequest('DescribeRelatedAuthorizationStatus', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeRelatedAuthorizationStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -497,9 +806,20 @@ class ICE extends OpenApiClient
      */
     public function getDefaultStorageLocationWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetDefaultStorageLocation',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetDefaultStorageLocationResponse::fromMap($this->doRPCRequest('GetDefaultStorageLocation', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDefaultStorageLocationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -523,10 +843,21 @@ class ICE extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEditingProject',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetEditingProjectResponse::fromMap($this->doRPCRequest('GetEditingProject', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -552,10 +883,21 @@ class ICE extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEditingProjectMaterials',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetEditingProjectMaterialsResponse::fromMap($this->doRPCRequest('GetEditingProjectMaterials', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -577,9 +919,20 @@ class ICE extends OpenApiClient
      */
     public function getEventCallbackWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetEventCallback',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetEventCallbackResponse::fromMap($this->doRPCRequest('GetEventCallback', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetEventCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -603,10 +956,21 @@ class ICE extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLiveEditingIndexFile',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetLiveEditingIndexFileResponse::fromMap($this->doRPCRequest('GetLiveEditingIndexFile', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetLiveEditingIndexFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -630,11 +994,25 @@ class ICE extends OpenApiClient
     public function getLiveEditingJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query          = [];
+        $query['JobId'] = $request->jobId;
+        $req            = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLiveEditingJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetLiveEditingJobResponse::fromMap($this->doRPCRequest('GetLiveEditingJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetLiveEditingJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -658,11 +1036,27 @@ class ICE extends OpenApiClient
     public function getMediaInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['InputURL']   = $request->inputURL;
+        $query['MediaId']    = $request->mediaId;
+        $query['OutputType'] = $request->outputType;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMediaInfo',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMediaInfoResponse::fromMap($this->doRPCRequest('GetMediaInfo', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -688,10 +1082,21 @@ class ICE extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMediaProducingJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetMediaProducingJobResponse::fromMap($this->doRPCRequest('GetMediaProducingJob', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetMediaProducingJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -707,6 +1112,48 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param GetPublicMediaInfoRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetPublicMediaInfoResponse
+     */
+    public function getPublicMediaInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query            = [];
+        $query['MediaId'] = $request->mediaId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPublicMediaInfo',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPublicMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetPublicMediaInfoRequest $request
+     *
+     * @return GetPublicMediaInfoResponse
+     */
+    public function getPublicMediaInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPublicMediaInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetSmartHandleJobRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -717,10 +1164,21 @@ class ICE extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSmartHandleJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetSmartHandleJobResponse::fromMap($this->doRPCRequest('GetSmartHandleJob', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetSmartHandleJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -746,10 +1204,21 @@ class ICE extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTemplate',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTemplateResponse::fromMap($this->doRPCRequest('GetTemplate', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -775,10 +1244,21 @@ class ICE extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTemplateMaterials',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTemplateMaterialsResponse::fromMap($this->doRPCRequest('GetTemplateMaterials', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetTemplateMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -802,11 +1282,26 @@ class ICE extends OpenApiClient
     public function listAllPublicMediaTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['BusinessType'] = $request->businessType;
+        $query['EntityId']     = $request->entityId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAllPublicMediaTags',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAllPublicMediaTagsResponse::fromMap($this->doRPCRequest('ListAllPublicMediaTags', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAllPublicMediaTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -830,11 +1325,35 @@ class ICE extends OpenApiClient
     public function listMediaBasicInfosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['BusinessType']         = $request->businessType;
+        $query['Category']             = $request->category;
+        $query['EndTime']              = $request->endTime;
+        $query['IncludeFileBasicInfo'] = $request->includeFileBasicInfo;
+        $query['MaxResults']           = $request->maxResults;
+        $query['MediaType']            = $request->mediaType;
+        $query['NextToken']            = $request->nextToken;
+        $query['SortBy']               = $request->sortBy;
+        $query['Source']               = $request->source;
+        $query['StartTime']            = $request->startTime;
+        $query['Status']               = $request->status;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMediaBasicInfos',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListMediaBasicInfosResponse::fromMap($this->doRPCRequest('ListMediaBasicInfos', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListMediaBasicInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -858,11 +1377,25 @@ class ICE extends OpenApiClient
     public function listMediaProducingJobsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query           = [];
+        $query['Status'] = $request->status;
+        $req             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMediaProducingJobs',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListMediaProducingJobsResponse::fromMap($this->doRPCRequest('ListMediaProducingJobs', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListMediaProducingJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -886,11 +1419,28 @@ class ICE extends OpenApiClient
     public function listPublicMediaBasicInfosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['IncludeFileBasicInfo'] = $request->includeFileBasicInfo;
+        $query['MaxResults']           = $request->maxResults;
+        $query['MediaTagId']           = $request->mediaTagId;
+        $query['NextToken']            = $request->nextToken;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPublicMediaBasicInfos',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListPublicMediaBasicInfosResponse::fromMap($this->doRPCRequest('ListPublicMediaBasicInfos', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListPublicMediaBasicInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -916,10 +1466,21 @@ class ICE extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSmartJobs',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListSmartJobsResponse::fromMap($this->doRPCRequest('ListSmartJobs', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListSmartJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -945,10 +1506,21 @@ class ICE extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSysTemplates',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListSysTemplatesResponse::fromMap($this->doRPCRequest('ListSysTemplates', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListSysTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -972,11 +1544,29 @@ class ICE extends OpenApiClient
     public function listTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['CreateSource'] = $request->createSource;
+        $query['Keyword']      = $request->keyword;
+        $query['SortType']     = $request->sortType;
+        $query['Status']       = $request->status;
+        $query['Type']         = $request->type;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTemplates',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTemplatesResponse::fromMap($this->doRPCRequest('ListTemplates', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1000,11 +1590,37 @@ class ICE extends OpenApiClient
     public function registerMediaInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['BusinessType']        = $request->businessType;
+        $query['Category']            = $request->category;
+        $query['ClientToken']         = $request->clientToken;
+        $query['CoverURL']            = $request->coverURL;
+        $query['Description']         = $request->description;
+        $query['DynamicMetaDataList'] = $request->dynamicMetaDataList;
+        $query['InputURL']            = $request->inputURL;
+        $query['MediaTags']           = $request->mediaTags;
+        $query['MediaType']           = $request->mediaType;
+        $query['Overwrite']           = $request->overwrite;
+        $query['RegisterConfig']      = $request->registerConfig;
+        $query['Title']               = $request->title;
+        $query['UserData']            = $request->userData;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RegisterMediaInfo',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RegisterMediaInfoResponse::fromMap($this->doRPCRequest('RegisterMediaInfo', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RegisterMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1028,11 +1644,33 @@ class ICE extends OpenApiClient
     public function searchEditingProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['CreateSource'] = $request->createSource;
+        $query['EndTime']      = $request->endTime;
+        $query['MaxResults']   = $request->maxResults;
+        $query['NextToken']    = $request->nextToken;
+        $query['ProjectType']  = $request->projectType;
+        $query['SortBy']       = $request->sortBy;
+        $query['StartTime']    = $request->startTime;
+        $query['Status']       = $request->status;
+        $query['TemplateType'] = $request->templateType;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchEditingProject',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SearchEditingProjectResponse::fromMap($this->doRPCRequest('SearchEditingProject', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SearchEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1048,6 +1686,55 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param SearchPublicMediaInfoRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SearchPublicMediaInfoResponse
+     */
+    public function searchPublicMediaInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                               = [];
+        $query['Authorized']                 = $request->authorized;
+        $query['DynamicMetaDataMatchFields'] = $request->dynamicMetaDataMatchFields;
+        $query['EntityId']                   = $request->entityId;
+        $query['Favorite']                   = $request->favorite;
+        $query['MediaIds']                   = $request->mediaIds;
+        $query['PageNo']                     = $request->pageNo;
+        $query['PageSize']                   = $request->pageSize;
+        $query['SortBy']                     = $request->sortBy;
+        $req                                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchPublicMediaInfo',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SearchPublicMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SearchPublicMediaInfoRequest $request
+     *
+     * @return SearchPublicMediaInfoResponse
+     */
+    public function searchPublicMediaInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchPublicMediaInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SetDefaultStorageLocationRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -1056,11 +1743,27 @@ class ICE extends OpenApiClient
     public function setDefaultStorageLocationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['Bucket']      = $request->bucket;
+        $query['Path']        = $request->path;
+        $query['StorageType'] = $request->storageType;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDefaultStorageLocation',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDefaultStorageLocationResponse::fromMap($this->doRPCRequest('SetDefaultStorageLocation', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDefaultStorageLocationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1084,11 +1787,26 @@ class ICE extends OpenApiClient
     public function setEventCallbackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['CallbackQueueName'] = $request->callbackQueueName;
+        $query['EventTypeList']     = $request->eventTypeList;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetEventCallback',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetEventCallbackResponse::fromMap($this->doRPCRequest('SetEventCallback', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetEventCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1112,11 +1830,30 @@ class ICE extends OpenApiClient
     public function submitASRJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['Description'] = $request->description;
+        $query['Duration']    = $request->duration;
+        $query['InputFile']   = $request->inputFile;
+        $query['StartTime']   = $request->startTime;
+        $query['Title']       = $request->title;
+        $query['UserData']    = $request->userData;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitASRJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitASRJobResponse::fromMap($this->doRPCRequest('SubmitASRJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitASRJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1140,11 +1877,31 @@ class ICE extends OpenApiClient
     public function submitAudioProduceJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['Description']   = $request->description;
+        $query['EditingConfig'] = $request->editingConfig;
+        $query['InputConfig']   = $request->inputConfig;
+        $query['OutputConfig']  = $request->outputConfig;
+        $query['Overwrite']     = $request->overwrite;
+        $query['Title']         = $request->title;
+        $query['UserData']      = $request->userData;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitAudioProduceJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitAudioProduceJobResponse::fromMap($this->doRPCRequest('SubmitAudioProduceJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitAudioProduceJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1168,11 +1925,32 @@ class ICE extends OpenApiClient
     public function submitDelogoJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['Description']       = $request->description;
+        $query['InputFile']         = $request->inputFile;
+        $query['InputType']         = $request->inputType;
+        $query['OutputConfig']      = $request->outputConfig;
+        $query['OutputMediaTarget'] = $request->outputMediaTarget;
+        $query['Overwrite']         = $request->overwrite;
+        $query['Title']             = $request->title;
+        $query['UserData']          = $request->userData;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitDelogoJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitDelogoJobResponse::fromMap($this->doRPCRequest('SubmitDelogoJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitDelogoJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1196,11 +1974,32 @@ class ICE extends OpenApiClient
     public function submitH2VJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['Description']       = $request->description;
+        $query['InputFile']         = $request->inputFile;
+        $query['InputType']         = $request->inputType;
+        $query['OutputConfig']      = $request->outputConfig;
+        $query['OutputMediaTarget'] = $request->outputMediaTarget;
+        $query['Overwrite']         = $request->overwrite;
+        $query['Title']             = $request->title;
+        $query['UserData']          = $request->userData;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitH2VJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitH2VJobResponse::fromMap($this->doRPCRequest('SubmitH2VJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitH2VJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1226,10 +2025,21 @@ class ICE extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitKeyWordCutJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitKeyWordCutJobResponse::fromMap($this->doRPCRequest('SubmitKeyWordCutJob', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return SubmitKeyWordCutJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1253,11 +2063,31 @@ class ICE extends OpenApiClient
     public function submitLiveEditingJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['Clips']              = $request->clips;
+        $query['LiveStreamConfig']   = $request->liveStreamConfig;
+        $query['MediaProduceConfig'] = $request->mediaProduceConfig;
+        $query['OutputMediaConfig']  = $request->outputMediaConfig;
+        $query['OutputMediaTarget']  = $request->outputMediaTarget;
+        $query['ProjectId']          = $request->projectId;
+        $query['UserData']           = $request->userData;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitLiveEditingJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitLiveEditingJobResponse::fromMap($this->doRPCRequest('SubmitLiveEditingJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitLiveEditingJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1281,11 +2111,32 @@ class ICE extends OpenApiClient
     public function submitMattingJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['Description']       = $request->description;
+        $query['InputFile']         = $request->inputFile;
+        $query['InputType']         = $request->inputType;
+        $query['OutputConfig']      = $request->outputConfig;
+        $query['OutputMediaTarget'] = $request->outputMediaTarget;
+        $query['Overwrite']         = $request->overwrite;
+        $query['Title']             = $request->title;
+        $query['UserData']          = $request->userData;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitMattingJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitMattingJobResponse::fromMap($this->doRPCRequest('SubmitMattingJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitMattingJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1309,11 +2160,35 @@ class ICE extends OpenApiClient
     public function submitMediaProducingJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['ClientToken']          = $request->clientToken;
+        $query['ClipsParam']           = $request->clipsParam;
+        $query['EditingProduceConfig'] = $request->editingProduceConfig;
+        $query['OutputMediaConfig']    = $request->outputMediaConfig;
+        $query['OutputMediaTarget']    = $request->outputMediaTarget;
+        $query['ProjectId']            = $request->projectId;
+        $query['ProjectMetadata']      = $request->projectMetadata;
+        $query['Source']               = $request->source;
+        $query['TemplateId']           = $request->templateId;
+        $query['Timeline']             = $request->timeline;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitMediaProducingJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitMediaProducingJobResponse::fromMap($this->doRPCRequest('SubmitMediaProducingJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitMediaProducingJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1339,10 +2214,21 @@ class ICE extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitPPTCutJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitPPTCutJobResponse::fromMap($this->doRPCRequest('SubmitPPTCutJob', '2020-11-09', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return SubmitPPTCutJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1366,11 +2252,32 @@ class ICE extends OpenApiClient
     public function submitSubtitleProduceJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['Description']   = $request->description;
+        $query['EditingConfig'] = $request->editingConfig;
+        $query['InputConfig']   = $request->inputConfig;
+        $query['IsAsync']       = $request->isAsync;
+        $query['OutputConfig']  = $request->outputConfig;
+        $query['Title']         = $request->title;
+        $query['Type']          = $request->type;
+        $query['UserData']      = $request->userData;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitSubtitleProduceJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitSubtitleProduceJobResponse::fromMap($this->doRPCRequest('SubmitSubtitleProduceJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitSubtitleProduceJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1394,11 +2301,32 @@ class ICE extends OpenApiClient
     public function updateEditingProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['BusinessStatus'] = $request->businessStatus;
+        $query['ClipsParam']     = $request->clipsParam;
+        $query['CoverURL']       = $request->coverURL;
+        $query['Description']    = $request->description;
+        $query['ProjectId']      = $request->projectId;
+        $query['TemplateId']     = $request->templateId;
+        $query['Timeline']       = $request->timeline;
+        $query['Title']          = $request->title;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEditingProject',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateEditingProjectResponse::fromMap($this->doRPCRequest('UpdateEditingProject', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1422,11 +2350,36 @@ class ICE extends OpenApiClient
     public function updateMediaInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['AppendDynamicMeta']   = $request->appendDynamicMeta;
+        $query['AppendTags']          = $request->appendTags;
+        $query['BusinessType']        = $request->businessType;
+        $query['Category']            = $request->category;
+        $query['CoverURL']            = $request->coverURL;
+        $query['Description']         = $request->description;
+        $query['DynamicMetaDataList'] = $request->dynamicMetaDataList;
+        $query['InputURL']            = $request->inputURL;
+        $query['MediaId']             = $request->mediaId;
+        $query['MediaTags']           = $request->mediaTags;
+        $query['Title']               = $request->title;
+        $query['UserData']            = $request->userData;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMediaInfo',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateMediaInfoResponse::fromMap($this->doRPCRequest('UpdateMediaInfo', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1450,11 +2403,26 @@ class ICE extends OpenApiClient
     public function updateSmartJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['FEExtend'] = $request->FEExtend;
+        $query['JobId']    = $request->jobId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSmartJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateSmartJobResponse::fromMap($this->doRPCRequest('UpdateSmartJob', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateSmartJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1478,11 +2446,32 @@ class ICE extends OpenApiClient
     public function updateTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Config']          = $request->config;
+        $query['CoverUrl']        = $request->coverUrl;
+        $query['Name']            = $request->name;
+        $query['PreviewMedia']    = $request->previewMedia;
+        $query['RelatedMediaids'] = $request->relatedMediaids;
+        $query['Source']          = $request->source;
+        $query['Status']          = $request->status;
+        $query['TemplateId']      = $request->templateId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTemplate',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateTemplateResponse::fromMap($this->doRPCRequest('UpdateTemplate', '2020-11-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

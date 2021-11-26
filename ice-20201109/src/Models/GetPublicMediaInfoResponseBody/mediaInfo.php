@@ -2,25 +2,17 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoResponseBody;
+namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetPublicMediaInfoResponseBody;
 
-use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoResponseBody\mediaInfo\aiRoughDataList;
-use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoResponseBody\mediaInfo\dynamicMetaData;
-use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoResponseBody\mediaInfo\fileInfoList;
-use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaInfoResponseBody\mediaInfo\mediaBasicInfo;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetPublicMediaInfoResponseBody\mediaInfo\dynamicMetaData;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetPublicMediaInfoResponseBody\mediaInfo\fileInfoList;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetPublicMediaInfoResponseBody\mediaInfo\mediaBasicInfo;
 use AlibabaCloud\Tea\Model;
 
 class mediaInfo extends Model
 {
     /**
-     * @description AIMetadata
-     *
-     * @var aiRoughDataList[]
-     */
-    public $aiRoughDataList;
-
-    /**
-     * @description 其他元数据
+     * @description 公共媒资动态元数据
      *
      * @var dynamicMetaData
      */
@@ -47,7 +39,6 @@ class mediaInfo extends Model
      */
     public $mediaId;
     protected $_name = [
-        'aiRoughDataList' => 'AiRoughDataList',
         'dynamicMetaData' => 'DynamicMetaData',
         'fileInfoList'    => 'FileInfoList',
         'mediaBasicInfo'  => 'MediaBasicInfo',
@@ -61,15 +52,6 @@ class mediaInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->aiRoughDataList) {
-            $res['AiRoughDataList'] = [];
-            if (null !== $this->aiRoughDataList && \is_array($this->aiRoughDataList)) {
-                $n = 0;
-                foreach ($this->aiRoughDataList as $item) {
-                    $res['AiRoughDataList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->dynamicMetaData) {
             $res['DynamicMetaData'] = null !== $this->dynamicMetaData ? $this->dynamicMetaData->toMap() : null;
         }
@@ -100,15 +82,6 @@ class mediaInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AiRoughDataList'])) {
-            if (!empty($map['AiRoughDataList'])) {
-                $model->aiRoughDataList = [];
-                $n                      = 0;
-                foreach ($map['AiRoughDataList'] as $item) {
-                    $model->aiRoughDataList[$n++] = null !== $item ? aiRoughDataList::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['DynamicMetaData'])) {
             $model->dynamicMetaData = dynamicMetaData::fromMap($map['DynamicMetaData']);
         }

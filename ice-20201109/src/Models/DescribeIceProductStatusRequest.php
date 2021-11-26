@@ -6,16 +6,14 @@ namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetSmartHandleJobRequest extends Model
+class DescribeIceProductStatusRequest extends Model
 {
     /**
-     * @description 任务Id
-     *
      * @var string
      */
-    public $jobId;
+    public $commodityCode;
     protected $_name = [
-        'jobId' => 'JobId',
+        'commodityCode' => 'CommodityCode',
     ];
 
     public function validate()
@@ -25,8 +23,8 @@ class GetSmartHandleJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
+        if (null !== $this->commodityCode) {
+            $res['CommodityCode'] = $this->commodityCode;
         }
 
         return $res;
@@ -35,13 +33,13 @@ class GetSmartHandleJobRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetSmartHandleJobRequest
+     * @return DescribeIceProductStatusRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
+        if (isset($map['CommodityCode'])) {
+            $model->commodityCode = $map['CommodityCode'];
         }
 
         return $model;
