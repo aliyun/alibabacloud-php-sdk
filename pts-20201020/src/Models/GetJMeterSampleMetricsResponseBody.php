@@ -41,11 +41,6 @@ class GetJMeterSampleMetricsResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
     protected $_name = [
         'code'             => 'Code',
         'message'          => 'Message',
@@ -53,7 +48,6 @@ class GetJMeterSampleMetricsResponseBody extends Model
         'sampleMetricList' => 'SampleMetricList',
         'samplerMap'       => 'SamplerMap',
         'success'          => 'Success',
-        'totalCount'       => 'TotalCount',
     ];
 
     public function validate()
@@ -80,9 +74,6 @@ class GetJMeterSampleMetricsResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -115,9 +106,6 @@ class GetJMeterSampleMetricsResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;
