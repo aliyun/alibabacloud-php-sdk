@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateWhiteIpsResponseBody;
 
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateWhiteIpsResponseBody\result\networkConfig;
 use AlibabaCloud\Tea\Model;
 
 class result extends Model
@@ -12,8 +13,14 @@ class result extends Model
      * @var string[]
      */
     public $esIPWhitelist;
+
+    /**
+     * @var networkConfig
+     */
+    public $networkConfig;
     protected $_name = [
         'esIPWhitelist' => 'esIPWhitelist',
+        'networkConfig' => 'networkConfig',
     ];
 
     public function validate()
@@ -25,6 +32,9 @@ class result extends Model
         $res = [];
         if (null !== $this->esIPWhitelist) {
             $res['esIPWhitelist'] = $this->esIPWhitelist;
+        }
+        if (null !== $this->networkConfig) {
+            $res['networkConfig'] = null !== $this->networkConfig ? $this->networkConfig->toMap() : null;
         }
 
         return $res;
@@ -42,6 +52,9 @@ class result extends Model
             if (!empty($map['esIPWhitelist'])) {
                 $model->esIPWhitelist = $map['esIPWhitelist'];
             }
+        }
+        if (isset($map['networkConfig'])) {
+            $model->networkConfig = networkConfig::fromMap($map['networkConfig']);
         }
 
         return $model;

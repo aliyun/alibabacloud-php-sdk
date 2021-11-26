@@ -10,29 +10,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateWhiteIpsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
      * @var string[]
      */
     public $esIPWhitelist;
 
     /**
-     * @var string
-     */
-    public $modifyMode;
-
-    /**
      * @var whiteIpGroup
      */
     public $whiteIpGroup;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $modifyMode;
     protected $_name = [
-        'clientToken'   => 'clientToken',
         'esIPWhitelist' => 'esIPWhitelist',
-        'modifyMode'    => 'modifyMode',
         'whiteIpGroup'  => 'whiteIpGroup',
+        'clientToken'   => 'clientToken',
+        'modifyMode'    => 'modifyMode',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class UpdateWhiteIpsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clientToken) {
-            $res['clientToken'] = $this->clientToken;
-        }
         if (null !== $this->esIPWhitelist) {
             $res['esIPWhitelist'] = $this->esIPWhitelist;
         }
-        if (null !== $this->modifyMode) {
-            $res['modifyMode'] = $this->modifyMode;
-        }
         if (null !== $this->whiteIpGroup) {
             $res['whiteIpGroup'] = null !== $this->whiteIpGroup ? $this->whiteIpGroup->toMap() : null;
+        }
+        if (null !== $this->clientToken) {
+            $res['clientToken'] = $this->clientToken;
+        }
+        if (null !== $this->modifyMode) {
+            $res['modifyMode'] = $this->modifyMode;
         }
 
         return $res;
@@ -66,19 +66,19 @@ class UpdateWhiteIpsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['clientToken'])) {
-            $model->clientToken = $map['clientToken'];
-        }
         if (isset($map['esIPWhitelist'])) {
             if (!empty($map['esIPWhitelist'])) {
                 $model->esIPWhitelist = $map['esIPWhitelist'];
             }
         }
-        if (isset($map['modifyMode'])) {
-            $model->modifyMode = $map['modifyMode'];
-        }
         if (isset($map['whiteIpGroup'])) {
             $model->whiteIpGroup = whiteIpGroup::fromMap($map['whiteIpGroup']);
+        }
+        if (isset($map['clientToken'])) {
+            $model->clientToken = $map['clientToken'];
+        }
+        if (isset($map['modifyMode'])) {
+            $model->modifyMode = $map['modifyMode'];
         }
 
         return $model;

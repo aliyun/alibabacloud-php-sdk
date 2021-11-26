@@ -14,11 +14,27 @@ class CreateVpcEndpointRequest extends Model
     public $clientToken;
 
     /**
+     * @description 终端节点服务ID
+     *
+     * @var string
+     */
+    public $serviceId;
+
+    /**
+     * @description 可用区ID
+     *
+     * @var string
+     */
+    public $zoneId;
+
+    /**
      * @var bool
      */
     public $dryRun;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'serviceId'   => 'serviceId',
+        'zoneId'      => 'zoneId',
         'dryRun'      => 'dryRun',
     ];
 
@@ -31,6 +47,12 @@ class CreateVpcEndpointRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->serviceId) {
+            $res['serviceId'] = $this->serviceId;
+        }
+        if (null !== $this->zoneId) {
+            $res['zoneId'] = $this->zoneId;
         }
         if (null !== $this->dryRun) {
             $res['dryRun'] = $this->dryRun;
@@ -49,6 +71,12 @@ class CreateVpcEndpointRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['serviceId'])) {
+            $model->serviceId = $map['serviceId'];
+        }
+        if (isset($map['zoneId'])) {
+            $model->zoneId = $map['zoneId'];
         }
         if (isset($map['dryRun'])) {
             $model->dryRun = $map['dryRun'];

@@ -56,11 +56,6 @@ class result extends Model
     /**
      * @var string
      */
-    public $outputEsDescription;
-
-    /**
-     * @var string
-     */
     public $ownerId;
 
     /**
@@ -108,26 +103,25 @@ class result extends Model
      */
     public $vswitchId;
     protected $_name = [
-        'apmServerDomain'     => 'apmServerDomain',
-        'createdAt'           => 'createdAt',
-        'deployedReplica'     => 'deployedReplica',
-        'description'         => 'description',
-        'endTime'             => 'endTime',
-        'instanceId'          => 'instanceId',
-        'nodeAmount'          => 'nodeAmount',
-        'outputES'            => 'outputES',
-        'outputESUserName'    => 'outputESUserName',
-        'outputEsDescription' => 'outputEsDescription',
-        'ownerId'             => 'ownerId',
-        'paymentType'         => 'paymentType',
-        'region'              => 'region',
-        'replica'             => 'replica',
-        'resourceSpec'        => 'resourceSpec',
-        'status'              => 'status',
-        'version'             => 'version',
-        'vpcId'               => 'vpcId',
-        'vsArea'              => 'vsArea',
-        'vswitchId'           => 'vswitchId',
+        'apmServerDomain'  => 'apmServerDomain',
+        'createdAt'        => 'createdAt',
+        'deployedReplica'  => 'deployedReplica',
+        'description'      => 'description',
+        'endTime'          => 'endTime',
+        'instanceId'       => 'instanceId',
+        'nodeAmount'       => 'nodeAmount',
+        'outputES'         => 'outputES',
+        'outputESUserName' => 'outputESUserName',
+        'ownerId'          => 'ownerId',
+        'paymentType'      => 'paymentType',
+        'region'           => 'region',
+        'replica'          => 'replica',
+        'resourceSpec'     => 'resourceSpec',
+        'status'           => 'status',
+        'version'          => 'version',
+        'vpcId'            => 'vpcId',
+        'vsArea'           => 'vsArea',
+        'vswitchId'        => 'vswitchId',
     ];
 
     public function validate()
@@ -163,9 +157,6 @@ class result extends Model
         }
         if (null !== $this->outputESUserName) {
             $res['outputESUserName'] = $this->outputESUserName;
-        }
-        if (null !== $this->outputEsDescription) {
-            $res['outputEsDescription'] = $this->outputEsDescription;
         }
         if (null !== $this->ownerId) {
             $res['ownerId'] = $this->ownerId;
@@ -235,9 +226,6 @@ class result extends Model
         }
         if (isset($map['outputESUserName'])) {
             $model->outputESUserName = $map['outputESUserName'];
-        }
-        if (isset($map['outputEsDescription'])) {
-            $model->outputEsDescription = $map['outputEsDescription'];
         }
         if (isset($map['ownerId'])) {
             $model->ownerId = $map['ownerId'];

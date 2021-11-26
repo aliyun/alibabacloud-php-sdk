@@ -27,6 +27,8 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CloseManagedIndexRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CloseManagedIndexResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CreateCollectorRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CreateCollectorResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CreateComponentIndexRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CreateComponentIndexResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CreateDataStreamRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CreateDataStreamResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\CreateDataTasksRequest;
@@ -49,12 +51,14 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeactivateZonesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeactivateZonesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteCollectorRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteCollectorResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteComponentIndexResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteConnectedClusterRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteConnectedClusterResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteDataStreamRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteDataStreamResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteDataTaskRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteDataTaskResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteDeprecatedTemplateResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteILMPolicyResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteIndexTemplateResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteInstanceRequest;
@@ -70,8 +74,10 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DeleteVpcEndpointResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeAckOperatorResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeApmResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeCollectorResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeComponentIndexResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeConnectableClustersRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeConnectableClustersResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeDeprecatedTemplateResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeDiagnoseReportRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeDiagnoseReportResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeDiagnosisSettingsRequest;
@@ -135,12 +141,16 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListApmResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListAvailableEsInstanceIdsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListCollectorsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListCollectorsResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListComponentIndicesRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListComponentIndicesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListConnectedClustersResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDataStreamsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDataStreamsResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDataTasksResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDefaultCollectorConfigurationsRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDefaultCollectorConfigurationsResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDeprecatedTemplatesRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDeprecatedTemplatesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDiagnoseIndicesRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDiagnoseIndicesResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListDiagnoseReportIdsRequest;
@@ -264,6 +274,8 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateCollectorNameRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateCollectorNameResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateCollectorRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateCollectorResponse;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateComponentIndexRequest;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateComponentIndexResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateDescriptionRequest;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateDescriptionResponse;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateDiagnosisSettingsRequest;
@@ -332,6 +344,7 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ValidateTransferableNodesRes
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Elasticsearch extends OpenApiClient
@@ -401,8 +414,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ActivateZones',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/recover-zones',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ActivateZonesResponse::fromMap($this->doROARequest('ActivateZones', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/actions/recover-zones', 'json', $req, $runtime));
+        return ActivateZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -439,8 +463,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'AddConnectableCluster',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/connected-clusters',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return AddConnectableClusterResponse::fromMap($this->doROARequest('AddConnectableCluster', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/connected-clusters', 'json', $req, $runtime));
+        return AddConnectableClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -469,8 +504,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'AddSnapshotRepo',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/snapshot-repos',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return AddSnapshotRepoResponse::fromMap($this->doROARequest('AddSnapshotRepo', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/snapshot-repos', 'json', $req, $runtime));
+        return AddSnapshotRepoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -507,8 +553,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'CancelDeletion',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/cancel-deletion',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CancelDeletionResponse::fromMap($this->doROARequest('CancelDeletion', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/actions/cancel-deletion', 'json', $req, $runtime));
+        return CancelDeletionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -545,8 +602,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'CancelLogstashDeletion',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/actions/cancel-deletion',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CancelLogstashDeletionResponse::fromMap($this->doROARequest('CancelLogstashDeletion', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/logstashes/' . $InstanceId . '/actions/cancel-deletion', 'json', $req, $runtime));
+        return CancelLogstashDeletionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -586,8 +654,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'CancelTask',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/cancel-task',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CancelTaskResponse::fromMap($this->doROARequest('CancelTask', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/actions/cancel-task', 'json', $req, $runtime));
+        return CancelTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -630,8 +709,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CapacityPlan',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/assist/actions/capacity-plan',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CapacityPlanResponse::fromMap($this->doROARequest('CapacityPlan', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/assist/actions/capacity-plan', 'json', $req, $runtime));
+        return CapacityPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -671,8 +761,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'CloseDiagnosis',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/diagnosis/instances/' . $InstanceId . '/actions/close-diagnosis',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CloseDiagnosisResponse::fromMap($this->doROARequest('CloseDiagnosis', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/diagnosis/instances/' . $InstanceId . '/actions/close-diagnosis', 'json', $req, $runtime));
+        return CloseDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -709,8 +810,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'CloseHttps',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/close-https',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CloseHttpsResponse::fromMap($this->doROARequest('CloseHttps', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/actions/close-https', 'json', $req, $runtime));
+        return CloseHttpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -750,8 +862,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'CloseManagedIndex',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/indices/' . $Index . '/close-managed',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CloseManagedIndexResponse::fromMap($this->doROARequest('CloseManagedIndex', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/indices/' . $Index . '/close-managed', 'json', $req, $runtime));
+        return CloseManagedIndexResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -785,8 +908,74 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'CreateCollector',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/collectors',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateCollectorResponse::fromMap($this->doROARequest('CreateCollector', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/collectors', 'json', $req, $runtime));
+        return CreateCollectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                      $InstanceId
+     * @param string                      $name
+     * @param CreateComponentIndexRequest $request
+     *
+     * @return CreateComponentIndexResponse
+     */
+    public function createComponentIndex($InstanceId, $name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createComponentIndexWithOptions($InstanceId, $name, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                      $InstanceId
+     * @param string                      $name
+     * @param CreateComponentIndexRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateComponentIndexResponse
+     */
+    public function createComponentIndexWithOptions($InstanceId, $name, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
+        $name       = OpenApiUtilClient::getEncodeParam($name);
+        $body       = [];
+        if (!Utils::isUnset($request->meta)) {
+            @$body['_meta'] = $request->meta;
+        }
+        if (!Utils::isUnset($request->template)) {
+            @$body['template'] = $request->template;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateComponentIndex',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/component-index/' . $name . '',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateComponentIndexResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -823,8 +1012,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'CreateDataStream',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/data-streams',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateDataStreamResponse::fromMap($this->doROARequest('CreateDataStream', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/data-streams', 'json', $req, $runtime));
+        return CreateDataStreamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -861,8 +1061,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'CreateDataTasks',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/data-task',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateDataTasksResponse::fromMap($this->doROARequest('CreateDataTasks', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/data-task', 'json', $req, $runtime));
+        return CreateDataTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -899,8 +1110,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'CreateILMPolicy',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/ilm-policies',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateILMPolicyResponse::fromMap($this->doROARequest('CreateILMPolicy', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/ilm-policies', 'json', $req, $runtime));
+        return CreateILMPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -937,8 +1159,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'CreateIndexTemplate',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/index-templates',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateIndexTemplateResponse::fromMap($this->doROARequest('CreateIndexTemplate', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/index-templates', 'json', $req, $runtime));
+        return CreateIndexTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -972,8 +1205,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'CreateLogstash',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateLogstashResponse::fromMap($this->doROARequest('CreateLogstash', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/logstashes', 'json', $req, $runtime));
+        return CreateLogstashResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1013,8 +1257,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'CreatePipelines',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/pipelines',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreatePipelinesResponse::fromMap($this->doROARequest('CreatePipelines', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/logstashes/' . $InstanceId . '/pipelines', 'json', $req, $runtime));
+        return CreatePipelinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1051,8 +1306,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'CreateSnapshot',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/snapshots',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateSnapshotResponse::fromMap($this->doROARequest('CreateSnapshot', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/snapshots', 'json', $req, $runtime));
+        return CreateSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1088,12 +1354,31 @@ class Elasticsearch extends OpenApiClient
         if (!Utils::isUnset($request->dryRun)) {
             @$query['dryRun'] = $request->dryRun;
         }
+        $body = [];
+        if (!Utils::isUnset($request->serviceId)) {
+            @$body['serviceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            @$body['zoneId'] = $request->zoneId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVpcEndpoint',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/vpc-endpoints',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateVpcEndpointResponse::fromMap($this->doROARequest('CreateVpcEndpoint', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/vpc-endpoints', 'json', $req, $runtime));
+        return CreateVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1130,8 +1415,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeactivateZones',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/down-zones',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeactivateZonesResponse::fromMap($this->doROARequest('DeactivateZones', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/actions/down-zones', 'json', $req, $runtime));
+        return DeactivateZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1168,8 +1464,63 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteCollector',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/collectors/' . $ResId . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteCollectorResponse::fromMap($this->doROARequest('DeleteCollector', '2017-06-13', 'HTTPS', 'DELETE', 'AK', '/openapi/collectors/' . $ResId . '', 'json', $req, $runtime));
+        return DeleteCollectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $InstanceId
+     * @param string $name
+     *
+     * @return DeleteComponentIndexResponse
+     */
+    public function deleteComponentIndex($InstanceId, $name)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteComponentIndexWithOptions($InstanceId, $name, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $InstanceId
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteComponentIndexResponse
+     */
+    public function deleteComponentIndexWithOptions($InstanceId, $name, $headers, $runtime)
+    {
+        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
+        $name       = OpenApiUtilClient::getEncodeParam($name);
+        $req        = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteComponentIndex',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/component-index/' . $name . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteComponentIndexResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1209,8 +1560,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteConnectedCluster',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/connected-clusters',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteConnectedClusterResponse::fromMap($this->doROARequest('DeleteConnectedCluster', '2017-06-13', 'HTTPS', 'DELETE', 'AK', '/openapi/instances/' . $InstanceId . '/connected-clusters', 'json', $req, $runtime));
+        return DeleteConnectedClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1250,8 +1612,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteDataStream',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/data-streams/' . $DataStream . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteDataStreamResponse::fromMap($this->doROARequest('DeleteDataStream', '2017-06-13', 'HTTPS', 'DELETE', 'AK', '/openapi/instances/' . $InstanceId . '/data-streams/' . $DataStream . '', 'json', $req, $runtime));
+        return DeleteDataStreamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1291,8 +1664,63 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteDataTask',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/data-task',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteDataTaskResponse::fromMap($this->doROARequest('DeleteDataTask', '2017-06-13', 'HTTPS', 'DELETE', 'AK', '/openapi/instances/' . $InstanceId . '/data-task', 'json', $req, $runtime));
+        return DeleteDataTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $InstanceId
+     * @param string $name
+     *
+     * @return DeleteDeprecatedTemplateResponse
+     */
+    public function deleteDeprecatedTemplate($InstanceId, $name)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteDeprecatedTemplateWithOptions($InstanceId, $name, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $InstanceId
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteDeprecatedTemplateResponse
+     */
+    public function deleteDeprecatedTemplateWithOptions($InstanceId, $name, $headers, $runtime)
+    {
+        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
+        $name       = OpenApiUtilClient::getEncodeParam($name);
+        $req        = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDeprecatedTemplate',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/deprecated-templates/' . $name . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDeprecatedTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1324,8 +1752,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteILMPolicy',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/ilm-policies/' . $PolicyName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteILMPolicyResponse::fromMap($this->doROARequest('DeleteILMPolicy', '2017-06-13', 'HTTPS', 'DELETE', 'AK', '/openapi/instances/' . $InstanceId . '/ilm-policies/' . $PolicyName . '', 'json', $req, $runtime));
+        return DeleteILMPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1357,8 +1796,19 @@ class Elasticsearch extends OpenApiClient
         $req           = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteIndexTemplate',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/index-templates/' . $IndexTemplate . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteIndexTemplateResponse::fromMap($this->doROARequest('DeleteIndexTemplate', '2017-06-13', 'HTTPS', 'DELETE', 'AK', '/openapi/instances/' . $InstanceId . '/index-templates/' . $IndexTemplate . '', 'json', $req, $runtime));
+        return DeleteIndexTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1398,8 +1848,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteInstance',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteInstanceResponse::fromMap($this->doROARequest('DeleteInstance', '2017-06-13', 'HTTPS', 'DELETE', 'AK', '/openapi/instances/' . $InstanceId . '', 'json', $req, $runtime));
+        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1439,8 +1900,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteLogstash',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteLogstashResponse::fromMap($this->doROARequest('DeleteLogstash', '2017-06-13', 'HTTPS', 'DELETE', 'AK', '/openapi/logstashes/' . $InstanceId . '', 'json', $req, $runtime));
+        return DeleteLogstashResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1480,8 +1952,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeletePipelines',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/pipelines',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeletePipelinesResponse::fromMap($this->doROARequest('DeletePipelines', '2017-06-13', 'HTTPS', 'DELETE', 'AK', '/openapi/logstashes/' . $InstanceId . '/pipelines', 'json', $req, $runtime));
+        return DeletePipelinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1521,8 +2004,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteSnapshotRepo',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/snapshot-repos',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteSnapshotRepoResponse::fromMap($this->doROARequest('DeleteSnapshotRepo', '2017-06-13', 'HTTPS', 'DELETE', 'AK', '/openapi/instances/' . $InstanceId . '/snapshot-repos', 'json', $req, $runtime));
+        return DeleteSnapshotRepoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1562,8 +2056,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteVpcEndpoint',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/vpc-endpoints/' . $EndpointId . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteVpcEndpointResponse::fromMap($this->doROARequest('DeleteVpcEndpoint', '2017-06-13', 'HTTPS', 'DELETE', 'AK', '/openapi/instances/' . $InstanceId . '/vpc-endpoints/' . $EndpointId . '', 'json', $req, $runtime));
+        return DeleteVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1592,8 +2097,19 @@ class Elasticsearch extends OpenApiClient
         $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeAckOperator',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ack-clusters/' . $ClusterId . '/operator',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeAckOperatorResponse::fromMap($this->doROARequest('DescribeAckOperator', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/ack-clusters/' . $ClusterId . '/operator', 'json', $req, $runtime));
+        return DescribeAckOperatorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1622,8 +2138,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeApm',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/apm/' . $instanceId . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeApmResponse::fromMap($this->doROARequest('DescribeApm', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/apm/' . $instanceId . '', 'json', $req, $runtime));
+        return DescribeApmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1652,8 +2179,63 @@ class Elasticsearch extends OpenApiClient
         $req   = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeCollector',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/collectors/' . $ResId . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeCollectorResponse::fromMap($this->doROARequest('DescribeCollector', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/collectors/' . $ResId . '', 'json', $req, $runtime));
+        return DescribeCollectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $InstanceId
+     * @param string $name
+     *
+     * @return DescribeComponentIndexResponse
+     */
+    public function describeComponentIndex($InstanceId, $name)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeComponentIndexWithOptions($InstanceId, $name, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $InstanceId
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeComponentIndexResponse
+     */
+    public function describeComponentIndexWithOptions($InstanceId, $name, $headers, $runtime)
+    {
+        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
+        $name       = OpenApiUtilClient::getEncodeParam($name);
+        $req        = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeComponentIndex',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/component-index/' . $name . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeComponentIndexResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1690,8 +2272,63 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeConnectableClusters',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/connectable-clusters',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeConnectableClustersResponse::fromMap($this->doROARequest('DescribeConnectableClusters', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/connectable-clusters', 'json', $req, $runtime));
+        return DescribeConnectableClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $InstanceId
+     * @param string $name
+     *
+     * @return DescribeDeprecatedTemplateResponse
+     */
+    public function describeDeprecatedTemplate($InstanceId, $name)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeDeprecatedTemplateWithOptions($InstanceId, $name, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $InstanceId
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeDeprecatedTemplateResponse
+     */
+    public function describeDeprecatedTemplateWithOptions($InstanceId, $name, $headers, $runtime)
+    {
+        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
+        $name       = OpenApiUtilClient::getEncodeParam($name);
+        $req        = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDeprecatedTemplate',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/deprecated-templates/' . $name . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDeprecatedTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1731,8 +2368,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeDiagnoseReport',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/diagnosis/instances/' . $InstanceId . '/reports/' . $ReportId . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeDiagnoseReportResponse::fromMap($this->doROARequest('DescribeDiagnoseReport', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/diagnosis/instances/' . $InstanceId . '/reports/' . $ReportId . '', 'json', $req, $runtime));
+        return DescribeDiagnoseReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1769,8 +2417,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribeDiagnosisSettings',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/diagnosis/instances/' . $InstanceId . '/settings',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeDiagnosisSettingsResponse::fromMap($this->doROARequest('DescribeDiagnosisSettings', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/diagnosis/instances/' . $InstanceId . '/settings', 'json', $req, $runtime));
+        return DescribeDiagnosisSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1799,8 +2458,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeElasticsearchHealth',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/elasticsearch-health',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeElasticsearchHealthResponse::fromMap($this->doROARequest('DescribeElasticsearchHealth', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/elasticsearch-health', 'json', $req, $runtime));
+        return DescribeElasticsearchHealthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1832,8 +2502,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeILMPolicy',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/ilm-policies/' . $PolicyName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeILMPolicyResponse::fromMap($this->doROARequest('DescribeILMPolicy', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/ilm-policies/' . $PolicyName . '', 'json', $req, $runtime));
+        return DescribeILMPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1865,8 +2546,19 @@ class Elasticsearch extends OpenApiClient
         $req           = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeIndexTemplate',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/index-templates/' . $IndexTemplate . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeIndexTemplateResponse::fromMap($this->doROARequest('DescribeIndexTemplate', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/index-templates/' . $IndexTemplate . '', 'json', $req, $runtime));
+        return DescribeIndexTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1895,8 +2587,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeInstance',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeInstanceResponse::fromMap($this->doROARequest('DescribeInstance', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '', 'json', $req, $runtime));
+        return DescribeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1925,8 +2628,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeKibanaSettings',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/kibana-settings',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeKibanaSettingsResponse::fromMap($this->doROARequest('DescribeKibanaSettings', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/kibana-settings', 'json', $req, $runtime));
+        return DescribeKibanaSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1955,8 +2669,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeLogstash',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeLogstashResponse::fromMap($this->doROARequest('DescribeLogstash', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/logstashes/' . $InstanceId . '', 'json', $req, $runtime));
+        return DescribeLogstashResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1988,8 +2713,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribePipeline',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/pipelines/' . $PipelineId . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribePipelineResponse::fromMap($this->doROARequest('DescribePipeline', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/logstashes/' . $InstanceId . '/pipelines/' . $PipelineId . '', 'json', $req, $runtime));
+        return DescribePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2026,8 +2762,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DescribePipelineManagementConfig',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/pipeline-management-config',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribePipelineManagementConfigResponse::fromMap($this->doROARequest('DescribePipelineManagementConfig', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/logstashes/' . $InstanceId . '/pipeline-management-config', 'json', $req, $runtime));
+        return DescribePipelineManagementConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2052,8 +2799,19 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeRegions',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/regions',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeRegionsResponse::fromMap($this->doROARequest('DescribeRegions', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/regions', 'json', $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2082,8 +2840,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeSnapshotSetting',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/snapshot-setting',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeSnapshotSettingResponse::fromMap($this->doROARequest('DescribeSnapshotSetting', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/snapshot-setting', 'json', $req, $runtime));
+        return DescribeSnapshotSettingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2112,8 +2881,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeTemplates',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/templates',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeTemplatesResponse::fromMap($this->doROARequest('DescribeTemplates', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/templates', 'json', $req, $runtime));
+        return DescribeTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2142,8 +2922,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DescribeXpackMonitorConfig',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/xpack-monitor-config',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeXpackMonitorConfigResponse::fromMap($this->doROARequest('DescribeXpackMonitorConfig', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/logstashes/' . $InstanceId . '/xpack-monitor-config', 'json', $req, $runtime));
+        return DescribeXpackMonitorConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2183,8 +2974,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DiagnoseInstance',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/diagnosis/instances/' . $InstanceId . '/actions/diagnose',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DiagnoseInstanceResponse::fromMap($this->doROARequest('DiagnoseInstance', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/diagnosis/instances/' . $InstanceId . '/actions/diagnose', 'json', $req, $runtime));
+        return DiagnoseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2221,8 +3023,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'EstimatedLogstashRestartTime',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/estimated-time/restart-time',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return EstimatedLogstashRestartTimeResponse::fromMap($this->doROARequest('EstimatedLogstashRestartTime', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/logstashes/' . $InstanceId . '/estimated-time/restart-time', 'json', $req, $runtime));
+        return EstimatedLogstashRestartTimeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2259,8 +3072,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'EstimatedRestartTime',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/estimated-time/restart-time',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return EstimatedRestartTimeResponse::fromMap($this->doROARequest('EstimatedRestartTime', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/estimated-time/restart-time', 'json', $req, $runtime));
+        return EstimatedRestartTimeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2285,8 +3109,19 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetClusterDataInformation',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/cluster/data-information',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetClusterDataInformationResponse::fromMap($this->doROARequest('GetClusterDataInformation', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/cluster/data-information', 'json', $req, $runtime));
+        return GetClusterDataInformationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2315,8 +3150,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetElastictask',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/elastic-task',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetElastictaskResponse::fromMap($this->doROARequest('GetElastictask', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/elastic-task', 'json', $req, $runtime));
+        return GetElastictaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2345,8 +3191,19 @@ class Elasticsearch extends OpenApiClient
         $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetEmonGrafanaAlerts',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/emon/projects/' . $ProjectId . '/grafana/proxy/api/alerts',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetEmonGrafanaAlertsResponse::fromMap($this->doROARequest('GetEmonGrafanaAlerts', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/emon/projects/' . $ProjectId . '/grafana/proxy/api/alerts', 'json', $req, $runtime));
+        return GetEmonGrafanaAlertsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2375,8 +3232,19 @@ class Elasticsearch extends OpenApiClient
         $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetEmonGrafanaDashboards',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/emon/projects/' . $ProjectId . '/grafana/proxy/api/search',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetEmonGrafanaDashboardsResponse::fromMap($this->doROARequest('GetEmonGrafanaDashboards', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/emon/projects/' . $ProjectId . '/grafana/proxy/api/search', 'json', $req, $runtime));
+        return GetEmonGrafanaDashboardsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2405,8 +3273,19 @@ class Elasticsearch extends OpenApiClient
         $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetEmonMonitorData',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/emon/projects/' . $ProjectId . '/metrics/query',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetEmonMonitorDataResponse::fromMap($this->doROARequest('GetEmonMonitorData', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/emon/projects/' . $ProjectId . '/metrics/query', 'json', $req, $runtime));
+        return GetEmonMonitorDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2435,8 +3314,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetOpenStoreUsage',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/openstore/usage',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetOpenStoreUsageResponse::fromMap($this->doROARequest('GetOpenStoreUsage', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/openstore/usage', 'json', $req, $runtime));
+        return GetOpenStoreUsageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2470,8 +3360,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetRegionConfiguration',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/region',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetRegionConfigurationResponse::fromMap($this->doROARequest('GetRegionConfiguration', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/region', 'json', $req, $runtime));
+        return GetRegionConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2514,8 +3415,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetSuggestShrinkableNodes',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/suggest-shrinkable-nodes',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetSuggestShrinkableNodesResponse::fromMap($this->doROARequest('GetSuggestShrinkableNodes', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/suggest-shrinkable-nodes', 'json', $req, $runtime));
+        return GetSuggestShrinkableNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2555,8 +3467,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetTransferableNodes',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/transferable-nodes',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetTransferableNodesResponse::fromMap($this->doROARequest('GetTransferableNodes', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/transferable-nodes', 'json', $req, $runtime));
+        return GetTransferableNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2590,8 +3513,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'InitializeOperationRole',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/user/slr',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return InitializeOperationRoleResponse::fromMap($this->doROARequest('InitializeOperationRole', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/user/slr', 'json', $req, $runtime));
+        return InitializeOperationRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2628,8 +3562,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'InstallAckOperator',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ack-clusters/' . $ClusterId . '/operator',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return InstallAckOperatorResponse::fromMap($this->doROARequest('InstallAckOperator', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/ack-clusters/' . $ClusterId . '/operator', 'json', $req, $runtime));
+        return InstallAckOperatorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2666,8 +3611,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'InstallKibanaSystemPlugin',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/kibana-plugins/system/actions/install',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return InstallKibanaSystemPluginResponse::fromMap($this->doROARequest('InstallKibanaSystemPlugin', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/kibana-plugins/system/actions/install', 'json', $req, $runtime));
+        return InstallKibanaSystemPluginResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2704,8 +3660,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'InstallLogstashSystemPlugin',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/plugins/system/actions/install',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return InstallLogstashSystemPluginResponse::fromMap($this->doROARequest('InstallLogstashSystemPlugin', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/logstashes/' . $InstanceId . '/plugins/system/actions/install', 'json', $req, $runtime));
+        return InstallLogstashSystemPluginResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2742,8 +3709,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'InstallSystemPlugin',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/plugins/system/actions/install',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return InstallSystemPluginResponse::fromMap($this->doROARequest('InstallSystemPlugin', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/plugins/system/actions/install', 'json', $req, $runtime));
+        return InstallSystemPluginResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2772,8 +3750,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'InstallUserPlugins',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/plugins/user/actions/install',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return InstallUserPluginsResponse::fromMap($this->doROARequest('InstallUserPlugins', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/plugins/user/actions/install', 'json', $req, $runtime));
+        return InstallUserPluginsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2810,8 +3799,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'InterruptElasticsearchTask',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/interrupt',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return InterruptElasticsearchTaskResponse::fromMap($this->doROARequest('InterruptElasticsearchTask', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/actions/interrupt', 'json', $req, $runtime));
+        return InterruptElasticsearchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2848,8 +3848,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'InterruptLogstashTask',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/actions/interrupt',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return InterruptLogstashTaskResponse::fromMap($this->doROARequest('InterruptLogstashTask', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/logstashes/' . $InstanceId . '/actions/interrupt', 'json', $req, $runtime));
+        return InterruptLogstashTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2889,8 +3900,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListAckClusters',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ack-clusters',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListAckClustersResponse::fromMap($this->doROARequest('ListAckClusters', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/ack-clusters', 'json', $req, $runtime));
+        return ListAckClustersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2930,8 +3952,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListAckNamespaces',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ack-clusters/' . $ClusterId . '/namespaces',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListAckNamespacesResponse::fromMap($this->doROARequest('ListAckNamespaces', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/ack-clusters/' . $ClusterId . '/namespaces', 'json', $req, $runtime));
+        return ListAckNamespacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2968,8 +4001,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListAllNode',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/nodes',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListAllNodeResponse::fromMap($this->doROARequest('ListAllNode', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/nodes', 'json', $req, $runtime));
+        return ListAllNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3006,8 +4050,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListAlternativeSnapshotRepos',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/alternative-snapshot-repos',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListAlternativeSnapshotReposResponse::fromMap($this->doROARequest('ListAlternativeSnapshotRepos', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/alternative-snapshot-repos', 'json', $req, $runtime));
+        return ListAlternativeSnapshotReposResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3053,8 +4108,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListApm',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/apm',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListApmResponse::fromMap($this->doROARequest('ListApm', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/apm', 'json', $req, $runtime));
+        return ListApmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3083,8 +4149,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'ListAvailableEsInstanceIds',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/available-elasticsearch-for-centralized-management',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListAvailableEsInstanceIdsResponse::fromMap($this->doROARequest('ListAvailableEsInstanceIds', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/logstashes/' . $InstanceId . '/available-elasticsearch-for-centralized-management', 'json', $req, $runtime));
+        return ListAvailableEsInstanceIdsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3133,8 +4210,74 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListCollectors',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/collectors',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListCollectorsResponse::fromMap($this->doROARequest('ListCollectors', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/collectors', 'json', $req, $runtime));
+        return ListCollectorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                      $InstanceId
+     * @param ListComponentIndicesRequest $request
+     *
+     * @return ListComponentIndicesResponse
+     */
+    public function listComponentIndices($InstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listComponentIndicesWithOptions($InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                      $InstanceId
+     * @param ListComponentIndicesRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListComponentIndicesResponse
+     */
+    public function listComponentIndicesWithOptions($InstanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
+        $query      = [];
+        if (!Utils::isUnset($request->name)) {
+            @$query['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->page)) {
+            @$query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->size)) {
+            @$query['size'] = $request->size;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListComponentIndices',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/component-index',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListComponentIndicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3163,8 +4306,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'ListConnectedClusters',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/connected-clusters',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListConnectedClustersResponse::fromMap($this->doROARequest('ListConnectedClusters', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/connected-clusters', 'json', $req, $runtime));
+        return ListConnectedClustersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3204,8 +4358,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListDataStreams',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/data-streams',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListDataStreamsResponse::fromMap($this->doROARequest('ListDataStreams', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/data-streams', 'json', $req, $runtime));
+        return ListDataStreamsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3234,8 +4399,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'ListDataTasks',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/data-task',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListDataTasksResponse::fromMap($this->doROARequest('ListDataTasks', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/data-task', 'json', $req, $runtime));
+        return ListDataTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3275,8 +4451,74 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListDefaultCollectorConfigurations',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/beats/default-configurations',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListDefaultCollectorConfigurationsResponse::fromMap($this->doROARequest('ListDefaultCollectorConfigurations', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/beats/default-configurations', 'json', $req, $runtime));
+        return ListDefaultCollectorConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                         $InstanceId
+     * @param ListDeprecatedTemplatesRequest $request
+     *
+     * @return ListDeprecatedTemplatesResponse
+     */
+    public function listDeprecatedTemplates($InstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDeprecatedTemplatesWithOptions($InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                         $InstanceId
+     * @param ListDeprecatedTemplatesRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListDeprecatedTemplatesResponse
+     */
+    public function listDeprecatedTemplatesWithOptions($InstanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
+        $query      = [];
+        if (!Utils::isUnset($request->name)) {
+            @$query['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->page)) {
+            @$query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->size)) {
+            @$query['size'] = $request->size;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDeprecatedTemplates',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/deprecated-templates',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDeprecatedTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3313,8 +4555,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListDiagnoseIndices',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/diagnosis/instances/' . $InstanceId . '/indices',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListDiagnoseIndicesResponse::fromMap($this->doROARequest('ListDiagnoseIndices', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/diagnosis/instances/' . $InstanceId . '/indices', 'json', $req, $runtime));
+        return ListDiagnoseIndicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3369,8 +4622,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListDiagnoseReport',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/diagnosis/instances/' . $InstanceId . '/reports',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListDiagnoseReportResponse::fromMap($this->doROARequest('ListDiagnoseReport', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/diagnosis/instances/' . $InstanceId . '/reports', 'json', $req, $runtime));
+        return ListDiagnoseReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3422,8 +4686,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListDiagnoseReportIds',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/diagnosis/instances/' . $InstanceId . '/report-ids',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListDiagnoseReportIdsResponse::fromMap($this->doROARequest('ListDiagnoseReportIds', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/diagnosis/instances/' . $InstanceId . '/report-ids', 'json', $req, $runtime));
+        return ListDiagnoseReportIdsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3466,8 +4741,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListDictInformation',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/dict/_info',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListDictInformationResponse::fromMap($this->doROARequest('ListDictInformation', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/dict/_info', 'json', $req, $runtime));
+        return ListDictInformationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3507,8 +4793,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListDicts',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/dicts',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListDictsResponse::fromMap($this->doROARequest('ListDicts', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/dicts', 'json', $req, $runtime));
+        return ListDictsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3557,8 +4854,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListEcsInstances',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/ecs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListEcsInstancesResponse::fromMap($this->doROARequest('ListEcsInstances', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/ecs', 'json', $req, $runtime));
+        return ListEcsInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3587,8 +4895,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'ListExtendfiles',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/extendfiles',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListExtendfilesResponse::fromMap($this->doROARequest('ListExtendfiles', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/logstashes/' . $InstanceId . '/extendfiles', 'json', $req, $runtime));
+        return ListExtendfilesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3625,8 +4944,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListILMPolicies',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/ilm-policies',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListILMPoliciesResponse::fromMap($this->doROARequest('ListILMPolicies', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/ilm-policies', 'json', $req, $runtime));
+        return ListILMPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3663,8 +4993,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListIndexTemplates',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/index-templates',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListIndexTemplatesResponse::fromMap($this->doROARequest('ListIndexTemplates', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/index-templates', 'json', $req, $runtime));
+        return ListIndexTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3728,8 +5069,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListInstance',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListInstanceResponse::fromMap($this->doROARequest('ListInstance', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances', 'json', $req, $runtime));
+        return ListInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3781,8 +5133,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListInstanceIndices',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/indices',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListInstanceIndicesResponse::fromMap($this->doROARequest('ListInstanceIndices', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/indices', 'json', $req, $runtime));
+        return ListInstanceIndicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3822,8 +5185,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListKibanaPlugins',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/kibana-plugins',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListKibanaPluginsResponse::fromMap($this->doROARequest('ListKibanaPlugins', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/kibana-plugins', 'json', $req, $runtime));
+        return ListKibanaPluginsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3875,8 +5249,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListLogstash',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListLogstashResponse::fromMap($this->doROARequest('ListLogstash', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/logstashes', 'json', $req, $runtime));
+        return ListLogstashResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3928,8 +5313,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListLogstashLog',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/search-log',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListLogstashLogResponse::fromMap($this->doROARequest('ListLogstashLog', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/logstashes/' . $InstanceId . '/search-log', 'json', $req, $runtime));
+        return ListLogstashLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3975,8 +5371,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListLogstashPlugins',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/plugins',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListLogstashPluginsResponse::fromMap($this->doROARequest('ListLogstashPlugins', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/logstashes/' . $InstanceId . '/plugins', 'json', $req, $runtime));
+        return ListLogstashPluginsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4025,8 +5432,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListNodes',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/collectors/' . $ResId . '/nodes',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListNodesResponse::fromMap($this->doROARequest('ListNodes', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/collectors/' . $ResId . '/nodes', 'json', $req, $runtime));
+        return ListNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4069,8 +5487,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListPipeline',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/pipelines',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListPipelineResponse::fromMap($this->doROARequest('ListPipeline', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/logstashes/' . $InstanceId . '/pipelines', 'json', $req, $runtime));
+        return ListPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4099,8 +5528,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'ListPipelineIds',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/pipeline-ids',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListPipelineIdsResponse::fromMap($this->doROARequest('ListPipelineIds', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/pipeline-ids', 'json', $req, $runtime));
+        return ListPipelineIdsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4146,8 +5586,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListPlugins',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/plugins',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListPluginsResponse::fromMap($this->doROARequest('ListPlugins', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/plugins', 'json', $req, $runtime));
+        return ListPluginsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4199,8 +5650,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListSearchLog',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/search-log',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListSearchLogResponse::fromMap($this->doROARequest('ListSearchLog', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/search-log', 'json', $req, $runtime));
+        return ListSearchLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4237,8 +5699,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListShardRecoveries',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/cat-recovery',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListShardRecoveriesResponse::fromMap($this->doROARequest('ListShardRecoveries', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/cat-recovery', 'json', $req, $runtime));
+        return ListShardRecoveriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4267,8 +5740,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'ListSnapshotReposByInstanceId',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/snapshot-repos',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListSnapshotReposByInstanceIdResponse::fromMap($this->doROARequest('ListSnapshotReposByInstanceId', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/snapshot-repos', 'json', $req, $runtime));
+        return ListSnapshotReposByInstanceIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4317,8 +5801,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/tags',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListTagResourcesResponse::fromMap($this->doROARequest('ListTagResources', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/tags', 'json', $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4355,8 +5850,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListTags',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/tags/all-tags',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListTagsResponse::fromMap($this->doROARequest('ListTags', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/tags/all-tags', 'json', $req, $runtime));
+        return ListTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4396,8 +5902,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListVpcEndpoints',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/vpc-endpoints',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListVpcEndpointsResponse::fromMap($this->doROARequest('ListVpcEndpoints', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/vpc-endpoints', 'json', $req, $runtime));
+        return ListVpcEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4434,8 +5951,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'MigrateToOtherZone',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/migrate-zones',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return MigrateToOtherZoneResponse::fromMap($this->doROARequest('MigrateToOtherZone', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/actions/migrate-zones', 'json', $req, $runtime));
+        return MigrateToOtherZoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4472,8 +6000,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ModifyDeployMachine',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/collectors/' . $ResId . '/actions/modify-deploy-machines',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ModifyDeployMachineResponse::fromMap($this->doROARequest('ModifyDeployMachine', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/collectors/' . $ResId . '/actions/modify-deploy-machines', 'json', $req, $runtime));
+        return ModifyDeployMachineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4502,8 +6041,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'ModifyElastictask',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/elastic-task',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ModifyElastictaskResponse::fromMap($this->doROARequest('ModifyElastictask', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/elastic-task', 'json', $req, $runtime));
+        return ModifyElastictaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4540,8 +6090,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceMaintainTime',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/modify-maintaintime',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ModifyInstanceMaintainTimeResponse::fromMap($this->doROARequest('ModifyInstanceMaintainTime', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/actions/modify-maintaintime', 'json', $req, $runtime));
+        return ModifyInstanceMaintainTimeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4595,8 +6156,19 @@ class Elasticsearch extends OpenApiClient
             'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'ModifyWhiteIps',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/modify-white-ips',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ModifyWhiteIpsResponse::fromMap($this->doROARequestWithForm('ModifyWhiteIps', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/actions/modify-white-ips', 'json', $req, $runtime));
+        return ModifyWhiteIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4633,8 +6205,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'MoveResourceGroup',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/resourcegroup',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return MoveResourceGroupResponse::fromMap($this->doROARequest('MoveResourceGroup', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/resourcegroup', 'json', $req, $runtime));
+        return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4674,8 +6257,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'OpenDiagnosis',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/diagnosis/instances/' . $InstanceId . '/actions/open-diagnosis',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return OpenDiagnosisResponse::fromMap($this->doROARequest('OpenDiagnosis', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/diagnosis/instances/' . $InstanceId . '/actions/open-diagnosis', 'json', $req, $runtime));
+        return OpenDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4712,8 +6306,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'OpenHttps',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/open-https',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return OpenHttpsResponse::fromMap($this->doROARequest('OpenHttps', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/actions/open-https', 'json', $req, $runtime));
+        return OpenHttpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4745,8 +6350,19 @@ class Elasticsearch extends OpenApiClient
         $req          = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'PostEmonTryAlarmRule',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/emon/projects/' . $ProjectId . '/alarm-groups/' . $AlarmGroupId . '/alarm-rules/_test',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return PostEmonTryAlarmRuleResponse::fromMap($this->doROARequest('PostEmonTryAlarmRule', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/emon/projects/' . $ProjectId . '/alarm-groups/' . $AlarmGroupId . '/alarm-rules/_test', 'json', $req, $runtime));
+        return PostEmonTryAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4783,8 +6399,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'RecommendTemplates',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/recommended-templates',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return RecommendTemplatesResponse::fromMap($this->doROARequest('RecommendTemplates', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/instances/' . $InstanceId . '/recommended-templates', 'json', $req, $runtime));
+        return RecommendTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4821,8 +6448,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ReinstallCollector',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/collectors/' . $ResId . '/actions/reinstall',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ReinstallCollectorResponse::fromMap($this->doROARequest('ReinstallCollector', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/collectors/' . $ResId . '/actions/reinstall', 'json', $req, $runtime));
+        return ReinstallCollectorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4851,8 +6489,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'RemoveApm',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/apm/' . $instanceId . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return RemoveApmResponse::fromMap($this->doROARequest('RemoveApm', '2017-06-13', 'HTTPS', 'DELETE', 'AK', '/openapi/apm/' . $instanceId . '', 'json', $req, $runtime));
+        return RemoveApmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4889,8 +6538,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'RenewInstance',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/renew',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return RenewInstanceResponse::fromMap($this->doROARequest('RenewInstance', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/actions/renew', 'json', $req, $runtime));
+        return RenewInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4927,8 +6587,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'RenewLogstash',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/actions/renew',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return RenewLogstashResponse::fromMap($this->doROARequest('RenewLogstash', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/logstashes/' . $InstanceId . '/actions/renew', 'json', $req, $runtime));
+        return RenewLogstashResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4965,8 +6636,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'RestartCollector',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/collectors/' . $ResId . '/actions/restart',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return RestartCollectorResponse::fromMap($this->doROARequest('RestartCollector', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/collectors/' . $ResId . '/actions/restart', 'json', $req, $runtime));
+        return RestartCollectorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5006,8 +6688,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'RestartInstance',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/restart',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return RestartInstanceResponse::fromMap($this->doROARequest('RestartInstance', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/actions/restart', 'json', $req, $runtime));
+        return RestartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5047,8 +6740,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'RestartLogstash',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/actions/restart',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return RestartLogstashResponse::fromMap($this->doROARequest('RestartLogstash', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/logstashes/' . $InstanceId . '/actions/restart', 'json', $req, $runtime));
+        return RestartLogstashResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5085,8 +6789,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ResumeElasticsearchTask',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/resume',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ResumeElasticsearchTaskResponse::fromMap($this->doROARequest('ResumeElasticsearchTask', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/actions/resume', 'json', $req, $runtime));
+        return ResumeElasticsearchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5123,8 +6838,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ResumeLogstashTask',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/actions/resume',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ResumeLogstashTaskResponse::fromMap($this->doROARequest('ResumeLogstashTask', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/logstashes/' . $InstanceId . '/actions/resume', 'json', $req, $runtime));
+        return ResumeLogstashTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5164,8 +6890,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'RolloverDataStream',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/data-streams/' . $DataStream . '/rollover',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return RolloverDataStreamResponse::fromMap($this->doROARequest('RolloverDataStream', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/data-streams/' . $DataStream . '/rollover', 'json', $req, $runtime));
+        return RolloverDataStreamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5202,8 +6939,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'RunPipelines',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/pipelines/action/run',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return RunPipelinesResponse::fromMap($this->doROARequest('RunPipelines', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/logstashes/' . $InstanceId . '/pipelines/action/run', 'json', $req, $runtime));
+        return RunPipelinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5246,8 +6994,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ShrinkNode',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/shrink',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ShrinkNodeResponse::fromMap($this->doROARequest('ShrinkNode', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/actions/shrink', 'json', $req, $runtime));
+        return ShrinkNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5276,8 +7035,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'StartApm',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/apm/' . $instanceId . '/actions/start',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return StartApmResponse::fromMap($this->doROARequest('StartApm', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/apm/' . $instanceId . '/actions/start', 'json', $req, $runtime));
+        return StartApmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5314,8 +7084,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'StartCollector',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/collectors/' . $ResId . '/actions/start',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return StartCollectorResponse::fromMap($this->doROARequest('StartCollector', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/collectors/' . $ResId . '/actions/start', 'json', $req, $runtime));
+        return StartCollectorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5344,8 +7125,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'StopApm',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/apm/' . $instanceId . '/actions/stop',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return StopApmResponse::fromMap($this->doROARequest('StopApm', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/apm/' . $instanceId . '/actions/stop', 'json', $req, $runtime));
+        return StopApmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5382,8 +7174,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'StopCollector',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/collectors/' . $ResId . '/actions/stop',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return StopCollectorResponse::fromMap($this->doROARequest('StopCollector', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/collectors/' . $ResId . '/actions/stop', 'json', $req, $runtime));
+        return StopCollectorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5420,8 +7223,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'StopPipelines',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/pipelines/action/stop',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return StopPipelinesResponse::fromMap($this->doROARequest('StopPipelines', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/logstashes/' . $InstanceId . '/pipelines/action/stop', 'json', $req, $runtime));
+        return StopPipelinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5446,8 +7260,19 @@ class Elasticsearch extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/tags',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return TagResourcesResponse::fromMap($this->doROARequest('TagResources', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/tags', 'json', $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5487,8 +7312,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'TransferNode',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/transfer',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return TransferNodeResponse::fromMap($this->doROARequest('TransferNode', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/actions/transfer', 'json', $req, $runtime));
+        return TransferNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5536,8 +7372,19 @@ class Elasticsearch extends OpenApiClient
             'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'TriggerNetwork',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/network-trigger',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return TriggerNetworkResponse::fromMap($this->doROARequestWithForm('TriggerNetwork', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/actions/network-trigger', 'json', $req, $runtime));
+        return TriggerNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5574,8 +7421,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UninstallKibanaPlugin',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/kibana-plugins/actions/uninstall',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UninstallKibanaPluginResponse::fromMap($this->doROARequest('UninstallKibanaPlugin', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/kibana-plugins/actions/uninstall', 'json', $req, $runtime));
+        return UninstallKibanaPluginResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5612,8 +7470,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UninstallLogstashPlugin',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/plugins/actions/uninstall',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UninstallLogstashPluginResponse::fromMap($this->doROARequest('UninstallLogstashPlugin', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/logstashes/' . $InstanceId . '/plugins/actions/uninstall', 'json', $req, $runtime));
+        return UninstallLogstashPluginResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5650,8 +7519,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UninstallPlugin',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/plugins/actions/uninstall',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UninstallPluginResponse::fromMap($this->doROARequest('UninstallPlugin', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/plugins/actions/uninstall', 'json', $req, $runtime));
+        return UninstallPluginResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5694,8 +7574,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/tags',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UntagResourcesResponse::fromMap($this->doROARequest('UntagResources', '2017-06-13', 'HTTPS', 'DELETE', 'AK', '/openapi/tags', 'json', $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5732,8 +7623,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateAdminPassword',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/admin-pwd',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateAdminPasswordResponse::fromMap($this->doROARequest('UpdateAdminPassword', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/admin-pwd', 'json', $req, $runtime));
+        return UpdateAdminPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5770,8 +7672,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateAdvancedSetting',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/update-advanced-setting',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateAdvancedSettingResponse::fromMap($this->doROARequest('UpdateAdvancedSetting', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/actions/update-advanced-setting', 'json', $req, $runtime));
+        return UpdateAdvancedSettingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5808,8 +7721,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateAliwsDict',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/aliws-dict',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateAliwsDictResponse::fromMap($this->doROARequest('UpdateAliwsDict', '2017-06-13', 'HTTPS', 'PUT', 'AK', '/openapi/instances/' . $InstanceId . '/aliws-dict', 'json', $req, $runtime));
+        return UpdateAliwsDictResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5858,8 +7782,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateApm',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/apm/' . $instanceId . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateApmResponse::fromMap($this->doROARequest('UpdateApm', '2017-06-13', 'HTTPS', 'PUT', 'AK', '/openapi/apm/' . $instanceId . '', 'json', $req, $runtime));
+        return UpdateApmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5901,8 +7836,19 @@ class Elasticsearch extends OpenApiClient
             'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateBlackIps',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/black-ips',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateBlackIpsResponse::fromMap($this->doROARequestWithForm('UpdateBlackIps', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/black-ips', 'json', $req, $runtime));
+        return UpdateBlackIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5939,8 +7885,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateCollector',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/collectors/' . $ResId . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateCollectorResponse::fromMap($this->doROARequest('UpdateCollector', '2017-06-13', 'HTTPS', 'PUT', 'AK', '/openapi/collectors/' . $ResId . '', 'json', $req, $runtime));
+        return UpdateCollectorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5977,8 +7934,74 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateCollectorName',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/collectors/' . $ResId . '/actions/rename',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateCollectorNameResponse::fromMap($this->doROARequest('UpdateCollectorName', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/collectors/' . $ResId . '/actions/rename', 'json', $req, $runtime));
+        return UpdateCollectorNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                      $InstanceId
+     * @param string                      $name
+     * @param UpdateComponentIndexRequest $request
+     *
+     * @return UpdateComponentIndexResponse
+     */
+    public function updateComponentIndex($InstanceId, $name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateComponentIndexWithOptions($InstanceId, $name, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                      $InstanceId
+     * @param string                      $name
+     * @param UpdateComponentIndexRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateComponentIndexResponse
+     */
+    public function updateComponentIndexWithOptions($InstanceId, $name, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
+        $name       = OpenApiUtilClient::getEncodeParam($name);
+        $body       = [];
+        if (!Utils::isUnset($request->meta)) {
+            @$body['_meta'] = $request->meta;
+        }
+        if (!Utils::isUnset($request->template)) {
+            @$body['template'] = $request->template;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateComponentIndex',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/component-index/' . $name . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateComponentIndexResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6020,8 +8043,19 @@ class Elasticsearch extends OpenApiClient
             'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateDescription',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/description',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateDescriptionResponse::fromMap($this->doROARequest('UpdateDescription', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/description', 'json', $req, $runtime));
+        return UpdateDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6061,8 +8095,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateDiagnosisSettings',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/diagnosis/instances/' . $InstanceId . '/settings',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateDiagnosisSettingsResponse::fromMap($this->doROARequest('UpdateDiagnosisSettings', '2017-06-13', 'HTTPS', 'PUT', 'AK', '/openapi/diagnosis/instances/' . $InstanceId . '/settings', 'json', $req, $runtime));
+        return UpdateDiagnosisSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6099,8 +8144,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateDict',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/dict',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateDictResponse::fromMap($this->doROARequest('UpdateDict', '2017-06-13', 'HTTPS', 'PUT', 'AK', '/openapi/instances/' . $InstanceId . '/dict', 'json', $req, $runtime));
+        return UpdateDictResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6137,8 +8193,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateExtendConfig',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/extend-configs/actions/update',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateExtendConfigResponse::fromMap($this->doROARequest('UpdateExtendConfig', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/extend-configs/actions/update', 'json', $req, $runtime));
+        return UpdateExtendConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6175,8 +8242,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateExtendfiles',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/extendfiles',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateExtendfilesResponse::fromMap($this->doROARequest('UpdateExtendfiles', '2017-06-13', 'HTTPS', 'PUT', 'AK', '/openapi/logstashes/' . $InstanceId . '/extendfiles', 'json', $req, $runtime));
+        return UpdateExtendfilesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6213,8 +8291,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateHotIkDicts',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/ik-hot-dict',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateHotIkDictsResponse::fromMap($this->doROARequest('UpdateHotIkDicts', '2017-06-13', 'HTTPS', 'PUT', 'AK', '/openapi/instances/' . $InstanceId . '/ik-hot-dict', 'json', $req, $runtime));
+        return UpdateHotIkDictsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6254,8 +8343,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateILMPolicy',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/ilm-policies/' . $PolicyName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateILMPolicyResponse::fromMap($this->doROARequest('UpdateILMPolicy', '2017-06-13', 'HTTPS', 'PUT', 'AK', '/openapi/instances/' . $InstanceId . '/ilm-policies/' . $PolicyName . '', 'json', $req, $runtime));
+        return UpdateILMPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6295,8 +8395,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateIndexTemplate',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/index-templates/' . $IndexTemplate . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateIndexTemplateResponse::fromMap($this->doROARequest('UpdateIndexTemplate', '2017-06-13', 'HTTPS', 'PUT', 'AK', '/openapi/instances/' . $InstanceId . '/index-templates/' . $IndexTemplate . '', 'json', $req, $runtime));
+        return UpdateIndexTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6339,8 +8450,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateInstance',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateInstanceResponse::fromMap($this->doROARequest('UpdateInstance', '2017-06-13', 'HTTPS', 'PUT', 'AK', '/openapi/instances/' . $InstanceId . '', 'json', $req, $runtime));
+        return UpdateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6377,8 +8499,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateInstanceChargeType',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/convert-pay-type',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateInstanceChargeTypeResponse::fromMap($this->doROARequest('UpdateInstanceChargeType', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/actions/convert-pay-type', 'json', $req, $runtime));
+        return UpdateInstanceChargeTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6415,8 +8548,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateInstanceSettings',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/instance-settings',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateInstanceSettingsResponse::fromMap($this->doROARequest('UpdateInstanceSettings', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/instance-settings', 'json', $req, $runtime));
+        return UpdateInstanceSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6453,8 +8597,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateKibanaSettings',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/update-kibana-settings',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateKibanaSettingsResponse::fromMap($this->doROARequest('UpdateKibanaSettings', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/actions/update-kibana-settings', 'json', $req, $runtime));
+        return UpdateKibanaSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6494,8 +8649,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateKibanaWhiteIps',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/kibana-white-ips',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateKibanaWhiteIpsResponse::fromMap($this->doROARequest('UpdateKibanaWhiteIps', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/kibana-white-ips', 'json', $req, $runtime));
+        return UpdateKibanaWhiteIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6532,8 +8698,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateLogstash',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateLogstashResponse::fromMap($this->doROARequest('UpdateLogstash', '2017-06-13', 'HTTPS', 'PUT', 'AK', '/openapi/logstashes/' . $InstanceId . '', 'json', $req, $runtime));
+        return UpdateLogstashResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6570,8 +8747,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateLogstashChargeType',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/actions/convert-pay-type',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateLogstashChargeTypeResponse::fromMap($this->doROARequest('UpdateLogstashChargeType', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/logstashes/' . $InstanceId . '/actions/convert-pay-type', 'json', $req, $runtime));
+        return UpdateLogstashChargeTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6608,8 +8796,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateLogstashDescription',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/description',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateLogstashDescriptionResponse::fromMap($this->doROARequest('UpdateLogstashDescription', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/logstashes/' . $InstanceId . '/description', 'json', $req, $runtime));
+        return UpdateLogstashDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6646,8 +8845,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateLogstashSettings',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/instance-settings',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateLogstashSettingsResponse::fromMap($this->doROARequest('UpdateLogstashSettings', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/logstashes/' . $InstanceId . '/instance-settings', 'json', $req, $runtime));
+        return UpdateLogstashSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6684,8 +8894,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdatePipelineManagementConfig',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/pipeline-management-config',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdatePipelineManagementConfigResponse::fromMap($this->doROARequest('UpdatePipelineManagementConfig', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/logstashes/' . $InstanceId . '/pipeline-management-config', 'json', $req, $runtime));
+        return UpdatePipelineManagementConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6725,8 +8946,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdatePipelines',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/pipelines',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdatePipelinesResponse::fromMap($this->doROARequest('UpdatePipelines', '2017-06-13', 'HTTPS', 'PUT', 'AK', '/openapi/logstashes/' . $InstanceId . '/pipelines', 'json', $req, $runtime));
+        return UpdatePipelinesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6766,8 +8998,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdatePrivateNetworkWhiteIps',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/private-network-white-ips',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdatePrivateNetworkWhiteIpsResponse::fromMap($this->doROARequest('UpdatePrivateNetworkWhiteIps', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/private-network-white-ips', 'json', $req, $runtime));
+        return UpdatePrivateNetworkWhiteIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6804,8 +9047,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdatePublicNetwork',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/public-network',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdatePublicNetworkResponse::fromMap($this->doROARequest('UpdatePublicNetwork', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/public-network', 'json', $req, $runtime));
+        return UpdatePublicNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6845,8 +9099,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdatePublicWhiteIps',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/public-white-ips',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdatePublicWhiteIpsResponse::fromMap($this->doROARequest('UpdatePublicWhiteIps', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/public-white-ips', 'json', $req, $runtime));
+        return UpdatePublicWhiteIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6883,8 +9148,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateReadWritePolicy',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/update-read-write-policy',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateReadWritePolicyResponse::fromMap($this->doROARequest('UpdateReadWritePolicy', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/actions/update-read-write-policy', 'json', $req, $runtime));
+        return UpdateReadWritePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6913,8 +9189,19 @@ class Elasticsearch extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'UpdateSnapshotSetting',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/snapshot-setting',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateSnapshotSettingResponse::fromMap($this->doROARequest('UpdateSnapshotSetting', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/snapshot-setting', 'json', $req, $runtime));
+        return UpdateSnapshotSettingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6951,8 +9238,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateSynonymsDicts',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/synonymsDict',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateSynonymsDictsResponse::fromMap($this->doROARequest('UpdateSynonymsDicts', '2017-06-13', 'HTTPS', 'PUT', 'AK', '/openapi/instances/' . $InstanceId . '/synonymsDict', 'json', $req, $runtime));
+        return UpdateSynonymsDictsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6992,8 +9290,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateTemplate',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/templates/' . $TemplateName . '',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateTemplateResponse::fromMap($this->doROARequest('UpdateTemplate', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/templates/' . $TemplateName . '', 'json', $req, $runtime));
+        return UpdateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7041,8 +9350,19 @@ class Elasticsearch extends OpenApiClient
             'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateWhiteIps',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/white-ips',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateWhiteIpsResponse::fromMap($this->doROARequestWithForm('UpdateWhiteIps', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/white-ips', 'json', $req, $runtime));
+        return UpdateWhiteIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7079,8 +9399,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateXpackMonitorConfig',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/xpack-monitor-config',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateXpackMonitorConfigResponse::fromMap($this->doROARequest('UpdateXpackMonitorConfig', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/logstashes/' . $InstanceId . '/xpack-monitor-config', 'json', $req, $runtime));
+        return UpdateXpackMonitorConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7128,8 +9459,19 @@ class Elasticsearch extends OpenApiClient
             'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpgradeEngineVersion',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/actions/upgrade-version',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpgradeEngineVersionResponse::fromMap($this->doROARequestWithForm('UpgradeEngineVersion', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/actions/upgrade-version', 'json', $req, $runtime));
+        return UpgradeEngineVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7166,8 +9508,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ValidateConnection',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/logstashes/' . $InstanceId . '/validate-connection',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ValidateConnectionResponse::fromMap($this->doROARequest('ValidateConnection', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/logstashes/' . $InstanceId . '/validate-connection', 'json', $req, $runtime));
+        return ValidateConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7207,8 +9560,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ValidateShrinkNodes',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/validate-shrink-nodes',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ValidateShrinkNodesResponse::fromMap($this->doROARequest('ValidateShrinkNodes', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/validate-shrink-nodes', 'json', $req, $runtime));
+        return ValidateShrinkNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7245,8 +9609,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ValidateSlrPermission',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/user/servicerolepermission',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ValidateSlrPermissionResponse::fromMap($this->doROARequest('ValidateSlrPermission', '2017-06-13', 'HTTPS', 'GET', 'AK', '/openapi/user/servicerolepermission', 'json', $req, $runtime));
+        return ValidateSlrPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7283,8 +9658,19 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ValidateTransferableNodes',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances/' . $InstanceId . '/validate-transfer-nodes',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ValidateTransferableNodesResponse::fromMap($this->doROARequest('ValidateTransferableNodes', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances/' . $InstanceId . '/validate-transfer-nodes', 'json', $req, $runtime));
+        return ValidateTransferableNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7318,7 +9704,18 @@ class Elasticsearch extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'createInstance',
+            'version'     => '2017-06-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/instances',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateInstanceResponse::fromMap($this->doROARequest('createInstance', '2017-06-13', 'HTTPS', 'POST', 'AK', '/openapi/instances', 'json', $req, $runtime));
+        return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 }
