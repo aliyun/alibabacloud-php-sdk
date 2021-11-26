@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var ruleInfo
-     */
-    public $ruleInfo;
-
-    /**
      * @var int
      */
     public $channelType;
@@ -22,7 +17,7 @@ class data extends Model
     /**
      * @var int
      */
-    public $setId;
+    public $judgeType;
 
     /**
      * @var int
@@ -30,15 +25,20 @@ class data extends Model
     public $roleConfigStatus;
 
     /**
+     * @var ruleInfo
+     */
+    public $ruleInfo;
+
+    /**
      * @var int
      */
-    public $judgeType;
+    public $setId;
     protected $_name = [
-        'ruleInfo'         => 'RuleInfo',
         'channelType'      => 'ChannelType',
-        'setId'            => 'SetId',
-        'roleConfigStatus' => 'RoleConfigStatus',
         'judgeType'        => 'JudgeType',
+        'roleConfigStatus' => 'RoleConfigStatus',
+        'ruleInfo'         => 'RuleInfo',
+        'setId'            => 'SetId',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ruleInfo) {
-            $res['RuleInfo'] = null !== $this->ruleInfo ? $this->ruleInfo->toMap() : null;
-        }
         if (null !== $this->channelType) {
             $res['ChannelType'] = $this->channelType;
         }
-        if (null !== $this->setId) {
-            $res['SetId'] = $this->setId;
+        if (null !== $this->judgeType) {
+            $res['JudgeType'] = $this->judgeType;
         }
         if (null !== $this->roleConfigStatus) {
             $res['RoleConfigStatus'] = $this->roleConfigStatus;
         }
-        if (null !== $this->judgeType) {
-            $res['JudgeType'] = $this->judgeType;
+        if (null !== $this->ruleInfo) {
+            $res['RuleInfo'] = null !== $this->ruleInfo ? $this->ruleInfo->toMap() : null;
+        }
+        if (null !== $this->setId) {
+            $res['SetId'] = $this->setId;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RuleInfo'])) {
-            $model->ruleInfo = ruleInfo::fromMap($map['RuleInfo']);
-        }
         if (isset($map['ChannelType'])) {
             $model->channelType = $map['ChannelType'];
         }
-        if (isset($map['SetId'])) {
-            $model->setId = $map['SetId'];
+        if (isset($map['JudgeType'])) {
+            $model->judgeType = $map['JudgeType'];
         }
         if (isset($map['RoleConfigStatus'])) {
             $model->roleConfigStatus = $map['RoleConfigStatus'];
         }
-        if (isset($map['JudgeType'])) {
-            $model->judgeType = $map['JudgeType'];
+        if (isset($map['RuleInfo'])) {
+            $model->ruleInfo = ruleInfo::fromMap($map['RuleInfo']);
+        }
+        if (isset($map['SetId'])) {
+            $model->setId = $map['SetId'];
         }
 
         return $model;

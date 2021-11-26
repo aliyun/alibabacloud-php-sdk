@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class dialogue extends Model
 {
     /**
-     * @var string
-     */
-    public $words;
-
-    /**
-     * @var string
-     */
-    public $identity;
-
-    /**
      * @var int
      */
     public $begin;
@@ -39,9 +29,14 @@ class dialogue extends Model
     public $end;
 
     /**
-     * @var int
+     * @var string
      */
-    public $speechRate;
+    public $hourMinSec;
+
+    /**
+     * @var string
+     */
+    public $identity;
 
     /**
      * @var string
@@ -54,20 +49,25 @@ class dialogue extends Model
     public $silenceDuration;
 
     /**
+     * @var int
+     */
+    public $speechRate;
+
+    /**
      * @var string
      */
-    public $hourMinSec;
+    public $words;
     protected $_name = [
-        'words'           => 'Words',
-        'identity'        => 'Identity',
         'begin'           => 'Begin',
         'beginTime'       => 'BeginTime',
         'emotionValue'    => 'EmotionValue',
         'end'             => 'End',
-        'speechRate'      => 'SpeechRate',
+        'hourMinSec'      => 'HourMinSec',
+        'identity'        => 'Identity',
         'role'            => 'Role',
         'silenceDuration' => 'SilenceDuration',
-        'hourMinSec'      => 'HourMinSec',
+        'speechRate'      => 'SpeechRate',
+        'words'           => 'Words',
     ];
 
     public function validate()
@@ -77,12 +77,6 @@ class dialogue extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->words) {
-            $res['Words'] = $this->words;
-        }
-        if (null !== $this->identity) {
-            $res['Identity'] = $this->identity;
-        }
         if (null !== $this->begin) {
             $res['Begin'] = $this->begin;
         }
@@ -95,8 +89,11 @@ class dialogue extends Model
         if (null !== $this->end) {
             $res['End'] = $this->end;
         }
-        if (null !== $this->speechRate) {
-            $res['SpeechRate'] = $this->speechRate;
+        if (null !== $this->hourMinSec) {
+            $res['HourMinSec'] = $this->hourMinSec;
+        }
+        if (null !== $this->identity) {
+            $res['Identity'] = $this->identity;
         }
         if (null !== $this->role) {
             $res['Role'] = $this->role;
@@ -104,8 +101,11 @@ class dialogue extends Model
         if (null !== $this->silenceDuration) {
             $res['SilenceDuration'] = $this->silenceDuration;
         }
-        if (null !== $this->hourMinSec) {
-            $res['HourMinSec'] = $this->hourMinSec;
+        if (null !== $this->speechRate) {
+            $res['SpeechRate'] = $this->speechRate;
+        }
+        if (null !== $this->words) {
+            $res['Words'] = $this->words;
         }
 
         return $res;
@@ -119,12 +119,6 @@ class dialogue extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Words'])) {
-            $model->words = $map['Words'];
-        }
-        if (isset($map['Identity'])) {
-            $model->identity = $map['Identity'];
-        }
         if (isset($map['Begin'])) {
             $model->begin = $map['Begin'];
         }
@@ -137,8 +131,11 @@ class dialogue extends Model
         if (isset($map['End'])) {
             $model->end = $map['End'];
         }
-        if (isset($map['SpeechRate'])) {
-            $model->speechRate = $map['SpeechRate'];
+        if (isset($map['HourMinSec'])) {
+            $model->hourMinSec = $map['HourMinSec'];
+        }
+        if (isset($map['Identity'])) {
+            $model->identity = $map['Identity'];
         }
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
@@ -146,8 +143,11 @@ class dialogue extends Model
         if (isset($map['SilenceDuration'])) {
             $model->silenceDuration = $map['SilenceDuration'];
         }
-        if (isset($map['HourMinSec'])) {
-            $model->hourMinSec = $map['HourMinSec'];
+        if (isset($map['SpeechRate'])) {
+            $model->speechRate = $map['SpeechRate'];
+        }
+        if (isset($map['Words'])) {
+            $model->words = $map['Words'];
         }
 
         return $model;

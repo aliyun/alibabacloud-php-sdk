@@ -10,21 +10,6 @@ use AlibabaCloud\Tea\Model;
 class manualScoreInfo extends Model
 {
     /**
-     * @var string
-     */
-    public $scoreSubName;
-
-    /**
-     * @var int
-     */
-    public $scoreNum;
-
-    /**
-     * @var int
-     */
-    public $scoreSubId;
-
-    /**
      * @var complainHistories
      */
     public $complainHistories;
@@ -38,13 +23,28 @@ class manualScoreInfo extends Model
      * @var int
      */
     public $scoreId;
+
+    /**
+     * @var int
+     */
+    public $scoreNum;
+
+    /**
+     * @var int
+     */
+    public $scoreSubId;
+
+    /**
+     * @var string
+     */
+    public $scoreSubName;
     protected $_name = [
-        'scoreSubName'      => 'ScoreSubName',
-        'scoreNum'          => 'ScoreNum',
-        'scoreSubId'        => 'ScoreSubId',
         'complainHistories' => 'ComplainHistories',
         'complainable'      => 'Complainable',
         'scoreId'           => 'ScoreId',
+        'scoreNum'          => 'ScoreNum',
+        'scoreSubId'        => 'ScoreSubId',
+        'scoreSubName'      => 'ScoreSubName',
     ];
 
     public function validate()
@@ -54,15 +54,6 @@ class manualScoreInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->scoreSubName) {
-            $res['ScoreSubName'] = $this->scoreSubName;
-        }
-        if (null !== $this->scoreNum) {
-            $res['ScoreNum'] = $this->scoreNum;
-        }
-        if (null !== $this->scoreSubId) {
-            $res['ScoreSubId'] = $this->scoreSubId;
-        }
         if (null !== $this->complainHistories) {
             $res['ComplainHistories'] = null !== $this->complainHistories ? $this->complainHistories->toMap() : null;
         }
@@ -71,6 +62,15 @@ class manualScoreInfo extends Model
         }
         if (null !== $this->scoreId) {
             $res['ScoreId'] = $this->scoreId;
+        }
+        if (null !== $this->scoreNum) {
+            $res['ScoreNum'] = $this->scoreNum;
+        }
+        if (null !== $this->scoreSubId) {
+            $res['ScoreSubId'] = $this->scoreSubId;
+        }
+        if (null !== $this->scoreSubName) {
+            $res['ScoreSubName'] = $this->scoreSubName;
         }
 
         return $res;
@@ -84,15 +84,6 @@ class manualScoreInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ScoreSubName'])) {
-            $model->scoreSubName = $map['ScoreSubName'];
-        }
-        if (isset($map['ScoreNum'])) {
-            $model->scoreNum = $map['ScoreNum'];
-        }
-        if (isset($map['ScoreSubId'])) {
-            $model->scoreSubId = $map['ScoreSubId'];
-        }
         if (isset($map['ComplainHistories'])) {
             $model->complainHistories = complainHistories::fromMap($map['ComplainHistories']);
         }
@@ -101,6 +92,15 @@ class manualScoreInfo extends Model
         }
         if (isset($map['ScoreId'])) {
             $model->scoreId = $map['ScoreId'];
+        }
+        if (isset($map['ScoreNum'])) {
+            $model->scoreNum = $map['ScoreNum'];
+        }
+        if (isset($map['ScoreSubId'])) {
+            $model->scoreSubId = $map['ScoreSubId'];
+        }
+        if (isset($map['ScoreSubName'])) {
+            $model->scoreSubName = $map['ScoreSubName'];
         }
 
         return $model;

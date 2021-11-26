@@ -11,6 +11,16 @@ class reviewInfo extends Model
     /**
      * @var string
      */
+    public $hitId;
+
+    /**
+     * @var int
+     */
+    public $reviewResult;
+
+    /**
+     * @var string
+     */
     public $reviewTime;
 
     /**
@@ -21,22 +31,12 @@ class reviewInfo extends Model
     /**
      * @var int
      */
-    public $reviewResult;
-
-    /**
-     * @var string
-     */
-    public $hitId;
-
-    /**
-     * @var int
-     */
     public $rid;
     protected $_name = [
+        'hitId'        => 'HitId',
+        'reviewResult' => 'ReviewResult',
         'reviewTime'   => 'ReviewTime',
         'reviewer'     => 'Reviewer',
-        'reviewResult' => 'ReviewResult',
-        'hitId'        => 'HitId',
         'rid'          => 'Rid',
     ];
 
@@ -47,17 +47,17 @@ class reviewInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->hitId) {
+            $res['HitId'] = $this->hitId;
+        }
+        if (null !== $this->reviewResult) {
+            $res['ReviewResult'] = $this->reviewResult;
+        }
         if (null !== $this->reviewTime) {
             $res['ReviewTime'] = $this->reviewTime;
         }
         if (null !== $this->reviewer) {
             $res['Reviewer'] = $this->reviewer;
-        }
-        if (null !== $this->reviewResult) {
-            $res['ReviewResult'] = $this->reviewResult;
-        }
-        if (null !== $this->hitId) {
-            $res['HitId'] = $this->hitId;
         }
         if (null !== $this->rid) {
             $res['Rid'] = $this->rid;
@@ -74,17 +74,17 @@ class reviewInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HitId'])) {
+            $model->hitId = $map['HitId'];
+        }
+        if (isset($map['ReviewResult'])) {
+            $model->reviewResult = $map['ReviewResult'];
+        }
         if (isset($map['ReviewTime'])) {
             $model->reviewTime = $map['ReviewTime'];
         }
         if (isset($map['Reviewer'])) {
             $model->reviewer = $map['Reviewer'];
-        }
-        if (isset($map['ReviewResult'])) {
-            $model->reviewResult = $map['ReviewResult'];
-        }
-        if (isset($map['HitId'])) {
-            $model->hitId = $map['HitId'];
         }
         if (isset($map['Rid'])) {
             $model->rid = $map['Rid'];

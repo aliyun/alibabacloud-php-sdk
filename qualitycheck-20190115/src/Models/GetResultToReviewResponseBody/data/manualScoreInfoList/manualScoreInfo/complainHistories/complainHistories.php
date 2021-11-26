@@ -11,17 +11,7 @@ class complainHistories extends Model
     /**
      * @var string
      */
-    public $operatorName;
-
-    /**
-     * @var string
-     */
     public $comments;
-
-    /**
-     * @var int
-     */
-    public $operator;
 
     /**
      * @var string
@@ -32,12 +22,22 @@ class complainHistories extends Model
      * @var int
      */
     public $operationType;
+
+    /**
+     * @var int
+     */
+    public $operator;
+
+    /**
+     * @var string
+     */
+    public $operatorName;
     protected $_name = [
-        'operatorName'  => 'OperatorName',
         'comments'      => 'Comments',
-        'operator'      => 'Operator',
         'operationTime' => 'OperationTime',
         'operationType' => 'OperationType',
+        'operator'      => 'Operator',
+        'operatorName'  => 'OperatorName',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class complainHistories extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->operatorName) {
-            $res['OperatorName'] = $this->operatorName;
-        }
         if (null !== $this->comments) {
             $res['Comments'] = $this->comments;
-        }
-        if (null !== $this->operator) {
-            $res['Operator'] = $this->operator;
         }
         if (null !== $this->operationTime) {
             $res['OperationTime'] = $this->operationTime;
         }
         if (null !== $this->operationType) {
             $res['OperationType'] = $this->operationType;
+        }
+        if (null !== $this->operator) {
+            $res['Operator'] = $this->operator;
+        }
+        if (null !== $this->operatorName) {
+            $res['OperatorName'] = $this->operatorName;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class complainHistories extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OperatorName'])) {
-            $model->operatorName = $map['OperatorName'];
-        }
         if (isset($map['Comments'])) {
             $model->comments = $map['Comments'];
-        }
-        if (isset($map['Operator'])) {
-            $model->operator = $map['Operator'];
         }
         if (isset($map['OperationTime'])) {
             $model->operationTime = $map['OperationTime'];
         }
         if (isset($map['OperationType'])) {
             $model->operationType = $map['OperationType'];
+        }
+        if (isset($map['Operator'])) {
+            $model->operator = $map['Operator'];
+        }
+        if (isset($map['OperatorName'])) {
+            $model->operatorName = $map['OperatorName'];
         }
 
         return $model;

@@ -11,27 +11,7 @@ class ruleCountInfo extends Model
     /**
      * @var int
      */
-    public $status;
-
-    /**
-     * @var int
-     */
-    public $type;
-
-    /**
-     * @var int
-     */
-    public $preReviewNumber;
-
-    /**
-     * @var int
-     */
-    public $hitNumber;
-
-    /**
-     * @var bool
-     */
-    public $select;
+    public $checkNumber;
 
     /**
      * @var string
@@ -44,19 +24,9 @@ class ruleCountInfo extends Model
     public $createTime;
 
     /**
-     * @var string
-     */
-    public $lastUpdateEmpid;
-
-    /**
      * @var int
      */
-    public $realViolationNumber;
-
-    /**
-     * @var int
-     */
-    public $isDelete;
+    public $hitNumber;
 
     /**
      * @var float
@@ -64,19 +34,19 @@ class ruleCountInfo extends Model
     public $hitRate;
 
     /**
-     * @var string
+     * @var float
      */
-    public $rid;
+    public $hitRealViolationRate;
 
     /**
      * @var int
      */
-    public $checkNumber;
+    public $isDelete;
 
     /**
      * @var string
      */
-    public $typeName;
+    public $lastUpdateEmpid;
 
     /**
      * @var int
@@ -89,33 +59,63 @@ class ruleCountInfo extends Model
     public $name;
 
     /**
-     * @var float
+     * @var int
      */
-    public $hitRealViolationRate;
+    public $preReviewNumber;
+
+    /**
+     * @var int
+     */
+    public $realViolationNumber;
 
     /**
      * @var int
      */
     public $reviewNumber;
+
+    /**
+     * @var string
+     */
+    public $rid;
+
+    /**
+     * @var bool
+     */
+    public $select;
+
+    /**
+     * @var int
+     */
+    public $status;
+
+    /**
+     * @var int
+     */
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $typeName;
     protected $_name = [
-        'status'               => 'Status',
-        'type'                 => 'Type',
-        'preReviewNumber'      => 'PreReviewNumber',
-        'hitNumber'            => 'HitNumber',
-        'select'               => 'Select',
+        'checkNumber'          => 'CheckNumber',
         'createEmpid'          => 'CreateEmpid',
         'createTime'           => 'CreateTime',
-        'lastUpdateEmpid'      => 'LastUpdateEmpid',
-        'realViolationNumber'  => 'RealViolationNumber',
-        'isDelete'             => 'IsDelete',
+        'hitNumber'            => 'HitNumber',
         'hitRate'              => 'HitRate',
-        'rid'                  => 'Rid',
-        'checkNumber'          => 'CheckNumber',
-        'typeName'             => 'TypeName',
+        'hitRealViolationRate' => 'HitRealViolationRate',
+        'isDelete'             => 'IsDelete',
+        'lastUpdateEmpid'      => 'LastUpdateEmpid',
         'lastUpdateTime'       => 'LastUpdateTime',
         'name'                 => 'Name',
-        'hitRealViolationRate' => 'HitRealViolationRate',
+        'preReviewNumber'      => 'PreReviewNumber',
+        'realViolationNumber'  => 'RealViolationNumber',
         'reviewNumber'         => 'ReviewNumber',
+        'rid'                  => 'Rid',
+        'select'               => 'Select',
+        'status'               => 'Status',
+        'type'                 => 'Type',
+        'typeName'             => 'TypeName',
     ];
 
     public function validate()
@@ -125,20 +125,8 @@ class ruleCountInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->preReviewNumber) {
-            $res['PreReviewNumber'] = $this->preReviewNumber;
-        }
-        if (null !== $this->hitNumber) {
-            $res['HitNumber'] = $this->hitNumber;
-        }
-        if (null !== $this->select) {
-            $res['Select'] = $this->select;
+        if (null !== $this->checkNumber) {
+            $res['CheckNumber'] = $this->checkNumber;
         }
         if (null !== $this->createEmpid) {
             $res['CreateEmpid'] = $this->createEmpid;
@@ -146,26 +134,20 @@ class ruleCountInfo extends Model
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->lastUpdateEmpid) {
-            $res['LastUpdateEmpid'] = $this->lastUpdateEmpid;
-        }
-        if (null !== $this->realViolationNumber) {
-            $res['RealViolationNumber'] = $this->realViolationNumber;
-        }
-        if (null !== $this->isDelete) {
-            $res['IsDelete'] = $this->isDelete;
+        if (null !== $this->hitNumber) {
+            $res['HitNumber'] = $this->hitNumber;
         }
         if (null !== $this->hitRate) {
             $res['HitRate'] = $this->hitRate;
         }
-        if (null !== $this->rid) {
-            $res['Rid'] = $this->rid;
+        if (null !== $this->hitRealViolationRate) {
+            $res['HitRealViolationRate'] = $this->hitRealViolationRate;
         }
-        if (null !== $this->checkNumber) {
-            $res['CheckNumber'] = $this->checkNumber;
+        if (null !== $this->isDelete) {
+            $res['IsDelete'] = $this->isDelete;
         }
-        if (null !== $this->typeName) {
-            $res['TypeName'] = $this->typeName;
+        if (null !== $this->lastUpdateEmpid) {
+            $res['LastUpdateEmpid'] = $this->lastUpdateEmpid;
         }
         if (null !== $this->lastUpdateTime) {
             $res['LastUpdateTime'] = $this->lastUpdateTime;
@@ -173,11 +155,29 @@ class ruleCountInfo extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->hitRealViolationRate) {
-            $res['HitRealViolationRate'] = $this->hitRealViolationRate;
+        if (null !== $this->preReviewNumber) {
+            $res['PreReviewNumber'] = $this->preReviewNumber;
+        }
+        if (null !== $this->realViolationNumber) {
+            $res['RealViolationNumber'] = $this->realViolationNumber;
         }
         if (null !== $this->reviewNumber) {
             $res['ReviewNumber'] = $this->reviewNumber;
+        }
+        if (null !== $this->rid) {
+            $res['Rid'] = $this->rid;
+        }
+        if (null !== $this->select) {
+            $res['Select'] = $this->select;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->typeName) {
+            $res['TypeName'] = $this->typeName;
         }
 
         return $res;
@@ -191,20 +191,8 @@ class ruleCountInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['PreReviewNumber'])) {
-            $model->preReviewNumber = $map['PreReviewNumber'];
-        }
-        if (isset($map['HitNumber'])) {
-            $model->hitNumber = $map['HitNumber'];
-        }
-        if (isset($map['Select'])) {
-            $model->select = $map['Select'];
+        if (isset($map['CheckNumber'])) {
+            $model->checkNumber = $map['CheckNumber'];
         }
         if (isset($map['CreateEmpid'])) {
             $model->createEmpid = $map['CreateEmpid'];
@@ -212,26 +200,20 @@ class ruleCountInfo extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['LastUpdateEmpid'])) {
-            $model->lastUpdateEmpid = $map['LastUpdateEmpid'];
-        }
-        if (isset($map['RealViolationNumber'])) {
-            $model->realViolationNumber = $map['RealViolationNumber'];
-        }
-        if (isset($map['IsDelete'])) {
-            $model->isDelete = $map['IsDelete'];
+        if (isset($map['HitNumber'])) {
+            $model->hitNumber = $map['HitNumber'];
         }
         if (isset($map['HitRate'])) {
             $model->hitRate = $map['HitRate'];
         }
-        if (isset($map['Rid'])) {
-            $model->rid = $map['Rid'];
+        if (isset($map['HitRealViolationRate'])) {
+            $model->hitRealViolationRate = $map['HitRealViolationRate'];
         }
-        if (isset($map['CheckNumber'])) {
-            $model->checkNumber = $map['CheckNumber'];
+        if (isset($map['IsDelete'])) {
+            $model->isDelete = $map['IsDelete'];
         }
-        if (isset($map['TypeName'])) {
-            $model->typeName = $map['TypeName'];
+        if (isset($map['LastUpdateEmpid'])) {
+            $model->lastUpdateEmpid = $map['LastUpdateEmpid'];
         }
         if (isset($map['LastUpdateTime'])) {
             $model->lastUpdateTime = $map['LastUpdateTime'];
@@ -239,11 +221,29 @@ class ruleCountInfo extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['HitRealViolationRate'])) {
-            $model->hitRealViolationRate = $map['HitRealViolationRate'];
+        if (isset($map['PreReviewNumber'])) {
+            $model->preReviewNumber = $map['PreReviewNumber'];
+        }
+        if (isset($map['RealViolationNumber'])) {
+            $model->realViolationNumber = $map['RealViolationNumber'];
         }
         if (isset($map['ReviewNumber'])) {
             $model->reviewNumber = $map['ReviewNumber'];
+        }
+        if (isset($map['Rid'])) {
+            $model->rid = $map['Rid'];
+        }
+        if (isset($map['Select'])) {
+            $model->select = $map['Select'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['TypeName'])) {
+            $model->typeName = $map['TypeName'];
         }
 
         return $model;

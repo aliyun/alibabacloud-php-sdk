@@ -12,21 +12,21 @@ class operatorBasicInfo extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
     public $oid;
 
     /**
      * @var param
      */
     public $param;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'  => 'Type',
         'oid'   => 'Oid',
         'param' => 'Param',
+        'type'  => 'Type',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class operatorBasicInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->oid) {
             $res['Oid'] = $this->oid;
         }
         if (null !== $this->param) {
             $res['Param'] = null !== $this->param ? $this->param->toMap() : null;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class operatorBasicInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Oid'])) {
             $model->oid = $map['Oid'];
         }
         if (isset($map['Param'])) {
             $model->param = param::fromMap($map['Param']);
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

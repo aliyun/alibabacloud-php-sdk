@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class ruleBasicInfo extends Model
 {
     /**
+     * @var businessCategories
+     */
+    public $businessCategories;
+
+    /**
      * @var string
      */
     public $rid;
@@ -24,16 +29,11 @@ class ruleBasicInfo extends Model
      * @var triggers
      */
     public $triggers;
-
-    /**
-     * @var businessCategories
-     */
-    public $businessCategories;
     protected $_name = [
+        'businessCategories' => 'BusinessCategories',
         'rid'                => 'Rid',
         'ruleLambda'         => 'RuleLambda',
         'triggers'           => 'Triggers',
-        'businessCategories' => 'BusinessCategories',
     ];
 
     public function validate()
@@ -43,6 +43,9 @@ class ruleBasicInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->businessCategories) {
+            $res['BusinessCategories'] = null !== $this->businessCategories ? $this->businessCategories->toMap() : null;
+        }
         if (null !== $this->rid) {
             $res['Rid'] = $this->rid;
         }
@@ -51,9 +54,6 @@ class ruleBasicInfo extends Model
         }
         if (null !== $this->triggers) {
             $res['Triggers'] = null !== $this->triggers ? $this->triggers->toMap() : null;
-        }
-        if (null !== $this->businessCategories) {
-            $res['BusinessCategories'] = null !== $this->businessCategories ? $this->businessCategories->toMap() : null;
         }
 
         return $res;
@@ -67,6 +67,9 @@ class ruleBasicInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessCategories'])) {
+            $model->businessCategories = businessCategories::fromMap($map['BusinessCategories']);
+        }
         if (isset($map['Rid'])) {
             $model->rid = $map['Rid'];
         }
@@ -75,9 +78,6 @@ class ruleBasicInfo extends Model
         }
         if (isset($map['Triggers'])) {
             $model->triggers = triggers::fromMap($map['Triggers']);
-        }
-        if (isset($map['BusinessCategories'])) {
-            $model->businessCategories = businessCategories::fromMap($map['BusinessCategories']);
         }
 
         return $model;

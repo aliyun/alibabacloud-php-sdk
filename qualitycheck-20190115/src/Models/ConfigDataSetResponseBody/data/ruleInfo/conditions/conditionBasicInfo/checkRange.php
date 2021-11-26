@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class checkRange extends Model
 {
     /**
-     * @var range
-     */
-    public $range;
-
-    /**
      * @var anchor
      */
     public $anchor;
+
+    /**
+     * @var range
+     */
+    public $range;
 
     /**
      * @var string
@@ -30,8 +30,8 @@ class checkRange extends Model
      */
     public $roleId;
     protected $_name = [
-        'range'  => 'Range',
         'anchor' => 'Anchor',
+        'range'  => 'Range',
         'role'   => 'Role',
         'roleId' => 'RoleId',
     ];
@@ -43,11 +43,11 @@ class checkRange extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->range) {
-            $res['Range'] = null !== $this->range ? $this->range->toMap() : null;
-        }
         if (null !== $this->anchor) {
             $res['Anchor'] = null !== $this->anchor ? $this->anchor->toMap() : null;
+        }
+        if (null !== $this->range) {
+            $res['Range'] = null !== $this->range ? $this->range->toMap() : null;
         }
         if (null !== $this->role) {
             $res['Role'] = $this->role;
@@ -67,11 +67,11 @@ class checkRange extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Range'])) {
-            $model->range = range::fromMap($map['Range']);
-        }
         if (isset($map['Anchor'])) {
             $model->anchor = anchor::fromMap($map['Anchor']);
+        }
+        if (isset($map['Range'])) {
+            $model->range = range::fromMap($map['Range']);
         }
         if (isset($map['Role'])) {
             $model->role = $map['Role'];

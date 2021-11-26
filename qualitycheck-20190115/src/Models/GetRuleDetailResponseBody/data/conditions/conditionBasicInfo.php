@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class conditionBasicInfo extends Model
 {
     /**
+     * @var checkRange
+     */
+    public $checkRange;
+
+    /**
      * @var string
      */
     public $conditionInfoCid;
@@ -24,16 +29,11 @@ class conditionBasicInfo extends Model
      * @var operators
      */
     public $operators;
-
-    /**
-     * @var checkRange
-     */
-    public $checkRange;
     protected $_name = [
+        'checkRange'       => 'CheckRange',
         'conditionInfoCid' => 'ConditionInfoCid',
         'operLambda'       => 'OperLambda',
         'operators'        => 'Operators',
-        'checkRange'       => 'CheckRange',
     ];
 
     public function validate()
@@ -43,6 +43,9 @@ class conditionBasicInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->checkRange) {
+            $res['CheckRange'] = null !== $this->checkRange ? $this->checkRange->toMap() : null;
+        }
         if (null !== $this->conditionInfoCid) {
             $res['ConditionInfoCid'] = $this->conditionInfoCid;
         }
@@ -51,9 +54,6 @@ class conditionBasicInfo extends Model
         }
         if (null !== $this->operators) {
             $res['Operators'] = null !== $this->operators ? $this->operators->toMap() : null;
-        }
-        if (null !== $this->checkRange) {
-            $res['CheckRange'] = null !== $this->checkRange ? $this->checkRange->toMap() : null;
         }
 
         return $res;
@@ -67,6 +67,9 @@ class conditionBasicInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CheckRange'])) {
+            $model->checkRange = checkRange::fromMap($map['CheckRange']);
+        }
         if (isset($map['ConditionInfoCid'])) {
             $model->conditionInfoCid = $map['ConditionInfoCid'];
         }
@@ -75,9 +78,6 @@ class conditionBasicInfo extends Model
         }
         if (isset($map['Operators'])) {
             $model->operators = operators::fromMap($map['Operators']);
-        }
-        if (isset($map['CheckRange'])) {
-            $model->checkRange = checkRange::fromMap($map['CheckRange']);
         }
 
         return $model;

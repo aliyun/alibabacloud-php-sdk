@@ -17,16 +17,16 @@ class rules extends Model
     /**
      * @var string
      */
-    public $ruleName;
+    public $rid;
 
     /**
      * @var string
      */
-    public $rid;
+    public $ruleName;
     protected $_name = [
         'hit'      => 'Hit',
-        'ruleName' => 'RuleName',
         'rid'      => 'Rid',
+        'ruleName' => 'RuleName',
     ];
 
     public function validate()
@@ -45,11 +45,11 @@ class rules extends Model
                 }
             }
         }
-        if (null !== $this->ruleName) {
-            $res['RuleName'] = $this->ruleName;
-        }
         if (null !== $this->rid) {
             $res['Rid'] = $this->rid;
+        }
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
         }
 
         return $res;
@@ -72,11 +72,11 @@ class rules extends Model
                 }
             }
         }
-        if (isset($map['RuleName'])) {
-            $model->ruleName = $map['RuleName'];
-        }
         if (isset($map['Rid'])) {
             $model->rid = $map['Rid'];
+        }
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
         }
 
         return $model;

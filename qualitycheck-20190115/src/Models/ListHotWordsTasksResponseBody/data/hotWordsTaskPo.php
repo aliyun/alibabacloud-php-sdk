@@ -11,9 +11,39 @@ use AlibabaCloud\Tea\Model;
 class hotWordsTaskPo extends Model
 {
     /**
+     * @var dialogueParam
+     */
+    public $dialogueParam;
+
+    /**
+     * @var string
+     */
+    public $endTime;
+
+    /**
      * @var int
      */
-    public $type;
+    public $instanceStatus;
+
+    /**
+     * @var string
+     */
+    public $lastExecutionTime;
+
+    /**
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $startTime;
 
     /**
      * @var int
@@ -26,14 +56,9 @@ class hotWordsTaskPo extends Model
     public $taskConfigId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $lastExecutionTime;
+    public $timeInterval;
 
     /**
      * @var int
@@ -41,53 +66,28 @@ class hotWordsTaskPo extends Model
     public $timeUnit;
 
     /**
+     * @var int
+     */
+    public $type;
+
+    /**
      * @var wordsParam
      */
     public $wordsParam;
-
-    /**
-     * @var string
-     */
-    public $endTime;
-
-    /**
-     * @var int
-     */
-    public $timeInterval;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
-     * @var int
-     */
-    public $instanceStatus;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var dialogueParam
-     */
-    public $dialogueParam;
     protected $_name = [
-        'type'              => 'Type',
+        'dialogueParam'     => 'DialogueParam',
+        'endTime'           => 'EndTime',
+        'instanceStatus'    => 'InstanceStatus',
+        'lastExecutionTime' => 'LastExecutionTime',
+        'message'           => 'Message',
+        'name'              => 'Name',
+        'startTime'         => 'StartTime',
         'status'            => 'Status',
         'taskConfigId'      => 'TaskConfigId',
-        'message'           => 'Message',
-        'lastExecutionTime' => 'LastExecutionTime',
-        'timeUnit'          => 'TimeUnit',
-        'wordsParam'        => 'WordsParam',
-        'endTime'           => 'EndTime',
         'timeInterval'      => 'TimeInterval',
-        'startTime'         => 'StartTime',
-        'instanceStatus'    => 'InstanceStatus',
-        'name'              => 'Name',
-        'dialogueParam'     => 'DialogueParam',
+        'timeUnit'          => 'TimeUnit',
+        'type'              => 'Type',
+        'wordsParam'        => 'WordsParam',
     ];
 
     public function validate()
@@ -97,8 +97,26 @@ class hotWordsTaskPo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->dialogueParam) {
+            $res['DialogueParam'] = null !== $this->dialogueParam ? $this->dialogueParam->toMap() : null;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->instanceStatus) {
+            $res['InstanceStatus'] = $this->instanceStatus;
+        }
+        if (null !== $this->lastExecutionTime) {
+            $res['LastExecutionTime'] = $this->lastExecutionTime;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -106,35 +124,17 @@ class hotWordsTaskPo extends Model
         if (null !== $this->taskConfigId) {
             $res['TaskConfigId'] = $this->taskConfigId;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->lastExecutionTime) {
-            $res['LastExecutionTime'] = $this->lastExecutionTime;
+        if (null !== $this->timeInterval) {
+            $res['TimeInterval'] = $this->timeInterval;
         }
         if (null !== $this->timeUnit) {
             $res['TimeUnit'] = $this->timeUnit;
         }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
         if (null !== $this->wordsParam) {
             $res['WordsParam'] = null !== $this->wordsParam ? $this->wordsParam->toMap() : null;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->timeInterval) {
-            $res['TimeInterval'] = $this->timeInterval;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->instanceStatus) {
-            $res['InstanceStatus'] = $this->instanceStatus;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->dialogueParam) {
-            $res['DialogueParam'] = null !== $this->dialogueParam ? $this->dialogueParam->toMap() : null;
         }
 
         return $res;
@@ -148,8 +148,26 @@ class hotWordsTaskPo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['DialogueParam'])) {
+            $model->dialogueParam = dialogueParam::fromMap($map['DialogueParam']);
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['InstanceStatus'])) {
+            $model->instanceStatus = $map['InstanceStatus'];
+        }
+        if (isset($map['LastExecutionTime'])) {
+            $model->lastExecutionTime = $map['LastExecutionTime'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
@@ -157,35 +175,17 @@ class hotWordsTaskPo extends Model
         if (isset($map['TaskConfigId'])) {
             $model->taskConfigId = $map['TaskConfigId'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['LastExecutionTime'])) {
-            $model->lastExecutionTime = $map['LastExecutionTime'];
+        if (isset($map['TimeInterval'])) {
+            $model->timeInterval = $map['TimeInterval'];
         }
         if (isset($map['TimeUnit'])) {
             $model->timeUnit = $map['TimeUnit'];
         }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
         if (isset($map['WordsParam'])) {
             $model->wordsParam = wordsParam::fromMap($map['WordsParam']);
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['TimeInterval'])) {
-            $model->timeInterval = $map['TimeInterval'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['InstanceStatus'])) {
-            $model->instanceStatus = $map['InstanceStatus'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['DialogueParam'])) {
-            $model->dialogueParam = dialogueParam::fromMap($map['DialogueParam']);
         }
 
         return $model;

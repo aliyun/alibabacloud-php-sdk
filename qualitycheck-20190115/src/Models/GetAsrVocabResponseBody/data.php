@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var words
-     */
-    public $words;
-
-    /**
      * @var string
      */
     public $name;
+
+    /**
+     * @var words
+     */
+    public $words;
     protected $_name = [
-        'words' => 'Words',
         'name'  => 'Name',
+        'words' => 'Words',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->words) {
-            $res['Words'] = null !== $this->words ? $this->words->toMap() : null;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->words) {
+            $res['Words'] = null !== $this->words ? $this->words->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Words'])) {
-            $model->words = words::fromMap($map['Words']);
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Words'])) {
+            $model->words = words::fromMap($map['Words']);
         }
 
         return $model;

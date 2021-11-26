@@ -11,15 +11,15 @@ class reviewer extends Model
     /**
      * @var string
      */
-    public $reviewerName;
+    public $reviewerId;
 
     /**
      * @var string
      */
-    public $reviewerId;
+    public $reviewerName;
     protected $_name = [
-        'reviewerName' => 'ReviewerName',
         'reviewerId'   => 'ReviewerId',
+        'reviewerName' => 'ReviewerName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class reviewer extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->reviewerName) {
-            $res['ReviewerName'] = $this->reviewerName;
-        }
         if (null !== $this->reviewerId) {
             $res['ReviewerId'] = $this->reviewerId;
+        }
+        if (null !== $this->reviewerName) {
+            $res['ReviewerName'] = $this->reviewerName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class reviewer extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ReviewerName'])) {
-            $model->reviewerName = $map['ReviewerName'];
-        }
         if (isset($map['ReviewerId'])) {
             $model->reviewerId = $map['ReviewerId'];
+        }
+        if (isset($map['ReviewerName'])) {
+            $model->reviewerName = $map['ReviewerName'];
         }
 
         return $model;

@@ -11,12 +11,7 @@ class hitScore extends Model
     /**
      * @var string
      */
-    public $scoreName;
-
-    /**
-     * @var string
-     */
-    public $scoreNumber;
+    public $ruleId;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class hitScore extends Model
     /**
      * @var string
      */
-    public $ruleId;
+    public $scoreName;
+
+    /**
+     * @var string
+     */
+    public $scoreNumber;
     protected $_name = [
+        'ruleId'      => 'RuleId',
+        'scoreId'     => 'ScoreId',
         'scoreName'   => 'ScoreName',
         'scoreNumber' => 'ScoreNumber',
-        'scoreId'     => 'ScoreId',
-        'ruleId'      => 'RuleId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class hitScore extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
+        }
+        if (null !== $this->scoreId) {
+            $res['ScoreId'] = $this->scoreId;
+        }
         if (null !== $this->scoreName) {
             $res['ScoreName'] = $this->scoreName;
         }
         if (null !== $this->scoreNumber) {
             $res['ScoreNumber'] = $this->scoreNumber;
-        }
-        if (null !== $this->scoreId) {
-            $res['ScoreId'] = $this->scoreId;
-        }
-        if (null !== $this->ruleId) {
-            $res['RuleId'] = $this->ruleId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class hitScore extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
+        }
+        if (isset($map['ScoreId'])) {
+            $model->scoreId = $map['ScoreId'];
+        }
         if (isset($map['ScoreName'])) {
             $model->scoreName = $map['ScoreName'];
         }
         if (isset($map['ScoreNumber'])) {
             $model->scoreNumber = $map['ScoreNumber'];
-        }
-        if (isset($map['ScoreId'])) {
-            $model->scoreId = $map['ScoreId'];
-        }
-        if (isset($map['RuleId'])) {
-            $model->ruleId = $map['RuleId'];
         }
 
         return $model;

@@ -11,12 +11,12 @@ class user extends Model
     /**
      * @var string
      */
-    public $displayName;
+    public $aliUid;
 
     /**
      * @var string
      */
-    public $updateTime;
+    public $createTime;
 
     /**
      * @var string
@@ -26,7 +26,12 @@ class user extends Model
     /**
      * @var string
      */
-    public $createTime;
+    public $displayName;
+
+    /**
+     * @var int
+     */
+    public $id;
 
     /**
      * @var int
@@ -36,32 +41,27 @@ class user extends Model
     /**
      * @var string
      */
-    public $aliUid;
-
-    /**
-     * @var string
-     */
     public $roleName;
 
     /**
      * @var string
      */
-    public $userName;
+    public $updateTime;
 
     /**
-     * @var int
+     * @var string
      */
-    public $id;
+    public $userName;
     protected $_name = [
-        'displayName'   => 'DisplayName',
-        'updateTime'    => 'UpdateTime',
-        'description'   => 'Description',
-        'createTime'    => 'CreateTime',
-        'loginUserType' => 'LoginUserType',
         'aliUid'        => 'AliUid',
-        'roleName'      => 'RoleName',
-        'userName'      => 'UserName',
+        'createTime'    => 'CreateTime',
+        'description'   => 'Description',
+        'displayName'   => 'DisplayName',
         'id'            => 'Id',
+        'loginUserType' => 'LoginUserType',
+        'roleName'      => 'RoleName',
+        'updateTime'    => 'UpdateTime',
+        'userName'      => 'UserName',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class user extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->displayName) {
-            $res['DisplayName'] = $this->displayName;
-        }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->aliUid) {
+            $res['AliUid'] = $this->aliUid;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->displayName) {
+            $res['DisplayName'] = $this->displayName;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->loginUserType) {
             $res['LoginUserType'] = $this->loginUserType;
-        }
-        if (null !== $this->aliUid) {
-            $res['AliUid'] = $this->aliUid;
         }
         if (null !== $this->roleName) {
             $res['RoleName'] = $this->roleName;
         }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
+        }
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class user extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DisplayName'])) {
-            $model->displayName = $map['DisplayName'];
-        }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['AliUid'])) {
+            $model->aliUid = $map['AliUid'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['DisplayName'])) {
+            $model->displayName = $map['DisplayName'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['LoginUserType'])) {
             $model->loginUserType = $map['LoginUserType'];
-        }
-        if (isset($map['AliUid'])) {
-            $model->aliUid = $map['AliUid'];
         }
         if (isset($map['RoleName'])) {
             $model->roleName = $map['RoleName'];
         }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
+        }
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
 
         return $model;

@@ -11,11 +11,6 @@ use AlibabaCloud\Tea\Model;
 class delta extends Model
 {
     /**
-     * @var string
-     */
-    public $type;
-
-    /**
      * @var source
      */
     public $source;
@@ -24,10 +19,15 @@ class delta extends Model
      * @var target
      */
     public $target;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'   => 'Type',
         'source' => 'Source',
         'target' => 'Target',
+        'type'   => 'Type',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class delta extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->source) {
             $res['Source'] = null !== $this->source ? $this->source->toMap() : null;
         }
         if (null !== $this->target) {
             $res['Target'] = null !== $this->target ? $this->target->toMap() : null;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class delta extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Source'])) {
             $model->source = source::fromMap($map['Source']);
         }
         if (isset($map['Target'])) {
             $model->target = target::fromMap($map['Target']);
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

@@ -13,7 +13,7 @@ class hitRuleReviewInfo extends Model
     /**
      * @var int
      */
-    public $ruleScoreType;
+    public $autoReview;
 
     /**
      * @var conditionHitInfoList
@@ -21,34 +21,9 @@ class hitRuleReviewInfo extends Model
     public $conditionHitInfoList;
 
     /**
-     * @var int
-     */
-    public $ruleType;
-
-    /**
-     * @var int
-     */
-    public $autoReview;
-
-    /**
-     * @var int
-     */
-    public $scoreSubId;
-
-    /**
      * @var reviewInfo
      */
     public $reviewInfo;
-
-    /**
-     * @var int
-     */
-    public $totalNumber;
-
-    /**
-     * @var int
-     */
-    public $scoreId;
 
     /**
      * @var int
@@ -59,17 +34,42 @@ class hitRuleReviewInfo extends Model
      * @var string
      */
     public $ruleName;
+
+    /**
+     * @var int
+     */
+    public $ruleScoreType;
+
+    /**
+     * @var int
+     */
+    public $ruleType;
+
+    /**
+     * @var int
+     */
+    public $scoreId;
+
+    /**
+     * @var int
+     */
+    public $scoreSubId;
+
+    /**
+     * @var int
+     */
+    public $totalNumber;
     protected $_name = [
-        'ruleScoreType'        => 'RuleScoreType',
-        'conditionHitInfoList' => 'ConditionHitInfoList',
-        'ruleType'             => 'RuleType',
         'autoReview'           => 'AutoReview',
-        'scoreSubId'           => 'ScoreSubId',
+        'conditionHitInfoList' => 'ConditionHitInfoList',
         'reviewInfo'           => 'ReviewInfo',
-        'totalNumber'          => 'TotalNumber',
-        'scoreId'              => 'ScoreId',
         'rid'                  => 'Rid',
         'ruleName'             => 'RuleName',
+        'ruleScoreType'        => 'RuleScoreType',
+        'ruleType'             => 'RuleType',
+        'scoreId'              => 'ScoreId',
+        'scoreSubId'           => 'ScoreSubId',
+        'totalNumber'          => 'TotalNumber',
     ];
 
     public function validate()
@@ -79,35 +79,35 @@ class hitRuleReviewInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ruleScoreType) {
-            $res['RuleScoreType'] = $this->ruleScoreType;
+        if (null !== $this->autoReview) {
+            $res['AutoReview'] = $this->autoReview;
         }
         if (null !== $this->conditionHitInfoList) {
             $res['ConditionHitInfoList'] = null !== $this->conditionHitInfoList ? $this->conditionHitInfoList->toMap() : null;
         }
-        if (null !== $this->ruleType) {
-            $res['RuleType'] = $this->ruleType;
-        }
-        if (null !== $this->autoReview) {
-            $res['AutoReview'] = $this->autoReview;
-        }
-        if (null !== $this->scoreSubId) {
-            $res['ScoreSubId'] = $this->scoreSubId;
-        }
         if (null !== $this->reviewInfo) {
             $res['ReviewInfo'] = null !== $this->reviewInfo ? $this->reviewInfo->toMap() : null;
-        }
-        if (null !== $this->totalNumber) {
-            $res['TotalNumber'] = $this->totalNumber;
-        }
-        if (null !== $this->scoreId) {
-            $res['ScoreId'] = $this->scoreId;
         }
         if (null !== $this->rid) {
             $res['Rid'] = $this->rid;
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
+        }
+        if (null !== $this->ruleScoreType) {
+            $res['RuleScoreType'] = $this->ruleScoreType;
+        }
+        if (null !== $this->ruleType) {
+            $res['RuleType'] = $this->ruleType;
+        }
+        if (null !== $this->scoreId) {
+            $res['ScoreId'] = $this->scoreId;
+        }
+        if (null !== $this->scoreSubId) {
+            $res['ScoreSubId'] = $this->scoreSubId;
+        }
+        if (null !== $this->totalNumber) {
+            $res['TotalNumber'] = $this->totalNumber;
         }
 
         return $res;
@@ -121,35 +121,35 @@ class hitRuleReviewInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RuleScoreType'])) {
-            $model->ruleScoreType = $map['RuleScoreType'];
+        if (isset($map['AutoReview'])) {
+            $model->autoReview = $map['AutoReview'];
         }
         if (isset($map['ConditionHitInfoList'])) {
             $model->conditionHitInfoList = conditionHitInfoList::fromMap($map['ConditionHitInfoList']);
         }
-        if (isset($map['RuleType'])) {
-            $model->ruleType = $map['RuleType'];
-        }
-        if (isset($map['AutoReview'])) {
-            $model->autoReview = $map['AutoReview'];
-        }
-        if (isset($map['ScoreSubId'])) {
-            $model->scoreSubId = $map['ScoreSubId'];
-        }
         if (isset($map['ReviewInfo'])) {
             $model->reviewInfo = reviewInfo::fromMap($map['ReviewInfo']);
-        }
-        if (isset($map['TotalNumber'])) {
-            $model->totalNumber = $map['TotalNumber'];
-        }
-        if (isset($map['ScoreId'])) {
-            $model->scoreId = $map['ScoreId'];
         }
         if (isset($map['Rid'])) {
             $model->rid = $map['Rid'];
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
+        }
+        if (isset($map['RuleScoreType'])) {
+            $model->ruleScoreType = $map['RuleScoreType'];
+        }
+        if (isset($map['RuleType'])) {
+            $model->ruleType = $map['RuleType'];
+        }
+        if (isset($map['ScoreId'])) {
+            $model->scoreId = $map['ScoreId'];
+        }
+        if (isset($map['ScoreSubId'])) {
+            $model->scoreSubId = $map['ScoreSubId'];
+        }
+        if (isset($map['TotalNumber'])) {
+            $model->totalNumber = $map['TotalNumber'];
         }
 
         return $model;

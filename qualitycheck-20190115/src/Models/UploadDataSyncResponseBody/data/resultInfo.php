@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class resultInfo extends Model
 {
     /**
-     * @var int
+     * @var handScoreIdList
      */
-    public $score;
+    public $handScoreIdList;
 
     /**
      * @var rules
@@ -21,13 +21,13 @@ class resultInfo extends Model
     public $rules;
 
     /**
-     * @var handScoreIdList
+     * @var int
      */
-    public $handScoreIdList;
+    public $score;
     protected $_name = [
-        'score'           => 'Score',
-        'rules'           => 'Rules',
         'handScoreIdList' => 'HandScoreIdList',
+        'rules'           => 'Rules',
+        'score'           => 'Score',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class resultInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->score) {
-            $res['Score'] = $this->score;
+        if (null !== $this->handScoreIdList) {
+            $res['HandScoreIdList'] = null !== $this->handScoreIdList ? $this->handScoreIdList->toMap() : null;
         }
         if (null !== $this->rules) {
             $res['Rules'] = null !== $this->rules ? $this->rules->toMap() : null;
         }
-        if (null !== $this->handScoreIdList) {
-            $res['HandScoreIdList'] = null !== $this->handScoreIdList ? $this->handScoreIdList->toMap() : null;
+        if (null !== $this->score) {
+            $res['Score'] = $this->score;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class resultInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Score'])) {
-            $model->score = $map['Score'];
+        if (isset($map['HandScoreIdList'])) {
+            $model->handScoreIdList = handScoreIdList::fromMap($map['HandScoreIdList']);
         }
         if (isset($map['Rules'])) {
             $model->rules = rules::fromMap($map['Rules']);
         }
-        if (isset($map['HandScoreIdList'])) {
-            $model->handScoreIdList = handScoreIdList::fromMap($map['HandScoreIdList']);
+        if (isset($map['Score'])) {
+            $model->score = $map['Score'];
         }
 
         return $model;

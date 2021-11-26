@@ -12,41 +12,6 @@ use AlibabaCloud\Tea\Model;
 class hitRuleReviewInfo extends Model
 {
     /**
-     * @var conditionHitInfoList
-     */
-    public $conditionHitInfoList;
-
-    /**
-     * @var int
-     */
-    public $scoreSubId;
-
-    /**
-     * @var reviewInfo
-     */
-    public $reviewInfo;
-
-    /**
-     * @var string
-     */
-    public $ruleName;
-
-    /**
-     * @var int
-     */
-    public $rid;
-
-    /**
-     * @var string
-     */
-    public $scoreSubName;
-
-    /**
-     * @var int
-     */
-    public $scoreNum;
-
-    /**
      * @var int
      */
     public $autoReview;
@@ -62,21 +27,56 @@ class hitRuleReviewInfo extends Model
     public $complainable;
 
     /**
+     * @var conditionHitInfoList
+     */
+    public $conditionHitInfoList;
+
+    /**
+     * @var reviewInfo
+     */
+    public $reviewInfo;
+
+    /**
+     * @var int
+     */
+    public $rid;
+
+    /**
+     * @var string
+     */
+    public $ruleName;
+
+    /**
      * @var int
      */
     public $scoreId;
+
+    /**
+     * @var int
+     */
+    public $scoreNum;
+
+    /**
+     * @var int
+     */
+    public $scoreSubId;
+
+    /**
+     * @var string
+     */
+    public $scoreSubName;
     protected $_name = [
-        'conditionHitInfoList' => 'ConditionHitInfoList',
-        'scoreSubId'           => 'ScoreSubId',
-        'reviewInfo'           => 'ReviewInfo',
-        'ruleName'             => 'RuleName',
-        'rid'                  => 'Rid',
-        'scoreSubName'         => 'ScoreSubName',
-        'scoreNum'             => 'ScoreNum',
         'autoReview'           => 'AutoReview',
         'complainHistories'    => 'ComplainHistories',
         'complainable'         => 'Complainable',
+        'conditionHitInfoList' => 'ConditionHitInfoList',
+        'reviewInfo'           => 'ReviewInfo',
+        'rid'                  => 'Rid',
+        'ruleName'             => 'RuleName',
         'scoreId'              => 'ScoreId',
+        'scoreNum'             => 'ScoreNum',
+        'scoreSubId'           => 'ScoreSubId',
+        'scoreSubName'         => 'ScoreSubName',
     ];
 
     public function validate()
@@ -86,27 +86,6 @@ class hitRuleReviewInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->conditionHitInfoList) {
-            $res['ConditionHitInfoList'] = null !== $this->conditionHitInfoList ? $this->conditionHitInfoList->toMap() : null;
-        }
-        if (null !== $this->scoreSubId) {
-            $res['ScoreSubId'] = $this->scoreSubId;
-        }
-        if (null !== $this->reviewInfo) {
-            $res['ReviewInfo'] = null !== $this->reviewInfo ? $this->reviewInfo->toMap() : null;
-        }
-        if (null !== $this->ruleName) {
-            $res['RuleName'] = $this->ruleName;
-        }
-        if (null !== $this->rid) {
-            $res['Rid'] = $this->rid;
-        }
-        if (null !== $this->scoreSubName) {
-            $res['ScoreSubName'] = $this->scoreSubName;
-        }
-        if (null !== $this->scoreNum) {
-            $res['ScoreNum'] = $this->scoreNum;
-        }
         if (null !== $this->autoReview) {
             $res['AutoReview'] = $this->autoReview;
         }
@@ -116,8 +95,29 @@ class hitRuleReviewInfo extends Model
         if (null !== $this->complainable) {
             $res['Complainable'] = $this->complainable;
         }
+        if (null !== $this->conditionHitInfoList) {
+            $res['ConditionHitInfoList'] = null !== $this->conditionHitInfoList ? $this->conditionHitInfoList->toMap() : null;
+        }
+        if (null !== $this->reviewInfo) {
+            $res['ReviewInfo'] = null !== $this->reviewInfo ? $this->reviewInfo->toMap() : null;
+        }
+        if (null !== $this->rid) {
+            $res['Rid'] = $this->rid;
+        }
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
+        }
         if (null !== $this->scoreId) {
             $res['ScoreId'] = $this->scoreId;
+        }
+        if (null !== $this->scoreNum) {
+            $res['ScoreNum'] = $this->scoreNum;
+        }
+        if (null !== $this->scoreSubId) {
+            $res['ScoreSubId'] = $this->scoreSubId;
+        }
+        if (null !== $this->scoreSubName) {
+            $res['ScoreSubName'] = $this->scoreSubName;
         }
 
         return $res;
@@ -131,27 +131,6 @@ class hitRuleReviewInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ConditionHitInfoList'])) {
-            $model->conditionHitInfoList = conditionHitInfoList::fromMap($map['ConditionHitInfoList']);
-        }
-        if (isset($map['ScoreSubId'])) {
-            $model->scoreSubId = $map['ScoreSubId'];
-        }
-        if (isset($map['ReviewInfo'])) {
-            $model->reviewInfo = reviewInfo::fromMap($map['ReviewInfo']);
-        }
-        if (isset($map['RuleName'])) {
-            $model->ruleName = $map['RuleName'];
-        }
-        if (isset($map['Rid'])) {
-            $model->rid = $map['Rid'];
-        }
-        if (isset($map['ScoreSubName'])) {
-            $model->scoreSubName = $map['ScoreSubName'];
-        }
-        if (isset($map['ScoreNum'])) {
-            $model->scoreNum = $map['ScoreNum'];
-        }
         if (isset($map['AutoReview'])) {
             $model->autoReview = $map['AutoReview'];
         }
@@ -161,8 +140,29 @@ class hitRuleReviewInfo extends Model
         if (isset($map['Complainable'])) {
             $model->complainable = $map['Complainable'];
         }
+        if (isset($map['ConditionHitInfoList'])) {
+            $model->conditionHitInfoList = conditionHitInfoList::fromMap($map['ConditionHitInfoList']);
+        }
+        if (isset($map['ReviewInfo'])) {
+            $model->reviewInfo = reviewInfo::fromMap($map['ReviewInfo']);
+        }
+        if (isset($map['Rid'])) {
+            $model->rid = $map['Rid'];
+        }
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
+        }
         if (isset($map['ScoreId'])) {
             $model->scoreId = $map['ScoreId'];
+        }
+        if (isset($map['ScoreNum'])) {
+            $model->scoreNum = $map['ScoreNum'];
+        }
+        if (isset($map['ScoreSubId'])) {
+            $model->scoreSubId = $map['ScoreSubId'];
+        }
+        if (isset($map['ScoreSubName'])) {
+            $model->scoreSubName = $map['ScoreSubName'];
         }
 
         return $model;

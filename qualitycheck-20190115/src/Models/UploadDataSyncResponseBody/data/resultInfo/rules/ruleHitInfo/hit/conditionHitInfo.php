@@ -12,11 +12,6 @@ use AlibabaCloud\Tea\Model;
 class conditionHitInfo extends Model
 {
     /**
-     * @var phrase
-     */
-    public $phrase;
-
-    /**
      * @var hitCids
      */
     public $hitCids;
@@ -25,10 +20,15 @@ class conditionHitInfo extends Model
      * @var hitKeyWords
      */
     public $hitKeyWords;
+
+    /**
+     * @var phrase
+     */
+    public $phrase;
     protected $_name = [
-        'phrase'      => 'Phrase',
         'hitCids'     => 'HitCids',
         'hitKeyWords' => 'HitKeyWords',
+        'phrase'      => 'Phrase',
     ];
 
     public function validate()
@@ -38,14 +38,14 @@ class conditionHitInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->phrase) {
-            $res['Phrase'] = null !== $this->phrase ? $this->phrase->toMap() : null;
-        }
         if (null !== $this->hitCids) {
             $res['HitCids'] = null !== $this->hitCids ? $this->hitCids->toMap() : null;
         }
         if (null !== $this->hitKeyWords) {
             $res['HitKeyWords'] = null !== $this->hitKeyWords ? $this->hitKeyWords->toMap() : null;
+        }
+        if (null !== $this->phrase) {
+            $res['Phrase'] = null !== $this->phrase ? $this->phrase->toMap() : null;
         }
 
         return $res;
@@ -59,14 +59,14 @@ class conditionHitInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Phrase'])) {
-            $model->phrase = phrase::fromMap($map['Phrase']);
-        }
         if (isset($map['HitCids'])) {
             $model->hitCids = hitCids::fromMap($map['HitCids']);
         }
         if (isset($map['HitKeyWords'])) {
             $model->hitKeyWords = hitKeyWords::fromMap($map['HitKeyWords']);
+        }
+        if (isset($map['Phrase'])) {
+            $model->phrase = phrase::fromMap($map['Phrase']);
         }
 
         return $model;

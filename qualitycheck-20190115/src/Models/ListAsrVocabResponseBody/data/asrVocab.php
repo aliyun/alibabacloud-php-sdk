@@ -11,17 +11,12 @@ class asrVocab extends Model
     /**
      * @var string
      */
-    public $vocabularyId;
-
-    /**
-     * @var string
-     */
-    public $updateTime;
-
-    /**
-     * @var string
-     */
     public $createTime;
+
+    /**
+     * @var string
+     */
+    public $id;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class asrVocab extends Model
     /**
      * @var string
      */
-    public $id;
+    public $updateTime;
+
+    /**
+     * @var string
+     */
+    public $vocabularyId;
     protected $_name = [
-        'vocabularyId' => 'VocabularyId',
-        'updateTime'   => 'UpdateTime',
         'createTime'   => 'CreateTime',
-        'name'         => 'Name',
         'id'           => 'Id',
+        'name'         => 'Name',
+        'updateTime'   => 'UpdateTime',
+        'vocabularyId' => 'VocabularyId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class asrVocab extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vocabularyId) {
-            $res['VocabularyId'] = $this->vocabularyId;
-        }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
+        }
+        if (null !== $this->vocabularyId) {
+            $res['VocabularyId'] = $this->vocabularyId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class asrVocab extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VocabularyId'])) {
-            $model->vocabularyId = $map['VocabularyId'];
-        }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
+        }
+        if (isset($map['VocabularyId'])) {
+            $model->vocabularyId = $map['VocabularyId'];
         }
 
         return $model;

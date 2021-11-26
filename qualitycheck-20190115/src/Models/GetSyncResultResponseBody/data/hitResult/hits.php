@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class hits extends Model
 {
     /**
-     * @var phrase
+     * @var string[]
      */
-    public $phrase;
+    public $cid;
 
     /**
      * @var keyWords[]
@@ -21,13 +21,13 @@ class hits extends Model
     public $keyWords;
 
     /**
-     * @var string[]
+     * @var phrase
      */
-    public $cid;
+    public $phrase;
     protected $_name = [
-        'phrase'   => 'Phrase',
-        'keyWords' => 'KeyWords',
         'cid'      => 'Cid',
+        'keyWords' => 'KeyWords',
+        'phrase'   => 'Phrase',
     ];
 
     public function validate()
@@ -37,8 +37,8 @@ class hits extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->phrase) {
-            $res['Phrase'] = null !== $this->phrase ? $this->phrase->toMap() : null;
+        if (null !== $this->cid) {
+            $res['Cid'] = $this->cid;
         }
         if (null !== $this->keyWords) {
             $res['KeyWords'] = [];
@@ -49,8 +49,8 @@ class hits extends Model
                 }
             }
         }
-        if (null !== $this->cid) {
-            $res['Cid'] = $this->cid;
+        if (null !== $this->phrase) {
+            $res['Phrase'] = null !== $this->phrase ? $this->phrase->toMap() : null;
         }
 
         return $res;
@@ -64,8 +64,10 @@ class hits extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Phrase'])) {
-            $model->phrase = phrase::fromMap($map['Phrase']);
+        if (isset($map['Cid'])) {
+            if (!empty($map['Cid'])) {
+                $model->cid = $map['Cid'];
+            }
         }
         if (isset($map['KeyWords'])) {
             if (!empty($map['KeyWords'])) {
@@ -76,10 +78,8 @@ class hits extends Model
                 }
             }
         }
-        if (isset($map['Cid'])) {
-            if (!empty($map['Cid'])) {
-                $model->cid = $map['Cid'];
-            }
+        if (isset($map['Phrase'])) {
+            $model->phrase = phrase::fromMap($map['Phrase']);
         }
 
         return $model;

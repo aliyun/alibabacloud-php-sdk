@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class asrResult extends Model
 {
     /**
-     * @var string
-     */
-    public $words;
-
-    /**
      * @var int
      */
     public $begin;
@@ -29,6 +24,11 @@ class asrResult extends Model
     public $end;
 
     /**
+     * @var string
+     */
+    public $role;
+
+    /**
      * @var int
      */
     public $speechRate;
@@ -36,14 +36,14 @@ class asrResult extends Model
     /**
      * @var string
      */
-    public $role;
+    public $words;
     protected $_name = [
-        'words'        => 'Words',
         'begin'        => 'Begin',
         'emotionValue' => 'EmotionValue',
         'end'          => 'End',
-        'speechRate'   => 'SpeechRate',
         'role'         => 'Role',
+        'speechRate'   => 'SpeechRate',
+        'words'        => 'Words',
     ];
 
     public function validate()
@@ -53,9 +53,6 @@ class asrResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->words) {
-            $res['Words'] = $this->words;
-        }
         if (null !== $this->begin) {
             $res['Begin'] = $this->begin;
         }
@@ -65,11 +62,14 @@ class asrResult extends Model
         if (null !== $this->end) {
             $res['End'] = $this->end;
         }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
+        }
         if (null !== $this->speechRate) {
             $res['SpeechRate'] = $this->speechRate;
         }
-        if (null !== $this->role) {
-            $res['Role'] = $this->role;
+        if (null !== $this->words) {
+            $res['Words'] = $this->words;
         }
 
         return $res;
@@ -83,9 +83,6 @@ class asrResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Words'])) {
-            $model->words = $map['Words'];
-        }
         if (isset($map['Begin'])) {
             $model->begin = $map['Begin'];
         }
@@ -95,11 +92,14 @@ class asrResult extends Model
         if (isset($map['End'])) {
             $model->end = $map['End'];
         }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
+        }
         if (isset($map['SpeechRate'])) {
             $model->speechRate = $map['SpeechRate'];
         }
-        if (isset($map['Role'])) {
-            $model->role = $map['Role'];
+        if (isset($map['Words'])) {
+            $model->words = $map['Words'];
         }
 
         return $model;

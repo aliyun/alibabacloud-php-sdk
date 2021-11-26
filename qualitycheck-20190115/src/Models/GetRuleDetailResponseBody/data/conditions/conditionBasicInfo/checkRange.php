@@ -11,11 +11,6 @@ use AlibabaCloud\Tea\Model;
 class checkRange extends Model
 {
     /**
-     * @var string
-     */
-    public $role;
-
-    /**
      * @var bool
      */
     public $absolute;
@@ -29,11 +24,16 @@ class checkRange extends Model
      * @var range
      */
     public $range;
+
+    /**
+     * @var string
+     */
+    public $role;
     protected $_name = [
-        'role'     => 'Role',
         'absolute' => 'Absolute',
         'anchor'   => 'Anchor',
         'range'    => 'Range',
+        'role'     => 'Role',
     ];
 
     public function validate()
@@ -43,9 +43,6 @@ class checkRange extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->role) {
-            $res['Role'] = $this->role;
-        }
         if (null !== $this->absolute) {
             $res['Absolute'] = $this->absolute;
         }
@@ -54,6 +51,9 @@ class checkRange extends Model
         }
         if (null !== $this->range) {
             $res['Range'] = null !== $this->range ? $this->range->toMap() : null;
+        }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
         }
 
         return $res;
@@ -67,9 +67,6 @@ class checkRange extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Role'])) {
-            $model->role = $map['Role'];
-        }
         if (isset($map['Absolute'])) {
             $model->absolute = $map['Absolute'];
         }
@@ -78,6 +75,9 @@ class checkRange extends Model
         }
         if (isset($map['Range'])) {
             $model->range = range::fromMap($map['Range']);
+        }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
         }
 
         return $model;

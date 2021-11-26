@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class scoreParam extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $scoreSubName;
+    public $hit;
 
     /**
      * @var int
@@ -24,20 +24,20 @@ class scoreParam extends Model
     public $scoreSubId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $scoreType;
+    public $scoreSubName;
 
     /**
      * @var int
      */
-    public $hit;
+    public $scoreType;
     protected $_name = [
-        'scoreSubName' => 'ScoreSubName',
+        'hit'          => 'Hit',
         'scoreNum'     => 'ScoreNum',
         'scoreSubId'   => 'ScoreSubId',
+        'scoreSubName' => 'ScoreSubName',
         'scoreType'    => 'ScoreType',
-        'hit'          => 'Hit',
     ];
 
     public function validate()
@@ -47,8 +47,8 @@ class scoreParam extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->scoreSubName) {
-            $res['ScoreSubName'] = $this->scoreSubName;
+        if (null !== $this->hit) {
+            $res['Hit'] = $this->hit;
         }
         if (null !== $this->scoreNum) {
             $res['ScoreNum'] = $this->scoreNum;
@@ -56,11 +56,11 @@ class scoreParam extends Model
         if (null !== $this->scoreSubId) {
             $res['ScoreSubId'] = $this->scoreSubId;
         }
+        if (null !== $this->scoreSubName) {
+            $res['ScoreSubName'] = $this->scoreSubName;
+        }
         if (null !== $this->scoreType) {
             $res['ScoreType'] = $this->scoreType;
-        }
-        if (null !== $this->hit) {
-            $res['Hit'] = $this->hit;
         }
 
         return $res;
@@ -74,8 +74,8 @@ class scoreParam extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ScoreSubName'])) {
-            $model->scoreSubName = $map['ScoreSubName'];
+        if (isset($map['Hit'])) {
+            $model->hit = $map['Hit'];
         }
         if (isset($map['ScoreNum'])) {
             $model->scoreNum = $map['ScoreNum'];
@@ -83,11 +83,11 @@ class scoreParam extends Model
         if (isset($map['ScoreSubId'])) {
             $model->scoreSubId = $map['ScoreSubId'];
         }
+        if (isset($map['ScoreSubName'])) {
+            $model->scoreSubName = $map['ScoreSubName'];
+        }
         if (isset($map['ScoreType'])) {
             $model->scoreType = $map['ScoreType'];
-        }
-        if (isset($map['Hit'])) {
-            $model->hit = $map['Hit'];
         }
 
         return $model;

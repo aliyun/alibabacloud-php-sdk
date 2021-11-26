@@ -14,18 +14,18 @@ class restartResult extends Model
     public $data;
 
     /**
-     * @var bool
-     */
-    public $success;
-
-    /**
      * @var string
      */
     public $message;
+
+    /**
+     * @var bool
+     */
+    public $success;
     protected $_name = [
         'data'    => 'Data',
-        'success' => 'Success',
         'message' => 'Message',
+        'success' => 'Success',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class restartResult extends Model
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class restartResult extends Model
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

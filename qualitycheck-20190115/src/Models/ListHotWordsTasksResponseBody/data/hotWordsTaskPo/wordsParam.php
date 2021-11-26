@@ -14,18 +14,18 @@ class wordsParam extends Model
     public $excludes;
 
     /**
-     * @var string
-     */
-    public $includes;
-
-    /**
      * @var int
      */
     public $extraConfigId;
+
+    /**
+     * @var string
+     */
+    public $includes;
     protected $_name = [
         'excludes'      => 'Excludes',
-        'includes'      => 'Includes',
         'extraConfigId' => 'ExtraConfigId',
+        'includes'      => 'Includes',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class wordsParam extends Model
         if (null !== $this->excludes) {
             $res['Excludes'] = $this->excludes;
         }
-        if (null !== $this->includes) {
-            $res['Includes'] = $this->includes;
-        }
         if (null !== $this->extraConfigId) {
             $res['ExtraConfigId'] = $this->extraConfigId;
+        }
+        if (null !== $this->includes) {
+            $res['Includes'] = $this->includes;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class wordsParam extends Model
         if (isset($map['Excludes'])) {
             $model->excludes = $map['Excludes'];
         }
-        if (isset($map['Includes'])) {
-            $model->includes = $map['Includes'];
-        }
         if (isset($map['ExtraConfigId'])) {
             $model->extraConfigId = $map['ExtraConfigId'];
+        }
+        if (isset($map['Includes'])) {
+            $model->includes = $map['Includes'];
         }
 
         return $model;

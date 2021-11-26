@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetRuleDimensionResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $code;
+
+    /**
      * @var int
      */
     public $compSubTaskCount;
@@ -17,12 +22,17 @@ class GetRuleDimensionResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $currentPage;
 
     /**
-     * @var string
+     * @var data
      */
-    public $requestId;
+    public $data;
+
+    /**
+     * @var int
+     */
+    public $dataSize;
 
     /**
      * @var string
@@ -35,29 +45,14 @@ class GetRuleDimensionResponseBody extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $currentPage;
+    public $requestId;
 
     /**
      * @var int
      */
     public $reviewStatus;
-
-    /**
-     * @var int
-     */
-    public $dataSize;
-
-    /**
-     * @var data
-     */
-    public $data;
-
-    /**
-     * @var string
-     */
-    public $code;
 
     /**
      * @var bool
@@ -67,19 +62,24 @@ class GetRuleDimensionResponseBody extends Model
     /**
      * @var int
      */
+    public $totalCount;
+
+    /**
+     * @var int
+     */
     public $totalSubTaskCount;
     protected $_name = [
+        'code'              => 'Code',
         'compSubTaskCount'  => 'CompSubTaskCount',
-        'totalCount'        => 'TotalCount',
-        'requestId'         => 'RequestId',
+        'currentPage'       => 'CurrentPage',
+        'data'              => 'Data',
+        'dataSize'          => 'DataSize',
         'message'           => 'Message',
         'pageSize'          => 'PageSize',
-        'currentPage'       => 'CurrentPage',
+        'requestId'         => 'RequestId',
         'reviewStatus'      => 'ReviewStatus',
-        'dataSize'          => 'DataSize',
-        'data'              => 'Data',
-        'code'              => 'Code',
         'success'           => 'Success',
+        'totalCount'        => 'TotalCount',
         'totalSubTaskCount' => 'TotalSubTaskCount',
     ];
 
@@ -90,14 +90,20 @@ class GetRuleDimensionResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->compSubTaskCount) {
             $res['CompSubTaskCount'] = $this->compSubTaskCount;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->currentPage) {
+            $res['CurrentPage'] = $this->currentPage;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
+        if (null !== $this->dataSize) {
+            $res['DataSize'] = $this->dataSize;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -105,23 +111,17 @@ class GetRuleDimensionResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->currentPage) {
-            $res['CurrentPage'] = $this->currentPage;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->reviewStatus) {
             $res['ReviewStatus'] = $this->reviewStatus;
         }
-        if (null !== $this->dataSize) {
-            $res['DataSize'] = $this->dataSize;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->totalSubTaskCount) {
             $res['TotalSubTaskCount'] = $this->totalSubTaskCount;
@@ -138,14 +138,20 @@ class GetRuleDimensionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['CompSubTaskCount'])) {
             $model->compSubTaskCount = $map['CompSubTaskCount'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['CurrentPage'])) {
+            $model->currentPage = $map['CurrentPage'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
+        }
+        if (isset($map['DataSize'])) {
+            $model->dataSize = $map['DataSize'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -153,23 +159,17 @@ class GetRuleDimensionResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['CurrentPage'])) {
-            $model->currentPage = $map['CurrentPage'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['ReviewStatus'])) {
             $model->reviewStatus = $map['ReviewStatus'];
         }
-        if (isset($map['DataSize'])) {
-            $model->dataSize = $map['DataSize'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['TotalSubTaskCount'])) {
             $model->totalSubTaskCount = $map['TotalSubTaskCount'];

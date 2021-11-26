@@ -12,9 +12,9 @@ use AlibabaCloud\Tea\Model;
 class conditionHitInfo extends Model
 {
     /**
-     * @var phrase
+     * @var cid
      */
-    public $phrase;
+    public $cid;
 
     /**
      * @var keyWords
@@ -22,13 +22,13 @@ class conditionHitInfo extends Model
     public $keyWords;
 
     /**
-     * @var cid
+     * @var phrase
      */
-    public $cid;
+    public $phrase;
     protected $_name = [
-        'phrase'   => 'Phrase',
-        'keyWords' => 'KeyWords',
         'cid'      => 'Cid',
+        'keyWords' => 'KeyWords',
+        'phrase'   => 'Phrase',
     ];
 
     public function validate()
@@ -38,14 +38,14 @@ class conditionHitInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->phrase) {
-            $res['Phrase'] = null !== $this->phrase ? $this->phrase->toMap() : null;
+        if (null !== $this->cid) {
+            $res['Cid'] = null !== $this->cid ? $this->cid->toMap() : null;
         }
         if (null !== $this->keyWords) {
             $res['KeyWords'] = null !== $this->keyWords ? $this->keyWords->toMap() : null;
         }
-        if (null !== $this->cid) {
-            $res['Cid'] = null !== $this->cid ? $this->cid->toMap() : null;
+        if (null !== $this->phrase) {
+            $res['Phrase'] = null !== $this->phrase ? $this->phrase->toMap() : null;
         }
 
         return $res;
@@ -59,14 +59,14 @@ class conditionHitInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Phrase'])) {
-            $model->phrase = phrase::fromMap($map['Phrase']);
+        if (isset($map['Cid'])) {
+            $model->cid = cid::fromMap($map['Cid']);
         }
         if (isset($map['KeyWords'])) {
             $model->keyWords = keyWords::fromMap($map['KeyWords']);
         }
-        if (isset($map['Cid'])) {
-            $model->cid = cid::fromMap($map['Cid']);
+        if (isset($map['Phrase'])) {
+            $model->phrase = phrase::fromMap($map['Phrase']);
         }
 
         return $model;

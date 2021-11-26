@@ -14,18 +14,18 @@ class anchor extends Model
     public $anchorCid;
 
     /**
-     * @var string
-     */
-    public $location;
-
-    /**
      * @var int
      */
     public $hitTime;
+
+    /**
+     * @var string
+     */
+    public $location;
     protected $_name = [
         'anchorCid' => 'AnchorCid',
-        'location'  => 'Location',
         'hitTime'   => 'HitTime',
+        'location'  => 'Location',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class anchor extends Model
         if (null !== $this->anchorCid) {
             $res['AnchorCid'] = $this->anchorCid;
         }
-        if (null !== $this->location) {
-            $res['Location'] = $this->location;
-        }
         if (null !== $this->hitTime) {
             $res['HitTime'] = $this->hitTime;
+        }
+        if (null !== $this->location) {
+            $res['Location'] = $this->location;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class anchor extends Model
         if (isset($map['AnchorCid'])) {
             $model->anchorCid = $map['AnchorCid'];
         }
-        if (isset($map['Location'])) {
-            $model->location = $map['Location'];
-        }
         if (isset($map['HitTime'])) {
             $model->hitTime = $map['HitTime'];
+        }
+        if (isset($map['Location'])) {
+            $model->location = $map['Location'];
         }
 
         return $model;

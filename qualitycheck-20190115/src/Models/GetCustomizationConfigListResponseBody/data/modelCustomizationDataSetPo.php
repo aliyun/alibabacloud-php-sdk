@@ -9,24 +9,14 @@ use AlibabaCloud\Tea\Model;
 class modelCustomizationDataSetPo extends Model
 {
     /**
-     * @var int
-     */
-    public $taskType;
-
-    /**
      * @var string
      */
     public $createTime;
 
     /**
-     * @var int
-     */
-    public $modelStatus;
-
-    /**
      * @var string
      */
-    public $modelName;
+    public $modeCustomizationId;
 
     /**
      * @var int
@@ -36,14 +26,24 @@ class modelCustomizationDataSetPo extends Model
     /**
      * @var string
      */
-    public $modeCustomizationId;
+    public $modelName;
+
+    /**
+     * @var int
+     */
+    public $modelStatus;
+
+    /**
+     * @var int
+     */
+    public $taskType;
     protected $_name = [
-        'taskType'            => 'TaskType',
         'createTime'          => 'CreateTime',
-        'modelStatus'         => 'ModelStatus',
-        'modelName'           => 'ModelName',
-        'modelId'             => 'ModelId',
         'modeCustomizationId' => 'ModeCustomizationId',
+        'modelId'             => 'ModelId',
+        'modelName'           => 'ModelName',
+        'modelStatus'         => 'ModelStatus',
+        'taskType'            => 'TaskType',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class modelCustomizationDataSetPo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskType) {
-            $res['TaskType'] = $this->taskType;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->modelStatus) {
-            $res['ModelStatus'] = $this->modelStatus;
-        }
-        if (null !== $this->modelName) {
-            $res['ModelName'] = $this->modelName;
+        if (null !== $this->modeCustomizationId) {
+            $res['ModeCustomizationId'] = $this->modeCustomizationId;
         }
         if (null !== $this->modelId) {
             $res['ModelId'] = $this->modelId;
         }
-        if (null !== $this->modeCustomizationId) {
-            $res['ModeCustomizationId'] = $this->modeCustomizationId;
+        if (null !== $this->modelName) {
+            $res['ModelName'] = $this->modelName;
+        }
+        if (null !== $this->modelStatus) {
+            $res['ModelStatus'] = $this->modelStatus;
+        }
+        if (null !== $this->taskType) {
+            $res['TaskType'] = $this->taskType;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class modelCustomizationDataSetPo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskType'])) {
-            $model->taskType = $map['TaskType'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['ModelStatus'])) {
-            $model->modelStatus = $map['ModelStatus'];
-        }
-        if (isset($map['ModelName'])) {
-            $model->modelName = $map['ModelName'];
+        if (isset($map['ModeCustomizationId'])) {
+            $model->modeCustomizationId = $map['ModeCustomizationId'];
         }
         if (isset($map['ModelId'])) {
             $model->modelId = $map['ModelId'];
         }
-        if (isset($map['ModeCustomizationId'])) {
-            $model->modeCustomizationId = $map['ModeCustomizationId'];
+        if (isset($map['ModelName'])) {
+            $model->modelName = $map['ModelName'];
+        }
+        if (isset($map['ModelStatus'])) {
+            $model->modelStatus = $map['ModelStatus'];
+        }
+        if (isset($map['TaskType'])) {
+            $model->taskType = $map['TaskType'];
         }
 
         return $model;

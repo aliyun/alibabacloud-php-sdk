@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class scoreParam extends Model
 {
     /**
-     * @var string
-     */
-    public $scoreSubName;
-
-    /**
      * @var int
      */
     public $scoreNum;
@@ -24,13 +19,18 @@ class scoreParam extends Model
     public $scoreSubId;
 
     /**
+     * @var string
+     */
+    public $scoreSubName;
+
+    /**
      * @var int
      */
     public $scoreType;
     protected $_name = [
-        'scoreSubName' => 'ScoreSubName',
         'scoreNum'     => 'ScoreNum',
         'scoreSubId'   => 'ScoreSubId',
+        'scoreSubName' => 'ScoreSubName',
         'scoreType'    => 'ScoreType',
     ];
 
@@ -41,14 +41,14 @@ class scoreParam extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->scoreSubName) {
-            $res['ScoreSubName'] = $this->scoreSubName;
-        }
         if (null !== $this->scoreNum) {
             $res['ScoreNum'] = $this->scoreNum;
         }
         if (null !== $this->scoreSubId) {
             $res['ScoreSubId'] = $this->scoreSubId;
+        }
+        if (null !== $this->scoreSubName) {
+            $res['ScoreSubName'] = $this->scoreSubName;
         }
         if (null !== $this->scoreType) {
             $res['ScoreType'] = $this->scoreType;
@@ -65,14 +65,14 @@ class scoreParam extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ScoreSubName'])) {
-            $model->scoreSubName = $map['ScoreSubName'];
-        }
         if (isset($map['ScoreNum'])) {
             $model->scoreNum = $map['ScoreNum'];
         }
         if (isset($map['ScoreSubId'])) {
             $model->scoreSubId = $map['ScoreSubId'];
+        }
+        if (isset($map['ScoreSubName'])) {
+            $model->scoreSubName = $map['ScoreSubName'];
         }
         if (isset($map['ScoreType'])) {
             $model->scoreType = $map['ScoreType'];

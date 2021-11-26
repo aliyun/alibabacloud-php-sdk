@@ -9,17 +9,11 @@ use AlibabaCloud\Tea\Model;
 class TestRuleRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
      * @var string
      */
     public $jsonStr;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'jsonStr'         => 'JsonStr',
+        'jsonStr' => 'JsonStr',
     ];
 
     public function validate()
@@ -29,9 +23,6 @@ class TestRuleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
         if (null !== $this->jsonStr) {
             $res['JsonStr'] = $this->jsonStr;
         }
@@ -47,9 +38,6 @@ class TestRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
         if (isset($map['JsonStr'])) {
             $model->jsonStr = $map['JsonStr'];
         }

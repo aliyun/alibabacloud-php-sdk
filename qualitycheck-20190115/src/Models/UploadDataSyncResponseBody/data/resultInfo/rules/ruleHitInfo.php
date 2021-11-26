@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class ruleHitInfo extends Model
 {
     /**
-     * @var string
+     * @var conditionInfo
      */
-    public $tid;
+    public $conditionInfo;
 
     /**
      * @var hit
@@ -21,19 +21,19 @@ class ruleHitInfo extends Model
     public $hit;
 
     /**
-     * @var conditionInfo
+     * @var string
      */
-    public $conditionInfo;
+    public $rid;
 
     /**
      * @var string
      */
-    public $rid;
+    public $tid;
     protected $_name = [
-        'tid'           => 'Tid',
-        'hit'           => 'Hit',
         'conditionInfo' => 'ConditionInfo',
+        'hit'           => 'Hit',
         'rid'           => 'Rid',
+        'tid'           => 'Tid',
     ];
 
     public function validate()
@@ -43,17 +43,17 @@ class ruleHitInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tid) {
-            $res['Tid'] = $this->tid;
+        if (null !== $this->conditionInfo) {
+            $res['ConditionInfo'] = null !== $this->conditionInfo ? $this->conditionInfo->toMap() : null;
         }
         if (null !== $this->hit) {
             $res['Hit'] = null !== $this->hit ? $this->hit->toMap() : null;
         }
-        if (null !== $this->conditionInfo) {
-            $res['ConditionInfo'] = null !== $this->conditionInfo ? $this->conditionInfo->toMap() : null;
-        }
         if (null !== $this->rid) {
             $res['Rid'] = $this->rid;
+        }
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -67,17 +67,17 @@ class ruleHitInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tid'])) {
-            $model->tid = $map['Tid'];
+        if (isset($map['ConditionInfo'])) {
+            $model->conditionInfo = conditionInfo::fromMap($map['ConditionInfo']);
         }
         if (isset($map['Hit'])) {
             $model->hit = hit::fromMap($map['Hit']);
         }
-        if (isset($map['ConditionInfo'])) {
-            $model->conditionInfo = conditionInfo::fromMap($map['ConditionInfo']);
-        }
         if (isset($map['Rid'])) {
             $model->rid = $map['Rid'];
+        }
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;

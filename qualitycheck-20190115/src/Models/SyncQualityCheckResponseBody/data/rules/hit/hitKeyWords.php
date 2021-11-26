@@ -11,17 +11,12 @@ class hitKeyWords extends Model
     /**
      * @var int
      */
-    public $from;
-
-    /**
-     * @var string
-     */
-    public $val;
+    public $cid;
 
     /**
      * @var int
      */
-    public $cid;
+    public $from;
 
     /**
      * @var int
@@ -32,12 +27,17 @@ class hitKeyWords extends Model
      * @var int
      */
     public $to;
+
+    /**
+     * @var string
+     */
+    public $val;
     protected $_name = [
-        'from' => 'From',
-        'val'  => 'Val',
         'cid'  => 'Cid',
+        'from' => 'From',
         'pid'  => 'Pid',
         'to'   => 'To',
+        'val'  => 'Val',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class hitKeyWords extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->from) {
-            $res['From'] = $this->from;
-        }
-        if (null !== $this->val) {
-            $res['Val'] = $this->val;
-        }
         if (null !== $this->cid) {
             $res['Cid'] = $this->cid;
+        }
+        if (null !== $this->from) {
+            $res['From'] = $this->from;
         }
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
         }
         if (null !== $this->to) {
             $res['To'] = $this->to;
+        }
+        if (null !== $this->val) {
+            $res['Val'] = $this->val;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class hitKeyWords extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['From'])) {
-            $model->from = $map['From'];
-        }
-        if (isset($map['Val'])) {
-            $model->val = $map['Val'];
-        }
         if (isset($map['Cid'])) {
             $model->cid = $map['Cid'];
+        }
+        if (isset($map['From'])) {
+            $model->from = $map['From'];
         }
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];
         }
         if (isset($map['To'])) {
             $model->to = $map['To'];
+        }
+        if (isset($map['Val'])) {
+            $model->val = $map['Val'];
         }
 
         return $model;

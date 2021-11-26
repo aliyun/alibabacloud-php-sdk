@@ -12,12 +12,17 @@ class data extends Model
     /**
      * @var int
      */
-    public $status;
+    public $dataSetId;
 
     /**
      * @var string
      */
-    public $updateTime;
+    public $dataSetName;
+
+    /**
+     * @var int
+     */
+    public $duration;
 
     /**
      * @var int
@@ -25,24 +30,9 @@ class data extends Model
     public $incorrectWords;
 
     /**
-     * @var int
+     * @var string
      */
-    public $dataSetId;
-
-    /**
-     * @var int
-     */
-    public $verifiedCount;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
-     * @var int
-     */
-    public $source;
+    public $name;
 
     /**
      * @var precisions
@@ -52,35 +42,45 @@ class data extends Model
     /**
      * @var int
      */
-    public $duration;
+    public $source;
 
     /**
-     * @var string
+     * @var int
      */
-    public $dataSetName;
-
-    /**
-     * @var string
-     */
-    public $name;
+    public $status;
 
     /**
      * @var string
      */
     public $taskId;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
+     * @var string
+     */
+    public $updateTime;
+
+    /**
+     * @var int
+     */
+    public $verifiedCount;
     protected $_name = [
-        'status'         => 'Status',
-        'updateTime'     => 'UpdateTime',
-        'incorrectWords' => 'IncorrectWords',
         'dataSetId'      => 'DataSetId',
-        'verifiedCount'  => 'VerifiedCount',
-        'totalCount'     => 'TotalCount',
-        'source'         => 'Source',
-        'precisions'     => 'Precisions',
-        'duration'       => 'Duration',
         'dataSetName'    => 'DataSetName',
+        'duration'       => 'Duration',
+        'incorrectWords' => 'IncorrectWords',
         'name'           => 'Name',
+        'precisions'     => 'Precisions',
+        'source'         => 'Source',
+        'status'         => 'Status',
         'taskId'         => 'TaskId',
+        'totalCount'     => 'TotalCount',
+        'updateTime'     => 'UpdateTime',
+        'verifiedCount'  => 'VerifiedCount',
     ];
 
     public function validate()
@@ -90,41 +90,41 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
-        if (null !== $this->incorrectWords) {
-            $res['IncorrectWords'] = $this->incorrectWords;
-        }
         if (null !== $this->dataSetId) {
             $res['DataSetId'] = $this->dataSetId;
-        }
-        if (null !== $this->verifiedCount) {
-            $res['VerifiedCount'] = $this->verifiedCount;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->source) {
-            $res['Source'] = $this->source;
-        }
-        if (null !== $this->precisions) {
-            $res['Precisions'] = null !== $this->precisions ? $this->precisions->toMap() : null;
-        }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
         }
         if (null !== $this->dataSetName) {
             $res['DataSetName'] = $this->dataSetName;
         }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->incorrectWords) {
+            $res['IncorrectWords'] = $this->incorrectWords;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->precisions) {
+            $res['Precisions'] = null !== $this->precisions ? $this->precisions->toMap() : null;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
+        }
+        if (null !== $this->verifiedCount) {
+            $res['VerifiedCount'] = $this->verifiedCount;
         }
 
         return $res;
@@ -138,41 +138,41 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
-        }
-        if (isset($map['IncorrectWords'])) {
-            $model->incorrectWords = $map['IncorrectWords'];
-        }
         if (isset($map['DataSetId'])) {
             $model->dataSetId = $map['DataSetId'];
-        }
-        if (isset($map['VerifiedCount'])) {
-            $model->verifiedCount = $map['VerifiedCount'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['Source'])) {
-            $model->source = $map['Source'];
-        }
-        if (isset($map['Precisions'])) {
-            $model->precisions = precisions::fromMap($map['Precisions']);
-        }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
         }
         if (isset($map['DataSetName'])) {
             $model->dataSetName = $map['DataSetName'];
         }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
+        if (isset($map['IncorrectWords'])) {
+            $model->incorrectWords = $map['IncorrectWords'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['Precisions'])) {
+            $model->precisions = precisions::fromMap($map['Precisions']);
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
+        }
+        if (isset($map['VerifiedCount'])) {
+            $model->verifiedCount = $map['VerifiedCount'];
         }
 
         return $model;

@@ -11,22 +11,12 @@ class role extends Model
     /**
      * @var string
      */
-    public $displayName;
-
-    /**
-     * @var string
-     */
-    public $updateTime;
-
-    /**
-     * @var string
-     */
     public $createTime;
 
     /**
      * @var string
      */
-    public $name;
+    public $displayName;
 
     /**
      * @var int
@@ -37,13 +27,23 @@ class role extends Model
      * @var int
      */
     public $level;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $updateTime;
     protected $_name = [
-        'displayName' => 'DisplayName',
-        'updateTime'  => 'UpdateTime',
         'createTime'  => 'CreateTime',
-        'name'        => 'Name',
+        'displayName' => 'DisplayName',
         'id'          => 'Id',
         'level'       => 'Level',
+        'name'        => 'Name',
+        'updateTime'  => 'UpdateTime',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class role extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->displayName) {
-            $res['DisplayName'] = $this->displayName;
-        }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->displayName) {
+            $res['DisplayName'] = $this->displayName;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
         if (null !== $this->level) {
             $res['Level'] = $this->level;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class role extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DisplayName'])) {
-            $model->displayName = $map['DisplayName'];
-        }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['DisplayName'])) {
+            $model->displayName = $map['DisplayName'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

@@ -13,46 +13,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var int
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @var string
-     */
-    public $reviewer;
-
-    /**
-     * @var string
-     */
-    public $createTime;
-
-    /**
-     * @var int
-     */
-    public $reviewStatus;
-
-    /**
-     * @var string
-     */
-    public $taskName;
-
-    /**
-     * @var int
-     */
-    public $reviewResult;
-
-    /**
-     * @var int
-     */
-    public $score;
-
-    /**
      * @var agent
      */
     public $agent;
@@ -63,14 +23,24 @@ class data extends Model
     public $asrResult;
 
     /**
-     * @var hitResult[]
+     * @var string
      */
-    public $hitResult;
+    public $comments;
 
     /**
      * @var string
      */
-    public $comments;
+    public $createTime;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var hitResult[]
+     */
+    public $hitResult;
 
     /**
      * @var recording
@@ -80,28 +50,58 @@ class data extends Model
     /**
      * @var string
      */
+    public $resolver;
+
+    /**
+     * @var int
+     */
+    public $reviewResult;
+
+    /**
+     * @var int
+     */
+    public $reviewStatus;
+
+    /**
+     * @var string
+     */
+    public $reviewer;
+
+    /**
+     * @var int
+     */
+    public $score;
+
+    /**
+     * @var int
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $taskId;
 
     /**
      * @var string
      */
-    public $resolver;
+    public $taskName;
     protected $_name = [
-        'status'       => 'Status',
-        'errorMessage' => 'ErrorMessage',
-        'reviewer'     => 'Reviewer',
-        'createTime'   => 'CreateTime',
-        'reviewStatus' => 'ReviewStatus',
-        'taskName'     => 'TaskName',
-        'reviewResult' => 'ReviewResult',
-        'score'        => 'Score',
         'agent'        => 'Agent',
         'asrResult'    => 'AsrResult',
-        'hitResult'    => 'HitResult',
         'comments'     => 'Comments',
+        'createTime'   => 'CreateTime',
+        'errorMessage' => 'ErrorMessage',
+        'hitResult'    => 'HitResult',
         'recording'    => 'Recording',
-        'taskId'       => 'TaskId',
         'resolver'     => 'Resolver',
+        'reviewResult' => 'ReviewResult',
+        'reviewStatus' => 'ReviewStatus',
+        'reviewer'     => 'Reviewer',
+        'score'        => 'Score',
+        'status'       => 'Status',
+        'taskId'       => 'TaskId',
+        'taskName'     => 'TaskName',
     ];
 
     public function validate()
@@ -111,30 +111,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->reviewer) {
-            $res['Reviewer'] = $this->reviewer;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->reviewStatus) {
-            $res['ReviewStatus'] = $this->reviewStatus;
-        }
-        if (null !== $this->taskName) {
-            $res['TaskName'] = $this->taskName;
-        }
-        if (null !== $this->reviewResult) {
-            $res['ReviewResult'] = $this->reviewResult;
-        }
-        if (null !== $this->score) {
-            $res['Score'] = $this->score;
-        }
         if (null !== $this->agent) {
             $res['Agent'] = null !== $this->agent ? $this->agent->toMap() : null;
         }
@@ -147,6 +123,15 @@ class data extends Model
                 }
             }
         }
+        if (null !== $this->comments) {
+            $res['Comments'] = $this->comments;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
         if (null !== $this->hitResult) {
             $res['HitResult'] = [];
             if (null !== $this->hitResult && \is_array($this->hitResult)) {
@@ -156,17 +141,32 @@ class data extends Model
                 }
             }
         }
-        if (null !== $this->comments) {
-            $res['Comments'] = $this->comments;
-        }
         if (null !== $this->recording) {
             $res['Recording'] = null !== $this->recording ? $this->recording->toMap() : null;
+        }
+        if (null !== $this->resolver) {
+            $res['Resolver'] = $this->resolver;
+        }
+        if (null !== $this->reviewResult) {
+            $res['ReviewResult'] = $this->reviewResult;
+        }
+        if (null !== $this->reviewStatus) {
+            $res['ReviewStatus'] = $this->reviewStatus;
+        }
+        if (null !== $this->reviewer) {
+            $res['Reviewer'] = $this->reviewer;
+        }
+        if (null !== $this->score) {
+            $res['Score'] = $this->score;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-        if (null !== $this->resolver) {
-            $res['Resolver'] = $this->resolver;
+        if (null !== $this->taskName) {
+            $res['TaskName'] = $this->taskName;
         }
 
         return $res;
@@ -180,30 +180,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['Reviewer'])) {
-            $model->reviewer = $map['Reviewer'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['ReviewStatus'])) {
-            $model->reviewStatus = $map['ReviewStatus'];
-        }
-        if (isset($map['TaskName'])) {
-            $model->taskName = $map['TaskName'];
-        }
-        if (isset($map['ReviewResult'])) {
-            $model->reviewResult = $map['ReviewResult'];
-        }
-        if (isset($map['Score'])) {
-            $model->score = $map['Score'];
-        }
         if (isset($map['Agent'])) {
             $model->agent = agent::fromMap($map['Agent']);
         }
@@ -216,6 +192,15 @@ class data extends Model
                 }
             }
         }
+        if (isset($map['Comments'])) {
+            $model->comments = $map['Comments'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
         if (isset($map['HitResult'])) {
             if (!empty($map['HitResult'])) {
                 $model->hitResult = [];
@@ -225,17 +210,32 @@ class data extends Model
                 }
             }
         }
-        if (isset($map['Comments'])) {
-            $model->comments = $map['Comments'];
-        }
         if (isset($map['Recording'])) {
             $model->recording = recording::fromMap($map['Recording']);
+        }
+        if (isset($map['Resolver'])) {
+            $model->resolver = $map['Resolver'];
+        }
+        if (isset($map['ReviewResult'])) {
+            $model->reviewResult = $map['ReviewResult'];
+        }
+        if (isset($map['ReviewStatus'])) {
+            $model->reviewStatus = $map['ReviewStatus'];
+        }
+        if (isset($map['Reviewer'])) {
+            $model->reviewer = $map['Reviewer'];
+        }
+        if (isset($map['Score'])) {
+            $model->score = $map['Score'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-        if (isset($map['Resolver'])) {
-            $model->resolver = $map['Resolver'];
+        if (isset($map['TaskName'])) {
+            $model->taskName = $map['TaskName'];
         }
 
         return $model;

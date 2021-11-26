@@ -14,18 +14,18 @@ class businessCategoryBasicInfo extends Model
     public $bid;
 
     /**
-     * @var int
-     */
-    public $serviceType;
-
-    /**
      * @var string
      */
     public $businessName;
+
+    /**
+     * @var int
+     */
+    public $serviceType;
     protected $_name = [
         'bid'          => 'Bid',
-        'serviceType'  => 'ServiceType',
         'businessName' => 'BusinessName',
+        'serviceType'  => 'ServiceType',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class businessCategoryBasicInfo extends Model
         if (null !== $this->bid) {
             $res['Bid'] = $this->bid;
         }
-        if (null !== $this->serviceType) {
-            $res['ServiceType'] = $this->serviceType;
-        }
         if (null !== $this->businessName) {
             $res['BusinessName'] = $this->businessName;
+        }
+        if (null !== $this->serviceType) {
+            $res['ServiceType'] = $this->serviceType;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class businessCategoryBasicInfo extends Model
         if (isset($map['Bid'])) {
             $model->bid = $map['Bid'];
         }
-        if (isset($map['ServiceType'])) {
-            $model->serviceType = $map['ServiceType'];
-        }
         if (isset($map['BusinessName'])) {
             $model->businessName = $map['BusinessName'];
+        }
+        if (isset($map['ServiceType'])) {
+            $model->serviceType = $map['ServiceType'];
         }
 
         return $model;

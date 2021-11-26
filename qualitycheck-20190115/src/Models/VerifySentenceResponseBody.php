@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class VerifySentenceResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $sourceRole;
+    public $code;
+
+    /**
+     * @var data
+     */
+    public $data;
 
     /**
      * @var int
@@ -22,41 +27,36 @@ class VerifySentenceResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $message;
 
     /**
      * @var string
      */
-    public $message;
+    public $requestId;
 
     /**
      * @var int
      */
-    public $targetRole;
-
-    /**
-     * @var data
-     */
-    public $data;
-
-    /**
-     * @var string
-     */
-    public $code;
+    public $sourceRole;
 
     /**
      * @var bool
      */
     public $success;
+
+    /**
+     * @var int
+     */
+    public $targetRole;
     protected $_name = [
-        'sourceRole'     => 'SourceRole',
-        'incorrectWords' => 'IncorrectWords',
-        'requestId'      => 'RequestId',
-        'message'        => 'Message',
-        'targetRole'     => 'TargetRole',
-        'data'           => 'Data',
         'code'           => 'Code',
+        'data'           => 'Data',
+        'incorrectWords' => 'IncorrectWords',
+        'message'        => 'Message',
+        'requestId'      => 'RequestId',
+        'sourceRole'     => 'SourceRole',
         'success'        => 'Success',
+        'targetRole'     => 'TargetRole',
     ];
 
     public function validate()
@@ -66,29 +66,29 @@ class VerifySentenceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceRole) {
-            $res['SourceRole'] = $this->sourceRole;
-        }
-        if (null !== $this->incorrectWords) {
-            $res['IncorrectWords'] = $this->incorrectWords;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->targetRole) {
-            $res['TargetRole'] = $this->targetRole;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->incorrectWords) {
+            $res['IncorrectWords'] = $this->incorrectWords;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->sourceRole) {
+            $res['SourceRole'] = $this->sourceRole;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->targetRole) {
+            $res['TargetRole'] = $this->targetRole;
         }
 
         return $res;
@@ -102,29 +102,29 @@ class VerifySentenceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceRole'])) {
-            $model->sourceRole = $map['SourceRole'];
-        }
-        if (isset($map['IncorrectWords'])) {
-            $model->incorrectWords = $map['IncorrectWords'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['TargetRole'])) {
-            $model->targetRole = $map['TargetRole'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['IncorrectWords'])) {
+            $model->incorrectWords = $map['IncorrectWords'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SourceRole'])) {
+            $model->sourceRole = $map['SourceRole'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['TargetRole'])) {
+            $model->targetRole = $map['TargetRole'];
         }
 
         return $model;

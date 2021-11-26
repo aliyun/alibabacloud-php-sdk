@@ -11,7 +11,7 @@ class dialogueParam extends Model
     /**
      * @var string
      */
-    public $endTime;
+    public $dataSetIds;
 
     /**
      * @var int
@@ -26,7 +26,12 @@ class dialogueParam extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $endTime;
+
+    /**
+     * @var int
+     */
+    public $role;
 
     /**
      * @var int
@@ -39,23 +44,18 @@ class dialogueParam extends Model
     public $startIndex;
 
     /**
-     * @var int
-     */
-    public $role;
-
-    /**
      * @var string
      */
-    public $dataSetIds;
+    public $startTime;
     protected $_name = [
-        'endTime'    => 'EndTime',
+        'dataSetIds' => 'DataSetIds',
         'dialogueId' => 'DialogueId',
         'endIndex'   => 'EndIndex',
-        'startTime'  => 'StartTime',
+        'endTime'    => 'EndTime',
+        'role'       => 'Role',
         'sourceType' => 'SourceType',
         'startIndex' => 'StartIndex',
-        'role'       => 'Role',
-        'dataSetIds' => 'DataSetIds',
+        'startTime'  => 'StartTime',
     ];
 
     public function validate()
@@ -65,8 +65,8 @@ class dialogueParam extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->dataSetIds) {
+            $res['DataSetIds'] = $this->dataSetIds;
         }
         if (null !== $this->dialogueId) {
             $res['DialogueId'] = $this->dialogueId;
@@ -74,8 +74,11 @@ class dialogueParam extends Model
         if (null !== $this->endIndex) {
             $res['EndIndex'] = $this->endIndex;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
@@ -83,11 +86,8 @@ class dialogueParam extends Model
         if (null !== $this->startIndex) {
             $res['StartIndex'] = $this->startIndex;
         }
-        if (null !== $this->role) {
-            $res['Role'] = $this->role;
-        }
-        if (null !== $this->dataSetIds) {
-            $res['DataSetIds'] = $this->dataSetIds;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -101,8 +101,8 @@ class dialogueParam extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['DataSetIds'])) {
+            $model->dataSetIds = $map['DataSetIds'];
         }
         if (isset($map['DialogueId'])) {
             $model->dialogueId = $map['DialogueId'];
@@ -110,8 +110,11 @@ class dialogueParam extends Model
         if (isset($map['EndIndex'])) {
             $model->endIndex = $map['EndIndex'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
@@ -119,11 +122,8 @@ class dialogueParam extends Model
         if (isset($map['StartIndex'])) {
             $model->startIndex = $map['StartIndex'];
         }
-        if (isset($map['Role'])) {
-            $model->role = $map['Role'];
-        }
-        if (isset($map['DataSetIds'])) {
-            $model->dataSetIds = $map['DataSetIds'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

@@ -21,19 +21,19 @@ class conditionBasicInfo extends Model
     public $cid;
 
     /**
-     * @var operators
-     */
-    public $operators;
-
-    /**
      * @var string
      */
     public $lambda;
+
+    /**
+     * @var operators
+     */
+    public $operators;
     protected $_name = [
         'checkRange' => 'CheckRange',
         'cid'        => 'Cid',
-        'operators'  => 'Operators',
         'lambda'     => 'Lambda',
+        'operators'  => 'Operators',
     ];
 
     public function validate()
@@ -49,11 +49,11 @@ class conditionBasicInfo extends Model
         if (null !== $this->cid) {
             $res['Cid'] = $this->cid;
         }
-        if (null !== $this->operators) {
-            $res['Operators'] = null !== $this->operators ? $this->operators->toMap() : null;
-        }
         if (null !== $this->lambda) {
             $res['Lambda'] = $this->lambda;
+        }
+        if (null !== $this->operators) {
+            $res['Operators'] = null !== $this->operators ? $this->operators->toMap() : null;
         }
 
         return $res;
@@ -73,11 +73,11 @@ class conditionBasicInfo extends Model
         if (isset($map['Cid'])) {
             $model->cid = $map['Cid'];
         }
-        if (isset($map['Operators'])) {
-            $model->operators = operators::fromMap($map['Operators']);
-        }
         if (isset($map['Lambda'])) {
             $model->lambda = $map['Lambda'];
+        }
+        if (isset($map['Operators'])) {
+            $model->operators = operators::fromMap($map['Operators']);
         }
 
         return $model;

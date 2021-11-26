@@ -15,18 +15,18 @@ class thesaurusPo extends Model
     public $business;
 
     /**
-     * @var synonymList
-     */
-    public $synonymList;
-
-    /**
      * @var int
      */
     public $id;
+
+    /**
+     * @var synonymList
+     */
+    public $synonymList;
     protected $_name = [
         'business'    => 'Business',
-        'synonymList' => 'SynonymList',
         'id'          => 'Id',
+        'synonymList' => 'SynonymList',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class thesaurusPo extends Model
         if (null !== $this->business) {
             $res['Business'] = $this->business;
         }
-        if (null !== $this->synonymList) {
-            $res['SynonymList'] = null !== $this->synonymList ? $this->synonymList->toMap() : null;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->synonymList) {
+            $res['SynonymList'] = null !== $this->synonymList ? $this->synonymList->toMap() : null;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class thesaurusPo extends Model
         if (isset($map['Business'])) {
             $model->business = $map['Business'];
         }
-        if (isset($map['SynonymList'])) {
-            $model->synonymList = synonymList::fromMap($map['SynonymList']);
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['SynonymList'])) {
+            $model->synonymList = synonymList::fromMap($map['SynonymList']);
         }
 
         return $model;

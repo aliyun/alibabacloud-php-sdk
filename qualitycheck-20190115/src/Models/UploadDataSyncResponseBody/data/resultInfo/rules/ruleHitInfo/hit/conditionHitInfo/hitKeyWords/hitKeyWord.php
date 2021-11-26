@@ -14,9 +14,9 @@ class hitKeyWord extends Model
     public $from;
 
     /**
-     * @var string
+     * @var int
      */
-    public $val;
+    public $pid;
 
     /**
      * @var string
@@ -26,18 +26,18 @@ class hitKeyWord extends Model
     /**
      * @var int
      */
-    public $pid;
+    public $to;
 
     /**
-     * @var int
+     * @var string
      */
-    public $to;
+    public $val;
     protected $_name = [
         'from' => 'From',
-        'val'  => 'Val',
-        'tid'  => 'Tid',
         'pid'  => 'Pid',
+        'tid'  => 'Tid',
         'to'   => 'To',
+        'val'  => 'Val',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class hitKeyWord extends Model
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
-        if (null !== $this->val) {
-            $res['Val'] = $this->val;
+        if (null !== $this->pid) {
+            $res['Pid'] = $this->pid;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
-        if (null !== $this->pid) {
-            $res['Pid'] = $this->pid;
-        }
         if (null !== $this->to) {
             $res['To'] = $this->to;
+        }
+        if (null !== $this->val) {
+            $res['Val'] = $this->val;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class hitKeyWord extends Model
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
-        if (isset($map['Val'])) {
-            $model->val = $map['Val'];
+        if (isset($map['Pid'])) {
+            $model->pid = $map['Pid'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }
-        if (isset($map['Pid'])) {
-            $model->pid = $map['Pid'];
-        }
         if (isset($map['To'])) {
             $model->to = $map['To'];
+        }
+        if (isset($map['Val'])) {
+            $model->val = $map['Val'];
         }
 
         return $model;

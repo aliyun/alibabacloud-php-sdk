@@ -9,24 +9,9 @@ use AlibabaCloud\Tea\Model;
 class phrase extends Model
 {
     /**
-     * @var string
-     */
-    public $words;
-
-    /**
      * @var int
      */
     public $begin;
-
-    /**
-     * @var string
-     */
-    public $identity;
-
-    /**
-     * @var int
-     */
-    public $pid;
 
     /**
      * @var int
@@ -41,15 +26,30 @@ class phrase extends Model
     /**
      * @var string
      */
+    public $identity;
+
+    /**
+     * @var int
+     */
+    public $pid;
+
+    /**
+     * @var string
+     */
     public $role;
+
+    /**
+     * @var string
+     */
+    public $words;
     protected $_name = [
-        'words'        => 'Words',
         'begin'        => 'Begin',
-        'identity'     => 'Identity',
-        'pid'          => 'Pid',
         'emotionValue' => 'EmotionValue',
         'end'          => 'End',
+        'identity'     => 'Identity',
+        'pid'          => 'Pid',
         'role'         => 'Role',
+        'words'        => 'Words',
     ];
 
     public function validate()
@@ -59,17 +59,8 @@ class phrase extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->words) {
-            $res['Words'] = $this->words;
-        }
         if (null !== $this->begin) {
             $res['Begin'] = $this->begin;
-        }
-        if (null !== $this->identity) {
-            $res['Identity'] = $this->identity;
-        }
-        if (null !== $this->pid) {
-            $res['Pid'] = $this->pid;
         }
         if (null !== $this->emotionValue) {
             $res['EmotionValue'] = $this->emotionValue;
@@ -77,8 +68,17 @@ class phrase extends Model
         if (null !== $this->end) {
             $res['End'] = $this->end;
         }
+        if (null !== $this->identity) {
+            $res['Identity'] = $this->identity;
+        }
+        if (null !== $this->pid) {
+            $res['Pid'] = $this->pid;
+        }
         if (null !== $this->role) {
             $res['Role'] = $this->role;
+        }
+        if (null !== $this->words) {
+            $res['Words'] = $this->words;
         }
 
         return $res;
@@ -92,17 +92,8 @@ class phrase extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Words'])) {
-            $model->words = $map['Words'];
-        }
         if (isset($map['Begin'])) {
             $model->begin = $map['Begin'];
-        }
-        if (isset($map['Identity'])) {
-            $model->identity = $map['Identity'];
-        }
-        if (isset($map['Pid'])) {
-            $model->pid = $map['Pid'];
         }
         if (isset($map['EmotionValue'])) {
             $model->emotionValue = $map['EmotionValue'];
@@ -110,8 +101,17 @@ class phrase extends Model
         if (isset($map['End'])) {
             $model->end = $map['End'];
         }
+        if (isset($map['Identity'])) {
+            $model->identity = $map['Identity'];
+        }
+        if (isset($map['Pid'])) {
+            $model->pid = $map['Pid'];
+        }
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
+        }
+        if (isset($map['Words'])) {
+            $model->words = $map['Words'];
         }
 
         return $model;

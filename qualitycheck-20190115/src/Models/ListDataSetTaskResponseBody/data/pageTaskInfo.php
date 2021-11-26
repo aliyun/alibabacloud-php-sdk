@@ -13,27 +13,7 @@ class pageTaskInfo extends Model
     /**
      * @var int
      */
-    public $status;
-
-    /**
-     * @var bool
-     */
-    public $isTaskComplete;
-
-    /**
-     * @var ruleNameInfoList
-     */
-    public $ruleNameInfoList;
-
-    /**
-     * @var float
-     */
-    public $scheduleRatio;
-
-    /**
-     * @var bool
-     */
-    public $taskComplete;
+    public $dataSetSize;
 
     /**
      * @var dataSets
@@ -41,14 +21,9 @@ class pageTaskInfo extends Model
     public $dataSets;
 
     /**
-     * @var int
+     * @var bool
      */
-    public $dataSetSize;
-
-    /**
-     * @var int
-     */
-    public $ruleSize;
+    public $isTaskComplete;
 
     /**
      * @var string
@@ -56,19 +31,44 @@ class pageTaskInfo extends Model
     public $jobName;
 
     /**
+     * @var ruleNameInfoList
+     */
+    public $ruleNameInfoList;
+
+    /**
+     * @var int
+     */
+    public $ruleSize;
+
+    /**
+     * @var float
+     */
+    public $scheduleRatio;
+
+    /**
+     * @var int
+     */
+    public $status;
+
+    /**
+     * @var bool
+     */
+    public $taskComplete;
+
+    /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'status'           => 'Status',
-        'isTaskComplete'   => 'IsTaskComplete',
-        'ruleNameInfoList' => 'RuleNameInfoList',
-        'scheduleRatio'    => 'ScheduleRatio',
-        'taskComplete'     => 'TaskComplete',
-        'dataSets'         => 'DataSets',
         'dataSetSize'      => 'DataSetSize',
-        'ruleSize'         => 'RuleSize',
+        'dataSets'         => 'DataSets',
+        'isTaskComplete'   => 'IsTaskComplete',
         'jobName'          => 'JobName',
+        'ruleNameInfoList' => 'RuleNameInfoList',
+        'ruleSize'         => 'RuleSize',
+        'scheduleRatio'    => 'ScheduleRatio',
+        'status'           => 'Status',
+        'taskComplete'     => 'TaskComplete',
         'taskId'           => 'TaskId',
     ];
 
@@ -79,32 +79,32 @@ class pageTaskInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->isTaskComplete) {
-            $res['IsTaskComplete'] = $this->isTaskComplete;
-        }
-        if (null !== $this->ruleNameInfoList) {
-            $res['RuleNameInfoList'] = null !== $this->ruleNameInfoList ? $this->ruleNameInfoList->toMap() : null;
-        }
-        if (null !== $this->scheduleRatio) {
-            $res['ScheduleRatio'] = $this->scheduleRatio;
-        }
-        if (null !== $this->taskComplete) {
-            $res['TaskComplete'] = $this->taskComplete;
+        if (null !== $this->dataSetSize) {
+            $res['DataSetSize'] = $this->dataSetSize;
         }
         if (null !== $this->dataSets) {
             $res['DataSets'] = null !== $this->dataSets ? $this->dataSets->toMap() : null;
         }
-        if (null !== $this->dataSetSize) {
-            $res['DataSetSize'] = $this->dataSetSize;
+        if (null !== $this->isTaskComplete) {
+            $res['IsTaskComplete'] = $this->isTaskComplete;
+        }
+        if (null !== $this->jobName) {
+            $res['JobName'] = $this->jobName;
+        }
+        if (null !== $this->ruleNameInfoList) {
+            $res['RuleNameInfoList'] = null !== $this->ruleNameInfoList ? $this->ruleNameInfoList->toMap() : null;
         }
         if (null !== $this->ruleSize) {
             $res['RuleSize'] = $this->ruleSize;
         }
-        if (null !== $this->jobName) {
-            $res['JobName'] = $this->jobName;
+        if (null !== $this->scheduleRatio) {
+            $res['ScheduleRatio'] = $this->scheduleRatio;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->taskComplete) {
+            $res['TaskComplete'] = $this->taskComplete;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -121,32 +121,32 @@ class pageTaskInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['IsTaskComplete'])) {
-            $model->isTaskComplete = $map['IsTaskComplete'];
-        }
-        if (isset($map['RuleNameInfoList'])) {
-            $model->ruleNameInfoList = ruleNameInfoList::fromMap($map['RuleNameInfoList']);
-        }
-        if (isset($map['ScheduleRatio'])) {
-            $model->scheduleRatio = $map['ScheduleRatio'];
-        }
-        if (isset($map['TaskComplete'])) {
-            $model->taskComplete = $map['TaskComplete'];
+        if (isset($map['DataSetSize'])) {
+            $model->dataSetSize = $map['DataSetSize'];
         }
         if (isset($map['DataSets'])) {
             $model->dataSets = dataSets::fromMap($map['DataSets']);
         }
-        if (isset($map['DataSetSize'])) {
-            $model->dataSetSize = $map['DataSetSize'];
+        if (isset($map['IsTaskComplete'])) {
+            $model->isTaskComplete = $map['IsTaskComplete'];
+        }
+        if (isset($map['JobName'])) {
+            $model->jobName = $map['JobName'];
+        }
+        if (isset($map['RuleNameInfoList'])) {
+            $model->ruleNameInfoList = ruleNameInfoList::fromMap($map['RuleNameInfoList']);
         }
         if (isset($map['RuleSize'])) {
             $model->ruleSize = $map['RuleSize'];
         }
-        if (isset($map['JobName'])) {
-            $model->jobName = $map['JobName'];
+        if (isset($map['ScheduleRatio'])) {
+            $model->scheduleRatio = $map['ScheduleRatio'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['TaskComplete'])) {
+            $model->taskComplete = $map['TaskComplete'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

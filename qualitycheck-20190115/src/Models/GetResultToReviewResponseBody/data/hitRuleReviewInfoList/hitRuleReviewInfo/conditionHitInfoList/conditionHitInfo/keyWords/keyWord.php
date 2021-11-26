@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class keyWord extends Model
 {
     /**
+     * @var string
+     */
+    public $cid;
+
+    /**
      * @var int
      */
     public $from;
-
-    /**
-     * @var string
-     */
-    public $val;
 
     /**
      * @var int
@@ -29,21 +29,21 @@ class keyWord extends Model
     public $tid;
 
     /**
-     * @var string
-     */
-    public $cid;
-
-    /**
      * @var int
      */
     public $to;
+
+    /**
+     * @var string
+     */
+    public $val;
     protected $_name = [
+        'cid'  => 'Cid',
         'from' => 'From',
-        'val'  => 'Val',
         'pid'  => 'Pid',
         'tid'  => 'Tid',
-        'cid'  => 'Cid',
         'to'   => 'To',
+        'val'  => 'Val',
     ];
 
     public function validate()
@@ -53,11 +53,11 @@ class keyWord extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cid) {
+            $res['Cid'] = $this->cid;
+        }
         if (null !== $this->from) {
             $res['From'] = $this->from;
-        }
-        if (null !== $this->val) {
-            $res['Val'] = $this->val;
         }
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
@@ -65,11 +65,11 @@ class keyWord extends Model
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
-        if (null !== $this->cid) {
-            $res['Cid'] = $this->cid;
-        }
         if (null !== $this->to) {
             $res['To'] = $this->to;
+        }
+        if (null !== $this->val) {
+            $res['Val'] = $this->val;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class keyWord extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Cid'])) {
+            $model->cid = $map['Cid'];
+        }
         if (isset($map['From'])) {
             $model->from = $map['From'];
-        }
-        if (isset($map['Val'])) {
-            $model->val = $map['Val'];
         }
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];
@@ -95,11 +95,11 @@ class keyWord extends Model
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }
-        if (isset($map['Cid'])) {
-            $model->cid = $map['Cid'];
-        }
         if (isset($map['To'])) {
             $model->to = $map['To'];
+        }
+        if (isset($map['Val'])) {
+            $model->val = $map['Val'];
         }
 
         return $model;
