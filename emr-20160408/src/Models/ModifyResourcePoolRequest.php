@@ -10,6 +10,31 @@ use AlibabaCloud\Tea\Model;
 class ModifyResourcePoolRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $active;
+
+    /**
+     * @var string
+     */
+    public $clusterId;
+
+    /**
+     * @var config[]
+     */
+    public $config;
+
+    /**
+     * @var string
+     */
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -22,41 +47,16 @@ class ModifyResourcePoolRequest extends Model
     /**
      * @var string
      */
-    public $id;
-
-    /**
-     * @var bool
-     */
-    public $active;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $clusterId;
-
-    /**
-     * @var string
-     */
     public $yarnsiteconfig;
-
-    /**
-     * @var config[]
-     */
-    public $config;
     protected $_name = [
+        'active'          => 'Active',
+        'clusterId'       => 'ClusterId',
+        'config'          => 'Config',
+        'id'              => 'Id',
+        'name'            => 'Name',
         'regionId'        => 'RegionId',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'id'              => 'Id',
-        'active'          => 'Active',
-        'name'            => 'Name',
-        'clusterId'       => 'ClusterId',
         'yarnsiteconfig'  => 'Yarnsiteconfig',
-        'config'          => 'Config',
     ];
 
     public function validate()
@@ -66,26 +66,11 @@ class ModifyResourcePoolRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
         if (null !== $this->active) {
             $res['Active'] = $this->active;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
-        }
-        if (null !== $this->yarnsiteconfig) {
-            $res['Yarnsiteconfig'] = $this->yarnsiteconfig;
         }
         if (null !== $this->config) {
             $res['Config'] = [];
@@ -95,6 +80,21 @@ class ModifyResourcePoolRequest extends Model
                     $res['Config'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->yarnsiteconfig) {
+            $res['Yarnsiteconfig'] = $this->yarnsiteconfig;
         }
 
         return $res;
@@ -108,26 +108,11 @@ class ModifyResourcePoolRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
         if (isset($map['Active'])) {
             $model->active = $map['Active'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
-        }
-        if (isset($map['Yarnsiteconfig'])) {
-            $model->yarnsiteconfig = $map['Yarnsiteconfig'];
         }
         if (isset($map['Config'])) {
             if (!empty($map['Config'])) {
@@ -137,6 +122,21 @@ class ModifyResourcePoolRequest extends Model
                     $model->config[$n++] = null !== $item ? config::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Yarnsiteconfig'])) {
+            $model->yarnsiteconfig = $map['Yarnsiteconfig'];
         }
 
         return $model;

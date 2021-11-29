@@ -11,37 +11,12 @@ class category extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $parentId;
-
-    /**
-     * @var string
-     */
-    public $objectType;
-
-    /**
-     * @var string
-     */
-    public $projectId;
-
-    /**
-     * @var string
-     */
-    public $objectId;
+    public $categoryType;
 
     /**
      * @var int
      */
     public $gmtCreate;
-
-    /**
-     * @var string
-     */
-    public $name;
 
     /**
      * @var int
@@ -51,23 +26,48 @@ class category extends Model
     /**
      * @var string
      */
-    public $categoryType;
+    public $id;
 
     /**
      * @var string
      */
-    public $id;
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $objectId;
+
+    /**
+     * @var string
+     */
+    public $objectType;
+
+    /**
+     * @var string
+     */
+    public $parentId;
+
+    /**
+     * @var string
+     */
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'         => 'Type',
-        'parentId'     => 'ParentId',
-        'objectType'   => 'ObjectType',
-        'projectId'    => 'ProjectId',
-        'objectId'     => 'ObjectId',
-        'gmtCreate'    => 'GmtCreate',
-        'name'         => 'Name',
-        'gmtModified'  => 'GmtModified',
         'categoryType' => 'CategoryType',
+        'gmtCreate'    => 'GmtCreate',
+        'gmtModified'  => 'GmtModified',
         'id'           => 'Id',
+        'name'         => 'Name',
+        'objectId'     => 'ObjectId',
+        'objectType'   => 'ObjectType',
+        'parentId'     => 'ParentId',
+        'projectId'    => 'ProjectId',
+        'type'         => 'Type',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class category extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->parentId) {
-            $res['ParentId'] = $this->parentId;
-        }
-        if (null !== $this->objectType) {
-            $res['ObjectType'] = $this->objectType;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->objectId) {
-            $res['ObjectId'] = $this->objectId;
+        if (null !== $this->categoryType) {
+            $res['CategoryType'] = $this->categoryType;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
-        if (null !== $this->categoryType) {
-            $res['CategoryType'] = $this->categoryType;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->objectId) {
+            $res['ObjectId'] = $this->objectId;
+        }
+        if (null !== $this->objectType) {
+            $res['ObjectType'] = $this->objectType;
+        }
+        if (null !== $this->parentId) {
+            $res['ParentId'] = $this->parentId;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -119,35 +119,35 @@ class category extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['ParentId'])) {
-            $model->parentId = $map['ParentId'];
-        }
-        if (isset($map['ObjectType'])) {
-            $model->objectType = $map['ObjectType'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['ObjectId'])) {
-            $model->objectId = $map['ObjectId'];
+        if (isset($map['CategoryType'])) {
+            $model->categoryType = $map['CategoryType'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
-        if (isset($map['CategoryType'])) {
-            $model->categoryType = $map['CategoryType'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['ObjectId'])) {
+            $model->objectId = $map['ObjectId'];
+        }
+        if (isset($map['ObjectType'])) {
+            $model->objectType = $map['ObjectType'];
+        }
+        if (isset($map['ParentId'])) {
+            $model->parentId = $map['ParentId'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

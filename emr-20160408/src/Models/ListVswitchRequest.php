@@ -11,6 +11,16 @@ class ListVswitchRequest extends Model
     /**
      * @var string
      */
+    public $depositType;
+
+    /**
+     * @var string
+     */
+    public $productType;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -22,22 +32,12 @@ class ListVswitchRequest extends Model
      * @var string
      */
     public $zoneId;
-
-    /**
-     * @var string
-     */
-    public $depositType;
-
-    /**
-     * @var string
-     */
-    public $productType;
     protected $_name = [
+        'depositType' => 'DepositType',
+        'productType' => 'ProductType',
         'regionId'    => 'RegionId',
         'vpcId'       => 'VpcId',
         'zoneId'      => 'ZoneId',
-        'depositType' => 'DepositType',
-        'productType' => 'ProductType',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class ListVswitchRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->depositType) {
+            $res['DepositType'] = $this->depositType;
+        }
+        if (null !== $this->productType) {
+            $res['ProductType'] = $this->productType;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -55,12 +61,6 @@ class ListVswitchRequest extends Model
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->depositType) {
-            $res['DepositType'] = $this->depositType;
-        }
-        if (null !== $this->productType) {
-            $res['ProductType'] = $this->productType;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class ListVswitchRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DepositType'])) {
+            $model->depositType = $map['DepositType'];
+        }
+        if (isset($map['ProductType'])) {
+            $model->productType = $map['ProductType'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -82,12 +88,6 @@ class ListVswitchRequest extends Model
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['DepositType'])) {
-            $model->depositType = $map['DepositType'];
-        }
-        if (isset($map['ProductType'])) {
-            $model->productType = $map['ProductType'];
         }
 
         return $model;

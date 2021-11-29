@@ -11,22 +11,12 @@ class CreateBackupPlanResponseBody extends Model
     /**
      * @var string
      */
-    public $rootPath;
+    public $clusterId;
 
     /**
      * @var string
      */
     public $description;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $clusterId;
 
     /**
      * @var string
@@ -37,13 +27,23 @@ class CreateBackupPlanResponseBody extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $rootPath;
     protected $_name = [
-        'rootPath'    => 'RootPath',
-        'description' => 'Description',
-        'requestId'   => 'RequestId',
         'clusterId'   => 'ClusterId',
+        'description' => 'Description',
         'id'          => 'Id',
         'name'        => 'Name',
+        'requestId'   => 'RequestId',
+        'rootPath'    => 'RootPath',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class CreateBackupPlanResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->rootPath) {
-            $res['RootPath'] = $this->rootPath;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->rootPath) {
+            $res['RootPath'] = $this->rootPath;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class CreateBackupPlanResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RootPath'])) {
-            $model->rootPath = $map['RootPath'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['RootPath'])) {
+            $model->rootPath = $map['RootPath'];
         }
 
         return $model;

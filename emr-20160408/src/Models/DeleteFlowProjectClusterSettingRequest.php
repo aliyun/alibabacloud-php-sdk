@@ -11,7 +11,7 @@ class DeleteFlowProjectClusterSettingRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $clusterId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class DeleteFlowProjectClusterSettingRequest extends Model
     /**
      * @var string
      */
-    public $clusterId;
+    public $regionId;
     protected $_name = [
-        'regionId'  => 'RegionId',
-        'projectId' => 'ProjectId',
         'clusterId' => 'ClusterId',
+        'projectId' => 'ProjectId',
+        'regionId'  => 'RegionId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteFlowProjectClusterSettingRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DeleteFlowProjectClusterSettingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -16,12 +16,17 @@ class DescribeJobResponseBody extends Model
     /**
      * @var string
      */
-    public $type;
+    public $id;
+
+    /**
+     * @var int
+     */
+    public $maxRetry;
 
     /**
      * @var string
      */
-    public $runParameter;
+    public $name;
 
     /**
      * @var string
@@ -36,26 +41,21 @@ class DescribeJobResponseBody extends Model
     /**
      * @var string
      */
-    public $id;
-
-    /**
-     * @var int
-     */
-    public $maxRetry;
+    public $runParameter;
 
     /**
      * @var string
      */
-    public $name;
+    public $type;
     protected $_name = [
         'failAct'       => 'FailAct',
-        'type'          => 'Type',
-        'runParameter'  => 'RunParameter',
-        'requestId'     => 'RequestId',
-        'retryInterval' => 'RetryInterval',
         'id'            => 'Id',
         'maxRetry'      => 'MaxRetry',
         'name'          => 'Name',
+        'requestId'     => 'RequestId',
+        'retryInterval' => 'RetryInterval',
+        'runParameter'  => 'RunParameter',
+        'type'          => 'Type',
     ];
 
     public function validate()
@@ -68,18 +68,6 @@ class DescribeJobResponseBody extends Model
         if (null !== $this->failAct) {
             $res['FailAct'] = $this->failAct;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->runParameter) {
-            $res['RunParameter'] = $this->runParameter;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->retryInterval) {
-            $res['RetryInterval'] = $this->retryInterval;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -88,6 +76,18 @@ class DescribeJobResponseBody extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->retryInterval) {
+            $res['RetryInterval'] = $this->retryInterval;
+        }
+        if (null !== $this->runParameter) {
+            $res['RunParameter'] = $this->runParameter;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -104,18 +104,6 @@ class DescribeJobResponseBody extends Model
         if (isset($map['FailAct'])) {
             $model->failAct = $map['FailAct'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['RunParameter'])) {
-            $model->runParameter = $map['RunParameter'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['RetryInterval'])) {
-            $model->retryInterval = $map['RetryInterval'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
@@ -124,6 +112,18 @@ class DescribeJobResponseBody extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['RetryInterval'])) {
+            $model->retryInterval = $map['RetryInterval'];
+        }
+        if (isset($map['RunParameter'])) {
+            $model->runParameter = $map['RunParameter'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

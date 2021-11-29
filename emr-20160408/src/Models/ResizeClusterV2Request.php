@@ -12,16 +12,6 @@ use AlibabaCloud\Tea\Model;
 class ResizeClusterV2Request extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $clusterId;
-
-    /**
      * @var bool
      */
     public $autoPayOrder;
@@ -29,12 +19,7 @@ class ResizeClusterV2Request extends Model
     /**
      * @var string
      */
-    public $vswitchId;
-
-    /**
-     * @var bool
-     */
-    public $isOpenPublicIp;
+    public $clusterId;
 
     /**
      * @var hostComponentInfo[]
@@ -47,18 +32,33 @@ class ResizeClusterV2Request extends Model
     public $hostGroup;
 
     /**
+     * @var bool
+     */
+    public $isOpenPublicIp;
+
+    /**
      * @var promotionInfo[]
      */
     public $promotionInfo;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $vswitchId;
     protected $_name = [
-        'regionId'          => 'RegionId',
-        'clusterId'         => 'ClusterId',
         'autoPayOrder'      => 'AutoPayOrder',
-        'vswitchId'         => 'VswitchId',
-        'isOpenPublicIp'    => 'IsOpenPublicIp',
+        'clusterId'         => 'ClusterId',
         'hostComponentInfo' => 'HostComponentInfo',
         'hostGroup'         => 'HostGroup',
+        'isOpenPublicIp'    => 'IsOpenPublicIp',
         'promotionInfo'     => 'PromotionInfo',
+        'regionId'          => 'RegionId',
+        'vswitchId'         => 'VswitchId',
     ];
 
     public function validate()
@@ -68,20 +68,11 @@ class ResizeClusterV2Request extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
         if (null !== $this->autoPayOrder) {
             $res['AutoPayOrder'] = $this->autoPayOrder;
         }
-        if (null !== $this->vswitchId) {
-            $res['VswitchId'] = $this->vswitchId;
-        }
-        if (null !== $this->isOpenPublicIp) {
-            $res['IsOpenPublicIp'] = $this->isOpenPublicIp;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->hostComponentInfo) {
             $res['HostComponentInfo'] = [];
@@ -101,6 +92,9 @@ class ResizeClusterV2Request extends Model
                 }
             }
         }
+        if (null !== $this->isOpenPublicIp) {
+            $res['IsOpenPublicIp'] = $this->isOpenPublicIp;
+        }
         if (null !== $this->promotionInfo) {
             $res['PromotionInfo'] = [];
             if (null !== $this->promotionInfo && \is_array($this->promotionInfo)) {
@@ -109,6 +103,12 @@ class ResizeClusterV2Request extends Model
                     $res['PromotionInfo'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->vswitchId) {
+            $res['VswitchId'] = $this->vswitchId;
         }
 
         return $res;
@@ -122,20 +122,11 @@ class ResizeClusterV2Request extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
         if (isset($map['AutoPayOrder'])) {
             $model->autoPayOrder = $map['AutoPayOrder'];
         }
-        if (isset($map['VswitchId'])) {
-            $model->vswitchId = $map['VswitchId'];
-        }
-        if (isset($map['IsOpenPublicIp'])) {
-            $model->isOpenPublicIp = $map['IsOpenPublicIp'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['HostComponentInfo'])) {
             if (!empty($map['HostComponentInfo'])) {
@@ -155,6 +146,9 @@ class ResizeClusterV2Request extends Model
                 }
             }
         }
+        if (isset($map['IsOpenPublicIp'])) {
+            $model->isOpenPublicIp = $map['IsOpenPublicIp'];
+        }
         if (isset($map['PromotionInfo'])) {
             if (!empty($map['PromotionInfo'])) {
                 $model->promotionInfo = [];
@@ -163,6 +157,12 @@ class ResizeClusterV2Request extends Model
                     $model->promotionInfo[$n++] = null !== $item ? promotionInfo::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['VswitchId'])) {
+            $model->vswitchId = $map['VswitchId'];
         }
 
         return $model;

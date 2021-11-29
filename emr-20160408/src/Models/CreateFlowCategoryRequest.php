@@ -11,7 +11,12 @@ class CreateFlowCategoryRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $parentId;
 
     /**
      * @var string
@@ -21,23 +26,18 @@ class CreateFlowCategoryRequest extends Model
     /**
      * @var string
      */
-    public $name;
+    public $regionId;
 
     /**
      * @var string
      */
     public $type;
-
-    /**
-     * @var string
-     */
-    public $parentId;
     protected $_name = [
-        'regionId'  => 'RegionId',
-        'projectId' => 'ProjectId',
         'name'      => 'Name',
-        'type'      => 'Type',
         'parentId'  => 'ParentId',
+        'projectId' => 'ProjectId',
+        'regionId'  => 'RegionId',
+        'type'      => 'Type',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class CreateFlowCategoryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->parentId) {
+            $res['ParentId'] = $this->parentId;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->parentId) {
-            $res['ParentId'] = $this->parentId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class CreateFlowCategoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['ParentId'])) {
+            $model->parentId = $map['ParentId'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-        if (isset($map['ParentId'])) {
-            $model->parentId = $map['ParentId'];
         }
 
         return $model;

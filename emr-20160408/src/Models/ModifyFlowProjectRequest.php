@@ -11,12 +11,7 @@ class ModifyFlowProjectRequest extends Model
     /**
      * @var string
      */
-    public $projectId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $description;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class ModifyFlowProjectRequest extends Model
     /**
      * @var string
      */
-    public $description;
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
+        'description' => 'Description',
+        'name'        => 'Name',
         'projectId'   => 'ProjectId',
         'regionId'    => 'RegionId',
-        'name'        => 'Name',
-        'description' => 'Description',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ModifyFlowProjectRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ModifyFlowProjectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
         }
 
         return $model;

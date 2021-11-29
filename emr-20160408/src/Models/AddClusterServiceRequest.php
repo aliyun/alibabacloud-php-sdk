@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class AddClusterServiceRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
      * @var string
      */
-    public $regionId;
+    public $clusterId;
 
     /**
      * @var string
@@ -27,17 +22,22 @@ class AddClusterServiceRequest extends Model
     /**
      * @var string
      */
-    public $clusterId;
+    public $regionId;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var service[]
      */
     public $service;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'regionId'        => 'RegionId',
-        'comment'         => 'Comment',
         'clusterId'       => 'ClusterId',
+        'comment'         => 'Comment',
+        'regionId'        => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'service'         => 'Service',
     ];
 
@@ -48,17 +48,17 @@ class AddClusterServiceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->service) {
             $res['Service'] = [];
@@ -81,17 +81,17 @@ class AddClusterServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['Service'])) {
             if (!empty($map['Service'])) {

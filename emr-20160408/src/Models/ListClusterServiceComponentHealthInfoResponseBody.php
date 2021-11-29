@@ -12,21 +12,21 @@ class ListClusterServiceComponentHealthInfoResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $clusterId;
 
     /**
      * @var healthInfoList
      */
     public $healthInfoList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'      => 'RequestId',
         'clusterId'      => 'ClusterId',
         'healthInfoList' => 'HealthInfoList',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class ListClusterServiceComponentHealthInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->healthInfoList) {
             $res['HealthInfoList'] = null !== $this->healthInfoList ? $this->healthInfoList->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class ListClusterServiceComponentHealthInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['HealthInfoList'])) {
             $model->healthInfoList = healthInfoList::fromMap($map['HealthInfoList']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

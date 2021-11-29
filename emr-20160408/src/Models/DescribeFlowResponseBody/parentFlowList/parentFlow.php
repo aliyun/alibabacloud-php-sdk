@@ -11,12 +11,7 @@ class parentFlow extends Model
     /**
      * @var string
      */
-    public $projectName;
-
-    /**
-     * @var string
-     */
-    public $projectId;
+    public $parentFlowId;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class parentFlow extends Model
     /**
      * @var string
      */
-    public $parentFlowId;
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $projectName;
     protected $_name = [
-        'projectName'    => 'ProjectName',
-        'projectId'      => 'ProjectId',
-        'parentFlowName' => 'ParentFlowName',
         'parentFlowId'   => 'ParentFlowId',
+        'parentFlowName' => 'ParentFlowName',
+        'projectId'      => 'ProjectId',
+        'projectName'    => 'ProjectName',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class parentFlow extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
+        if (null !== $this->parentFlowId) {
+            $res['ParentFlowId'] = $this->parentFlowId;
         }
         if (null !== $this->parentFlowName) {
             $res['ParentFlowName'] = $this->parentFlowName;
         }
-        if (null !== $this->parentFlowId) {
-            $res['ParentFlowId'] = $this->parentFlowId;
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class parentFlow extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
+        if (isset($map['ParentFlowId'])) {
+            $model->parentFlowId = $map['ParentFlowId'];
         }
         if (isset($map['ParentFlowName'])) {
             $model->parentFlowName = $map['ParentFlowName'];
         }
-        if (isset($map['ParentFlowId'])) {
-            $model->parentFlowId = $map['ParentFlowId'];
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
         }
 
         return $model;

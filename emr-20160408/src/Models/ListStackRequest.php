@@ -11,12 +11,22 @@ class ListStackRequest extends Model
     /**
      * @var int
      */
-    public $resourceOwnerId;
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var string
@@ -27,23 +37,13 @@ class ListStackRequest extends Model
      * @var string
      */
     public $stackVersion;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'regionId'        => 'RegionId',
-        'stackName'       => 'StackName',
-        'stackVersion'    => 'StackVersion',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
+        'regionId'        => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'stackName'       => 'StackName',
+        'stackVersion'    => 'StackVersion',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class ListStackRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->stackName) {
             $res['StackName'] = $this->stackName;
         }
         if (null !== $this->stackVersion) {
             $res['StackVersion'] = $this->stackVersion;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class ListStackRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['StackName'])) {
             $model->stackName = $map['StackName'];
         }
         if (isset($map['StackVersion'])) {
             $model->stackVersion = $map['StackVersion'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

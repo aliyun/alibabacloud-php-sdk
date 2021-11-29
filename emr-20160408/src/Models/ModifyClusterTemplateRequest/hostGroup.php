@@ -9,14 +9,19 @@ use AlibabaCloud\Tea\Model;
 class hostGroup extends Model
 {
     /**
-     * @var int
+     * @var bool
      */
-    public $sysDiskCapacity;
+    public $autoRenew;
 
     /**
      * @var string
      */
-    public $hostGroupType;
+    public $chargeType;
+
+    /**
+     * @var string
+     */
+    public $clusterId;
 
     /**
      * @var string
@@ -26,22 +31,17 @@ class hostGroup extends Model
     /**
      * @var string
      */
-    public $multiInstanceTypes;
+    public $createType;
 
     /**
-     * @var string
+     * @var int
      */
-    public $sysDiskType;
+    public $diskCapacity;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $autoRenew;
-
-    /**
-     * @var string
-     */
-    public $chargeType;
+    public $diskCount;
 
     /**
      * @var string
@@ -56,17 +56,27 @@ class hostGroup extends Model
     /**
      * @var string
      */
-    public $instanceType;
-
-    /**
-     * @var int
-     */
-    public $diskCount;
+    public $hostGroupName;
 
     /**
      * @var string
      */
-    public $createType;
+    public $hostGroupType;
+
+    /**
+     * @var string
+     */
+    public $instanceType;
+
+    /**
+     * @var string
+     */
+    public $multiInstanceTypes;
+
+    /**
+     * @var int
+     */
+    public $nodeCount;
 
     /**
      * @var int
@@ -76,46 +86,36 @@ class hostGroup extends Model
     /**
      * @var int
      */
-    public $diskCapacity;
+    public $sysDiskCapacity;
+
+    /**
+     * @var string
+     */
+    public $sysDiskType;
 
     /**
      * @var string
      */
     public $vSwitchId;
-
-    /**
-     * @var int
-     */
-    public $nodeCount;
-
-    /**
-     * @var string
-     */
-    public $hostGroupName;
-
-    /**
-     * @var string
-     */
-    public $clusterId;
     protected $_name = [
-        'sysDiskCapacity'    => 'SysDiskCapacity',
-        'hostGroupType'      => 'HostGroupType',
-        'comment'            => 'Comment',
-        'multiInstanceTypes' => 'MultiInstanceTypes',
-        'sysDiskType'        => 'SysDiskType',
         'autoRenew'          => 'AutoRenew',
         'chargeType'         => 'ChargeType',
+        'clusterId'          => 'ClusterId',
+        'comment'            => 'Comment',
+        'createType'         => 'CreateType',
+        'diskCapacity'       => 'DiskCapacity',
+        'diskCount'          => 'DiskCount',
         'diskType'           => 'DiskType',
         'hostGroupId'        => 'HostGroupId',
-        'instanceType'       => 'InstanceType',
-        'diskCount'          => 'DiskCount',
-        'createType'         => 'CreateType',
-        'period'             => 'Period',
-        'diskCapacity'       => 'DiskCapacity',
-        'vSwitchId'          => 'VSwitchId',
-        'nodeCount'          => 'NodeCount',
         'hostGroupName'      => 'HostGroupName',
-        'clusterId'          => 'ClusterId',
+        'hostGroupType'      => 'HostGroupType',
+        'instanceType'       => 'InstanceType',
+        'multiInstanceTypes' => 'MultiInstanceTypes',
+        'nodeCount'          => 'NodeCount',
+        'period'             => 'Period',
+        'sysDiskCapacity'    => 'SysDiskCapacity',
+        'sysDiskType'        => 'SysDiskType',
+        'vSwitchId'          => 'VSwitchId',
     ];
 
     public function validate()
@@ -125,26 +125,26 @@ class hostGroup extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sysDiskCapacity) {
-            $res['SysDiskCapacity'] = $this->sysDiskCapacity;
-        }
-        if (null !== $this->hostGroupType) {
-            $res['HostGroupType'] = $this->hostGroupType;
-        }
-        if (null !== $this->comment) {
-            $res['Comment'] = $this->comment;
-        }
-        if (null !== $this->multiInstanceTypes) {
-            $res['MultiInstanceTypes'] = $this->multiInstanceTypes;
-        }
-        if (null !== $this->sysDiskType) {
-            $res['SysDiskType'] = $this->sysDiskType;
-        }
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
+        }
+        if (null !== $this->createType) {
+            $res['CreateType'] = $this->createType;
+        }
+        if (null !== $this->diskCapacity) {
+            $res['DiskCapacity'] = $this->diskCapacity;
+        }
+        if (null !== $this->diskCount) {
+            $res['DiskCount'] = $this->diskCount;
         }
         if (null !== $this->diskType) {
             $res['DiskType'] = $this->diskType;
@@ -152,32 +152,32 @@ class hostGroup extends Model
         if (null !== $this->hostGroupId) {
             $res['HostGroupId'] = $this->hostGroupId;
         }
+        if (null !== $this->hostGroupName) {
+            $res['HostGroupName'] = $this->hostGroupName;
+        }
+        if (null !== $this->hostGroupType) {
+            $res['HostGroupType'] = $this->hostGroupType;
+        }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
-        if (null !== $this->diskCount) {
-            $res['DiskCount'] = $this->diskCount;
-        }
-        if (null !== $this->createType) {
-            $res['CreateType'] = $this->createType;
-        }
-        if (null !== $this->period) {
-            $res['Period'] = $this->period;
-        }
-        if (null !== $this->diskCapacity) {
-            $res['DiskCapacity'] = $this->diskCapacity;
-        }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
+        if (null !== $this->multiInstanceTypes) {
+            $res['MultiInstanceTypes'] = $this->multiInstanceTypes;
         }
         if (null !== $this->nodeCount) {
             $res['NodeCount'] = $this->nodeCount;
         }
-        if (null !== $this->hostGroupName) {
-            $res['HostGroupName'] = $this->hostGroupName;
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
         }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->sysDiskCapacity) {
+            $res['SysDiskCapacity'] = $this->sysDiskCapacity;
+        }
+        if (null !== $this->sysDiskType) {
+            $res['SysDiskType'] = $this->sysDiskType;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
 
         return $res;
@@ -191,26 +191,26 @@ class hostGroup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SysDiskCapacity'])) {
-            $model->sysDiskCapacity = $map['SysDiskCapacity'];
-        }
-        if (isset($map['HostGroupType'])) {
-            $model->hostGroupType = $map['HostGroupType'];
-        }
-        if (isset($map['Comment'])) {
-            $model->comment = $map['Comment'];
-        }
-        if (isset($map['MultiInstanceTypes'])) {
-            $model->multiInstanceTypes = $map['MultiInstanceTypes'];
-        }
-        if (isset($map['SysDiskType'])) {
-            $model->sysDiskType = $map['SysDiskType'];
-        }
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
+        }
+        if (isset($map['CreateType'])) {
+            $model->createType = $map['CreateType'];
+        }
+        if (isset($map['DiskCapacity'])) {
+            $model->diskCapacity = $map['DiskCapacity'];
+        }
+        if (isset($map['DiskCount'])) {
+            $model->diskCount = $map['DiskCount'];
         }
         if (isset($map['DiskType'])) {
             $model->diskType = $map['DiskType'];
@@ -218,32 +218,32 @@ class hostGroup extends Model
         if (isset($map['HostGroupId'])) {
             $model->hostGroupId = $map['HostGroupId'];
         }
+        if (isset($map['HostGroupName'])) {
+            $model->hostGroupName = $map['HostGroupName'];
+        }
+        if (isset($map['HostGroupType'])) {
+            $model->hostGroupType = $map['HostGroupType'];
+        }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
-        if (isset($map['DiskCount'])) {
-            $model->diskCount = $map['DiskCount'];
-        }
-        if (isset($map['CreateType'])) {
-            $model->createType = $map['CreateType'];
-        }
-        if (isset($map['Period'])) {
-            $model->period = $map['Period'];
-        }
-        if (isset($map['DiskCapacity'])) {
-            $model->diskCapacity = $map['DiskCapacity'];
-        }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
+        if (isset($map['MultiInstanceTypes'])) {
+            $model->multiInstanceTypes = $map['MultiInstanceTypes'];
         }
         if (isset($map['NodeCount'])) {
             $model->nodeCount = $map['NodeCount'];
         }
-        if (isset($map['HostGroupName'])) {
-            $model->hostGroupName = $map['HostGroupName'];
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['SysDiskCapacity'])) {
+            $model->sysDiskCapacity = $map['SysDiskCapacity'];
+        }
+        if (isset($map['SysDiskType'])) {
+            $model->sysDiskType = $map['SysDiskType'];
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
 
         return $model;

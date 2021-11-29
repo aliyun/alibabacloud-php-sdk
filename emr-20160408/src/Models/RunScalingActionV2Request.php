@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RunScalingActionV2Request extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $resourceOwnerId;
+    public $actionParam;
 
     /**
      * @var string
@@ -24,6 +24,11 @@ class RunScalingActionV2Request extends Model
     public $resourceGroupId;
 
     /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
     public $scalingActionType;
@@ -32,18 +37,13 @@ class RunScalingActionV2Request extends Model
      * @var string
      */
     public $scalingGroupBizId;
-
-    /**
-     * @var string
-     */
-    public $actionParam;
     protected $_name = [
-        'resourceOwnerId'   => 'ResourceOwnerId',
+        'actionParam'       => 'ActionParam',
         'regionId'          => 'RegionId',
         'resourceGroupId'   => 'ResourceGroupId',
+        'resourceOwnerId'   => 'ResourceOwnerId',
         'scalingActionType' => 'ScalingActionType',
         'scalingGroupBizId' => 'ScalingGroupBizId',
-        'actionParam'       => 'ActionParam',
     ];
 
     public function validate()
@@ -53,8 +53,8 @@ class RunScalingActionV2Request extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->actionParam) {
+            $res['ActionParam'] = $this->actionParam;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -62,14 +62,14 @@ class RunScalingActionV2Request extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->scalingActionType) {
             $res['ScalingActionType'] = $this->scalingActionType;
         }
         if (null !== $this->scalingGroupBizId) {
             $res['ScalingGroupBizId'] = $this->scalingGroupBizId;
-        }
-        if (null !== $this->actionParam) {
-            $res['ActionParam'] = $this->actionParam;
         }
 
         return $res;
@@ -83,8 +83,8 @@ class RunScalingActionV2Request extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['ActionParam'])) {
+            $model->actionParam = $map['ActionParam'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
@@ -92,14 +92,14 @@ class RunScalingActionV2Request extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['ScalingActionType'])) {
             $model->scalingActionType = $map['ScalingActionType'];
         }
         if (isset($map['ScalingGroupBizId'])) {
             $model->scalingGroupBizId = $map['ScalingGroupBizId'];
-        }
-        if (isset($map['ActionParam'])) {
-            $model->actionParam = $map['ActionParam'];
         }
 
         return $model;

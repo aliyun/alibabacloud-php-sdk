@@ -10,19 +10,29 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceQueueRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
      * @var string
      */
-    public $regionId;
+    public $clusterId;
+
+    /**
+     * @var config[]
+     */
+    public $config;
+
+    /**
+     * @var bool
+     */
+    public $leaf;
 
     /**
      * @var string
      */
     public $name;
+
+    /**
+     * @var int
+     */
+    public $parentQueueId;
 
     /**
      * @var string
@@ -32,37 +42,27 @@ class CreateResourceQueueRequest extends Model
     /**
      * @var string
      */
-    public $clusterId;
+    public $regionId;
 
     /**
      * @var int
      */
-    public $parentQueueId;
-
-    /**
-     * @var bool
-     */
-    public $leaf;
+    public $resourceOwnerId;
 
     /**
      * @var int
      */
     public $resourcePoolId;
-
-    /**
-     * @var config[]
-     */
-    public $config;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'regionId'        => 'RegionId',
-        'name'            => 'Name',
-        'qualifiedName'   => 'QualifiedName',
         'clusterId'       => 'ClusterId',
-        'parentQueueId'   => 'ParentQueueId',
-        'leaf'            => 'Leaf',
-        'resourcePoolId'  => 'ResourcePoolId',
         'config'          => 'Config',
+        'leaf'            => 'Leaf',
+        'name'            => 'Name',
+        'parentQueueId'   => 'ParentQueueId',
+        'qualifiedName'   => 'QualifiedName',
+        'regionId'        => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourcePoolId'  => 'ResourcePoolId',
     ];
 
     public function validate()
@@ -72,29 +72,8 @@ class CreateResourceQueueRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->qualifiedName) {
-            $res['QualifiedName'] = $this->qualifiedName;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
-        }
-        if (null !== $this->parentQueueId) {
-            $res['ParentQueueId'] = $this->parentQueueId;
-        }
-        if (null !== $this->leaf) {
-            $res['Leaf'] = $this->leaf;
-        }
-        if (null !== $this->resourcePoolId) {
-            $res['ResourcePoolId'] = $this->resourcePoolId;
         }
         if (null !== $this->config) {
             $res['Config'] = [];
@@ -104,6 +83,27 @@ class CreateResourceQueueRequest extends Model
                     $res['Config'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->leaf) {
+            $res['Leaf'] = $this->leaf;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->parentQueueId) {
+            $res['ParentQueueId'] = $this->parentQueueId;
+        }
+        if (null !== $this->qualifiedName) {
+            $res['QualifiedName'] = $this->qualifiedName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->resourcePoolId) {
+            $res['ResourcePoolId'] = $this->resourcePoolId;
         }
 
         return $res;
@@ -117,29 +117,8 @@ class CreateResourceQueueRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['QualifiedName'])) {
-            $model->qualifiedName = $map['QualifiedName'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
-        }
-        if (isset($map['ParentQueueId'])) {
-            $model->parentQueueId = $map['ParentQueueId'];
-        }
-        if (isset($map['Leaf'])) {
-            $model->leaf = $map['Leaf'];
-        }
-        if (isset($map['ResourcePoolId'])) {
-            $model->resourcePoolId = $map['ResourcePoolId'];
         }
         if (isset($map['Config'])) {
             if (!empty($map['Config'])) {
@@ -149,6 +128,27 @@ class CreateResourceQueueRequest extends Model
                     $model->config[$n++] = null !== $item ? config::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Leaf'])) {
+            $model->leaf = $map['Leaf'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['ParentQueueId'])) {
+            $model->parentQueueId = $map['ParentQueueId'];
+        }
+        if (isset($map['QualifiedName'])) {
+            $model->qualifiedName = $map['QualifiedName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['ResourcePoolId'])) {
+            $model->resourcePoolId = $map['ResourcePoolId'];
         }
 
         return $model;

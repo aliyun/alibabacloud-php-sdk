@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetUserInputStatisticInfoRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var string
      */
     public $clusterId;
@@ -31,12 +21,22 @@ class GetUserInputStatisticInfoRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
     public $toDatetime;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'regionId'        => 'RegionId',
         'clusterId'       => 'ClusterId',
         'fromDatetime'    => 'FromDatetime',
+        'regionId'        => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'toDatetime'      => 'ToDatetime',
     ];
 
@@ -47,17 +47,17 @@ class GetUserInputStatisticInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->fromDatetime) {
             $res['FromDatetime'] = $this->fromDatetime;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->toDatetime) {
             $res['ToDatetime'] = $this->toDatetime;
@@ -74,17 +74,17 @@ class GetUserInputStatisticInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['FromDatetime'])) {
             $model->fromDatetime = $map['FromDatetime'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['ToDatetime'])) {
             $model->toDatetime = $map['ToDatetime'];

@@ -11,11 +11,6 @@ class roleDTO extends Model
     /**
      * @var string
      */
-    public $resourceType;
-
-    /**
-     * @var string
-     */
     public $description;
 
     /**
@@ -26,24 +21,29 @@ class roleDTO extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
     public $gmtModified;
 
     /**
      * @var int
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
     protected $_name = [
-        'resourceType' => 'ResourceType',
         'description'  => 'Description',
         'gmtCreate'    => 'GmtCreate',
-        'name'         => 'Name',
         'gmtModified'  => 'GmtModified',
         'id'           => 'Id',
+        'name'         => 'Name',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class roleDTO extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class roleDTO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;

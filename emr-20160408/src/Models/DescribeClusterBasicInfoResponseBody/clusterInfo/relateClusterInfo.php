@@ -11,7 +11,7 @@ class relateClusterInfo extends Model
     /**
      * @var string
      */
-    public $status;
+    public $clusterId;
 
     /**
      * @var string
@@ -21,11 +21,17 @@ class relateClusterInfo extends Model
     /**
      * @var string
      */
-    public $clusterId;
+    public $clusterType;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'      => 'Status',
-        'clusterName' => 'ClusterName',
         'clusterId'   => 'ClusterId',
+        'clusterName' => 'ClusterName',
+        'clusterType' => 'ClusterType',
+        'status'      => 'Status',
     ];
 
     public function validate()
@@ -35,14 +41,17 @@ class relateClusterInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->clusterType) {
+            $res['ClusterType'] = $this->clusterType;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -56,14 +65,17 @@ class relateClusterInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['ClusterType'])) {
+            $model->clusterType = $map['ClusterType'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

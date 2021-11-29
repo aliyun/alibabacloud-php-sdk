@@ -12,6 +12,11 @@ class GetJobRunningTimeStatisticInfoResponseBody extends Model
     /**
      * @var int
      */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
     public $pageSize;
 
     /**
@@ -20,25 +25,20 @@ class GetJobRunningTimeStatisticInfoResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
+     * @var runningTimeList
      */
-    public $pageNumber;
+    public $runningTimeList;
 
     /**
      * @var int
      */
     public $total;
-
-    /**
-     * @var runningTimeList
-     */
-    public $runningTimeList;
     protected $_name = [
+        'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
         'requestId'       => 'RequestId',
-        'pageNumber'      => 'PageNumber',
-        'total'           => 'Total',
         'runningTimeList' => 'RunningTimeList',
+        'total'           => 'Total',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class GetJobRunningTimeStatisticInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->runningTimeList) {
+            $res['RunningTimeList'] = null !== $this->runningTimeList ? $this->runningTimeList->toMap() : null;
         }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
-        }
-        if (null !== $this->runningTimeList) {
-            $res['RunningTimeList'] = null !== $this->runningTimeList ? $this->runningTimeList->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class GetJobRunningTimeStatisticInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['RunningTimeList'])) {
+            $model->runningTimeList = runningTimeList::fromMap($map['RunningTimeList']);
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
-        }
-        if (isset($map['RunningTimeList'])) {
-            $model->runningTimeList = runningTimeList::fromMap($map['RunningTimeList']);
         }
 
         return $model;

@@ -11,52 +11,12 @@ class nodeInstance extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $failAct;
-
-    /**
-     * @var string
-     */
-    public $retryInterval;
-
-    /**
-     * @var string
-     */
-    public $projectId;
-
-    /**
-     * @var string
-     */
-    public $jobType;
-
-    /**
-     * @var string
-     */
-    public $hostName;
+    public $clusterId;
 
     /**
      * @var int
      */
-    public $gmtModified;
-
-    /**
-     * @var string
-     */
-    public $externalInfo;
-
-    /**
-     * @var int
-     */
-    public $retries;
+    public $duration;
 
     /**
      * @var int
@@ -64,9 +24,14 @@ class nodeInstance extends Model
     public $endTime;
 
     /**
-     * @var int
+     * @var string
      */
-    public $startTime;
+    public $externalId;
+
+    /**
+     * @var string
+     */
+    public $externalInfo;
 
     /**
      * @var string
@@ -76,17 +41,7 @@ class nodeInstance extends Model
     /**
      * @var string
      */
-    public $jobName;
-
-    /**
-     * @var string
-     */
-    public $nodeName;
-
-    /**
-     * @var string
-     */
-    public $jobId;
+    public $failAct;
 
     /**
      * @var int
@@ -94,19 +49,44 @@ class nodeInstance extends Model
     public $gmtCreate;
 
     /**
-     * @var string
-     */
-    public $externalId;
-
-    /**
      * @var int
      */
-    public $duration;
+    public $gmtModified;
+
+    /**
+     * @var string
+     */
+    public $hostName;
 
     /**
      * @var string
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $jobId;
+
+    /**
+     * @var string
+     */
+    public $jobName;
+
+    /**
+     * @var string
+     */
+    public $jobType;
+
+    /**
+     * @var string
+     */
+    public $maxRetry;
+
+    /**
+     * @var string
+     */
+    public $nodeName;
 
     /**
      * @var bool
@@ -116,36 +96,56 @@ class nodeInstance extends Model
     /**
      * @var string
      */
-    public $clusterId;
+    public $projectId;
+
+    /**
+     * @var int
+     */
+    public $retries;
 
     /**
      * @var string
      */
-    public $maxRetry;
+    public $retryInterval;
+
+    /**
+     * @var int
+     */
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'           => 'Type',
-        'status'         => 'Status',
-        'failAct'        => 'FailAct',
-        'retryInterval'  => 'RetryInterval',
-        'projectId'      => 'ProjectId',
-        'jobType'        => 'JobType',
-        'hostName'       => 'HostName',
-        'gmtModified'    => 'GmtModified',
-        'externalInfo'   => 'ExternalInfo',
-        'retries'        => 'Retries',
-        'endTime'        => 'EndTime',
-        'startTime'      => 'StartTime',
-        'externalStatus' => 'ExternalStatus',
-        'jobName'        => 'JobName',
-        'nodeName'       => 'NodeName',
-        'jobId'          => 'JobId',
-        'gmtCreate'      => 'GmtCreate',
-        'externalId'     => 'ExternalId',
-        'duration'       => 'Duration',
-        'id'             => 'Id',
-        'pending'        => 'Pending',
         'clusterId'      => 'ClusterId',
+        'duration'       => 'Duration',
+        'endTime'        => 'EndTime',
+        'externalId'     => 'ExternalId',
+        'externalInfo'   => 'ExternalInfo',
+        'externalStatus' => 'ExternalStatus',
+        'failAct'        => 'FailAct',
+        'gmtCreate'      => 'GmtCreate',
+        'gmtModified'    => 'GmtModified',
+        'hostName'       => 'HostName',
+        'id'             => 'Id',
+        'jobId'          => 'JobId',
+        'jobName'        => 'JobName',
+        'jobType'        => 'JobType',
         'maxRetry'       => 'MaxRetry',
+        'nodeName'       => 'NodeName',
+        'pending'        => 'Pending',
+        'projectId'      => 'ProjectId',
+        'retries'        => 'Retries',
+        'retryInterval'  => 'RetryInterval',
+        'startTime'      => 'StartTime',
+        'status'         => 'Status',
+        'type'           => 'Type',
     ];
 
     public function validate()
@@ -155,74 +155,74 @@ class nodeInstance extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->failAct) {
-            $res['FailAct'] = $this->failAct;
-        }
-        if (null !== $this->retryInterval) {
-            $res['RetryInterval'] = $this->retryInterval;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->jobType) {
-            $res['JobType'] = $this->jobType;
-        }
-        if (null !== $this->hostName) {
-            $res['HostName'] = $this->hostName;
-        }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
-        }
-        if (null !== $this->externalInfo) {
-            $res['ExternalInfo'] = $this->externalInfo;
-        }
-        if (null !== $this->retries) {
-            $res['Retries'] = $this->retries;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->externalStatus) {
-            $res['ExternalStatus'] = $this->externalStatus;
-        }
-        if (null !== $this->jobName) {
-            $res['JobName'] = $this->jobName;
-        }
-        if (null !== $this->nodeName) {
-            $res['NodeName'] = $this->nodeName;
-        }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->externalId) {
-            $res['ExternalId'] = $this->externalId;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->externalId) {
+            $res['ExternalId'] = $this->externalId;
+        }
+        if (null !== $this->externalInfo) {
+            $res['ExternalInfo'] = $this->externalInfo;
+        }
+        if (null !== $this->externalStatus) {
+            $res['ExternalStatus'] = $this->externalStatus;
+        }
+        if (null !== $this->failAct) {
+            $res['FailAct'] = $this->failAct;
+        }
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->hostName) {
+            $res['HostName'] = $this->hostName;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->jobName) {
+            $res['JobName'] = $this->jobName;
+        }
+        if (null !== $this->jobType) {
+            $res['JobType'] = $this->jobType;
+        }
+        if (null !== $this->maxRetry) {
+            $res['MaxRetry'] = $this->maxRetry;
+        }
+        if (null !== $this->nodeName) {
+            $res['NodeName'] = $this->nodeName;
         }
         if (null !== $this->pending) {
             $res['Pending'] = $this->pending;
         }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->maxRetry) {
-            $res['MaxRetry'] = $this->maxRetry;
+        if (null !== $this->retries) {
+            $res['Retries'] = $this->retries;
+        }
+        if (null !== $this->retryInterval) {
+            $res['RetryInterval'] = $this->retryInterval;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -236,74 +236,74 @@ class nodeInstance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['FailAct'])) {
-            $model->failAct = $map['FailAct'];
-        }
-        if (isset($map['RetryInterval'])) {
-            $model->retryInterval = $map['RetryInterval'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['JobType'])) {
-            $model->jobType = $map['JobType'];
-        }
-        if (isset($map['HostName'])) {
-            $model->hostName = $map['HostName'];
-        }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
-        }
-        if (isset($map['ExternalInfo'])) {
-            $model->externalInfo = $map['ExternalInfo'];
-        }
-        if (isset($map['Retries'])) {
-            $model->retries = $map['Retries'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['ExternalStatus'])) {
-            $model->externalStatus = $map['ExternalStatus'];
-        }
-        if (isset($map['JobName'])) {
-            $model->jobName = $map['JobName'];
-        }
-        if (isset($map['NodeName'])) {
-            $model->nodeName = $map['NodeName'];
-        }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
-        if (isset($map['ExternalId'])) {
-            $model->externalId = $map['ExternalId'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['ExternalId'])) {
+            $model->externalId = $map['ExternalId'];
+        }
+        if (isset($map['ExternalInfo'])) {
+            $model->externalInfo = $map['ExternalInfo'];
+        }
+        if (isset($map['ExternalStatus'])) {
+            $model->externalStatus = $map['ExternalStatus'];
+        }
+        if (isset($map['FailAct'])) {
+            $model->failAct = $map['FailAct'];
+        }
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['HostName'])) {
+            $model->hostName = $map['HostName'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
+        if (isset($map['JobName'])) {
+            $model->jobName = $map['JobName'];
+        }
+        if (isset($map['JobType'])) {
+            $model->jobType = $map['JobType'];
+        }
+        if (isset($map['MaxRetry'])) {
+            $model->maxRetry = $map['MaxRetry'];
+        }
+        if (isset($map['NodeName'])) {
+            $model->nodeName = $map['NodeName'];
         }
         if (isset($map['Pending'])) {
             $model->pending = $map['Pending'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['MaxRetry'])) {
-            $model->maxRetry = $map['MaxRetry'];
+        if (isset($map['Retries'])) {
+            $model->retries = $map['Retries'];
+        }
+        if (isset($map['RetryInterval'])) {
+            $model->retryInterval = $map['RetryInterval'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

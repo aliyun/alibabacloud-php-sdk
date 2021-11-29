@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class SearchLogResponseBody extends Model
 {
     /**
-     * @var slsLogItemList
+     * @var bool
      */
-    public $slsLogItemList;
+    public $completed;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class SearchLogResponseBody extends Model
     public $requestId;
 
     /**
-     * @var bool
+     * @var slsLogItemList
      */
-    public $completed;
+    public $slsLogItemList;
     protected $_name = [
-        'slsLogItemList' => 'SlsLogItemList',
-        'requestId'      => 'RequestId',
         'completed'      => 'Completed',
+        'requestId'      => 'RequestId',
+        'slsLogItemList' => 'SlsLogItemList',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class SearchLogResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->slsLogItemList) {
-            $res['SlsLogItemList'] = null !== $this->slsLogItemList ? $this->slsLogItemList->toMap() : null;
+        if (null !== $this->completed) {
+            $res['Completed'] = $this->completed;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->completed) {
-            $res['Completed'] = $this->completed;
+        if (null !== $this->slsLogItemList) {
+            $res['SlsLogItemList'] = null !== $this->slsLogItemList ? $this->slsLogItemList->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class SearchLogResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SlsLogItemList'])) {
-            $model->slsLogItemList = slsLogItemList::fromMap($map['SlsLogItemList']);
+        if (isset($map['Completed'])) {
+            $model->completed = $map['Completed'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Completed'])) {
-            $model->completed = $map['Completed'];
+        if (isset($map['SlsLogItemList'])) {
+            $model->slsLogItemList = slsLogItemList::fromMap($map['SlsLogItemList']);
         }
 
         return $model;

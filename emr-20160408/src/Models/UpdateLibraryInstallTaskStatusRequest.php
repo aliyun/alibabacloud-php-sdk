@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateLibraryInstallTaskStatusRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $resourceOwnerId;
@@ -16,22 +21,17 @@ class UpdateLibraryInstallTaskStatusRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $status;
 
     /**
      * @var string
      */
     public $taskBizId;
-
-    /**
-     * @var string
-     */
-    public $status;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
         'regionId'        => 'RegionId',
-        'taskBizId'       => 'TaskBizId',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'status'          => 'Status',
+        'taskBizId'       => 'TaskBizId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class UpdateLibraryInstallTaskStatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->taskBizId) {
-            $res['TaskBizId'] = $this->taskBizId;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->taskBizId) {
+            $res['TaskBizId'] = $this->taskBizId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class UpdateLibraryInstallTaskStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['TaskBizId'])) {
-            $model->taskBizId = $map['TaskBizId'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TaskBizId'])) {
+            $model->taskBizId = $map['TaskBizId'];
         }
 
         return $model;

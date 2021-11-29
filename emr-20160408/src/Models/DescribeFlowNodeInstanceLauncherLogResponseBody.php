@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowNodeInstanceLauncherLogResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var bool
      */
     public $logEnd;
@@ -23,10 +18,15 @@ class DescribeFlowNodeInstanceLauncherLogResponseBody extends Model
      * @var logEntrys
      */
     public $logEntrys;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'logEnd'    => 'LogEnd',
         'logEntrys' => 'LogEntrys',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeFlowNodeInstanceLauncherLogResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->logEnd) {
             $res['LogEnd'] = $this->logEnd;
         }
         if (null !== $this->logEntrys) {
             $res['LogEntrys'] = null !== $this->logEntrys ? $this->logEntrys->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeFlowNodeInstanceLauncherLogResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['LogEnd'])) {
             $model->logEnd = $map['LogEnd'];
         }
         if (isset($map['LogEntrys'])) {
             $model->logEntrys = logEntrys::fromMap($map['LogEntrys']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

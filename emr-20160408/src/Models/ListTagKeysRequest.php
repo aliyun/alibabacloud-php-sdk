@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListTagKeysRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
      * @var string
      */
-    public $regionId;
+    public $category;
 
     /**
      * @var string
@@ -31,24 +26,29 @@ class ListTagKeysRequest extends Model
     /**
      * @var string
      */
-    public $resourceType;
+    public $regionId;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var string
      */
-    public $category;
+    public $resourceType;
 
     /**
      * @var string
      */
     public $scope;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'regionId'        => 'RegionId',
+        'category'        => 'Category',
         'nextToken'       => 'NextToken',
         'pageSize'        => 'PageSize',
+        'regionId'        => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'resourceType'    => 'ResourceType',
-        'category'        => 'Category',
         'scope'           => 'Scope',
     ];
 
@@ -59,11 +59,8 @@ class ListTagKeysRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
@@ -71,11 +68,14 @@ class ListTagKeysRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
         }
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
@@ -92,11 +92,8 @@ class ListTagKeysRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
@@ -104,11 +101,14 @@ class ListTagKeysRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
         }
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];

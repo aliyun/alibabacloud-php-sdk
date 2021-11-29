@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
-     * @var int
+     * @var bool
      */
-    public $resourceOwnerId;
+    public $all;
 
     /**
      * @var string
@@ -19,30 +19,30 @@ class UntagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @var string
-     */
-    public $resourceType;
-
-    /**
-     * @var bool
-     */
-    public $all;
-
-    /**
      * @var string[]
      */
     public $resourceId;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
 
     /**
      * @var string[]
      */
     public $tagKey;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'regionId'        => 'RegionId',
-        'resourceType'    => 'ResourceType',
         'all'             => 'All',
+        'regionId'        => 'RegionId',
         'resourceId'      => 'ResourceId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceType'    => 'ResourceType',
         'tagKey'          => 'TagKey',
     ];
 
@@ -53,20 +53,20 @@ class UntagResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->all) {
+            $res['All'] = $this->all;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->all) {
-            $res['All'] = $this->all;
-        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
@@ -83,22 +83,22 @@ class UntagResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['All'])) {
+            $model->all = $map['All'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['All'])) {
-            $model->all = $map['All'];
         }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
                 $model->resourceId = $map['ResourceId'];
             }
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['TagKey'])) {
             if (!empty($map['TagKey'])) {

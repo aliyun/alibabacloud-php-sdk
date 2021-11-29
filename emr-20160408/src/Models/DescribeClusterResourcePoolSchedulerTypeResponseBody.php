@@ -11,27 +11,27 @@ class DescribeClusterResourcePoolSchedulerTypeResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $currentSchedulerType;
 
     /**
      * @var string
      */
-    public $supportSchedulerType;
+    public $defaultSchedulerType;
 
     /**
      * @var string
      */
-    public $defaultSchedulerType;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $supportSchedulerType;
     protected $_name = [
-        'requestId'            => 'RequestId',
         'currentSchedulerType' => 'CurrentSchedulerType',
-        'supportSchedulerType' => 'SupportSchedulerType',
         'defaultSchedulerType' => 'DefaultSchedulerType',
+        'requestId'            => 'RequestId',
+        'supportSchedulerType' => 'SupportSchedulerType',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DescribeClusterResourcePoolSchedulerTypeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->currentSchedulerType) {
             $res['CurrentSchedulerType'] = $this->currentSchedulerType;
         }
-        if (null !== $this->supportSchedulerType) {
-            $res['SupportSchedulerType'] = $this->supportSchedulerType;
-        }
         if (null !== $this->defaultSchedulerType) {
             $res['DefaultSchedulerType'] = $this->defaultSchedulerType;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->supportSchedulerType) {
+            $res['SupportSchedulerType'] = $this->supportSchedulerType;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DescribeClusterResourcePoolSchedulerTypeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CurrentSchedulerType'])) {
             $model->currentSchedulerType = $map['CurrentSchedulerType'];
         }
-        if (isset($map['SupportSchedulerType'])) {
-            $model->supportSchedulerType = $map['SupportSchedulerType'];
-        }
         if (isset($map['DefaultSchedulerType'])) {
             $model->defaultSchedulerType = $map['DefaultSchedulerType'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SupportSchedulerType'])) {
+            $model->supportSchedulerType = $map['SupportSchedulerType'];
         }
 
         return $model;

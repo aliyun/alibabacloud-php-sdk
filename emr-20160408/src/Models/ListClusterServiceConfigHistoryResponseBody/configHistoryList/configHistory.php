@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class configHistory extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $oldValue;
-
-    /**
-     * @var string
-     */
-    public $comment;
-
-    /**
-     * @var int
-     */
-    public $createTime;
+    public $applied;
 
     /**
      * @var string
@@ -31,7 +21,12 @@ class configHistory extends Model
     /**
      * @var string
      */
-    public $hostName;
+    public $comment;
+
+    /**
+     * @var string
+     */
+    public $configFileName;
 
     /**
      * @var string
@@ -41,12 +36,22 @@ class configHistory extends Model
     /**
      * @var string
      */
+    public $configVersion;
+
+    /**
+     * @var int
+     */
+    public $createTime;
+
+    /**
+     * @var string
+     */
     public $hostGroupId;
 
     /**
      * @var string
      */
-    public $newValue;
+    public $hostGroupName;
 
     /**
      * @var string
@@ -56,42 +61,37 @@ class configHistory extends Model
     /**
      * @var string
      */
-    public $configFileName;
-
-    /**
-     * @var bool
-     */
-    public $applied;
+    public $hostName;
 
     /**
      * @var string
      */
-    public $configVersion;
+    public $newValue;
+
+    /**
+     * @var string
+     */
+    public $oldValue;
 
     /**
      * @var string
      */
     public $serviceName;
-
-    /**
-     * @var string
-     */
-    public $hostGroupName;
     protected $_name = [
-        'oldValue'       => 'OldValue',
-        'comment'        => 'Comment',
-        'createTime'     => 'CreateTime',
-        'author'         => 'Author',
-        'hostName'       => 'HostName',
-        'configItemName' => 'ConfigItemName',
-        'hostGroupId'    => 'HostGroupId',
-        'newValue'       => 'NewValue',
-        'hostInstanceId' => 'HostInstanceId',
-        'configFileName' => 'ConfigFileName',
         'applied'        => 'Applied',
+        'author'         => 'Author',
+        'comment'        => 'Comment',
+        'configFileName' => 'ConfigFileName',
+        'configItemName' => 'ConfigItemName',
         'configVersion'  => 'ConfigVersion',
-        'serviceName'    => 'ServiceName',
+        'createTime'     => 'CreateTime',
+        'hostGroupId'    => 'HostGroupId',
         'hostGroupName'  => 'HostGroupName',
+        'hostInstanceId' => 'HostInstanceId',
+        'hostName'       => 'HostName',
+        'newValue'       => 'NewValue',
+        'oldValue'       => 'OldValue',
+        'serviceName'    => 'ServiceName',
     ];
 
     public function validate()
@@ -101,47 +101,47 @@ class configHistory extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->oldValue) {
-            $res['OldValue'] = $this->oldValue;
-        }
-        if (null !== $this->comment) {
-            $res['Comment'] = $this->comment;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->applied) {
+            $res['Applied'] = $this->applied;
         }
         if (null !== $this->author) {
             $res['Author'] = $this->author;
         }
-        if (null !== $this->hostName) {
-            $res['HostName'] = $this->hostName;
-        }
-        if (null !== $this->configItemName) {
-            $res['ConfigItemName'] = $this->configItemName;
-        }
-        if (null !== $this->hostGroupId) {
-            $res['HostGroupId'] = $this->hostGroupId;
-        }
-        if (null !== $this->newValue) {
-            $res['NewValue'] = $this->newValue;
-        }
-        if (null !== $this->hostInstanceId) {
-            $res['HostInstanceId'] = $this->hostInstanceId;
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
         }
         if (null !== $this->configFileName) {
             $res['ConfigFileName'] = $this->configFileName;
         }
-        if (null !== $this->applied) {
-            $res['Applied'] = $this->applied;
+        if (null !== $this->configItemName) {
+            $res['ConfigItemName'] = $this->configItemName;
         }
         if (null !== $this->configVersion) {
             $res['ConfigVersion'] = $this->configVersion;
         }
-        if (null !== $this->serviceName) {
-            $res['ServiceName'] = $this->serviceName;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->hostGroupId) {
+            $res['HostGroupId'] = $this->hostGroupId;
         }
         if (null !== $this->hostGroupName) {
             $res['HostGroupName'] = $this->hostGroupName;
+        }
+        if (null !== $this->hostInstanceId) {
+            $res['HostInstanceId'] = $this->hostInstanceId;
+        }
+        if (null !== $this->hostName) {
+            $res['HostName'] = $this->hostName;
+        }
+        if (null !== $this->newValue) {
+            $res['NewValue'] = $this->newValue;
+        }
+        if (null !== $this->oldValue) {
+            $res['OldValue'] = $this->oldValue;
+        }
+        if (null !== $this->serviceName) {
+            $res['ServiceName'] = $this->serviceName;
         }
 
         return $res;
@@ -155,47 +155,47 @@ class configHistory extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OldValue'])) {
-            $model->oldValue = $map['OldValue'];
-        }
-        if (isset($map['Comment'])) {
-            $model->comment = $map['Comment'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['Applied'])) {
+            $model->applied = $map['Applied'];
         }
         if (isset($map['Author'])) {
             $model->author = $map['Author'];
         }
-        if (isset($map['HostName'])) {
-            $model->hostName = $map['HostName'];
-        }
-        if (isset($map['ConfigItemName'])) {
-            $model->configItemName = $map['ConfigItemName'];
-        }
-        if (isset($map['HostGroupId'])) {
-            $model->hostGroupId = $map['HostGroupId'];
-        }
-        if (isset($map['NewValue'])) {
-            $model->newValue = $map['NewValue'];
-        }
-        if (isset($map['HostInstanceId'])) {
-            $model->hostInstanceId = $map['HostInstanceId'];
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
         }
         if (isset($map['ConfigFileName'])) {
             $model->configFileName = $map['ConfigFileName'];
         }
-        if (isset($map['Applied'])) {
-            $model->applied = $map['Applied'];
+        if (isset($map['ConfigItemName'])) {
+            $model->configItemName = $map['ConfigItemName'];
         }
         if (isset($map['ConfigVersion'])) {
             $model->configVersion = $map['ConfigVersion'];
         }
-        if (isset($map['ServiceName'])) {
-            $model->serviceName = $map['ServiceName'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['HostGroupId'])) {
+            $model->hostGroupId = $map['HostGroupId'];
         }
         if (isset($map['HostGroupName'])) {
             $model->hostGroupName = $map['HostGroupName'];
+        }
+        if (isset($map['HostInstanceId'])) {
+            $model->hostInstanceId = $map['HostInstanceId'];
+        }
+        if (isset($map['HostName'])) {
+            $model->hostName = $map['HostName'];
+        }
+        if (isset($map['NewValue'])) {
+            $model->newValue = $map['NewValue'];
+        }
+        if (isset($map['OldValue'])) {
+            $model->oldValue = $map['OldValue'];
+        }
+        if (isset($map['ServiceName'])) {
+            $model->serviceName = $map['ServiceName'];
         }
 
         return $model;

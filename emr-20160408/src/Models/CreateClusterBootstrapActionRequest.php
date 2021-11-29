@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterBootstrapActionRequest extends Model
 {
     /**
-     * @var int
+     * @var bootstrapAction[]
      */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $bootstrapAction;
 
     /**
      * @var string
@@ -25,14 +20,19 @@ class CreateClusterBootstrapActionRequest extends Model
     public $clusterId;
 
     /**
-     * @var bootstrapAction[]
+     * @var string
      */
-    public $bootstrapAction;
+    public $regionId;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'regionId'        => 'RegionId',
-        'clusterId'       => 'ClusterId',
         'bootstrapAction' => 'BootstrapAction',
+        'clusterId'       => 'ClusterId',
+        'regionId'        => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class CreateClusterBootstrapActionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
         if (null !== $this->bootstrapAction) {
             $res['BootstrapAction'] = [];
             if (null !== $this->bootstrapAction && \is_array($this->bootstrapAction)) {
@@ -59,6 +50,15 @@ class CreateClusterBootstrapActionRequest extends Model
                     $res['BootstrapAction'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -72,15 +72,6 @@ class CreateClusterBootstrapActionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
         if (isset($map['BootstrapAction'])) {
             if (!empty($map['BootstrapAction'])) {
                 $model->bootstrapAction = [];
@@ -89,6 +80,15 @@ class CreateClusterBootstrapActionRequest extends Model
                     $model->bootstrapAction[$n++] = null !== $item ? bootstrapAction::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

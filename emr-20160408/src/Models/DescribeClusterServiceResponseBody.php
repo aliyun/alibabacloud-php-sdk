@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterServiceResponseBody extends Model
 {
     /**
-     * @var serviceInfo
-     */
-    public $serviceInfo;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var serviceInfo
+     */
+    public $serviceInfo;
     protected $_name = [
-        'serviceInfo' => 'ServiceInfo',
         'requestId'   => 'RequestId',
+        'serviceInfo' => 'ServiceInfo',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeClusterServiceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceInfo) {
-            $res['ServiceInfo'] = null !== $this->serviceInfo ? $this->serviceInfo->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->serviceInfo) {
+            $res['ServiceInfo'] = null !== $this->serviceInfo ? $this->serviceInfo->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeClusterServiceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceInfo'])) {
-            $model->serviceInfo = serviceInfo::fromMap($map['ServiceInfo']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ServiceInfo'])) {
+            $model->serviceInfo = serviceInfo::fromMap($map['ServiceInfo']);
         }
 
         return $model;

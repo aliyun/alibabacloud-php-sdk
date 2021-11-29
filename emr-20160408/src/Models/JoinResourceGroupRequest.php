@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class JoinResourceGroupRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
      * @var string
      */
     public $regionId;
@@ -21,7 +16,7 @@ class JoinResourceGroupRequest extends Model
     /**
      * @var string
      */
-    public $resourceType;
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -29,15 +24,20 @@ class JoinResourceGroupRequest extends Model
     public $resourceId;
 
     /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var string
      */
-    public $resourceGroupId;
+    public $resourceType;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
         'regionId'        => 'RegionId',
-        'resourceType'    => 'ResourceType',
-        'resourceId'      => 'ResourceId',
         'resourceGroupId' => 'ResourceGroupId',
+        'resourceId'      => 'ResourceId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceType'    => 'ResourceType',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class JoinResourceGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class JoinResourceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;

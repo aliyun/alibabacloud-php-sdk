@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class GetJobInputStatisticInfoResponseBody extends Model
 {
     /**
+     * @var jobInputList
+     */
+    public $jobInputList;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -22,22 +32,12 @@ class GetJobInputStatisticInfoResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
-
-    /**
-     * @var jobInputList
-     */
-    public $jobInputList;
-
-    /**
-     * @var int
-     */
     public $total;
     protected $_name = [
+        'jobInputList' => 'JobInputList',
+        'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
         'requestId'    => 'RequestId',
-        'pageNumber'   => 'PageNumber',
-        'jobInputList' => 'JobInputList',
         'total'        => 'Total',
     ];
 
@@ -48,17 +48,17 @@ class GetJobInputStatisticInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->jobInputList) {
+            $res['JobInputList'] = null !== $this->jobInputList ? $this->jobInputList->toMap() : null;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->jobInputList) {
-            $res['JobInputList'] = null !== $this->jobInputList ? $this->jobInputList->toMap() : null;
         }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
@@ -75,17 +75,17 @@ class GetJobInputStatisticInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['JobInputList'])) {
+            $model->jobInputList = jobInputList::fromMap($map['JobInputList']);
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['JobInputList'])) {
-            $model->jobInputList = jobInputList::fromMap($map['JobInputList']);
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];

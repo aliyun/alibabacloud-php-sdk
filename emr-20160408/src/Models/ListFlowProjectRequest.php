@@ -11,21 +11,6 @@ class ListFlowProjectRequest extends Model
     /**
      * @var string
      */
-    public $productType;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $projectId;
-
-    /**
-     * @var string
-     */
     public $name;
 
     /**
@@ -41,14 +26,29 @@ class ListFlowProjectRequest extends Model
     /**
      * @var string
      */
+    public $productType;
+
+    /**
+     * @var string
+     */
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
     protected $_name = [
-        'productType'     => 'ProductType',
-        'regionId'        => 'RegionId',
-        'projectId'       => 'ProjectId',
         'name'            => 'Name',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
+        'productType'     => 'ProductType',
+        'projectId'       => 'ProjectId',
+        'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
@@ -59,15 +59,6 @@ class ListFlowProjectRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->productType) {
-            $res['ProductType'] = $this->productType;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -76,6 +67,15 @@ class ListFlowProjectRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->productType) {
+            $res['ProductType'] = $this->productType;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -92,15 +92,6 @@ class ListFlowProjectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProductType'])) {
-            $model->productType = $map['ProductType'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -109,6 +100,15 @@ class ListFlowProjectRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProductType'])) {
+            $model->productType = $map['ProductType'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

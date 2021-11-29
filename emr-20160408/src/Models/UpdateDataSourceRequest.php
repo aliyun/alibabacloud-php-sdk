@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateDataSourceRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $resourceOwnerId;
+    public $conf;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $description;
 
     /**
      * @var string
@@ -31,25 +31,25 @@ class UpdateDataSourceRequest extends Model
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $conf;
+    public $regionId;
 
     /**
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'regionId'        => 'RegionId',
+        'conf'            => 'Conf',
+        'description'     => 'Description',
         'id'              => 'Id',
         'name'            => 'Name',
-        'description'     => 'Description',
-        'conf'            => 'Conf',
+        'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -59,11 +59,11 @@ class UpdateDataSourceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->conf) {
+            $res['Conf'] = $this->conf;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -71,14 +71,14 @@ class UpdateDataSourceRequest extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->conf) {
-            $res['Conf'] = $this->conf;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -92,11 +92,11 @@ class UpdateDataSourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['Conf'])) {
+            $model->conf = $map['Conf'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
@@ -104,14 +104,14 @@ class UpdateDataSourceRequest extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['Conf'])) {
-            $model->conf = $map['Conf'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

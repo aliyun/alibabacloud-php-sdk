@@ -11,15 +11,15 @@ class RunExecutionPlanResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $executionPlanInstanceId;
 
     /**
      * @var string
      */
-    public $executionPlanInstanceId;
+    public $requestId;
     protected $_name = [
-        'requestId'               => 'RequestId',
         'executionPlanInstanceId' => 'ExecutionPlanInstanceId',
+        'requestId'               => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class RunExecutionPlanResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->executionPlanInstanceId) {
             $res['ExecutionPlanInstanceId'] = $this->executionPlanInstanceId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class RunExecutionPlanResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ExecutionPlanInstanceId'])) {
             $model->executionPlanInstanceId = $map['ExecutionPlanInstanceId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

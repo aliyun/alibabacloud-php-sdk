@@ -11,27 +11,17 @@ class item extends Model
     /**
      * @var string
      */
-    public $hostgroupName;
-
-    /**
-     * @var string
-     */
-    public $configName;
-
-    /**
-     * @var string
-     */
     public $actionType;
 
     /**
      * @var string
      */
-    public $command;
+    public $clusterId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $gmtCreate;
+    public $command;
 
     /**
      * @var string
@@ -44,6 +34,16 @@ class item extends Model
     public $configItemKey;
 
     /**
+     * @var string
+     */
+    public $configName;
+
+    /**
+     * @var int
+     */
+    public $gmtCreate;
+
+    /**
      * @var int
      */
     public $gmtModified;
@@ -51,23 +51,23 @@ class item extends Model
     /**
      * @var string
      */
-    public $serviceName;
+    public $hostgroupName;
 
     /**
      * @var string
      */
-    public $clusterId;
+    public $serviceName;
     protected $_name = [
-        'hostgroupName' => 'HostgroupName',
-        'configName'    => 'ConfigName',
         'actionType'    => 'ActionType',
+        'clusterId'     => 'ClusterId',
         'command'       => 'Command',
-        'gmtCreate'     => 'GmtCreate',
         'component'     => 'Component',
         'configItemKey' => 'ConfigItemKey',
+        'configName'    => 'ConfigName',
+        'gmtCreate'     => 'GmtCreate',
         'gmtModified'   => 'GmtModified',
+        'hostgroupName' => 'HostgroupName',
         'serviceName'   => 'ServiceName',
-        'clusterId'     => 'ClusterId',
     ];
 
     public function validate()
@@ -77,20 +77,14 @@ class item extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->hostgroupName) {
-            $res['HostgroupName'] = $this->hostgroupName;
-        }
-        if (null !== $this->configName) {
-            $res['ConfigName'] = $this->configName;
-        }
         if (null !== $this->actionType) {
             $res['ActionType'] = $this->actionType;
         }
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
         if (null !== $this->command) {
             $res['Command'] = $this->command;
-        }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
         }
         if (null !== $this->component) {
             $res['Component'] = $this->component;
@@ -98,14 +92,20 @@ class item extends Model
         if (null !== $this->configItemKey) {
             $res['ConfigItemKey'] = $this->configItemKey;
         }
+        if (null !== $this->configName) {
+            $res['ConfigName'] = $this->configName;
+        }
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
+        }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
+        if (null !== $this->hostgroupName) {
+            $res['HostgroupName'] = $this->hostgroupName;
+        }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
-        }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
         }
 
         return $res;
@@ -119,20 +119,14 @@ class item extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HostgroupName'])) {
-            $model->hostgroupName = $map['HostgroupName'];
-        }
-        if (isset($map['ConfigName'])) {
-            $model->configName = $map['ConfigName'];
-        }
         if (isset($map['ActionType'])) {
             $model->actionType = $map['ActionType'];
         }
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
         if (isset($map['Command'])) {
             $model->command = $map['Command'];
-        }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
         }
         if (isset($map['Component'])) {
             $model->component = $map['Component'];
@@ -140,14 +134,20 @@ class item extends Model
         if (isset($map['ConfigItemKey'])) {
             $model->configItemKey = $map['ConfigItemKey'];
         }
+        if (isset($map['ConfigName'])) {
+            $model->configName = $map['ConfigName'];
+        }
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
+        }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
+        if (isset($map['HostgroupName'])) {
+            $model->hostgroupName = $map['HostgroupName'];
+        }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
-        }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetHdfsCapacityStatisticInfoResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var hdfsCapacityList
      */
     public $hdfsCapacityList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'        => 'RequestId',
         'hdfsCapacityList' => 'HdfsCapacityList',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class GetHdfsCapacityStatisticInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->hdfsCapacityList) {
             $res['HdfsCapacityList'] = null !== $this->hdfsCapacityList ? $this->hdfsCapacityList->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class GetHdfsCapacityStatisticInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['HdfsCapacityList'])) {
             $model->hdfsCapacityList = hdfsCapacityList::fromMap($map['HdfsCapacityList']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

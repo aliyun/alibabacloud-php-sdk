@@ -14,14 +14,9 @@ class software extends Model
     public $displayName;
 
     /**
-     * @var int
-     */
-    public $startTpe;
-
-    /**
      * @var string
      */
-    public $version;
+    public $name;
 
     /**
      * @var bool
@@ -34,16 +29,21 @@ class software extends Model
     public $optional;
 
     /**
+     * @var int
+     */
+    public $startTpe;
+
+    /**
      * @var string
      */
-    public $name;
+    public $version;
     protected $_name = [
         'displayName' => 'DisplayName',
-        'startTpe'    => 'StartTpe',
-        'version'     => 'Version',
+        'name'        => 'Name',
         'onlyDisplay' => 'OnlyDisplay',
         'optional'    => 'Optional',
-        'name'        => 'Name',
+        'startTpe'    => 'StartTpe',
+        'version'     => 'Version',
     ];
 
     public function validate()
@@ -56,11 +56,8 @@ class software extends Model
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
-        if (null !== $this->startTpe) {
-            $res['StartTpe'] = $this->startTpe;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->onlyDisplay) {
             $res['OnlyDisplay'] = $this->onlyDisplay;
@@ -68,8 +65,11 @@ class software extends Model
         if (null !== $this->optional) {
             $res['Optional'] = $this->optional;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->startTpe) {
+            $res['StartTpe'] = $this->startTpe;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -86,11 +86,8 @@ class software extends Model
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
-        if (isset($map['StartTpe'])) {
-            $model->startTpe = $map['StartTpe'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['OnlyDisplay'])) {
             $model->onlyDisplay = $map['OnlyDisplay'];
@@ -98,8 +95,11 @@ class software extends Model
         if (isset($map['Optional'])) {
             $model->optional = $map['Optional'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['StartTpe'])) {
+            $model->startTpe = $map['StartTpe'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

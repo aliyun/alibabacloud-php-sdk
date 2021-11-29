@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterServiceConfigTagRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var string
      */
     public $clusterId;
@@ -26,18 +16,28 @@ class DescribeClusterServiceConfigTagRequest extends Model
     /**
      * @var string
      */
-    public $serviceName;
+    public $configTag;
 
     /**
      * @var string
      */
-    public $configTag;
+    public $regionId;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $serviceName;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'regionId'        => 'RegionId',
         'clusterId'       => 'ClusterId',
-        'serviceName'     => 'ServiceName',
         'configTag'       => 'ConfigTag',
+        'regionId'        => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'serviceName'     => 'ServiceName',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeClusterServiceConfigTagRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->configTag) {
+            $res['ConfigTag'] = $this->configTag;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
-        }
-        if (null !== $this->configTag) {
-            $res['ConfigTag'] = $this->configTag;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeClusterServiceConfigTagRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['ConfigTag'])) {
+            $model->configTag = $map['ConfigTag'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
-        }
-        if (isset($map['ConfigTag'])) {
-            $model->configTag = $map['ConfigTag'];
         }
 
         return $model;

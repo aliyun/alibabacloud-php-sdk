@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListClusterOperationTaskResponseBody extends Model
 {
     /**
+     * @var clusterOperationTaskList
+     */
+    public $clusterOperationTaskList;
+
+    /**
      * @var int
      */
-    public $totalCount;
+    public $pageNumber;
 
     /**
      * @var int
@@ -27,18 +32,13 @@ class ListClusterOperationTaskResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
-
-    /**
-     * @var clusterOperationTaskList
-     */
-    public $clusterOperationTaskList;
+    public $totalCount;
     protected $_name = [
-        'totalCount'               => 'TotalCount',
+        'clusterOperationTaskList' => 'ClusterOperationTaskList',
+        'pageNumber'               => 'PageNumber',
         'pageSize'                 => 'PageSize',
         'requestId'                => 'RequestId',
-        'pageNumber'               => 'PageNumber',
-        'clusterOperationTaskList' => 'ClusterOperationTaskList',
+        'totalCount'               => 'TotalCount',
     ];
 
     public function validate()
@@ -48,8 +48,11 @@ class ListClusterOperationTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->clusterOperationTaskList) {
+            $res['ClusterOperationTaskList'] = null !== $this->clusterOperationTaskList ? $this->clusterOperationTaskList->toMap() : null;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -57,11 +60,8 @@ class ListClusterOperationTaskResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->clusterOperationTaskList) {
-            $res['ClusterOperationTaskList'] = null !== $this->clusterOperationTaskList ? $this->clusterOperationTaskList->toMap() : null;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -75,8 +75,11 @@ class ListClusterOperationTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['ClusterOperationTaskList'])) {
+            $model->clusterOperationTaskList = clusterOperationTaskList::fromMap($map['ClusterOperationTaskList']);
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
@@ -84,11 +87,8 @@ class ListClusterOperationTaskResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['ClusterOperationTaskList'])) {
-            $model->clusterOperationTaskList = clusterOperationTaskList::fromMap($map['ClusterOperationTaskList']);
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

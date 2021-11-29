@@ -11,12 +11,12 @@ class configItemValue extends Model
     /**
      * @var string
      */
-    public $value;
+    public $description;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $description;
+    public $isCustom;
 
     /**
      * @var string
@@ -24,14 +24,14 @@ class configItemValue extends Model
     public $itemName;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $isCustom;
+    public $value;
     protected $_name = [
-        'value'       => 'Value',
         'description' => 'Description',
-        'itemName'    => 'ItemName',
         'isCustom'    => 'IsCustom',
+        'itemName'    => 'ItemName',
+        'value'       => 'Value',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class configItemValue extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->isCustom) {
+            $res['IsCustom'] = $this->isCustom;
         }
         if (null !== $this->itemName) {
             $res['ItemName'] = $this->itemName;
         }
-        if (null !== $this->isCustom) {
-            $res['IsCustom'] = $this->isCustom;
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class configItemValue extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['IsCustom'])) {
+            $model->isCustom = $map['IsCustom'];
         }
         if (isset($map['ItemName'])) {
             $model->itemName = $map['ItemName'];
         }
-        if (isset($map['IsCustom'])) {
-            $model->isCustom = $map['IsCustom'];
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateLibraryRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $type;
+    public $libraryVersion;
 
     /**
      * @var string
@@ -31,17 +21,17 @@ class CreateLibraryRequest extends Model
     /**
      * @var string
      */
-    public $libraryVersion;
+    public $properties;
 
     /**
      * @var string
      */
-    public $sourceType;
+    public $regionId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $sourceLocation;
+    public $resourceOwnerId;
 
     /**
      * @var string
@@ -51,17 +41,27 @@ class CreateLibraryRequest extends Model
     /**
      * @var string
      */
-    public $properties;
+    public $sourceLocation;
+
+    /**
+     * @var string
+     */
+    public $sourceType;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'regionId'        => 'RegionId',
-        'type'            => 'Type',
-        'name'            => 'Name',
         'libraryVersion'  => 'LibraryVersion',
-        'sourceType'      => 'SourceType',
-        'sourceLocation'  => 'SourceLocation',
-        'scope'           => 'Scope',
+        'name'            => 'Name',
         'properties'      => 'Properties',
+        'regionId'        => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'scope'           => 'Scope',
+        'sourceLocation'  => 'SourceLocation',
+        'sourceType'      => 'SourceType',
+        'type'            => 'Type',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class CreateLibraryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->libraryVersion) {
+            $res['LibraryVersion'] = $this->libraryVersion;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->libraryVersion) {
-            $res['LibraryVersion'] = $this->libraryVersion;
+        if (null !== $this->properties) {
+            $res['Properties'] = $this->properties;
         }
-        if (null !== $this->sourceType) {
-            $res['SourceType'] = $this->sourceType;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->sourceLocation) {
-            $res['SourceLocation'] = $this->sourceLocation;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
         }
-        if (null !== $this->properties) {
-            $res['Properties'] = $this->properties;
+        if (null !== $this->sourceLocation) {
+            $res['SourceLocation'] = $this->sourceLocation;
+        }
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class CreateLibraryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['LibraryVersion'])) {
+            $model->libraryVersion = $map['LibraryVersion'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['LibraryVersion'])) {
-            $model->libraryVersion = $map['LibraryVersion'];
+        if (isset($map['Properties'])) {
+            $model->properties = $map['Properties'];
         }
-        if (isset($map['SourceType'])) {
-            $model->sourceType = $map['SourceType'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
-        if (isset($map['SourceLocation'])) {
-            $model->sourceLocation = $map['SourceLocation'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
         }
-        if (isset($map['Properties'])) {
-            $model->properties = $map['Properties'];
+        if (isset($map['SourceLocation'])) {
+            $model->sourceLocation = $map['SourceLocation'];
+        }
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

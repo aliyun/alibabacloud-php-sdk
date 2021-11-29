@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RetryOperationRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $resourceOwnerId;
+    public $operationId;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class RetryOperationRequest extends Model
     public $regionId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $operationId;
+    public $resourceOwnerId;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'regionId'        => 'RegionId',
         'operationId'     => 'OperationId',
+        'regionId'        => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class RetryOperationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->operationId) {
+            $res['OperationId'] = $this->operationId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->operationId) {
-            $res['OperationId'] = $this->operationId;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class RetryOperationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['OperationId'])) {
+            $model->operationId = $map['OperationId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['OperationId'])) {
-            $model->operationId = $map['OperationId'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Emr\V20160408\Models\ListFlowResponseBody;
 
-use AlibabaCloud\SDK\Emr\V20160408\Models\ListFlowResponseBody\flow\flow;
 use AlibabaCloud\Tea\Model;
 
 class flow extends Model
 {
     /**
-     * @var flow[]
+     * @var \AlibabaCloud\SDK\Emr\V20160408\Models\ListFlowResponseBody\flow\flow[]
      */
     public $flow;
     protected $_name = [
@@ -50,7 +49,7 @@ class flow extends Model
                 $model->flow = [];
                 $n           = 0;
                 foreach ($map['Flow'] as $item) {
-                    $model->flow[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->flow[$n++] = null !== $item ? \AlibabaCloud\SDK\Emr\V20160408\Models\ListFlowResponseBody\flow\flow::fromMap($item) : $item;
                 }
             }
         }

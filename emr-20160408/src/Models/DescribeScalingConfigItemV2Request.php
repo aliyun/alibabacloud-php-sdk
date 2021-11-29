@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeScalingConfigItemV2Request extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $resourceOwnerId;
+    public $configItemType;
 
     /**
      * @var string
@@ -24,26 +24,26 @@ class DescribeScalingConfigItemV2Request extends Model
     public $resourceGroupId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $scalingGroupBizId;
-
-    /**
-     * @var string
-     */
-    public $configItemType;
+    public $resourceOwnerId;
 
     /**
      * @var string
      */
     public $scalingConfigItemId;
+
+    /**
+     * @var string
+     */
+    public $scalingGroupBizId;
     protected $_name = [
-        'resourceOwnerId'     => 'ResourceOwnerId',
+        'configItemType'      => 'ConfigItemType',
         'regionId'            => 'RegionId',
         'resourceGroupId'     => 'ResourceGroupId',
-        'scalingGroupBizId'   => 'ScalingGroupBizId',
-        'configItemType'      => 'ConfigItemType',
+        'resourceOwnerId'     => 'ResourceOwnerId',
         'scalingConfigItemId' => 'ScalingConfigItemId',
+        'scalingGroupBizId'   => 'ScalingGroupBizId',
     ];
 
     public function validate()
@@ -53,8 +53,8 @@ class DescribeScalingConfigItemV2Request extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->configItemType) {
+            $res['ConfigItemType'] = $this->configItemType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -62,14 +62,14 @@ class DescribeScalingConfigItemV2Request extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->scalingGroupBizId) {
-            $res['ScalingGroupBizId'] = $this->scalingGroupBizId;
-        }
-        if (null !== $this->configItemType) {
-            $res['ConfigItemType'] = $this->configItemType;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->scalingConfigItemId) {
             $res['ScalingConfigItemId'] = $this->scalingConfigItemId;
+        }
+        if (null !== $this->scalingGroupBizId) {
+            $res['ScalingGroupBizId'] = $this->scalingGroupBizId;
         }
 
         return $res;
@@ -83,8 +83,8 @@ class DescribeScalingConfigItemV2Request extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['ConfigItemType'])) {
+            $model->configItemType = $map['ConfigItemType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
@@ -92,14 +92,14 @@ class DescribeScalingConfigItemV2Request extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['ScalingGroupBizId'])) {
-            $model->scalingGroupBizId = $map['ScalingGroupBizId'];
-        }
-        if (isset($map['ConfigItemType'])) {
-            $model->configItemType = $map['ConfigItemType'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['ScalingConfigItemId'])) {
             $model->scalingConfigItemId = $map['ScalingConfigItemId'];
+        }
+        if (isset($map['ScalingGroupBizId'])) {
+            $model->scalingGroupBizId = $map['ScalingGroupBizId'];
         }
 
         return $model;

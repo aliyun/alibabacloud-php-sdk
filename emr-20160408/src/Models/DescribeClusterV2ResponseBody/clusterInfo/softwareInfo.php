@@ -12,20 +12,20 @@ class softwareInfo extends Model
     /**
      * @var string
      */
-    public $emrVer;
+    public $clusterType;
 
     /**
      * @var string
      */
-    public $clusterType;
+    public $emrVer;
 
     /**
      * @var softwares
      */
     public $softwares;
     protected $_name = [
-        'emrVer'      => 'EmrVer',
         'clusterType' => 'ClusterType',
+        'emrVer'      => 'EmrVer',
         'softwares'   => 'Softwares',
     ];
 
@@ -36,11 +36,11 @@ class softwareInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->emrVer) {
-            $res['EmrVer'] = $this->emrVer;
-        }
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
+        }
+        if (null !== $this->emrVer) {
+            $res['EmrVer'] = $this->emrVer;
         }
         if (null !== $this->softwares) {
             $res['Softwares'] = null !== $this->softwares ? $this->softwares->toMap() : null;
@@ -57,11 +57,11 @@ class softwareInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EmrVer'])) {
-            $model->emrVer = $map['EmrVer'];
-        }
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
+        }
+        if (isset($map['EmrVer'])) {
+            $model->emrVer = $map['EmrVer'];
         }
         if (isset($map['Softwares'])) {
             $model->softwares = softwares::fromMap($map['Softwares']);

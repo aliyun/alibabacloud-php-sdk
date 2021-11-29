@@ -11,7 +11,27 @@ class item extends Model
     /**
      * @var string
      */
+    public $activeStatus;
+
+    /**
+     * @var string
+     */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $hostGroupBizId;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $scalingGroupId;
 
     /**
      * @var string
@@ -24,38 +44,18 @@ class item extends Model
     public $scalingMaxSize;
 
     /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $hostGroupBizId;
-
-    /**
      * @var int
      */
     public $scalingMinSize;
-
-    /**
-     * @var string
-     */
-    public $activeStatus;
-
-    /**
-     * @var string
-     */
-    public $scalingGroupId;
     protected $_name = [
+        'activeStatus'   => 'ActiveStatus',
         'description'    => 'Description',
+        'hostGroupBizId' => 'HostGroupBizId',
+        'name'           => 'Name',
+        'scalingGroupId' => 'ScalingGroupId',
         'scalingInMode'  => 'ScalingInMode',
         'scalingMaxSize' => 'ScalingMaxSize',
-        'name'           => 'Name',
-        'hostGroupBizId' => 'HostGroupBizId',
         'scalingMinSize' => 'ScalingMinSize',
-        'activeStatus'   => 'ActiveStatus',
-        'scalingGroupId' => 'ScalingGroupId',
     ];
 
     public function validate()
@@ -65,8 +65,20 @@ class item extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->activeStatus) {
+            $res['ActiveStatus'] = $this->activeStatus;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->hostGroupBizId) {
+            $res['HostGroupBizId'] = $this->hostGroupBizId;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->scalingGroupId) {
+            $res['ScalingGroupId'] = $this->scalingGroupId;
         }
         if (null !== $this->scalingInMode) {
             $res['ScalingInMode'] = $this->scalingInMode;
@@ -74,20 +86,8 @@ class item extends Model
         if (null !== $this->scalingMaxSize) {
             $res['ScalingMaxSize'] = $this->scalingMaxSize;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->hostGroupBizId) {
-            $res['HostGroupBizId'] = $this->hostGroupBizId;
-        }
         if (null !== $this->scalingMinSize) {
             $res['ScalingMinSize'] = $this->scalingMinSize;
-        }
-        if (null !== $this->activeStatus) {
-            $res['ActiveStatus'] = $this->activeStatus;
-        }
-        if (null !== $this->scalingGroupId) {
-            $res['ScalingGroupId'] = $this->scalingGroupId;
         }
 
         return $res;
@@ -101,8 +101,20 @@ class item extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ActiveStatus'])) {
+            $model->activeStatus = $map['ActiveStatus'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['HostGroupBizId'])) {
+            $model->hostGroupBizId = $map['HostGroupBizId'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['ScalingGroupId'])) {
+            $model->scalingGroupId = $map['ScalingGroupId'];
         }
         if (isset($map['ScalingInMode'])) {
             $model->scalingInMode = $map['ScalingInMode'];
@@ -110,20 +122,8 @@ class item extends Model
         if (isset($map['ScalingMaxSize'])) {
             $model->scalingMaxSize = $map['ScalingMaxSize'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['HostGroupBizId'])) {
-            $model->hostGroupBizId = $map['HostGroupBizId'];
-        }
         if (isset($map['ScalingMinSize'])) {
             $model->scalingMinSize = $map['ScalingMinSize'];
-        }
-        if (isset($map['ActiveStatus'])) {
-            $model->activeStatus = $map['ActiveStatus'];
-        }
-        if (isset($map['ScalingGroupId'])) {
-            $model->scalingGroupId = $map['ScalingGroupId'];
         }
 
         return $model;

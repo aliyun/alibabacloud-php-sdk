@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListClusterServiceConfigHistoryRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
      * @var string
      */
-    public $regionId;
+    public $author;
 
     /**
      * @var string
@@ -26,7 +21,17 @@ class ListClusterServiceConfigHistoryRequest extends Model
     /**
      * @var string
      */
-    public $serviceName;
+    public $comment;
+
+    /**
+     * @var string
+     */
+    public $configFileName;
+
+    /**
+     * @var string
+     */
+    public $configItemKey;
 
     /**
      * @var string
@@ -44,26 +49,6 @@ class ListClusterServiceConfigHistoryRequest extends Model
     public $hostInstanceId;
 
     /**
-     * @var string
-     */
-    public $configFileName;
-
-    /**
-     * @var string
-     */
-    public $configItemKey;
-
-    /**
-     * @var string
-     */
-    public $author;
-
-    /**
-     * @var string
-     */
-    public $comment;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -72,20 +57,35 @@ class ListClusterServiceConfigHistoryRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $serviceName;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'regionId'        => 'RegionId',
+        'author'          => 'Author',
         'clusterId'       => 'ClusterId',
-        'serviceName'     => 'ServiceName',
+        'comment'         => 'Comment',
+        'configFileName'  => 'ConfigFileName',
+        'configItemKey'   => 'ConfigItemKey',
         'configVersion'   => 'ConfigVersion',
         'hostGroupId'     => 'HostGroupId',
         'hostInstanceId'  => 'HostInstanceId',
-        'configFileName'  => 'ConfigFileName',
-        'configItemKey'   => 'ConfigItemKey',
-        'author'          => 'Author',
-        'comment'         => 'Comment',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
+        'regionId'        => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'serviceName'     => 'ServiceName',
     ];
 
     public function validate()
@@ -95,17 +95,20 @@ class ListClusterServiceConfigHistoryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->author) {
+            $res['Author'] = $this->author;
         }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->serviceName) {
-            $res['ServiceName'] = $this->serviceName;
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
+        }
+        if (null !== $this->configFileName) {
+            $res['ConfigFileName'] = $this->configFileName;
+        }
+        if (null !== $this->configItemKey) {
+            $res['ConfigItemKey'] = $this->configItemKey;
         }
         if (null !== $this->configVersion) {
             $res['ConfigVersion'] = $this->configVersion;
@@ -116,23 +119,20 @@ class ListClusterServiceConfigHistoryRequest extends Model
         if (null !== $this->hostInstanceId) {
             $res['HostInstanceId'] = $this->hostInstanceId;
         }
-        if (null !== $this->configFileName) {
-            $res['ConfigFileName'] = $this->configFileName;
-        }
-        if (null !== $this->configItemKey) {
-            $res['ConfigItemKey'] = $this->configItemKey;
-        }
-        if (null !== $this->author) {
-            $res['Author'] = $this->author;
-        }
-        if (null !== $this->comment) {
-            $res['Comment'] = $this->comment;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->serviceName) {
+            $res['ServiceName'] = $this->serviceName;
         }
 
         return $res;
@@ -146,17 +146,20 @@ class ListClusterServiceConfigHistoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Author'])) {
+            $model->author = $map['Author'];
         }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['ServiceName'])) {
-            $model->serviceName = $map['ServiceName'];
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
+        }
+        if (isset($map['ConfigFileName'])) {
+            $model->configFileName = $map['ConfigFileName'];
+        }
+        if (isset($map['ConfigItemKey'])) {
+            $model->configItemKey = $map['ConfigItemKey'];
         }
         if (isset($map['ConfigVersion'])) {
             $model->configVersion = $map['ConfigVersion'];
@@ -167,23 +170,20 @@ class ListClusterServiceConfigHistoryRequest extends Model
         if (isset($map['HostInstanceId'])) {
             $model->hostInstanceId = $map['HostInstanceId'];
         }
-        if (isset($map['ConfigFileName'])) {
-            $model->configFileName = $map['ConfigFileName'];
-        }
-        if (isset($map['ConfigItemKey'])) {
-            $model->configItemKey = $map['ConfigItemKey'];
-        }
-        if (isset($map['Author'])) {
-            $model->author = $map['Author'];
-        }
-        if (isset($map['Comment'])) {
-            $model->comment = $map['Comment'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['ServiceName'])) {
+            $model->serviceName = $map['ServiceName'];
         }
 
         return $model;

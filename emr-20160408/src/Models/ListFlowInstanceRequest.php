@@ -11,11 +11,6 @@ class ListFlowInstanceRequest extends Model
     /**
      * @var string
      */
-    public $id;
-
-    /**
-     * @var string
-     */
     public $flowId;
 
     /**
@@ -26,7 +21,7 @@ class ListFlowInstanceRequest extends Model
     /**
      * @var string
      */
-    public $owner;
+    public $id;
 
     /**
      * @var string
@@ -41,11 +36,6 @@ class ListFlowInstanceRequest extends Model
     /**
      * @var string
      */
-    public $timeRange;
-
-    /**
-     * @var string
-     */
     public $orderBy;
 
     /**
@@ -56,12 +46,7 @@ class ListFlowInstanceRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $projectId;
+    public $owner;
 
     /**
      * @var int
@@ -74,24 +59,39 @@ class ListFlowInstanceRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var string[]
      */
     public $statusList;
+
+    /**
+     * @var string
+     */
+    public $timeRange;
     protected $_name = [
-        'id'             => 'Id',
         'flowId'         => 'FlowId',
         'flowName'       => 'FlowName',
-        'owner'          => 'Owner',
+        'id'             => 'Id',
         'instanceId'     => 'InstanceId',
         'nodeInstanceId' => 'NodeInstanceId',
-        'timeRange'      => 'TimeRange',
         'orderBy'        => 'OrderBy',
         'orderType'      => 'OrderType',
-        'regionId'       => 'RegionId',
-        'projectId'      => 'ProjectId',
+        'owner'          => 'Owner',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
+        'projectId'      => 'ProjectId',
+        'regionId'       => 'RegionId',
         'statusList'     => 'StatusList',
+        'timeRange'      => 'TimeRange',
     ];
 
     public function validate()
@@ -101,17 +101,14 @@ class ListFlowInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
         if (null !== $this->flowId) {
             $res['FlowId'] = $this->flowId;
         }
         if (null !== $this->flowName) {
             $res['FlowName'] = $this->flowName;
         }
-        if (null !== $this->owner) {
-            $res['Owner'] = $this->owner;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -119,20 +116,14 @@ class ListFlowInstanceRequest extends Model
         if (null !== $this->nodeInstanceId) {
             $res['NodeInstanceId'] = $this->nodeInstanceId;
         }
-        if (null !== $this->timeRange) {
-            $res['TimeRange'] = $this->timeRange;
-        }
         if (null !== $this->orderBy) {
             $res['OrderBy'] = $this->orderBy;
         }
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -140,8 +131,17 @@ class ListFlowInstanceRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->statusList) {
             $res['StatusList'] = $this->statusList;
+        }
+        if (null !== $this->timeRange) {
+            $res['TimeRange'] = $this->timeRange;
         }
 
         return $res;
@@ -155,17 +155,14 @@ class ListFlowInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
         if (isset($map['FlowId'])) {
             $model->flowId = $map['FlowId'];
         }
         if (isset($map['FlowName'])) {
             $model->flowName = $map['FlowName'];
         }
-        if (isset($map['Owner'])) {
-            $model->owner = $map['Owner'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -173,20 +170,14 @@ class ListFlowInstanceRequest extends Model
         if (isset($map['NodeInstanceId'])) {
             $model->nodeInstanceId = $map['NodeInstanceId'];
         }
-        if (isset($map['TimeRange'])) {
-            $model->timeRange = $map['TimeRange'];
-        }
         if (isset($map['OrderBy'])) {
             $model->orderBy = $map['OrderBy'];
         }
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -194,10 +185,19 @@ class ListFlowInstanceRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['StatusList'])) {
             if (!empty($map['StatusList'])) {
                 $model->statusList = $map['StatusList'];
             }
+        }
+        if (isset($map['TimeRange'])) {
+            $model->timeRange = $map['TimeRange'];
         }
 
         return $model;

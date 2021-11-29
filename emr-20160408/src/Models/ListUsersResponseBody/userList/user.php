@@ -11,7 +11,7 @@ class user extends Model
     /**
      * @var string
      */
-    public $linuxStatus;
+    public $groupName;
 
     /**
      * @var string
@@ -21,12 +21,17 @@ class user extends Model
     /**
      * @var string
      */
+    public $kerberosStatus;
+
+    /**
+     * @var string
+     */
     public $knoxStatus;
 
     /**
      * @var string
      */
-    public $groupName;
+    public $linuxStatus;
 
     /**
      * @var string
@@ -36,19 +41,14 @@ class user extends Model
     /**
      * @var string
      */
-    public $kerberosStatus;
-
-    /**
-     * @var string
-     */
     public $userName;
     protected $_name = [
-        'linuxStatus'    => 'LinuxStatus',
-        'k8sStatus'      => 'K8sStatus',
-        'knoxStatus'     => 'KnoxStatus',
         'groupName'      => 'GroupName',
-        'userId'         => 'UserId',
+        'k8sStatus'      => 'K8sStatus',
         'kerberosStatus' => 'KerberosStatus',
+        'knoxStatus'     => 'KnoxStatus',
+        'linuxStatus'    => 'LinuxStatus',
+        'userId'         => 'UserId',
         'userName'       => 'UserName',
     ];
 
@@ -59,23 +59,23 @@ class user extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->linuxStatus) {
-            $res['LinuxStatus'] = $this->linuxStatus;
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
         }
         if (null !== $this->k8sStatus) {
             $res['K8sStatus'] = $this->k8sStatus;
         }
+        if (null !== $this->kerberosStatus) {
+            $res['KerberosStatus'] = $this->kerberosStatus;
+        }
         if (null !== $this->knoxStatus) {
             $res['KnoxStatus'] = $this->knoxStatus;
         }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
+        if (null !== $this->linuxStatus) {
+            $res['LinuxStatus'] = $this->linuxStatus;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->kerberosStatus) {
-            $res['KerberosStatus'] = $this->kerberosStatus;
         }
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
@@ -92,23 +92,23 @@ class user extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LinuxStatus'])) {
-            $model->linuxStatus = $map['LinuxStatus'];
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
         }
         if (isset($map['K8sStatus'])) {
             $model->k8sStatus = $map['K8sStatus'];
         }
+        if (isset($map['KerberosStatus'])) {
+            $model->kerberosStatus = $map['KerberosStatus'];
+        }
         if (isset($map['KnoxStatus'])) {
             $model->knoxStatus = $map['KnoxStatus'];
         }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
+        if (isset($map['LinuxStatus'])) {
+            $model->linuxStatus = $map['LinuxStatus'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
-        }
-        if (isset($map['KerberosStatus'])) {
-            $model->kerberosStatus = $map['KerberosStatus'];
         }
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];

@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class spotPriceLimit extends Model
 {
     /**
-     * @var float
-     */
-    public $priceLimit;
-
-    /**
      * @var string
      */
     public $instanceType;
+
+    /**
+     * @var float
+     */
+    public $priceLimit;
     protected $_name = [
-        'priceLimit'   => 'PriceLimit',
         'instanceType' => 'InstanceType',
+        'priceLimit'   => 'PriceLimit',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class spotPriceLimit extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->priceLimit) {
-            $res['PriceLimit'] = $this->priceLimit;
-        }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->priceLimit) {
+            $res['PriceLimit'] = $this->priceLimit;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class spotPriceLimit extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PriceLimit'])) {
-            $model->priceLimit = $map['PriceLimit'];
-        }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['PriceLimit'])) {
+            $model->priceLimit = $map['PriceLimit'];
         }
 
         return $model;

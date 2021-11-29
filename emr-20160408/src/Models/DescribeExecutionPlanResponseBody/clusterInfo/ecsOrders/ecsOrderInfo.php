@@ -11,27 +11,22 @@ class ecsOrderInfo extends Model
     /**
      * @var int
      */
-    public $index;
-
-    /**
-     * @var int
-     */
     public $diskCapacity;
 
     /**
-     * @var string
-     */
-    public $nodeType;
-
-    /**
      * @var int
      */
-    public $nodeCount;
+    public $diskCount;
 
     /**
      * @var string
      */
     public $diskType;
+
+    /**
+     * @var int
+     */
+    public $index;
 
     /**
      * @var string
@@ -41,15 +36,20 @@ class ecsOrderInfo extends Model
     /**
      * @var int
      */
-    public $diskCount;
+    public $nodeCount;
+
+    /**
+     * @var string
+     */
+    public $nodeType;
     protected $_name = [
-        'index'        => 'Index',
         'diskCapacity' => 'DiskCapacity',
-        'nodeType'     => 'NodeType',
-        'nodeCount'    => 'NodeCount',
-        'diskType'     => 'DiskType',
-        'instanceType' => 'InstanceType',
         'diskCount'    => 'DiskCount',
+        'diskType'     => 'DiskType',
+        'index'        => 'Index',
+        'instanceType' => 'InstanceType',
+        'nodeCount'    => 'NodeCount',
+        'nodeType'     => 'NodeType',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class ecsOrderInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->index) {
-            $res['Index'] = $this->index;
-        }
         if (null !== $this->diskCapacity) {
             $res['DiskCapacity'] = $this->diskCapacity;
         }
-        if (null !== $this->nodeType) {
-            $res['NodeType'] = $this->nodeType;
-        }
-        if (null !== $this->nodeCount) {
-            $res['NodeCount'] = $this->nodeCount;
+        if (null !== $this->diskCount) {
+            $res['DiskCount'] = $this->diskCount;
         }
         if (null !== $this->diskType) {
             $res['DiskType'] = $this->diskType;
         }
+        if (null !== $this->index) {
+            $res['Index'] = $this->index;
+        }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
-        if (null !== $this->diskCount) {
-            $res['DiskCount'] = $this->diskCount;
+        if (null !== $this->nodeCount) {
+            $res['NodeCount'] = $this->nodeCount;
+        }
+        if (null !== $this->nodeType) {
+            $res['NodeType'] = $this->nodeType;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class ecsOrderInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Index'])) {
-            $model->index = $map['Index'];
-        }
         if (isset($map['DiskCapacity'])) {
             $model->diskCapacity = $map['DiskCapacity'];
         }
-        if (isset($map['NodeType'])) {
-            $model->nodeType = $map['NodeType'];
-        }
-        if (isset($map['NodeCount'])) {
-            $model->nodeCount = $map['NodeCount'];
+        if (isset($map['DiskCount'])) {
+            $model->diskCount = $map['DiskCount'];
         }
         if (isset($map['DiskType'])) {
             $model->diskType = $map['DiskType'];
         }
+        if (isset($map['Index'])) {
+            $model->index = $map['Index'];
+        }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
-        if (isset($map['DiskCount'])) {
-            $model->diskCount = $map['DiskCount'];
+        if (isset($map['NodeCount'])) {
+            $model->nodeCount = $map['NodeCount'];
+        }
+        if (isset($map['NodeType'])) {
+            $model->nodeType = $map['NodeType'];
         }
 
         return $model;

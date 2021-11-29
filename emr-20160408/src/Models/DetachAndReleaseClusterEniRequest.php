@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DetachAndReleaseClusterEniRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var string
@@ -28,8 +28,8 @@ class DetachAndReleaseClusterEniRequest extends Model
      */
     public $vswitchId;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
         'regionId'        => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'targetClusterId' => 'TargetClusterId',
         'vswitchId'       => 'VswitchId',
     ];
@@ -41,11 +41,11 @@ class DetachAndReleaseClusterEniRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->targetClusterId) {
             $res['TargetClusterId'] = $this->targetClusterId;
@@ -65,11 +65,11 @@ class DetachAndReleaseClusterEniRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['TargetClusterId'])) {
             $model->targetClusterId = $map['TargetClusterId'];

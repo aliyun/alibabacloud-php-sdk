@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class emrResourceInfo extends Model
 {
     /**
-     * @var string
-     */
-    public $type;
-
-    /**
      * @var supportedResourceList
      */
     public $supportedResourceList;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'                  => 'Type',
         'supportedResourceList' => 'SupportedResourceList',
+        'type'                  => 'Type',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class emrResourceInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->supportedResourceList) {
             $res['SupportedResourceList'] = null !== $this->supportedResourceList ? $this->supportedResourceList->toMap() : null;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class emrResourceInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['SupportedResourceList'])) {
             $model->supportedResourceList = supportedResourceList::fromMap($map['SupportedResourceList']);
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

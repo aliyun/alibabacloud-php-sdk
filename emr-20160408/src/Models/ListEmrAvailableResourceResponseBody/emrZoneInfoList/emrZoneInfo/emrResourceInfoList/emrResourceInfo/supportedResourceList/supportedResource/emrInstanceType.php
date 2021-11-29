@@ -11,22 +11,17 @@ class emrInstanceType extends Model
     /**
      * @var int
      */
-    public $instanceBandwidthRx;
-
-    /**
-     * @var string
-     */
-    public $GPUSpec;
-
-    /**
-     * @var string
-     */
-    public $localStorageCategory;
+    public $baselineCredit;
 
     /**
      * @var int
      */
-    public $instanceBandwidthTx;
+    public $cpuCoreCount;
+
+    /**
+     * @var int
+     */
+    public $eniQuantity;
 
     /**
      * @var int
@@ -36,12 +31,7 @@ class emrInstanceType extends Model
     /**
      * @var string
      */
-    public $instanceType;
-
-    /**
-     * @var int
-     */
-    public $memorySize;
+    public $GPUSpec;
 
     /**
      * @var int
@@ -51,12 +41,12 @@ class emrInstanceType extends Model
     /**
      * @var int
      */
-    public $localStorageCapacity;
+    public $instanceBandwidthRx;
 
     /**
      * @var int
      */
-    public $localStorageAmount;
+    public $instanceBandwidthTx;
 
     /**
      * @var int
@@ -66,17 +56,12 @@ class emrInstanceType extends Model
     /**
      * @var int
      */
-    public $baselineCredit;
-
-    /**
-     * @var int
-     */
     public $instancePpsTx;
 
     /**
-     * @var int
+     * @var string
      */
-    public $cpuCoreCount;
+    public $instanceType;
 
     /**
      * @var string
@@ -86,24 +71,39 @@ class emrInstanceType extends Model
     /**
      * @var int
      */
-    public $eniQuantity;
+    public $localStorageAmount;
+
+    /**
+     * @var int
+     */
+    public $localStorageCapacity;
+
+    /**
+     * @var string
+     */
+    public $localStorageCategory;
+
+    /**
+     * @var int
+     */
+    public $memorySize;
     protected $_name = [
-        'instanceBandwidthRx'  => 'InstanceBandwidthRx',
-        'GPUSpec'              => 'GPUSpec',
-        'localStorageCategory' => 'LocalStorageCategory',
-        'instanceBandwidthTx'  => 'InstanceBandwidthTx',
-        'GPUAmount'            => 'GPUAmount',
-        'instanceType'         => 'InstanceType',
-        'memorySize'           => 'MemorySize',
-        'initialCredit'        => 'InitialCredit',
-        'localStorageCapacity' => 'LocalStorageCapacity',
-        'localStorageAmount'   => 'LocalStorageAmount',
-        'instancePpsRx'        => 'InstancePpsRx',
         'baselineCredit'       => 'BaselineCredit',
-        'instancePpsTx'        => 'InstancePpsTx',
         'cpuCoreCount'         => 'CpuCoreCount',
-        'instanceTypeFamily'   => 'InstanceTypeFamily',
         'eniQuantity'          => 'EniQuantity',
+        'GPUAmount'            => 'GPUAmount',
+        'GPUSpec'              => 'GPUSpec',
+        'initialCredit'        => 'InitialCredit',
+        'instanceBandwidthRx'  => 'InstanceBandwidthRx',
+        'instanceBandwidthTx'  => 'InstanceBandwidthTx',
+        'instancePpsRx'        => 'InstancePpsRx',
+        'instancePpsTx'        => 'InstancePpsTx',
+        'instanceType'         => 'InstanceType',
+        'instanceTypeFamily'   => 'InstanceTypeFamily',
+        'localStorageAmount'   => 'LocalStorageAmount',
+        'localStorageCapacity' => 'LocalStorageCapacity',
+        'localStorageCategory' => 'LocalStorageCategory',
+        'memorySize'           => 'MemorySize',
     ];
 
     public function validate()
@@ -113,53 +113,53 @@ class emrInstanceType extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceBandwidthRx) {
-            $res['InstanceBandwidthRx'] = $this->instanceBandwidthRx;
-        }
-        if (null !== $this->GPUSpec) {
-            $res['GPUSpec'] = $this->GPUSpec;
-        }
-        if (null !== $this->localStorageCategory) {
-            $res['LocalStorageCategory'] = $this->localStorageCategory;
-        }
-        if (null !== $this->instanceBandwidthTx) {
-            $res['InstanceBandwidthTx'] = $this->instanceBandwidthTx;
-        }
-        if (null !== $this->GPUAmount) {
-            $res['GPUAmount'] = $this->GPUAmount;
-        }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
-        }
-        if (null !== $this->memorySize) {
-            $res['MemorySize'] = $this->memorySize;
-        }
-        if (null !== $this->initialCredit) {
-            $res['InitialCredit'] = $this->initialCredit;
-        }
-        if (null !== $this->localStorageCapacity) {
-            $res['LocalStorageCapacity'] = $this->localStorageCapacity;
-        }
-        if (null !== $this->localStorageAmount) {
-            $res['LocalStorageAmount'] = $this->localStorageAmount;
-        }
-        if (null !== $this->instancePpsRx) {
-            $res['InstancePpsRx'] = $this->instancePpsRx;
-        }
         if (null !== $this->baselineCredit) {
             $res['BaselineCredit'] = $this->baselineCredit;
-        }
-        if (null !== $this->instancePpsTx) {
-            $res['InstancePpsTx'] = $this->instancePpsTx;
         }
         if (null !== $this->cpuCoreCount) {
             $res['CpuCoreCount'] = $this->cpuCoreCount;
         }
+        if (null !== $this->eniQuantity) {
+            $res['EniQuantity'] = $this->eniQuantity;
+        }
+        if (null !== $this->GPUAmount) {
+            $res['GPUAmount'] = $this->GPUAmount;
+        }
+        if (null !== $this->GPUSpec) {
+            $res['GPUSpec'] = $this->GPUSpec;
+        }
+        if (null !== $this->initialCredit) {
+            $res['InitialCredit'] = $this->initialCredit;
+        }
+        if (null !== $this->instanceBandwidthRx) {
+            $res['InstanceBandwidthRx'] = $this->instanceBandwidthRx;
+        }
+        if (null !== $this->instanceBandwidthTx) {
+            $res['InstanceBandwidthTx'] = $this->instanceBandwidthTx;
+        }
+        if (null !== $this->instancePpsRx) {
+            $res['InstancePpsRx'] = $this->instancePpsRx;
+        }
+        if (null !== $this->instancePpsTx) {
+            $res['InstancePpsTx'] = $this->instancePpsTx;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
+        }
         if (null !== $this->instanceTypeFamily) {
             $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
         }
-        if (null !== $this->eniQuantity) {
-            $res['EniQuantity'] = $this->eniQuantity;
+        if (null !== $this->localStorageAmount) {
+            $res['LocalStorageAmount'] = $this->localStorageAmount;
+        }
+        if (null !== $this->localStorageCapacity) {
+            $res['LocalStorageCapacity'] = $this->localStorageCapacity;
+        }
+        if (null !== $this->localStorageCategory) {
+            $res['LocalStorageCategory'] = $this->localStorageCategory;
+        }
+        if (null !== $this->memorySize) {
+            $res['MemorySize'] = $this->memorySize;
         }
 
         return $res;
@@ -173,53 +173,53 @@ class emrInstanceType extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceBandwidthRx'])) {
-            $model->instanceBandwidthRx = $map['InstanceBandwidthRx'];
-        }
-        if (isset($map['GPUSpec'])) {
-            $model->GPUSpec = $map['GPUSpec'];
-        }
-        if (isset($map['LocalStorageCategory'])) {
-            $model->localStorageCategory = $map['LocalStorageCategory'];
-        }
-        if (isset($map['InstanceBandwidthTx'])) {
-            $model->instanceBandwidthTx = $map['InstanceBandwidthTx'];
-        }
-        if (isset($map['GPUAmount'])) {
-            $model->GPUAmount = $map['GPUAmount'];
-        }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
-        }
-        if (isset($map['MemorySize'])) {
-            $model->memorySize = $map['MemorySize'];
-        }
-        if (isset($map['InitialCredit'])) {
-            $model->initialCredit = $map['InitialCredit'];
-        }
-        if (isset($map['LocalStorageCapacity'])) {
-            $model->localStorageCapacity = $map['LocalStorageCapacity'];
-        }
-        if (isset($map['LocalStorageAmount'])) {
-            $model->localStorageAmount = $map['LocalStorageAmount'];
-        }
-        if (isset($map['InstancePpsRx'])) {
-            $model->instancePpsRx = $map['InstancePpsRx'];
-        }
         if (isset($map['BaselineCredit'])) {
             $model->baselineCredit = $map['BaselineCredit'];
-        }
-        if (isset($map['InstancePpsTx'])) {
-            $model->instancePpsTx = $map['InstancePpsTx'];
         }
         if (isset($map['CpuCoreCount'])) {
             $model->cpuCoreCount = $map['CpuCoreCount'];
         }
+        if (isset($map['EniQuantity'])) {
+            $model->eniQuantity = $map['EniQuantity'];
+        }
+        if (isset($map['GPUAmount'])) {
+            $model->GPUAmount = $map['GPUAmount'];
+        }
+        if (isset($map['GPUSpec'])) {
+            $model->GPUSpec = $map['GPUSpec'];
+        }
+        if (isset($map['InitialCredit'])) {
+            $model->initialCredit = $map['InitialCredit'];
+        }
+        if (isset($map['InstanceBandwidthRx'])) {
+            $model->instanceBandwidthRx = $map['InstanceBandwidthRx'];
+        }
+        if (isset($map['InstanceBandwidthTx'])) {
+            $model->instanceBandwidthTx = $map['InstanceBandwidthTx'];
+        }
+        if (isset($map['InstancePpsRx'])) {
+            $model->instancePpsRx = $map['InstancePpsRx'];
+        }
+        if (isset($map['InstancePpsTx'])) {
+            $model->instancePpsTx = $map['InstancePpsTx'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
+        }
         if (isset($map['InstanceTypeFamily'])) {
             $model->instanceTypeFamily = $map['InstanceTypeFamily'];
         }
-        if (isset($map['EniQuantity'])) {
-            $model->eniQuantity = $map['EniQuantity'];
+        if (isset($map['LocalStorageAmount'])) {
+            $model->localStorageAmount = $map['LocalStorageAmount'];
+        }
+        if (isset($map['LocalStorageCapacity'])) {
+            $model->localStorageCapacity = $map['LocalStorageCapacity'];
+        }
+        if (isset($map['LocalStorageCategory'])) {
+            $model->localStorageCategory = $map['LocalStorageCategory'];
+        }
+        if (isset($map['MemorySize'])) {
+            $model->memorySize = $map['MemorySize'];
         }
 
         return $model;

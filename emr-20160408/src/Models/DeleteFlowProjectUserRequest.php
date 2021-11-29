@@ -11,20 +11,20 @@ class DeleteFlowProjectUserRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $projectId;
 
     /**
      * @var string
      */
-    public $projectId;
+    public $regionId;
 
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
-        'regionId'  => 'RegionId',
         'projectId' => 'ProjectId',
+        'regionId'  => 'RegionId',
         'userName'  => 'UserName',
     ];
 
@@ -35,11 +35,11 @@ class DeleteFlowProjectUserRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
@@ -56,11 +56,11 @@ class DeleteFlowProjectUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];

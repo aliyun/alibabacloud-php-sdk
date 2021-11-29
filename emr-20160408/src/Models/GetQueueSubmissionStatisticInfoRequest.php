@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetQueueSubmissionStatisticInfoRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
      * @var string
      */
-    public $regionId;
+    public $applicationType;
 
     /**
      * @var string
@@ -26,30 +21,35 @@ class GetQueueSubmissionStatisticInfoRequest extends Model
     /**
      * @var string
      */
+    public $finalStatus;
+
+    /**
+     * @var string
+     */
     public $fromDatetime;
 
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
     public $toDatetime;
-
-    /**
-     * @var string
-     */
-    public $applicationType;
-
-    /**
-     * @var string
-     */
-    public $finalStatus;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'regionId'        => 'RegionId',
-        'clusterId'       => 'ClusterId',
-        'fromDatetime'    => 'FromDatetime',
-        'toDatetime'      => 'ToDatetime',
         'applicationType' => 'ApplicationType',
+        'clusterId'       => 'ClusterId',
         'finalStatus'     => 'FinalStatus',
+        'fromDatetime'    => 'FromDatetime',
+        'regionId'        => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'toDatetime'      => 'ToDatetime',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class GetQueueSubmissionStatisticInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->applicationType) {
+            $res['ApplicationType'] = $this->applicationType;
         }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+        if (null !== $this->finalStatus) {
+            $res['FinalStatus'] = $this->finalStatus;
+        }
         if (null !== $this->fromDatetime) {
             $res['FromDatetime'] = $this->fromDatetime;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->toDatetime) {
             $res['ToDatetime'] = $this->toDatetime;
-        }
-        if (null !== $this->applicationType) {
-            $res['ApplicationType'] = $this->applicationType;
-        }
-        if (null !== $this->finalStatus) {
-            $res['FinalStatus'] = $this->finalStatus;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class GetQueueSubmissionStatisticInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ApplicationType'])) {
+            $model->applicationType = $map['ApplicationType'];
         }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+        if (isset($map['FinalStatus'])) {
+            $model->finalStatus = $map['FinalStatus'];
+        }
         if (isset($map['FromDatetime'])) {
             $model->fromDatetime = $map['FromDatetime'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['ToDatetime'])) {
             $model->toDatetime = $map['ToDatetime'];
-        }
-        if (isset($map['ApplicationType'])) {
-            $model->applicationType = $map['ApplicationType'];
-        }
-        if (isset($map['FinalStatus'])) {
-            $model->finalStatus = $map['FinalStatus'];
         }
 
         return $model;

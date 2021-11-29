@@ -11,14 +11,9 @@ use AlibabaCloud\Tea\Model;
 class ListFlowNodeSqlResultResponseBody extends Model
 {
     /**
-     * @var rowList
+     * @var bool
      */
-    public $rowList;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $end;
 
     /**
      * @var headerList
@@ -26,14 +21,19 @@ class ListFlowNodeSqlResultResponseBody extends Model
     public $headerList;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $end;
+    public $requestId;
+
+    /**
+     * @var rowList
+     */
+    public $rowList;
     protected $_name = [
-        'rowList'    => 'RowList',
-        'requestId'  => 'RequestId',
-        'headerList' => 'HeaderList',
         'end'        => 'End',
+        'headerList' => 'HeaderList',
+        'requestId'  => 'RequestId',
+        'rowList'    => 'RowList',
     ];
 
     public function validate()
@@ -43,17 +43,17 @@ class ListFlowNodeSqlResultResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->rowList) {
-            $res['RowList'] = null !== $this->rowList ? $this->rowList->toMap() : null;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->end) {
+            $res['End'] = $this->end;
         }
         if (null !== $this->headerList) {
             $res['HeaderList'] = null !== $this->headerList ? $this->headerList->toMap() : null;
         }
-        if (null !== $this->end) {
-            $res['End'] = $this->end;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->rowList) {
+            $res['RowList'] = null !== $this->rowList ? $this->rowList->toMap() : null;
         }
 
         return $res;
@@ -67,17 +67,17 @@ class ListFlowNodeSqlResultResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RowList'])) {
-            $model->rowList = rowList::fromMap($map['RowList']);
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['End'])) {
+            $model->end = $map['End'];
         }
         if (isset($map['HeaderList'])) {
             $model->headerList = headerList::fromMap($map['HeaderList']);
         }
-        if (isset($map['End'])) {
-            $model->end = $map['End'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['RowList'])) {
+            $model->rowList = rowList::fromMap($map['RowList']);
         }
 
         return $model;

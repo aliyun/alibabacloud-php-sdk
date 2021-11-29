@@ -11,7 +11,7 @@ class ListFlowClusterHostRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $clusterId;
 
     /**
      * @var string
@@ -21,16 +21,16 @@ class ListFlowClusterHostRequest extends Model
     /**
      * @var string
      */
-    public $clusterId;
+    public $regionId;
 
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'regionId'        => 'RegionId',
-        'projectId'       => 'ProjectId',
         'clusterId'       => 'ClusterId',
+        'projectId'       => 'ProjectId',
+        'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
@@ -41,14 +41,14 @@ class ListFlowClusterHostRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -65,14 +65,14 @@ class ListFlowClusterHostRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

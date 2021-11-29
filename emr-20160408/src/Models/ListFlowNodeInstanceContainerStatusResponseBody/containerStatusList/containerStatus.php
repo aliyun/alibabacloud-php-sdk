@@ -11,7 +11,7 @@ class containerStatus extends Model
     /**
      * @var string
      */
-    public $status;
+    public $applicationId;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class containerStatus extends Model
     /**
      * @var string
      */
-    public $applicationId;
+    public $status;
     protected $_name = [
-        'status'        => 'Status',
+        'applicationId' => 'ApplicationId',
         'containerId'   => 'ContainerId',
         'hostName'      => 'HostName',
-        'applicationId' => 'ApplicationId',
+        'status'        => 'Status',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class containerStatus extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->applicationId) {
+            $res['ApplicationId'] = $this->applicationId;
         }
         if (null !== $this->containerId) {
             $res['ContainerId'] = $this->containerId;
@@ -50,8 +50,8 @@ class containerStatus extends Model
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
         }
-        if (null !== $this->applicationId) {
-            $res['ApplicationId'] = $this->applicationId;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class containerStatus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['ApplicationId'])) {
+            $model->applicationId = $map['ApplicationId'];
         }
         if (isset($map['ContainerId'])) {
             $model->containerId = $map['ContainerId'];
@@ -74,8 +74,8 @@ class containerStatus extends Model
         if (isset($map['HostName'])) {
             $model->hostName = $map['HostName'];
         }
-        if (isset($map['ApplicationId'])) {
-            $model->applicationId = $map['ApplicationId'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

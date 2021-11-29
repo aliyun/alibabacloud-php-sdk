@@ -11,7 +11,7 @@ class dataSource extends Model
     /**
      * @var string
      */
-    public $status;
+    public $clusterId;
 
     /**
      * @var string
@@ -21,22 +21,12 @@ class dataSource extends Model
     /**
      * @var string
      */
-    public $sourceType;
-
-    /**
-     * @var int
-     */
-    public $gmtModified;
+    public $createFrom;
 
     /**
      * @var string
      */
     public $creator;
-
-    /**
-     * @var string
-     */
-    public $modifier;
 
     /**
      * @var string
@@ -49,14 +39,9 @@ class dataSource extends Model
     public $gmtCreate;
 
     /**
-     * @var string
+     * @var int
      */
-    public $createFrom;
-
-    /**
-     * @var string
-     */
-    public $name;
+    public $gmtModified;
 
     /**
      * @var string
@@ -66,20 +51,35 @@ class dataSource extends Model
     /**
      * @var string
      */
-    public $clusterId;
+    public $modifier;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $sourceType;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'      => 'Status',
+        'clusterId'   => 'ClusterId',
         'conf'        => 'Conf',
-        'sourceType'  => 'SourceType',
-        'gmtModified' => 'GmtModified',
+        'createFrom'  => 'CreateFrom',
         'creator'     => 'Creator',
-        'modifier'    => 'Modifier',
         'description' => 'Description',
         'gmtCreate'   => 'GmtCreate',
-        'createFrom'  => 'CreateFrom',
-        'name'        => 'Name',
+        'gmtModified' => 'GmtModified',
         'id'          => 'Id',
-        'clusterId'   => 'ClusterId',
+        'modifier'    => 'Modifier',
+        'name'        => 'Name',
+        'sourceType'  => 'SourceType',
+        'status'      => 'Status',
     ];
 
     public function validate()
@@ -89,23 +89,17 @@ class dataSource extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->conf) {
             $res['Conf'] = $this->conf;
         }
-        if (null !== $this->sourceType) {
-            $res['SourceType'] = $this->sourceType;
-        }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
+        if (null !== $this->createFrom) {
+            $res['CreateFrom'] = $this->createFrom;
         }
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
-        }
-        if (null !== $this->modifier) {
-            $res['Modifier'] = $this->modifier;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -113,17 +107,23 @@ class dataSource extends Model
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-        if (null !== $this->createFrom) {
-            $res['CreateFrom'] = $this->createFrom;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->modifier) {
+            $res['Modifier'] = $this->modifier;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -137,23 +137,17 @@ class dataSource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['Conf'])) {
             $model->conf = $map['Conf'];
         }
-        if (isset($map['SourceType'])) {
-            $model->sourceType = $map['SourceType'];
-        }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
+        if (isset($map['CreateFrom'])) {
+            $model->createFrom = $map['CreateFrom'];
         }
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];
-        }
-        if (isset($map['Modifier'])) {
-            $model->modifier = $map['Modifier'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -161,17 +155,23 @@ class dataSource extends Model
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-        if (isset($map['CreateFrom'])) {
-            $model->createFrom = $map['CreateFrom'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['Modifier'])) {
+            $model->modifier = $map['Modifier'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

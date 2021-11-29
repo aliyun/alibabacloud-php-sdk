@@ -11,7 +11,12 @@ class config extends Model
     /**
      * @var string
      */
-    public $configType;
+    public $category;
+
+    /**
+     * @var string
+     */
+    public $configKey;
 
     /**
      * @var string
@@ -21,29 +26,24 @@ class config extends Model
     /**
      * @var string
      */
-    public $targetId;
-
-    /**
-     * @var string
-     */
     public $note;
 
     /**
      * @var string
      */
-    public $category;
+    public $targetId;
 
     /**
      * @var string
      */
-    public $configKey;
+    public $configType;
     protected $_name = [
-        'configType'  => 'configType',
-        'configValue' => 'ConfigValue',
-        'targetId'    => 'TargetId',
-        'note'        => 'Note',
         'category'    => 'Category',
         'configKey'   => 'ConfigKey',
+        'configValue' => 'ConfigValue',
+        'note'        => 'Note',
+        'targetId'    => 'TargetId',
+        'configType'  => 'configType',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class config extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->configType) {
-            $res['configType'] = $this->configType;
-        }
-        if (null !== $this->configValue) {
-            $res['ConfigValue'] = $this->configValue;
-        }
-        if (null !== $this->targetId) {
-            $res['TargetId'] = $this->targetId;
-        }
-        if (null !== $this->note) {
-            $res['Note'] = $this->note;
-        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
         if (null !== $this->configKey) {
             $res['ConfigKey'] = $this->configKey;
+        }
+        if (null !== $this->configValue) {
+            $res['ConfigValue'] = $this->configValue;
+        }
+        if (null !== $this->note) {
+            $res['Note'] = $this->note;
+        }
+        if (null !== $this->targetId) {
+            $res['TargetId'] = $this->targetId;
+        }
+        if (null !== $this->configType) {
+            $res['configType'] = $this->configType;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class config extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['configType'])) {
-            $model->configType = $map['configType'];
-        }
-        if (isset($map['ConfigValue'])) {
-            $model->configValue = $map['ConfigValue'];
-        }
-        if (isset($map['TargetId'])) {
-            $model->targetId = $map['TargetId'];
-        }
-        if (isset($map['Note'])) {
-            $model->note = $map['Note'];
-        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
         if (isset($map['ConfigKey'])) {
             $model->configKey = $map['ConfigKey'];
+        }
+        if (isset($map['ConfigValue'])) {
+            $model->configValue = $map['ConfigValue'];
+        }
+        if (isset($map['Note'])) {
+            $model->note = $map['Note'];
+        }
+        if (isset($map['TargetId'])) {
+            $model->targetId = $map['TargetId'];
+        }
+        if (isset($map['configType'])) {
+            $model->configType = $map['configType'];
         }
 
         return $model;

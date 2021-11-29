@@ -9,19 +9,14 @@ use AlibabaCloud\Tea\Model;
 class SearchLogRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var string
      */
     public $clusterId;
+
+    /**
+     * @var int
+     */
+    public $fromTimestamp;
 
     /**
      * @var string
@@ -34,6 +29,11 @@ class SearchLogRequest extends Model
     public $hostName;
 
     /**
+     * @var int
+     */
+    public $line;
+
+    /**
      * @var string
      */
     public $logstoreName;
@@ -41,12 +41,22 @@ class SearchLogRequest extends Model
     /**
      * @var int
      */
-    public $fromTimestamp;
+    public $offset;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var int
      */
-    public $toTimestamp;
+    public $resourceOwnerId;
+
+    /**
+     * @var bool
+     */
+    public $reverse;
 
     /**
      * @var string
@@ -56,30 +66,20 @@ class SearchLogRequest extends Model
     /**
      * @var int
      */
-    public $offset;
-
-    /**
-     * @var int
-     */
-    public $line;
-
-    /**
-     * @var bool
-     */
-    public $reverse;
+    public $toTimestamp;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'regionId'        => 'RegionId',
         'clusterId'       => 'ClusterId',
+        'fromTimestamp'   => 'FromTimestamp',
         'hostInnerIp'     => 'HostInnerIp',
         'hostName'        => 'HostName',
-        'logstoreName'    => 'LogstoreName',
-        'fromTimestamp'   => 'FromTimestamp',
-        'toTimestamp'     => 'ToTimestamp',
-        'slsQueryString'  => 'SlsQueryString',
-        'offset'          => 'Offset',
         'line'            => 'Line',
+        'logstoreName'    => 'LogstoreName',
+        'offset'          => 'Offset',
+        'regionId'        => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'reverse'         => 'Reverse',
+        'slsQueryString'  => 'SlsQueryString',
+        'toTimestamp'     => 'ToTimestamp',
     ];
 
     public function validate()
@@ -89,14 +89,11 @@ class SearchLogRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->fromTimestamp) {
+            $res['FromTimestamp'] = $this->fromTimestamp;
         }
         if (null !== $this->hostInnerIp) {
             $res['HostInnerIp'] = $this->hostInnerIp;
@@ -104,26 +101,29 @@ class SearchLogRequest extends Model
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
         }
+        if (null !== $this->line) {
+            $res['Line'] = $this->line;
+        }
         if (null !== $this->logstoreName) {
             $res['LogstoreName'] = $this->logstoreName;
-        }
-        if (null !== $this->fromTimestamp) {
-            $res['FromTimestamp'] = $this->fromTimestamp;
-        }
-        if (null !== $this->toTimestamp) {
-            $res['ToTimestamp'] = $this->toTimestamp;
-        }
-        if (null !== $this->slsQueryString) {
-            $res['SlsQueryString'] = $this->slsQueryString;
         }
         if (null !== $this->offset) {
             $res['Offset'] = $this->offset;
         }
-        if (null !== $this->line) {
-            $res['Line'] = $this->line;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->reverse) {
             $res['Reverse'] = $this->reverse;
+        }
+        if (null !== $this->slsQueryString) {
+            $res['SlsQueryString'] = $this->slsQueryString;
+        }
+        if (null !== $this->toTimestamp) {
+            $res['ToTimestamp'] = $this->toTimestamp;
         }
 
         return $res;
@@ -137,14 +137,11 @@ class SearchLogRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['FromTimestamp'])) {
+            $model->fromTimestamp = $map['FromTimestamp'];
         }
         if (isset($map['HostInnerIp'])) {
             $model->hostInnerIp = $map['HostInnerIp'];
@@ -152,26 +149,29 @@ class SearchLogRequest extends Model
         if (isset($map['HostName'])) {
             $model->hostName = $map['HostName'];
         }
+        if (isset($map['Line'])) {
+            $model->line = $map['Line'];
+        }
         if (isset($map['LogstoreName'])) {
             $model->logstoreName = $map['LogstoreName'];
-        }
-        if (isset($map['FromTimestamp'])) {
-            $model->fromTimestamp = $map['FromTimestamp'];
-        }
-        if (isset($map['ToTimestamp'])) {
-            $model->toTimestamp = $map['ToTimestamp'];
-        }
-        if (isset($map['SlsQueryString'])) {
-            $model->slsQueryString = $map['SlsQueryString'];
         }
         if (isset($map['Offset'])) {
             $model->offset = $map['Offset'];
         }
-        if (isset($map['Line'])) {
-            $model->line = $map['Line'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['Reverse'])) {
             $model->reverse = $map['Reverse'];
+        }
+        if (isset($map['SlsQueryString'])) {
+            $model->slsQueryString = $map['SlsQueryString'];
+        }
+        if (isset($map['ToTimestamp'])) {
+            $model->toTimestamp = $map['ToTimestamp'];
         }
 
         return $model;

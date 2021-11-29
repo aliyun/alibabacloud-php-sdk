@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListJobExecutionInstancesRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var string
      */
     public $executionPlanInstanceId;
@@ -37,13 +27,23 @@ class ListJobExecutionInstancesRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'resourceOwnerId'         => 'ResourceOwnerId',
-        'regionId'                => 'RegionId',
         'executionPlanInstanceId' => 'ExecutionPlanInstanceId',
         'isDesc'                  => 'IsDesc',
         'pageNumber'              => 'PageNumber',
         'pageSize'                => 'PageSize',
+        'regionId'                => 'RegionId',
+        'resourceOwnerId'         => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -53,12 +53,6 @@ class ListJobExecutionInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->executionPlanInstanceId) {
             $res['ExecutionPlanInstanceId'] = $this->executionPlanInstanceId;
         }
@@ -70,6 +64,12 @@ class ListJobExecutionInstancesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -83,12 +83,6 @@ class ListJobExecutionInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ExecutionPlanInstanceId'])) {
             $model->executionPlanInstanceId = $map['ExecutionPlanInstanceId'];
         }
@@ -100,6 +94,12 @@ class ListJobExecutionInstancesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

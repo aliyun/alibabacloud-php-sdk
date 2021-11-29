@@ -11,15 +11,15 @@ class service extends Model
     /**
      * @var string
      */
-    public $serviceVersion;
+    public $serviceName;
 
     /**
      * @var string
      */
-    public $serviceName;
+    public $serviceVersion;
     protected $_name = [
-        'serviceVersion' => 'ServiceVersion',
         'serviceName'    => 'ServiceName',
+        'serviceVersion' => 'ServiceVersion',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class service extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceVersion) {
-            $res['ServiceVersion'] = $this->serviceVersion;
-        }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
+        }
+        if (null !== $this->serviceVersion) {
+            $res['ServiceVersion'] = $this->serviceVersion;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class service extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceVersion'])) {
-            $model->serviceVersion = $map['ServiceVersion'];
-        }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+        if (isset($map['ServiceVersion'])) {
+            $model->serviceVersion = $map['ServiceVersion'];
         }
 
         return $model;

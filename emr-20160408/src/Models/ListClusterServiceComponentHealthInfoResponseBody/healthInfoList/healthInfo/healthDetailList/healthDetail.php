@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class healthDetail extends Model
 {
     /**
-     * @var string
-     */
-    public $code;
-
-    /**
      * @var healthRuleParam
      */
     public $healthRuleParam;
+
+    /**
+     * @var string
+     */
+    public $code;
     protected $_name = [
-        'code'            => 'code',
         'healthRuleParam' => 'HealthRuleParam',
+        'code'            => 'code',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class healthDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['code'] = $this->code;
-        }
         if (null !== $this->healthRuleParam) {
             $res['HealthRuleParam'] = null !== $this->healthRuleParam ? $this->healthRuleParam->toMap() : null;
+        }
+        if (null !== $this->code) {
+            $res['code'] = $this->code;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class healthDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['code'])) {
-            $model->code = $map['code'];
-        }
         if (isset($map['HealthRuleParam'])) {
             $model->healthRuleParam = healthRuleParam::fromMap($map['HealthRuleParam']);
+        }
+        if (isset($map['code'])) {
+            $model->code = $map['code'];
         }
 
         return $model;

@@ -9,24 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ListExecutionPlanInstancesRequest extends Model
 {
     /**
-     * @var int
+     * @var string[]
      */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var bool
-     */
-    public $onlyLastInstance;
+    public $executionPlanIdList;
 
     /**
      * @var bool
      */
     public $isDesc;
+
+    /**
+     * @var bool
+     */
+    public $onlyLastInstance;
 
     /**
      * @var int
@@ -39,22 +34,27 @@ class ListExecutionPlanInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $executionPlanIdList;
+    public $regionId;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var string[]
      */
     public $statusList;
     protected $_name = [
-        'resourceOwnerId'     => 'ResourceOwnerId',
-        'regionId'            => 'RegionId',
-        'onlyLastInstance'    => 'OnlyLastInstance',
+        'executionPlanIdList' => 'ExecutionPlanIdList',
         'isDesc'              => 'IsDesc',
+        'onlyLastInstance'    => 'OnlyLastInstance',
         'pageNumber'          => 'PageNumber',
         'pageSize'            => 'PageSize',
-        'executionPlanIdList' => 'ExecutionPlanIdList',
+        'regionId'            => 'RegionId',
+        'resourceOwnerId'     => 'ResourceOwnerId',
         'statusList'          => 'StatusList',
     ];
 
@@ -65,17 +65,14 @@ class ListExecutionPlanInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->onlyLastInstance) {
-            $res['OnlyLastInstance'] = $this->onlyLastInstance;
+        if (null !== $this->executionPlanIdList) {
+            $res['ExecutionPlanIdList'] = $this->executionPlanIdList;
         }
         if (null !== $this->isDesc) {
             $res['IsDesc'] = $this->isDesc;
+        }
+        if (null !== $this->onlyLastInstance) {
+            $res['OnlyLastInstance'] = $this->onlyLastInstance;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -83,8 +80,11 @@ class ListExecutionPlanInstancesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->executionPlanIdList) {
-            $res['ExecutionPlanIdList'] = $this->executionPlanIdList;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->statusList) {
             $res['StatusList'] = $this->statusList;
@@ -101,17 +101,16 @@ class ListExecutionPlanInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['OnlyLastInstance'])) {
-            $model->onlyLastInstance = $map['OnlyLastInstance'];
+        if (isset($map['ExecutionPlanIdList'])) {
+            if (!empty($map['ExecutionPlanIdList'])) {
+                $model->executionPlanIdList = $map['ExecutionPlanIdList'];
+            }
         }
         if (isset($map['IsDesc'])) {
             $model->isDesc = $map['IsDesc'];
+        }
+        if (isset($map['OnlyLastInstance'])) {
+            $model->onlyLastInstance = $map['OnlyLastInstance'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -119,10 +118,11 @@ class ListExecutionPlanInstancesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['ExecutionPlanIdList'])) {
-            if (!empty($map['ExecutionPlanIdList'])) {
-                $model->executionPlanIdList = $map['ExecutionPlanIdList'];
-            }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['StatusList'])) {
             if (!empty($map['StatusList'])) {

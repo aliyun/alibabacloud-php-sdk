@@ -11,6 +11,11 @@ class item extends Model
     /**
      * @var string
      */
+    public $configItemInformation;
+
+    /**
+     * @var string
+     */
     public $configItemType;
 
     /**
@@ -22,16 +27,11 @@ class item extends Model
      * @var string
      */
     public $scalingGroupBizId;
-
-    /**
-     * @var string
-     */
-    public $configItemInformation;
     protected $_name = [
+        'configItemInformation'  => 'ConfigItemInformation',
         'configItemType'         => 'ConfigItemType',
         'scalingConfigItemBizId' => 'ScalingConfigItemBizId',
         'scalingGroupBizId'      => 'ScalingGroupBizId',
-        'configItemInformation'  => 'ConfigItemInformation',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class item extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->configItemInformation) {
+            $res['ConfigItemInformation'] = $this->configItemInformation;
+        }
         if (null !== $this->configItemType) {
             $res['ConfigItemType'] = $this->configItemType;
         }
@@ -49,9 +52,6 @@ class item extends Model
         }
         if (null !== $this->scalingGroupBizId) {
             $res['ScalingGroupBizId'] = $this->scalingGroupBizId;
-        }
-        if (null !== $this->configItemInformation) {
-            $res['ConfigItemInformation'] = $this->configItemInformation;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class item extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConfigItemInformation'])) {
+            $model->configItemInformation = $map['ConfigItemInformation'];
+        }
         if (isset($map['ConfigItemType'])) {
             $model->configItemType = $map['ConfigItemType'];
         }
@@ -73,9 +76,6 @@ class item extends Model
         }
         if (isset($map['ScalingGroupBizId'])) {
             $model->scalingGroupBizId = $map['ScalingGroupBizId'];
-        }
-        if (isset($map['ConfigItemInformation'])) {
-            $model->configItemInformation = $map['ConfigItemInformation'];
         }
 
         return $model;

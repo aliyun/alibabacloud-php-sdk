@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class securityGroup extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $vpcId;
+    public $availableInstanceAmount;
 
     /**
      * @var string
@@ -24,6 +24,11 @@ class securityGroup extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $ecsCount;
+
+    /**
      * @var string
      */
     public $securityGroupId;
@@ -34,22 +39,17 @@ class securityGroup extends Model
     public $securityGroupName;
 
     /**
-     * @var int
+     * @var string
      */
-    public $ecsCount;
-
-    /**
-     * @var int
-     */
-    public $availableInstanceAmount;
+    public $vpcId;
     protected $_name = [
-        'vpcId'                   => 'VpcId',
+        'availableInstanceAmount' => 'AvailableInstanceAmount',
         'creationTime'            => 'CreationTime',
         'description'             => 'Description',
+        'ecsCount'                => 'EcsCount',
         'securityGroupId'         => 'SecurityGroupId',
         'securityGroupName'       => 'SecurityGroupName',
-        'ecsCount'                => 'EcsCount',
-        'availableInstanceAmount' => 'AvailableInstanceAmount',
+        'vpcId'                   => 'VpcId',
     ];
 
     public function validate()
@@ -59,8 +59,8 @@ class securityGroup extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
+        if (null !== $this->availableInstanceAmount) {
+            $res['AvailableInstanceAmount'] = $this->availableInstanceAmount;
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
@@ -68,17 +68,17 @@ class securityGroup extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->ecsCount) {
+            $res['EcsCount'] = $this->ecsCount;
+        }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
         if (null !== $this->securityGroupName) {
             $res['SecurityGroupName'] = $this->securityGroupName;
         }
-        if (null !== $this->ecsCount) {
-            $res['EcsCount'] = $this->ecsCount;
-        }
-        if (null !== $this->availableInstanceAmount) {
-            $res['AvailableInstanceAmount'] = $this->availableInstanceAmount;
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -92,8 +92,8 @@ class securityGroup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
+        if (isset($map['AvailableInstanceAmount'])) {
+            $model->availableInstanceAmount = $map['AvailableInstanceAmount'];
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
@@ -101,17 +101,17 @@ class securityGroup extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['EcsCount'])) {
+            $model->ecsCount = $map['EcsCount'];
+        }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
         if (isset($map['SecurityGroupName'])) {
             $model->securityGroupName = $map['SecurityGroupName'];
         }
-        if (isset($map['EcsCount'])) {
-            $model->ecsCount = $map['EcsCount'];
-        }
-        if (isset($map['AvailableInstanceAmount'])) {
-            $model->availableInstanceAmount = $map['AvailableInstanceAmount'];
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

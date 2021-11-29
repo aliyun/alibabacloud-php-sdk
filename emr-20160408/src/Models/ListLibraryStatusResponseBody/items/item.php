@@ -11,7 +11,12 @@ class item extends Model
     /**
      * @var string
      */
-    public $status;
+    public $clusterBizId;
+
+    /**
+     * @var string
+     */
+    public $clusterName;
 
     /**
      * @var string
@@ -26,18 +31,13 @@ class item extends Model
     /**
      * @var string
      */
-    public $clusterName;
-
-    /**
-     * @var string
-     */
-    public $clusterBizId;
+    public $status;
     protected $_name = [
-        'status'       => 'Status',
+        'clusterBizId' => 'ClusterBizId',
+        'clusterName'  => 'ClusterName',
         'libraryBizId' => 'LibraryBizId',
         'libraryName'  => 'LibraryName',
-        'clusterName'  => 'ClusterName',
-        'clusterBizId' => 'ClusterBizId',
+        'status'       => 'Status',
     ];
 
     public function validate()
@@ -47,8 +47,11 @@ class item extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->clusterBizId) {
+            $res['ClusterBizId'] = $this->clusterBizId;
+        }
+        if (null !== $this->clusterName) {
+            $res['ClusterName'] = $this->clusterName;
         }
         if (null !== $this->libraryBizId) {
             $res['LibraryBizId'] = $this->libraryBizId;
@@ -56,11 +59,8 @@ class item extends Model
         if (null !== $this->libraryName) {
             $res['LibraryName'] = $this->libraryName;
         }
-        if (null !== $this->clusterName) {
-            $res['ClusterName'] = $this->clusterName;
-        }
-        if (null !== $this->clusterBizId) {
-            $res['ClusterBizId'] = $this->clusterBizId;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -74,8 +74,11 @@ class item extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['ClusterBizId'])) {
+            $model->clusterBizId = $map['ClusterBizId'];
+        }
+        if (isset($map['ClusterName'])) {
+            $model->clusterName = $map['ClusterName'];
         }
         if (isset($map['LibraryBizId'])) {
             $model->libraryBizId = $map['LibraryBizId'];
@@ -83,11 +86,8 @@ class item extends Model
         if (isset($map['LibraryName'])) {
             $model->libraryName = $map['LibraryName'];
         }
-        if (isset($map['ClusterName'])) {
-            $model->clusterName = $map['ClusterName'];
-        }
-        if (isset($map['ClusterBizId'])) {
-            $model->clusterBizId = $map['ClusterBizId'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

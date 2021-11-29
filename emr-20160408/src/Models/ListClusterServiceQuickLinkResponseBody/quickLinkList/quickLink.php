@@ -11,12 +11,7 @@ class quickLink extends Model
     /**
      * @var string
      */
-    public $serviceDisplayName;
-
-    /**
-     * @var string
-     */
-    public $type;
+    public $port;
 
     /**
      * @var string
@@ -26,24 +21,29 @@ class quickLink extends Model
     /**
      * @var string
      */
-    public $serviceName;
-
-    /**
-     * @var string
-     */
     public $quickLinkAddress;
 
     /**
      * @var string
      */
-    public $port;
+    public $serviceDisplayName;
+
+    /**
+     * @var string
+     */
+    public $serviceName;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'serviceDisplayName' => 'ServiceDisplayName',
-        'type'               => 'Type',
-        'protocol'           => 'Protocol',
-        'serviceName'        => 'ServiceName',
-        'quickLinkAddress'   => 'QuickLinkAddress',
         'port'               => 'Port',
+        'protocol'           => 'Protocol',
+        'quickLinkAddress'   => 'QuickLinkAddress',
+        'serviceDisplayName' => 'ServiceDisplayName',
+        'serviceName'        => 'ServiceName',
+        'type'               => 'Type',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class quickLink extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceDisplayName) {
-            $res['ServiceDisplayName'] = $this->serviceDisplayName;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
-        if (null !== $this->serviceName) {
-            $res['ServiceName'] = $this->serviceName;
-        }
         if (null !== $this->quickLinkAddress) {
             $res['QuickLinkAddress'] = $this->quickLinkAddress;
         }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
+        if (null !== $this->serviceDisplayName) {
+            $res['ServiceDisplayName'] = $this->serviceDisplayName;
+        }
+        if (null !== $this->serviceName) {
+            $res['ServiceName'] = $this->serviceName;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class quickLink extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceDisplayName'])) {
-            $model->serviceDisplayName = $map['ServiceDisplayName'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }
-        if (isset($map['ServiceName'])) {
-            $model->serviceName = $map['ServiceName'];
-        }
         if (isset($map['QuickLinkAddress'])) {
             $model->quickLinkAddress = $map['QuickLinkAddress'];
         }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
+        if (isset($map['ServiceDisplayName'])) {
+            $model->serviceDisplayName = $map['ServiceDisplayName'];
+        }
+        if (isset($map['ServiceName'])) {
+            $model->serviceName = $map['ServiceName'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

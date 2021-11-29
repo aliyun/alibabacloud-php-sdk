@@ -11,6 +11,21 @@ class DescribeFlowCategoryTreeRequest extends Model
     /**
      * @var string
      */
+    public $categoryId;
+
+    /**
+     * @var string
+     */
+    public $keyword;
+
+    /**
+     * @var string
+     */
+    public $mode;
+
+    /**
+     * @var string
+     */
     public $projectId;
 
     /**
@@ -22,28 +37,13 @@ class DescribeFlowCategoryTreeRequest extends Model
      * @var string
      */
     public $type;
-
-    /**
-     * @var string
-     */
-    public $mode;
-
-    /**
-     * @var string
-     */
-    public $keyword;
-
-    /**
-     * @var string
-     */
-    public $categoryId;
     protected $_name = [
+        'categoryId' => 'CategoryId',
+        'keyword'    => 'Keyword',
+        'mode'       => 'Mode',
         'projectId'  => 'ProjectId',
         'regionId'   => 'RegionId',
         'type'       => 'Type',
-        'mode'       => 'Mode',
-        'keyword'    => 'Keyword',
-        'categoryId' => 'CategoryId',
     ];
 
     public function validate()
@@ -53,6 +53,15 @@ class DescribeFlowCategoryTreeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->categoryId) {
+            $res['CategoryId'] = $this->categoryId;
+        }
+        if (null !== $this->keyword) {
+            $res['Keyword'] = $this->keyword;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -61,15 +70,6 @@ class DescribeFlowCategoryTreeRequest extends Model
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->mode) {
-            $res['Mode'] = $this->mode;
-        }
-        if (null !== $this->keyword) {
-            $res['Keyword'] = $this->keyword;
-        }
-        if (null !== $this->categoryId) {
-            $res['CategoryId'] = $this->categoryId;
         }
 
         return $res;
@@ -83,6 +83,15 @@ class DescribeFlowCategoryTreeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CategoryId'])) {
+            $model->categoryId = $map['CategoryId'];
+        }
+        if (isset($map['Keyword'])) {
+            $model->keyword = $map['Keyword'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
@@ -91,15 +100,6 @@ class DescribeFlowCategoryTreeRequest extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-        if (isset($map['Mode'])) {
-            $model->mode = $map['Mode'];
-        }
-        if (isset($map['Keyword'])) {
-            $model->keyword = $map['Keyword'];
-        }
-        if (isset($map['CategoryId'])) {
-            $model->categoryId = $map['CategoryId'];
         }
 
         return $model;

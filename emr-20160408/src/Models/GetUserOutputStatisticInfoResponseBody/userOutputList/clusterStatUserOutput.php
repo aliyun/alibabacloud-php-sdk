@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class clusterStatUserOutput extends Model
 {
     /**
-     * @var string
-     */
-    public $user;
-
-    /**
      * @var int
      */
     public $bytesOutput;
+
+    /**
+     * @var string
+     */
+    public $user;
     protected $_name = [
-        'user'        => 'User',
         'bytesOutput' => 'BytesOutput',
+        'user'        => 'User',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class clusterStatUserOutput extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->user) {
-            $res['User'] = $this->user;
-        }
         if (null !== $this->bytesOutput) {
             $res['BytesOutput'] = $this->bytesOutput;
+        }
+        if (null !== $this->user) {
+            $res['User'] = $this->user;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class clusterStatUserOutput extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['User'])) {
-            $model->user = $map['User'];
-        }
         if (isset($map['BytesOutput'])) {
             $model->bytesOutput = $map['BytesOutput'];
+        }
+        if (isset($map['User'])) {
+            $model->user = $map['User'];
         }
 
         return $model;

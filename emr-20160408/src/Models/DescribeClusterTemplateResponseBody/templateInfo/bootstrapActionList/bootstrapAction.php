@@ -16,16 +16,16 @@ class bootstrapAction extends Model
     /**
      * @var string
      */
-    public $path;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $path;
     protected $_name = [
         'arg'  => 'Arg',
-        'path' => 'Path',
         'name' => 'Name',
+        'path' => 'Path',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class bootstrapAction extends Model
         if (null !== $this->arg) {
             $res['Arg'] = $this->arg;
         }
-        if (null !== $this->path) {
-            $res['Path'] = $this->path;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class bootstrapAction extends Model
         if (isset($map['Arg'])) {
             $model->arg = $map['Arg'];
         }
-        if (isset($map['Path'])) {
-            $model->path = $map['Path'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
         }
 
         return $model;

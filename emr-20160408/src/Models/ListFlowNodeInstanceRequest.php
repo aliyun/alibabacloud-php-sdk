@@ -11,21 +11,6 @@ class ListFlowNodeInstanceRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $projectId;
-
-    /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
-     * @var string
-     */
     public $orderBy;
 
     /**
@@ -46,21 +31,36 @@ class ListFlowNodeInstanceRequest extends Model
     /**
      * @var string
      */
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
+
+    /**
+     * @var int
+     */
+    public $startTime;
 
     /**
      * @var string[]
      */
     public $statusList;
     protected $_name = [
-        'regionId'        => 'RegionId',
-        'projectId'       => 'ProjectId',
-        'startTime'       => 'StartTime',
         'orderBy'         => 'OrderBy',
         'orderType'       => 'OrderType',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
+        'projectId'       => 'ProjectId',
+        'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
+        'startTime'       => 'StartTime',
         'statusList'      => 'StatusList',
     ];
 
@@ -71,15 +71,6 @@ class ListFlowNodeInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->orderBy) {
             $res['OrderBy'] = $this->orderBy;
         }
@@ -92,8 +83,17 @@ class ListFlowNodeInstanceRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->statusList) {
             $res['StatusList'] = $this->statusList;
@@ -110,15 +110,6 @@ class ListFlowNodeInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['OrderBy'])) {
             $model->orderBy = $map['OrderBy'];
         }
@@ -131,8 +122,17 @@ class ListFlowNodeInstanceRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['StatusList'])) {
             if (!empty($map['StatusList'])) {

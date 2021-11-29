@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteResourcePoolRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $resourcePoolId;
-
-    /**
      * @var string
      */
     public $clusterId;
@@ -27,11 +17,21 @@ class DeleteResourcePoolRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $resourcePoolId;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'resourcePoolId'  => 'ResourcePoolId',
         'clusterId'       => 'ClusterId',
         'regionId'        => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourcePoolId'  => 'ResourcePoolId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DeleteResourcePoolRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->resourcePoolId) {
-            $res['ResourcePoolId'] = $this->resourcePoolId;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->resourcePoolId) {
+            $res['ResourcePoolId'] = $this->resourcePoolId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DeleteResourcePoolRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ResourcePoolId'])) {
-            $model->resourcePoolId = $map['ResourcePoolId'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['ResourcePoolId'])) {
+            $model->resourcePoolId = $map['ResourcePoolId'];
         }
 
         return $model;

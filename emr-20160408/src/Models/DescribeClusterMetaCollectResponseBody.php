@@ -11,7 +11,12 @@ class DescribeClusterMetaCollectResponseBody extends Model
     /**
      * @var string
      */
-    public $status;
+    public $clusterId;
+
+    /**
+     * @var string
+     */
+    public $metaStoreType;
 
     /**
      * @var string
@@ -21,17 +26,12 @@ class DescribeClusterMetaCollectResponseBody extends Model
     /**
      * @var string
      */
-    public $clusterId;
-
-    /**
-     * @var string
-     */
-    public $metaStoreType;
+    public $status;
     protected $_name = [
-        'status'        => 'Status',
-        'requestId'     => 'RequestId',
         'clusterId'     => 'ClusterId',
         'metaStoreType' => 'MetaStoreType',
+        'requestId'     => 'RequestId',
+        'status'        => 'Status',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DescribeClusterMetaCollectResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->metaStoreType) {
             $res['MetaStoreType'] = $this->metaStoreType;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DescribeClusterMetaCollectResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['MetaStoreType'])) {
             $model->metaStoreType = $map['MetaStoreType'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

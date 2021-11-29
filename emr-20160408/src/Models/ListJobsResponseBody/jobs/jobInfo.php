@@ -11,12 +11,22 @@ class jobInfo extends Model
     /**
      * @var string
      */
-    public $type;
+    public $failAct;
 
     /**
      * @var string
      */
-    public $failAct;
+    public $id;
+
+    /**
+     * @var int
+     */
+    public $maxRetry;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var int
@@ -26,30 +36,20 @@ class jobInfo extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $id;
-
-    /**
-     * @var string
-     */
     public $runParameter;
 
     /**
-     * @var int
+     * @var string
      */
-    public $maxRetry;
+    public $type;
     protected $_name = [
-        'type'          => 'Type',
         'failAct'       => 'FailAct',
-        'retryInterval' => 'RetryInterval',
-        'name'          => 'Name',
         'id'            => 'Id',
-        'runParameter'  => 'RunParameter',
         'maxRetry'      => 'MaxRetry',
+        'name'          => 'Name',
+        'retryInterval' => 'RetryInterval',
+        'runParameter'  => 'RunParameter',
+        'type'          => 'Type',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class jobInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->failAct) {
             $res['FailAct'] = $this->failAct;
-        }
-        if (null !== $this->retryInterval) {
-            $res['RetryInterval'] = $this->retryInterval;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+        if (null !== $this->maxRetry) {
+            $res['MaxRetry'] = $this->maxRetry;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->retryInterval) {
+            $res['RetryInterval'] = $this->retryInterval;
+        }
         if (null !== $this->runParameter) {
             $res['RunParameter'] = $this->runParameter;
         }
-        if (null !== $this->maxRetry) {
-            $res['MaxRetry'] = $this->maxRetry;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class jobInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['FailAct'])) {
             $model->failAct = $map['FailAct'];
-        }
-        if (isset($map['RetryInterval'])) {
-            $model->retryInterval = $map['RetryInterval'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+        if (isset($map['MaxRetry'])) {
+            $model->maxRetry = $map['MaxRetry'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['RetryInterval'])) {
+            $model->retryInterval = $map['RetryInterval'];
+        }
         if (isset($map['RunParameter'])) {
             $model->runParameter = $map['RunParameter'];
         }
-        if (isset($map['MaxRetry'])) {
-            $model->maxRetry = $map['MaxRetry'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListClusterServiceQuickLinkResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var quickLinkList
      */
     public $quickLinkList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'     => 'RequestId',
         'quickLinkList' => 'QuickLinkList',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class ListClusterServiceQuickLinkResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->quickLinkList) {
             $res['QuickLinkList'] = null !== $this->quickLinkList ? $this->quickLinkList->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class ListClusterServiceQuickLinkResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['QuickLinkList'])) {
             $model->quickLinkList = quickLinkList::fromMap($map['QuickLinkList']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

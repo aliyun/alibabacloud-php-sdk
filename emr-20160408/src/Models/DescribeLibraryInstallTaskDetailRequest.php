@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeLibraryInstallTaskDetailRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $resourceOwnerId;
@@ -16,15 +21,10 @@ class DescribeLibraryInstallTaskDetailRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $taskBizId;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
         'regionId'        => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'taskBizId'       => 'TaskBizId',
     ];
 
@@ -35,11 +35,11 @@ class DescribeLibraryInstallTaskDetailRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->taskBizId) {
             $res['TaskBizId'] = $this->taskBizId;
@@ -56,11 +56,11 @@ class DescribeLibraryInstallTaskDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['TaskBizId'])) {
             $model->taskBizId = $map['TaskBizId'];

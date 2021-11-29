@@ -10,21 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListFlowCategoryResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
      * @var categories
      */
     public $categories;
@@ -32,12 +17,27 @@ class ListFlowCategoryResponseBody extends Model
     /**
      * @var int
      */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var int
+     */
     public $total;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'pageSize'   => 'PageSize',
-        'pageNumber' => 'PageNumber',
         'categories' => 'Categories',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
+        'requestId'  => 'RequestId',
         'total'      => 'Total',
     ];
 
@@ -48,17 +48,17 @@ class ListFlowCategoryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->categories) {
+            $res['Categories'] = null !== $this->categories ? $this->categories->toMap() : null;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->categories) {
-            $res['Categories'] = null !== $this->categories ? $this->categories->toMap() : null;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
@@ -75,17 +75,17 @@ class ListFlowCategoryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['Categories'])) {
+            $model->categories = categories::fromMap($map['Categories']);
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['Categories'])) {
-            $model->categories = categories::fromMap($map['Categories']);
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];

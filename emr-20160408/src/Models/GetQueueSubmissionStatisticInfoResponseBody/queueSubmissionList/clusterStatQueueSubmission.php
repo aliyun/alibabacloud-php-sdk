@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class clusterStatQueueSubmission extends Model
 {
     /**
-     * @var int
-     */
-    public $submission;
-
-    /**
      * @var string
      */
     public $queue;
+
+    /**
+     * @var int
+     */
+    public $submission;
     protected $_name = [
-        'submission' => 'Submission',
         'queue'      => 'Queue',
+        'submission' => 'Submission',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class clusterStatQueueSubmission extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->submission) {
-            $res['Submission'] = $this->submission;
-        }
         if (null !== $this->queue) {
             $res['Queue'] = $this->queue;
+        }
+        if (null !== $this->submission) {
+            $res['Submission'] = $this->submission;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class clusterStatQueueSubmission extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Submission'])) {
-            $model->submission = $map['Submission'];
-        }
         if (isset($map['Queue'])) {
             $model->queue = $map['Queue'];
+        }
+        if (isset($map['Submission'])) {
+            $model->submission = $map['Submission'];
         }
 
         return $model;

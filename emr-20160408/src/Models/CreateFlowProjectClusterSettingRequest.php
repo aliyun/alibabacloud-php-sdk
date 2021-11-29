@@ -11,22 +11,7 @@ class CreateFlowProjectClusterSettingRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $projectId;
-
-    /**
-     * @var string
-     */
     public $clusterId;
-
-    /**
-     * @var string
-     */
-    public $defaultUser;
 
     /**
      * @var string
@@ -34,9 +19,19 @@ class CreateFlowProjectClusterSettingRequest extends Model
     public $defaultQueue;
 
     /**
+     * @var string
+     */
+    public $defaultUser;
+
+    /**
      * @var string[]
      */
-    public $userList;
+    public $hostList;
+
+    /**
+     * @var string
+     */
+    public $projectId;
 
     /**
      * @var string[]
@@ -44,18 +39,23 @@ class CreateFlowProjectClusterSettingRequest extends Model
     public $queueList;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var string[]
      */
-    public $hostList;
+    public $userList;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'projectId'    => 'ProjectId',
         'clusterId'    => 'ClusterId',
-        'defaultUser'  => 'DefaultUser',
         'defaultQueue' => 'DefaultQueue',
-        'userList'     => 'UserList',
-        'queueList'    => 'QueueList',
+        'defaultUser'  => 'DefaultUser',
         'hostList'     => 'HostList',
+        'projectId'    => 'ProjectId',
+        'queueList'    => 'QueueList',
+        'regionId'     => 'RegionId',
+        'userList'     => 'UserList',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class CreateFlowProjectClusterSettingRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
-        }
-        if (null !== $this->defaultUser) {
-            $res['DefaultUser'] = $this->defaultUser;
         }
         if (null !== $this->defaultQueue) {
             $res['DefaultQueue'] = $this->defaultQueue;
         }
-        if (null !== $this->userList) {
-            $res['UserList'] = $this->userList;
+        if (null !== $this->defaultUser) {
+            $res['DefaultUser'] = $this->defaultUser;
+        }
+        if (null !== $this->hostList) {
+            $res['HostList'] = $this->hostList;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->queueList) {
             $res['QueueList'] = $this->queueList;
         }
-        if (null !== $this->hostList) {
-            $res['HostList'] = $this->hostList;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->userList) {
+            $res['UserList'] = $this->userList;
         }
 
         return $res;
@@ -101,34 +101,34 @@ class CreateFlowProjectClusterSettingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
-        }
-        if (isset($map['DefaultUser'])) {
-            $model->defaultUser = $map['DefaultUser'];
         }
         if (isset($map['DefaultQueue'])) {
             $model->defaultQueue = $map['DefaultQueue'];
         }
-        if (isset($map['UserList'])) {
-            if (!empty($map['UserList'])) {
-                $model->userList = $map['UserList'];
+        if (isset($map['DefaultUser'])) {
+            $model->defaultUser = $map['DefaultUser'];
+        }
+        if (isset($map['HostList'])) {
+            if (!empty($map['HostList'])) {
+                $model->hostList = $map['HostList'];
             }
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['QueueList'])) {
             if (!empty($map['QueueList'])) {
                 $model->queueList = $map['QueueList'];
             }
         }
-        if (isset($map['HostList'])) {
-            if (!empty($map['HostList'])) {
-                $model->hostList = $map['HostList'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['UserList'])) {
+            if (!empty($map['UserList'])) {
+                $model->userList = $map['UserList'];
             }
         }
 

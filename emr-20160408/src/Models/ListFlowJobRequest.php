@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListFlowJobRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $projectId;
+    public $adhoc;
 
     /**
      * @var string
@@ -29,16 +24,6 @@ class ListFlowJobRequest extends Model
     public $name;
 
     /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var bool
-     */
-    public $adhoc;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -47,15 +32,30 @@ class ListFlowJobRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'regionId'   => 'RegionId',
-        'projectId'  => 'ProjectId',
+        'adhoc'      => 'Adhoc',
         'id'         => 'Id',
         'name'       => 'Name',
-        'type'       => 'Type',
-        'adhoc'      => 'Adhoc',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'projectId'  => 'ProjectId',
+        'regionId'   => 'RegionId',
+        'type'       => 'Type',
     ];
 
     public function validate()
@@ -65,11 +65,8 @@ class ListFlowJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
+        if (null !== $this->adhoc) {
+            $res['Adhoc'] = $this->adhoc;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -77,17 +74,20 @@ class ListFlowJobRequest extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->adhoc) {
-            $res['Adhoc'] = $this->adhoc;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -101,11 +101,8 @@ class ListFlowJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
+        if (isset($map['Adhoc'])) {
+            $model->adhoc = $map['Adhoc'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
@@ -113,17 +110,20 @@ class ListFlowJobRequest extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Adhoc'])) {
-            $model->adhoc = $map['Adhoc'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

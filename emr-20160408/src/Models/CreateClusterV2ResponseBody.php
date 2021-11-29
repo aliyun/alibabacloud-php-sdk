@@ -11,7 +11,7 @@ class CreateClusterV2ResponseBody extends Model
     /**
      * @var string
      */
-    public $masterOrderId;
+    public $clusterId;
 
     /**
      * @var string
@@ -21,23 +21,23 @@ class CreateClusterV2ResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $emrOrderId;
 
     /**
      * @var string
      */
-    public $clusterId;
+    public $masterOrderId;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'masterOrderId' => 'MasterOrderId',
-        'coreOrderId'   => 'CoreOrderId',
-        'requestId'     => 'RequestId',
-        'emrOrderId'    => 'EmrOrderId',
         'clusterId'     => 'ClusterId',
+        'coreOrderId'   => 'CoreOrderId',
+        'emrOrderId'    => 'EmrOrderId',
+        'masterOrderId' => 'MasterOrderId',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class CreateClusterV2ResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->masterOrderId) {
-            $res['MasterOrderId'] = $this->masterOrderId;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->coreOrderId) {
             $res['CoreOrderId'] = $this->coreOrderId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->emrOrderId) {
             $res['EmrOrderId'] = $this->emrOrderId;
         }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->masterOrderId) {
+            $res['MasterOrderId'] = $this->masterOrderId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class CreateClusterV2ResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MasterOrderId'])) {
-            $model->masterOrderId = $map['MasterOrderId'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['CoreOrderId'])) {
             $model->coreOrderId = $map['CoreOrderId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['EmrOrderId'])) {
             $model->emrOrderId = $map['EmrOrderId'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['MasterOrderId'])) {
+            $model->masterOrderId = $map['MasterOrderId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

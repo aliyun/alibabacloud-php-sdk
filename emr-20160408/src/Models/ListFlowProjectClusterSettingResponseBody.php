@@ -15,16 +15,6 @@ class ListFlowProjectClusterSettingResponseBody extends Model
     public $clusterSettings;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -32,12 +22,22 @@ class ListFlowProjectClusterSettingResponseBody extends Model
     /**
      * @var int
      */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var int
+     */
     public $total;
     protected $_name = [
         'clusterSettings' => 'ClusterSettings',
-        'requestId'       => 'RequestId',
-        'pageSize'        => 'PageSize',
         'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'requestId'       => 'RequestId',
         'total'           => 'Total',
     ];
 
@@ -51,14 +51,14 @@ class ListFlowProjectClusterSettingResponseBody extends Model
         if (null !== $this->clusterSettings) {
             $res['ClusterSettings'] = null !== $this->clusterSettings ? $this->clusterSettings->toMap() : null;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
@@ -78,14 +78,14 @@ class ListFlowProjectClusterSettingResponseBody extends Model
         if (isset($map['ClusterSettings'])) {
             $model->clusterSettings = clusterSettings::fromMap($map['ClusterSettings']);
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];

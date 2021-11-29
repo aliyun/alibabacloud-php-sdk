@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListClusterHostComponentResponseBody extends Model
 {
     /**
-     * @var string
+     * @var componentList
      */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
+    public $componentList;
 
     /**
      * @var int
@@ -27,18 +22,23 @@ class ListClusterHostComponentResponseBody extends Model
     /**
      * @var int
      */
-    public $total;
+    public $pageSize;
 
     /**
-     * @var componentList
+     * @var string
      */
-    public $componentList;
+    public $requestId;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'pageSize'      => 'PageSize',
-        'pageNumber'    => 'PageNumber',
-        'total'         => 'Total',
         'componentList' => 'ComponentList',
+        'pageNumber'    => 'PageNumber',
+        'pageSize'      => 'PageSize',
+        'requestId'     => 'RequestId',
+        'total'         => 'Total',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class ListClusterHostComponentResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->componentList) {
+            $res['ComponentList'] = null !== $this->componentList ? $this->componentList->toMap() : null;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
-        }
-        if (null !== $this->componentList) {
-            $res['ComponentList'] = null !== $this->componentList ? $this->componentList->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class ListClusterHostComponentResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['ComponentList'])) {
+            $model->componentList = componentList::fromMap($map['ComponentList']);
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
-        }
-        if (isset($map['ComponentList'])) {
-            $model->componentList = componentList::fromMap($map['ComponentList']);
         }
 
         return $model;

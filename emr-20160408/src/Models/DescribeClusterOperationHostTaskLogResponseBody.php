@@ -11,20 +11,20 @@ class DescribeClusterOperationHostTaskLogResponseBody extends Model
     /**
      * @var string
      */
-    public $stderr;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $stderr;
 
     /**
      * @var string
      */
     public $stdout;
     protected $_name = [
-        'stderr'    => 'Stderr',
         'requestId' => 'RequestId',
+        'stderr'    => 'Stderr',
         'stdout'    => 'Stdout',
     ];
 
@@ -35,11 +35,11 @@ class DescribeClusterOperationHostTaskLogResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->stderr) {
-            $res['Stderr'] = $this->stderr;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->stderr) {
+            $res['Stderr'] = $this->stderr;
         }
         if (null !== $this->stdout) {
             $res['Stdout'] = $this->stdout;
@@ -56,11 +56,11 @@ class DescribeClusterOperationHostTaskLogResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Stderr'])) {
-            $model->stderr = $map['Stderr'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Stderr'])) {
+            $model->stderr = $map['Stderr'];
         }
         if (isset($map['Stdout'])) {
             $model->stdout = $map['Stdout'];

@@ -11,6 +11,16 @@ class DescribeScalingConfigItemV2ResponseBody extends Model
     /**
      * @var string
      */
+    public $configItemInformation;
+
+    /**
+     * @var string
+     */
+    public $configItemType;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -22,22 +32,12 @@ class DescribeScalingConfigItemV2ResponseBody extends Model
      * @var string
      */
     public $scalingGroupBizId;
-
-    /**
-     * @var string
-     */
-    public $configItemInformation;
-
-    /**
-     * @var string
-     */
-    public $configItemType;
     protected $_name = [
+        'configItemInformation'  => 'ConfigItemInformation',
+        'configItemType'         => 'ConfigItemType',
         'requestId'              => 'RequestId',
         'scalingConfigItemBizId' => 'ScalingConfigItemBizId',
         'scalingGroupBizId'      => 'ScalingGroupBizId',
-        'configItemInformation'  => 'ConfigItemInformation',
-        'configItemType'         => 'ConfigItemType',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class DescribeScalingConfigItemV2ResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->configItemInformation) {
+            $res['ConfigItemInformation'] = $this->configItemInformation;
+        }
+        if (null !== $this->configItemType) {
+            $res['ConfigItemType'] = $this->configItemType;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -55,12 +61,6 @@ class DescribeScalingConfigItemV2ResponseBody extends Model
         }
         if (null !== $this->scalingGroupBizId) {
             $res['ScalingGroupBizId'] = $this->scalingGroupBizId;
-        }
-        if (null !== $this->configItemInformation) {
-            $res['ConfigItemInformation'] = $this->configItemInformation;
-        }
-        if (null !== $this->configItemType) {
-            $res['ConfigItemType'] = $this->configItemType;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class DescribeScalingConfigItemV2ResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConfigItemInformation'])) {
+            $model->configItemInformation = $map['ConfigItemInformation'];
+        }
+        if (isset($map['ConfigItemType'])) {
+            $model->configItemType = $map['ConfigItemType'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -82,12 +88,6 @@ class DescribeScalingConfigItemV2ResponseBody extends Model
         }
         if (isset($map['ScalingGroupBizId'])) {
             $model->scalingGroupBizId = $map['ScalingGroupBizId'];
-        }
-        if (isset($map['ConfigItemInformation'])) {
-            $model->configItemInformation = $map['ConfigItemInformation'];
-        }
-        if (isset($map['ConfigItemType'])) {
-            $model->configItemType = $map['ConfigItemType'];
         }
 
         return $model;

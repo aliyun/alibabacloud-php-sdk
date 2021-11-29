@@ -13,22 +13,12 @@ class clusterInfo extends Model
     /**
      * @var string
      */
-    public $status;
+    public $chargeType;
 
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var int
-     */
-    public $runningTime;
-
-    /**
-     * @var string
-     */
-    public $orderList;
+    public $createResource;
 
     /**
      * @var int
@@ -36,39 +26,19 @@ class clusterInfo extends Model
     public $createTime;
 
     /**
-     * @var string
-     */
-    public $chargeType;
-
-    /**
-     * @var int
-     */
-    public $period;
-
-    /**
-     * @var string
-     */
-    public $k8sClusterId;
-
-    /**
      * @var int
      */
     public $expiredTime;
 
     /**
+     * @var failReason
+     */
+    public $failReason;
+
+    /**
      * @var bool
      */
     public $hasUncompletedOrder;
-
-    /**
-     * @var orderTaskInfo
-     */
-    public $orderTaskInfo;
-
-    /**
-     * @var string
-     */
-    public $name;
 
     /**
      * @var string
@@ -78,28 +48,58 @@ class clusterInfo extends Model
     /**
      * @var string
      */
-    public $createResource;
+    public $k8sClusterId;
 
     /**
-     * @var failReason
+     * @var string
      */
-    public $failReason;
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $orderList;
+
+    /**
+     * @var orderTaskInfo
+     */
+    public $orderTaskInfo;
+
+    /**
+     * @var int
+     */
+    public $period;
+
+    /**
+     * @var int
+     */
+    public $runningTime;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
+        'chargeType'          => 'ChargeType',
+        'createResource'      => 'CreateResource',
+        'createTime'          => 'CreateTime',
+        'expiredTime'         => 'ExpiredTime',
+        'failReason'          => 'FailReason',
+        'hasUncompletedOrder' => 'HasUncompletedOrder',
+        'id'                  => 'Id',
+        'k8sClusterId'        => 'K8sClusterId',
+        'name'                => 'Name',
+        'orderList'           => 'OrderList',
+        'orderTaskInfo'       => 'OrderTaskInfo',
+        'period'              => 'Period',
+        'runningTime'         => 'RunningTime',
         'status'              => 'Status',
         'type'                => 'Type',
-        'runningTime'         => 'RunningTime',
-        'orderList'           => 'OrderList',
-        'createTime'          => 'CreateTime',
-        'chargeType'          => 'ChargeType',
-        'period'              => 'Period',
-        'k8sClusterId'        => 'K8sClusterId',
-        'expiredTime'         => 'ExpiredTime',
-        'hasUncompletedOrder' => 'HasUncompletedOrder',
-        'orderTaskInfo'       => 'OrderTaskInfo',
-        'name'                => 'Name',
-        'id'                  => 'Id',
-        'createResource'      => 'CreateResource',
-        'failReason'          => 'FailReason',
     ];
 
     public function validate()
@@ -109,50 +109,50 @@ class clusterInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
+        }
+        if (null !== $this->createResource) {
+            $res['CreateResource'] = $this->createResource;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->expiredTime) {
+            $res['ExpiredTime'] = $this->expiredTime;
+        }
+        if (null !== $this->failReason) {
+            $res['FailReason'] = null !== $this->failReason ? $this->failReason->toMap() : null;
+        }
+        if (null !== $this->hasUncompletedOrder) {
+            $res['HasUncompletedOrder'] = $this->hasUncompletedOrder;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->k8sClusterId) {
+            $res['K8sClusterId'] = $this->k8sClusterId;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->orderList) {
+            $res['OrderList'] = $this->orderList;
+        }
+        if (null !== $this->orderTaskInfo) {
+            $res['OrderTaskInfo'] = null !== $this->orderTaskInfo ? $this->orderTaskInfo->toMap() : null;
+        }
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
+        }
+        if (null !== $this->runningTime) {
+            $res['RunningTime'] = $this->runningTime;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->runningTime) {
-            $res['RunningTime'] = $this->runningTime;
-        }
-        if (null !== $this->orderList) {
-            $res['OrderList'] = $this->orderList;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->chargeType) {
-            $res['ChargeType'] = $this->chargeType;
-        }
-        if (null !== $this->period) {
-            $res['Period'] = $this->period;
-        }
-        if (null !== $this->k8sClusterId) {
-            $res['K8sClusterId'] = $this->k8sClusterId;
-        }
-        if (null !== $this->expiredTime) {
-            $res['ExpiredTime'] = $this->expiredTime;
-        }
-        if (null !== $this->hasUncompletedOrder) {
-            $res['HasUncompletedOrder'] = $this->hasUncompletedOrder;
-        }
-        if (null !== $this->orderTaskInfo) {
-            $res['OrderTaskInfo'] = null !== $this->orderTaskInfo ? $this->orderTaskInfo->toMap() : null;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->createResource) {
-            $res['CreateResource'] = $this->createResource;
-        }
-        if (null !== $this->failReason) {
-            $res['FailReason'] = null !== $this->failReason ? $this->failReason->toMap() : null;
         }
 
         return $res;
@@ -166,50 +166,50 @@ class clusterInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
+        }
+        if (isset($map['CreateResource'])) {
+            $model->createResource = $map['CreateResource'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['ExpiredTime'])) {
+            $model->expiredTime = $map['ExpiredTime'];
+        }
+        if (isset($map['FailReason'])) {
+            $model->failReason = failReason::fromMap($map['FailReason']);
+        }
+        if (isset($map['HasUncompletedOrder'])) {
+            $model->hasUncompletedOrder = $map['HasUncompletedOrder'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['K8sClusterId'])) {
+            $model->k8sClusterId = $map['K8sClusterId'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['OrderList'])) {
+            $model->orderList = $map['OrderList'];
+        }
+        if (isset($map['OrderTaskInfo'])) {
+            $model->orderTaskInfo = orderTaskInfo::fromMap($map['OrderTaskInfo']);
+        }
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
+        }
+        if (isset($map['RunningTime'])) {
+            $model->runningTime = $map['RunningTime'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-        if (isset($map['RunningTime'])) {
-            $model->runningTime = $map['RunningTime'];
-        }
-        if (isset($map['OrderList'])) {
-            $model->orderList = $map['OrderList'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['ChargeType'])) {
-            $model->chargeType = $map['ChargeType'];
-        }
-        if (isset($map['Period'])) {
-            $model->period = $map['Period'];
-        }
-        if (isset($map['K8sClusterId'])) {
-            $model->k8sClusterId = $map['K8sClusterId'];
-        }
-        if (isset($map['ExpiredTime'])) {
-            $model->expiredTime = $map['ExpiredTime'];
-        }
-        if (isset($map['HasUncompletedOrder'])) {
-            $model->hasUncompletedOrder = $map['HasUncompletedOrder'];
-        }
-        if (isset($map['OrderTaskInfo'])) {
-            $model->orderTaskInfo = orderTaskInfo::fromMap($map['OrderTaskInfo']);
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['CreateResource'])) {
-            $model->createResource = $map['CreateResource'];
-        }
-        if (isset($map['FailReason'])) {
-            $model->failReason = failReason::fromMap($map['FailReason']);
         }
 
         return $model;

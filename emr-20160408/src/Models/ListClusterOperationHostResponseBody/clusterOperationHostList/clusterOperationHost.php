@@ -11,7 +11,7 @@ class clusterOperationHost extends Model
     /**
      * @var string
      */
-    public $status;
+    public $hostId;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class clusterOperationHost extends Model
     /**
      * @var string
      */
-    public $hostId;
+    public $status;
     protected $_name = [
-        'status'     => 'Status',
+        'hostId'     => 'HostId',
         'hostName'   => 'HostName',
         'percentage' => 'Percentage',
-        'hostId'     => 'HostId',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class clusterOperationHost extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->hostId) {
+            $res['HostId'] = $this->hostId;
         }
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
@@ -50,8 +50,8 @@ class clusterOperationHost extends Model
         if (null !== $this->percentage) {
             $res['Percentage'] = $this->percentage;
         }
-        if (null !== $this->hostId) {
-            $res['HostId'] = $this->hostId;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class clusterOperationHost extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['HostId'])) {
+            $model->hostId = $map['HostId'];
         }
         if (isset($map['HostName'])) {
             $model->hostName = $map['HostName'];
@@ -74,8 +74,8 @@ class clusterOperationHost extends Model
         if (isset($map['Percentage'])) {
             $model->percentage = $map['Percentage'];
         }
-        if (isset($map['HostId'])) {
-            $model->hostId = $map['HostId'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

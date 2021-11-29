@@ -14,17 +14,7 @@ class propertyInfo extends Model
     /**
      * @var string
      */
-    public $displayName;
-
-    /**
-     * @var string
-     */
-    public $value;
-
-    /**
-     * @var propertyTypes
-     */
-    public $propertyTypes;
+    public $component;
 
     /**
      * @var string
@@ -32,19 +22,14 @@ class propertyInfo extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $displayName;
+
+    /**
      * @var effectWay
      */
     public $effectWay;
-
-    /**
-     * @var string
-     */
-    public $component;
-
-    /**
-     * @var propertyValueAttributes
-     */
-    public $propertyValueAttributes;
 
     /**
      * @var string
@@ -57,20 +42,35 @@ class propertyInfo extends Model
     public $name;
 
     /**
+     * @var propertyTypes
+     */
+    public $propertyTypes;
+
+    /**
+     * @var propertyValueAttributes
+     */
+    public $propertyValueAttributes;
+
+    /**
      * @var string
      */
     public $serviceName;
+
+    /**
+     * @var string
+     */
+    public $value;
     protected $_name = [
-        'displayName'             => 'DisplayName',
-        'value'                   => 'Value',
-        'propertyTypes'           => 'PropertyTypes',
-        'description'             => 'Description',
-        'effectWay'               => 'EffectWay',
         'component'               => 'Component',
-        'propertyValueAttributes' => 'PropertyValueAttributes',
+        'description'             => 'Description',
+        'displayName'             => 'DisplayName',
+        'effectWay'               => 'EffectWay',
         'fileName'                => 'FileName',
         'name'                    => 'Name',
+        'propertyTypes'           => 'PropertyTypes',
+        'propertyValueAttributes' => 'PropertyValueAttributes',
         'serviceName'             => 'ServiceName',
+        'value'                   => 'Value',
     ];
 
     public function validate()
@@ -80,26 +80,17 @@ class propertyInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->displayName) {
-            $res['DisplayName'] = $this->displayName;
-        }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
-        if (null !== $this->propertyTypes) {
-            $res['PropertyTypes'] = null !== $this->propertyTypes ? $this->propertyTypes->toMap() : null;
+        if (null !== $this->component) {
+            $res['Component'] = $this->component;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->displayName) {
+            $res['DisplayName'] = $this->displayName;
+        }
         if (null !== $this->effectWay) {
             $res['EffectWay'] = null !== $this->effectWay ? $this->effectWay->toMap() : null;
-        }
-        if (null !== $this->component) {
-            $res['Component'] = $this->component;
-        }
-        if (null !== $this->propertyValueAttributes) {
-            $res['PropertyValueAttributes'] = null !== $this->propertyValueAttributes ? $this->propertyValueAttributes->toMap() : null;
         }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
@@ -107,8 +98,17 @@ class propertyInfo extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->propertyTypes) {
+            $res['PropertyTypes'] = null !== $this->propertyTypes ? $this->propertyTypes->toMap() : null;
+        }
+        if (null !== $this->propertyValueAttributes) {
+            $res['PropertyValueAttributes'] = null !== $this->propertyValueAttributes ? $this->propertyValueAttributes->toMap() : null;
+        }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -122,26 +122,17 @@ class propertyInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DisplayName'])) {
-            $model->displayName = $map['DisplayName'];
-        }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
-        if (isset($map['PropertyTypes'])) {
-            $model->propertyTypes = propertyTypes::fromMap($map['PropertyTypes']);
+        if (isset($map['Component'])) {
+            $model->component = $map['Component'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['DisplayName'])) {
+            $model->displayName = $map['DisplayName'];
+        }
         if (isset($map['EffectWay'])) {
             $model->effectWay = effectWay::fromMap($map['EffectWay']);
-        }
-        if (isset($map['Component'])) {
-            $model->component = $map['Component'];
-        }
-        if (isset($map['PropertyValueAttributes'])) {
-            $model->propertyValueAttributes = propertyValueAttributes::fromMap($map['PropertyValueAttributes']);
         }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
@@ -149,8 +140,17 @@ class propertyInfo extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['PropertyTypes'])) {
+            $model->propertyTypes = propertyTypes::fromMap($map['PropertyTypes']);
+        }
+        if (isset($map['PropertyValueAttributes'])) {
+            $model->propertyValueAttributes = propertyValueAttributes::fromMap($map['PropertyValueAttributes']);
+        }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

@@ -9,9 +9,44 @@ use AlibabaCloud\Tea\Model;
 class ListScalingGroupV2Request extends Model
 {
     /**
+     * @var string
+     */
+    public $clusterBizId;
+
+    /**
      * @var int
      */
-    public $resourceOwnerId;
+    public $currentSize;
+
+    /**
+     * @var int
+     */
+    public $limit;
+
+    /**
+     * @var string
+     */
+    public $orderField;
+
+    /**
+     * @var string
+     */
+    public $orderMode;
+
+    /**
+     * @var int
+     */
+    public $pageCount;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -26,54 +61,19 @@ class ListScalingGroupV2Request extends Model
     /**
      * @var int
      */
-    public $limit;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $currentSize;
-
-    /**
-     * @var int
-     */
-    public $pageCount;
-
-    /**
-     * @var string
-     */
-    public $orderField;
-
-    /**
-     * @var string
-     */
-    public $orderMode;
-
-    /**
-     * @var string
-     */
-    public $clusterBizId;
+    public $resourceOwnerId;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'regionId'        => 'RegionId',
-        'resourceGroupId' => 'ResourceGroupId',
-        'limit'           => 'Limit',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
+        'clusterBizId'    => 'ClusterBizId',
         'currentSize'     => 'CurrentSize',
-        'pageCount'       => 'PageCount',
+        'limit'           => 'Limit',
         'orderField'      => 'OrderField',
         'orderMode'       => 'OrderMode',
-        'clusterBizId'    => 'ClusterBizId',
+        'pageCount'       => 'PageCount',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -83,29 +83,14 @@ class ListScalingGroupV2Request extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->limit) {
-            $res['Limit'] = $this->limit;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->clusterBizId) {
+            $res['ClusterBizId'] = $this->clusterBizId;
         }
         if (null !== $this->currentSize) {
             $res['CurrentSize'] = $this->currentSize;
         }
-        if (null !== $this->pageCount) {
-            $res['PageCount'] = $this->pageCount;
+        if (null !== $this->limit) {
+            $res['Limit'] = $this->limit;
         }
         if (null !== $this->orderField) {
             $res['OrderField'] = $this->orderField;
@@ -113,8 +98,23 @@ class ListScalingGroupV2Request extends Model
         if (null !== $this->orderMode) {
             $res['OrderMode'] = $this->orderMode;
         }
-        if (null !== $this->clusterBizId) {
-            $res['ClusterBizId'] = $this->clusterBizId;
+        if (null !== $this->pageCount) {
+            $res['PageCount'] = $this->pageCount;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -128,29 +128,14 @@ class ListScalingGroupV2Request extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['Limit'])) {
-            $model->limit = $map['Limit'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['ClusterBizId'])) {
+            $model->clusterBizId = $map['ClusterBizId'];
         }
         if (isset($map['CurrentSize'])) {
             $model->currentSize = $map['CurrentSize'];
         }
-        if (isset($map['PageCount'])) {
-            $model->pageCount = $map['PageCount'];
+        if (isset($map['Limit'])) {
+            $model->limit = $map['Limit'];
         }
         if (isset($map['OrderField'])) {
             $model->orderField = $map['OrderField'];
@@ -158,8 +143,23 @@ class ListScalingGroupV2Request extends Model
         if (isset($map['OrderMode'])) {
             $model->orderMode = $map['OrderMode'];
         }
-        if (isset($map['ClusterBizId'])) {
-            $model->clusterBizId = $map['ClusterBizId'];
+        if (isset($map['PageCount'])) {
+            $model->pageCount = $map['PageCount'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

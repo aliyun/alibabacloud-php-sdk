@@ -17,17 +17,12 @@ class config extends Model
     /**
      * @var string
      */
+    public $author;
+
+    /**
+     * @var string
+     */
     public $comment;
-
-    /**
-     * @var string
-     */
-    public $createTime;
-
-    /**
-     * @var string
-     */
-    public $configVersion;
 
     /**
      * @var configValueList
@@ -37,7 +32,12 @@ class config extends Model
     /**
      * @var string
      */
-    public $author;
+    public $configVersion;
+
+    /**
+     * @var string
+     */
+    public $createTime;
 
     /**
      * @var string
@@ -45,11 +45,11 @@ class config extends Model
     public $serviceName;
     protected $_name = [
         'applied'         => 'Applied',
-        'comment'         => 'Comment',
-        'createTime'      => 'CreateTime',
-        'configVersion'   => 'ConfigVersion',
-        'configValueList' => 'ConfigValueList',
         'author'          => 'Author',
+        'comment'         => 'Comment',
+        'configValueList' => 'ConfigValueList',
+        'configVersion'   => 'ConfigVersion',
+        'createTime'      => 'CreateTime',
         'serviceName'     => 'ServiceName',
     ];
 
@@ -63,20 +63,20 @@ class config extends Model
         if (null !== $this->applied) {
             $res['Applied'] = $this->applied;
         }
+        if (null !== $this->author) {
+            $res['Author'] = $this->author;
+        }
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->configVersion) {
-            $res['ConfigVersion'] = $this->configVersion;
         }
         if (null !== $this->configValueList) {
             $res['ConfigValueList'] = null !== $this->configValueList ? $this->configValueList->toMap() : null;
         }
-        if (null !== $this->author) {
-            $res['Author'] = $this->author;
+        if (null !== $this->configVersion) {
+            $res['ConfigVersion'] = $this->configVersion;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
@@ -96,20 +96,20 @@ class config extends Model
         if (isset($map['Applied'])) {
             $model->applied = $map['Applied'];
         }
+        if (isset($map['Author'])) {
+            $model->author = $map['Author'];
+        }
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['ConfigVersion'])) {
-            $model->configVersion = $map['ConfigVersion'];
         }
         if (isset($map['ConfigValueList'])) {
             $model->configValueList = configValueList::fromMap($map['ConfigValueList']);
         }
-        if (isset($map['Author'])) {
-            $model->author = $map['Author'];
+        if (isset($map['ConfigVersion'])) {
+            $model->configVersion = $map['ConfigVersion'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];

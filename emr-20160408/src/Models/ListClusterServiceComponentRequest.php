@@ -9,29 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListClusterServiceComponentRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var string
      */
     public $clusterId;
-
-    /**
-     * @var string
-     */
-    public $podName;
-
-    /**
-     * @var string
-     */
-    public $serviceName;
 
     /**
      * @var string
@@ -52,16 +32,36 @@ class ListClusterServiceComponentRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $podName;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $serviceName;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'regionId'        => 'RegionId',
         'clusterId'       => 'ClusterId',
-        'podName'         => 'PodName',
-        'serviceName'     => 'ServiceName',
         'componentName'   => 'ComponentName',
         'componentStatus' => 'ComponentStatus',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
+        'podName'         => 'PodName',
+        'regionId'        => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'serviceName'     => 'ServiceName',
     ];
 
     public function validate()
@@ -71,20 +71,8 @@ class ListClusterServiceComponentRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
-        }
-        if (null !== $this->podName) {
-            $res['PodName'] = $this->podName;
-        }
-        if (null !== $this->serviceName) {
-            $res['ServiceName'] = $this->serviceName;
         }
         if (null !== $this->componentName) {
             $res['ComponentName'] = $this->componentName;
@@ -98,6 +86,18 @@ class ListClusterServiceComponentRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->podName) {
+            $res['PodName'] = $this->podName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->serviceName) {
+            $res['ServiceName'] = $this->serviceName;
+        }
 
         return $res;
     }
@@ -110,20 +110,8 @@ class ListClusterServiceComponentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
-        }
-        if (isset($map['PodName'])) {
-            $model->podName = $map['PodName'];
-        }
-        if (isset($map['ServiceName'])) {
-            $model->serviceName = $map['ServiceName'];
         }
         if (isset($map['ComponentName'])) {
             $model->componentName = $map['ComponentName'];
@@ -136,6 +124,18 @@ class ListClusterServiceComponentRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['PodName'])) {
+            $model->podName = $map['PodName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['ServiceName'])) {
+            $model->serviceName = $map['ServiceName'];
         }
 
         return $model;

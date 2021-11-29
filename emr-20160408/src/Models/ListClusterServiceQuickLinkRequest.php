@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListClusterServiceQuickLinkRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $resourceOwnerId;
+    public $clusterId;
+
+    /**
+     * @var bool
+     */
+    public $directType;
 
     /**
      * @var string
@@ -19,25 +24,20 @@ class ListClusterServiceQuickLinkRequest extends Model
     public $regionId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $clusterId;
+    public $resourceOwnerId;
 
     /**
      * @var string
      */
     public $serviceName;
-
-    /**
-     * @var bool
-     */
-    public $directType;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'regionId'        => 'RegionId',
         'clusterId'       => 'ClusterId',
-        'serviceName'     => 'ServiceName',
         'directType'      => 'DirectType',
+        'regionId'        => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'serviceName'     => 'ServiceName',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class ListClusterServiceQuickLinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->directType) {
+            $res['DirectType'] = $this->directType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
-        }
-        if (null !== $this->directType) {
-            $res['DirectType'] = $this->directType;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class ListClusterServiceQuickLinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['DirectType'])) {
+            $model->directType = $map['DirectType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
-        }
-        if (isset($map['DirectType'])) {
-            $model->directType = $map['DirectType'];
         }
 
         return $model;

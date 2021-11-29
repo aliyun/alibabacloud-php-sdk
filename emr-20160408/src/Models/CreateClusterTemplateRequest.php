@@ -13,79 +13,19 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterTemplateRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $templateName;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $zoneId;
-
-    /**
-     * @var string
-     */
-    public $logPath;
-
-    /**
-     * @var string
-     */
-    public $securityGroupId;
-
-    /**
-     * @var bool
-     */
-    public $isOpenPublicIp;
-
-    /**
-     * @var string
-     */
-    public $securityGroupName;
-
-    /**
-     * @var int
-     */
-    public $period;
-
-    /**
      * @var bool
      */
     public $autoRenew;
 
     /**
-     * @var string
+     * @var bootstrapAction[]
      */
-    public $vpcId;
+    public $bootstrapAction;
 
     /**
      * @var string
      */
-    public $vSwitchId;
-
-    /**
-     * @var string
-     */
-    public $netType;
-
-    /**
-     * @var string
-     */
-    public $userDefinedEmrEcsRole;
-
-    /**
-     * @var string
-     */
-    public $emrVer;
+    public $clientToken;
 
     /**
      * @var string
@@ -93,54 +33,19 @@ class CreateClusterTemplateRequest extends Model
     public $clusterType;
 
     /**
-     * @var bool
+     * @var config[]
      */
-    public $highAvailabilityEnable;
-
-    /**
-     * @var bool
-     */
-    public $useLocalMetaDb;
-
-    /**
-     * @var bool
-     */
-    public $ioOptimized;
-
-    /**
-     * @var bool
-     */
-    public $sshEnable;
-
-    /**
-     * @var string
-     */
-    public $instanceGeneration;
-
-    /**
-     * @var string
-     */
-    public $masterPwd;
-
-    /**
-     * @var string
-     */
-    public $keyPairName;
-
-    /**
-     * @var string
-     */
-    public $metaStoreType;
-
-    /**
-     * @var string
-     */
-    public $metaStoreConf;
+    public $config;
 
     /**
      * @var string
      */
     public $configurations;
+
+    /**
+     * @var string
+     */
+    public $depositType;
 
     /**
      * @var bool
@@ -150,17 +55,17 @@ class CreateClusterTemplateRequest extends Model
     /**
      * @var string
      */
-    public $depositType;
-
-    /**
-     * @var string
-     */
-    public $machineType;
+    public $emrVer;
 
     /**
      * @var bool
      */
-    public $useCustomHiveMetaDb;
+    public $highAvailabilityEnable;
+
+    /**
+     * @var hostGroup[]
+     */
+    public $hostGroup;
 
     /**
      * @var bool
@@ -170,7 +75,52 @@ class CreateClusterTemplateRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $instanceGeneration;
+
+    /**
+     * @var bool
+     */
+    public $ioOptimized;
+
+    /**
+     * @var bool
+     */
+    public $isOpenPublicIp;
+
+    /**
+     * @var string
+     */
+    public $keyPairName;
+
+    /**
+     * @var string
+     */
+    public $logPath;
+
+    /**
+     * @var string
+     */
+    public $machineType;
+
+    /**
+     * @var string
+     */
+    public $masterPwd;
+
+    /**
+     * @var string
+     */
+    public $metaStoreConf;
+
+    /**
+     * @var string
+     */
+    public $metaStoreType;
+
+    /**
+     * @var string
+     */
+    public $netType;
 
     /**
      * @var string[]
@@ -178,62 +128,118 @@ class CreateClusterTemplateRequest extends Model
     public $optionSoftWareList;
 
     /**
-     * @var hostGroup[]
+     * @var int
      */
-    public $hostGroup;
+    public $period;
 
     /**
-     * @var bootstrapAction[]
+     * @var string
      */
-    public $bootstrapAction;
+    public $regionId;
 
     /**
-     * @var config[]
+     * @var string
      */
-    public $config;
+    public $resourceGroupId;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $securityGroupId;
+
+    /**
+     * @var string
+     */
+    public $securityGroupName;
+
+    /**
+     * @var bool
+     */
+    public $sshEnable;
 
     /**
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $templateName;
+
+    /**
+     * @var bool
+     */
+    public $useCustomHiveMetaDb;
+
+    /**
+     * @var bool
+     */
+    public $useLocalMetaDb;
+
+    /**
+     * @var string
+     */
+    public $userDefinedEmrEcsRole;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'resourceOwnerId'        => 'ResourceOwnerId',
-        'templateName'           => 'TemplateName',
-        'regionId'               => 'RegionId',
-        'zoneId'                 => 'ZoneId',
-        'logPath'                => 'LogPath',
-        'securityGroupId'        => 'SecurityGroupId',
-        'isOpenPublicIp'         => 'IsOpenPublicIp',
-        'securityGroupName'      => 'SecurityGroupName',
-        'period'                 => 'Period',
         'autoRenew'              => 'AutoRenew',
-        'vpcId'                  => 'VpcId',
-        'vSwitchId'              => 'VSwitchId',
-        'netType'                => 'NetType',
-        'userDefinedEmrEcsRole'  => 'UserDefinedEmrEcsRole',
-        'emrVer'                 => 'EmrVer',
-        'clusterType'            => 'ClusterType',
-        'highAvailabilityEnable' => 'HighAvailabilityEnable',
-        'useLocalMetaDb'         => 'UseLocalMetaDb',
-        'ioOptimized'            => 'IoOptimized',
-        'sshEnable'              => 'SshEnable',
-        'instanceGeneration'     => 'InstanceGeneration',
-        'masterPwd'              => 'MasterPwd',
-        'keyPairName'            => 'KeyPairName',
-        'metaStoreType'          => 'MetaStoreType',
-        'metaStoreConf'          => 'MetaStoreConf',
-        'configurations'         => 'Configurations',
-        'easEnable'              => 'EasEnable',
-        'depositType'            => 'DepositType',
-        'machineType'            => 'MachineType',
-        'useCustomHiveMetaDb'    => 'UseCustomHiveMetaDb',
-        'initCustomHiveMetaDb'   => 'InitCustomHiveMetaDb',
-        'resourceGroupId'        => 'ResourceGroupId',
-        'optionSoftWareList'     => 'OptionSoftWareList',
-        'hostGroup'              => 'HostGroup',
         'bootstrapAction'        => 'BootstrapAction',
+        'clientToken'            => 'ClientToken',
+        'clusterType'            => 'ClusterType',
         'config'                 => 'Config',
+        'configurations'         => 'Configurations',
+        'depositType'            => 'DepositType',
+        'easEnable'              => 'EasEnable',
+        'emrVer'                 => 'EmrVer',
+        'highAvailabilityEnable' => 'HighAvailabilityEnable',
+        'hostGroup'              => 'HostGroup',
+        'initCustomHiveMetaDb'   => 'InitCustomHiveMetaDb',
+        'instanceGeneration'     => 'InstanceGeneration',
+        'ioOptimized'            => 'IoOptimized',
+        'isOpenPublicIp'         => 'IsOpenPublicIp',
+        'keyPairName'            => 'KeyPairName',
+        'logPath'                => 'LogPath',
+        'machineType'            => 'MachineType',
+        'masterPwd'              => 'MasterPwd',
+        'metaStoreConf'          => 'MetaStoreConf',
+        'metaStoreType'          => 'MetaStoreType',
+        'netType'                => 'NetType',
+        'optionSoftWareList'     => 'OptionSoftWareList',
+        'period'                 => 'Period',
+        'regionId'               => 'RegionId',
+        'resourceGroupId'        => 'ResourceGroupId',
+        'resourceOwnerId'        => 'ResourceOwnerId',
+        'securityGroupId'        => 'SecurityGroupId',
+        'securityGroupName'      => 'SecurityGroupName',
+        'sshEnable'              => 'SshEnable',
         'tag'                    => 'Tag',
+        'templateName'           => 'TemplateName',
+        'useCustomHiveMetaDb'    => 'UseCustomHiveMetaDb',
+        'useLocalMetaDb'         => 'UseLocalMetaDb',
+        'userDefinedEmrEcsRole'  => 'UserDefinedEmrEcsRole',
+        'vSwitchId'              => 'VSwitchId',
+        'vpcId'                  => 'VpcId',
+        'zoneId'                 => 'ZoneId',
     ];
 
     public function validate()
@@ -243,113 +249,8 @@ class CreateClusterTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->templateName) {
-            $res['TemplateName'] = $this->templateName;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->logPath) {
-            $res['LogPath'] = $this->logPath;
-        }
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
-        }
-        if (null !== $this->isOpenPublicIp) {
-            $res['IsOpenPublicIp'] = $this->isOpenPublicIp;
-        }
-        if (null !== $this->securityGroupName) {
-            $res['SecurityGroupName'] = $this->securityGroupName;
-        }
-        if (null !== $this->period) {
-            $res['Period'] = $this->period;
-        }
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
-        if (null !== $this->netType) {
-            $res['NetType'] = $this->netType;
-        }
-        if (null !== $this->userDefinedEmrEcsRole) {
-            $res['UserDefinedEmrEcsRole'] = $this->userDefinedEmrEcsRole;
-        }
-        if (null !== $this->emrVer) {
-            $res['EmrVer'] = $this->emrVer;
-        }
-        if (null !== $this->clusterType) {
-            $res['ClusterType'] = $this->clusterType;
-        }
-        if (null !== $this->highAvailabilityEnable) {
-            $res['HighAvailabilityEnable'] = $this->highAvailabilityEnable;
-        }
-        if (null !== $this->useLocalMetaDb) {
-            $res['UseLocalMetaDb'] = $this->useLocalMetaDb;
-        }
-        if (null !== $this->ioOptimized) {
-            $res['IoOptimized'] = $this->ioOptimized;
-        }
-        if (null !== $this->sshEnable) {
-            $res['SshEnable'] = $this->sshEnable;
-        }
-        if (null !== $this->instanceGeneration) {
-            $res['InstanceGeneration'] = $this->instanceGeneration;
-        }
-        if (null !== $this->masterPwd) {
-            $res['MasterPwd'] = $this->masterPwd;
-        }
-        if (null !== $this->keyPairName) {
-            $res['KeyPairName'] = $this->keyPairName;
-        }
-        if (null !== $this->metaStoreType) {
-            $res['MetaStoreType'] = $this->metaStoreType;
-        }
-        if (null !== $this->metaStoreConf) {
-            $res['MetaStoreConf'] = $this->metaStoreConf;
-        }
-        if (null !== $this->configurations) {
-            $res['Configurations'] = $this->configurations;
-        }
-        if (null !== $this->easEnable) {
-            $res['EasEnable'] = $this->easEnable;
-        }
-        if (null !== $this->depositType) {
-            $res['DepositType'] = $this->depositType;
-        }
-        if (null !== $this->machineType) {
-            $res['MachineType'] = $this->machineType;
-        }
-        if (null !== $this->useCustomHiveMetaDb) {
-            $res['UseCustomHiveMetaDb'] = $this->useCustomHiveMetaDb;
-        }
-        if (null !== $this->initCustomHiveMetaDb) {
-            $res['InitCustomHiveMetaDb'] = $this->initCustomHiveMetaDb;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->optionSoftWareList) {
-            $res['OptionSoftWareList'] = $this->optionSoftWareList;
-        }
-        if (null !== $this->hostGroup) {
-            $res['HostGroup'] = [];
-            if (null !== $this->hostGroup && \is_array($this->hostGroup)) {
-                $n = 0;
-                foreach ($this->hostGroup as $item) {
-                    $res['HostGroup'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->bootstrapAction) {
             $res['BootstrapAction'] = [];
@@ -360,6 +261,12 @@ class CreateClusterTemplateRequest extends Model
                 }
             }
         }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->clusterType) {
+            $res['ClusterType'] = $this->clusterType;
+        }
         if (null !== $this->config) {
             $res['Config'] = [];
             if (null !== $this->config && \is_array($this->config)) {
@@ -369,6 +276,87 @@ class CreateClusterTemplateRequest extends Model
                 }
             }
         }
+        if (null !== $this->configurations) {
+            $res['Configurations'] = $this->configurations;
+        }
+        if (null !== $this->depositType) {
+            $res['DepositType'] = $this->depositType;
+        }
+        if (null !== $this->easEnable) {
+            $res['EasEnable'] = $this->easEnable;
+        }
+        if (null !== $this->emrVer) {
+            $res['EmrVer'] = $this->emrVer;
+        }
+        if (null !== $this->highAvailabilityEnable) {
+            $res['HighAvailabilityEnable'] = $this->highAvailabilityEnable;
+        }
+        if (null !== $this->hostGroup) {
+            $res['HostGroup'] = [];
+            if (null !== $this->hostGroup && \is_array($this->hostGroup)) {
+                $n = 0;
+                foreach ($this->hostGroup as $item) {
+                    $res['HostGroup'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->initCustomHiveMetaDb) {
+            $res['InitCustomHiveMetaDb'] = $this->initCustomHiveMetaDb;
+        }
+        if (null !== $this->instanceGeneration) {
+            $res['InstanceGeneration'] = $this->instanceGeneration;
+        }
+        if (null !== $this->ioOptimized) {
+            $res['IoOptimized'] = $this->ioOptimized;
+        }
+        if (null !== $this->isOpenPublicIp) {
+            $res['IsOpenPublicIp'] = $this->isOpenPublicIp;
+        }
+        if (null !== $this->keyPairName) {
+            $res['KeyPairName'] = $this->keyPairName;
+        }
+        if (null !== $this->logPath) {
+            $res['LogPath'] = $this->logPath;
+        }
+        if (null !== $this->machineType) {
+            $res['MachineType'] = $this->machineType;
+        }
+        if (null !== $this->masterPwd) {
+            $res['MasterPwd'] = $this->masterPwd;
+        }
+        if (null !== $this->metaStoreConf) {
+            $res['MetaStoreConf'] = $this->metaStoreConf;
+        }
+        if (null !== $this->metaStoreType) {
+            $res['MetaStoreType'] = $this->metaStoreType;
+        }
+        if (null !== $this->netType) {
+            $res['NetType'] = $this->netType;
+        }
+        if (null !== $this->optionSoftWareList) {
+            $res['OptionSoftWareList'] = $this->optionSoftWareList;
+        }
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->securityGroupName) {
+            $res['SecurityGroupName'] = $this->securityGroupName;
+        }
+        if (null !== $this->sshEnable) {
+            $res['SshEnable'] = $this->sshEnable;
+        }
         if (null !== $this->tag) {
             $res['Tag'] = [];
             if (null !== $this->tag && \is_array($this->tag)) {
@@ -377,6 +365,27 @@ class CreateClusterTemplateRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
+        }
+        if (null !== $this->useCustomHiveMetaDb) {
+            $res['UseCustomHiveMetaDb'] = $this->useCustomHiveMetaDb;
+        }
+        if (null !== $this->useLocalMetaDb) {
+            $res['UseLocalMetaDb'] = $this->useLocalMetaDb;
+        }
+        if (null !== $this->userDefinedEmrEcsRole) {
+            $res['UserDefinedEmrEcsRole'] = $this->userDefinedEmrEcsRole;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -390,115 +399,8 @@ class CreateClusterTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['TemplateName'])) {
-            $model->templateName = $map['TemplateName'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['LogPath'])) {
-            $model->logPath = $map['LogPath'];
-        }
-        if (isset($map['SecurityGroupId'])) {
-            $model->securityGroupId = $map['SecurityGroupId'];
-        }
-        if (isset($map['IsOpenPublicIp'])) {
-            $model->isOpenPublicIp = $map['IsOpenPublicIp'];
-        }
-        if (isset($map['SecurityGroupName'])) {
-            $model->securityGroupName = $map['SecurityGroupName'];
-        }
-        if (isset($map['Period'])) {
-            $model->period = $map['Period'];
-        }
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
-        if (isset($map['NetType'])) {
-            $model->netType = $map['NetType'];
-        }
-        if (isset($map['UserDefinedEmrEcsRole'])) {
-            $model->userDefinedEmrEcsRole = $map['UserDefinedEmrEcsRole'];
-        }
-        if (isset($map['EmrVer'])) {
-            $model->emrVer = $map['EmrVer'];
-        }
-        if (isset($map['ClusterType'])) {
-            $model->clusterType = $map['ClusterType'];
-        }
-        if (isset($map['HighAvailabilityEnable'])) {
-            $model->highAvailabilityEnable = $map['HighAvailabilityEnable'];
-        }
-        if (isset($map['UseLocalMetaDb'])) {
-            $model->useLocalMetaDb = $map['UseLocalMetaDb'];
-        }
-        if (isset($map['IoOptimized'])) {
-            $model->ioOptimized = $map['IoOptimized'];
-        }
-        if (isset($map['SshEnable'])) {
-            $model->sshEnable = $map['SshEnable'];
-        }
-        if (isset($map['InstanceGeneration'])) {
-            $model->instanceGeneration = $map['InstanceGeneration'];
-        }
-        if (isset($map['MasterPwd'])) {
-            $model->masterPwd = $map['MasterPwd'];
-        }
-        if (isset($map['KeyPairName'])) {
-            $model->keyPairName = $map['KeyPairName'];
-        }
-        if (isset($map['MetaStoreType'])) {
-            $model->metaStoreType = $map['MetaStoreType'];
-        }
-        if (isset($map['MetaStoreConf'])) {
-            $model->metaStoreConf = $map['MetaStoreConf'];
-        }
-        if (isset($map['Configurations'])) {
-            $model->configurations = $map['Configurations'];
-        }
-        if (isset($map['EasEnable'])) {
-            $model->easEnable = $map['EasEnable'];
-        }
-        if (isset($map['DepositType'])) {
-            $model->depositType = $map['DepositType'];
-        }
-        if (isset($map['MachineType'])) {
-            $model->machineType = $map['MachineType'];
-        }
-        if (isset($map['UseCustomHiveMetaDb'])) {
-            $model->useCustomHiveMetaDb = $map['UseCustomHiveMetaDb'];
-        }
-        if (isset($map['InitCustomHiveMetaDb'])) {
-            $model->initCustomHiveMetaDb = $map['InitCustomHiveMetaDb'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['OptionSoftWareList'])) {
-            if (!empty($map['OptionSoftWareList'])) {
-                $model->optionSoftWareList = $map['OptionSoftWareList'];
-            }
-        }
-        if (isset($map['HostGroup'])) {
-            if (!empty($map['HostGroup'])) {
-                $model->hostGroup = [];
-                $n                = 0;
-                foreach ($map['HostGroup'] as $item) {
-                    $model->hostGroup[$n++] = null !== $item ? hostGroup::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['BootstrapAction'])) {
             if (!empty($map['BootstrapAction'])) {
@@ -509,6 +411,12 @@ class CreateClusterTemplateRequest extends Model
                 }
             }
         }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['ClusterType'])) {
+            $model->clusterType = $map['ClusterType'];
+        }
         if (isset($map['Config'])) {
             if (!empty($map['Config'])) {
                 $model->config = [];
@@ -518,6 +426,89 @@ class CreateClusterTemplateRequest extends Model
                 }
             }
         }
+        if (isset($map['Configurations'])) {
+            $model->configurations = $map['Configurations'];
+        }
+        if (isset($map['DepositType'])) {
+            $model->depositType = $map['DepositType'];
+        }
+        if (isset($map['EasEnable'])) {
+            $model->easEnable = $map['EasEnable'];
+        }
+        if (isset($map['EmrVer'])) {
+            $model->emrVer = $map['EmrVer'];
+        }
+        if (isset($map['HighAvailabilityEnable'])) {
+            $model->highAvailabilityEnable = $map['HighAvailabilityEnable'];
+        }
+        if (isset($map['HostGroup'])) {
+            if (!empty($map['HostGroup'])) {
+                $model->hostGroup = [];
+                $n                = 0;
+                foreach ($map['HostGroup'] as $item) {
+                    $model->hostGroup[$n++] = null !== $item ? hostGroup::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['InitCustomHiveMetaDb'])) {
+            $model->initCustomHiveMetaDb = $map['InitCustomHiveMetaDb'];
+        }
+        if (isset($map['InstanceGeneration'])) {
+            $model->instanceGeneration = $map['InstanceGeneration'];
+        }
+        if (isset($map['IoOptimized'])) {
+            $model->ioOptimized = $map['IoOptimized'];
+        }
+        if (isset($map['IsOpenPublicIp'])) {
+            $model->isOpenPublicIp = $map['IsOpenPublicIp'];
+        }
+        if (isset($map['KeyPairName'])) {
+            $model->keyPairName = $map['KeyPairName'];
+        }
+        if (isset($map['LogPath'])) {
+            $model->logPath = $map['LogPath'];
+        }
+        if (isset($map['MachineType'])) {
+            $model->machineType = $map['MachineType'];
+        }
+        if (isset($map['MasterPwd'])) {
+            $model->masterPwd = $map['MasterPwd'];
+        }
+        if (isset($map['MetaStoreConf'])) {
+            $model->metaStoreConf = $map['MetaStoreConf'];
+        }
+        if (isset($map['MetaStoreType'])) {
+            $model->metaStoreType = $map['MetaStoreType'];
+        }
+        if (isset($map['NetType'])) {
+            $model->netType = $map['NetType'];
+        }
+        if (isset($map['OptionSoftWareList'])) {
+            if (!empty($map['OptionSoftWareList'])) {
+                $model->optionSoftWareList = $map['OptionSoftWareList'];
+            }
+        }
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['SecurityGroupName'])) {
+            $model->securityGroupName = $map['SecurityGroupName'];
+        }
+        if (isset($map['SshEnable'])) {
+            $model->sshEnable = $map['SshEnable'];
+        }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
@@ -526,6 +517,27 @@ class CreateClusterTemplateRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
+        }
+        if (isset($map['UseCustomHiveMetaDb'])) {
+            $model->useCustomHiveMetaDb = $map['UseCustomHiveMetaDb'];
+        }
+        if (isset($map['UseLocalMetaDb'])) {
+            $model->useLocalMetaDb = $map['UseLocalMetaDb'];
+        }
+        if (isset($map['UserDefinedEmrEcsRole'])) {
+            $model->userDefinedEmrEcsRole = $map['UserDefinedEmrEcsRole'];
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

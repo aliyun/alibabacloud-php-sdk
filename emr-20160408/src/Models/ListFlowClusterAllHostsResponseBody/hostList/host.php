@@ -9,34 +9,9 @@ use AlibabaCloud\Tea\Model;
 class host extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $serialNumber;
-
-    /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $privateIp;
-
-    /**
-     * @var string
-     */
-    public $hostName;
-
-    /**
-     * @var string
-     */
-    public $instanceType;
+    public $cpu;
 
     /**
      * @var string
@@ -49,14 +24,14 @@ class host extends Model
     public $hostInstanceId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $cpu;
+    public $hostName;
 
     /**
      * @var string
      */
-    public $publicIp;
+    public $instanceType;
 
     /**
      * @var int
@@ -66,20 +41,45 @@ class host extends Model
     /**
      * @var string
      */
+    public $privateIp;
+
+    /**
+     * @var string
+     */
+    public $publicIp;
+
+    /**
+     * @var string
+     */
     public $role;
+
+    /**
+     * @var string
+     */
+    public $serialNumber;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'serialNumber'   => 'SerialNumber',
-        'type'           => 'Type',
-        'status'         => 'Status',
-        'privateIp'      => 'PrivateIp',
-        'hostName'       => 'HostName',
-        'instanceType'   => 'InstanceType',
+        'cpu'            => 'Cpu',
         'hostId'         => 'HostId',
         'hostInstanceId' => 'HostInstanceId',
-        'cpu'            => 'Cpu',
-        'publicIp'       => 'PublicIp',
+        'hostName'       => 'HostName',
+        'instanceType'   => 'InstanceType',
         'memory'         => 'Memory',
+        'privateIp'      => 'PrivateIp',
+        'publicIp'       => 'PublicIp',
         'role'           => 'Role',
+        'serialNumber'   => 'SerialNumber',
+        'status'         => 'Status',
+        'type'           => 'Type',
     ];
 
     public function validate()
@@ -89,23 +89,8 @@ class host extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serialNumber) {
-            $res['SerialNumber'] = $this->serialNumber;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->privateIp) {
-            $res['PrivateIp'] = $this->privateIp;
-        }
-        if (null !== $this->hostName) {
-            $res['HostName'] = $this->hostName;
-        }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
+        if (null !== $this->cpu) {
+            $res['Cpu'] = $this->cpu;
         }
         if (null !== $this->hostId) {
             $res['HostId'] = $this->hostId;
@@ -113,17 +98,32 @@ class host extends Model
         if (null !== $this->hostInstanceId) {
             $res['HostInstanceId'] = $this->hostInstanceId;
         }
-        if (null !== $this->cpu) {
-            $res['Cpu'] = $this->cpu;
+        if (null !== $this->hostName) {
+            $res['HostName'] = $this->hostName;
         }
-        if (null !== $this->publicIp) {
-            $res['PublicIp'] = $this->publicIp;
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
+        if (null !== $this->privateIp) {
+            $res['PrivateIp'] = $this->privateIp;
+        }
+        if (null !== $this->publicIp) {
+            $res['PublicIp'] = $this->publicIp;
+        }
         if (null !== $this->role) {
             $res['Role'] = $this->role;
+        }
+        if (null !== $this->serialNumber) {
+            $res['SerialNumber'] = $this->serialNumber;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -137,23 +137,8 @@ class host extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SerialNumber'])) {
-            $model->serialNumber = $map['SerialNumber'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['PrivateIp'])) {
-            $model->privateIp = $map['PrivateIp'];
-        }
-        if (isset($map['HostName'])) {
-            $model->hostName = $map['HostName'];
-        }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
+        if (isset($map['Cpu'])) {
+            $model->cpu = $map['Cpu'];
         }
         if (isset($map['HostId'])) {
             $model->hostId = $map['HostId'];
@@ -161,17 +146,32 @@ class host extends Model
         if (isset($map['HostInstanceId'])) {
             $model->hostInstanceId = $map['HostInstanceId'];
         }
-        if (isset($map['Cpu'])) {
-            $model->cpu = $map['Cpu'];
+        if (isset($map['HostName'])) {
+            $model->hostName = $map['HostName'];
         }
-        if (isset($map['PublicIp'])) {
-            $model->publicIp = $map['PublicIp'];
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
         }
+        if (isset($map['PrivateIp'])) {
+            $model->privateIp = $map['PrivateIp'];
+        }
+        if (isset($map['PublicIp'])) {
+            $model->publicIp = $map['PublicIp'];
+        }
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
+        }
+        if (isset($map['SerialNumber'])) {
+            $model->serialNumber = $map['SerialNumber'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

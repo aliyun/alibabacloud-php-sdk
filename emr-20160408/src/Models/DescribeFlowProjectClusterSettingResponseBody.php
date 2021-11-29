@@ -12,19 +12,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowProjectClusterSettingResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $gmtCreate;
-
-    /**
      * @var string
      */
-    public $defaultUser;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $clusterId;
 
     /**
      * @var string
@@ -34,12 +24,12 @@ class DescribeFlowProjectClusterSettingResponseBody extends Model
     /**
      * @var string
      */
-    public $clusterId;
+    public $defaultUser;
 
     /**
-     * @var string
+     * @var int
      */
-    public $projectId;
+    public $gmtCreate;
 
     /**
      * @var int
@@ -52,31 +42,41 @@ class DescribeFlowProjectClusterSettingResponseBody extends Model
     public $hostList;
 
     /**
-     * @var userList
-     */
-    public $userList;
-
-    /**
      * @var string
      */
     public $k8sClusterId;
 
     /**
+     * @var string
+     */
+    public $projectId;
+
+    /**
      * @var queueList
      */
     public $queueList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var userList
+     */
+    public $userList;
     protected $_name = [
-        'gmtCreate'    => 'GmtCreate',
-        'defaultUser'  => 'DefaultUser',
-        'requestId'    => 'RequestId',
-        'defaultQueue' => 'DefaultQueue',
         'clusterId'    => 'ClusterId',
-        'projectId'    => 'ProjectId',
+        'defaultQueue' => 'DefaultQueue',
+        'defaultUser'  => 'DefaultUser',
+        'gmtCreate'    => 'GmtCreate',
         'gmtModified'  => 'GmtModified',
         'hostList'     => 'HostList',
-        'userList'     => 'UserList',
         'k8sClusterId' => 'K8sClusterId',
+        'projectId'    => 'ProjectId',
         'queueList'    => 'QueueList',
+        'requestId'    => 'RequestId',
+        'userList'     => 'UserList',
     ];
 
     public function validate()
@@ -86,23 +86,17 @@ class DescribeFlowProjectClusterSettingResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->defaultUser) {
-            $res['DefaultUser'] = $this->defaultUser;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->defaultQueue) {
             $res['DefaultQueue'] = $this->defaultQueue;
         }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->defaultUser) {
+            $res['DefaultUser'] = $this->defaultUser;
         }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
@@ -110,14 +104,20 @@ class DescribeFlowProjectClusterSettingResponseBody extends Model
         if (null !== $this->hostList) {
             $res['HostList'] = null !== $this->hostList ? $this->hostList->toMap() : null;
         }
-        if (null !== $this->userList) {
-            $res['UserList'] = null !== $this->userList ? $this->userList->toMap() : null;
-        }
         if (null !== $this->k8sClusterId) {
             $res['K8sClusterId'] = $this->k8sClusterId;
         }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
         if (null !== $this->queueList) {
             $res['QueueList'] = null !== $this->queueList ? $this->queueList->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->userList) {
+            $res['UserList'] = null !== $this->userList ? $this->userList->toMap() : null;
         }
 
         return $res;
@@ -131,23 +131,17 @@ class DescribeFlowProjectClusterSettingResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
-        if (isset($map['DefaultUser'])) {
-            $model->defaultUser = $map['DefaultUser'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['DefaultQueue'])) {
             $model->defaultQueue = $map['DefaultQueue'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['DefaultUser'])) {
+            $model->defaultUser = $map['DefaultUser'];
         }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
@@ -155,14 +149,20 @@ class DescribeFlowProjectClusterSettingResponseBody extends Model
         if (isset($map['HostList'])) {
             $model->hostList = hostList::fromMap($map['HostList']);
         }
-        if (isset($map['UserList'])) {
-            $model->userList = userList::fromMap($map['UserList']);
-        }
         if (isset($map['K8sClusterId'])) {
             $model->k8sClusterId = $map['K8sClusterId'];
         }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
         if (isset($map['QueueList'])) {
             $model->queueList = queueList::fromMap($map['QueueList']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['UserList'])) {
+            $model->userList = userList::fromMap($map['UserList']);
         }
 
         return $model;

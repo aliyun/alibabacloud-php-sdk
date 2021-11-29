@@ -11,12 +11,12 @@ class jobInfo extends Model
     /**
      * @var string
      */
-    public $type;
+    public $failAct;
 
     /**
      * @var string
      */
-    public $failAct;
+    public $id;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class jobInfo extends Model
     /**
      * @var string
      */
-    public $id;
+    public $type;
     protected $_name = [
-        'type'         => 'Type',
         'failAct'      => 'FailAct',
+        'id'           => 'Id',
         'name'         => 'Name',
         'runParameter' => 'RunParameter',
-        'id'           => 'Id',
+        'type'         => 'Type',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class jobInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->failAct) {
             $res['FailAct'] = $this->failAct;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -59,8 +59,8 @@ class jobInfo extends Model
         if (null !== $this->runParameter) {
             $res['RunParameter'] = $this->runParameter;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -74,11 +74,11 @@ class jobInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['FailAct'])) {
             $model->failAct = $map['FailAct'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -86,8 +86,8 @@ class jobInfo extends Model
         if (isset($map['RunParameter'])) {
             $model->runParameter = $map['RunParameter'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

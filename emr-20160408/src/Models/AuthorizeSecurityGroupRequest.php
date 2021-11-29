@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AuthorizeSecurityGroupRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $clusterId;
+    public $bizContent;
 
     /**
      * @var string
@@ -31,13 +21,23 @@ class AuthorizeSecurityGroupRequest extends Model
     /**
      * @var string
      */
-    public $bizContent;
+    public $clusterId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'regionId'        => 'RegionId',
-        'clusterId'       => 'ClusterId',
-        'bizType'         => 'BizType',
         'bizContent'      => 'BizContent',
+        'bizType'         => 'BizType',
+        'clusterId'       => 'ClusterId',
+        'regionId'        => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class AuthorizeSecurityGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->bizContent) {
+            $res['BizContent'] = $this->bizContent;
         }
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
-        if (null !== $this->bizContent) {
-            $res['BizContent'] = $this->bizContent;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class AuthorizeSecurityGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['BizContent'])) {
+            $model->bizContent = $map['BizContent'];
         }
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
-        if (isset($map['BizContent'])) {
-            $model->bizContent = $map['BizContent'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

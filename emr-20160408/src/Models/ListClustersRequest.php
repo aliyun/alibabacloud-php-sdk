@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListClustersRequest extends Model
 {
     /**
-     * @var int
+     * @var string[]
      */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $clusterTypeList;
 
     /**
      * @var string
@@ -25,9 +20,19 @@ class ListClustersRequest extends Model
     public $createType;
 
     /**
+     * @var bool
+     */
+    public $defaultStatus;
+
+    /**
      * @var string
      */
-    public $machineType;
+    public $depositType;
+
+    /**
+     * @var string[]
+     */
+    public $expiredTagList;
 
     /**
      * @var bool
@@ -37,7 +42,12 @@ class ListClustersRequest extends Model
     /**
      * @var string
      */
-    public $depositType;
+    public $machineType;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var int
@@ -50,14 +60,9 @@ class ListClustersRequest extends Model
     public $pageSize;
 
     /**
-     * @var bool
-     */
-    public $defaultStatus;
-
-    /**
      * @var string
      */
-    public $name;
+    public $regionId;
 
     /**
      * @var string
@@ -65,9 +70,9 @@ class ListClustersRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @var string[]
+     * @var int
      */
-    public $clusterTypeList;
+    public $resourceOwnerId;
 
     /**
      * @var string[]
@@ -80,25 +85,26 @@ class ListClustersRequest extends Model
     public $tag;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $expiredTagList;
+    public $vpcId;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'regionId'        => 'RegionId',
+        'clusterTypeList' => 'ClusterTypeList',
         'createType'      => 'CreateType',
-        'machineType'     => 'MachineType',
-        'isDesc'          => 'IsDesc',
+        'defaultStatus'   => 'DefaultStatus',
         'depositType'     => 'DepositType',
+        'expiredTagList'  => 'ExpiredTagList',
+        'isDesc'          => 'IsDesc',
+        'machineType'     => 'MachineType',
+        'name'            => 'Name',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
-        'defaultStatus'   => 'DefaultStatus',
-        'name'            => 'Name',
+        'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'clusterTypeList' => 'ClusterTypeList',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'statusList'      => 'StatusList',
         'tag'             => 'Tag',
-        'expiredTagList'  => 'ExpiredTagList',
+        'vpcId'           => 'VpcId',
     ];
 
     public function validate()
@@ -108,23 +114,29 @@ class ListClustersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->clusterTypeList) {
+            $res['ClusterTypeList'] = $this->clusterTypeList;
         }
         if (null !== $this->createType) {
             $res['CreateType'] = $this->createType;
         }
-        if (null !== $this->machineType) {
-            $res['MachineType'] = $this->machineType;
+        if (null !== $this->defaultStatus) {
+            $res['DefaultStatus'] = $this->defaultStatus;
+        }
+        if (null !== $this->depositType) {
+            $res['DepositType'] = $this->depositType;
+        }
+        if (null !== $this->expiredTagList) {
+            $res['ExpiredTagList'] = $this->expiredTagList;
         }
         if (null !== $this->isDesc) {
             $res['IsDesc'] = $this->isDesc;
         }
-        if (null !== $this->depositType) {
-            $res['DepositType'] = $this->depositType;
+        if (null !== $this->machineType) {
+            $res['MachineType'] = $this->machineType;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -132,17 +144,14 @@ class ListClustersRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->defaultStatus) {
-            $res['DefaultStatus'] = $this->defaultStatus;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->clusterTypeList) {
-            $res['ClusterTypeList'] = $this->clusterTypeList;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->statusList) {
             $res['StatusList'] = $this->statusList;
@@ -156,8 +165,8 @@ class ListClustersRequest extends Model
                 }
             }
         }
-        if (null !== $this->expiredTagList) {
-            $res['ExpiredTagList'] = $this->expiredTagList;
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -171,23 +180,33 @@ class ListClustersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ClusterTypeList'])) {
+            if (!empty($map['ClusterTypeList'])) {
+                $model->clusterTypeList = $map['ClusterTypeList'];
+            }
         }
         if (isset($map['CreateType'])) {
             $model->createType = $map['CreateType'];
         }
-        if (isset($map['MachineType'])) {
-            $model->machineType = $map['MachineType'];
+        if (isset($map['DefaultStatus'])) {
+            $model->defaultStatus = $map['DefaultStatus'];
+        }
+        if (isset($map['DepositType'])) {
+            $model->depositType = $map['DepositType'];
+        }
+        if (isset($map['ExpiredTagList'])) {
+            if (!empty($map['ExpiredTagList'])) {
+                $model->expiredTagList = $map['ExpiredTagList'];
+            }
         }
         if (isset($map['IsDesc'])) {
             $model->isDesc = $map['IsDesc'];
         }
-        if (isset($map['DepositType'])) {
-            $model->depositType = $map['DepositType'];
+        if (isset($map['MachineType'])) {
+            $model->machineType = $map['MachineType'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -195,19 +214,14 @@ class ListClustersRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['DefaultStatus'])) {
-            $model->defaultStatus = $map['DefaultStatus'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['ClusterTypeList'])) {
-            if (!empty($map['ClusterTypeList'])) {
-                $model->clusterTypeList = $map['ClusterTypeList'];
-            }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['StatusList'])) {
             if (!empty($map['StatusList'])) {
@@ -223,10 +237,8 @@ class ListClustersRequest extends Model
                 }
             }
         }
-        if (isset($map['ExpiredTagList'])) {
-            if (!empty($map['ExpiredTagList'])) {
-                $model->expiredTagList = $map['ExpiredTagList'];
-            }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

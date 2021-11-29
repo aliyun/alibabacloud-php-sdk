@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListEmrMainVersionResponseBody extends Model
 {
     /**
+     * @var emrMainVersionList
+     */
+    public $emrMainVersionList;
+
+    /**
      * @var int
      */
-    public $totalCount;
+    public $pageNumber;
 
     /**
      * @var int
@@ -27,18 +32,13 @@ class ListEmrMainVersionResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
-
-    /**
-     * @var emrMainVersionList
-     */
-    public $emrMainVersionList;
+    public $totalCount;
     protected $_name = [
-        'totalCount'         => 'TotalCount',
+        'emrMainVersionList' => 'EmrMainVersionList',
+        'pageNumber'         => 'PageNumber',
         'pageSize'           => 'PageSize',
         'requestId'          => 'RequestId',
-        'pageNumber'         => 'PageNumber',
-        'emrMainVersionList' => 'EmrMainVersionList',
+        'totalCount'         => 'TotalCount',
     ];
 
     public function validate()
@@ -48,8 +48,11 @@ class ListEmrMainVersionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->emrMainVersionList) {
+            $res['EmrMainVersionList'] = null !== $this->emrMainVersionList ? $this->emrMainVersionList->toMap() : null;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -57,11 +60,8 @@ class ListEmrMainVersionResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->emrMainVersionList) {
-            $res['EmrMainVersionList'] = null !== $this->emrMainVersionList ? $this->emrMainVersionList->toMap() : null;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -75,8 +75,11 @@ class ListEmrMainVersionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['EmrMainVersionList'])) {
+            $model->emrMainVersionList = emrMainVersionList::fromMap($map['EmrMainVersionList']);
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
@@ -84,11 +87,8 @@ class ListEmrMainVersionResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['EmrMainVersionList'])) {
-            $model->emrMainVersionList = emrMainVersionList::fromMap($map['EmrMainVersionList']);
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

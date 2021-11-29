@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListFlowJobHistoryResponseBody extends Model
 {
     /**
-     * @var string
+     * @var nodeInstances
      */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
+    public $nodeInstances;
 
     /**
      * @var int
@@ -27,18 +22,23 @@ class ListFlowJobHistoryResponseBody extends Model
     /**
      * @var int
      */
-    public $total;
+    public $pageSize;
 
     /**
-     * @var nodeInstances
+     * @var string
      */
-    public $nodeInstances;
+    public $requestId;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'pageSize'      => 'PageSize',
-        'pageNumber'    => 'PageNumber',
-        'total'         => 'Total',
         'nodeInstances' => 'NodeInstances',
+        'pageNumber'    => 'PageNumber',
+        'pageSize'      => 'PageSize',
+        'requestId'     => 'RequestId',
+        'total'         => 'Total',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class ListFlowJobHistoryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->nodeInstances) {
+            $res['NodeInstances'] = null !== $this->nodeInstances ? $this->nodeInstances->toMap() : null;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->total) {
             $res['Total'] = $this->total;
-        }
-        if (null !== $this->nodeInstances) {
-            $res['NodeInstances'] = null !== $this->nodeInstances ? $this->nodeInstances->toMap() : null;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class ListFlowJobHistoryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['NodeInstances'])) {
+            $model->nodeInstances = nodeInstances::fromMap($map['NodeInstances']);
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
-        }
-        if (isset($map['NodeInstances'])) {
-            $model->nodeInstances = nodeInstances::fromMap($map['NodeInstances']);
         }
 
         return $model;

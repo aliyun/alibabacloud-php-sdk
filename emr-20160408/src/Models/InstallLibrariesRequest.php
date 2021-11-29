@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class InstallLibrariesRequest extends Model
 {
     /**
-     * @var int
+     * @var string[]
      */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $clusterBizIdList;
 
     /**
      * @var string
@@ -24,14 +19,19 @@ class InstallLibrariesRequest extends Model
     public $libraryBizId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $clusterBizIdList;
+    public $regionId;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'resourceOwnerId'  => 'ResourceOwnerId',
-        'regionId'         => 'RegionId',
-        'libraryBizId'     => 'LibraryBizId',
         'clusterBizIdList' => 'ClusterBizIdList',
+        'libraryBizId'     => 'LibraryBizId',
+        'regionId'         => 'RegionId',
+        'resourceOwnerId'  => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class InstallLibrariesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->clusterBizIdList) {
+            $res['ClusterBizIdList'] = $this->clusterBizIdList;
         }
         if (null !== $this->libraryBizId) {
             $res['LibraryBizId'] = $this->libraryBizId;
         }
-        if (null !== $this->clusterBizIdList) {
-            $res['ClusterBizIdList'] = $this->clusterBizIdList;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -65,19 +65,19 @@ class InstallLibrariesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['LibraryBizId'])) {
-            $model->libraryBizId = $map['LibraryBizId'];
-        }
         if (isset($map['ClusterBizIdList'])) {
             if (!empty($map['ClusterBizIdList'])) {
                 $model->clusterBizIdList = $map['ClusterBizIdList'];
             }
+        }
+        if (isset($map['LibraryBizId'])) {
+            $model->libraryBizId = $map['LibraryBizId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

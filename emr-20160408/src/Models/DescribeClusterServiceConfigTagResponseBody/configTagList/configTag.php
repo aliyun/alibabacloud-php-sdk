@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class configTag extends Model
 {
     /**
-     * @var valueList
-     */
-    public $valueList;
-
-    /**
      * @var string
      */
     public $tag;
@@ -23,10 +18,15 @@ class configTag extends Model
      * @var string
      */
     public $tagDesc;
+
+    /**
+     * @var valueList
+     */
+    public $valueList;
     protected $_name = [
-        'valueList' => 'ValueList',
         'tag'       => 'Tag',
         'tagDesc'   => 'TagDesc',
+        'valueList' => 'ValueList',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class configTag extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->valueList) {
-            $res['ValueList'] = null !== $this->valueList ? $this->valueList->toMap() : null;
-        }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
         }
         if (null !== $this->tagDesc) {
             $res['TagDesc'] = $this->tagDesc;
+        }
+        if (null !== $this->valueList) {
+            $res['ValueList'] = null !== $this->valueList ? $this->valueList->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class configTag extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ValueList'])) {
-            $model->valueList = valueList::fromMap($map['ValueList']);
-        }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
         }
         if (isset($map['TagDesc'])) {
             $model->tagDesc = $map['TagDesc'];
+        }
+        if (isset($map['ValueList'])) {
+            $model->valueList = valueList::fromMap($map['ValueList']);
         }
 
         return $model;

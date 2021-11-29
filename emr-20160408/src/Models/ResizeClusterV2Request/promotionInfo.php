@@ -11,7 +11,7 @@ class promotionInfo extends Model
     /**
      * @var string
      */
-    public $promotionOptionNo;
+    public $productCode;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class promotionInfo extends Model
     /**
      * @var string
      */
-    public $productCode;
+    public $promotionOptionNo;
     protected $_name = [
-        'promotionOptionNo'   => 'PromotionOptionNo',
-        'promotionOptionCode' => 'PromotionOptionCode',
         'productCode'         => 'ProductCode',
+        'promotionOptionCode' => 'PromotionOptionCode',
+        'promotionOptionNo'   => 'PromotionOptionNo',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class promotionInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->promotionOptionNo) {
-            $res['PromotionOptionNo'] = $this->promotionOptionNo;
+        if (null !== $this->productCode) {
+            $res['ProductCode'] = $this->productCode;
         }
         if (null !== $this->promotionOptionCode) {
             $res['PromotionOptionCode'] = $this->promotionOptionCode;
         }
-        if (null !== $this->productCode) {
-            $res['ProductCode'] = $this->productCode;
+        if (null !== $this->promotionOptionNo) {
+            $res['PromotionOptionNo'] = $this->promotionOptionNo;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class promotionInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PromotionOptionNo'])) {
-            $model->promotionOptionNo = $map['PromotionOptionNo'];
+        if (isset($map['ProductCode'])) {
+            $model->productCode = $map['ProductCode'];
         }
         if (isset($map['PromotionOptionCode'])) {
             $model->promotionOptionCode = $map['PromotionOptionCode'];
         }
-        if (isset($map['ProductCode'])) {
-            $model->productCode = $map['ProductCode'];
+        if (isset($map['PromotionOptionNo'])) {
+            $model->promotionOptionNo = $map['PromotionOptionNo'];
         }
 
         return $model;

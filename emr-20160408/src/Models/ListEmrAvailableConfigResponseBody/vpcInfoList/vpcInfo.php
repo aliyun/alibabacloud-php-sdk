@@ -12,12 +12,7 @@ class vpcInfo extends Model
     /**
      * @var string
      */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $vpcName;
+    public $cidrBlock;
 
     /**
      * @var string
@@ -27,29 +22,34 @@ class vpcInfo extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $VRouterId;
 
     /**
      * @var string
      */
-    public $cidrBlock;
+    public $vpcId;
 
     /**
      * @var string
      */
-    public $description;
+    public $vpcName;
 
     /**
      * @var vswitchInfoList
      */
     public $vswitchInfoList;
     protected $_name = [
+        'cidrBlock'       => 'CidrBlock',
+        'creationTime'    => 'CreationTime',
+        'description'     => 'Description',
+        'VRouterId'       => 'VRouterId',
         'vpcId'           => 'VpcId',
         'vpcName'         => 'VpcName',
-        'creationTime'    => 'CreationTime',
-        'VRouterId'       => 'VRouterId',
-        'cidrBlock'       => 'CidrBlock',
-        'description'     => 'Description',
         'vswitchInfoList' => 'VswitchInfoList',
     ];
 
@@ -60,23 +60,23 @@ class vpcInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cidrBlock) {
+            $res['CidrBlock'] = $this->cidrBlock;
+        }
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->VRouterId) {
+            $res['VRouterId'] = $this->VRouterId;
+        }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
         if (null !== $this->vpcName) {
             $res['VpcName'] = $this->vpcName;
-        }
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->VRouterId) {
-            $res['VRouterId'] = $this->VRouterId;
-        }
-        if (null !== $this->cidrBlock) {
-            $res['CidrBlock'] = $this->cidrBlock;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
         }
         if (null !== $this->vswitchInfoList) {
             $res['VswitchInfoList'] = null !== $this->vswitchInfoList ? $this->vswitchInfoList->toMap() : null;
@@ -93,23 +93,23 @@ class vpcInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CidrBlock'])) {
+            $model->cidrBlock = $map['CidrBlock'];
+        }
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['VRouterId'])) {
+            $model->VRouterId = $map['VRouterId'];
+        }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
         if (isset($map['VpcName'])) {
             $model->vpcName = $map['VpcName'];
-        }
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['VRouterId'])) {
-            $model->VRouterId = $map['VRouterId'];
-        }
-        if (isset($map['CidrBlock'])) {
-            $model->cidrBlock = $map['CidrBlock'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
         }
         if (isset($map['VswitchInfoList'])) {
             $model->vswitchInfoList = vswitchInfoList::fromMap($map['VswitchInfoList']);

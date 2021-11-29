@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetQueueOutputStatisticInfoResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var queueOutputList
      */
     public $queueOutputList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'       => 'RequestId',
         'queueOutputList' => 'QueueOutputList',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class GetQueueOutputStatisticInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->queueOutputList) {
             $res['QueueOutputList'] = null !== $this->queueOutputList ? $this->queueOutputList->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class GetQueueOutputStatisticInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['QueueOutputList'])) {
             $model->queueOutputList = queueOutputList::fromMap($map['QueueOutputList']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

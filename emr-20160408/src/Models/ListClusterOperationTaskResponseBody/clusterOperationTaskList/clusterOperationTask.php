@@ -11,27 +11,27 @@ class clusterOperationTask extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $taskName;
-
-    /**
-     * @var string
-     */
     public $percentage;
 
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $taskId;
+
+    /**
+     * @var string
+     */
+    public $taskName;
     protected $_name = [
-        'status'     => 'Status',
-        'taskName'   => 'TaskName',
         'percentage' => 'Percentage',
+        'status'     => 'Status',
         'taskId'     => 'TaskId',
+        'taskName'   => 'TaskName',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class clusterOperationTask extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->taskName) {
-            $res['TaskName'] = $this->taskName;
-        }
         if (null !== $this->percentage) {
             $res['Percentage'] = $this->percentage;
         }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->taskName) {
+            $res['TaskName'] = $this->taskName;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class clusterOperationTask extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['TaskName'])) {
-            $model->taskName = $map['TaskName'];
-        }
         if (isset($map['Percentage'])) {
             $model->percentage = $map['Percentage'];
         }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['TaskName'])) {
+            $model->taskName = $map['TaskName'];
         }
 
         return $model;

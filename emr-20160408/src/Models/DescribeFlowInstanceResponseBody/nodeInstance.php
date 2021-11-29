@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Emr\V20160408\Models\DescribeFlowInstanceResponseBody;
 
-use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeFlowInstanceResponseBody\nodeInstance\nodeInstance;
 use AlibabaCloud\Tea\Model;
 
 class nodeInstance extends Model
 {
     /**
-     * @var nodeInstance[]
+     * @var \AlibabaCloud\SDK\Emr\V20160408\Models\DescribeFlowInstanceResponseBody\nodeInstance\nodeInstance[]
      */
     public $nodeInstance;
     protected $_name = [
@@ -50,7 +49,7 @@ class nodeInstance extends Model
                 $model->nodeInstance = [];
                 $n                   = 0;
                 foreach ($map['NodeInstance'] as $item) {
-                    $model->nodeInstance[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->nodeInstance[$n++] = null !== $item ? \AlibabaCloud\SDK\Emr\V20160408\Models\DescribeFlowInstanceResponseBody\nodeInstance\nodeInstance::fromMap($item) : $item;
                 }
             }
         }

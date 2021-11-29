@@ -16,16 +16,16 @@ class DeleteFlowCategoryRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $projectId;
 
     /**
      * @var string
      */
-    public $projectId;
+    public $regionId;
     protected $_name = [
         'id'        => 'Id',
-        'regionId'  => 'RegionId',
         'projectId' => 'ProjectId',
+        'regionId'  => 'RegionId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DeleteFlowCategoryRequest extends Model
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DeleteFlowCategoryRequest extends Model
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

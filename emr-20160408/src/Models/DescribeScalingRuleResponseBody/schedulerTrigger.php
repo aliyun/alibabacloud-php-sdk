@@ -14,14 +14,9 @@ class schedulerTrigger extends Model
     public $launchExpirationTime;
 
     /**
-     * @var string
+     * @var int
      */
-    public $recurrenceValue;
-
-    /**
-     * @var string
-     */
-    public $recurrenceType;
+    public $launchTime;
 
     /**
      * @var int
@@ -29,15 +24,20 @@ class schedulerTrigger extends Model
     public $recurrenceEndTime;
 
     /**
-     * @var int
+     * @var string
      */
-    public $launchTime;
+    public $recurrenceType;
+
+    /**
+     * @var string
+     */
+    public $recurrenceValue;
     protected $_name = [
         'launchExpirationTime' => 'LaunchExpirationTime',
-        'recurrenceValue'      => 'RecurrenceValue',
-        'recurrenceType'       => 'RecurrenceType',
-        'recurrenceEndTime'    => 'RecurrenceEndTime',
         'launchTime'           => 'LaunchTime',
+        'recurrenceEndTime'    => 'RecurrenceEndTime',
+        'recurrenceType'       => 'RecurrenceType',
+        'recurrenceValue'      => 'RecurrenceValue',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class schedulerTrigger extends Model
         if (null !== $this->launchExpirationTime) {
             $res['LaunchExpirationTime'] = $this->launchExpirationTime;
         }
-        if (null !== $this->recurrenceValue) {
-            $res['RecurrenceValue'] = $this->recurrenceValue;
-        }
-        if (null !== $this->recurrenceType) {
-            $res['RecurrenceType'] = $this->recurrenceType;
+        if (null !== $this->launchTime) {
+            $res['LaunchTime'] = $this->launchTime;
         }
         if (null !== $this->recurrenceEndTime) {
             $res['RecurrenceEndTime'] = $this->recurrenceEndTime;
         }
-        if (null !== $this->launchTime) {
-            $res['LaunchTime'] = $this->launchTime;
+        if (null !== $this->recurrenceType) {
+            $res['RecurrenceType'] = $this->recurrenceType;
+        }
+        if (null !== $this->recurrenceValue) {
+            $res['RecurrenceValue'] = $this->recurrenceValue;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class schedulerTrigger extends Model
         if (isset($map['LaunchExpirationTime'])) {
             $model->launchExpirationTime = $map['LaunchExpirationTime'];
         }
-        if (isset($map['RecurrenceValue'])) {
-            $model->recurrenceValue = $map['RecurrenceValue'];
-        }
-        if (isset($map['RecurrenceType'])) {
-            $model->recurrenceType = $map['RecurrenceType'];
+        if (isset($map['LaunchTime'])) {
+            $model->launchTime = $map['LaunchTime'];
         }
         if (isset($map['RecurrenceEndTime'])) {
             $model->recurrenceEndTime = $map['RecurrenceEndTime'];
         }
-        if (isset($map['LaunchTime'])) {
-            $model->launchTime = $map['LaunchTime'];
+        if (isset($map['RecurrenceType'])) {
+            $model->recurrenceType = $map['RecurrenceType'];
+        }
+        if (isset($map['RecurrenceValue'])) {
+            $model->recurrenceValue = $map['RecurrenceValue'];
         }
 
         return $model;

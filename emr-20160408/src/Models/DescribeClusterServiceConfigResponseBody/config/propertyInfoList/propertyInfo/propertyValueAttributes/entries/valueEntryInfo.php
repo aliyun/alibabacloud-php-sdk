@@ -11,21 +11,21 @@ class valueEntryInfo extends Model
     /**
      * @var string
      */
-    public $value;
-
-    /**
-     * @var string
-     */
     public $description;
 
     /**
      * @var string
      */
     public $label;
+
+    /**
+     * @var string
+     */
+    public $value;
     protected $_name = [
-        'value'       => 'Value',
         'description' => 'Description',
         'label'       => 'Label',
+        'value'       => 'Value',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class valueEntryInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
         if (null !== $this->label) {
             $res['Label'] = $this->label;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class valueEntryInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

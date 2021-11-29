@@ -12,87 +12,7 @@ class ModifyFlowJobRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $projectId;
-
-    /**
-     * @var string
-     */
-    public $id;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $failAct;
-
-    /**
-     * @var int
-     */
-    public $maxRetry;
-
-    /**
-     * @var string
-     */
-    public $retryPolicy;
-
-    /**
-     * @var int
-     */
-    public $maxRunningTimeSec;
-
-    /**
-     * @var int
-     */
-    public $retryInterval;
-
-    /**
-     * @var string
-     */
-    public $params;
-
-    /**
-     * @var string
-     */
-    public $paramConf;
-
-    /**
-     * @var string
-     */
-    public $customVariables;
-
-    /**
-     * @var string
-     */
-    public $envConf;
-
-    /**
-     * @var string
-     */
-    public $runConf;
-
-    /**
-     * @var string
-     */
-    public $monitorConf;
-
-    /**
-     * @var string
-     */
-    public $mode;
+    public $alertConf;
 
     /**
      * @var string
@@ -102,33 +22,113 @@ class ModifyFlowJobRequest extends Model
     /**
      * @var string
      */
-    public $alertConf;
+    public $customVariables;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $envConf;
+
+    /**
+     * @var string
+     */
+    public $failAct;
+
+    /**
+     * @var string
+     */
+    public $id;
+
+    /**
+     * @var int
+     */
+    public $maxRetry;
+
+    /**
+     * @var int
+     */
+    public $maxRunningTimeSec;
+
+    /**
+     * @var string
+     */
+    public $mode;
+
+    /**
+     * @var string
+     */
+    public $monitorConf;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $paramConf;
+
+    /**
+     * @var string
+     */
+    public $params;
+
+    /**
+     * @var string
+     */
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var resourceList[]
      */
     public $resourceList;
+
+    /**
+     * @var int
+     */
+    public $retryInterval;
+
+    /**
+     * @var string
+     */
+    public $retryPolicy;
+
+    /**
+     * @var string
+     */
+    public $runConf;
     protected $_name = [
-        'regionId'          => 'RegionId',
-        'projectId'         => 'ProjectId',
-        'id'                => 'Id',
-        'name'              => 'Name',
-        'description'       => 'Description',
-        'failAct'           => 'FailAct',
-        'maxRetry'          => 'MaxRetry',
-        'retryPolicy'       => 'RetryPolicy',
-        'maxRunningTimeSec' => 'MaxRunningTimeSec',
-        'retryInterval'     => 'RetryInterval',
-        'params'            => 'Params',
-        'paramConf'         => 'ParamConf',
-        'customVariables'   => 'CustomVariables',
-        'envConf'           => 'EnvConf',
-        'runConf'           => 'RunConf',
-        'monitorConf'       => 'MonitorConf',
-        'mode'              => 'Mode',
-        'clusterId'         => 'ClusterId',
         'alertConf'         => 'AlertConf',
+        'clusterId'         => 'ClusterId',
+        'customVariables'   => 'CustomVariables',
+        'description'       => 'Description',
+        'envConf'           => 'EnvConf',
+        'failAct'           => 'FailAct',
+        'id'                => 'Id',
+        'maxRetry'          => 'MaxRetry',
+        'maxRunningTimeSec' => 'MaxRunningTimeSec',
+        'mode'              => 'Mode',
+        'monitorConf'       => 'MonitorConf',
+        'name'              => 'Name',
+        'paramConf'         => 'ParamConf',
+        'params'            => 'Params',
+        'projectId'         => 'ProjectId',
+        'regionId'          => 'RegionId',
         'resourceList'      => 'ResourceList',
+        'retryInterval'     => 'RetryInterval',
+        'retryPolicy'       => 'RetryPolicy',
+        'runConf'           => 'RunConf',
     ];
 
     public function validate()
@@ -138,62 +138,53 @@ class ModifyFlowJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->failAct) {
-            $res['FailAct'] = $this->failAct;
-        }
-        if (null !== $this->maxRetry) {
-            $res['MaxRetry'] = $this->maxRetry;
-        }
-        if (null !== $this->retryPolicy) {
-            $res['RetryPolicy'] = $this->retryPolicy;
-        }
-        if (null !== $this->maxRunningTimeSec) {
-            $res['MaxRunningTimeSec'] = $this->maxRunningTimeSec;
-        }
-        if (null !== $this->retryInterval) {
-            $res['RetryInterval'] = $this->retryInterval;
-        }
-        if (null !== $this->params) {
-            $res['Params'] = $this->params;
-        }
-        if (null !== $this->paramConf) {
-            $res['ParamConf'] = $this->paramConf;
-        }
-        if (null !== $this->customVariables) {
-            $res['CustomVariables'] = $this->customVariables;
-        }
-        if (null !== $this->envConf) {
-            $res['EnvConf'] = $this->envConf;
-        }
-        if (null !== $this->runConf) {
-            $res['RunConf'] = $this->runConf;
-        }
-        if (null !== $this->monitorConf) {
-            $res['MonitorConf'] = $this->monitorConf;
-        }
-        if (null !== $this->mode) {
-            $res['Mode'] = $this->mode;
+        if (null !== $this->alertConf) {
+            $res['AlertConf'] = $this->alertConf;
         }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->alertConf) {
-            $res['AlertConf'] = $this->alertConf;
+        if (null !== $this->customVariables) {
+            $res['CustomVariables'] = $this->customVariables;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->envConf) {
+            $res['EnvConf'] = $this->envConf;
+        }
+        if (null !== $this->failAct) {
+            $res['FailAct'] = $this->failAct;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->maxRetry) {
+            $res['MaxRetry'] = $this->maxRetry;
+        }
+        if (null !== $this->maxRunningTimeSec) {
+            $res['MaxRunningTimeSec'] = $this->maxRunningTimeSec;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->monitorConf) {
+            $res['MonitorConf'] = $this->monitorConf;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->paramConf) {
+            $res['ParamConf'] = $this->paramConf;
+        }
+        if (null !== $this->params) {
+            $res['Params'] = $this->params;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceList) {
             $res['ResourceList'] = [];
@@ -203,6 +194,15 @@ class ModifyFlowJobRequest extends Model
                     $res['ResourceList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->retryInterval) {
+            $res['RetryInterval'] = $this->retryInterval;
+        }
+        if (null !== $this->retryPolicy) {
+            $res['RetryPolicy'] = $this->retryPolicy;
+        }
+        if (null !== $this->runConf) {
+            $res['RunConf'] = $this->runConf;
         }
 
         return $res;
@@ -216,62 +216,53 @@ class ModifyFlowJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['FailAct'])) {
-            $model->failAct = $map['FailAct'];
-        }
-        if (isset($map['MaxRetry'])) {
-            $model->maxRetry = $map['MaxRetry'];
-        }
-        if (isset($map['RetryPolicy'])) {
-            $model->retryPolicy = $map['RetryPolicy'];
-        }
-        if (isset($map['MaxRunningTimeSec'])) {
-            $model->maxRunningTimeSec = $map['MaxRunningTimeSec'];
-        }
-        if (isset($map['RetryInterval'])) {
-            $model->retryInterval = $map['RetryInterval'];
-        }
-        if (isset($map['Params'])) {
-            $model->params = $map['Params'];
-        }
-        if (isset($map['ParamConf'])) {
-            $model->paramConf = $map['ParamConf'];
-        }
-        if (isset($map['CustomVariables'])) {
-            $model->customVariables = $map['CustomVariables'];
-        }
-        if (isset($map['EnvConf'])) {
-            $model->envConf = $map['EnvConf'];
-        }
-        if (isset($map['RunConf'])) {
-            $model->runConf = $map['RunConf'];
-        }
-        if (isset($map['MonitorConf'])) {
-            $model->monitorConf = $map['MonitorConf'];
-        }
-        if (isset($map['Mode'])) {
-            $model->mode = $map['Mode'];
+        if (isset($map['AlertConf'])) {
+            $model->alertConf = $map['AlertConf'];
         }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['AlertConf'])) {
-            $model->alertConf = $map['AlertConf'];
+        if (isset($map['CustomVariables'])) {
+            $model->customVariables = $map['CustomVariables'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['EnvConf'])) {
+            $model->envConf = $map['EnvConf'];
+        }
+        if (isset($map['FailAct'])) {
+            $model->failAct = $map['FailAct'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['MaxRetry'])) {
+            $model->maxRetry = $map['MaxRetry'];
+        }
+        if (isset($map['MaxRunningTimeSec'])) {
+            $model->maxRunningTimeSec = $map['MaxRunningTimeSec'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
+        if (isset($map['MonitorConf'])) {
+            $model->monitorConf = $map['MonitorConf'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['ParamConf'])) {
+            $model->paramConf = $map['ParamConf'];
+        }
+        if (isset($map['Params'])) {
+            $model->params = $map['Params'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceList'])) {
             if (!empty($map['ResourceList'])) {
@@ -281,6 +272,15 @@ class ModifyFlowJobRequest extends Model
                     $model->resourceList[$n++] = null !== $item ? resourceList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RetryInterval'])) {
+            $model->retryInterval = $map['RetryInterval'];
+        }
+        if (isset($map['RetryPolicy'])) {
+            $model->retryPolicy = $map['RetryPolicy'];
+        }
+        if (isset($map['RunConf'])) {
+            $model->runConf = $map['RunConf'];
         }
 
         return $model;

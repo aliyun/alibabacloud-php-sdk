@@ -11,7 +11,12 @@ class slsLogItem extends Model
     /**
      * @var string
      */
-    public $sourceIp;
+    public $content;
+
+    /**
+     * @var string
+     */
+    public $hostName;
 
     /**
      * @var string
@@ -21,35 +26,30 @@ class slsLogItem extends Model
     /**
      * @var string
      */
+    public $packMeta;
+
+    /**
+     * @var string
+     */
     public $path;
 
     /**
      * @var string
      */
-    public $hostName;
+    public $sourceIp;
 
     /**
      * @var int
      */
     public $timestamp;
-
-    /**
-     * @var string
-     */
-    public $content;
-
-    /**
-     * @var string
-     */
-    public $packMeta;
     protected $_name = [
-        'sourceIp'  => 'SourceIp',
-        'packId'    => 'PackId',
-        'path'      => 'Path',
-        'hostName'  => 'HostName',
-        'timestamp' => 'Timestamp',
         'content'   => 'Content',
+        'hostName'  => 'HostName',
+        'packId'    => 'PackId',
         'packMeta'  => 'PackMeta',
+        'path'      => 'Path',
+        'sourceIp'  => 'SourceIp',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class slsLogItem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->packId) {
-            $res['PackId'] = $this->packId;
-        }
-        if (null !== $this->path) {
-            $res['Path'] = $this->path;
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
         }
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
         }
-        if (null !== $this->timestamp) {
-            $res['Timestamp'] = $this->timestamp;
-        }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
+        if (null !== $this->packId) {
+            $res['PackId'] = $this->packId;
         }
         if (null !== $this->packMeta) {
             $res['PackMeta'] = $this->packMeta;
+        }
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
+        }
+        if (null !== $this->sourceIp) {
+            $res['SourceIp'] = $this->sourceIp;
+        }
+        if (null !== $this->timestamp) {
+            $res['Timestamp'] = $this->timestamp;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class slsLogItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['PackId'])) {
-            $model->packId = $map['PackId'];
-        }
-        if (isset($map['Path'])) {
-            $model->path = $map['Path'];
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
         }
         if (isset($map['HostName'])) {
             $model->hostName = $map['HostName'];
         }
-        if (isset($map['Timestamp'])) {
-            $model->timestamp = $map['Timestamp'];
-        }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
+        if (isset($map['PackId'])) {
+            $model->packId = $map['PackId'];
         }
         if (isset($map['PackMeta'])) {
             $model->packMeta = $map['PackMeta'];
+        }
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
+        }
+        if (isset($map['SourceIp'])) {
+            $model->sourceIp = $map['SourceIp'];
+        }
+        if (isset($map['Timestamp'])) {
+            $model->timestamp = $map['Timestamp'];
         }
 
         return $model;

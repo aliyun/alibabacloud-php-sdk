@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterWithTemplateRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clusterName;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var int
      */
     public $resourceOwnerId;
@@ -22,22 +32,12 @@ class CreateClusterWithTemplateRequest extends Model
      * @var string
      */
     public $uniqueTag;
-
-    /**
-     * @var string
-     */
-    public $clusterName;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
     protected $_name = [
+        'clusterName'     => 'ClusterName',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerId' => 'ResourceOwnerId',
         'templateBizId'   => 'TemplateBizId',
         'uniqueTag'       => 'UniqueTag',
-        'clusterName'     => 'ClusterName',
-        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class CreateClusterWithTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterName) {
+            $res['ClusterName'] = $this->clusterName;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -55,12 +61,6 @@ class CreateClusterWithTemplateRequest extends Model
         }
         if (null !== $this->uniqueTag) {
             $res['UniqueTag'] = $this->uniqueTag;
-        }
-        if (null !== $this->clusterName) {
-            $res['ClusterName'] = $this->clusterName;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class CreateClusterWithTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterName'])) {
+            $model->clusterName = $map['ClusterName'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
@@ -82,12 +88,6 @@ class CreateClusterWithTemplateRequest extends Model
         }
         if (isset($map['UniqueTag'])) {
             $model->uniqueTag = $map['UniqueTag'];
-        }
-        if (isset($map['ClusterName'])) {
-            $model->clusterName = $map['ClusterName'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

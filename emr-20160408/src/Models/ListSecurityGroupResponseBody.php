@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListSecurityGroupResponseBody extends Model
 {
     /**
-     * @var securityGroupList
-     */
-    public $securityGroupList;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var securityGroupList
+     */
+    public $securityGroupList;
     protected $_name = [
-        'securityGroupList' => 'SecurityGroupList',
         'requestId'         => 'RequestId',
+        'securityGroupList' => 'SecurityGroupList',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class ListSecurityGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityGroupList) {
-            $res['SecurityGroupList'] = null !== $this->securityGroupList ? $this->securityGroupList->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->securityGroupList) {
+            $res['SecurityGroupList'] = null !== $this->securityGroupList ? $this->securityGroupList->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class ListSecurityGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityGroupList'])) {
-            $model->securityGroupList = securityGroupList::fromMap($map['SecurityGroupList']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SecurityGroupList'])) {
+            $model->securityGroupList = securityGroupList::fromMap($map['SecurityGroupList']);
         }
 
         return $model;

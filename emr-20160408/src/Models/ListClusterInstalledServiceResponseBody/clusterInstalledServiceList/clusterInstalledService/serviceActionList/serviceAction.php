@@ -11,12 +11,7 @@ class serviceAction extends Model
     /**
      * @var string
      */
-    public $displayName;
-
-    /**
-     * @var string
-     */
-    public $componentName;
+    public $actionName;
 
     /**
      * @var string
@@ -26,17 +21,22 @@ class serviceAction extends Model
     /**
      * @var string
      */
-    public $actionName;
+    public $componentName;
+
+    /**
+     * @var string
+     */
+    public $displayName;
 
     /**
      * @var string
      */
     public $serviceName;
     protected $_name = [
-        'displayName'   => 'DisplayName',
-        'componentName' => 'ComponentName',
-        'command'       => 'Command',
         'actionName'    => 'ActionName',
+        'command'       => 'Command',
+        'componentName' => 'ComponentName',
+        'displayName'   => 'DisplayName',
         'serviceName'   => 'ServiceName',
     ];
 
@@ -47,17 +47,17 @@ class serviceAction extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->displayName) {
-            $res['DisplayName'] = $this->displayName;
-        }
-        if (null !== $this->componentName) {
-            $res['ComponentName'] = $this->componentName;
+        if (null !== $this->actionName) {
+            $res['ActionName'] = $this->actionName;
         }
         if (null !== $this->command) {
             $res['Command'] = $this->command;
         }
-        if (null !== $this->actionName) {
-            $res['ActionName'] = $this->actionName;
+        if (null !== $this->componentName) {
+            $res['ComponentName'] = $this->componentName;
+        }
+        if (null !== $this->displayName) {
+            $res['DisplayName'] = $this->displayName;
         }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
@@ -74,17 +74,17 @@ class serviceAction extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DisplayName'])) {
-            $model->displayName = $map['DisplayName'];
-        }
-        if (isset($map['ComponentName'])) {
-            $model->componentName = $map['ComponentName'];
+        if (isset($map['ActionName'])) {
+            $model->actionName = $map['ActionName'];
         }
         if (isset($map['Command'])) {
             $model->command = $map['Command'];
         }
-        if (isset($map['ActionName'])) {
-            $model->actionName = $map['ActionName'];
+        if (isset($map['ComponentName'])) {
+            $model->componentName = $map['ComponentName'];
+        }
+        if (isset($map['DisplayName'])) {
+            $model->displayName = $map['DisplayName'];
         }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];

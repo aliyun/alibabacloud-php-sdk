@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class configValue extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $configName;
-
-    /**
-     * @var int
-     */
-    public $scopeId;
+    public $allowCustom;
 
     /**
      * @var configItemValueList
@@ -25,20 +20,25 @@ class configValue extends Model
     public $configItemValueList;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $allowCustom;
+    public $configName;
 
     /**
      * @var string
      */
     public $scope;
+
+    /**
+     * @var int
+     */
+    public $scopeId;
     protected $_name = [
-        'configName'          => 'ConfigName',
-        'scopeId'             => 'ScopeId',
-        'configItemValueList' => 'ConfigItemValueList',
         'allowCustom'         => 'AllowCustom',
+        'configItemValueList' => 'ConfigItemValueList',
+        'configName'          => 'ConfigName',
         'scope'               => 'Scope',
+        'scopeId'             => 'ScopeId',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class configValue extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->configName) {
-            $res['ConfigName'] = $this->configName;
-        }
-        if (null !== $this->scopeId) {
-            $res['ScopeId'] = $this->scopeId;
+        if (null !== $this->allowCustom) {
+            $res['AllowCustom'] = $this->allowCustom;
         }
         if (null !== $this->configItemValueList) {
             $res['ConfigItemValueList'] = null !== $this->configItemValueList ? $this->configItemValueList->toMap() : null;
         }
-        if (null !== $this->allowCustom) {
-            $res['AllowCustom'] = $this->allowCustom;
+        if (null !== $this->configName) {
+            $res['ConfigName'] = $this->configName;
         }
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
+        }
+        if (null !== $this->scopeId) {
+            $res['ScopeId'] = $this->scopeId;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class configValue extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ConfigName'])) {
-            $model->configName = $map['ConfigName'];
-        }
-        if (isset($map['ScopeId'])) {
-            $model->scopeId = $map['ScopeId'];
+        if (isset($map['AllowCustom'])) {
+            $model->allowCustom = $map['AllowCustom'];
         }
         if (isset($map['ConfigItemValueList'])) {
             $model->configItemValueList = configItemValueList::fromMap($map['ConfigItemValueList']);
         }
-        if (isset($map['AllowCustom'])) {
-            $model->allowCustom = $map['AllowCustom'];
+        if (isset($map['ConfigName'])) {
+            $model->configName = $map['ConfigName'];
         }
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
+        }
+        if (isset($map['ScopeId'])) {
+            $model->scopeId = $map['ScopeId'];
         }
 
         return $model;

@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListJobsRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var bool
      */
     public $isDesc;
@@ -36,26 +26,36 @@ class ListJobsRequest extends Model
     /**
      * @var string
      */
-    public $queryType;
-
-    /**
-     * @var string
-     */
     public $queryString;
 
     /**
      * @var string
      */
+    public $queryType;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'regionId'        => 'RegionId',
         'isDesc'          => 'IsDesc',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
-        'queryType'       => 'QueryType',
         'queryString'     => 'QueryString',
+        'queryType'       => 'QueryType',
+        'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -65,12 +65,6 @@ class ListJobsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->isDesc) {
             $res['IsDesc'] = $this->isDesc;
         }
@@ -80,14 +74,20 @@ class ListJobsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->queryType) {
-            $res['QueryType'] = $this->queryType;
-        }
         if (null !== $this->queryString) {
             $res['QueryString'] = $this->queryString;
         }
+        if (null !== $this->queryType) {
+            $res['QueryType'] = $this->queryType;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -101,12 +101,6 @@ class ListJobsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['IsDesc'])) {
             $model->isDesc = $map['IsDesc'];
         }
@@ -116,14 +110,20 @@ class ListJobsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['QueryType'])) {
-            $model->queryType = $map['QueryType'];
-        }
         if (isset($map['QueryString'])) {
             $model->queryString = $map['QueryString'];
         }
+        if (isset($map['QueryType'])) {
+            $model->queryType = $map['QueryType'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

@@ -11,7 +11,47 @@ class flowInstance extends Model
     /**
      * @var string
      */
-    public $status;
+    public $clusterId;
+
+    /**
+     * @var int
+     */
+    public $duration;
+
+    /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
+     * @var string
+     */
+    public $flowId;
+
+    /**
+     * @var string
+     */
+    public $flowName;
+
+    /**
+     * @var int
+     */
+    public $gmtCreate;
+
+    /**
+     * @var int
+     */
+    public $gmtModified;
+
+    /**
+     * @var bool
+     */
+    public $hasNodeFailed;
+
+    /**
+     * @var string
+     */
+    public $id;
 
     /**
      * @var string
@@ -24,41 +64,6 @@ class flowInstance extends Model
     public $projectId;
 
     /**
-     * @var string
-     */
-    public $flowName;
-
-    /**
-     * @var int
-     */
-    public $gmtModified;
-
-    /**
-     * @var string
-     */
-    public $flowId;
-
-    /**
-     * @var int
-     */
-    public $endTime;
-
-    /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
-     * @var bool
-     */
-    public $hasNodeFailed;
-
-    /**
-     * @var int
-     */
-    public $gmtCreate;
-
-    /**
      * @var int
      */
     public $scheduleTime;
@@ -66,32 +71,27 @@ class flowInstance extends Model
     /**
      * @var int
      */
-    public $duration;
+    public $startTime;
 
     /**
      * @var string
      */
-    public $id;
-
-    /**
-     * @var string
-     */
-    public $clusterId;
+    public $status;
     protected $_name = [
-        'status'        => 'Status',
+        'clusterId'     => 'ClusterId',
+        'duration'      => 'Duration',
+        'endTime'       => 'EndTime',
+        'flowId'        => 'FlowId',
+        'flowName'      => 'FlowName',
+        'gmtCreate'     => 'GmtCreate',
+        'gmtModified'   => 'GmtModified',
+        'hasNodeFailed' => 'HasNodeFailed',
+        'id'            => 'Id',
         'owner'         => 'Owner',
         'projectId'     => 'ProjectId',
-        'flowName'      => 'FlowName',
-        'gmtModified'   => 'GmtModified',
-        'flowId'        => 'FlowId',
-        'endTime'       => 'EndTime',
-        'startTime'     => 'StartTime',
-        'hasNodeFailed' => 'HasNodeFailed',
-        'gmtCreate'     => 'GmtCreate',
         'scheduleTime'  => 'ScheduleTime',
-        'duration'      => 'Duration',
-        'id'            => 'Id',
-        'clusterId'     => 'ClusterId',
+        'startTime'     => 'StartTime',
+        'status'        => 'Status',
     ];
 
     public function validate()
@@ -101,8 +101,32 @@ class flowInstance extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->flowId) {
+            $res['FlowId'] = $this->flowId;
+        }
+        if (null !== $this->flowName) {
+            $res['FlowName'] = $this->flowName;
+        }
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
+        }
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->hasNodeFailed) {
+            $res['HasNodeFailed'] = $this->hasNodeFailed;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
@@ -110,38 +134,14 @@ class flowInstance extends Model
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->flowName) {
-            $res['FlowName'] = $this->flowName;
-        }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
-        }
-        if (null !== $this->flowId) {
-            $res['FlowId'] = $this->flowId;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->scheduleTime) {
+            $res['ScheduleTime'] = $this->scheduleTime;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->hasNodeFailed) {
-            $res['HasNodeFailed'] = $this->hasNodeFailed;
-        }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->scheduleTime) {
-            $res['ScheduleTime'] = $this->scheduleTime;
-        }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -155,8 +155,32 @@ class flowInstance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['FlowId'])) {
+            $model->flowId = $map['FlowId'];
+        }
+        if (isset($map['FlowName'])) {
+            $model->flowName = $map['FlowName'];
+        }
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
+        }
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['HasNodeFailed'])) {
+            $model->hasNodeFailed = $map['HasNodeFailed'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
@@ -164,38 +188,14 @@ class flowInstance extends Model
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['FlowName'])) {
-            $model->flowName = $map['FlowName'];
-        }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
-        }
-        if (isset($map['FlowId'])) {
-            $model->flowId = $map['FlowId'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['ScheduleTime'])) {
+            $model->scheduleTime = $map['ScheduleTime'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-        if (isset($map['HasNodeFailed'])) {
-            $model->hasNodeFailed = $map['HasNodeFailed'];
-        }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
-        if (isset($map['ScheduleTime'])) {
-            $model->scheduleTime = $map['ScheduleTime'];
-        }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

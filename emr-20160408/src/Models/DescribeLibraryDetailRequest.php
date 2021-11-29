@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeLibraryDetailRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $resourceOwnerId;
+    public $libraryBizId;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class DescribeLibraryDetailRequest extends Model
     public $regionId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $libraryBizId;
+    public $resourceOwnerId;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'regionId'        => 'RegionId',
         'libraryBizId'    => 'LibraryBizId',
+        'regionId'        => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeLibraryDetailRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->libraryBizId) {
+            $res['LibraryBizId'] = $this->libraryBizId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->libraryBizId) {
-            $res['LibraryBizId'] = $this->libraryBizId;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeLibraryDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['LibraryBizId'])) {
+            $model->libraryBizId = $map['LibraryBizId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['LibraryBizId'])) {
-            $model->libraryBizId = $map['LibraryBizId'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserResponseBody extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $requestId;
+    public $data;
 
     /**
      * @var bool
@@ -19,13 +19,13 @@ class UpdateUserResponseBody extends Model
     public $paging;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $data;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'paging'    => 'Paging',
         'data'      => 'Data',
+        'paging'    => 'Paging',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class UpdateUserResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
         }
         if (null !== $this->paging) {
             $res['Paging'] = $this->paging;
         }
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class UpdateUserResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
         }
         if (isset($map['Paging'])) {
             $model->paging = $map['Paging'];
         }
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

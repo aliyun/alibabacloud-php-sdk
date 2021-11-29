@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var rows
-     */
-    public $rows;
-
-    /**
      * @var headers
      */
     public $headers;
+
+    /**
+     * @var rows
+     */
+    public $rows;
     protected $_name = [
-        'rows'    => 'Rows',
         'headers' => 'Headers',
+        'rows'    => 'Rows',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->rows) {
-            $res['Rows'] = null !== $this->rows ? $this->rows->toMap() : null;
-        }
         if (null !== $this->headers) {
             $res['Headers'] = null !== $this->headers ? $this->headers->toMap() : null;
+        }
+        if (null !== $this->rows) {
+            $res['Rows'] = null !== $this->rows ? $this->rows->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Rows'])) {
-            $model->rows = rows::fromMap($map['Rows']);
-        }
         if (isset($map['Headers'])) {
             $model->headers = headers::fromMap($map['Headers']);
+        }
+        if (isset($map['Rows'])) {
+            $model->rows = rows::fromMap($map['Rows']);
         }
 
         return $model;

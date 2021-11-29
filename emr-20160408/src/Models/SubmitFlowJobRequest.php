@@ -11,12 +11,17 @@ class SubmitFlowJobRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $clusterId;
 
     /**
      * @var string
      */
-    public $projectId;
+    public $conf;
+
+    /**
+     * @var string
+     */
+    public $hostName;
 
     /**
      * @var string
@@ -31,31 +36,26 @@ class SubmitFlowJobRequest extends Model
     /**
      * @var string
      */
-    public $clusterId;
-
-    /**
-     * @var string
-     */
-    public $hostName;
-
-    /**
-     * @var string
-     */
     public $namespace;
 
     /**
      * @var string
      */
-    public $conf;
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'      => 'RegionId',
-        'projectId'     => 'ProjectId',
+        'clusterId'     => 'ClusterId',
+        'conf'          => 'Conf',
+        'hostName'      => 'HostName',
         'jobId'         => 'JobId',
         'jobInstanceId' => 'JobInstanceId',
-        'clusterId'     => 'ClusterId',
-        'hostName'      => 'HostName',
         'namespace'     => 'Namespace',
-        'conf'          => 'Conf',
+        'projectId'     => 'ProjectId',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -65,11 +65,14 @@ class SubmitFlowJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
+        if (null !== $this->conf) {
+            $res['Conf'] = $this->conf;
+        }
+        if (null !== $this->hostName) {
+            $res['HostName'] = $this->hostName;
         }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
@@ -77,17 +80,14 @@ class SubmitFlowJobRequest extends Model
         if (null !== $this->jobInstanceId) {
             $res['JobInstanceId'] = $this->jobInstanceId;
         }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
-        if (null !== $this->hostName) {
-            $res['HostName'] = $this->hostName;
-        }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
-        if (null !== $this->conf) {
-            $res['Conf'] = $this->conf;
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -101,11 +101,14 @@ class SubmitFlowJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
+        if (isset($map['Conf'])) {
+            $model->conf = $map['Conf'];
+        }
+        if (isset($map['HostName'])) {
+            $model->hostName = $map['HostName'];
         }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
@@ -113,17 +116,14 @@ class SubmitFlowJobRequest extends Model
         if (isset($map['JobInstanceId'])) {
             $model->jobInstanceId = $map['JobInstanceId'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
-        if (isset($map['HostName'])) {
-            $model->hostName = $map['HostName'];
-        }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
-        if (isset($map['Conf'])) {
-            $model->conf = $map['Conf'];
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

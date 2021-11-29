@@ -11,7 +11,12 @@ class ecmResourcePoolConfig extends Model
     /**
      * @var string
      */
-    public $status;
+    public $category;
+
+    /**
+     * @var string
+     */
+    public $configKey;
 
     /**
      * @var string
@@ -24,6 +29,11 @@ class ecmResourcePoolConfig extends Model
     public $configValue;
 
     /**
+     * @var int
+     */
+    public $id;
+
+    /**
      * @var string
      */
     public $note;
@@ -31,25 +41,15 @@ class ecmResourcePoolConfig extends Model
     /**
      * @var string
      */
-    public $category;
-
-    /**
-     * @var string
-     */
-    public $configKey;
-
-    /**
-     * @var int
-     */
-    public $id;
+    public $status;
     protected $_name = [
-        'status'      => 'Status',
-        'configType'  => 'ConfigType',
-        'configValue' => 'ConfigValue',
-        'note'        => 'Note',
         'category'    => 'Category',
         'configKey'   => 'ConfigKey',
+        'configType'  => 'ConfigType',
+        'configValue' => 'ConfigValue',
         'id'          => 'Id',
+        'note'        => 'Note',
+        'status'      => 'Status',
     ];
 
     public function validate()
@@ -59,8 +59,11 @@ class ecmResourcePoolConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
+        if (null !== $this->configKey) {
+            $res['ConfigKey'] = $this->configKey;
         }
         if (null !== $this->configType) {
             $res['ConfigType'] = $this->configType;
@@ -68,17 +71,14 @@ class ecmResourcePoolConfig extends Model
         if (null !== $this->configValue) {
             $res['ConfigValue'] = $this->configValue;
         }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->note) {
             $res['Note'] = $this->note;
         }
-        if (null !== $this->category) {
-            $res['Category'] = $this->category;
-        }
-        if (null !== $this->configKey) {
-            $res['ConfigKey'] = $this->configKey;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -92,8 +92,11 @@ class ecmResourcePoolConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
+        if (isset($map['ConfigKey'])) {
+            $model->configKey = $map['ConfigKey'];
         }
         if (isset($map['ConfigType'])) {
             $model->configType = $map['ConfigType'];
@@ -101,17 +104,14 @@ class ecmResourcePoolConfig extends Model
         if (isset($map['ConfigValue'])) {
             $model->configValue = $map['ConfigValue'];
         }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['Note'])) {
             $model->note = $map['Note'];
         }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
-        }
-        if (isset($map['ConfigKey'])) {
-            $model->configKey = $map['ConfigKey'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

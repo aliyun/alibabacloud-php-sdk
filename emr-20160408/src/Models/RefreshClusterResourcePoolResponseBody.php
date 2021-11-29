@@ -11,7 +11,7 @@ class RefreshClusterResourcePoolResponseBody extends Model
     /**
      * @var string
      */
-    public $workFlowInstanceId;
+    public $operationId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class RefreshClusterResourcePoolResponseBody extends Model
     /**
      * @var string
      */
-    public $operationId;
+    public $workFlowInstanceId;
     protected $_name = [
-        'workFlowInstanceId' => 'WorkFlowInstanceId',
-        'requestId'          => 'RequestId',
         'operationId'        => 'OperationId',
+        'requestId'          => 'RequestId',
+        'workFlowInstanceId' => 'WorkFlowInstanceId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class RefreshClusterResourcePoolResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->workFlowInstanceId) {
-            $res['WorkFlowInstanceId'] = $this->workFlowInstanceId;
+        if (null !== $this->operationId) {
+            $res['OperationId'] = $this->operationId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->operationId) {
-            $res['OperationId'] = $this->operationId;
+        if (null !== $this->workFlowInstanceId) {
+            $res['WorkFlowInstanceId'] = $this->workFlowInstanceId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class RefreshClusterResourcePoolResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['WorkFlowInstanceId'])) {
-            $model->workFlowInstanceId = $map['WorkFlowInstanceId'];
+        if (isset($map['OperationId'])) {
+            $model->operationId = $map['OperationId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['OperationId'])) {
-            $model->operationId = $map['OperationId'];
+        if (isset($map['WorkFlowInstanceId'])) {
+            $model->workFlowInstanceId = $map['WorkFlowInstanceId'];
         }
 
         return $model;

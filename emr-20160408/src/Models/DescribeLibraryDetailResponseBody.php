@@ -11,12 +11,27 @@ class DescribeLibraryDetailResponseBody extends Model
     /**
      * @var string
      */
-    public $sourceLocation;
+    public $bizId;
+
+    /**
+     * @var int
+     */
+    public $createTime;
 
     /**
      * @var string
      */
-    public $type;
+    public $libraryVersion;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $properties;
 
     /**
      * @var string
@@ -31,12 +46,7 @@ class DescribeLibraryDetailResponseBody extends Model
     /**
      * @var string
      */
-    public $userId;
-
-    /**
-     * @var int
-     */
-    public $createTime;
+    public $sourceLocation;
 
     /**
      * @var string
@@ -46,34 +56,24 @@ class DescribeLibraryDetailResponseBody extends Model
     /**
      * @var string
      */
-    public $libraryVersion;
+    public $type;
 
     /**
      * @var string
      */
-    public $properties;
-
-    /**
-     * @var string
-     */
-    public $bizId;
-
-    /**
-     * @var string
-     */
-    public $name;
+    public $userId;
     protected $_name = [
-        'sourceLocation' => 'SourceLocation',
-        'type'           => 'Type',
+        'bizId'          => 'BizId',
+        'createTime'     => 'CreateTime',
+        'libraryVersion' => 'LibraryVersion',
+        'name'           => 'Name',
+        'properties'     => 'Properties',
         'requestId'      => 'RequestId',
         'scope'          => 'Scope',
-        'userId'         => 'UserId',
-        'createTime'     => 'CreateTime',
+        'sourceLocation' => 'SourceLocation',
         'sourceType'     => 'SourceType',
-        'libraryVersion' => 'LibraryVersion',
-        'properties'     => 'Properties',
-        'bizId'          => 'BizId',
-        'name'           => 'Name',
+        'type'           => 'Type',
+        'userId'         => 'UserId',
     ];
 
     public function validate()
@@ -83,11 +83,20 @@ class DescribeLibraryDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceLocation) {
-            $res['SourceLocation'] = $this->sourceLocation;
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->libraryVersion) {
+            $res['LibraryVersion'] = $this->libraryVersion;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->properties) {
+            $res['Properties'] = $this->properties;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -95,26 +104,17 @@ class DescribeLibraryDetailResponseBody extends Model
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->sourceLocation) {
+            $res['SourceLocation'] = $this->sourceLocation;
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
-        if (null !== $this->libraryVersion) {
-            $res['LibraryVersion'] = $this->libraryVersion;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
-        if (null !== $this->properties) {
-            $res['Properties'] = $this->properties;
-        }
-        if (null !== $this->bizId) {
-            $res['BizId'] = $this->bizId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -128,11 +128,20 @@ class DescribeLibraryDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceLocation'])) {
-            $model->sourceLocation = $map['SourceLocation'];
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['LibraryVersion'])) {
+            $model->libraryVersion = $map['LibraryVersion'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Properties'])) {
+            $model->properties = $map['Properties'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
@@ -140,26 +149,17 @@ class DescribeLibraryDetailResponseBody extends Model
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['SourceLocation'])) {
+            $model->sourceLocation = $map['SourceLocation'];
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }
-        if (isset($map['LibraryVersion'])) {
-            $model->libraryVersion = $map['LibraryVersion'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
-        if (isset($map['Properties'])) {
-            $model->properties = $map['Properties'];
-        }
-        if (isset($map['BizId'])) {
-            $model->bizId = $map['BizId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

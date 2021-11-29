@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class clusterTypeInfo extends Model
 {
     /**
-     * @var serviceInfoList
-     */
-    public $serviceInfoList;
-
-    /**
      * @var string
      */
     public $clusterType;
+
+    /**
+     * @var serviceInfoList
+     */
+    public $serviceInfoList;
     protected $_name = [
-        'serviceInfoList' => 'ServiceInfoList',
         'clusterType'     => 'ClusterType',
+        'serviceInfoList' => 'ServiceInfoList',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class clusterTypeInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceInfoList) {
-            $res['ServiceInfoList'] = null !== $this->serviceInfoList ? $this->serviceInfoList->toMap() : null;
-        }
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
+        }
+        if (null !== $this->serviceInfoList) {
+            $res['ServiceInfoList'] = null !== $this->serviceInfoList ? $this->serviceInfoList->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class clusterTypeInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceInfoList'])) {
-            $model->serviceInfoList = serviceInfoList::fromMap($map['ServiceInfoList']);
-        }
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
+        }
+        if (isset($map['ServiceInfoList'])) {
+            $model->serviceInfoList = serviceInfoList::fromMap($map['ServiceInfoList']);
         }
 
         return $model;

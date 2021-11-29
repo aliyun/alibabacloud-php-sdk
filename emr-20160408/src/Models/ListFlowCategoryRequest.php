@@ -9,9 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ListFlowCategoryRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
-    public $regionId;
+    public $parentId;
 
     /**
      * @var string
@@ -21,29 +31,19 @@ class ListFlowCategoryRequest extends Model
     /**
      * @var string
      */
-    public $parentId;
+    public $regionId;
 
     /**
      * @var bool
      */
     public $root;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
     protected $_name = [
-        'regionId'   => 'RegionId',
-        'projectId'  => 'ProjectId',
-        'parentId'   => 'ParentId',
-        'root'       => 'Root',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'parentId'   => 'ParentId',
+        'projectId'  => 'ProjectId',
+        'regionId'   => 'RegionId',
+        'root'       => 'Root',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class ListFlowCategoryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->parentId) {
-            $res['ParentId'] = $this->parentId;
-        }
-        if (null !== $this->root) {
-            $res['Root'] = $this->root;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->parentId) {
+            $res['ParentId'] = $this->parentId;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->root) {
+            $res['Root'] = $this->root;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class ListFlowCategoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['ParentId'])) {
-            $model->parentId = $map['ParentId'];
-        }
-        if (isset($map['Root'])) {
-            $model->root = $map['Root'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ParentId'])) {
+            $model->parentId = $map['ParentId'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Root'])) {
+            $model->root = $map['Root'];
         }
 
         return $model;

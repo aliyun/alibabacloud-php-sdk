@@ -10,19 +10,9 @@ use AlibabaCloud\Tea\Model;
 class propertyValueAttributes extends Model
 {
     /**
-     * @var string
+     * @var entries
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $maximum;
-
-    /**
-     * @var string
-     */
-    public $unit;
+    public $entries;
 
     /**
      * @var bool
@@ -35,28 +25,38 @@ class propertyValueAttributes extends Model
     public $incrememtStep;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $readOnly;
-
-    /**
-     * @var entries
-     */
-    public $entries;
+    public $maximum;
 
     /**
      * @var string
      */
     public $mimimum;
+
+    /**
+     * @var bool
+     */
+    public $readOnly;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $unit;
     protected $_name = [
-        'type'          => 'Type',
-        'maximum'       => 'Maximum',
-        'unit'          => 'Unit',
+        'entries'       => 'Entries',
         'hidden'        => 'Hidden',
         'incrememtStep' => 'IncrememtStep',
-        'readOnly'      => 'ReadOnly',
-        'entries'       => 'Entries',
+        'maximum'       => 'Maximum',
         'mimimum'       => 'Mimimum',
+        'readOnly'      => 'ReadOnly',
+        'type'          => 'Type',
+        'unit'          => 'Unit',
     ];
 
     public function validate()
@@ -66,14 +66,8 @@ class propertyValueAttributes extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->maximum) {
-            $res['Maximum'] = $this->maximum;
-        }
-        if (null !== $this->unit) {
-            $res['Unit'] = $this->unit;
+        if (null !== $this->entries) {
+            $res['Entries'] = null !== $this->entries ? $this->entries->toMap() : null;
         }
         if (null !== $this->hidden) {
             $res['Hidden'] = $this->hidden;
@@ -81,14 +75,20 @@ class propertyValueAttributes extends Model
         if (null !== $this->incrememtStep) {
             $res['IncrememtStep'] = $this->incrememtStep;
         }
-        if (null !== $this->readOnly) {
-            $res['ReadOnly'] = $this->readOnly;
-        }
-        if (null !== $this->entries) {
-            $res['Entries'] = null !== $this->entries ? $this->entries->toMap() : null;
+        if (null !== $this->maximum) {
+            $res['Maximum'] = $this->maximum;
         }
         if (null !== $this->mimimum) {
             $res['Mimimum'] = $this->mimimum;
+        }
+        if (null !== $this->readOnly) {
+            $res['ReadOnly'] = $this->readOnly;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->unit) {
+            $res['Unit'] = $this->unit;
         }
 
         return $res;
@@ -102,14 +102,8 @@ class propertyValueAttributes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Maximum'])) {
-            $model->maximum = $map['Maximum'];
-        }
-        if (isset($map['Unit'])) {
-            $model->unit = $map['Unit'];
+        if (isset($map['Entries'])) {
+            $model->entries = entries::fromMap($map['Entries']);
         }
         if (isset($map['Hidden'])) {
             $model->hidden = $map['Hidden'];
@@ -117,14 +111,20 @@ class propertyValueAttributes extends Model
         if (isset($map['IncrememtStep'])) {
             $model->incrememtStep = $map['IncrememtStep'];
         }
-        if (isset($map['ReadOnly'])) {
-            $model->readOnly = $map['ReadOnly'];
-        }
-        if (isset($map['Entries'])) {
-            $model->entries = entries::fromMap($map['Entries']);
+        if (isset($map['Maximum'])) {
+            $model->maximum = $map['Maximum'];
         }
         if (isset($map['Mimimum'])) {
             $model->mimimum = $map['Mimimum'];
+        }
+        if (isset($map['ReadOnly'])) {
+            $model->readOnly = $map['ReadOnly'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['Unit'])) {
+            $model->unit = $map['Unit'];
         }
 
         return $model;

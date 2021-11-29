@@ -11,97 +11,7 @@ class ModifyFlowRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $projectId;
-
-    /**
-     * @var string
-     */
-    public $id;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var bool
-     */
-    public $periodic;
-
-    /**
-     * @var int
-     */
-    public $startSchedule;
-
-    /**
-     * @var int
-     */
-    public $endSchedule;
-
-    /**
-     * @var string
-     */
-    public $cronExpr;
-
-    /**
-     * @var bool
-     */
-    public $createCluster;
-
-    /**
-     * @var string
-     */
-    public $clusterId;
-
-    /**
-     * @var string
-     */
-    public $hostName;
-
-    /**
-     * @var string
-     */
-    public $namespace;
-
-    /**
-     * @var string
-     */
-    public $logArchiveLocation;
-
-    /**
-     * @var string
-     */
-    public $lifecycle;
-
-    /**
-     * @var string
-     */
-    public $application;
-
-    /**
-     * @var string
-     */
     public $alertConf;
-
-    /**
-     * @var string
-     */
-    public $alertUserGroupBizId;
 
     /**
      * @var string
@@ -111,35 +21,125 @@ class ModifyFlowRequest extends Model
     /**
      * @var string
      */
-    public $parentFlowList;
+    public $alertUserGroupBizId;
+
+    /**
+     * @var string
+     */
+    public $application;
+
+    /**
+     * @var string
+     */
+    public $clusterId;
+
+    /**
+     * @var bool
+     */
+    public $createCluster;
+
+    /**
+     * @var string
+     */
+    public $cronExpr;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var int
+     */
+    public $endSchedule;
+
+    /**
+     * @var string
+     */
+    public $hostName;
+
+    /**
+     * @var string
+     */
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $lifecycle;
+
+    /**
+     * @var string
+     */
+    public $logArchiveLocation;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $namespace;
 
     /**
      * @var string
      */
     public $parentCategory;
+
+    /**
+     * @var string
+     */
+    public $parentFlowList;
+
+    /**
+     * @var bool
+     */
+    public $periodic;
+
+    /**
+     * @var string
+     */
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var int
+     */
+    public $startSchedule;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'regionId'                => 'RegionId',
-        'projectId'               => 'ProjectId',
-        'id'                      => 'Id',
-        'name'                    => 'Name',
-        'status'                  => 'Status',
-        'description'             => 'Description',
-        'periodic'                => 'Periodic',
-        'startSchedule'           => 'StartSchedule',
-        'endSchedule'             => 'EndSchedule',
-        'cronExpr'                => 'CronExpr',
-        'createCluster'           => 'CreateCluster',
-        'clusterId'               => 'ClusterId',
-        'hostName'                => 'HostName',
-        'namespace'               => 'Namespace',
-        'logArchiveLocation'      => 'LogArchiveLocation',
-        'lifecycle'               => 'Lifecycle',
-        'application'             => 'Application',
         'alertConf'               => 'AlertConf',
-        'alertUserGroupBizId'     => 'AlertUserGroupBizId',
         'alertDingDingGroupBizId' => 'AlertDingDingGroupBizId',
-        'parentFlowList'          => 'ParentFlowList',
+        'alertUserGroupBizId'     => 'AlertUserGroupBizId',
+        'application'             => 'Application',
+        'clusterId'               => 'ClusterId',
+        'createCluster'           => 'CreateCluster',
+        'cronExpr'                => 'CronExpr',
+        'description'             => 'Description',
+        'endSchedule'             => 'EndSchedule',
+        'hostName'                => 'HostName',
+        'id'                      => 'Id',
+        'lifecycle'               => 'Lifecycle',
+        'logArchiveLocation'      => 'LogArchiveLocation',
+        'name'                    => 'Name',
+        'namespace'               => 'Namespace',
         'parentCategory'          => 'ParentCategory',
+        'parentFlowList'          => 'ParentFlowList',
+        'periodic'                => 'Periodic',
+        'projectId'               => 'ProjectId',
+        'regionId'                => 'RegionId',
+        'startSchedule'           => 'StartSchedule',
+        'status'                  => 'Status',
     ];
 
     public function validate()
@@ -149,71 +149,71 @@ class ModifyFlowRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->periodic) {
-            $res['Periodic'] = $this->periodic;
-        }
-        if (null !== $this->startSchedule) {
-            $res['StartSchedule'] = $this->startSchedule;
-        }
-        if (null !== $this->endSchedule) {
-            $res['EndSchedule'] = $this->endSchedule;
-        }
-        if (null !== $this->cronExpr) {
-            $res['CronExpr'] = $this->cronExpr;
-        }
-        if (null !== $this->createCluster) {
-            $res['CreateCluster'] = $this->createCluster;
-        }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
-        if (null !== $this->hostName) {
-            $res['HostName'] = $this->hostName;
-        }
-        if (null !== $this->namespace) {
-            $res['Namespace'] = $this->namespace;
-        }
-        if (null !== $this->logArchiveLocation) {
-            $res['LogArchiveLocation'] = $this->logArchiveLocation;
-        }
-        if (null !== $this->lifecycle) {
-            $res['Lifecycle'] = $this->lifecycle;
-        }
-        if (null !== $this->application) {
-            $res['Application'] = $this->application;
-        }
         if (null !== $this->alertConf) {
             $res['AlertConf'] = $this->alertConf;
-        }
-        if (null !== $this->alertUserGroupBizId) {
-            $res['AlertUserGroupBizId'] = $this->alertUserGroupBizId;
         }
         if (null !== $this->alertDingDingGroupBizId) {
             $res['AlertDingDingGroupBizId'] = $this->alertDingDingGroupBizId;
         }
-        if (null !== $this->parentFlowList) {
-            $res['ParentFlowList'] = $this->parentFlowList;
+        if (null !== $this->alertUserGroupBizId) {
+            $res['AlertUserGroupBizId'] = $this->alertUserGroupBizId;
+        }
+        if (null !== $this->application) {
+            $res['Application'] = $this->application;
+        }
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->createCluster) {
+            $res['CreateCluster'] = $this->createCluster;
+        }
+        if (null !== $this->cronExpr) {
+            $res['CronExpr'] = $this->cronExpr;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->endSchedule) {
+            $res['EndSchedule'] = $this->endSchedule;
+        }
+        if (null !== $this->hostName) {
+            $res['HostName'] = $this->hostName;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->lifecycle) {
+            $res['Lifecycle'] = $this->lifecycle;
+        }
+        if (null !== $this->logArchiveLocation) {
+            $res['LogArchiveLocation'] = $this->logArchiveLocation;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->parentCategory) {
             $res['ParentCategory'] = $this->parentCategory;
+        }
+        if (null !== $this->parentFlowList) {
+            $res['ParentFlowList'] = $this->parentFlowList;
+        }
+        if (null !== $this->periodic) {
+            $res['Periodic'] = $this->periodic;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->startSchedule) {
+            $res['StartSchedule'] = $this->startSchedule;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -227,71 +227,71 @@ class ModifyFlowRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['Periodic'])) {
-            $model->periodic = $map['Periodic'];
-        }
-        if (isset($map['StartSchedule'])) {
-            $model->startSchedule = $map['StartSchedule'];
-        }
-        if (isset($map['EndSchedule'])) {
-            $model->endSchedule = $map['EndSchedule'];
-        }
-        if (isset($map['CronExpr'])) {
-            $model->cronExpr = $map['CronExpr'];
-        }
-        if (isset($map['CreateCluster'])) {
-            $model->createCluster = $map['CreateCluster'];
-        }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
-        if (isset($map['HostName'])) {
-            $model->hostName = $map['HostName'];
-        }
-        if (isset($map['Namespace'])) {
-            $model->namespace = $map['Namespace'];
-        }
-        if (isset($map['LogArchiveLocation'])) {
-            $model->logArchiveLocation = $map['LogArchiveLocation'];
-        }
-        if (isset($map['Lifecycle'])) {
-            $model->lifecycle = $map['Lifecycle'];
-        }
-        if (isset($map['Application'])) {
-            $model->application = $map['Application'];
-        }
         if (isset($map['AlertConf'])) {
             $model->alertConf = $map['AlertConf'];
-        }
-        if (isset($map['AlertUserGroupBizId'])) {
-            $model->alertUserGroupBizId = $map['AlertUserGroupBizId'];
         }
         if (isset($map['AlertDingDingGroupBizId'])) {
             $model->alertDingDingGroupBizId = $map['AlertDingDingGroupBizId'];
         }
-        if (isset($map['ParentFlowList'])) {
-            $model->parentFlowList = $map['ParentFlowList'];
+        if (isset($map['AlertUserGroupBizId'])) {
+            $model->alertUserGroupBizId = $map['AlertUserGroupBizId'];
+        }
+        if (isset($map['Application'])) {
+            $model->application = $map['Application'];
+        }
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['CreateCluster'])) {
+            $model->createCluster = $map['CreateCluster'];
+        }
+        if (isset($map['CronExpr'])) {
+            $model->cronExpr = $map['CronExpr'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['EndSchedule'])) {
+            $model->endSchedule = $map['EndSchedule'];
+        }
+        if (isset($map['HostName'])) {
+            $model->hostName = $map['HostName'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['Lifecycle'])) {
+            $model->lifecycle = $map['Lifecycle'];
+        }
+        if (isset($map['LogArchiveLocation'])) {
+            $model->logArchiveLocation = $map['LogArchiveLocation'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['ParentCategory'])) {
             $model->parentCategory = $map['ParentCategory'];
+        }
+        if (isset($map['ParentFlowList'])) {
+            $model->parentFlowList = $map['ParentFlowList'];
+        }
+        if (isset($map['Periodic'])) {
+            $model->periodic = $map['Periodic'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StartSchedule'])) {
+            $model->startSchedule = $map['StartSchedule'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

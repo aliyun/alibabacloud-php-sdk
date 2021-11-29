@@ -14,20 +14,18 @@ use AlibabaCloud\SDK\Emr\V20160408\Models\AuthorizeSecurityGroupRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\AuthorizeSecurityGroupResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CancelOrderRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CancelOrderResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\CleanupFlowEntitySnapshotRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\CleanupFlowEntitySnapshotResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CloneFlowJobRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CloneFlowJobResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CloneFlowRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CloneFlowResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\CommitFlowEntitySnapshotRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\CommitFlowEntitySnapshotResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CreateBackupPlanRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CreateBackupPlanResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CreateBackupRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CreateBackupResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CreateClusterBootstrapActionRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CreateClusterBootstrapActionResponse;
+use AlibabaCloud\SDK\Emr\V20160408\Models\CreateClusterHostGroupRequest;
+use AlibabaCloud\SDK\Emr\V20160408\Models\CreateClusterHostGroupResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CreateClusterTemplateRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CreateClusterTemplateResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CreateClusterV2Request;
@@ -40,8 +38,6 @@ use AlibabaCloud\SDK\Emr\V20160408\Models\CreateExecutionPlanRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CreateExecutionPlanResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CreateFlowCategoryRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CreateFlowCategoryResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\CreateFlowEditLockRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\CreateFlowEditLockResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CreateFlowForWebRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CreateFlowForWebResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CreateFlowJobRequest;
@@ -60,10 +56,6 @@ use AlibabaCloud\SDK\Emr\V20160408\Models\CreateLibraryRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CreateLibraryResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CreateMetaTablePreviewTaskRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CreateMetaTablePreviewTaskResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\CreateNoteRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\CreateNoteResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\CreateParagraphRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\CreateParagraphResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CreateResourcePoolRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CreateResourcePoolResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\CreateResourceQueueRequest;
@@ -86,8 +78,6 @@ use AlibabaCloud\SDK\Emr\V20160408\Models\DeleteExecutionPlanRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DeleteExecutionPlanResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DeleteFlowCategoryRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DeleteFlowCategoryResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\DeleteFlowEditLockRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\DeleteFlowEditLockResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DeleteFlowJobRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DeleteFlowJobResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DeleteFlowProjectClusterSettingRequest;
@@ -102,8 +92,6 @@ use AlibabaCloud\SDK\Emr\V20160408\Models\DeleteJobRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DeleteJobResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DeleteLibrariesRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DeleteLibrariesResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\DeleteNoteRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\DeleteNoteResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DeleteResourcePoolRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DeleteResourcePoolResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DeleteResourceQueueRequest;
@@ -136,18 +124,16 @@ use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeClusterV2Request;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeClusterV2Response;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeDataSourceRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeDataSourceResponse;
+use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeDiskOpsActivityRequest;
+use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeDiskOpsActivityResponse;
+use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeEmrMainVersionRequest;
+use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeEmrMainVersionResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeExecutionPlanRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeExecutionPlanResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeFlowAgentTokenRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeFlowAgentTokenResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeFlowAgentUserRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeFlowAgentUserResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeFlowCategoryRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeFlowCategoryResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeFlowCategoryTreeRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeFlowCategoryTreeResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeFlowEntitySnapshotRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeFlowEntitySnapshotResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeFlowInstanceRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeFlowInstanceResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeFlowJobRequest;
@@ -188,12 +174,6 @@ use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeSecurityGroupAttributeRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DescribeSecurityGroupAttributeResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DetachAndReleaseClusterEniRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\DetachAndReleaseClusterEniResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\DiffFlowEntitySnapshotRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\DiffFlowEntitySnapshotResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\DumpMetaDataSourceForOuterRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\DumpMetaDataSourceForOuterResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\GetFlowEntityRelationGraphRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\GetFlowEntityRelationGraphResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\GetHdfsCapacityStatisticInfoRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\GetHdfsCapacityStatisticInfoResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\GetJobInputStatisticInfoRequest;
@@ -218,8 +198,6 @@ use AlibabaCloud\SDK\Emr\V20160408\Models\InstallLibrariesRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\InstallLibrariesResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\JoinResourceGroupRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\JoinResourceGroupResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\KillExecutionJobInstanceRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\KillExecutionJobInstanceResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\KillFlowJobRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\KillFlowJobResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListAdviceActionRequest;
@@ -260,6 +238,8 @@ use AlibabaCloud\SDK\Emr\V20160408\Models\ListClusterTemplatesRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListClusterTemplatesResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListDataSourceRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListDataSourceResponse;
+use AlibabaCloud\SDK\Emr\V20160408\Models\ListDiskOpsEventsRequest;
+use AlibabaCloud\SDK\Emr\V20160408\Models\ListDiskOpsEventsResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListEmrAvailableConfigRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListEmrAvailableConfigResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListEmrAvailableResourceRequest;
@@ -268,8 +248,6 @@ use AlibabaCloud\SDK\Emr\V20160408\Models\ListEmrMainVersionRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListEmrMainVersionResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListExecutionPlanInstancesRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListExecutionPlanInstancesResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\ListExecutionPlansRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\ListExecutionPlansResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListFlowCategoryRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListFlowCategoryResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListFlowClusterAllHostsRequest;
@@ -280,8 +258,6 @@ use AlibabaCloud\SDK\Emr\V20160408\Models\ListFlowClusterHostRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListFlowClusterHostResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListFlowClusterRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListFlowClusterResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\ListFlowEntitySnapshotRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\ListFlowEntitySnapshotResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListFlowInstanceRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListFlowInstanceResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListFlowJobHistoryRequest;
@@ -304,8 +280,6 @@ use AlibabaCloud\SDK\Emr\V20160408\Models\ListFlowRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListFlowResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListJobExecutionInstancesRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListJobExecutionInstancesResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\ListJobInstanceWorkersRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\ListJobInstanceWorkersResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListJobsRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListJobsResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListLibrariesRequest;
@@ -314,12 +288,8 @@ use AlibabaCloud\SDK\Emr\V20160408\Models\ListLibraryInstallTasksRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListLibraryInstallTasksResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListLibraryStatusRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListLibraryStatusResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\ListMetaClusterRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\ListMetaClusterResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\ListMetaDataSourceClusterForOuterRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\ListMetaDataSourceClusterForOuterResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\ListNotesRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\ListNotesResponse;
+use AlibabaCloud\SDK\Emr\V20160408\Models\ListLocalDiskComponentInfoRequest;
+use AlibabaCloud\SDK\Emr\V20160408\Models\ListLocalDiskComponentInfoResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListResourcePoolRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListResourcePoolResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ListRolesRequest;
@@ -388,20 +358,12 @@ use AlibabaCloud\SDK\Emr\V20160408\Models\ModifyScalingRuleRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ModifyScalingRuleResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ModifyScalingTaskGroupRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ModifyScalingTaskGroupResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\QueryAlarmHistoryRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\QueryAlarmHistoryResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\QueryEntityRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\QueryEntityResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\QueryTableDataRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\QueryTableDataResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\QueryTagRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\QueryTagResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\QueryTrendDataRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\QueryTrendDataResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\RefreshClusterResourcePoolRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\RefreshClusterResourcePoolResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\ReleaseClusterByTemplateTagForInternalRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\ReleaseClusterByTemplateTagForInternalResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ReleaseClusterHostGroupRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ReleaseClusterHostGroupResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ReleaseClusterRequest;
@@ -412,10 +374,6 @@ use AlibabaCloud\SDK\Emr\V20160408\Models\RerunFlowRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\RerunFlowResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ResizeClusterV2Request;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ResizeClusterV2Response;
-use AlibabaCloud\SDK\Emr\V20160408\Models\RestoreBackupRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\RestoreBackupResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\RestoreFlowEntitySnapshotRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\RestoreFlowEntitySnapshotResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ResumeExecutionPlanSchedulerRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ResumeExecutionPlanSchedulerResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\ResumeFlowRequest;
@@ -424,6 +382,8 @@ use AlibabaCloud\SDK\Emr\V20160408\Models\RetryOperationRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\RetryOperationResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\RunClusterServiceActionRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\RunClusterServiceActionResponse;
+use AlibabaCloud\SDK\Emr\V20160408\Models\RunDiskOpsActivityRequest;
+use AlibabaCloud\SDK\Emr\V20160408\Models\RunDiskOpsActivityResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\RunExecutionPlanRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\RunExecutionPlanResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\RunExecutionPlanShrinkRequest;
@@ -443,14 +403,10 @@ use AlibabaCloud\SDK\Emr\V20160408\Models\SuspendFlowRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\SuspendFlowResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\TagResourcesResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\TagResourcesSystemTagsRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\TagResourcesSystemTagsResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\UninstallLibrariesRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\UninstallLibrariesResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\UntagResourcesResponse;
-use AlibabaCloud\SDK\Emr\V20160408\Models\UntagResourcesSystemTagsRequest;
-use AlibabaCloud\SDK\Emr\V20160408\Models\UntagResourcesSystemTagsResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\UpdateDataSourceRequest;
 use AlibabaCloud\SDK\Emr\V20160408\Models\UpdateDataSourceResponse;
 use AlibabaCloud\SDK\Emr\V20160408\Models\UpdateLibraryInstallTaskStatusRequest;
@@ -462,6 +418,7 @@ use AlibabaCloud\SDK\Emr\V20160408\Models\UpdateUserResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Emr extends OpenApiClient
@@ -517,11 +474,29 @@ class Emr extends OpenApiClient
     public function addClusterServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['Comment']         = $request->comment;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['Service']         = $request->service;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddClusterService',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddClusterServiceResponse::fromMap($this->doRPCRequest('AddClusterService', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddClusterServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -545,11 +520,30 @@ class Emr extends OpenApiClient
     public function addScalingConfigItemV2WithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                          = [];
+        $query['ConfigItemInformation'] = $request->configItemInformation;
+        $query['ConfigItemType']        = $request->configItemType;
+        $query['RegionId']              = $request->regionId;
+        $query['ResourceGroupId']       = $request->resourceGroupId;
+        $query['ResourceOwnerId']       = $request->resourceOwnerId;
+        $query['ScalingGroupBizId']     = $request->scalingGroupBizId;
+        $req                            = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddScalingConfigItemV2',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddScalingConfigItemV2Response::fromMap($this->doRPCRequest('AddScalingConfigItemV2', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddScalingConfigItemV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -573,11 +567,29 @@ class Emr extends OpenApiClient
     public function authorizeSecurityGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['BizContent']      = $request->bizContent;
+        $query['BizType']         = $request->bizType;
+        $query['ClusterId']       = $request->clusterId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AuthorizeSecurityGroup',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AuthorizeSecurityGroupResponse::fromMap($this->doRPCRequest('AuthorizeSecurityGroup', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AuthorizeSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -601,11 +613,27 @@ class Emr extends OpenApiClient
     public function cancelOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelOrder',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CancelOrderResponse::fromMap($this->doRPCRequest('CancelOrder', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CancelOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -621,34 +649,6 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param CleanupFlowEntitySnapshotRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return CleanupFlowEntitySnapshotResponse
-     */
-    public function cleanupFlowEntitySnapshotWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CleanupFlowEntitySnapshotResponse::fromMap($this->doRPCRequest('CleanupFlowEntitySnapshot', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CleanupFlowEntitySnapshotRequest $request
-     *
-     * @return CleanupFlowEntitySnapshotResponse
-     */
-    public function cleanupFlowEntitySnapshot($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->cleanupFlowEntitySnapshotWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CloneFlowRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -657,11 +657,27 @@ class Emr extends OpenApiClient
     public function cloneFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['Id']        = $request->id;
+        $query['ProjectId'] = $request->projectId;
+        $query['RegionId']  = $request->regionId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CloneFlow',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CloneFlowResponse::fromMap($this->doRPCRequest('CloneFlow', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CloneFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -685,11 +701,28 @@ class Emr extends OpenApiClient
     public function cloneFlowJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['Id']        = $request->id;
+        $query['Name']      = $request->name;
+        $query['ProjectId'] = $request->projectId;
+        $query['RegionId']  = $request->regionId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CloneFlowJob',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CloneFlowJobResponse::fromMap($this->doRPCRequest('CloneFlowJob', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CloneFlowJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -705,34 +738,6 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param CommitFlowEntitySnapshotRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return CommitFlowEntitySnapshotResponse
-     */
-    public function commitFlowEntitySnapshotWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CommitFlowEntitySnapshotResponse::fromMap($this->doRPCRequest('CommitFlowEntitySnapshot', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CommitFlowEntitySnapshotRequest $request
-     *
-     * @return CommitFlowEntitySnapshotResponse
-     */
-    public function commitFlowEntitySnapshot($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->commitFlowEntitySnapshotWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateBackupRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -741,11 +746,28 @@ class Emr extends OpenApiClient
     public function createBackupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['BackupPlanId']    = $request->backupPlanId;
+        $query['MetadataType']    = $request->metadataType;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBackup',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateBackupResponse::fromMap($this->doRPCRequest('CreateBackup', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateBackupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -769,11 +791,30 @@ class Emr extends OpenApiClient
     public function createBackupPlanWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['Description']     = $request->description;
+        $query['Name']            = $request->name;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['RootPath']        = $request->rootPath;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBackupPlan',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateBackupPlanResponse::fromMap($this->doRPCRequest('CreateBackupPlan', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateBackupPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -797,11 +838,28 @@ class Emr extends OpenApiClient
     public function createClusterBootstrapActionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['BootstrapAction'] = $request->bootstrapAction;
+        $query['ClusterId']       = $request->clusterId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateClusterBootstrapAction',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateClusterBootstrapActionResponse::fromMap($this->doRPCRequest('CreateClusterBootstrapAction', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateClusterBootstrapActionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -817,6 +875,57 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @param CreateClusterHostGroupRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateClusterHostGroupResponse
+     */
+    public function createClusterHostGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['Comment']         = $request->comment;
+        $query['HostGroupName']   = $request->hostGroupName;
+        $query['HostGroupParams'] = $request->hostGroupParams;
+        $query['HostGroupType']   = $request->hostGroupType;
+        $query['PayType']         = $request->payType;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['SecurityGroupId'] = $request->securityGroupId;
+        $query['VswitchId']       = $request->vswitchId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateClusterHostGroup',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateClusterHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateClusterHostGroupRequest $request
+     *
+     * @return CreateClusterHostGroupResponse
+     */
+    public function createClusterHostGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createClusterHostGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateClusterTemplateRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -825,11 +934,62 @@ class Emr extends OpenApiClient
     public function createClusterTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                           = [];
+        $query['AutoRenew']              = $request->autoRenew;
+        $query['BootstrapAction']        = $request->bootstrapAction;
+        $query['ClientToken']            = $request->clientToken;
+        $query['ClusterType']            = $request->clusterType;
+        $query['Config']                 = $request->config;
+        $query['Configurations']         = $request->configurations;
+        $query['DepositType']            = $request->depositType;
+        $query['EasEnable']              = $request->easEnable;
+        $query['EmrVer']                 = $request->emrVer;
+        $query['HighAvailabilityEnable'] = $request->highAvailabilityEnable;
+        $query['HostGroup']              = $request->hostGroup;
+        $query['InitCustomHiveMetaDb']   = $request->initCustomHiveMetaDb;
+        $query['InstanceGeneration']     = $request->instanceGeneration;
+        $query['IoOptimized']            = $request->ioOptimized;
+        $query['IsOpenPublicIp']         = $request->isOpenPublicIp;
+        $query['KeyPairName']            = $request->keyPairName;
+        $query['LogPath']                = $request->logPath;
+        $query['MachineType']            = $request->machineType;
+        $query['MasterPwd']              = $request->masterPwd;
+        $query['MetaStoreConf']          = $request->metaStoreConf;
+        $query['MetaStoreType']          = $request->metaStoreType;
+        $query['NetType']                = $request->netType;
+        $query['OptionSoftWareList']     = $request->optionSoftWareList;
+        $query['Period']                 = $request->period;
+        $query['RegionId']               = $request->regionId;
+        $query['ResourceGroupId']        = $request->resourceGroupId;
+        $query['ResourceOwnerId']        = $request->resourceOwnerId;
+        $query['SecurityGroupId']        = $request->securityGroupId;
+        $query['SecurityGroupName']      = $request->securityGroupName;
+        $query['SshEnable']              = $request->sshEnable;
+        $query['Tag']                    = $request->tag;
+        $query['TemplateName']           = $request->templateName;
+        $query['UseCustomHiveMetaDb']    = $request->useCustomHiveMetaDb;
+        $query['UseLocalMetaDb']         = $request->useLocalMetaDb;
+        $query['UserDefinedEmrEcsRole']  = $request->userDefinedEmrEcsRole;
+        $query['VSwitchId']              = $request->vSwitchId;
+        $query['VpcId']                  = $request->vpcId;
+        $query['ZoneId']                 = $request->zoneId;
+        $req                             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateClusterTemplate',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateClusterTemplateResponse::fromMap($this->doRPCRequest('CreateClusterTemplate', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateClusterTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -853,11 +1013,73 @@ class Emr extends OpenApiClient
     public function createClusterV2WithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                           = [];
+        $query['AuthorizeContent']       = $request->authorizeContent;
+        $query['AutoPayOrder']           = $request->autoPayOrder;
+        $query['AutoRenew']              = $request->autoRenew;
+        $query['BootstrapAction']        = $request->bootstrapAction;
+        $query['ChargeType']             = $request->chargeType;
+        $query['ClickHouseConf']         = $request->clickHouseConf;
+        $query['ClientToken']            = $request->clientToken;
+        $query['ClusterType']            = $request->clusterType;
+        $query['Config']                 = $request->config;
+        $query['Configurations']         = $request->configurations;
+        $query['DepositType']            = $request->depositType;
+        $query['EasEnable']              = $request->easEnable;
+        $query['EmrVer']                 = $request->emrVer;
+        $query['ExtraAttributes']        = $request->extraAttributes;
+        $query['HighAvailabilityEnable'] = $request->highAvailabilityEnable;
+        $query['HostComponentInfo']      = $request->hostComponentInfo;
+        $query['HostGroup']              = $request->hostGroup;
+        $query['InitCustomHiveMetaDB']   = $request->initCustomHiveMetaDB;
+        $query['InstanceGeneration']     = $request->instanceGeneration;
+        $query['IoOptimized']            = $request->ioOptimized;
+        $query['IsOpenPublicIp']         = $request->isOpenPublicIp;
+        $query['KeyPairName']            = $request->keyPairName;
+        $query['LogPath']                = $request->logPath;
+        $query['MachineType']            = $request->machineType;
+        $query['MasterPwd']              = $request->masterPwd;
+        $query['MetaStoreConf']          = $request->metaStoreConf;
+        $query['MetaStoreType']          = $request->metaStoreType;
+        $query['Name']                   = $request->name;
+        $query['NetType']                = $request->netType;
+        $query['OptionSoftWareList']     = $request->optionSoftWareList;
+        $query['Period']                 = $request->period;
+        $query['PromotionInfo']          = $request->promotionInfo;
+        $query['RegionId']               = $request->regionId;
+        $query['RelatedClusterId']       = $request->relatedClusterId;
+        $query['ResourceGroupId']        = $request->resourceGroupId;
+        $query['ResourceOwnerId']        = $request->resourceOwnerId;
+        $query['SecurityGroupId']        = $request->securityGroupId;
+        $query['SecurityGroupName']      = $request->securityGroupName;
+        $query['ServiceInfo']            = $request->serviceInfo;
+        $query['SshEnable']              = $request->sshEnable;
+        $query['Tag']                    = $request->tag;
+        $query['UseCustomHiveMetaDB']    = $request->useCustomHiveMetaDB;
+        $query['UseLocalMetaDb']         = $request->useLocalMetaDb;
+        $query['UserDefinedEmrEcsRole']  = $request->userDefinedEmrEcsRole;
+        $query['UserInfo']               = $request->userInfo;
+        $query['VSwitchId']              = $request->vSwitchId;
+        $query['VpcId']                  = $request->vpcId;
+        $query['WhiteListType']          = $request->whiteListType;
+        $query['ZoneId']                 = $request->zoneId;
+        $req                             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateClusterV2',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateClusterV2Response::fromMap($this->doRPCRequest('CreateClusterV2', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateClusterV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -881,11 +1103,29 @@ class Emr extends OpenApiClient
     public function createClusterWithTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterName']     = $request->clusterName;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['TemplateBizId']   = $request->templateBizId;
+        $query['UniqueTag']       = $request->uniqueTag;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateClusterWithTemplate',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateClusterWithTemplateResponse::fromMap($this->doRPCRequest('CreateClusterWithTemplate', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateClusterWithTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -909,11 +1149,33 @@ class Emr extends OpenApiClient
     public function createDataSourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['Conf']            = $request->conf;
+        $query['Description']     = $request->description;
+        $query['Name']            = $request->name;
+        $query['NavParentId']     = $request->navParentId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['SourceType']      = $request->sourceType;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDataSource',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDataSourceResponse::fromMap($this->doRPCRequest('CreateDataSource', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -937,11 +1199,61 @@ class Emr extends OpenApiClient
     public function createExecutionPlanWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                           = [];
+        $query['BootstrapAction']        = $request->bootstrapAction;
+        $query['ClusterId']              = $request->clusterId;
+        $query['ClusterName']            = $request->clusterName;
+        $query['ClusterType']            = $request->clusterType;
+        $query['Config']                 = $request->config;
+        $query['Configurations']         = $request->configurations;
+        $query['CreateClusterOnDemand']  = $request->createClusterOnDemand;
+        $query['DayOfMonth']             = $request->dayOfMonth;
+        $query['DayOfWeek']              = $request->dayOfWeek;
+        $query['EasEnable']              = $request->easEnable;
+        $query['EcsOrder']               = $request->ecsOrder;
+        $query['EmrVer']                 = $request->emrVer;
+        $query['HighAvailabilityEnable'] = $request->highAvailabilityEnable;
+        $query['InitCustomHiveMetaDB']   = $request->initCustomHiveMetaDB;
+        $query['InstanceGeneration']     = $request->instanceGeneration;
+        $query['IoOptimized']            = $request->ioOptimized;
+        $query['IsOpenPublicIp']         = $request->isOpenPublicIp;
+        $query['JobIdList']              = $request->jobIdList;
+        $query['LogEnable']              = $request->logEnable;
+        $query['LogPath']                = $request->logPath;
+        $query['Name']                   = $request->name;
+        $query['NetType']                = $request->netType;
+        $query['OptionSoftWareList']     = $request->optionSoftWareList;
+        $query['RegionId']               = $request->regionId;
+        $query['ResourceOwnerId']        = $request->resourceOwnerId;
+        $query['SecurityGroupId']        = $request->securityGroupId;
+        $query['StartTime']              = $request->startTime;
+        $query['Strategy']               = $request->strategy;
+        $query['TimeInterval']           = $request->timeInterval;
+        $query['TimeUnit']               = $request->timeUnit;
+        $query['UseCustomHiveMetaDB']    = $request->useCustomHiveMetaDB;
+        $query['UseLocalMetaDb']         = $request->useLocalMetaDb;
+        $query['UserDefinedEmrEcsRole']  = $request->userDefinedEmrEcsRole;
+        $query['VSwitchId']              = $request->vSwitchId;
+        $query['VpcId']                  = $request->vpcId;
+        $query['WorkflowDefinition']     = $request->workflowDefinition;
+        $query['ZoneId']                 = $request->zoneId;
+        $req                             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateExecutionPlan',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateExecutionPlanResponse::fromMap($this->doRPCRequest('CreateExecutionPlan', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateExecutionPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -965,11 +1277,43 @@ class Emr extends OpenApiClient
     public function createFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                            = [];
+        $query['AlertConf']               = $request->alertConf;
+        $query['AlertDingDingGroupBizId'] = $request->alertDingDingGroupBizId;
+        $query['AlertUserGroupBizId']     = $request->alertUserGroupBizId;
+        $query['Application']             = $request->application;
+        $query['ClusterId']               = $request->clusterId;
+        $query['CreateCluster']           = $request->createCluster;
+        $query['CronExpr']                = $request->cronExpr;
+        $query['Description']             = $request->description;
+        $query['EndSchedule']             = $request->endSchedule;
+        $query['HostName']                = $request->hostName;
+        $query['Lifecycle']               = $request->lifecycle;
+        $query['LogArchiveLocation']      = $request->logArchiveLocation;
+        $query['Name']                    = $request->name;
+        $query['Namespace']               = $request->namespace_;
+        $query['ParentCategory']          = $request->parentCategory;
+        $query['ParentFlowList']          = $request->parentFlowList;
+        $query['ProjectId']               = $request->projectId;
+        $query['RegionId']                = $request->regionId;
+        $query['StartSchedule']           = $request->startSchedule;
+        $req                              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFlow',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateFlowResponse::fromMap($this->doRPCRequest('CreateFlow', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -993,11 +1337,29 @@ class Emr extends OpenApiClient
     public function createFlowCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['Name']      = $request->name;
+        $query['ParentId']  = $request->parentId;
+        $query['ProjectId'] = $request->projectId;
+        $query['RegionId']  = $request->regionId;
+        $query['Type']      = $request->type;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFlowCategory',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateFlowCategoryResponse::fromMap($this->doRPCRequest('CreateFlowCategory', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateFlowCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1013,34 +1375,6 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param CreateFlowEditLockRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateFlowEditLockResponse
-     */
-    public function createFlowEditLockWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateFlowEditLockResponse::fromMap($this->doRPCRequest('CreateFlowEditLock', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateFlowEditLockRequest $request
-     *
-     * @return CreateFlowEditLockResponse
-     */
-    public function createFlowEditLock($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createFlowEditLockWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateFlowForWebRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1049,11 +1383,43 @@ class Emr extends OpenApiClient
     public function createFlowForWebWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                            = [];
+        $query['AlertConf']               = $request->alertConf;
+        $query['AlertDingDingGroupBizId'] = $request->alertDingDingGroupBizId;
+        $query['AlertUserGroupBizId']     = $request->alertUserGroupBizId;
+        $query['ClusterId']               = $request->clusterId;
+        $query['CreateCluster']           = $request->createCluster;
+        $query['CronExpr']                = $request->cronExpr;
+        $query['Description']             = $request->description;
+        $query['EndSchedule']             = $request->endSchedule;
+        $query['Graph']                   = $request->graph;
+        $query['HostName']                = $request->hostName;
+        $query['Lifecycle']               = $request->lifecycle;
+        $query['LogArchiveLocation']      = $request->logArchiveLocation;
+        $query['Name']                    = $request->name;
+        $query['Namespace']               = $request->namespace_;
+        $query['ParentCategory']          = $request->parentCategory;
+        $query['ParentFlowList']          = $request->parentFlowList;
+        $query['ProjectId']               = $request->projectId;
+        $query['RegionId']                = $request->regionId;
+        $query['StartSchedule']           = $request->startSchedule;
+        $req                              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFlowForWeb',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateFlowForWebResponse::fromMap($this->doRPCRequest('CreateFlowForWeb', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateFlowForWebResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1077,11 +1443,38 @@ class Emr extends OpenApiClient
     public function createFlowJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['Adhoc']             = $request->adhoc;
+        $query['AlertConf']         = $request->alertConf;
+        $query['ClusterId']         = $request->clusterId;
+        $query['FailAct']           = $request->failAct;
+        $query['MaxRetry']          = $request->maxRetry;
+        $query['MaxRunningTimeSec'] = $request->maxRunningTimeSec;
+        $query['Mode']              = $request->mode;
+        $query['Name']              = $request->name;
+        $query['ParentCategory']    = $request->parentCategory;
+        $query['ProjectId']         = $request->projectId;
+        $query['RegionId']          = $request->regionId;
+        $query['RetryInterval']     = $request->retryInterval;
+        $query['RetryPolicy']       = $request->retryPolicy;
+        $query['Type']              = $request->type;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFlowJob',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateFlowJobResponse::fromMap($this->doRPCRequest('CreateFlowJob', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateFlowJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1105,11 +1498,29 @@ class Emr extends OpenApiClient
     public function createFlowProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Description']     = $request->description;
+        $query['Name']            = $request->name;
+        $query['ProductType']     = $request->productType;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFlowProject',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateFlowProjectResponse::fromMap($this->doRPCRequest('CreateFlowProject', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateFlowProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1133,11 +1544,32 @@ class Emr extends OpenApiClient
     public function createFlowProjectClusterSettingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['ClusterId']    = $request->clusterId;
+        $query['DefaultQueue'] = $request->defaultQueue;
+        $query['DefaultUser']  = $request->defaultUser;
+        $query['HostList']     = $request->hostList;
+        $query['ProjectId']    = $request->projectId;
+        $query['QueueList']    = $request->queueList;
+        $query['RegionId']     = $request->regionId;
+        $query['UserList']     = $request->userList;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFlowProjectClusterSetting',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateFlowProjectClusterSettingResponse::fromMap($this->doRPCRequest('CreateFlowProjectClusterSetting', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateFlowProjectClusterSettingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1161,11 +1593,27 @@ class Emr extends OpenApiClient
     public function createFlowProjectUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ProjectId'] = $request->projectId;
+        $query['RegionId']  = $request->regionId;
+        $query['User']      = $request->user;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFlowProjectUser',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateFlowProjectUserResponse::fromMap($this->doRPCRequest('CreateFlowProjectUser', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateFlowProjectUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1189,11 +1637,33 @@ class Emr extends OpenApiClient
     public function createJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['FailAct']         = $request->failAct;
+        $query['MaxRetry']        = $request->maxRetry;
+        $query['Name']            = $request->name;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['RetryInterval']   = $request->retryInterval;
+        $query['RunParameter']    = $request->runParameter;
+        $query['Type']            = $request->type;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateJob',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateJobResponse::fromMap($this->doRPCRequest('CreateJob', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1217,11 +1687,33 @@ class Emr extends OpenApiClient
     public function createLibraryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['LibraryVersion']  = $request->libraryVersion;
+        $query['Name']            = $request->name;
+        $query['Properties']      = $request->properties;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['Scope']           = $request->scope;
+        $query['SourceLocation']  = $request->sourceLocation;
+        $query['SourceType']      = $request->sourceType;
+        $query['Type']            = $request->type;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateLibrary',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateLibraryResponse::fromMap($this->doRPCRequest('CreateLibrary', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateLibraryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1245,11 +1737,32 @@ class Emr extends OpenApiClient
     public function createMetaTablePreviewTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['DatabaseId']      = $request->databaseId;
+        $query['Password']        = $request->password;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['TableId']         = $request->tableId;
+        $query['User']            = $request->user;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMetaTablePreviewTask',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateMetaTablePreviewTaskResponse::fromMap($this->doRPCRequest('CreateMetaTablePreviewTask', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateMetaTablePreviewTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1265,62 +1778,6 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param CreateNoteRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return CreateNoteResponse
-     */
-    public function createNoteWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateNoteResponse::fromMap($this->doRPCRequest('CreateNote', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateNoteRequest $request
-     *
-     * @return CreateNoteResponse
-     */
-    public function createNote($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createNoteWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateParagraphRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CreateParagraphResponse
-     */
-    public function createParagraphWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateParagraphResponse::fromMap($this->doRPCRequest('CreateParagraph', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateParagraphRequest $request
-     *
-     * @return CreateParagraphResponse
-     */
-    public function createParagraph($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createParagraphWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateResourcePoolRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1329,11 +1786,33 @@ class Emr extends OpenApiClient
     public function createResourcePoolWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Active']          = $request->active;
+        $query['ClusterId']       = $request->clusterId;
+        $query['Config']          = $request->config;
+        $query['Name']            = $request->name;
+        $query['Note']            = $request->note;
+        $query['PoolType']        = $request->poolType;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['YarnSiteConfig']  = $request->yarnSiteConfig;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateResourcePool',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateResourcePoolResponse::fromMap($this->doRPCRequest('CreateResourcePool', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateResourcePoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1357,11 +1836,33 @@ class Emr extends OpenApiClient
     public function createResourceQueueWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['Config']          = $request->config;
+        $query['Leaf']            = $request->leaf;
+        $query['Name']            = $request->name;
+        $query['ParentQueueId']   = $request->parentQueueId;
+        $query['QualifiedName']   = $request->qualifiedName;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ResourcePoolId']  = $request->resourcePoolId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateResourceQueue',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateResourceQueueResponse::fromMap($this->doRPCRequest('CreateResourceQueue', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateResourceQueueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1385,11 +1886,30 @@ class Emr extends OpenApiClient
     public function createScalingGroupV2WithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Description']     = $request->description;
+        $query['HostGroupId']     = $request->hostGroupId;
+        $query['Name']            = $request->name;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateScalingGroupV2',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateScalingGroupV2Response::fromMap($this->doRPCRequest('CreateScalingGroupV2', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateScalingGroupV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1413,11 +1933,42 @@ class Emr extends OpenApiClient
     public function createScalingRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AdjustmentType']       = $request->adjustmentType;
+        $query['AdjustmentValue']      = $request->adjustmentValue;
+        $query['CloudWatchTrigger']    = $request->cloudWatchTrigger;
+        $query['ClusterId']            = $request->clusterId;
+        $query['Cooldown']             = $request->cooldown;
+        $query['HostGroupId']          = $request->hostGroupId;
+        $query['LaunchExpirationTime'] = $request->launchExpirationTime;
+        $query['LaunchTime']           = $request->launchTime;
+        $query['RecurrenceEndTime']    = $request->recurrenceEndTime;
+        $query['RecurrenceType']       = $request->recurrenceType;
+        $query['RecurrenceValue']      = $request->recurrenceValue;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['RuleCategory']         = $request->ruleCategory;
+        $query['RuleName']             = $request->ruleName;
+        $query['SchedulerTrigger']     = $request->schedulerTrigger;
+        $query['TimeoutWithGrace']     = $request->timeoutWithGrace;
+        $query['WithGrace']            = $request->withGrace;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateScalingRule',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateScalingRuleResponse::fromMap($this->doRPCRequest('CreateScalingRule', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1441,11 +1992,30 @@ class Emr extends OpenApiClient
     public function createTagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Category']        = $request->category;
+        $query['Description']     = $request->description;
+        $query['Id']              = $request->id;
+        $query['Name']            = $request->name;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTag',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateTagResponse::fromMap($this->doRPCRequest('CreateTag', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1469,11 +2039,34 @@ class Emr extends OpenApiClient
     public function createUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AliyunUserId']         = $request->aliyunUserId;
+        $query['Description']          = $request->description;
+        $query['GroupIdList']          = $request->groupIdList;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['RoleIdList']           = $request->roleIdList;
+        $query['Status']               = $request->status;
+        $query['UserAccountParamList'] = $request->userAccountParamList;
+        $query['UserName']             = $request->userName;
+        $query['UserType']             = $request->userType;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateUser',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateUserResponse::fromMap($this->doRPCRequest('CreateUser', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1497,11 +2090,28 @@ class Emr extends OpenApiClient
     public function createUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['UserInfo']        = $request->userInfo;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateUsers',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateUsersResponse::fromMap($this->doRPCRequest('CreateUsers', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1525,11 +2135,31 @@ class Emr extends OpenApiClient
     public function decommissionHostComponentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['ComponentName']   = $request->componentName;
+        $query['HostInstanceId']  = $request->hostInstanceId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ServiceName']     = $request->serviceName;
+        $query['TimeoutSeconds']  = $request->timeoutSeconds;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DecommissionHostComponent',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DecommissionHostComponentResponse::fromMap($this->doRPCRequest('DecommissionHostComponent', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DecommissionHostComponentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1553,11 +2183,28 @@ class Emr extends OpenApiClient
     public function deleteClusterTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['BizId']           = $request->bizId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteClusterTemplate',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteClusterTemplateResponse::fromMap($this->doRPCRequest('DeleteClusterTemplate', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteClusterTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1581,11 +2228,27 @@ class Emr extends OpenApiClient
     public function deleteExecutionPlanWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Id']              = $request->id;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteExecutionPlan',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteExecutionPlanResponse::fromMap($this->doRPCRequest('DeleteExecutionPlan', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteExecutionPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1609,11 +2272,27 @@ class Emr extends OpenApiClient
     public function deleteFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['Id']        = $request->id;
+        $query['ProjectId'] = $request->projectId;
+        $query['RegionId']  = $request->regionId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFlow',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteFlowResponse::fromMap($this->doRPCRequest('DeleteFlow', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1637,11 +2316,27 @@ class Emr extends OpenApiClient
     public function deleteFlowCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['Id']        = $request->id;
+        $query['ProjectId'] = $request->projectId;
+        $query['RegionId']  = $request->regionId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFlowCategory',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteFlowCategoryResponse::fromMap($this->doRPCRequest('DeleteFlowCategory', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteFlowCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1657,34 +2352,6 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param DeleteFlowEditLockRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteFlowEditLockResponse
-     */
-    public function deleteFlowEditLockWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteFlowEditLockResponse::fromMap($this->doRPCRequest('DeleteFlowEditLock', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteFlowEditLockRequest $request
-     *
-     * @return DeleteFlowEditLockResponse
-     */
-    public function deleteFlowEditLock($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteFlowEditLockWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteFlowJobRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1693,11 +2360,27 @@ class Emr extends OpenApiClient
     public function deleteFlowJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['Id']        = $request->id;
+        $query['ProjectId'] = $request->projectId;
+        $query['RegionId']  = $request->regionId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFlowJob',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteFlowJobResponse::fromMap($this->doRPCRequest('DeleteFlowJob', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteFlowJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1721,11 +2404,26 @@ class Emr extends OpenApiClient
     public function deleteFlowProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ProjectId'] = $request->projectId;
+        $query['RegionId']  = $request->regionId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFlowProject',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteFlowProjectResponse::fromMap($this->doRPCRequest('DeleteFlowProject', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteFlowProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1749,11 +2447,27 @@ class Emr extends OpenApiClient
     public function deleteFlowProjectClusterSettingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ClusterId'] = $request->clusterId;
+        $query['ProjectId'] = $request->projectId;
+        $query['RegionId']  = $request->regionId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFlowProjectClusterSetting',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteFlowProjectClusterSettingResponse::fromMap($this->doRPCRequest('DeleteFlowProjectClusterSetting', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteFlowProjectClusterSettingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1777,11 +2491,27 @@ class Emr extends OpenApiClient
     public function deleteFlowProjectUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ProjectId'] = $request->projectId;
+        $query['RegionId']  = $request->regionId;
+        $query['UserName']  = $request->userName;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFlowProjectUser',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteFlowProjectUserResponse::fromMap($this->doRPCRequest('DeleteFlowProjectUser', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteFlowProjectUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1805,11 +2535,28 @@ class Emr extends OpenApiClient
     public function deleteJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Id']              = $request->id;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteJob',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteJobResponse::fromMap($this->doRPCRequest('DeleteJob', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1833,11 +2580,27 @@ class Emr extends OpenApiClient
     public function deleteLibrariesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['LibraryBizIdList'] = $request->libraryBizIdList;
+        $query['RegionId']         = $request->regionId;
+        $query['ResourceOwnerId']  = $request->resourceOwnerId;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteLibraries',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteLibrariesResponse::fromMap($this->doRPCRequest('DeleteLibraries', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteLibrariesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1853,34 +2616,6 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param DeleteNoteRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return DeleteNoteResponse
-     */
-    public function deleteNoteWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteNoteResponse::fromMap($this->doRPCRequest('DeleteNote', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteNoteRequest $request
-     *
-     * @return DeleteNoteResponse
-     */
-    public function deleteNote($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteNoteWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteResourcePoolRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1889,11 +2624,28 @@ class Emr extends OpenApiClient
     public function deleteResourcePoolWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ResourcePoolId']  = $request->resourcePoolId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteResourcePool',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteResourcePoolResponse::fromMap($this->doRPCRequest('DeleteResourcePool', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteResourcePoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1917,11 +2669,28 @@ class Emr extends OpenApiClient
     public function deleteResourceQueueWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ResourceQueueId'] = $request->resourceQueueId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteResourceQueue',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteResourceQueueResponse::fromMap($this->doRPCRequest('DeleteResourceQueue', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteResourceQueueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1945,11 +2714,29 @@ class Emr extends OpenApiClient
     public function deleteScalingRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['HostGroupId']     = $request->hostGroupId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ScalingRuleId']   = $request->scalingRuleId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteScalingRule',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteScalingRuleResponse::fromMap($this->doRPCRequest('DeleteScalingRule', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1973,11 +2760,30 @@ class Emr extends OpenApiClient
     public function deleteTagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Category']        = $request->category;
+        $query['Description']     = $request->description;
+        $query['Id']              = $request->id;
+        $query['Name']            = $request->name;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTag',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteTagResponse::fromMap($this->doRPCRequest('DeleteTag', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2001,11 +2807,29 @@ class Emr extends OpenApiClient
     public function deleteUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['Type']            = $request->type;
+        $query['UserId']          = $request->userId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteUser',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteUserResponse::fromMap($this->doRPCRequest('DeleteUser', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2029,11 +2853,27 @@ class Emr extends OpenApiClient
     public function describeClusterBasicInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterBasicInfo',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeClusterBasicInfoResponse::fromMap($this->doRPCRequest('DescribeClusterBasicInfo', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeClusterBasicInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2057,11 +2897,27 @@ class Emr extends OpenApiClient
     public function describeClusterMetaCollectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterMetaCollect',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeClusterMetaCollectResponse::fromMap($this->doRPCRequest('DescribeClusterMetaCollect', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeClusterMetaCollectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2085,11 +2941,31 @@ class Emr extends OpenApiClient
     public function describeClusterOperationHostTaskLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['HostId']          = $request->hostId;
+        $query['OperationId']     = $request->operationId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['Status']          = $request->status;
+        $query['TaskId']          = $request->taskId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterOperationHostTaskLog',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeClusterOperationHostTaskLogResponse::fromMap($this->doRPCRequest('DescribeClusterOperationHostTaskLog', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeClusterOperationHostTaskLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2113,11 +2989,27 @@ class Emr extends OpenApiClient
     public function describeClusterResourcePoolSchedulerTypeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterResourcePoolSchedulerType',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeClusterResourcePoolSchedulerTypeResponse::fromMap($this->doRPCRequest('DescribeClusterResourcePoolSchedulerType', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeClusterResourcePoolSchedulerTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2141,11 +3033,28 @@ class Emr extends OpenApiClient
     public function describeClusterServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ServiceName']     = $request->serviceName;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterService',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeClusterServiceResponse::fromMap($this->doRPCRequest('DescribeClusterService', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeClusterServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2169,11 +3078,32 @@ class Emr extends OpenApiClient
     public function describeClusterServiceConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['ConfigVersion']   = $request->configVersion;
+        $query['GroupId']         = $request->groupId;
+        $query['HostInstanceId']  = $request->hostInstanceId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ServiceName']     = $request->serviceName;
+        $query['TagValue']        = $request->tagValue;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterServiceConfig',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeClusterServiceConfigResponse::fromMap($this->doRPCRequest('DescribeClusterServiceConfig', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeClusterServiceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2197,11 +3127,29 @@ class Emr extends OpenApiClient
     public function describeClusterServiceConfigHistoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['ConfigVersion']   = $request->configVersion;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ServiceName']     = $request->serviceName;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterServiceConfigHistory',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeClusterServiceConfigHistoryResponse::fromMap($this->doRPCRequest('DescribeClusterServiceConfigHistory', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeClusterServiceConfigHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2225,11 +3173,29 @@ class Emr extends OpenApiClient
     public function describeClusterServiceConfigTagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['ConfigTag']       = $request->configTag;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ServiceName']     = $request->serviceName;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterServiceConfigTag',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeClusterServiceConfigTagResponse::fromMap($this->doRPCRequest('DescribeClusterServiceConfigTag', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeClusterServiceConfigTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2253,11 +3219,27 @@ class Emr extends OpenApiClient
     public function describeClusterTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['BizId']           = $request->bizId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterTemplate',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeClusterTemplateResponse::fromMap($this->doRPCRequest('DescribeClusterTemplate', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeClusterTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2281,11 +3263,27 @@ class Emr extends OpenApiClient
     public function describeClusterV2WithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Id']              = $request->id;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterV2',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeClusterV2Response::fromMap($this->doRPCRequest('DescribeClusterV2', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeClusterV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2309,11 +3307,28 @@ class Emr extends OpenApiClient
     public function describeDataSourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Id']              = $request->id;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDataSource',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDataSourceResponse::fromMap($this->doRPCRequest('DescribeDataSource', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2329,6 +3344,99 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @param DescribeDiskOpsActivityRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDiskOpsActivityResponse
+     */
+    public function describeDiskOpsActivityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['CurrentStage']    = $request->currentStage;
+        $query['CurrentState']    = $request->currentState;
+        $query['DiskId']          = $request->diskId;
+        $query['EventId']         = $request->eventId;
+        $query['InstanceId']      = $request->instanceId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDiskOpsActivity',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDiskOpsActivityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDiskOpsActivityRequest $request
+     *
+     * @return DescribeDiskOpsActivityResponse
+     */
+    public function describeDiskOpsActivity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDiskOpsActivityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeEmrMainVersionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeEmrMainVersionResponse
+     */
+    public function describeEmrMainVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                    = [];
+        $query['EmrVersion']      = $request->emrVersion;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEmrMainVersion',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeEmrMainVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEmrMainVersionRequest $request
+     *
+     * @return DescribeEmrMainVersionResponse
+     */
+    public function describeEmrMainVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEmrMainVersionWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeExecutionPlanRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -2337,11 +3445,27 @@ class Emr extends OpenApiClient
     public function describeExecutionPlanWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Id']              = $request->id;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeExecutionPlan',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeExecutionPlanResponse::fromMap($this->doRPCRequest('DescribeExecutionPlan', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeExecutionPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2365,11 +3489,27 @@ class Emr extends OpenApiClient
     public function describeFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['Id']        = $request->id;
+        $query['ProjectId'] = $request->projectId;
+        $query['RegionId']  = $request->regionId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFlow',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeFlowResponse::fromMap($this->doRPCRequest('DescribeFlow', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2385,62 +3525,6 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param DescribeFlowAgentTokenRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeFlowAgentTokenResponse
-     */
-    public function describeFlowAgentTokenWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeFlowAgentTokenResponse::fromMap($this->doRPCRequest('DescribeFlowAgentToken', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeFlowAgentTokenRequest $request
-     *
-     * @return DescribeFlowAgentTokenResponse
-     */
-    public function describeFlowAgentToken($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeFlowAgentTokenWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeFlowAgentUserRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeFlowAgentUserResponse
-     */
-    public function describeFlowAgentUserWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeFlowAgentUserResponse::fromMap($this->doRPCRequest('DescribeFlowAgentUser', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeFlowAgentUserRequest $request
-     *
-     * @return DescribeFlowAgentUserResponse
-     */
-    public function describeFlowAgentUser($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeFlowAgentUserWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeFlowCategoryRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -2449,11 +3533,27 @@ class Emr extends OpenApiClient
     public function describeFlowCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['Id']        = $request->id;
+        $query['ProjectId'] = $request->projectId;
+        $query['RegionId']  = $request->regionId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFlowCategory',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeFlowCategoryResponse::fromMap($this->doRPCRequest('DescribeFlowCategory', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeFlowCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2477,11 +3577,30 @@ class Emr extends OpenApiClient
     public function describeFlowCategoryTreeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['CategoryId'] = $request->categoryId;
+        $query['Keyword']    = $request->keyword;
+        $query['Mode']       = $request->mode;
+        $query['ProjectId']  = $request->projectId;
+        $query['RegionId']   = $request->regionId;
+        $query['Type']       = $request->type;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFlowCategoryTree',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeFlowCategoryTreeResponse::fromMap($this->doRPCRequest('DescribeFlowCategoryTree', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeFlowCategoryTreeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2497,34 +3616,6 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param DescribeFlowEntitySnapshotRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeFlowEntitySnapshotResponse
-     */
-    public function describeFlowEntitySnapshotWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeFlowEntitySnapshotResponse::fromMap($this->doRPCRequest('DescribeFlowEntitySnapshot', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeFlowEntitySnapshotRequest $request
-     *
-     * @return DescribeFlowEntitySnapshotResponse
-     */
-    public function describeFlowEntitySnapshot($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeFlowEntitySnapshotWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeFlowInstanceRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -2533,11 +3624,27 @@ class Emr extends OpenApiClient
     public function describeFlowInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['Id']        = $request->id;
+        $query['ProjectId'] = $request->projectId;
+        $query['RegionId']  = $request->regionId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFlowInstance',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeFlowInstanceResponse::fromMap($this->doRPCRequest('DescribeFlowInstance', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2561,11 +3668,27 @@ class Emr extends OpenApiClient
     public function describeFlowJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['Id']        = $request->id;
+        $query['ProjectId'] = $request->projectId;
+        $query['RegionId']  = $request->regionId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFlowJob',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeFlowJobResponse::fromMap($this->doRPCRequest('DescribeFlowJob', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeFlowJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2589,11 +3712,27 @@ class Emr extends OpenApiClient
     public function describeFlowNodeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['Id']        = $request->id;
+        $query['ProjectId'] = $request->projectId;
+        $query['RegionId']  = $request->regionId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFlowNodeInstance',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeFlowNodeInstanceResponse::fromMap($this->doRPCRequest('DescribeFlowNodeInstance', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeFlowNodeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2617,11 +3756,32 @@ class Emr extends OpenApiClient
     public function describeFlowNodeInstanceContainerLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['AppId']          = $request->appId;
+        $query['ContainerId']    = $request->containerId;
+        $query['Length']         = $request->length;
+        $query['LogName']        = $request->logName;
+        $query['NodeInstanceId'] = $request->nodeInstanceId;
+        $query['Offset']         = $request->offset;
+        $query['ProjectId']      = $request->projectId;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFlowNodeInstanceContainerLog',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeFlowNodeInstanceContainerLogResponse::fromMap($this->doRPCRequest('DescribeFlowNodeInstanceContainerLog', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeFlowNodeInstanceContainerLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2645,11 +3805,34 @@ class Emr extends OpenApiClient
     public function describeFlowNodeInstanceLauncherLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['EndTime']        = $request->endTime;
+        $query['Length']         = $request->length;
+        $query['Lines']          = $request->lines;
+        $query['NodeInstanceId'] = $request->nodeInstanceId;
+        $query['Offset']         = $request->offset;
+        $query['ProjectId']      = $request->projectId;
+        $query['RegionId']       = $request->regionId;
+        $query['Reverse']        = $request->reverse;
+        $query['Start']          = $request->start;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFlowNodeInstanceLauncherLog',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeFlowNodeInstanceLauncherLogResponse::fromMap($this->doRPCRequest('DescribeFlowNodeInstanceLauncherLog', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeFlowNodeInstanceLauncherLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2673,11 +3856,26 @@ class Emr extends OpenApiClient
     public function describeFlowProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ProjectId'] = $request->projectId;
+        $query['RegionId']  = $request->regionId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFlowProject',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeFlowProjectResponse::fromMap($this->doRPCRequest('DescribeFlowProject', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeFlowProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2701,11 +3899,27 @@ class Emr extends OpenApiClient
     public function describeFlowProjectClusterSettingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ClusterId'] = $request->clusterId;
+        $query['ProjectId'] = $request->projectId;
+        $query['RegionId']  = $request->regionId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFlowProjectClusterSetting',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeFlowProjectClusterSettingResponse::fromMap($this->doRPCRequest('DescribeFlowProjectClusterSetting', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeFlowProjectClusterSettingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2729,11 +3943,28 @@ class Emr extends OpenApiClient
     public function describeJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Id']              = $request->id;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeJob',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeJobResponse::fromMap($this->doRPCRequest('DescribeJob', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2757,11 +3988,27 @@ class Emr extends OpenApiClient
     public function describeLibraryDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['LibraryBizId']    = $request->libraryBizId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLibraryDetail',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeLibraryDetailResponse::fromMap($this->doRPCRequest('DescribeLibraryDetail', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeLibraryDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2785,11 +4032,27 @@ class Emr extends OpenApiClient
     public function describeLibraryInstallTaskDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['TaskBizId']       = $request->taskBizId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLibraryInstallTaskDetail',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeLibraryInstallTaskDetailResponse::fromMap($this->doRPCRequest('DescribeLibraryInstallTaskDetail', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeLibraryInstallTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2813,11 +4076,28 @@ class Emr extends OpenApiClient
     public function describeMetaTablePreviewTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['TaskId']          = $request->taskId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMetaTablePreviewTask',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMetaTablePreviewTaskResponse::fromMap($this->doRPCRequest('DescribeMetaTablePreviewTask', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMetaTablePreviewTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2841,11 +4121,29 @@ class Emr extends OpenApiClient
     public function describeScalingActivityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['ClusterId']         = $request->clusterId;
+        $query['HostGroupId']       = $request->hostGroupId;
+        $query['RegionId']          = $request->regionId;
+        $query['ResourceOwnerId']   = $request->resourceOwnerId;
+        $query['ScalingActivityId'] = $request->scalingActivityId;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScalingActivity',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScalingActivityResponse::fromMap($this->doRPCRequest('DescribeScalingActivity', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScalingActivityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2869,11 +4167,27 @@ class Emr extends OpenApiClient
     public function describeScalingCommonConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScalingCommonConfig',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScalingCommonConfigResponse::fromMap($this->doRPCRequest('DescribeScalingCommonConfig', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScalingCommonConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2897,11 +4211,30 @@ class Emr extends OpenApiClient
     public function describeScalingConfigItemV2WithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['ConfigItemType']      = $request->configItemType;
+        $query['RegionId']            = $request->regionId;
+        $query['ResourceGroupId']     = $request->resourceGroupId;
+        $query['ResourceOwnerId']     = $request->resourceOwnerId;
+        $query['ScalingConfigItemId'] = $request->scalingConfigItemId;
+        $query['ScalingGroupBizId']   = $request->scalingGroupBizId;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScalingConfigItemV2',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScalingConfigItemV2Response::fromMap($this->doRPCRequest('DescribeScalingConfigItemV2', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScalingConfigItemV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2925,11 +4258,29 @@ class Emr extends OpenApiClient
     public function describeScalingGroupInstanceV2WithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['HostGroupBizId']    = $request->hostGroupBizId;
+        $query['RegionId']          = $request->regionId;
+        $query['ResourceGroupId']   = $request->resourceGroupId;
+        $query['ResourceOwnerId']   = $request->resourceOwnerId;
+        $query['ScalingGroupBizId'] = $request->scalingGroupBizId;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScalingGroupInstanceV2',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScalingGroupInstanceV2Response::fromMap($this->doRPCRequest('DescribeScalingGroupInstanceV2', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScalingGroupInstanceV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2953,11 +4304,29 @@ class Emr extends OpenApiClient
     public function describeScalingGroupV2WithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['HostGroupBizId']    = $request->hostGroupBizId;
+        $query['RegionId']          = $request->regionId;
+        $query['ResourceGroupId']   = $request->resourceGroupId;
+        $query['ResourceOwnerId']   = $request->resourceOwnerId;
+        $query['ScalingGroupBizId'] = $request->scalingGroupBizId;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScalingGroupV2',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScalingGroupV2Response::fromMap($this->doRPCRequest('DescribeScalingGroupV2', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScalingGroupV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2981,11 +4350,29 @@ class Emr extends OpenApiClient
     public function describeScalingRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['HostGroupId']     = $request->hostGroupId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ScalingRuleId']   = $request->scalingRuleId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScalingRule',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScalingRuleResponse::fromMap($this->doRPCRequest('DescribeScalingRule', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3009,11 +4396,28 @@ class Emr extends OpenApiClient
     public function describeSecurityGroupAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSecurityGroupAttribute',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSecurityGroupAttributeResponse::fromMap($this->doRPCRequest('DescribeSecurityGroupAttribute', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSecurityGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3037,11 +4441,28 @@ class Emr extends OpenApiClient
     public function detachAndReleaseClusterEniWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['TargetClusterId'] = $request->targetClusterId;
+        $query['VswitchId']       = $request->vswitchId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachAndReleaseClusterEni',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DetachAndReleaseClusterEniResponse::fromMap($this->doRPCRequest('DetachAndReleaseClusterEni', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetachAndReleaseClusterEniResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3057,90 +4478,6 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param DiffFlowEntitySnapshotRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DiffFlowEntitySnapshotResponse
-     */
-    public function diffFlowEntitySnapshotWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DiffFlowEntitySnapshotResponse::fromMap($this->doRPCRequest('DiffFlowEntitySnapshot', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DiffFlowEntitySnapshotRequest $request
-     *
-     * @return DiffFlowEntitySnapshotResponse
-     */
-    public function diffFlowEntitySnapshot($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->diffFlowEntitySnapshotWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DumpMetaDataSourceForOuterRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DumpMetaDataSourceForOuterResponse
-     */
-    public function dumpMetaDataSourceForOuterWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DumpMetaDataSourceForOuterResponse::fromMap($this->doRPCRequest('DumpMetaDataSourceForOuter', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DumpMetaDataSourceForOuterRequest $request
-     *
-     * @return DumpMetaDataSourceForOuterResponse
-     */
-    public function dumpMetaDataSourceForOuter($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->dumpMetaDataSourceForOuterWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetFlowEntityRelationGraphRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return GetFlowEntityRelationGraphResponse
-     */
-    public function getFlowEntityRelationGraphWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetFlowEntityRelationGraphResponse::fromMap($this->doRPCRequest('GetFlowEntityRelationGraph', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetFlowEntityRelationGraphRequest $request
-     *
-     * @return GetFlowEntityRelationGraphResponse
-     */
-    public function getFlowEntityRelationGraph($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getFlowEntityRelationGraphWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetHdfsCapacityStatisticInfoRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -3149,11 +4486,29 @@ class Emr extends OpenApiClient
     public function getHdfsCapacityStatisticInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['FromDatetime']    = $request->fromDatetime;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ToDatetime']      = $request->toDatetime;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetHdfsCapacityStatisticInfo',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetHdfsCapacityStatisticInfoResponse::fromMap($this->doRPCRequest('GetHdfsCapacityStatisticInfo', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetHdfsCapacityStatisticInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3177,11 +4532,31 @@ class Emr extends OpenApiClient
     public function getJobInputStatisticInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['FromDatetime']    = $request->fromDatetime;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ToDatetime']      = $request->toDatetime;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetJobInputStatisticInfo',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetJobInputStatisticInfoResponse::fromMap($this->doRPCRequest('GetJobInputStatisticInfo', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetJobInputStatisticInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3205,11 +4580,31 @@ class Emr extends OpenApiClient
     public function getJobOutputStatisticInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['FromDatetime']    = $request->fromDatetime;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ToDatetime']      = $request->toDatetime;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetJobOutputStatisticInfo',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetJobOutputStatisticInfoResponse::fromMap($this->doRPCRequest('GetJobOutputStatisticInfo', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetJobOutputStatisticInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3233,11 +4628,31 @@ class Emr extends OpenApiClient
     public function getJobRunningTimeStatisticInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['FromDatetime']    = $request->fromDatetime;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ToDatetime']      = $request->toDatetime;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetJobRunningTimeStatisticInfo',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetJobRunningTimeStatisticInfoResponse::fromMap($this->doRPCRequest('GetJobRunningTimeStatisticInfo', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetJobRunningTimeStatisticInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3261,11 +4676,29 @@ class Emr extends OpenApiClient
     public function getQueueInputStatisticInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['FromDatetime']    = $request->fromDatetime;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ToDatetime']      = $request->toDatetime;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetQueueInputStatisticInfo',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetQueueInputStatisticInfoResponse::fromMap($this->doRPCRequest('GetQueueInputStatisticInfo', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetQueueInputStatisticInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3289,11 +4722,29 @@ class Emr extends OpenApiClient
     public function getQueueOutputStatisticInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['FromDatetime']    = $request->fromDatetime;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ToDatetime']      = $request->toDatetime;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetQueueOutputStatisticInfo',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetQueueOutputStatisticInfoResponse::fromMap($this->doRPCRequest('GetQueueOutputStatisticInfo', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetQueueOutputStatisticInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3317,11 +4768,31 @@ class Emr extends OpenApiClient
     public function getQueueSubmissionStatisticInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ApplicationType'] = $request->applicationType;
+        $query['ClusterId']       = $request->clusterId;
+        $query['FinalStatus']     = $request->finalStatus;
+        $query['FromDatetime']    = $request->fromDatetime;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ToDatetime']      = $request->toDatetime;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetQueueSubmissionStatisticInfo',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetQueueSubmissionStatisticInfoResponse::fromMap($this->doRPCRequest('GetQueueSubmissionStatisticInfo', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetQueueSubmissionStatisticInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3345,11 +4816,29 @@ class Emr extends OpenApiClient
     public function getUserInputStatisticInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['FromDatetime']    = $request->fromDatetime;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ToDatetime']      = $request->toDatetime;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserInputStatisticInfo',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetUserInputStatisticInfoResponse::fromMap($this->doRPCRequest('GetUserInputStatisticInfo', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetUserInputStatisticInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3373,11 +4862,29 @@ class Emr extends OpenApiClient
     public function getUserOutputStatisticInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['FromDatetime']    = $request->fromDatetime;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ToDatetime']      = $request->toDatetime;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserOutputStatisticInfo',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetUserOutputStatisticInfoResponse::fromMap($this->doRPCRequest('GetUserOutputStatisticInfo', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetUserOutputStatisticInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3401,11 +4908,31 @@ class Emr extends OpenApiClient
     public function getUserSubmissionStatisticInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ApplicationType'] = $request->applicationType;
+        $query['ClusterId']       = $request->clusterId;
+        $query['FinalStatus']     = $request->finalStatus;
+        $query['FromDatetime']    = $request->fromDatetime;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ToDatetime']      = $request->toDatetime;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserSubmissionStatisticInfo',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetUserSubmissionStatisticInfoResponse::fromMap($this->doRPCRequest('GetUserSubmissionStatisticInfo', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetUserSubmissionStatisticInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3429,11 +4956,28 @@ class Emr extends OpenApiClient
     public function installLibrariesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['ClusterBizIdList'] = $request->clusterBizIdList;
+        $query['LibraryBizId']     = $request->libraryBizId;
+        $query['RegionId']         = $request->regionId;
+        $query['ResourceOwnerId']  = $request->resourceOwnerId;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'InstallLibraries',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return InstallLibrariesResponse::fromMap($this->doRPCRequest('InstallLibraries', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return InstallLibrariesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3457,11 +5001,29 @@ class Emr extends OpenApiClient
     public function joinResourceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['ResourceId']      = $request->resourceId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ResourceType']    = $request->resourceType;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'JoinResourceGroup',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return JoinResourceGroupResponse::fromMap($this->doRPCRequest('JoinResourceGroup', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return JoinResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3477,34 +5039,6 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param KillExecutionJobInstanceRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return KillExecutionJobInstanceResponse
-     */
-    public function killExecutionJobInstanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return KillExecutionJobInstanceResponse::fromMap($this->doRPCRequest('KillExecutionJobInstance', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param KillExecutionJobInstanceRequest $request
-     *
-     * @return KillExecutionJobInstanceResponse
-     */
-    public function killExecutionJobInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->killExecutionJobInstanceWithOptions($request, $runtime);
-    }
-
-    /**
      * @param KillFlowJobRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -3513,11 +5047,27 @@ class Emr extends OpenApiClient
     public function killFlowJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['JobInstanceId'] = $request->jobInstanceId;
+        $query['ProjectId']     = $request->projectId;
+        $query['RegionId']      = $request->regionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'KillFlowJob',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return KillFlowJobResponse::fromMap($this->doRPCRequest('KillFlowJob', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return KillFlowJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3541,11 +5091,31 @@ class Emr extends OpenApiClient
     public function listAdviceActionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['Component']       = $request->component;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ServiceName']     = $request->serviceName;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAdviceAction',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAdviceActionResponse::fromMap($this->doRPCRequest('ListAdviceAction', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAdviceActionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3569,11 +5139,42 @@ class Emr extends OpenApiClient
     public function listApmApplicationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['AppId']           = $request->appId;
+        $query['ClusterId']       = $request->clusterId;
+        $query['DiagnoseResult']  = $request->diagnoseResult;
+        $query['EndTimeFrom']     = $request->endTimeFrom;
+        $query['EndTimeTo']       = $request->endTimeTo;
+        $query['FinalStatus']     = $request->finalStatus;
+        $query['JobType']         = $request->jobType;
+        $query['Name']            = $request->name;
+        $query['OrderBy']         = $request->orderBy;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['Queue']           = $request->queue;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['StartTimeFrom']   = $request->startTimeFrom;
+        $query['StartTimeTo']     = $request->startTimeTo;
+        $query['State']           = $request->state;
+        $query['User']            = $request->user;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListApmApplication',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListApmApplicationResponse::fromMap($this->doRPCRequest('ListApmApplication', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListApmApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3597,11 +5198,40 @@ class Emr extends OpenApiClient
     public function listBackupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['BackupId']        = $request->backupId;
+        $query['BackupPlanId']    = $request->backupPlanId;
+        $query['BizId']           = $request->bizId;
+        $query['ClusterId']       = $request->clusterId;
+        $query['CurrentSize']     = $request->currentSize;
+        $query['Id']              = $request->id;
+        $query['Limit']           = $request->limit;
+        $query['MetadataType']    = $request->metadataType;
+        $query['OrderMode']       = $request->orderMode;
+        $query['PageCount']       = $request->pageCount;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ServiceName']     = $request->serviceName;
+        $query['Status']          = $request->status;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBackups',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListBackupsResponse::fromMap($this->doRPCRequest('ListBackups', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3625,11 +5255,37 @@ class Emr extends OpenApiClient
     public function listClusterHostWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['ComponentName']   = $request->componentName;
+        $query['GroupType']       = $request->groupType;
+        $query['HostGroupId']     = $request->hostGroupId;
+        $query['HostInstanceId']  = $request->hostInstanceId;
+        $query['HostName']        = $request->hostName;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['PrivateIp']       = $request->privateIp;
+        $query['PublicIp']        = $request->publicIp;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['StatusList']      = $request->statusList;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClusterHost',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListClusterHostResponse::fromMap($this->doRPCRequest('ListClusterHost', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListClusterHostResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3653,11 +5309,35 @@ class Emr extends OpenApiClient
     public function listClusterHostComponentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['ComponentName']   = $request->componentName;
+        $query['ComponentStatus'] = $request->componentStatus;
+        $query['HostInstanceId']  = $request->hostInstanceId;
+        $query['HostName']        = $request->hostName;
+        $query['HostRole']        = $request->hostRole;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ServiceName']     = $request->serviceName;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClusterHostComponent',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListClusterHostComponentResponse::fromMap($this->doRPCRequest('ListClusterHostComponent', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListClusterHostComponentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3681,11 +5361,33 @@ class Emr extends OpenApiClient
     public function listClusterHostGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['HostGroupId']     = $request->hostGroupId;
+        $query['HostGroupName']   = $request->hostGroupName;
+        $query['HostGroupType']   = $request->hostGroupType;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['StatusList']      = $request->statusList;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClusterHostGroup',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListClusterHostGroupResponse::fromMap($this->doRPCRequest('ListClusterHostGroup', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListClusterHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3709,11 +5411,29 @@ class Emr extends OpenApiClient
     public function listClusterInstalledServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClusterInstalledService',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListClusterInstalledServiceResponse::fromMap($this->doRPCRequest('ListClusterInstalledService', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListClusterInstalledServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3737,11 +5457,32 @@ class Emr extends OpenApiClient
     public function listClusterOperationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['OperationId']     = $request->operationId;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ServiceName']     = $request->serviceName;
+        $query['Status']          = $request->status;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClusterOperation',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListClusterOperationResponse::fromMap($this->doRPCRequest('ListClusterOperation', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListClusterOperationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3765,11 +5506,31 @@ class Emr extends OpenApiClient
     public function listClusterOperationHostWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['OperationId']     = $request->operationId;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['Status']          = $request->status;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClusterOperationHost',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListClusterOperationHostResponse::fromMap($this->doRPCRequest('ListClusterOperationHost', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListClusterOperationHostResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3793,11 +5554,32 @@ class Emr extends OpenApiClient
     public function listClusterOperationHostTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['HostId']          = $request->hostId;
+        $query['OperationId']     = $request->operationId;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['Status']          = $request->status;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClusterOperationHostTask',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListClusterOperationHostTaskResponse::fromMap($this->doRPCRequest('ListClusterOperationHostTask', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListClusterOperationHostTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3821,11 +5603,31 @@ class Emr extends OpenApiClient
     public function listClusterOperationTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['OperationId']     = $request->operationId;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['Status']          = $request->status;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClusterOperationTask',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListClusterOperationTaskResponse::fromMap($this->doRPCRequest('ListClusterOperationTask', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListClusterOperationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3841,34 +5643,6 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param ListClustersRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListClustersResponse
-     */
-    public function listClustersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListClustersResponse::fromMap($this->doRPCRequest('ListClusters', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListClustersRequest $request
-     *
-     * @return ListClustersResponse
-     */
-    public function listClusters($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listClustersWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListClusterServiceRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -3877,11 +5651,29 @@ class Emr extends OpenApiClient
     public function listClusterServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClusterService',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListClusterServiceResponse::fromMap($this->doRPCRequest('ListClusterService', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListClusterServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3905,11 +5697,33 @@ class Emr extends OpenApiClient
     public function listClusterServiceComponentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['ComponentName']   = $request->componentName;
+        $query['ComponentStatus'] = $request->componentStatus;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['PodName']         = $request->podName;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ServiceName']     = $request->serviceName;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClusterServiceComponent',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListClusterServiceComponentResponse::fromMap($this->doRPCRequest('ListClusterServiceComponent', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListClusterServiceComponentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3933,11 +5747,29 @@ class Emr extends OpenApiClient
     public function listClusterServiceComponentHealthInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['ComponentName']   = $request->componentName;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ServiceName']     = $request->serviceName;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClusterServiceComponentHealthInfo',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListClusterServiceComponentHealthInfoResponse::fromMap($this->doRPCRequest('ListClusterServiceComponentHealthInfo', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListClusterServiceComponentHealthInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3961,11 +5793,37 @@ class Emr extends OpenApiClient
     public function listClusterServiceConfigHistoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Author']          = $request->author;
+        $query['ClusterId']       = $request->clusterId;
+        $query['Comment']         = $request->comment;
+        $query['ConfigFileName']  = $request->configFileName;
+        $query['ConfigItemKey']   = $request->configItemKey;
+        $query['ConfigVersion']   = $request->configVersion;
+        $query['HostGroupId']     = $request->hostGroupId;
+        $query['HostInstanceId']  = $request->hostInstanceId;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ServiceName']     = $request->serviceName;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClusterServiceConfigHistory',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListClusterServiceConfigHistoryResponse::fromMap($this->doRPCRequest('ListClusterServiceConfigHistory', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListClusterServiceConfigHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3989,11 +5847,29 @@ class Emr extends OpenApiClient
     public function listClusterServiceQuickLinkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['DirectType']      = $request->directType;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ServiceName']     = $request->serviceName;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClusterServiceQuickLink',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListClusterServiceQuickLinkResponse::fromMap($this->doRPCRequest('ListClusterServiceQuickLink', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListClusterServiceQuickLinkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4017,11 +5893,31 @@ class Emr extends OpenApiClient
     public function listClusterTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['BizId']           = $request->bizId;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['ProductType']     = $request->productType;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClusterTemplates',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListClusterTemplatesResponse::fromMap($this->doRPCRequest('ListClusterTemplates', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListClusterTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4037,6 +5933,63 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @param ListClustersRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListClustersResponse
+     */
+    public function listClustersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                    = [];
+        $query['ClusterTypeList'] = $request->clusterTypeList;
+        $query['CreateType']      = $request->createType;
+        $query['DefaultStatus']   = $request->defaultStatus;
+        $query['DepositType']     = $request->depositType;
+        $query['ExpiredTagList']  = $request->expiredTagList;
+        $query['IsDesc']          = $request->isDesc;
+        $query['MachineType']     = $request->machineType;
+        $query['Name']            = $request->name;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['StatusList']      = $request->statusList;
+        $query['Tag']             = $request->tag;
+        $query['VpcId']           = $request->vpcId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClusters',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListClustersRequest $request
+     *
+     * @return ListClustersResponse
+     */
+    public function listClusters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listClustersWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListDataSourceRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -4045,11 +5998,34 @@ class Emr extends OpenApiClient
     public function listDataSourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['CreateFrom']      = $request->createFrom;
+        $query['Id']              = $request->id;
+        $query['Name']            = $request->name;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['ProjectId']       = $request->projectId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['SourceType']      = $request->sourceType;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataSource',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDataSourceResponse::fromMap($this->doRPCRequest('ListDataSource', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4065,6 +6041,54 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @param ListDiskOpsEventsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListDiskOpsEventsResponse
+     */
+    public function listDiskOpsEventsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['EndTime']         = $request->endTime;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['StartTime']       = $request->startTime;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDiskOpsEvents',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDiskOpsEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDiskOpsEventsRequest $request
+     *
+     * @return ListDiskOpsEventsResponse
+     */
+    public function listDiskOpsEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDiskOpsEventsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListEmrAvailableConfigRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -4073,11 +6097,27 @@ class Emr extends OpenApiClient
     public function listEmrAvailableConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEmrAvailableConfig',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListEmrAvailableConfigResponse::fromMap($this->doRPCRequest('ListEmrAvailableConfig', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListEmrAvailableConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4101,11 +6141,39 @@ class Emr extends OpenApiClient
     public function listEmrAvailableResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['ClusterId']           = $request->clusterId;
+        $query['ClusterType']         = $request->clusterType;
+        $query['DataDiskType']        = $request->dataDiskType;
+        $query['DepositType']         = $request->depositType;
+        $query['DestinationResource'] = $request->destinationResource;
+        $query['EmrVersion']          = $request->emrVersion;
+        $query['InstanceChargeType']  = $request->instanceChargeType;
+        $query['InstanceType']        = $request->instanceType;
+        $query['NetType']             = $request->netType;
+        $query['RegionId']            = $request->regionId;
+        $query['ResourceGroupId']     = $request->resourceGroupId;
+        $query['ResourceOwnerId']     = $request->resourceOwnerId;
+        $query['SpotStrategy']        = $request->spotStrategy;
+        $query['SystemDiskType']      = $request->systemDiskType;
+        $query['ZoneId']              = $request->zoneId;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEmrAvailableResource',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListEmrAvailableResourceResponse::fromMap($this->doRPCRequest('ListEmrAvailableResource', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListEmrAvailableResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4129,11 +6197,31 @@ class Emr extends OpenApiClient
     public function listEmrMainVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['EmrVersion']      = $request->emrVersion;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['StackName']       = $request->stackName;
+        $query['StackVersion']    = $request->stackVersion;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEmrMainVersion',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListEmrMainVersionResponse::fromMap($this->doRPCRequest('ListEmrMainVersion', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListEmrMainVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4157,11 +6245,32 @@ class Emr extends OpenApiClient
     public function listExecutionPlanInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['ExecutionPlanIdList'] = $request->executionPlanIdList;
+        $query['IsDesc']              = $request->isDesc;
+        $query['OnlyLastInstance']    = $request->onlyLastInstance;
+        $query['PageNumber']          = $request->pageNumber;
+        $query['PageSize']            = $request->pageSize;
+        $query['RegionId']            = $request->regionId;
+        $query['ResourceOwnerId']     = $request->resourceOwnerId;
+        $query['StatusList']          = $request->statusList;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListExecutionPlanInstances',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListExecutionPlanInstancesResponse::fromMap($this->doRPCRequest('ListExecutionPlanInstances', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListExecutionPlanInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4177,34 +6286,6 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param ListExecutionPlansRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListExecutionPlansResponse
-     */
-    public function listExecutionPlansWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListExecutionPlansResponse::fromMap($this->doRPCRequest('ListExecutionPlans', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListExecutionPlansRequest $request
-     *
-     * @return ListExecutionPlansResponse
-     */
-    public function listExecutionPlans($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listExecutionPlansWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListFlowRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -4213,11 +6294,34 @@ class Emr extends OpenApiClient
     public function listFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['ClusterId']  = $request->clusterId;
+        $query['Id']         = $request->id;
+        $query['JobId']      = $request->jobId;
+        $query['Name']       = $request->name;
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $query['Periodic']   = $request->periodic;
+        $query['ProjectId']  = $request->projectId;
+        $query['RegionId']   = $request->regionId;
+        $query['Status']     = $request->status;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFlow',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFlowResponse::fromMap($this->doRPCRequest('ListFlow', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4241,11 +6345,30 @@ class Emr extends OpenApiClient
     public function listFlowCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $query['ParentId']   = $request->parentId;
+        $query['ProjectId']  = $request->projectId;
+        $query['RegionId']   = $request->regionId;
+        $query['Root']       = $request->root;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFlowCategory',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFlowCategoryResponse::fromMap($this->doRPCRequest('ListFlowCategory', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFlowCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4269,11 +6392,29 @@ class Emr extends OpenApiClient
     public function listFlowClusterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['ProjectId']       = $request->projectId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFlowCluster',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFlowClusterResponse::fromMap($this->doRPCRequest('ListFlowCluster', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFlowClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4297,11 +6438,27 @@ class Emr extends OpenApiClient
     public function listFlowClusterAllWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ProductType']     = $request->productType;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFlowClusterAll',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFlowClusterAllResponse::fromMap($this->doRPCRequest('ListFlowClusterAll', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFlowClusterAllResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4325,11 +6482,28 @@ class Emr extends OpenApiClient
     public function listFlowClusterAllHostsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['ProjectId']       = $request->projectId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFlowClusterAllHosts',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFlowClusterAllHostsResponse::fromMap($this->doRPCRequest('ListFlowClusterAllHosts', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFlowClusterAllHostsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4353,11 +6527,28 @@ class Emr extends OpenApiClient
     public function listFlowClusterHostWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['ProjectId']       = $request->projectId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFlowClusterHost',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFlowClusterHostResponse::fromMap($this->doRPCRequest('ListFlowClusterHost', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFlowClusterHostResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4373,34 +6564,6 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param ListFlowEntitySnapshotRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ListFlowEntitySnapshotResponse
-     */
-    public function listFlowEntitySnapshotWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListFlowEntitySnapshotResponse::fromMap($this->doRPCRequest('ListFlowEntitySnapshot', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListFlowEntitySnapshotRequest $request
-     *
-     * @return ListFlowEntitySnapshotResponse
-     */
-    public function listFlowEntitySnapshot($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listFlowEntitySnapshotWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListFlowInstanceRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -4409,11 +6572,38 @@ class Emr extends OpenApiClient
     public function listFlowInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['FlowId']         = $request->flowId;
+        $query['FlowName']       = $request->flowName;
+        $query['Id']             = $request->id;
+        $query['InstanceId']     = $request->instanceId;
+        $query['NodeInstanceId'] = $request->nodeInstanceId;
+        $query['OrderBy']        = $request->orderBy;
+        $query['OrderType']      = $request->orderType;
+        $query['Owner']          = $request->owner;
+        $query['PageNumber']     = $request->pageNumber;
+        $query['PageSize']       = $request->pageSize;
+        $query['ProjectId']      = $request->projectId;
+        $query['RegionId']       = $request->regionId;
+        $query['StatusList']     = $request->statusList;
+        $query['TimeRange']      = $request->timeRange;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFlowInstance',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFlowInstanceResponse::fromMap($this->doRPCRequest('ListFlowInstance', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4437,11 +6627,32 @@ class Emr extends OpenApiClient
     public function listFlowJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['Adhoc']      = $request->adhoc;
+        $query['Id']         = $request->id;
+        $query['Name']       = $request->name;
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $query['ProjectId']  = $request->projectId;
+        $query['RegionId']   = $request->regionId;
+        $query['Type']       = $request->type;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFlowJob',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFlowJobResponse::fromMap($this->doRPCRequest('ListFlowJob', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFlowJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4465,11 +6676,33 @@ class Emr extends OpenApiClient
     public function listFlowJobHistoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['Id']         = $request->id;
+        $query['InstanceId'] = $request->instanceId;
+        $query['JobType']    = $request->jobType;
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $query['ProjectId']  = $request->projectId;
+        $query['RegionId']   = $request->regionId;
+        $query['StatusList'] = $request->statusList;
+        $query['TimeRange']  = $request->timeRange;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFlowJobHistory',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFlowJobHistoryResponse::fromMap($this->doRPCRequest('ListFlowJobHistory', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFlowJobHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4493,11 +6726,33 @@ class Emr extends OpenApiClient
     public function listFlowNodeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['OrderBy']         = $request->orderBy;
+        $query['OrderType']       = $request->orderType;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['ProjectId']       = $request->projectId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['StartTime']       = $request->startTime;
+        $query['StatusList']      = $request->statusList;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFlowNodeInstance',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFlowNodeInstanceResponse::fromMap($this->doRPCRequest('ListFlowNodeInstance', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFlowNodeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4521,11 +6776,29 @@ class Emr extends OpenApiClient
     public function listFlowNodeInstanceContainerStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['NodeInstanceId'] = $request->nodeInstanceId;
+        $query['PageNumber']     = $request->pageNumber;
+        $query['PageSize']       = $request->pageSize;
+        $query['ProjectId']      = $request->projectId;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFlowNodeInstanceContainerStatus',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFlowNodeInstanceContainerStatusResponse::fromMap($this->doRPCRequest('ListFlowNodeInstanceContainerStatus', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFlowNodeInstanceContainerStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4549,11 +6822,30 @@ class Emr extends OpenApiClient
     public function listFlowNodeSqlResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['Length']         = $request->length;
+        $query['NodeInstanceId'] = $request->nodeInstanceId;
+        $query['Offset']         = $request->offset;
+        $query['ProjectId']      = $request->projectId;
+        $query['RegionId']       = $request->regionId;
+        $query['SqlIndex']       = $request->sqlIndex;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFlowNodeSqlResult',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFlowNodeSqlResultResponse::fromMap($this->doRPCRequest('ListFlowNodeSqlResult', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFlowNodeSqlResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4577,11 +6869,31 @@ class Emr extends OpenApiClient
     public function listFlowProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Name']            = $request->name;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['ProductType']     = $request->productType;
+        $query['ProjectId']       = $request->projectId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFlowProject',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFlowProjectResponse::fromMap($this->doRPCRequest('ListFlowProject', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFlowProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4605,11 +6917,28 @@ class Emr extends OpenApiClient
     public function listFlowProjectClusterSettingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $query['ProjectId']  = $request->projectId;
+        $query['RegionId']   = $request->regionId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFlowProjectClusterSetting',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFlowProjectClusterSettingResponse::fromMap($this->doRPCRequest('ListFlowProjectClusterSetting', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFlowProjectClusterSettingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4633,11 +6962,28 @@ class Emr extends OpenApiClient
     public function listFlowProjectUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $query['ProjectId']  = $request->projectId;
+        $query['RegionId']   = $request->regionId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFlowProjectUser',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFlowProjectUserResponse::fromMap($this->doRPCRequest('ListFlowProjectUser', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFlowProjectUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4661,11 +7007,30 @@ class Emr extends OpenApiClient
     public function listJobExecutionInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                            = [];
+        $query['ExecutionPlanInstanceId'] = $request->executionPlanInstanceId;
+        $query['IsDesc']                  = $request->isDesc;
+        $query['PageNumber']              = $request->pageNumber;
+        $query['PageSize']                = $request->pageSize;
+        $query['RegionId']                = $request->regionId;
+        $query['ResourceOwnerId']         = $request->resourceOwnerId;
+        $req                              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListJobExecutionInstances',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListJobExecutionInstancesResponse::fromMap($this->doRPCRequest('ListJobExecutionInstances', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListJobExecutionInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4681,34 +7046,6 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param ListJobInstanceWorkersRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ListJobInstanceWorkersResponse
-     */
-    public function listJobInstanceWorkersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListJobInstanceWorkersResponse::fromMap($this->doRPCRequest('ListJobInstanceWorkers', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListJobInstanceWorkersRequest $request
-     *
-     * @return ListJobInstanceWorkersResponse
-     */
-    public function listJobInstanceWorkers($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listJobInstanceWorkersWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListJobsRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -4717,11 +7054,32 @@ class Emr extends OpenApiClient
     public function listJobsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['IsDesc']          = $request->isDesc;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['QueryString']     = $request->queryString;
+        $query['QueryType']       = $request->queryType;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListJobs',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListJobsResponse::fromMap($this->doRPCRequest('ListJobs', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4745,11 +7103,34 @@ class Emr extends OpenApiClient
     public function listLibrariesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterBizId']    = $request->clusterBizId;
+        $query['CurrentSize']     = $request->currentSize;
+        $query['Limit']           = $request->limit;
+        $query['OrderField']      = $request->orderField;
+        $query['OrderMode']       = $request->orderMode;
+        $query['PageCount']       = $request->pageCount;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListLibraries',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListLibrariesResponse::fromMap($this->doRPCRequest('ListLibraries', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListLibrariesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4773,11 +7154,35 @@ class Emr extends OpenApiClient
     public function listLibraryInstallTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterBizId']    = $request->clusterBizId;
+        $query['CurrentSize']     = $request->currentSize;
+        $query['LibraryBizId']    = $request->libraryBizId;
+        $query['Limit']           = $request->limit;
+        $query['OrderField']      = $request->orderField;
+        $query['OrderMode']       = $request->orderMode;
+        $query['PageCount']       = $request->pageCount;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListLibraryInstallTasks',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListLibraryInstallTasksResponse::fromMap($this->doRPCRequest('ListLibraryInstallTasks', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListLibraryInstallTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4801,11 +7206,35 @@ class Emr extends OpenApiClient
     public function listLibraryStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterBizId']    = $request->clusterBizId;
+        $query['CurrentSize']     = $request->currentSize;
+        $query['LibraryBizId']    = $request->libraryBizId;
+        $query['Limit']           = $request->limit;
+        $query['OrderField']      = $request->orderField;
+        $query['OrderMode']       = $request->orderMode;
+        $query['PageCount']       = $request->pageCount;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListLibraryStatus',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListLibraryStatusResponse::fromMap($this->doRPCRequest('ListLibraryStatus', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListLibraryStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4821,87 +7250,48 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param ListMetaClusterRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param ListLocalDiskComponentInfoRequest $request
+     * @param RuntimeOptions                    $runtime
      *
-     * @return ListMetaClusterResponse
+     * @return ListLocalDiskComponentInfoResponse
      */
-    public function listMetaClusterWithOptions($request, $runtime)
+    public function listLocalDiskComponentInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['InstanceId']      = $request->instanceId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListLocalDiskComponentInfo',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListMetaClusterResponse::fromMap($this->doRPCRequest('ListMetaCluster', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListLocalDiskComponentInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListMetaClusterRequest $request
+     * @param ListLocalDiskComponentInfoRequest $request
      *
-     * @return ListMetaClusterResponse
+     * @return ListLocalDiskComponentInfoResponse
      */
-    public function listMetaCluster($request)
+    public function listLocalDiskComponentInfo($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listMetaClusterWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListMetaDataSourceClusterForOuterRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return ListMetaDataSourceClusterForOuterResponse
-     */
-    public function listMetaDataSourceClusterForOuterWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListMetaDataSourceClusterForOuterResponse::fromMap($this->doRPCRequest('ListMetaDataSourceClusterForOuter', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListMetaDataSourceClusterForOuterRequest $request
-     *
-     * @return ListMetaDataSourceClusterForOuterResponse
-     */
-    public function listMetaDataSourceClusterForOuter($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listMetaDataSourceClusterForOuterWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListNotesRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ListNotesResponse
-     */
-    public function listNotesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListNotesResponse::fromMap($this->doRPCRequest('ListNotes', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListNotesRequest $request
-     *
-     * @return ListNotesResponse
-     */
-    public function listNotes($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listNotesWithOptions($request, $runtime);
+        return $this->listLocalDiskComponentInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -4913,11 +7303,30 @@ class Emr extends OpenApiClient
     public function listResourcePoolWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['PoolType']        = $request->poolType;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListResourcePool',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListResourcePoolResponse::fromMap($this->doRPCRequest('ListResourcePool', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListResourcePoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4941,11 +7350,27 @@ class Emr extends OpenApiClient
     public function listRolesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ResourceType']    = $request->resourceType;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRoles',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListRolesResponse::fromMap($this->doRPCRequest('ListRoles', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListRolesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4969,11 +7394,40 @@ class Emr extends OpenApiClient
     public function listScalingActivityV2WithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['ClusterBizId']      = $request->clusterBizId;
+        $query['CurrentSize']       = $request->currentSize;
+        $query['HostGroupId']       = $request->hostGroupId;
+        $query['HostGroupName']     = $request->hostGroupName;
+        $query['Limit']             = $request->limit;
+        $query['OrderField']        = $request->orderField;
+        $query['OrderMode']         = $request->orderMode;
+        $query['PageCount']         = $request->pageCount;
+        $query['PageNumber']        = $request->pageNumber;
+        $query['PageSize']          = $request->pageSize;
+        $query['RegionId']          = $request->regionId;
+        $query['ResourceGroupId']   = $request->resourceGroupId;
+        $query['ResourceOwnerId']   = $request->resourceOwnerId;
+        $query['ScalingGroupBizId'] = $request->scalingGroupBizId;
+        $query['ScalingRuleName']   = $request->scalingRuleName;
+        $query['Status']            = $request->status;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListScalingActivityV2',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListScalingActivityV2Response::fromMap($this->doRPCRequest('ListScalingActivityV2', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListScalingActivityV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4997,11 +7451,31 @@ class Emr extends OpenApiClient
     public function listScalingConfigItemV2WithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['ConfigItemType']    = $request->configItemType;
+        $query['PageNumber']        = $request->pageNumber;
+        $query['PageSize']          = $request->pageSize;
+        $query['RegionId']          = $request->regionId;
+        $query['ResourceGroupId']   = $request->resourceGroupId;
+        $query['ResourceOwnerId']   = $request->resourceOwnerId;
+        $query['ScalingGroupBizId'] = $request->scalingGroupBizId;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListScalingConfigItemV2',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListScalingConfigItemV2Response::fromMap($this->doRPCRequest('ListScalingConfigItemV2', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListScalingConfigItemV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5025,11 +7499,35 @@ class Emr extends OpenApiClient
     public function listScalingGroupV2WithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterBizId']    = $request->clusterBizId;
+        $query['CurrentSize']     = $request->currentSize;
+        $query['Limit']           = $request->limit;
+        $query['OrderField']      = $request->orderField;
+        $query['OrderMode']       = $request->orderMode;
+        $query['PageCount']       = $request->pageCount;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListScalingGroupV2',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListScalingGroupV2Response::fromMap($this->doRPCRequest('ListScalingGroupV2', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListScalingGroupV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5053,11 +7551,29 @@ class Emr extends OpenApiClient
     public function listSecurityGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['DepositType'] = $request->depositType;
+        $query['NetType']     = $request->netType;
+        $query['ProductType'] = $request->productType;
+        $query['RegionId']    = $request->regionId;
+        $query['VpcId']       = $request->vpcId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSecurityGroup',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListSecurityGroupResponse::fromMap($this->doRPCRequest('ListSecurityGroup', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5081,11 +7597,30 @@ class Emr extends OpenApiClient
     public function listStackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['StackName']       = $request->stackName;
+        $query['StackVersion']    = $request->stackVersion;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListStack',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListStackResponse::fromMap($this->doRPCRequest('ListStack', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListStackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5109,11 +7644,31 @@ class Emr extends OpenApiClient
     public function listTagKeysWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Category']        = $request->category;
+        $query['NextToken']       = $request->nextToken;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ResourceType']    = $request->resourceType;
+        $query['Scope']           = $request->scope;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagKeys',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTagKeysResponse::fromMap($this->doRPCRequest('ListTagKeys', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5137,11 +7692,30 @@ class Emr extends OpenApiClient
     public function listTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['NextToken']       = $request->nextToken;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceId']      = $request->resourceId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ResourceType']    = $request->resourceType;
+        $query['Tag']             = $request->tag;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTagResourcesResponse::fromMap($this->doRPCRequest('ListTagResources', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5165,11 +7739,31 @@ class Emr extends OpenApiClient
     public function listTagValuesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Key']             = $request->key;
+        $query['NextToken']       = $request->nextToken;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ResourceType']    = $request->resourceType;
+        $query['Scope']           = $request->scope;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagValues',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTagValuesResponse::fromMap($this->doRPCRequest('ListTagValues', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5193,11 +7787,28 @@ class Emr extends OpenApiClient
     public function listUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['Type']            = $request->type;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUsers',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListUsersResponse::fromMap($this->doRPCRequest('ListUsers', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5221,11 +7832,29 @@ class Emr extends OpenApiClient
     public function listVswitchWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['DepositType'] = $request->depositType;
+        $query['ProductType'] = $request->productType;
+        $query['RegionId']    = $request->regionId;
+        $query['VpcId']       = $request->vpcId;
+        $query['ZoneId']      = $request->zoneId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVswitch',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListVswitchResponse::fromMap($this->doRPCRequest('ListVswitch', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListVswitchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5249,11 +7878,29 @@ class Emr extends OpenApiClient
     public function modifyClusterBootstrapActionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['BootstrapAction'] = $request->bootstrapAction;
+        $query['ClusterId']       = $request->clusterId;
+        $query['Id']              = $request->id;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyClusterBootstrapAction',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyClusterBootstrapActionResponse::fromMap($this->doRPCRequest('ModifyClusterBootstrapAction', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyClusterBootstrapActionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5277,11 +7924,32 @@ class Emr extends OpenApiClient
     public function modifyClusterHostGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['Comment']         = $request->comment;
+        $query['HostGroupId']     = $request->hostGroupId;
+        $query['HostGroupName']   = $request->hostGroupName;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['SecurityGroupId'] = $request->securityGroupId;
+        $query['VswitchId']       = $request->vswitchId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyClusterHostGroup',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyClusterHostGroupResponse::fromMap($this->doRPCRequest('ModifyClusterHostGroup', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyClusterHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5305,11 +7973,28 @@ class Emr extends OpenApiClient
     public function modifyClusterMetaCollectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['SwitchOn']        = $request->switchOn;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyClusterMetaCollect',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyClusterMetaCollectResponse::fromMap($this->doRPCRequest('ModifyClusterMetaCollect', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyClusterMetaCollectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5333,11 +8018,28 @@ class Emr extends OpenApiClient
     public function modifyClusterNameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Id']              = $request->id;
+        $query['Name']            = $request->name;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyClusterName',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyClusterNameResponse::fromMap($this->doRPCRequest('ModifyClusterName', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyClusterNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5361,11 +8063,32 @@ class Emr extends OpenApiClient
     public function modifyClusterSecurityGroupRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['IpProtocol']      = $request->ipProtocol;
+        $query['ModifyType']      = $request->modifyType;
+        $query['NicType']         = $request->nicType;
+        $query['PortRange']       = $request->portRange;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['WhiteIp']         = $request->whiteIp;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyClusterSecurityGroupRule',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyClusterSecurityGroupRuleResponse::fromMap($this->doRPCRequest('ModifyClusterSecurityGroupRule', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyClusterSecurityGroupRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5389,11 +8112,36 @@ class Emr extends OpenApiClient
     public function modifyClusterServiceConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['ClusterId']            = $request->clusterId;
+        $query['Comment']              = $request->comment;
+        $query['ConfigParams']         = $request->configParams;
+        $query['ConfigType']           = $request->configType;
+        $query['CustomConfigParams']   = $request->customConfigParams;
+        $query['GatewayClusterIdList'] = $request->gatewayClusterIdList;
+        $query['GroupId']              = $request->groupId;
+        $query['HostInstanceId']       = $request->hostInstanceId;
+        $query['RefreshHostConfig']    = $request->refreshHostConfig;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['ServiceName']          = $request->serviceName;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyClusterServiceConfig',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyClusterServiceConfigResponse::fromMap($this->doRPCRequest('ModifyClusterServiceConfig', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyClusterServiceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5417,11 +8165,63 @@ class Emr extends OpenApiClient
     public function modifyClusterTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                           = [];
+        $query['AutoRenew']              = $request->autoRenew;
+        $query['BizId']                  = $request->bizId;
+        $query['BootstrapAction']        = $request->bootstrapAction;
+        $query['ChargeType']             = $request->chargeType;
+        $query['ClusterType']            = $request->clusterType;
+        $query['Config']                 = $request->config;
+        $query['Configurations']         = $request->configurations;
+        $query['DepositType']            = $request->depositType;
+        $query['EasEnable']              = $request->easEnable;
+        $query['EmrVer']                 = $request->emrVer;
+        $query['HighAvailabilityEnable'] = $request->highAvailabilityEnable;
+        $query['HostGroup']              = $request->hostGroup;
+        $query['InitCustomHiveMetaDb']   = $request->initCustomHiveMetaDb;
+        $query['InstanceGeneration']     = $request->instanceGeneration;
+        $query['IoOptimized']            = $request->ioOptimized;
+        $query['IsOpenPublicIp']         = $request->isOpenPublicIp;
+        $query['KeyPairName']            = $request->keyPairName;
+        $query['LogPath']                = $request->logPath;
+        $query['MachineType']            = $request->machineType;
+        $query['MasterPwd']              = $request->masterPwd;
+        $query['MetaStoreConf']          = $request->metaStoreConf;
+        $query['MetaStoreType']          = $request->metaStoreType;
+        $query['NetType']                = $request->netType;
+        $query['OptionSoftWareList']     = $request->optionSoftWareList;
+        $query['Period']                 = $request->period;
+        $query['RegionId']               = $request->regionId;
+        $query['ResourceGroupId']        = $request->resourceGroupId;
+        $query['ResourceOwnerId']        = $request->resourceOwnerId;
+        $query['SecurityGroupId']        = $request->securityGroupId;
+        $query['SecurityGroupName']      = $request->securityGroupName;
+        $query['SshEnable']              = $request->sshEnable;
+        $query['Tag']                    = $request->tag;
+        $query['TemplateName']           = $request->templateName;
+        $query['UseCustomHiveMetaDb']    = $request->useCustomHiveMetaDb;
+        $query['UseLocalMetaDb']         = $request->useLocalMetaDb;
+        $query['UserDefinedEmrEcsRole']  = $request->userDefinedEmrEcsRole;
+        $query['VSwitchId']              = $request->vSwitchId;
+        $query['VpcId']                  = $request->vpcId;
+        $query['ZoneId']                 = $request->zoneId;
+        $req                             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyClusterTemplate',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyClusterTemplateResponse::fromMap($this->doRPCRequest('ModifyClusterTemplate', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyClusterTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5445,11 +8245,63 @@ class Emr extends OpenApiClient
     public function modifyExecutionPlanWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                           = [];
+        $query['BootstrapAction']        = $request->bootstrapAction;
+        $query['ClusterId']              = $request->clusterId;
+        $query['ClusterName']            = $request->clusterName;
+        $query['ClusterType']            = $request->clusterType;
+        $query['Config']                 = $request->config;
+        $query['Configurations']         = $request->configurations;
+        $query['CreateClusterOnDemand']  = $request->createClusterOnDemand;
+        $query['DayOfMonth']             = $request->dayOfMonth;
+        $query['DayOfWeek']              = $request->dayOfWeek;
+        $query['EasEnable']              = $request->easEnable;
+        $query['EcsOrder']               = $request->ecsOrder;
+        $query['EmrVer']                 = $request->emrVer;
+        $query['ExecutionPlanVersion']   = $request->executionPlanVersion;
+        $query['HighAvailabilityEnable'] = $request->highAvailabilityEnable;
+        $query['Id']                     = $request->id;
+        $query['InitCustomHiveMetaDB']   = $request->initCustomHiveMetaDB;
+        $query['InstanceGeneration']     = $request->instanceGeneration;
+        $query['IoOptimized']            = $request->ioOptimized;
+        $query['IsOpenPublicIp']         = $request->isOpenPublicIp;
+        $query['JobIdList']              = $request->jobIdList;
+        $query['LogEnable']              = $request->logEnable;
+        $query['LogPath']                = $request->logPath;
+        $query['Name']                   = $request->name;
+        $query['NetType']                = $request->netType;
+        $query['OptionSoftWareList']     = $request->optionSoftWareList;
+        $query['RegionId']               = $request->regionId;
+        $query['ResourceOwnerId']        = $request->resourceOwnerId;
+        $query['SecurityGroupId']        = $request->securityGroupId;
+        $query['StartTime']              = $request->startTime;
+        $query['Strategy']               = $request->strategy;
+        $query['TimeInterval']           = $request->timeInterval;
+        $query['TimeUnit']               = $request->timeUnit;
+        $query['UseCustomHiveMetaDB']    = $request->useCustomHiveMetaDB;
+        $query['UseLocalMetaDb']         = $request->useLocalMetaDb;
+        $query['UserDefinedEmrEcsRole']  = $request->userDefinedEmrEcsRole;
+        $query['VSwitchId']              = $request->vSwitchId;
+        $query['VpcId']                  = $request->vpcId;
+        $query['WorkflowDefinition']     = $request->workflowDefinition;
+        $query['ZoneId']                 = $request->zoneId;
+        $req                             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyExecutionPlan',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyExecutionPlanResponse::fromMap($this->doRPCRequest('ModifyExecutionPlan', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyExecutionPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5473,11 +8325,46 @@ class Emr extends OpenApiClient
     public function modifyFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                            = [];
+        $query['AlertConf']               = $request->alertConf;
+        $query['AlertDingDingGroupBizId'] = $request->alertDingDingGroupBizId;
+        $query['AlertUserGroupBizId']     = $request->alertUserGroupBizId;
+        $query['Application']             = $request->application;
+        $query['ClusterId']               = $request->clusterId;
+        $query['CreateCluster']           = $request->createCluster;
+        $query['CronExpr']                = $request->cronExpr;
+        $query['Description']             = $request->description;
+        $query['EndSchedule']             = $request->endSchedule;
+        $query['HostName']                = $request->hostName;
+        $query['Id']                      = $request->id;
+        $query['Lifecycle']               = $request->lifecycle;
+        $query['LogArchiveLocation']      = $request->logArchiveLocation;
+        $query['Name']                    = $request->name;
+        $query['Namespace']               = $request->namespace_;
+        $query['ParentCategory']          = $request->parentCategory;
+        $query['ParentFlowList']          = $request->parentFlowList;
+        $query['Periodic']                = $request->periodic;
+        $query['ProjectId']               = $request->projectId;
+        $query['RegionId']                = $request->regionId;
+        $query['StartSchedule']           = $request->startSchedule;
+        $query['Status']                  = $request->status;
+        $req                              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyFlow',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyFlowResponse::fromMap($this->doRPCRequest('ModifyFlow', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5501,11 +8388,29 @@ class Emr extends OpenApiClient
     public function modifyFlowCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['Id']        = $request->id;
+        $query['Name']      = $request->name;
+        $query['ParentId']  = $request->parentId;
+        $query['ProjectId'] = $request->projectId;
+        $query['RegionId']  = $request->regionId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyFlowCategory',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyFlowCategoryResponse::fromMap($this->doRPCRequest('ModifyFlowCategory', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyFlowCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5529,11 +8434,46 @@ class Emr extends OpenApiClient
     public function modifyFlowForWebWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                            = [];
+        $query['AlertConf']               = $request->alertConf;
+        $query['AlertDingDingGroupBizId'] = $request->alertDingDingGroupBizId;
+        $query['AlertUserGroupBizId']     = $request->alertUserGroupBizId;
+        $query['ClusterId']               = $request->clusterId;
+        $query['CreateCluster']           = $request->createCluster;
+        $query['CronExpr']                = $request->cronExpr;
+        $query['Description']             = $request->description;
+        $query['EndSchedule']             = $request->endSchedule;
+        $query['Graph']                   = $request->graph;
+        $query['HostName']                = $request->hostName;
+        $query['Id']                      = $request->id;
+        $query['Lifecycle']               = $request->lifecycle;
+        $query['LogArchiveLocation']      = $request->logArchiveLocation;
+        $query['Name']                    = $request->name;
+        $query['Namespace']               = $request->namespace_;
+        $query['ParentCategory']          = $request->parentCategory;
+        $query['ParentFlowList']          = $request->parentFlowList;
+        $query['Periodic']                = $request->periodic;
+        $query['ProjectId']               = $request->projectId;
+        $query['RegionId']                = $request->regionId;
+        $query['StartSchedule']           = $request->startSchedule;
+        $query['Status']                  = $request->status;
+        $req                              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyFlowForWeb',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyFlowForWebResponse::fromMap($this->doRPCRequest('ModifyFlowForWeb', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyFlowForWebResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5557,11 +8497,44 @@ class Emr extends OpenApiClient
     public function modifyFlowJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['AlertConf']         = $request->alertConf;
+        $query['ClusterId']         = $request->clusterId;
+        $query['CustomVariables']   = $request->customVariables;
+        $query['Description']       = $request->description;
+        $query['EnvConf']           = $request->envConf;
+        $query['FailAct']           = $request->failAct;
+        $query['Id']                = $request->id;
+        $query['MaxRetry']          = $request->maxRetry;
+        $query['MaxRunningTimeSec'] = $request->maxRunningTimeSec;
+        $query['Mode']              = $request->mode;
+        $query['MonitorConf']       = $request->monitorConf;
+        $query['Name']              = $request->name;
+        $query['ParamConf']         = $request->paramConf;
+        $query['Params']            = $request->params;
+        $query['ProjectId']         = $request->projectId;
+        $query['RegionId']          = $request->regionId;
+        $query['ResourceList']      = $request->resourceList;
+        $query['RetryInterval']     = $request->retryInterval;
+        $query['RetryPolicy']       = $request->retryPolicy;
+        $query['RunConf']           = $request->runConf;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyFlowJob',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyFlowJobResponse::fromMap($this->doRPCRequest('ModifyFlowJob', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyFlowJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5585,11 +8558,28 @@ class Emr extends OpenApiClient
     public function modifyFlowProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['Description'] = $request->description;
+        $query['Name']        = $request->name;
+        $query['ProjectId']   = $request->projectId;
+        $query['RegionId']    = $request->regionId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyFlowProject',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyFlowProjectResponse::fromMap($this->doRPCRequest('ModifyFlowProject', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyFlowProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5613,11 +8603,32 @@ class Emr extends OpenApiClient
     public function modifyFlowProjectClusterSettingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['ClusterId']    = $request->clusterId;
+        $query['DefaultQueue'] = $request->defaultQueue;
+        $query['DefaultUser']  = $request->defaultUser;
+        $query['HostList']     = $request->hostList;
+        $query['ProjectId']    = $request->projectId;
+        $query['QueueList']    = $request->queueList;
+        $query['RegionId']     = $request->regionId;
+        $query['UserList']     = $request->userList;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyFlowProjectClusterSetting',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyFlowProjectClusterSettingResponse::fromMap($this->doRPCRequest('ModifyFlowProjectClusterSetting', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyFlowProjectClusterSettingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5641,11 +8652,34 @@ class Emr extends OpenApiClient
     public function modifyJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['FailAct']         = $request->failAct;
+        $query['Id']              = $request->id;
+        $query['MaxRetry']        = $request->maxRetry;
+        $query['Name']            = $request->name;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['RetryInterval']   = $request->retryInterval;
+        $query['RunParameter']    = $request->runParameter;
+        $query['Type']            = $request->type;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyJob',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyJobResponse::fromMap($this->doRPCRequest('ModifyJob', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5669,11 +8703,32 @@ class Emr extends OpenApiClient
     public function modifyResourcePoolWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Active']          = $request->active;
+        $query['ClusterId']       = $request->clusterId;
+        $query['Config']          = $request->config;
+        $query['Id']              = $request->id;
+        $query['Name']            = $request->name;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['Yarnsiteconfig']  = $request->yarnsiteconfig;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyResourcePool',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyResourcePoolResponse::fromMap($this->doRPCRequest('ModifyResourcePool', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyResourcePoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5697,11 +8752,28 @@ class Emr extends OpenApiClient
     public function modifyResourcePoolSchedulerTypeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['SchedulerType']   = $request->schedulerType;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyResourcePoolSchedulerType',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyResourcePoolSchedulerTypeResponse::fromMap($this->doRPCRequest('ModifyResourcePoolSchedulerType', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyResourcePoolSchedulerTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5725,11 +8797,34 @@ class Emr extends OpenApiClient
     public function modifyResourceQueueWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['Config']          = $request->config;
+        $query['Id']              = $request->id;
+        $query['Leaf']            = $request->leaf;
+        $query['Name']            = $request->name;
+        $query['ParentQueueId']   = $request->parentQueueId;
+        $query['QualifiedName']   = $request->qualifiedName;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ResourcePoolId']  = $request->resourcePoolId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyResourceQueue',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyResourceQueueResponse::fromMap($this->doRPCRequest('ModifyResourceQueue', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyResourceQueueResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5753,11 +8848,31 @@ class Emr extends OpenApiClient
     public function modifyScalingConfigItemV2WithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                          = [];
+        $query['ConfigItemBizId']       = $request->configItemBizId;
+        $query['ConfigItemInformation'] = $request->configItemInformation;
+        $query['ConfigItemType']        = $request->configItemType;
+        $query['RegionId']              = $request->regionId;
+        $query['ResourceGroupId']       = $request->resourceGroupId;
+        $query['ResourceOwnerId']       = $request->resourceOwnerId;
+        $query['ScalingGroupBizId']     = $request->scalingGroupBizId;
+        $req                            = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyScalingConfigItemV2',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyScalingConfigItemV2Response::fromMap($this->doRPCRequest('ModifyScalingConfigItemV2', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyScalingConfigItemV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5781,11 +8896,30 @@ class Emr extends OpenApiClient
     public function modifyScalingGroupV2WithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['Description']       = $request->description;
+        $query['Name']              = $request->name;
+        $query['RegionId']          = $request->regionId;
+        $query['ResourceGroupId']   = $request->resourceGroupId;
+        $query['ResourceOwnerId']   = $request->resourceOwnerId;
+        $query['ScalingGroupBizId'] = $request->scalingGroupBizId;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyScalingGroupV2',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyScalingGroupV2Response::fromMap($this->doRPCRequest('ModifyScalingGroupV2', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyScalingGroupV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5809,11 +8943,42 @@ class Emr extends OpenApiClient
     public function modifyScalingRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AdjustmentType']       = $request->adjustmentType;
+        $query['AdjustmentValue']      = $request->adjustmentValue;
+        $query['CloudWatchTrigger']    = $request->cloudWatchTrigger;
+        $query['ClusterId']            = $request->clusterId;
+        $query['Cooldown']             = $request->cooldown;
+        $query['HostGroupId']          = $request->hostGroupId;
+        $query['LaunchExpirationTime'] = $request->launchExpirationTime;
+        $query['LaunchTime']           = $request->launchTime;
+        $query['RecurrenceEndTime']    = $request->recurrenceEndTime;
+        $query['RecurrenceType']       = $request->recurrenceType;
+        $query['RecurrenceValue']      = $request->recurrenceValue;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['RuleName']             = $request->ruleName;
+        $query['ScalingRuleId']        = $request->scalingRuleId;
+        $query['SchedulerTrigger']     = $request->schedulerTrigger;
+        $query['TimeoutWithGrace']     = $request->timeoutWithGrace;
+        $query['WithGrace']            = $request->withGrace;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyScalingRule',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyScalingRuleResponse::fromMap($this->doRPCRequest('ModifyScalingRule', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5837,11 +9002,34 @@ class Emr extends OpenApiClient
     public function modifyScalingTaskGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['ActiveRuleCategory'] = $request->activeRuleCategory;
+        $query['ClusterId']          = $request->clusterId;
+        $query['DefaultCooldown']    = $request->defaultCooldown;
+        $query['HostGroupId']        = $request->hostGroupId;
+        $query['MaxSize']            = $request->maxSize;
+        $query['MinSize']            = $request->minSize;
+        $query['RegionId']           = $request->regionId;
+        $query['ResourceOwnerId']    = $request->resourceOwnerId;
+        $query['TimeoutWithGrace']   = $request->timeoutWithGrace;
+        $query['WithGrace']          = $request->withGrace;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyScalingTaskGroup',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyScalingTaskGroupResponse::fromMap($this->doRPCRequest('ModifyScalingTaskGroup', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyScalingTaskGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5857,34 +9045,6 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param QueryAlarmHistoryRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return QueryAlarmHistoryResponse
-     */
-    public function queryAlarmHistoryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryAlarmHistoryResponse::fromMap($this->doRPCRequest('QueryAlarmHistory', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryAlarmHistoryRequest $request
-     *
-     * @return QueryAlarmHistoryResponse
-     */
-    public function queryAlarmHistory($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryAlarmHistoryWithOptions($request, $runtime);
-    }
-
-    /**
      * @param QueryEntityRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -5893,11 +9053,30 @@ class Emr extends OpenApiClient
     public function queryEntityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Category']        = $request->category;
+        $query['Description']     = $request->description;
+        $query['Id']              = $request->id;
+        $query['Name']            = $request->name;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryEntity',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryEntityResponse::fromMap($this->doRPCRequest('QueryEntity', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryEntityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5913,34 +9092,6 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param QueryTableDataRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return QueryTableDataResponse
-     */
-    public function queryTableDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryTableDataResponse::fromMap($this->doRPCRequest('QueryTableData', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryTableDataRequest $request
-     *
-     * @return QueryTableDataResponse
-     */
-    public function queryTableData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryTableDataWithOptions($request, $runtime);
-    }
-
-    /**
      * @param QueryTagRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -5949,11 +9100,29 @@ class Emr extends OpenApiClient
     public function queryTagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['EntityId']        = $request->entityId;
+        $query['EntityType']      = $request->entityType;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['TagId']           = $request->tagId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryTag',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryTagResponse::fromMap($this->doRPCRequest('QueryTag', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5969,34 +9138,6 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param QueryTrendDataRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return QueryTrendDataResponse
-     */
-    public function queryTrendDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryTrendDataResponse::fromMap($this->doRPCRequest('QueryTrendData', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryTrendDataRequest $request
-     *
-     * @return QueryTrendDataResponse
-     */
-    public function queryTrendData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryTrendDataWithOptions($request, $runtime);
-    }
-
-    /**
      * @param RefreshClusterResourcePoolRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -6005,11 +9146,28 @@ class Emr extends OpenApiClient
     public function refreshClusterResourcePoolWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ResourcePoolId']  = $request->resourcePoolId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshClusterResourcePool',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RefreshClusterResourcePoolResponse::fromMap($this->doRPCRequest('RefreshClusterResourcePool', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RefreshClusterResourcePoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6033,11 +9191,28 @@ class Emr extends OpenApiClient
     public function releaseClusterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ForceRelease']    = $request->forceRelease;
+        $query['Id']              = $request->id;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleaseCluster',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ReleaseClusterResponse::fromMap($this->doRPCRequest('ReleaseCluster', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReleaseClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6053,34 +9228,6 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param ReleaseClusterByTemplateTagForInternalRequest $request
-     * @param RuntimeOptions                                $runtime
-     *
-     * @return ReleaseClusterByTemplateTagForInternalResponse
-     */
-    public function releaseClusterByTemplateTagForInternalWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ReleaseClusterByTemplateTagForInternalResponse::fromMap($this->doRPCRequest('ReleaseClusterByTemplateTagForInternal', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ReleaseClusterByTemplateTagForInternalRequest $request
-     *
-     * @return ReleaseClusterByTemplateTagForInternalResponse
-     */
-    public function releaseClusterByTemplateTagForInternal($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->releaseClusterByTemplateTagForInternalWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ReleaseClusterHostGroupRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -6089,11 +9236,29 @@ class Emr extends OpenApiClient
     public function releaseClusterHostGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['HostGroupId']     = $request->hostGroupId;
+        $query['InstanceIdList']  = $request->instanceIdList;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleaseClusterHostGroup',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ReleaseClusterHostGroupResponse::fromMap($this->doRPCRequest('ReleaseClusterHostGroup', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReleaseClusterHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6117,11 +9282,30 @@ class Emr extends OpenApiClient
     public function removeScalingConfigItemV2WithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['ConfigItemBizId']   = $request->configItemBizId;
+        $query['ConfigItemType']    = $request->configItemType;
+        $query['RegionId']          = $request->regionId;
+        $query['ResourceGroupId']   = $request->resourceGroupId;
+        $query['ResourceOwnerId']   = $request->resourceOwnerId;
+        $query['ScalingGroupBizId'] = $request->scalingGroupBizId;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveScalingConfigItemV2',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveScalingConfigItemV2Response::fromMap($this->doRPCRequest('RemoveScalingConfigItemV2', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveScalingConfigItemV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6145,11 +9329,28 @@ class Emr extends OpenApiClient
     public function rerunFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['FlowInstanceId'] = $request->flowInstanceId;
+        $query['ProjectId']      = $request->projectId;
+        $query['ReRunFail']      = $request->reRunFail;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RerunFlow',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RerunFlowResponse::fromMap($this->doRPCRequest('RerunFlow', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RerunFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6173,11 +9374,32 @@ class Emr extends OpenApiClient
     public function resizeClusterV2WithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['AutoPayOrder']      = $request->autoPayOrder;
+        $query['ClusterId']         = $request->clusterId;
+        $query['HostComponentInfo'] = $request->hostComponentInfo;
+        $query['HostGroup']         = $request->hostGroup;
+        $query['IsOpenPublicIp']    = $request->isOpenPublicIp;
+        $query['PromotionInfo']     = $request->promotionInfo;
+        $query['RegionId']          = $request->regionId;
+        $query['VswitchId']         = $request->vswitchId;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ResizeClusterV2',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ResizeClusterV2Response::fromMap($this->doRPCRequest('ResizeClusterV2', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ResizeClusterV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6193,62 +9415,6 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param RestoreBackupRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return RestoreBackupResponse
-     */
-    public function restoreBackupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RestoreBackupResponse::fromMap($this->doRPCRequest('RestoreBackup', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RestoreBackupRequest $request
-     *
-     * @return RestoreBackupResponse
-     */
-    public function restoreBackup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->restoreBackupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RestoreFlowEntitySnapshotRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return RestoreFlowEntitySnapshotResponse
-     */
-    public function restoreFlowEntitySnapshotWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RestoreFlowEntitySnapshotResponse::fromMap($this->doRPCRequest('RestoreFlowEntitySnapshot', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RestoreFlowEntitySnapshotRequest $request
-     *
-     * @return RestoreFlowEntitySnapshotResponse
-     */
-    public function restoreFlowEntitySnapshot($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->restoreFlowEntitySnapshotWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ResumeExecutionPlanSchedulerRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -6257,11 +9423,27 @@ class Emr extends OpenApiClient
     public function resumeExecutionPlanSchedulerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Id']              = $request->id;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ResumeExecutionPlanScheduler',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ResumeExecutionPlanSchedulerResponse::fromMap($this->doRPCRequest('ResumeExecutionPlanScheduler', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ResumeExecutionPlanSchedulerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6285,11 +9467,27 @@ class Emr extends OpenApiClient
     public function resumeFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['FlowInstanceId'] = $request->flowInstanceId;
+        $query['ProjectId']      = $request->projectId;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ResumeFlow',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ResumeFlowResponse::fromMap($this->doRPCRequest('ResumeFlow', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ResumeFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6313,11 +9511,27 @@ class Emr extends OpenApiClient
     public function retryOperationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['OperationId']     = $request->operationId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RetryOperation',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RetryOperationResponse::fromMap($this->doRPCRequest('RetryOperation', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RetryOperationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6341,11 +9555,42 @@ class Emr extends OpenApiClient
     public function runClusterServiceActionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                                = [];
+        $query['ClusterId']                   = $request->clusterId;
+        $query['Comment']                     = $request->comment;
+        $query['ComponentNameList']           = $request->componentNameList;
+        $query['CustomCommand']               = $request->customCommand;
+        $query['CustomParams']                = $request->customParams;
+        $query['ExecuteStrategy']             = $request->executeStrategy;
+        $query['HostGroupIdList']             = $request->hostGroupIdList;
+        $query['HostIdList']                  = $request->hostIdList;
+        $query['Interval']                    = $request->interval;
+        $query['IsRolling']                   = $request->isRolling;
+        $query['NodeCountPerBatch']           = $request->nodeCountPerBatch;
+        $query['OnlyRestartStaleConfigNodes'] = $request->onlyRestartStaleConfigNodes;
+        $query['RegionId']                    = $request->regionId;
+        $query['ResourceOwnerId']             = $request->resourceOwnerId;
+        $query['ServiceActionName']           = $request->serviceActionName;
+        $query['ServiceName']                 = $request->serviceName;
+        $query['TotlerateFailCount']          = $request->totlerateFailCount;
+        $query['TurnOnMaintenanceMode']       = $request->turnOnMaintenanceMode;
+        $req                                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RunClusterServiceAction',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RunClusterServiceActionResponse::fromMap($this->doRPCRequest('RunClusterServiceAction', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RunClusterServiceActionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6358,6 +9603,55 @@ class Emr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->runClusterServiceActionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RunDiskOpsActivityRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RunDiskOpsActivityResponse
+     */
+    public function runDiskOpsActivityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['CurrentStage']    = $request->currentStage;
+        $query['CurrentState']    = $request->currentState;
+        $query['DiskId']          = $request->diskId;
+        $query['EventId']         = $request->eventId;
+        $query['InstanceId']      = $request->instanceId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RunDiskOpsActivity',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunDiskOpsActivityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RunDiskOpsActivityRequest $request
+     *
+     * @return RunDiskOpsActivityResponse
+     */
+    public function runDiskOpsActivity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runDiskOpsActivityWithOptions($request, $runtime);
     }
 
     /**
@@ -6374,11 +9668,28 @@ class Emr extends OpenApiClient
         if (!Utils::isUnset($tmpReq->arguments)) {
             $request->argumentsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->arguments, 'Arguments', 'json');
         }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Arguments']       = $request->argumentsShrink;
+        $query['Id']              = $request->id;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RunExecutionPlan',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RunExecutionPlanResponse::fromMap($this->doRPCRequest('RunExecutionPlan', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RunExecutionPlanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6402,11 +9713,30 @@ class Emr extends OpenApiClient
     public function runScalingActionV2WithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['ActionParam']       = $request->actionParam;
+        $query['RegionId']          = $request->regionId;
+        $query['ResourceGroupId']   = $request->resourceGroupId;
+        $query['ResourceOwnerId']   = $request->resourceOwnerId;
+        $query['ScalingActionType'] = $request->scalingActionType;
+        $query['ScalingGroupBizId'] = $request->scalingGroupBizId;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RunScalingActionV2',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RunScalingActionV2Response::fromMap($this->doRPCRequest('RunScalingActionV2', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RunScalingActionV2Response::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6430,11 +9760,36 @@ class Emr extends OpenApiClient
     public function searchLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClusterId']       = $request->clusterId;
+        $query['FromTimestamp']   = $request->fromTimestamp;
+        $query['HostInnerIp']     = $request->hostInnerIp;
+        $query['HostName']        = $request->hostName;
+        $query['Line']            = $request->line;
+        $query['LogstoreName']    = $request->logstoreName;
+        $query['Offset']          = $request->offset;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['Reverse']         = $request->reverse;
+        $query['SlsQueryString']  = $request->slsQueryString;
+        $query['ToTimestamp']     = $request->toTimestamp;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchLog',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SearchLogResponse::fromMap($this->doRPCRequest('SearchLog', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SearchLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6458,11 +9813,27 @@ class Emr extends OpenApiClient
     public function startFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['FlowInstanceId'] = $request->flowInstanceId;
+        $query['ProjectId']      = $request->projectId;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'StartFlow',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StartFlowResponse::fromMap($this->doRPCRequest('StartFlow', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6486,11 +9857,28 @@ class Emr extends OpenApiClient
     public function submitFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['Conf']      = $request->conf;
+        $query['FlowId']    = $request->flowId;
+        $query['ProjectId'] = $request->projectId;
+        $query['RegionId']  = $request->regionId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitFlow',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitFlowResponse::fromMap($this->doRPCRequest('SubmitFlow', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6514,11 +9902,32 @@ class Emr extends OpenApiClient
     public function submitFlowJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ClusterId']     = $request->clusterId;
+        $query['Conf']          = $request->conf;
+        $query['HostName']      = $request->hostName;
+        $query['JobId']         = $request->jobId;
+        $query['JobInstanceId'] = $request->jobInstanceId;
+        $query['Namespace']     = $request->namespace_;
+        $query['ProjectId']     = $request->projectId;
+        $query['RegionId']      = $request->regionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitFlowJob',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitFlowJobResponse::fromMap($this->doRPCRequest('SubmitFlowJob', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitFlowJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6542,11 +9951,27 @@ class Emr extends OpenApiClient
     public function suspendExecutionPlanSchedulerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Id']              = $request->id;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SuspendExecutionPlanScheduler',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SuspendExecutionPlanSchedulerResponse::fromMap($this->doRPCRequest('SuspendExecutionPlanScheduler', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SuspendExecutionPlanSchedulerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6570,11 +9995,27 @@ class Emr extends OpenApiClient
     public function suspendFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['FlowInstanceId'] = $request->flowInstanceId;
+        $query['ProjectId']      = $request->projectId;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SuspendFlow',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SuspendFlowResponse::fromMap($this->doRPCRequest('SuspendFlow', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SuspendFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6598,11 +10039,29 @@ class Emr extends OpenApiClient
     public function tagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceId']      = $request->resourceId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ResourceType']    = $request->resourceType;
+        $query['Tag']             = $request->tag;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return TagResourcesResponse::fromMap($this->doRPCRequest('TagResources', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6618,34 +10077,6 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesSystemTagsRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return TagResourcesSystemTagsResponse
-     */
-    public function tagResourcesSystemTagsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return TagResourcesSystemTagsResponse::fromMap($this->doRPCRequest('TagResourcesSystemTags', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param TagResourcesSystemTagsRequest $request
-     *
-     * @return TagResourcesSystemTagsResponse
-     */
-    public function tagResourcesSystemTags($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->tagResourcesSystemTagsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param UninstallLibrariesRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -6654,11 +10085,28 @@ class Emr extends OpenApiClient
     public function uninstallLibrariesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['ClusterBizIdList'] = $request->clusterBizIdList;
+        $query['LibraryBizId']     = $request->libraryBizId;
+        $query['RegionId']         = $request->regionId;
+        $query['ResourceOwnerId']  = $request->resourceOwnerId;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UninstallLibraries',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UninstallLibrariesResponse::fromMap($this->doRPCRequest('UninstallLibraries', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UninstallLibrariesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6682,11 +10130,30 @@ class Emr extends OpenApiClient
     public function untagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['All']             = $request->all;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceId']      = $request->resourceId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['ResourceType']    = $request->resourceType;
+        $query['TagKey']          = $request->tagKey;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UntagResourcesResponse::fromMap($this->doRPCRequest('UntagResources', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6702,34 +10169,6 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesSystemTagsRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return UntagResourcesSystemTagsResponse
-     */
-    public function untagResourcesSystemTagsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UntagResourcesSystemTagsResponse::fromMap($this->doRPCRequest('UntagResourcesSystemTags', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UntagResourcesSystemTagsRequest $request
-     *
-     * @return UntagResourcesSystemTagsResponse
-     */
-    public function untagResourcesSystemTags($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->untagResourcesSystemTagsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param UpdateDataSourceRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -6738,11 +10177,31 @@ class Emr extends OpenApiClient
     public function updateDataSourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Conf']            = $request->conf;
+        $query['Description']     = $request->description;
+        $query['Id']              = $request->id;
+        $query['Name']            = $request->name;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDataSource',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDataSourceResponse::fromMap($this->doRPCRequest('UpdateDataSource', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6766,11 +10225,28 @@ class Emr extends OpenApiClient
     public function updateLibraryInstallTaskStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $query['Status']          = $request->status;
+        $query['TaskBizId']       = $request->taskBizId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateLibraryInstallTaskStatus',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateLibraryInstallTaskStatusResponse::fromMap($this->doRPCRequest('UpdateLibraryInstallTaskStatus', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateLibraryInstallTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6794,11 +10270,30 @@ class Emr extends OpenApiClient
     public function updateTagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Category']        = $request->category;
+        $query['Description']     = $request->description;
+        $query['Id']              = $request->id;
+        $query['Name']            = $request->name;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTag',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateTagResponse::fromMap($this->doRPCRequest('UpdateTag', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6822,11 +10317,34 @@ class Emr extends OpenApiClient
     public function updateUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AliyunUserId']         = $request->aliyunUserId;
+        $query['Description']          = $request->description;
+        $query['GroupIdList']          = $request->groupIdList;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['RoleIdList']           = $request->roleIdList;
+        $query['Status']               = $request->status;
+        $query['UserAccountParamList'] = $request->userAccountParamList;
+        $query['UserName']             = $request->userName;
+        $query['UserType']             = $request->userType;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateUser',
+            'version'     => '2016-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateUserResponse::fromMap($this->doRPCRequest('UpdateUser', '2016-04-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

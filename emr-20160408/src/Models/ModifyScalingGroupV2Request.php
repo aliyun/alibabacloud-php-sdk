@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ModifyScalingGroupV2Request extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $resourceOwnerId;
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var string
@@ -24,25 +29,20 @@ class ModifyScalingGroupV2Request extends Model
     public $resourceGroupId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $description;
+    public $resourceOwnerId;
 
     /**
      * @var string
      */
     public $scalingGroupBizId;
     protected $_name = [
-        'resourceOwnerId'   => 'ResourceOwnerId',
+        'description'       => 'Description',
+        'name'              => 'Name',
         'regionId'          => 'RegionId',
         'resourceGroupId'   => 'ResourceGroupId',
-        'name'              => 'Name',
-        'description'       => 'Description',
+        'resourceOwnerId'   => 'ResourceOwnerId',
         'scalingGroupBizId' => 'ScalingGroupBizId',
     ];
 
@@ -53,8 +53,11 @@ class ModifyScalingGroupV2Request extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -62,11 +65,8 @@ class ModifyScalingGroupV2Request extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->scalingGroupBizId) {
             $res['ScalingGroupBizId'] = $this->scalingGroupBizId;
@@ -83,8 +83,11 @@ class ModifyScalingGroupV2Request extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
@@ -92,11 +95,8 @@ class ModifyScalingGroupV2Request extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['ScalingGroupBizId'])) {
             $model->scalingGroupBizId = $map['ScalingGroupBizId'];

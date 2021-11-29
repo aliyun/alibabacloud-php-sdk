@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListClusterHostRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var string
      */
     public $clusterId;
@@ -26,7 +16,12 @@ class ListClusterHostRequest extends Model
     /**
      * @var string
      */
-    public $hostInstanceId;
+    public $componentName;
+
+    /**
+     * @var string
+     */
+    public $groupType;
 
     /**
      * @var string
@@ -36,7 +31,22 @@ class ListClusterHostRequest extends Model
     /**
      * @var string
      */
+    public $hostInstanceId;
+
+    /**
+     * @var string
+     */
     public $hostName;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -51,40 +61,30 @@ class ListClusterHostRequest extends Model
     /**
      * @var string
      */
-    public $groupType;
-
-    /**
-     * @var string
-     */
-    public $componentName;
+    public $regionId;
 
     /**
      * @var int
      */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
+    public $resourceOwnerId;
 
     /**
      * @var string[]
      */
     public $statusList;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'regionId'        => 'RegionId',
         'clusterId'       => 'ClusterId',
-        'hostInstanceId'  => 'HostInstanceId',
-        'hostGroupId'     => 'HostGroupId',
-        'hostName'        => 'HostName',
-        'privateIp'       => 'PrivateIp',
-        'publicIp'        => 'PublicIp',
-        'groupType'       => 'GroupType',
         'componentName'   => 'ComponentName',
+        'groupType'       => 'GroupType',
+        'hostGroupId'     => 'HostGroupId',
+        'hostInstanceId'  => 'HostInstanceId',
+        'hostName'        => 'HostName',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
+        'privateIp'       => 'PrivateIp',
+        'publicIp'        => 'PublicIp',
+        'regionId'        => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'statusList'      => 'StatusList',
     ];
 
@@ -95,23 +95,29 @@ class ListClusterHostRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->hostInstanceId) {
-            $res['HostInstanceId'] = $this->hostInstanceId;
+        if (null !== $this->componentName) {
+            $res['ComponentName'] = $this->componentName;
+        }
+        if (null !== $this->groupType) {
+            $res['GroupType'] = $this->groupType;
         }
         if (null !== $this->hostGroupId) {
             $res['HostGroupId'] = $this->hostGroupId;
         }
+        if (null !== $this->hostInstanceId) {
+            $res['HostInstanceId'] = $this->hostInstanceId;
+        }
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->privateIp) {
             $res['PrivateIp'] = $this->privateIp;
@@ -119,17 +125,11 @@ class ListClusterHostRequest extends Model
         if (null !== $this->publicIp) {
             $res['PublicIp'] = $this->publicIp;
         }
-        if (null !== $this->groupType) {
-            $res['GroupType'] = $this->groupType;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->componentName) {
-            $res['ComponentName'] = $this->componentName;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->statusList) {
             $res['StatusList'] = $this->statusList;
@@ -146,23 +146,29 @@ class ListClusterHostRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['HostInstanceId'])) {
-            $model->hostInstanceId = $map['HostInstanceId'];
+        if (isset($map['ComponentName'])) {
+            $model->componentName = $map['ComponentName'];
+        }
+        if (isset($map['GroupType'])) {
+            $model->groupType = $map['GroupType'];
         }
         if (isset($map['HostGroupId'])) {
             $model->hostGroupId = $map['HostGroupId'];
         }
+        if (isset($map['HostInstanceId'])) {
+            $model->hostInstanceId = $map['HostInstanceId'];
+        }
         if (isset($map['HostName'])) {
             $model->hostName = $map['HostName'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['PrivateIp'])) {
             $model->privateIp = $map['PrivateIp'];
@@ -170,17 +176,11 @@ class ListClusterHostRequest extends Model
         if (isset($map['PublicIp'])) {
             $model->publicIp = $map['PublicIp'];
         }
-        if (isset($map['GroupType'])) {
-            $model->groupType = $map['GroupType'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ComponentName'])) {
-            $model->componentName = $map['ComponentName'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['StatusList'])) {
             if (!empty($map['StatusList'])) {

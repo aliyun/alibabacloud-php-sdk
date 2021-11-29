@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ecmResourceQueue extends Model
 {
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
      * @var int
      */
-    public $resourcePoolId;
+    public $id;
 
     /**
      * @var bool
      */
     public $leaf;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var int
@@ -31,7 +31,7 @@ class ecmResourceQueue extends Model
     /**
      * @var string
      */
-    public $userId;
+    public $qualifiedName;
 
     /**
      * @var string
@@ -39,29 +39,29 @@ class ecmResourceQueue extends Model
     public $queueType;
 
     /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $qualifiedName;
-
-    /**
      * @var int
      */
-    public $id;
+    public $resourcePoolId;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
-        'status'         => 'Status',
-        'resourcePoolId' => 'ResourcePoolId',
-        'leaf'           => 'Leaf',
-        'parentQueueId'  => 'ParentQueueId',
-        'userId'         => 'UserId',
-        'queueType'      => 'QueueType',
-        'name'           => 'Name',
-        'qualifiedName'  => 'QualifiedName',
         'id'             => 'Id',
+        'leaf'           => 'Leaf',
+        'name'           => 'Name',
+        'parentQueueId'  => 'ParentQueueId',
+        'qualifiedName'  => 'QualifiedName',
+        'queueType'      => 'QueueType',
+        'resourcePoolId' => 'ResourcePoolId',
+        'status'         => 'Status',
+        'userId'         => 'UserId',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class ecmResourceQueue extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->resourcePoolId) {
-            $res['ResourcePoolId'] = $this->resourcePoolId;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->leaf) {
             $res['Leaf'] = $this->leaf;
         }
-        if (null !== $this->parentQueueId) {
-            $res['ParentQueueId'] = $this->parentQueueId;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->queueType) {
-            $res['QueueType'] = $this->queueType;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->parentQueueId) {
+            $res['ParentQueueId'] = $this->parentQueueId;
         }
         if (null !== $this->qualifiedName) {
             $res['QualifiedName'] = $this->qualifiedName;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->queueType) {
+            $res['QueueType'] = $this->queueType;
+        }
+        if (null !== $this->resourcePoolId) {
+            $res['ResourcePoolId'] = $this->resourcePoolId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -110,32 +110,32 @@ class ecmResourceQueue extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['ResourcePoolId'])) {
-            $model->resourcePoolId = $map['ResourcePoolId'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Leaf'])) {
             $model->leaf = $map['Leaf'];
         }
-        if (isset($map['ParentQueueId'])) {
-            $model->parentQueueId = $map['ParentQueueId'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['QueueType'])) {
-            $model->queueType = $map['QueueType'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['ParentQueueId'])) {
+            $model->parentQueueId = $map['ParentQueueId'];
         }
         if (isset($map['QualifiedName'])) {
             $model->qualifiedName = $map['QualifiedName'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['QueueType'])) {
+            $model->queueType = $map['QueueType'];
+        }
+        if (isset($map['ResourcePoolId'])) {
+            $model->resourcePoolId = $map['ResourcePoolId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

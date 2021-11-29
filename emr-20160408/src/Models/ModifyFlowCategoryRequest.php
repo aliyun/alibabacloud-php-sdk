@@ -11,16 +11,6 @@ class ModifyFlowCategoryRequest extends Model
     /**
      * @var string
      */
-    public $projectId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $id;
 
     /**
@@ -32,12 +22,22 @@ class ModifyFlowCategoryRequest extends Model
      * @var string
      */
     public $parentId;
+
+    /**
+     * @var string
+     */
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'projectId' => 'ProjectId',
-        'regionId'  => 'RegionId',
         'id'        => 'Id',
         'name'      => 'Name',
         'parentId'  => 'ParentId',
+        'projectId' => 'ProjectId',
+        'regionId'  => 'RegionId',
     ];
 
     public function validate()
@@ -47,12 +47,6 @@ class ModifyFlowCategoryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -61,6 +55,12 @@ class ModifyFlowCategoryRequest extends Model
         }
         if (null !== $this->parentId) {
             $res['ParentId'] = $this->parentId;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -74,12 +74,6 @@ class ModifyFlowCategoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
@@ -88,6 +82,12 @@ class ModifyFlowCategoryRequest extends Model
         }
         if (isset($map['ParentId'])) {
             $model->parentId = $map['ParentId'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

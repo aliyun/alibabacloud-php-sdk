@@ -11,7 +11,7 @@ class DeleteFlowJobRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $id;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class DeleteFlowJobRequest extends Model
     /**
      * @var string
      */
-    public $id;
+    public $regionId;
     protected $_name = [
-        'regionId'  => 'RegionId',
-        'projectId' => 'ProjectId',
         'id'        => 'Id',
+        'projectId' => 'ProjectId',
+        'regionId'  => 'RegionId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteFlowJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DeleteFlowJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

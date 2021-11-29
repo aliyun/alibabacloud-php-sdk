@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CreateJobRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $failAct;
+
+    /**
      * @var int
      */
-    public $resourceOwnerId;
+    public $maxRetry;
 
     /**
      * @var string
@@ -26,22 +31,12 @@ class CreateJobRequest extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $runParameter;
-
-    /**
-     * @var string
-     */
-    public $failAct;
+    public $resourceGroupId;
 
     /**
      * @var int
      */
-    public $maxRetry;
+    public $resourceOwnerId;
 
     /**
      * @var int
@@ -51,17 +46,22 @@ class CreateJobRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $runParameter;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'name'            => 'Name',
-        'regionId'        => 'RegionId',
-        'type'            => 'Type',
-        'runParameter'    => 'RunParameter',
         'failAct'         => 'FailAct',
         'maxRetry'        => 'MaxRetry',
-        'retryInterval'   => 'RetryInterval',
+        'name'            => 'Name',
+        'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'retryInterval'   => 'RetryInterval',
+        'runParameter'    => 'RunParameter',
+        'type'            => 'Type',
     ];
 
     public function validate()
@@ -71,8 +71,11 @@ class CreateJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->failAct) {
+            $res['FailAct'] = $this->failAct;
+        }
+        if (null !== $this->maxRetry) {
+            $res['MaxRetry'] = $this->maxRetry;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -80,23 +83,20 @@ class CreateJobRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->runParameter) {
-            $res['RunParameter'] = $this->runParameter;
-        }
-        if (null !== $this->failAct) {
-            $res['FailAct'] = $this->failAct;
-        }
-        if (null !== $this->maxRetry) {
-            $res['MaxRetry'] = $this->maxRetry;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->retryInterval) {
             $res['RetryInterval'] = $this->retryInterval;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->runParameter) {
+            $res['RunParameter'] = $this->runParameter;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -110,8 +110,11 @@ class CreateJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['FailAct'])) {
+            $model->failAct = $map['FailAct'];
+        }
+        if (isset($map['MaxRetry'])) {
+            $model->maxRetry = $map['MaxRetry'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -119,23 +122,20 @@ class CreateJobRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['RunParameter'])) {
-            $model->runParameter = $map['RunParameter'];
-        }
-        if (isset($map['FailAct'])) {
-            $model->failAct = $map['FailAct'];
-        }
-        if (isset($map['MaxRetry'])) {
-            $model->maxRetry = $map['MaxRetry'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['RetryInterval'])) {
             $model->retryInterval = $map['RetryInterval'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['RunParameter'])) {
+            $model->runParameter = $map['RunParameter'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

@@ -14,6 +14,16 @@ class software extends Model
     public $displayName;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var bool
+     */
+    public $onlyDisplay;
+
+    /**
      * @var int
      */
     public $startTpe;
@@ -22,22 +32,12 @@ class software extends Model
      * @var string
      */
     public $version;
-
-    /**
-     * @var bool
-     */
-    public $onlyDisplay;
-
-    /**
-     * @var string
-     */
-    public $name;
     protected $_name = [
         'displayName' => 'DisplayName',
+        'name'        => 'Name',
+        'onlyDisplay' => 'OnlyDisplay',
         'startTpe'    => 'StartTpe',
         'version'     => 'Version',
-        'onlyDisplay' => 'OnlyDisplay',
-        'name'        => 'Name',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class software extends Model
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->onlyDisplay) {
+            $res['OnlyDisplay'] = $this->onlyDisplay;
+        }
         if (null !== $this->startTpe) {
             $res['StartTpe'] = $this->startTpe;
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
-        }
-        if (null !== $this->onlyDisplay) {
-            $res['OnlyDisplay'] = $this->onlyDisplay;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class software extends Model
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['OnlyDisplay'])) {
+            $model->onlyDisplay = $map['OnlyDisplay'];
+        }
         if (isset($map['StartTpe'])) {
             $model->startTpe = $map['StartTpe'];
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
-        }
-        if (isset($map['OnlyDisplay'])) {
-            $model->onlyDisplay = $map['OnlyDisplay'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
 
         return $model;

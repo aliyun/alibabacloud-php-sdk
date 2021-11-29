@@ -12,20 +12,20 @@ class CreateFlowProjectUserRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $projectId;
 
     /**
      * @var string
      */
-    public $projectId;
+    public $regionId;
 
     /**
      * @var user[]
      */
     public $user;
     protected $_name = [
-        'regionId'  => 'RegionId',
         'projectId' => 'ProjectId',
+        'regionId'  => 'RegionId',
         'user'      => 'User',
     ];
 
@@ -36,11 +36,11 @@ class CreateFlowProjectUserRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->user) {
             $res['User'] = [];
@@ -63,11 +63,11 @@ class CreateFlowProjectUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['User'])) {
             if (!empty($map['User'])) {

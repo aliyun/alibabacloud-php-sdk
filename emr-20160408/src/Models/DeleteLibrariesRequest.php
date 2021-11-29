@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteLibrariesRequest extends Model
 {
     /**
-     * @var int
+     * @var string[]
      */
-    public $resourceOwnerId;
+    public $libraryBizIdList;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class DeleteLibrariesRequest extends Model
     public $regionId;
 
     /**
-     * @var string[]
+     * @var int
      */
-    public $libraryBizIdList;
+    public $resourceOwnerId;
     protected $_name = [
-        'resourceOwnerId'  => 'ResourceOwnerId',
-        'regionId'         => 'RegionId',
         'libraryBizIdList' => 'LibraryBizIdList',
+        'regionId'         => 'RegionId',
+        'resourceOwnerId'  => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteLibrariesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->libraryBizIdList) {
+            $res['LibraryBizIdList'] = $this->libraryBizIdList;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->libraryBizIdList) {
-            $res['LibraryBizIdList'] = $this->libraryBizIdList;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -56,16 +56,16 @@ class DeleteLibrariesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['LibraryBizIdList'])) {
             if (!empty($map['LibraryBizIdList'])) {
                 $model->libraryBizIdList = $map['LibraryBizIdList'];
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

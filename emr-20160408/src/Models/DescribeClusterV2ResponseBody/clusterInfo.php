@@ -17,19 +17,24 @@ use AlibabaCloud\Tea\Model;
 class clusterInfo extends Model
 {
     /**
-     * @var string
+     * @var accessInfo
      */
-    public $vpcId;
+    public $accessInfo;
 
     /**
      * @var bool
      */
-    public $logEnable;
+    public $autoScalingAllowed;
 
     /**
-     * @var int
+     * @var bool
      */
-    public $taskNodeInService;
+    public $autoScalingByLoadAllowed;
+
+    /**
+     * @var bool
+     */
+    public $autoScalingEnable;
 
     /**
      * @var bool
@@ -39,17 +44,47 @@ class clusterInfo extends Model
     /**
      * @var string
      */
+    public $autoScalingVersion;
+
+    /**
+     * @var bool
+     */
+    public $autoScalingWithGraceAllowed;
+
+    /**
+     * @var bootstrapActionList
+     */
+    public $bootstrapActionList;
+
+    /**
+     * @var bool
+     */
+    public $bootstrapFailed;
+
+    /**
+     * @var string
+     */
     public $chargeType;
 
     /**
      * @var string
      */
-    public $userId;
+    public $configurations;
 
     /**
      * @var int
      */
-    public $stopTime;
+    public $coreNodeInService;
+
+    /**
+     * @var int
+     */
+    public $coreNodeTotal;
+
+    /**
+     * @var string
+     */
+    public $createResource;
 
     /**
      * @var string
@@ -62,29 +97,19 @@ class clusterInfo extends Model
     public $depositType;
 
     /**
-     * @var relateClusterInfo
-     */
-    public $relateClusterInfo;
-
-    /**
-     * @var string
-     */
-    public $relateClusterId;
-
-    /**
-     * @var string
-     */
-    public $securityGroupName;
-
-    /**
      * @var bool
      */
-    public $resizeDiskEnable;
+    public $easEnable;
+
+    /**
+     * @var int
+     */
+    public $expiredTime;
 
     /**
      * @var string
      */
-    public $imageId;
+    public $extraInfo;
 
     /**
      * @var failReason
@@ -94,12 +119,142 @@ class clusterInfo extends Model
     /**
      * @var string
      */
-    public $userDefinedEmrEcsRole;
+    public $gatewayClusterIds;
+
+    /**
+     * @var gatewayClusterInfoList
+     */
+    public $gatewayClusterInfoList;
+
+    /**
+     * @var bool
+     */
+    public $highAvailabilityEnable;
+
+    /**
+     * @var hostGroupList
+     */
+    public $hostGroupList;
+
+    /**
+     * @var hostPoolInfo
+     */
+    public $hostPoolInfo;
+
+    /**
+     * @var string
+     */
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $imageId;
+
+    /**
+     * @var string
+     */
+    public $instanceGeneration;
+
+    /**
+     * @var bool
+     */
+    public $ioOptimized;
+
+    /**
+     * @var string
+     */
+    public $k8sClusterId;
+
+    /**
+     * @var bool
+     */
+    public $localMetaDb;
+
+    /**
+     * @var bool
+     */
+    public $logEnable;
+
+    /**
+     * @var string
+     */
+    public $logPath;
+
+    /**
+     * @var string
+     */
+    public $machineType;
+
+    /**
+     * @var int
+     */
+    public $masterNodeInService;
+
+    /**
+     * @var int
+     */
+    public $masterNodeTotal;
 
     /**
      * @var string
      */
     public $metaStoreType;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $netType;
+
+    /**
+     * @var int
+     */
+    public $period;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $relateClusterId;
+
+    /**
+     * @var relateClusterInfo
+     */
+    public $relateClusterInfo;
+
+    /**
+     * @var bool
+     */
+    public $resizeDiskEnable;
+
+    /**
+     * @var int
+     */
+    public $runningTime;
+
+    /**
+     * @var string
+     */
+    public $securityGroupId;
+
+    /**
+     * @var string
+     */
+    public $securityGroupName;
+
+    /**
+     * @var bool
+     */
+    public $showSoftwareInterface;
 
     /**
      * @var softwareInfo
@@ -114,167 +269,32 @@ class clusterInfo extends Model
     /**
      * @var string
      */
-    public $configurations;
-
-    /**
-     * @var string
-     */
-    public $logPath;
-
-    /**
-     * @var string
-     */
-    public $autoScalingVersion;
-
-    /**
-     * @var string
-     */
-    public $netType;
-
-    /**
-     * @var string
-     */
-    public $zoneId;
-
-    /**
-     * @var accessInfo
-     */
-    public $accessInfo;
-
-    /**
-     * @var string
-     */
-    public $createResource;
-
-    /**
-     * @var string
-     */
     public $status;
 
     /**
      * @var int
      */
-    public $runningTime;
-
-    /**
-     * @var bool
-     */
-    public $highAvailabilityEnable;
-
-    /**
-     * @var string
-     */
-    public $securityGroupId;
-
-    /**
-     * @var bool
-     */
-    public $autoScalingAllowed;
-
-    /**
-     * @var hostGroupList
-     */
-    public $hostGroupList;
+    public $stopTime;
 
     /**
      * @var int
      */
-    public $masterNodeInService;
-
-    /**
-     * @var bool
-     */
-    public $autoScalingEnable;
-
-    /**
-     * @var bool
-     */
-    public $autoScalingWithGraceAllowed;
-
-    /**
-     * @var bool
-     */
-    public $showSoftwareInterface;
+    public $taskNodeInService;
 
     /**
      * @var int
      */
-    public $coreNodeInService;
-
-    /**
-     * @var bool
-     */
-    public $autoScalingByLoadAllowed;
+    public $taskNodeTotal;
 
     /**
      * @var string
      */
-    public $k8sClusterId;
-
-    /**
-     * @var bool
-     */
-    public $localMetaDb;
-
-    /**
-     * @var bootstrapActionList
-     */
-    public $bootstrapActionList;
-
-    /**
-     * @var gatewayClusterInfoList
-     */
-    public $gatewayClusterInfoList;
+    public $userDefinedEmrEcsRole;
 
     /**
      * @var string
      */
-    public $instanceGeneration;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var bool
-     */
-    public $easEnable;
-
-    /**
-     * @var string
-     */
-    public $machineType;
-
-    /**
-     * @var hostPoolInfo
-     */
-    public $hostPoolInfo;
-
-    /**
-     * @var int
-     */
-    public $masterNodeTotal;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var int
-     */
-    public $period;
-
-    /**
-     * @var string
-     */
-    public $extraInfo;
-
-    /**
-     * @var bool
-     */
-    public $ioOptimized;
+    public $userId;
 
     /**
      * @var string
@@ -282,94 +302,74 @@ class clusterInfo extends Model
     public $vSwitchId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $expiredTime;
-
-    /**
-     * @var int
-     */
-    public $coreNodeTotal;
+    public $vpcId;
 
     /**
      * @var string
      */
-    public $gatewayClusterIds;
-
-    /**
-     * @var bool
-     */
-    public $bootstrapFailed;
-
-    /**
-     * @var string
-     */
-    public $id;
-
-    /**
-     * @var int
-     */
-    public $taskNodeTotal;
+    public $zoneId;
     protected $_name = [
-        'vpcId'                           => 'VpcId',
-        'logEnable'                       => 'LogEnable',
-        'taskNodeInService'               => 'TaskNodeInService',
+        'accessInfo'                      => 'AccessInfo',
+        'autoScalingAllowed'              => 'AutoScalingAllowed',
+        'autoScalingByLoadAllowed'        => 'AutoScalingByLoadAllowed',
+        'autoScalingEnable'               => 'AutoScalingEnable',
         'autoScalingSpotWithLimitAllowed' => 'AutoScalingSpotWithLimitAllowed',
+        'autoScalingVersion'              => 'AutoScalingVersion',
+        'autoScalingWithGraceAllowed'     => 'AutoScalingWithGraceAllowed',
+        'bootstrapActionList'             => 'BootstrapActionList',
+        'bootstrapFailed'                 => 'BootstrapFailed',
         'chargeType'                      => 'ChargeType',
-        'userId'                          => 'UserId',
-        'stopTime'                        => 'StopTime',
+        'configurations'                  => 'Configurations',
+        'coreNodeInService'               => 'CoreNodeInService',
+        'coreNodeTotal'                   => 'CoreNodeTotal',
+        'createResource'                  => 'CreateResource',
         'createType'                      => 'CreateType',
         'depositType'                     => 'DepositType',
-        'relateClusterInfo'               => 'RelateClusterInfo',
-        'relateClusterId'                 => 'RelateClusterId',
-        'securityGroupName'               => 'SecurityGroupName',
-        'resizeDiskEnable'                => 'ResizeDiskEnable',
-        'imageId'                         => 'ImageId',
+        'easEnable'                       => 'EasEnable',
+        'expiredTime'                     => 'ExpiredTime',
+        'extraInfo'                       => 'ExtraInfo',
         'failReason'                      => 'FailReason',
-        'userDefinedEmrEcsRole'           => 'UserDefinedEmrEcsRole',
-        'metaStoreType'                   => 'MetaStoreType',
-        'softwareInfo'                    => 'SoftwareInfo',
-        'startTime'                       => 'StartTime',
-        'configurations'                  => 'Configurations',
-        'logPath'                         => 'LogPath',
-        'autoScalingVersion'              => 'AutoScalingVersion',
-        'netType'                         => 'NetType',
-        'zoneId'                          => 'ZoneId',
-        'accessInfo'                      => 'AccessInfo',
-        'createResource'                  => 'CreateResource',
-        'status'                          => 'Status',
-        'runningTime'                     => 'RunningTime',
+        'gatewayClusterIds'               => 'GatewayClusterIds',
+        'gatewayClusterInfoList'          => 'GatewayClusterInfoList',
         'highAvailabilityEnable'          => 'HighAvailabilityEnable',
-        'securityGroupId'                 => 'SecurityGroupId',
-        'autoScalingAllowed'              => 'AutoScalingAllowed',
         'hostGroupList'                   => 'HostGroupList',
-        'masterNodeInService'             => 'MasterNodeInService',
-        'autoScalingEnable'               => 'AutoScalingEnable',
-        'autoScalingWithGraceAllowed'     => 'AutoScalingWithGraceAllowed',
-        'showSoftwareInterface'           => 'ShowSoftwareInterface',
-        'coreNodeInService'               => 'CoreNodeInService',
-        'autoScalingByLoadAllowed'        => 'AutoScalingByLoadAllowed',
+        'hostPoolInfo'                    => 'HostPoolInfo',
+        'id'                              => 'Id',
+        'imageId'                         => 'ImageId',
+        'instanceGeneration'              => 'InstanceGeneration',
+        'ioOptimized'                     => 'IoOptimized',
         'k8sClusterId'                    => 'K8sClusterId',
         'localMetaDb'                     => 'LocalMetaDb',
-        'bootstrapActionList'             => 'BootstrapActionList',
-        'gatewayClusterInfoList'          => 'GatewayClusterInfoList',
-        'instanceGeneration'              => 'InstanceGeneration',
-        'name'                            => 'Name',
-        'easEnable'                       => 'EasEnable',
+        'logEnable'                       => 'LogEnable',
+        'logPath'                         => 'LogPath',
         'machineType'                     => 'MachineType',
-        'hostPoolInfo'                    => 'HostPoolInfo',
+        'masterNodeInService'             => 'MasterNodeInService',
         'masterNodeTotal'                 => 'MasterNodeTotal',
-        'regionId'                        => 'RegionId',
+        'metaStoreType'                   => 'MetaStoreType',
+        'name'                            => 'Name',
+        'netType'                         => 'NetType',
         'period'                          => 'Period',
-        'extraInfo'                       => 'ExtraInfo',
-        'ioOptimized'                     => 'IoOptimized',
-        'vSwitchId'                       => 'VSwitchId',
-        'expiredTime'                     => 'ExpiredTime',
-        'coreNodeTotal'                   => 'CoreNodeTotal',
-        'gatewayClusterIds'               => 'GatewayClusterIds',
-        'bootstrapFailed'                 => 'BootstrapFailed',
-        'id'                              => 'Id',
+        'regionId'                        => 'RegionId',
+        'relateClusterId'                 => 'RelateClusterId',
+        'relateClusterInfo'               => 'RelateClusterInfo',
+        'resizeDiskEnable'                => 'ResizeDiskEnable',
+        'runningTime'                     => 'RunningTime',
+        'securityGroupId'                 => 'SecurityGroupId',
+        'securityGroupName'               => 'SecurityGroupName',
+        'showSoftwareInterface'           => 'ShowSoftwareInterface',
+        'softwareInfo'                    => 'SoftwareInfo',
+        'startTime'                       => 'StartTime',
+        'status'                          => 'Status',
+        'stopTime'                        => 'StopTime',
+        'taskNodeInService'               => 'TaskNodeInService',
         'taskNodeTotal'                   => 'TaskNodeTotal',
+        'userDefinedEmrEcsRole'           => 'UserDefinedEmrEcsRole',
+        'userId'                          => 'UserId',
+        'vSwitchId'                       => 'VSwitchId',
+        'vpcId'                           => 'VpcId',
+        'zoneId'                          => 'ZoneId',
     ];
 
     public function validate()
@@ -379,26 +379,47 @@ class clusterInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
+        if (null !== $this->accessInfo) {
+            $res['AccessInfo'] = null !== $this->accessInfo ? $this->accessInfo->toMap() : null;
         }
-        if (null !== $this->logEnable) {
-            $res['LogEnable'] = $this->logEnable;
+        if (null !== $this->autoScalingAllowed) {
+            $res['AutoScalingAllowed'] = $this->autoScalingAllowed;
         }
-        if (null !== $this->taskNodeInService) {
-            $res['TaskNodeInService'] = $this->taskNodeInService;
+        if (null !== $this->autoScalingByLoadAllowed) {
+            $res['AutoScalingByLoadAllowed'] = $this->autoScalingByLoadAllowed;
+        }
+        if (null !== $this->autoScalingEnable) {
+            $res['AutoScalingEnable'] = $this->autoScalingEnable;
         }
         if (null !== $this->autoScalingSpotWithLimitAllowed) {
             $res['AutoScalingSpotWithLimitAllowed'] = $this->autoScalingSpotWithLimitAllowed;
         }
+        if (null !== $this->autoScalingVersion) {
+            $res['AutoScalingVersion'] = $this->autoScalingVersion;
+        }
+        if (null !== $this->autoScalingWithGraceAllowed) {
+            $res['AutoScalingWithGraceAllowed'] = $this->autoScalingWithGraceAllowed;
+        }
+        if (null !== $this->bootstrapActionList) {
+            $res['BootstrapActionList'] = null !== $this->bootstrapActionList ? $this->bootstrapActionList->toMap() : null;
+        }
+        if (null !== $this->bootstrapFailed) {
+            $res['BootstrapFailed'] = $this->bootstrapFailed;
+        }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->configurations) {
+            $res['Configurations'] = $this->configurations;
         }
-        if (null !== $this->stopTime) {
-            $res['StopTime'] = $this->stopTime;
+        if (null !== $this->coreNodeInService) {
+            $res['CoreNodeInService'] = $this->coreNodeInService;
+        }
+        if (null !== $this->coreNodeTotal) {
+            $res['CoreNodeTotal'] = $this->coreNodeTotal;
+        }
+        if (null !== $this->createResource) {
+            $res['CreateResource'] = $this->createResource;
         }
         if (null !== $this->createType) {
             $res['CreateType'] = $this->createType;
@@ -406,92 +427,44 @@ class clusterInfo extends Model
         if (null !== $this->depositType) {
             $res['DepositType'] = $this->depositType;
         }
-        if (null !== $this->relateClusterInfo) {
-            $res['RelateClusterInfo'] = null !== $this->relateClusterInfo ? $this->relateClusterInfo->toMap() : null;
+        if (null !== $this->easEnable) {
+            $res['EasEnable'] = $this->easEnable;
         }
-        if (null !== $this->relateClusterId) {
-            $res['RelateClusterId'] = $this->relateClusterId;
+        if (null !== $this->expiredTime) {
+            $res['ExpiredTime'] = $this->expiredTime;
         }
-        if (null !== $this->securityGroupName) {
-            $res['SecurityGroupName'] = $this->securityGroupName;
-        }
-        if (null !== $this->resizeDiskEnable) {
-            $res['ResizeDiskEnable'] = $this->resizeDiskEnable;
-        }
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
+        if (null !== $this->extraInfo) {
+            $res['ExtraInfo'] = $this->extraInfo;
         }
         if (null !== $this->failReason) {
             $res['FailReason'] = null !== $this->failReason ? $this->failReason->toMap() : null;
         }
-        if (null !== $this->userDefinedEmrEcsRole) {
-            $res['UserDefinedEmrEcsRole'] = $this->userDefinedEmrEcsRole;
+        if (null !== $this->gatewayClusterIds) {
+            $res['GatewayClusterIds'] = $this->gatewayClusterIds;
         }
-        if (null !== $this->metaStoreType) {
-            $res['MetaStoreType'] = $this->metaStoreType;
-        }
-        if (null !== $this->softwareInfo) {
-            $res['SoftwareInfo'] = null !== $this->softwareInfo ? $this->softwareInfo->toMap() : null;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->configurations) {
-            $res['Configurations'] = $this->configurations;
-        }
-        if (null !== $this->logPath) {
-            $res['LogPath'] = $this->logPath;
-        }
-        if (null !== $this->autoScalingVersion) {
-            $res['AutoScalingVersion'] = $this->autoScalingVersion;
-        }
-        if (null !== $this->netType) {
-            $res['NetType'] = $this->netType;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->accessInfo) {
-            $res['AccessInfo'] = null !== $this->accessInfo ? $this->accessInfo->toMap() : null;
-        }
-        if (null !== $this->createResource) {
-            $res['CreateResource'] = $this->createResource;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->runningTime) {
-            $res['RunningTime'] = $this->runningTime;
+        if (null !== $this->gatewayClusterInfoList) {
+            $res['GatewayClusterInfoList'] = null !== $this->gatewayClusterInfoList ? $this->gatewayClusterInfoList->toMap() : null;
         }
         if (null !== $this->highAvailabilityEnable) {
             $res['HighAvailabilityEnable'] = $this->highAvailabilityEnable;
         }
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
-        }
-        if (null !== $this->autoScalingAllowed) {
-            $res['AutoScalingAllowed'] = $this->autoScalingAllowed;
-        }
         if (null !== $this->hostGroupList) {
             $res['HostGroupList'] = null !== $this->hostGroupList ? $this->hostGroupList->toMap() : null;
         }
-        if (null !== $this->masterNodeInService) {
-            $res['MasterNodeInService'] = $this->masterNodeInService;
+        if (null !== $this->hostPoolInfo) {
+            $res['HostPoolInfo'] = null !== $this->hostPoolInfo ? $this->hostPoolInfo->toMap() : null;
         }
-        if (null !== $this->autoScalingEnable) {
-            $res['AutoScalingEnable'] = $this->autoScalingEnable;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
-        if (null !== $this->autoScalingWithGraceAllowed) {
-            $res['AutoScalingWithGraceAllowed'] = $this->autoScalingWithGraceAllowed;
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
-        if (null !== $this->showSoftwareInterface) {
-            $res['ShowSoftwareInterface'] = $this->showSoftwareInterface;
+        if (null !== $this->instanceGeneration) {
+            $res['InstanceGeneration'] = $this->instanceGeneration;
         }
-        if (null !== $this->coreNodeInService) {
-            $res['CoreNodeInService'] = $this->coreNodeInService;
-        }
-        if (null !== $this->autoScalingByLoadAllowed) {
-            $res['AutoScalingByLoadAllowed'] = $this->autoScalingByLoadAllowed;
+        if (null !== $this->ioOptimized) {
+            $res['IoOptimized'] = $this->ioOptimized;
         }
         if (null !== $this->k8sClusterId) {
             $res['K8sClusterId'] = $this->k8sClusterId;
@@ -499,62 +472,89 @@ class clusterInfo extends Model
         if (null !== $this->localMetaDb) {
             $res['LocalMetaDb'] = $this->localMetaDb;
         }
-        if (null !== $this->bootstrapActionList) {
-            $res['BootstrapActionList'] = null !== $this->bootstrapActionList ? $this->bootstrapActionList->toMap() : null;
+        if (null !== $this->logEnable) {
+            $res['LogEnable'] = $this->logEnable;
         }
-        if (null !== $this->gatewayClusterInfoList) {
-            $res['GatewayClusterInfoList'] = null !== $this->gatewayClusterInfoList ? $this->gatewayClusterInfoList->toMap() : null;
-        }
-        if (null !== $this->instanceGeneration) {
-            $res['InstanceGeneration'] = $this->instanceGeneration;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->easEnable) {
-            $res['EasEnable'] = $this->easEnable;
+        if (null !== $this->logPath) {
+            $res['LogPath'] = $this->logPath;
         }
         if (null !== $this->machineType) {
             $res['MachineType'] = $this->machineType;
         }
-        if (null !== $this->hostPoolInfo) {
-            $res['HostPoolInfo'] = null !== $this->hostPoolInfo ? $this->hostPoolInfo->toMap() : null;
+        if (null !== $this->masterNodeInService) {
+            $res['MasterNodeInService'] = $this->masterNodeInService;
         }
         if (null !== $this->masterNodeTotal) {
             $res['MasterNodeTotal'] = $this->masterNodeTotal;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->metaStoreType) {
+            $res['MetaStoreType'] = $this->metaStoreType;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->netType) {
+            $res['NetType'] = $this->netType;
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
-        if (null !== $this->extraInfo) {
-            $res['ExtraInfo'] = $this->extraInfo;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->ioOptimized) {
-            $res['IoOptimized'] = $this->ioOptimized;
+        if (null !== $this->relateClusterId) {
+            $res['RelateClusterId'] = $this->relateClusterId;
+        }
+        if (null !== $this->relateClusterInfo) {
+            $res['RelateClusterInfo'] = null !== $this->relateClusterInfo ? $this->relateClusterInfo->toMap() : null;
+        }
+        if (null !== $this->resizeDiskEnable) {
+            $res['ResizeDiskEnable'] = $this->resizeDiskEnable;
+        }
+        if (null !== $this->runningTime) {
+            $res['RunningTime'] = $this->runningTime;
+        }
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->securityGroupName) {
+            $res['SecurityGroupName'] = $this->securityGroupName;
+        }
+        if (null !== $this->showSoftwareInterface) {
+            $res['ShowSoftwareInterface'] = $this->showSoftwareInterface;
+        }
+        if (null !== $this->softwareInfo) {
+            $res['SoftwareInfo'] = null !== $this->softwareInfo ? $this->softwareInfo->toMap() : null;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->stopTime) {
+            $res['StopTime'] = $this->stopTime;
+        }
+        if (null !== $this->taskNodeInService) {
+            $res['TaskNodeInService'] = $this->taskNodeInService;
+        }
+        if (null !== $this->taskNodeTotal) {
+            $res['TaskNodeTotal'] = $this->taskNodeTotal;
+        }
+        if (null !== $this->userDefinedEmrEcsRole) {
+            $res['UserDefinedEmrEcsRole'] = $this->userDefinedEmrEcsRole;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
-        if (null !== $this->expiredTime) {
-            $res['ExpiredTime'] = $this->expiredTime;
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
-        if (null !== $this->coreNodeTotal) {
-            $res['CoreNodeTotal'] = $this->coreNodeTotal;
-        }
-        if (null !== $this->gatewayClusterIds) {
-            $res['GatewayClusterIds'] = $this->gatewayClusterIds;
-        }
-        if (null !== $this->bootstrapFailed) {
-            $res['BootstrapFailed'] = $this->bootstrapFailed;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->taskNodeTotal) {
-            $res['TaskNodeTotal'] = $this->taskNodeTotal;
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -568,26 +568,47 @@ class clusterInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
+        if (isset($map['AccessInfo'])) {
+            $model->accessInfo = accessInfo::fromMap($map['AccessInfo']);
         }
-        if (isset($map['LogEnable'])) {
-            $model->logEnable = $map['LogEnable'];
+        if (isset($map['AutoScalingAllowed'])) {
+            $model->autoScalingAllowed = $map['AutoScalingAllowed'];
         }
-        if (isset($map['TaskNodeInService'])) {
-            $model->taskNodeInService = $map['TaskNodeInService'];
+        if (isset($map['AutoScalingByLoadAllowed'])) {
+            $model->autoScalingByLoadAllowed = $map['AutoScalingByLoadAllowed'];
+        }
+        if (isset($map['AutoScalingEnable'])) {
+            $model->autoScalingEnable = $map['AutoScalingEnable'];
         }
         if (isset($map['AutoScalingSpotWithLimitAllowed'])) {
             $model->autoScalingSpotWithLimitAllowed = $map['AutoScalingSpotWithLimitAllowed'];
         }
+        if (isset($map['AutoScalingVersion'])) {
+            $model->autoScalingVersion = $map['AutoScalingVersion'];
+        }
+        if (isset($map['AutoScalingWithGraceAllowed'])) {
+            $model->autoScalingWithGraceAllowed = $map['AutoScalingWithGraceAllowed'];
+        }
+        if (isset($map['BootstrapActionList'])) {
+            $model->bootstrapActionList = bootstrapActionList::fromMap($map['BootstrapActionList']);
+        }
+        if (isset($map['BootstrapFailed'])) {
+            $model->bootstrapFailed = $map['BootstrapFailed'];
+        }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['Configurations'])) {
+            $model->configurations = $map['Configurations'];
         }
-        if (isset($map['StopTime'])) {
-            $model->stopTime = $map['StopTime'];
+        if (isset($map['CoreNodeInService'])) {
+            $model->coreNodeInService = $map['CoreNodeInService'];
+        }
+        if (isset($map['CoreNodeTotal'])) {
+            $model->coreNodeTotal = $map['CoreNodeTotal'];
+        }
+        if (isset($map['CreateResource'])) {
+            $model->createResource = $map['CreateResource'];
         }
         if (isset($map['CreateType'])) {
             $model->createType = $map['CreateType'];
@@ -595,92 +616,44 @@ class clusterInfo extends Model
         if (isset($map['DepositType'])) {
             $model->depositType = $map['DepositType'];
         }
-        if (isset($map['RelateClusterInfo'])) {
-            $model->relateClusterInfo = relateClusterInfo::fromMap($map['RelateClusterInfo']);
+        if (isset($map['EasEnable'])) {
+            $model->easEnable = $map['EasEnable'];
         }
-        if (isset($map['RelateClusterId'])) {
-            $model->relateClusterId = $map['RelateClusterId'];
+        if (isset($map['ExpiredTime'])) {
+            $model->expiredTime = $map['ExpiredTime'];
         }
-        if (isset($map['SecurityGroupName'])) {
-            $model->securityGroupName = $map['SecurityGroupName'];
-        }
-        if (isset($map['ResizeDiskEnable'])) {
-            $model->resizeDiskEnable = $map['ResizeDiskEnable'];
-        }
-        if (isset($map['ImageId'])) {
-            $model->imageId = $map['ImageId'];
+        if (isset($map['ExtraInfo'])) {
+            $model->extraInfo = $map['ExtraInfo'];
         }
         if (isset($map['FailReason'])) {
             $model->failReason = failReason::fromMap($map['FailReason']);
         }
-        if (isset($map['UserDefinedEmrEcsRole'])) {
-            $model->userDefinedEmrEcsRole = $map['UserDefinedEmrEcsRole'];
+        if (isset($map['GatewayClusterIds'])) {
+            $model->gatewayClusterIds = $map['GatewayClusterIds'];
         }
-        if (isset($map['MetaStoreType'])) {
-            $model->metaStoreType = $map['MetaStoreType'];
-        }
-        if (isset($map['SoftwareInfo'])) {
-            $model->softwareInfo = softwareInfo::fromMap($map['SoftwareInfo']);
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['Configurations'])) {
-            $model->configurations = $map['Configurations'];
-        }
-        if (isset($map['LogPath'])) {
-            $model->logPath = $map['LogPath'];
-        }
-        if (isset($map['AutoScalingVersion'])) {
-            $model->autoScalingVersion = $map['AutoScalingVersion'];
-        }
-        if (isset($map['NetType'])) {
-            $model->netType = $map['NetType'];
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['AccessInfo'])) {
-            $model->accessInfo = accessInfo::fromMap($map['AccessInfo']);
-        }
-        if (isset($map['CreateResource'])) {
-            $model->createResource = $map['CreateResource'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['RunningTime'])) {
-            $model->runningTime = $map['RunningTime'];
+        if (isset($map['GatewayClusterInfoList'])) {
+            $model->gatewayClusterInfoList = gatewayClusterInfoList::fromMap($map['GatewayClusterInfoList']);
         }
         if (isset($map['HighAvailabilityEnable'])) {
             $model->highAvailabilityEnable = $map['HighAvailabilityEnable'];
         }
-        if (isset($map['SecurityGroupId'])) {
-            $model->securityGroupId = $map['SecurityGroupId'];
-        }
-        if (isset($map['AutoScalingAllowed'])) {
-            $model->autoScalingAllowed = $map['AutoScalingAllowed'];
-        }
         if (isset($map['HostGroupList'])) {
             $model->hostGroupList = hostGroupList::fromMap($map['HostGroupList']);
         }
-        if (isset($map['MasterNodeInService'])) {
-            $model->masterNodeInService = $map['MasterNodeInService'];
+        if (isset($map['HostPoolInfo'])) {
+            $model->hostPoolInfo = hostPoolInfo::fromMap($map['HostPoolInfo']);
         }
-        if (isset($map['AutoScalingEnable'])) {
-            $model->autoScalingEnable = $map['AutoScalingEnable'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
-        if (isset($map['AutoScalingWithGraceAllowed'])) {
-            $model->autoScalingWithGraceAllowed = $map['AutoScalingWithGraceAllowed'];
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
-        if (isset($map['ShowSoftwareInterface'])) {
-            $model->showSoftwareInterface = $map['ShowSoftwareInterface'];
+        if (isset($map['InstanceGeneration'])) {
+            $model->instanceGeneration = $map['InstanceGeneration'];
         }
-        if (isset($map['CoreNodeInService'])) {
-            $model->coreNodeInService = $map['CoreNodeInService'];
-        }
-        if (isset($map['AutoScalingByLoadAllowed'])) {
-            $model->autoScalingByLoadAllowed = $map['AutoScalingByLoadAllowed'];
+        if (isset($map['IoOptimized'])) {
+            $model->ioOptimized = $map['IoOptimized'];
         }
         if (isset($map['K8sClusterId'])) {
             $model->k8sClusterId = $map['K8sClusterId'];
@@ -688,62 +661,89 @@ class clusterInfo extends Model
         if (isset($map['LocalMetaDb'])) {
             $model->localMetaDb = $map['LocalMetaDb'];
         }
-        if (isset($map['BootstrapActionList'])) {
-            $model->bootstrapActionList = bootstrapActionList::fromMap($map['BootstrapActionList']);
+        if (isset($map['LogEnable'])) {
+            $model->logEnable = $map['LogEnable'];
         }
-        if (isset($map['GatewayClusterInfoList'])) {
-            $model->gatewayClusterInfoList = gatewayClusterInfoList::fromMap($map['GatewayClusterInfoList']);
-        }
-        if (isset($map['InstanceGeneration'])) {
-            $model->instanceGeneration = $map['InstanceGeneration'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['EasEnable'])) {
-            $model->easEnable = $map['EasEnable'];
+        if (isset($map['LogPath'])) {
+            $model->logPath = $map['LogPath'];
         }
         if (isset($map['MachineType'])) {
             $model->machineType = $map['MachineType'];
         }
-        if (isset($map['HostPoolInfo'])) {
-            $model->hostPoolInfo = hostPoolInfo::fromMap($map['HostPoolInfo']);
+        if (isset($map['MasterNodeInService'])) {
+            $model->masterNodeInService = $map['MasterNodeInService'];
         }
         if (isset($map['MasterNodeTotal'])) {
             $model->masterNodeTotal = $map['MasterNodeTotal'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['MetaStoreType'])) {
+            $model->metaStoreType = $map['MetaStoreType'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['NetType'])) {
+            $model->netType = $map['NetType'];
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
-        if (isset($map['ExtraInfo'])) {
-            $model->extraInfo = $map['ExtraInfo'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
-        if (isset($map['IoOptimized'])) {
-            $model->ioOptimized = $map['IoOptimized'];
+        if (isset($map['RelateClusterId'])) {
+            $model->relateClusterId = $map['RelateClusterId'];
+        }
+        if (isset($map['RelateClusterInfo'])) {
+            $model->relateClusterInfo = relateClusterInfo::fromMap($map['RelateClusterInfo']);
+        }
+        if (isset($map['ResizeDiskEnable'])) {
+            $model->resizeDiskEnable = $map['ResizeDiskEnable'];
+        }
+        if (isset($map['RunningTime'])) {
+            $model->runningTime = $map['RunningTime'];
+        }
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['SecurityGroupName'])) {
+            $model->securityGroupName = $map['SecurityGroupName'];
+        }
+        if (isset($map['ShowSoftwareInterface'])) {
+            $model->showSoftwareInterface = $map['ShowSoftwareInterface'];
+        }
+        if (isset($map['SoftwareInfo'])) {
+            $model->softwareInfo = softwareInfo::fromMap($map['SoftwareInfo']);
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['StopTime'])) {
+            $model->stopTime = $map['StopTime'];
+        }
+        if (isset($map['TaskNodeInService'])) {
+            $model->taskNodeInService = $map['TaskNodeInService'];
+        }
+        if (isset($map['TaskNodeTotal'])) {
+            $model->taskNodeTotal = $map['TaskNodeTotal'];
+        }
+        if (isset($map['UserDefinedEmrEcsRole'])) {
+            $model->userDefinedEmrEcsRole = $map['UserDefinedEmrEcsRole'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
-        if (isset($map['ExpiredTime'])) {
-            $model->expiredTime = $map['ExpiredTime'];
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
-        if (isset($map['CoreNodeTotal'])) {
-            $model->coreNodeTotal = $map['CoreNodeTotal'];
-        }
-        if (isset($map['GatewayClusterIds'])) {
-            $model->gatewayClusterIds = $map['GatewayClusterIds'];
-        }
-        if (isset($map['BootstrapFailed'])) {
-            $model->bootstrapFailed = $map['BootstrapFailed'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['TaskNodeTotal'])) {
-            $model->taskNodeTotal = $map['TaskNodeTotal'];
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

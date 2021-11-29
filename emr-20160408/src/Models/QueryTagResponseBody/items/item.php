@@ -11,20 +11,20 @@ class item extends Model
     /**
      * @var string
      */
-    public $description;
+    public $category;
 
     /**
      * @var string
      */
-    public $category;
+    public $description;
 
     /**
      * @var string
      */
     public $name;
     protected $_name = [
-        'description' => 'Description',
         'category'    => 'Category',
+        'description' => 'Description',
         'name'        => 'Name',
     ];
 
@@ -35,11 +35,11 @@ class item extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -56,11 +56,11 @@ class item extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

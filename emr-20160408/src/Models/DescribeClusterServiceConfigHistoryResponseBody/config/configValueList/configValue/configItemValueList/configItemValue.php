@@ -11,12 +11,7 @@ class configItemValue extends Model
     /**
      * @var string
      */
-    public $value;
-
-    /**
-     * @var string
-     */
-    public $oldValue;
+    public $changeType;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class configItemValue extends Model
     /**
      * @var string
      */
-    public $changeType;
+    public $oldValue;
+
+    /**
+     * @var string
+     */
+    public $value;
     protected $_name = [
-        'value'      => 'Value',
-        'oldValue'   => 'OldValue',
-        'itemName'   => 'ItemName',
         'changeType' => 'ChangeType',
+        'itemName'   => 'ItemName',
+        'oldValue'   => 'OldValue',
+        'value'      => 'Value',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class configItemValue extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
-        if (null !== $this->oldValue) {
-            $res['OldValue'] = $this->oldValue;
+        if (null !== $this->changeType) {
+            $res['ChangeType'] = $this->changeType;
         }
         if (null !== $this->itemName) {
             $res['ItemName'] = $this->itemName;
         }
-        if (null !== $this->changeType) {
-            $res['ChangeType'] = $this->changeType;
+        if (null !== $this->oldValue) {
+            $res['OldValue'] = $this->oldValue;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class configItemValue extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
-        if (isset($map['OldValue'])) {
-            $model->oldValue = $map['OldValue'];
+        if (isset($map['ChangeType'])) {
+            $model->changeType = $map['ChangeType'];
         }
         if (isset($map['ItemName'])) {
             $model->itemName = $map['ItemName'];
         }
-        if (isset($map['ChangeType'])) {
-            $model->changeType = $map['ChangeType'];
+        if (isset($map['OldValue'])) {
+            $model->oldValue = $map['OldValue'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

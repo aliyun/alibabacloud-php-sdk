@@ -12,14 +12,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyExecutionPlanRequest extends Model
 {
     /**
-     * @var int
+     * @var bootstrapAction[]
      */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $clusterName;
+    public $bootstrapAction;
 
     /**
      * @var string
@@ -29,12 +24,92 @@ class ModifyExecutionPlanRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $clusterName;
 
     /**
      * @var string
      */
-    public $zoneId;
+    public $clusterType;
+
+    /**
+     * @var config[]
+     */
+    public $config;
+
+    /**
+     * @var string
+     */
+    public $configurations;
+
+    /**
+     * @var bool
+     */
+    public $createClusterOnDemand;
+
+    /**
+     * @var string
+     */
+    public $dayOfMonth;
+
+    /**
+     * @var string
+     */
+    public $dayOfWeek;
+
+    /**
+     * @var bool
+     */
+    public $easEnable;
+
+    /**
+     * @var ecsOrder[]
+     */
+    public $ecsOrder;
+
+    /**
+     * @var string
+     */
+    public $emrVer;
+
+    /**
+     * @var int
+     */
+    public $executionPlanVersion;
+
+    /**
+     * @var bool
+     */
+    public $highAvailabilityEnable;
+
+    /**
+     * @var string
+     */
+    public $id;
+
+    /**
+     * @var bool
+     */
+    public $initCustomHiveMetaDB;
+
+    /**
+     * @var string
+     */
+    public $instanceGeneration;
+
+    /**
+     * @var bool
+     */
+    public $ioOptimized;
+
+    /**
+     * @var bool
+     */
+    public $isOpenPublicIp;
+
+    /**
+     * @var string[]
+     */
+    public $jobIdList;
 
     /**
      * @var bool
@@ -49,47 +124,7 @@ class ModifyExecutionPlanRequest extends Model
     /**
      * @var string
      */
-    public $securityGroupId;
-
-    /**
-     * @var bool
-     */
-    public $isOpenPublicIp;
-
-    /**
-     * @var bool
-     */
-    public $createClusterOnDemand;
-
-    /**
-     * @var string
-     */
-    public $emrVer;
-
-    /**
-     * @var string
-     */
-    public $clusterType;
-
-    /**
-     * @var bool
-     */
-    public $highAvailabilityEnable;
-
-    /**
-     * @var bool
-     */
-    public $useLocalMetaDb;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $vSwitchId;
+    public $name;
 
     /**
      * @var string
@@ -97,59 +132,29 @@ class ModifyExecutionPlanRequest extends Model
     public $netType;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $userDefinedEmrEcsRole;
-
-    /**
-     * @var bool
-     */
-    public $ioOptimized;
+    public $optionSoftWareList;
 
     /**
      * @var string
      */
-    public $instanceGeneration;
-
-    /**
-     * @var bool
-     */
-    public $easEnable;
-
-    /**
-     * @var string
-     */
-    public $workflowDefinition;
-
-    /**
-     * @var bool
-     */
-    public $useCustomHiveMetaDB;
-
-    /**
-     * @var bool
-     */
-    public $initCustomHiveMetaDB;
-
-    /**
-     * @var string
-     */
-    public $configurations;
-
-    /**
-     * @var string
-     */
-    public $id;
+    public $regionId;
 
     /**
      * @var int
      */
-    public $executionPlanVersion;
+    public $resourceOwnerId;
 
     /**
      * @var string
      */
-    public $name;
+    public $securityGroupId;
+
+    /**
+     * @var int
+     */
+    public $startTime;
 
     /**
      * @var string
@@ -162,89 +167,84 @@ class ModifyExecutionPlanRequest extends Model
     public $timeInterval;
 
     /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
      * @var string
      */
     public $timeUnit;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $dayOfWeek;
+    public $useCustomHiveMetaDB;
+
+    /**
+     * @var bool
+     */
+    public $useLocalMetaDb;
 
     /**
      * @var string
      */
-    public $dayOfMonth;
+    public $userDefinedEmrEcsRole;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $optionSoftWareList;
+    public $vSwitchId;
 
     /**
-     * @var ecsOrder[]
+     * @var string
      */
-    public $ecsOrder;
+    public $vpcId;
 
     /**
-     * @var bootstrapAction[]
+     * @var string
      */
-    public $bootstrapAction;
+    public $workflowDefinition;
 
     /**
-     * @var config[]
+     * @var string
      */
-    public $config;
-
-    /**
-     * @var string[]
-     */
-    public $jobIdList;
+    public $zoneId;
     protected $_name = [
-        'resourceOwnerId'        => 'ResourceOwnerId',
-        'clusterName'            => 'ClusterName',
+        'bootstrapAction'        => 'BootstrapAction',
         'clusterId'              => 'ClusterId',
-        'regionId'               => 'RegionId',
-        'zoneId'                 => 'ZoneId',
+        'clusterName'            => 'ClusterName',
+        'clusterType'            => 'ClusterType',
+        'config'                 => 'Config',
+        'configurations'         => 'Configurations',
+        'createClusterOnDemand'  => 'CreateClusterOnDemand',
+        'dayOfMonth'             => 'DayOfMonth',
+        'dayOfWeek'              => 'DayOfWeek',
+        'easEnable'              => 'EasEnable',
+        'ecsOrder'               => 'EcsOrder',
+        'emrVer'                 => 'EmrVer',
+        'executionPlanVersion'   => 'ExecutionPlanVersion',
+        'highAvailabilityEnable' => 'HighAvailabilityEnable',
+        'id'                     => 'Id',
+        'initCustomHiveMetaDB'   => 'InitCustomHiveMetaDB',
+        'instanceGeneration'     => 'InstanceGeneration',
+        'ioOptimized'            => 'IoOptimized',
+        'isOpenPublicIp'         => 'IsOpenPublicIp',
+        'jobIdList'              => 'JobIdList',
         'logEnable'              => 'LogEnable',
         'logPath'                => 'LogPath',
-        'securityGroupId'        => 'SecurityGroupId',
-        'isOpenPublicIp'         => 'IsOpenPublicIp',
-        'createClusterOnDemand'  => 'CreateClusterOnDemand',
-        'emrVer'                 => 'EmrVer',
-        'clusterType'            => 'ClusterType',
-        'highAvailabilityEnable' => 'HighAvailabilityEnable',
-        'useLocalMetaDb'         => 'UseLocalMetaDb',
-        'vpcId'                  => 'VpcId',
-        'vSwitchId'              => 'VSwitchId',
-        'netType'                => 'NetType',
-        'userDefinedEmrEcsRole'  => 'UserDefinedEmrEcsRole',
-        'ioOptimized'            => 'IoOptimized',
-        'instanceGeneration'     => 'InstanceGeneration',
-        'easEnable'              => 'EasEnable',
-        'workflowDefinition'     => 'WorkflowDefinition',
-        'useCustomHiveMetaDB'    => 'UseCustomHiveMetaDB',
-        'initCustomHiveMetaDB'   => 'InitCustomHiveMetaDB',
-        'configurations'         => 'Configurations',
-        'id'                     => 'Id',
-        'executionPlanVersion'   => 'ExecutionPlanVersion',
         'name'                   => 'Name',
+        'netType'                => 'NetType',
+        'optionSoftWareList'     => 'OptionSoftWareList',
+        'regionId'               => 'RegionId',
+        'resourceOwnerId'        => 'ResourceOwnerId',
+        'securityGroupId'        => 'SecurityGroupId',
+        'startTime'              => 'StartTime',
         'strategy'               => 'Strategy',
         'timeInterval'           => 'TimeInterval',
-        'startTime'              => 'StartTime',
         'timeUnit'               => 'TimeUnit',
-        'dayOfWeek'              => 'DayOfWeek',
-        'dayOfMonth'             => 'DayOfMonth',
-        'optionSoftWareList'     => 'OptionSoftWareList',
-        'ecsOrder'               => 'EcsOrder',
-        'bootstrapAction'        => 'BootstrapAction',
-        'config'                 => 'Config',
-        'jobIdList'              => 'JobIdList',
+        'useCustomHiveMetaDB'    => 'UseCustomHiveMetaDB',
+        'useLocalMetaDb'         => 'UseLocalMetaDb',
+        'userDefinedEmrEcsRole'  => 'UserDefinedEmrEcsRole',
+        'vSwitchId'              => 'VSwitchId',
+        'vpcId'                  => 'VpcId',
+        'workflowDefinition'     => 'WorkflowDefinition',
+        'zoneId'                 => 'ZoneId',
     ];
 
     public function validate()
@@ -254,120 +254,6 @@ class ModifyExecutionPlanRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->clusterName) {
-            $res['ClusterName'] = $this->clusterName;
-        }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->logEnable) {
-            $res['LogEnable'] = $this->logEnable;
-        }
-        if (null !== $this->logPath) {
-            $res['LogPath'] = $this->logPath;
-        }
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
-        }
-        if (null !== $this->isOpenPublicIp) {
-            $res['IsOpenPublicIp'] = $this->isOpenPublicIp;
-        }
-        if (null !== $this->createClusterOnDemand) {
-            $res['CreateClusterOnDemand'] = $this->createClusterOnDemand;
-        }
-        if (null !== $this->emrVer) {
-            $res['EmrVer'] = $this->emrVer;
-        }
-        if (null !== $this->clusterType) {
-            $res['ClusterType'] = $this->clusterType;
-        }
-        if (null !== $this->highAvailabilityEnable) {
-            $res['HighAvailabilityEnable'] = $this->highAvailabilityEnable;
-        }
-        if (null !== $this->useLocalMetaDb) {
-            $res['UseLocalMetaDb'] = $this->useLocalMetaDb;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
-        if (null !== $this->netType) {
-            $res['NetType'] = $this->netType;
-        }
-        if (null !== $this->userDefinedEmrEcsRole) {
-            $res['UserDefinedEmrEcsRole'] = $this->userDefinedEmrEcsRole;
-        }
-        if (null !== $this->ioOptimized) {
-            $res['IoOptimized'] = $this->ioOptimized;
-        }
-        if (null !== $this->instanceGeneration) {
-            $res['InstanceGeneration'] = $this->instanceGeneration;
-        }
-        if (null !== $this->easEnable) {
-            $res['EasEnable'] = $this->easEnable;
-        }
-        if (null !== $this->workflowDefinition) {
-            $res['WorkflowDefinition'] = $this->workflowDefinition;
-        }
-        if (null !== $this->useCustomHiveMetaDB) {
-            $res['UseCustomHiveMetaDB'] = $this->useCustomHiveMetaDB;
-        }
-        if (null !== $this->initCustomHiveMetaDB) {
-            $res['InitCustomHiveMetaDB'] = $this->initCustomHiveMetaDB;
-        }
-        if (null !== $this->configurations) {
-            $res['Configurations'] = $this->configurations;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->executionPlanVersion) {
-            $res['ExecutionPlanVersion'] = $this->executionPlanVersion;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->strategy) {
-            $res['Strategy'] = $this->strategy;
-        }
-        if (null !== $this->timeInterval) {
-            $res['TimeInterval'] = $this->timeInterval;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->timeUnit) {
-            $res['TimeUnit'] = $this->timeUnit;
-        }
-        if (null !== $this->dayOfWeek) {
-            $res['DayOfWeek'] = $this->dayOfWeek;
-        }
-        if (null !== $this->dayOfMonth) {
-            $res['DayOfMonth'] = $this->dayOfMonth;
-        }
-        if (null !== $this->optionSoftWareList) {
-            $res['OptionSoftWareList'] = $this->optionSoftWareList;
-        }
-        if (null !== $this->ecsOrder) {
-            $res['EcsOrder'] = [];
-            if (null !== $this->ecsOrder && \is_array($this->ecsOrder)) {
-                $n = 0;
-                foreach ($this->ecsOrder as $item) {
-                    $res['EcsOrder'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->bootstrapAction) {
             $res['BootstrapAction'] = [];
             if (null !== $this->bootstrapAction && \is_array($this->bootstrapAction)) {
@@ -376,6 +262,15 @@ class ModifyExecutionPlanRequest extends Model
                     $res['BootstrapAction'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->clusterName) {
+            $res['ClusterName'] = $this->clusterName;
+        }
+        if (null !== $this->clusterType) {
+            $res['ClusterType'] = $this->clusterType;
         }
         if (null !== $this->config) {
             $res['Config'] = [];
@@ -386,8 +281,113 @@ class ModifyExecutionPlanRequest extends Model
                 }
             }
         }
+        if (null !== $this->configurations) {
+            $res['Configurations'] = $this->configurations;
+        }
+        if (null !== $this->createClusterOnDemand) {
+            $res['CreateClusterOnDemand'] = $this->createClusterOnDemand;
+        }
+        if (null !== $this->dayOfMonth) {
+            $res['DayOfMonth'] = $this->dayOfMonth;
+        }
+        if (null !== $this->dayOfWeek) {
+            $res['DayOfWeek'] = $this->dayOfWeek;
+        }
+        if (null !== $this->easEnable) {
+            $res['EasEnable'] = $this->easEnable;
+        }
+        if (null !== $this->ecsOrder) {
+            $res['EcsOrder'] = [];
+            if (null !== $this->ecsOrder && \is_array($this->ecsOrder)) {
+                $n = 0;
+                foreach ($this->ecsOrder as $item) {
+                    $res['EcsOrder'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->emrVer) {
+            $res['EmrVer'] = $this->emrVer;
+        }
+        if (null !== $this->executionPlanVersion) {
+            $res['ExecutionPlanVersion'] = $this->executionPlanVersion;
+        }
+        if (null !== $this->highAvailabilityEnable) {
+            $res['HighAvailabilityEnable'] = $this->highAvailabilityEnable;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->initCustomHiveMetaDB) {
+            $res['InitCustomHiveMetaDB'] = $this->initCustomHiveMetaDB;
+        }
+        if (null !== $this->instanceGeneration) {
+            $res['InstanceGeneration'] = $this->instanceGeneration;
+        }
+        if (null !== $this->ioOptimized) {
+            $res['IoOptimized'] = $this->ioOptimized;
+        }
+        if (null !== $this->isOpenPublicIp) {
+            $res['IsOpenPublicIp'] = $this->isOpenPublicIp;
+        }
         if (null !== $this->jobIdList) {
             $res['JobIdList'] = $this->jobIdList;
+        }
+        if (null !== $this->logEnable) {
+            $res['LogEnable'] = $this->logEnable;
+        }
+        if (null !== $this->logPath) {
+            $res['LogPath'] = $this->logPath;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->netType) {
+            $res['NetType'] = $this->netType;
+        }
+        if (null !== $this->optionSoftWareList) {
+            $res['OptionSoftWareList'] = $this->optionSoftWareList;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->strategy) {
+            $res['Strategy'] = $this->strategy;
+        }
+        if (null !== $this->timeInterval) {
+            $res['TimeInterval'] = $this->timeInterval;
+        }
+        if (null !== $this->timeUnit) {
+            $res['TimeUnit'] = $this->timeUnit;
+        }
+        if (null !== $this->useCustomHiveMetaDB) {
+            $res['UseCustomHiveMetaDB'] = $this->useCustomHiveMetaDB;
+        }
+        if (null !== $this->useLocalMetaDb) {
+            $res['UseLocalMetaDb'] = $this->useLocalMetaDb;
+        }
+        if (null !== $this->userDefinedEmrEcsRole) {
+            $res['UserDefinedEmrEcsRole'] = $this->userDefinedEmrEcsRole;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->workflowDefinition) {
+            $res['WorkflowDefinition'] = $this->workflowDefinition;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -401,122 +401,6 @@ class ModifyExecutionPlanRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ClusterName'])) {
-            $model->clusterName = $map['ClusterName'];
-        }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['LogEnable'])) {
-            $model->logEnable = $map['LogEnable'];
-        }
-        if (isset($map['LogPath'])) {
-            $model->logPath = $map['LogPath'];
-        }
-        if (isset($map['SecurityGroupId'])) {
-            $model->securityGroupId = $map['SecurityGroupId'];
-        }
-        if (isset($map['IsOpenPublicIp'])) {
-            $model->isOpenPublicIp = $map['IsOpenPublicIp'];
-        }
-        if (isset($map['CreateClusterOnDemand'])) {
-            $model->createClusterOnDemand = $map['CreateClusterOnDemand'];
-        }
-        if (isset($map['EmrVer'])) {
-            $model->emrVer = $map['EmrVer'];
-        }
-        if (isset($map['ClusterType'])) {
-            $model->clusterType = $map['ClusterType'];
-        }
-        if (isset($map['HighAvailabilityEnable'])) {
-            $model->highAvailabilityEnable = $map['HighAvailabilityEnable'];
-        }
-        if (isset($map['UseLocalMetaDb'])) {
-            $model->useLocalMetaDb = $map['UseLocalMetaDb'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
-        if (isset($map['NetType'])) {
-            $model->netType = $map['NetType'];
-        }
-        if (isset($map['UserDefinedEmrEcsRole'])) {
-            $model->userDefinedEmrEcsRole = $map['UserDefinedEmrEcsRole'];
-        }
-        if (isset($map['IoOptimized'])) {
-            $model->ioOptimized = $map['IoOptimized'];
-        }
-        if (isset($map['InstanceGeneration'])) {
-            $model->instanceGeneration = $map['InstanceGeneration'];
-        }
-        if (isset($map['EasEnable'])) {
-            $model->easEnable = $map['EasEnable'];
-        }
-        if (isset($map['WorkflowDefinition'])) {
-            $model->workflowDefinition = $map['WorkflowDefinition'];
-        }
-        if (isset($map['UseCustomHiveMetaDB'])) {
-            $model->useCustomHiveMetaDB = $map['UseCustomHiveMetaDB'];
-        }
-        if (isset($map['InitCustomHiveMetaDB'])) {
-            $model->initCustomHiveMetaDB = $map['InitCustomHiveMetaDB'];
-        }
-        if (isset($map['Configurations'])) {
-            $model->configurations = $map['Configurations'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['ExecutionPlanVersion'])) {
-            $model->executionPlanVersion = $map['ExecutionPlanVersion'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Strategy'])) {
-            $model->strategy = $map['Strategy'];
-        }
-        if (isset($map['TimeInterval'])) {
-            $model->timeInterval = $map['TimeInterval'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['TimeUnit'])) {
-            $model->timeUnit = $map['TimeUnit'];
-        }
-        if (isset($map['DayOfWeek'])) {
-            $model->dayOfWeek = $map['DayOfWeek'];
-        }
-        if (isset($map['DayOfMonth'])) {
-            $model->dayOfMonth = $map['DayOfMonth'];
-        }
-        if (isset($map['OptionSoftWareList'])) {
-            if (!empty($map['OptionSoftWareList'])) {
-                $model->optionSoftWareList = $map['OptionSoftWareList'];
-            }
-        }
-        if (isset($map['EcsOrder'])) {
-            if (!empty($map['EcsOrder'])) {
-                $model->ecsOrder = [];
-                $n               = 0;
-                foreach ($map['EcsOrder'] as $item) {
-                    $model->ecsOrder[$n++] = null !== $item ? ecsOrder::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['BootstrapAction'])) {
             if (!empty($map['BootstrapAction'])) {
                 $model->bootstrapAction = [];
@@ -525,6 +409,15 @@ class ModifyExecutionPlanRequest extends Model
                     $model->bootstrapAction[$n++] = null !== $item ? bootstrapAction::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['ClusterName'])) {
+            $model->clusterName = $map['ClusterName'];
+        }
+        if (isset($map['ClusterType'])) {
+            $model->clusterType = $map['ClusterType'];
         }
         if (isset($map['Config'])) {
             if (!empty($map['Config'])) {
@@ -535,10 +428,117 @@ class ModifyExecutionPlanRequest extends Model
                 }
             }
         }
+        if (isset($map['Configurations'])) {
+            $model->configurations = $map['Configurations'];
+        }
+        if (isset($map['CreateClusterOnDemand'])) {
+            $model->createClusterOnDemand = $map['CreateClusterOnDemand'];
+        }
+        if (isset($map['DayOfMonth'])) {
+            $model->dayOfMonth = $map['DayOfMonth'];
+        }
+        if (isset($map['DayOfWeek'])) {
+            $model->dayOfWeek = $map['DayOfWeek'];
+        }
+        if (isset($map['EasEnable'])) {
+            $model->easEnable = $map['EasEnable'];
+        }
+        if (isset($map['EcsOrder'])) {
+            if (!empty($map['EcsOrder'])) {
+                $model->ecsOrder = [];
+                $n               = 0;
+                foreach ($map['EcsOrder'] as $item) {
+                    $model->ecsOrder[$n++] = null !== $item ? ecsOrder::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['EmrVer'])) {
+            $model->emrVer = $map['EmrVer'];
+        }
+        if (isset($map['ExecutionPlanVersion'])) {
+            $model->executionPlanVersion = $map['ExecutionPlanVersion'];
+        }
+        if (isset($map['HighAvailabilityEnable'])) {
+            $model->highAvailabilityEnable = $map['HighAvailabilityEnable'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['InitCustomHiveMetaDB'])) {
+            $model->initCustomHiveMetaDB = $map['InitCustomHiveMetaDB'];
+        }
+        if (isset($map['InstanceGeneration'])) {
+            $model->instanceGeneration = $map['InstanceGeneration'];
+        }
+        if (isset($map['IoOptimized'])) {
+            $model->ioOptimized = $map['IoOptimized'];
+        }
+        if (isset($map['IsOpenPublicIp'])) {
+            $model->isOpenPublicIp = $map['IsOpenPublicIp'];
+        }
         if (isset($map['JobIdList'])) {
             if (!empty($map['JobIdList'])) {
                 $model->jobIdList = $map['JobIdList'];
             }
+        }
+        if (isset($map['LogEnable'])) {
+            $model->logEnable = $map['LogEnable'];
+        }
+        if (isset($map['LogPath'])) {
+            $model->logPath = $map['LogPath'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['NetType'])) {
+            $model->netType = $map['NetType'];
+        }
+        if (isset($map['OptionSoftWareList'])) {
+            if (!empty($map['OptionSoftWareList'])) {
+                $model->optionSoftWareList = $map['OptionSoftWareList'];
+            }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Strategy'])) {
+            $model->strategy = $map['Strategy'];
+        }
+        if (isset($map['TimeInterval'])) {
+            $model->timeInterval = $map['TimeInterval'];
+        }
+        if (isset($map['TimeUnit'])) {
+            $model->timeUnit = $map['TimeUnit'];
+        }
+        if (isset($map['UseCustomHiveMetaDB'])) {
+            $model->useCustomHiveMetaDB = $map['UseCustomHiveMetaDB'];
+        }
+        if (isset($map['UseLocalMetaDb'])) {
+            $model->useLocalMetaDb = $map['UseLocalMetaDb'];
+        }
+        if (isset($map['UserDefinedEmrEcsRole'])) {
+            $model->userDefinedEmrEcsRole = $map['UserDefinedEmrEcsRole'];
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['WorkflowDefinition'])) {
+            $model->workflowDefinition = $map['WorkflowDefinition'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

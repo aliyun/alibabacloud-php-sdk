@@ -11,37 +11,7 @@ class executionPlanInstance extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var bool
-     */
-    public $logEnable;
-
-    /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $logPath;
-
-    /**
-     * @var string
-     */
-    public $executionPlanId;
-
-    /**
-     * @var string
-     */
-    public $clusterType;
-
-    /**
-     * @var int
-     */
-    public $runTime;
+    public $clusterId;
 
     /**
      * @var string
@@ -51,7 +21,17 @@ class executionPlanInstance extends Model
     /**
      * @var string
      */
-    public $workflowApp;
+    public $clusterType;
+
+    /**
+     * @var string
+     */
+    public $executionPlanId;
+
+    /**
+     * @var string
+     */
+    public $executionPlanName;
 
     /**
      * @var string
@@ -59,27 +39,47 @@ class executionPlanInstance extends Model
     public $id;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $clusterId;
+    public $logEnable;
 
     /**
      * @var string
      */
-    public $executionPlanName;
+    public $logPath;
+
+    /**
+     * @var int
+     */
+    public $runTime;
+
+    /**
+     * @var int
+     */
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $workflowApp;
     protected $_name = [
-        'status'            => 'Status',
-        'logEnable'         => 'LogEnable',
-        'startTime'         => 'StartTime',
-        'logPath'           => 'LogPath',
-        'executionPlanId'   => 'ExecutionPlanId',
-        'clusterType'       => 'ClusterType',
-        'runTime'           => 'RunTime',
-        'clusterName'       => 'ClusterName',
-        'workflowApp'       => 'WorkflowApp',
-        'id'                => 'Id',
         'clusterId'         => 'ClusterId',
+        'clusterName'       => 'ClusterName',
+        'clusterType'       => 'ClusterType',
+        'executionPlanId'   => 'ExecutionPlanId',
         'executionPlanName' => 'ExecutionPlanName',
+        'id'                => 'Id',
+        'logEnable'         => 'LogEnable',
+        'logPath'           => 'LogPath',
+        'runTime'           => 'RunTime',
+        'startTime'         => 'StartTime',
+        'status'            => 'Status',
+        'workflowApp'       => 'WorkflowApp',
     ];
 
     public function validate()
@@ -89,41 +89,41 @@ class executionPlanInstance extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->logEnable) {
-            $res['LogEnable'] = $this->logEnable;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->logPath) {
-            $res['LogPath'] = $this->logPath;
-        }
-        if (null !== $this->executionPlanId) {
-            $res['ExecutionPlanId'] = $this->executionPlanId;
-        }
-        if (null !== $this->clusterType) {
-            $res['ClusterType'] = $this->clusterType;
-        }
-        if (null !== $this->runTime) {
-            $res['RunTime'] = $this->runTime;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
-        if (null !== $this->workflowApp) {
-            $res['WorkflowApp'] = $this->workflowApp;
+        if (null !== $this->clusterType) {
+            $res['ClusterType'] = $this->clusterType;
+        }
+        if (null !== $this->executionPlanId) {
+            $res['ExecutionPlanId'] = $this->executionPlanId;
+        }
+        if (null !== $this->executionPlanName) {
+            $res['ExecutionPlanName'] = $this->executionPlanName;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->logEnable) {
+            $res['LogEnable'] = $this->logEnable;
         }
-        if (null !== $this->executionPlanName) {
-            $res['ExecutionPlanName'] = $this->executionPlanName;
+        if (null !== $this->logPath) {
+            $res['LogPath'] = $this->logPath;
+        }
+        if (null !== $this->runTime) {
+            $res['RunTime'] = $this->runTime;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->workflowApp) {
+            $res['WorkflowApp'] = $this->workflowApp;
         }
 
         return $res;
@@ -137,41 +137,41 @@ class executionPlanInstance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['LogEnable'])) {
-            $model->logEnable = $map['LogEnable'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['LogPath'])) {
-            $model->logPath = $map['LogPath'];
-        }
-        if (isset($map['ExecutionPlanId'])) {
-            $model->executionPlanId = $map['ExecutionPlanId'];
-        }
-        if (isset($map['ClusterType'])) {
-            $model->clusterType = $map['ClusterType'];
-        }
-        if (isset($map['RunTime'])) {
-            $model->runTime = $map['RunTime'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
-        if (isset($map['WorkflowApp'])) {
-            $model->workflowApp = $map['WorkflowApp'];
+        if (isset($map['ClusterType'])) {
+            $model->clusterType = $map['ClusterType'];
+        }
+        if (isset($map['ExecutionPlanId'])) {
+            $model->executionPlanId = $map['ExecutionPlanId'];
+        }
+        if (isset($map['ExecutionPlanName'])) {
+            $model->executionPlanName = $map['ExecutionPlanName'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['LogEnable'])) {
+            $model->logEnable = $map['LogEnable'];
         }
-        if (isset($map['ExecutionPlanName'])) {
-            $model->executionPlanName = $map['ExecutionPlanName'];
+        if (isset($map['LogPath'])) {
+            $model->logPath = $map['LogPath'];
+        }
+        if (isset($map['RunTime'])) {
+            $model->runTime = $map['RunTime'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['WorkflowApp'])) {
+            $model->workflowApp = $map['WorkflowApp'];
         }
 
         return $model;

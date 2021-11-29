@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListFlowNodeInstanceContainerStatusRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $nodeInstanceId;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -21,11 +26,6 @@ class ListFlowNodeInstanceContainerStatusRequest extends Model
     /**
      * @var string
      */
-    public $nodeInstanceId;
-
-    /**
-     * @var string
-     */
     public $projectId;
 
     /**
@@ -33,9 +33,9 @@ class ListFlowNodeInstanceContainerStatusRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'nodeInstanceId' => 'NodeInstanceId',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
-        'nodeInstanceId' => 'NodeInstanceId',
         'projectId'      => 'ProjectId',
         'regionId'       => 'RegionId',
     ];
@@ -47,14 +47,14 @@ class ListFlowNodeInstanceContainerStatusRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->nodeInstanceId) {
+            $res['NodeInstanceId'] = $this->nodeInstanceId;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->nodeInstanceId) {
-            $res['NodeInstanceId'] = $this->nodeInstanceId;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
@@ -74,14 +74,14 @@ class ListFlowNodeInstanceContainerStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NodeInstanceId'])) {
+            $model->nodeInstanceId = $map['NodeInstanceId'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['NodeInstanceId'])) {
-            $model->nodeInstanceId = $map['NodeInstanceId'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];

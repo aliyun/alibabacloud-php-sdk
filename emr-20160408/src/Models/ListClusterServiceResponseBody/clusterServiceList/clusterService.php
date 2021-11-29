@@ -10,14 +10,9 @@ use AlibabaCloud\Tea\Model;
 class clusterService extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $serviceDisplayName;
-
-    /**
-     * @var string
-     */
-    public $notStartInfo;
+    public $abnormalNum;
 
     /**
      * @var bool
@@ -25,29 +20,14 @@ class clusterService extends Model
     public $clientType;
 
     /**
-     * @var bool
-     */
-    public $installStatus;
-
-    /**
-     * @var serviceActionList
-     */
-    public $serviceActionList;
-
-    /**
-     * @var int
-     */
-    public $needRestartNum;
-
-    /**
-     * @var string
-     */
-    public $serviceStatus;
-
-    /**
      * @var string
      */
     public $healthStatus;
+
+    /**
+     * @var bool
+     */
+    public $installStatus;
 
     /**
      * @var string
@@ -57,7 +37,32 @@ class clusterService extends Model
     /**
      * @var int
      */
-    public $stoppedNum;
+    public $needRestartNum;
+
+    /**
+     * @var string
+     */
+    public $notStartInfo;
+
+    /**
+     * @var serviceActionList
+     */
+    public $serviceActionList;
+
+    /**
+     * @var string
+     */
+    public $serviceDisplayName;
+
+    /**
+     * @var string
+     */
+    public $serviceName;
+
+    /**
+     * @var string
+     */
+    public $serviceStatus;
 
     /**
      * @var string
@@ -67,26 +72,27 @@ class clusterService extends Model
     /**
      * @var string
      */
-    public $serviceName;
+    public $state;
 
     /**
      * @var int
      */
-    public $abnormalNum;
+    public $stoppedNum;
     protected $_name = [
-        'serviceDisplayName' => 'ServiceDisplayName',
-        'notStartInfo'       => 'NotStartInfo',
-        'clientType'         => 'ClientType',
-        'installStatus'      => 'InstallStatus',
-        'serviceActionList'  => 'ServiceActionList',
-        'needRestartNum'     => 'NeedRestartNum',
-        'serviceStatus'      => 'ServiceStatus',
-        'healthStatus'       => 'HealthStatus',
-        'needRestartInfo'    => 'NeedRestartInfo',
-        'stoppedNum'         => 'StoppedNum',
-        'serviceVersion'     => 'ServiceVersion',
-        'serviceName'        => 'ServiceName',
         'abnormalNum'        => 'AbnormalNum',
+        'clientType'         => 'ClientType',
+        'healthStatus'       => 'HealthStatus',
+        'installStatus'      => 'InstallStatus',
+        'needRestartInfo'    => 'NeedRestartInfo',
+        'needRestartNum'     => 'NeedRestartNum',
+        'notStartInfo'       => 'NotStartInfo',
+        'serviceActionList'  => 'ServiceActionList',
+        'serviceDisplayName' => 'ServiceDisplayName',
+        'serviceName'        => 'ServiceName',
+        'serviceStatus'      => 'ServiceStatus',
+        'serviceVersion'     => 'ServiceVersion',
+        'state'              => 'State',
+        'stoppedNum'         => 'StoppedNum',
     ];
 
     public function validate()
@@ -96,44 +102,47 @@ class clusterService extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceDisplayName) {
-            $res['ServiceDisplayName'] = $this->serviceDisplayName;
-        }
-        if (null !== $this->notStartInfo) {
-            $res['NotStartInfo'] = $this->notStartInfo;
+        if (null !== $this->abnormalNum) {
+            $res['AbnormalNum'] = $this->abnormalNum;
         }
         if (null !== $this->clientType) {
             $res['ClientType'] = $this->clientType;
         }
-        if (null !== $this->installStatus) {
-            $res['InstallStatus'] = $this->installStatus;
-        }
-        if (null !== $this->serviceActionList) {
-            $res['ServiceActionList'] = null !== $this->serviceActionList ? $this->serviceActionList->toMap() : null;
-        }
-        if (null !== $this->needRestartNum) {
-            $res['NeedRestartNum'] = $this->needRestartNum;
-        }
-        if (null !== $this->serviceStatus) {
-            $res['ServiceStatus'] = $this->serviceStatus;
-        }
         if (null !== $this->healthStatus) {
             $res['HealthStatus'] = $this->healthStatus;
+        }
+        if (null !== $this->installStatus) {
+            $res['InstallStatus'] = $this->installStatus;
         }
         if (null !== $this->needRestartInfo) {
             $res['NeedRestartInfo'] = $this->needRestartInfo;
         }
-        if (null !== $this->stoppedNum) {
-            $res['StoppedNum'] = $this->stoppedNum;
+        if (null !== $this->needRestartNum) {
+            $res['NeedRestartNum'] = $this->needRestartNum;
         }
-        if (null !== $this->serviceVersion) {
-            $res['ServiceVersion'] = $this->serviceVersion;
+        if (null !== $this->notStartInfo) {
+            $res['NotStartInfo'] = $this->notStartInfo;
+        }
+        if (null !== $this->serviceActionList) {
+            $res['ServiceActionList'] = null !== $this->serviceActionList ? $this->serviceActionList->toMap() : null;
+        }
+        if (null !== $this->serviceDisplayName) {
+            $res['ServiceDisplayName'] = $this->serviceDisplayName;
         }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
-        if (null !== $this->abnormalNum) {
-            $res['AbnormalNum'] = $this->abnormalNum;
+        if (null !== $this->serviceStatus) {
+            $res['ServiceStatus'] = $this->serviceStatus;
+        }
+        if (null !== $this->serviceVersion) {
+            $res['ServiceVersion'] = $this->serviceVersion;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
+        }
+        if (null !== $this->stoppedNum) {
+            $res['StoppedNum'] = $this->stoppedNum;
         }
 
         return $res;
@@ -147,44 +156,47 @@ class clusterService extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceDisplayName'])) {
-            $model->serviceDisplayName = $map['ServiceDisplayName'];
-        }
-        if (isset($map['NotStartInfo'])) {
-            $model->notStartInfo = $map['NotStartInfo'];
+        if (isset($map['AbnormalNum'])) {
+            $model->abnormalNum = $map['AbnormalNum'];
         }
         if (isset($map['ClientType'])) {
             $model->clientType = $map['ClientType'];
         }
-        if (isset($map['InstallStatus'])) {
-            $model->installStatus = $map['InstallStatus'];
-        }
-        if (isset($map['ServiceActionList'])) {
-            $model->serviceActionList = serviceActionList::fromMap($map['ServiceActionList']);
-        }
-        if (isset($map['NeedRestartNum'])) {
-            $model->needRestartNum = $map['NeedRestartNum'];
-        }
-        if (isset($map['ServiceStatus'])) {
-            $model->serviceStatus = $map['ServiceStatus'];
-        }
         if (isset($map['HealthStatus'])) {
             $model->healthStatus = $map['HealthStatus'];
+        }
+        if (isset($map['InstallStatus'])) {
+            $model->installStatus = $map['InstallStatus'];
         }
         if (isset($map['NeedRestartInfo'])) {
             $model->needRestartInfo = $map['NeedRestartInfo'];
         }
-        if (isset($map['StoppedNum'])) {
-            $model->stoppedNum = $map['StoppedNum'];
+        if (isset($map['NeedRestartNum'])) {
+            $model->needRestartNum = $map['NeedRestartNum'];
         }
-        if (isset($map['ServiceVersion'])) {
-            $model->serviceVersion = $map['ServiceVersion'];
+        if (isset($map['NotStartInfo'])) {
+            $model->notStartInfo = $map['NotStartInfo'];
+        }
+        if (isset($map['ServiceActionList'])) {
+            $model->serviceActionList = serviceActionList::fromMap($map['ServiceActionList']);
+        }
+        if (isset($map['ServiceDisplayName'])) {
+            $model->serviceDisplayName = $map['ServiceDisplayName'];
         }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
-        if (isset($map['AbnormalNum'])) {
-            $model->abnormalNum = $map['AbnormalNum'];
+        if (isset($map['ServiceStatus'])) {
+            $model->serviceStatus = $map['ServiceStatus'];
+        }
+        if (isset($map['ServiceVersion'])) {
+            $model->serviceVersion = $map['ServiceVersion'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
+        }
+        if (isset($map['StoppedNum'])) {
+            $model->stoppedNum = $map['StoppedNum'];
         }
 
         return $model;

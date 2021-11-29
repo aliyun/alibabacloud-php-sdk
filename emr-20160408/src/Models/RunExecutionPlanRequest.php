@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RunExecutionPlanRequest extends Model
 {
     /**
-     * @var int
+     * @var mixed[]
      */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $arguments;
 
     /**
      * @var string
@@ -24,14 +19,19 @@ class RunExecutionPlanRequest extends Model
     public $id;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $arguments;
+    public $regionId;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'regionId'        => 'RegionId',
-        'id'              => 'Id',
         'arguments'       => 'Arguments',
+        'id'              => 'Id',
+        'regionId'        => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class RunExecutionPlanRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->arguments) {
+            $res['Arguments'] = $this->arguments;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->arguments) {
-            $res['Arguments'] = $this->arguments;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class RunExecutionPlanRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Arguments'])) {
+            $model->arguments = $map['Arguments'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['Arguments'])) {
-            $model->arguments = $map['Arguments'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

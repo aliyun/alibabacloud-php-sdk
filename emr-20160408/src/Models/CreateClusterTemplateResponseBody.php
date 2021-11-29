@@ -11,15 +11,15 @@ class CreateClusterTemplateResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $clusterTemplateId;
 
     /**
      * @var string
      */
-    public $clusterTemplateId;
+    public $requestId;
     protected $_name = [
-        'requestId'         => 'RequestId',
         'clusterTemplateId' => 'ClusterTemplateId',
+        'requestId'         => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateClusterTemplateResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->clusterTemplateId) {
             $res['ClusterTemplateId'] = $this->clusterTemplateId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateClusterTemplateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ClusterTemplateId'])) {
             $model->clusterTemplateId = $map['ClusterTemplateId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

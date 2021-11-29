@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class clusterServiceInfo extends Model
 {
     /**
-     * @var string
-     */
-    public $serviceDisplayName;
-
-    /**
-     * @var string
-     */
-    public $serviceVersion;
-
-    /**
      * @var bool
      */
     public $mandatory;
@@ -26,12 +16,22 @@ class clusterServiceInfo extends Model
     /**
      * @var string
      */
+    public $serviceDisplayName;
+
+    /**
+     * @var string
+     */
     public $serviceName;
+
+    /**
+     * @var string
+     */
+    public $serviceVersion;
     protected $_name = [
-        'serviceDisplayName' => 'ServiceDisplayName',
-        'serviceVersion'     => 'ServiceVersion',
         'mandatory'          => 'Mandatory',
+        'serviceDisplayName' => 'ServiceDisplayName',
         'serviceName'        => 'ServiceName',
+        'serviceVersion'     => 'ServiceVersion',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class clusterServiceInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceDisplayName) {
-            $res['ServiceDisplayName'] = $this->serviceDisplayName;
-        }
-        if (null !== $this->serviceVersion) {
-            $res['ServiceVersion'] = $this->serviceVersion;
-        }
         if (null !== $this->mandatory) {
             $res['Mandatory'] = $this->mandatory;
         }
+        if (null !== $this->serviceDisplayName) {
+            $res['ServiceDisplayName'] = $this->serviceDisplayName;
+        }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
+        }
+        if (null !== $this->serviceVersion) {
+            $res['ServiceVersion'] = $this->serviceVersion;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class clusterServiceInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceDisplayName'])) {
-            $model->serviceDisplayName = $map['ServiceDisplayName'];
-        }
-        if (isset($map['ServiceVersion'])) {
-            $model->serviceVersion = $map['ServiceVersion'];
-        }
         if (isset($map['Mandatory'])) {
             $model->mandatory = $map['Mandatory'];
         }
+        if (isset($map['ServiceDisplayName'])) {
+            $model->serviceDisplayName = $map['ServiceDisplayName'];
+        }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+        if (isset($map['ServiceVersion'])) {
+            $model->serviceVersion = $map['ServiceVersion'];
         }
 
         return $model;

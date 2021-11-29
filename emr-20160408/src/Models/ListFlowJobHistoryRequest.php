@@ -11,22 +11,7 @@ class ListFlowJobHistoryRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $projectId;
-
-    /**
-     * @var string
-     */
     public $id;
-
-    /**
-     * @var string
-     */
-    public $jobType;
 
     /**
      * @var string
@@ -36,7 +21,7 @@ class ListFlowJobHistoryRequest extends Model
     /**
      * @var string
      */
-    public $timeRange;
+    public $jobType;
 
     /**
      * @var int
@@ -49,19 +34,34 @@ class ListFlowJobHistoryRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $projectId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var string[]
      */
     public $statusList;
+
+    /**
+     * @var string
+     */
+    public $timeRange;
     protected $_name = [
-        'regionId'   => 'RegionId',
-        'projectId'  => 'ProjectId',
         'id'         => 'Id',
-        'jobType'    => 'JobType',
         'instanceId' => 'InstanceId',
-        'timeRange'  => 'TimeRange',
+        'jobType'    => 'JobType',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'projectId'  => 'ProjectId',
+        'regionId'   => 'RegionId',
         'statusList' => 'StatusList',
+        'timeRange'  => 'TimeRange',
     ];
 
     public function validate()
@@ -71,23 +71,14 @@ class ListFlowJobHistoryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
-        }
-        if (null !== $this->jobType) {
-            $res['JobType'] = $this->jobType;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->timeRange) {
-            $res['TimeRange'] = $this->timeRange;
+        if (null !== $this->jobType) {
+            $res['JobType'] = $this->jobType;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -95,8 +86,17 @@ class ListFlowJobHistoryRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->statusList) {
             $res['StatusList'] = $this->statusList;
+        }
+        if (null !== $this->timeRange) {
+            $res['TimeRange'] = $this->timeRange;
         }
 
         return $res;
@@ -110,23 +110,14 @@ class ListFlowJobHistoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
-        }
-        if (isset($map['JobType'])) {
-            $model->jobType = $map['JobType'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['TimeRange'])) {
-            $model->timeRange = $map['TimeRange'];
+        if (isset($map['JobType'])) {
+            $model->jobType = $map['JobType'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -134,10 +125,19 @@ class ListFlowJobHistoryRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['StatusList'])) {
             if (!empty($map['StatusList'])) {
                 $model->statusList = $map['StatusList'];
             }
+        }
+        if (isset($map['TimeRange'])) {
+            $model->timeRange = $map['TimeRange'];
         }
 
         return $model;
