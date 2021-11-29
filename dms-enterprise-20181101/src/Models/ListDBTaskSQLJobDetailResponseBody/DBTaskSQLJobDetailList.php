@@ -34,6 +34,11 @@ class DBTaskSQLJobDetailList extends Model
     public $jobId;
 
     /**
+     * @var string
+     */
+    public $log;
+
+    /**
      * @var bool
      */
     public $logic;
@@ -58,6 +63,7 @@ class DBTaskSQLJobDetailList extends Model
         'executeCount' => 'ExecuteCount',
         'jobDetailId'  => 'JobDetailId',
         'jobId'        => 'JobId',
+        'log'          => 'Log',
         'logic'        => 'Logic',
         'skip'         => 'Skip',
         'sqlType'      => 'SqlType',
@@ -85,6 +91,9 @@ class DBTaskSQLJobDetailList extends Model
         }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->log) {
+            $res['Log'] = $this->log;
         }
         if (null !== $this->logic) {
             $res['Logic'] = $this->logic;
@@ -124,6 +133,9 @@ class DBTaskSQLJobDetailList extends Model
         }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
+        }
+        if (isset($map['Log'])) {
+            $model->log = $map['Log'];
         }
         if (isset($map['Logic'])) {
             $model->logic = $map['Logic'];
