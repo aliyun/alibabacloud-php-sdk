@@ -5,14 +5,13 @@
 namespace AlibabaCloud\SDK\Dyvmsapi\V20170525;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\AddRtcAccountRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\AddRtcAccountResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\AddVirtualNumberRelationRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\AddVirtualNumberRelationResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\BatchRobotSmartCallRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\BatchRobotSmartCallResponse;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\BindNumberAndVoipIdRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\BindNumberAndVoipIdResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelCallRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelCallResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelOrderRobotTaskRequest;
@@ -21,28 +20,20 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelRobotTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CancelRobotTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ClickToDialRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ClickToDialResponse;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloseSipAccountRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CloseSipAccountResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CreateCallTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CreateCallTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CreateRobotTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CreateRobotTaskResponse;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CreateSipAccountRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\CreateSipAccountResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DeleteRobotTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DeleteRobotTaskResponse;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DescribeRecordDataRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DescribeRecordDataResponse;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DoRtcNumberAuthRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DoRtcNumberAuthResponse;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DoubleCallSeatRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\DoubleCallSeatResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ExecuteCallTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ExecuteCallTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetCallInfoRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetCallInfoResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetHotlineQualificationByOrderRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetHotlineQualificationByOrderResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetMqttTokenRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetMqttTokenResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetRtcTokenRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetRtcTokenResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\GetTokenRequest;
@@ -57,12 +48,6 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListHotlineTransferNumberRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListHotlineTransferNumberResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListHotlineTransferRegisterFileRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListHotlineTransferRegisterFileResponse;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListOrderedNumbersRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListOrderedNumbersResponse;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListOutboundStrategiesRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListOutboundStrategiesResponse;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListRobotTaskCallsRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ListRobotTaskCallsResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryCallDetailByCallIdRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryCallDetailByCallIdResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryCallDetailByTaskIdRequest;
@@ -83,16 +68,12 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryRobotTaskListRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryRobotTaskListResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryRobotv2AllListRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryRobotv2AllListResponse;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryRtcNumberAuthStatusRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryRtcNumberAuthStatusResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVirtualNumberRelationRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVirtualNumberRelationResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVirtualNumberRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVirtualNumberResponse;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVoipNumberBindInfosRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\QueryVoipNumberBindInfosResponse;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ReportVoipProblemsRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ReportVoipProblemsResponse;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\RefreshMqttTokenRequest;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\RefreshMqttTokenResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SendVerificationRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SendVerificationResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SetTransferCalleePoolConfigRequest;
@@ -105,27 +86,18 @@ use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SmartCallOperateRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SmartCallOperateResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SmartCallRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SmartCallResponse;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\StartMicroOutboundRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\StartMicroOutboundResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\StartRobotTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\StartRobotTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\StopRobotTaskRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\StopRobotTaskResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SubmitHotlineTransferRegisterRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\SubmitHotlineTransferRegisterResponse;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\UnbindNumberAndVoipIdRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\UnbindNumberAndVoipIdResponse;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\UndoRtcNumberAuthRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\UndoRtcNumberAuthResponse;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\UploadRobotTaskCalledFileRequest;
 use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\UploadRobotTaskCalledFileResponse;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\VoipAddAccountRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\VoipAddAccountResponse;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\VoipGetTokenRequest;
-use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\VoipGetTokenResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Dyvmsapi extends OpenApiClient
@@ -170,11 +142,28 @@ class Dyvmsapi extends OpenApiClient
     public function addRtcAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['DeviceId']             = $request->deviceId;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddRtcAccount',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddRtcAccountResponse::fromMap($this->doRPCRequest('AddRtcAccount', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddRtcAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -198,11 +187,32 @@ class Dyvmsapi extends OpenApiClient
     public function addVirtualNumberRelationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CorpNameList']         = $request->corpNameList;
+        $query['NumberList']           = $request->numberList;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PhoneNum']             = $request->phoneNum;
+        $query['ProdCode']             = $request->prodCode;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['RouteType']            = $request->routeType;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddVirtualNumberRelation',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddVirtualNumberRelationResponse::fromMap($this->doRPCRequest('AddVirtualNumberRelation', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddVirtualNumberRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -226,11 +236,38 @@ class Dyvmsapi extends OpenApiClient
     public function batchRobotSmartCallWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CalledNumber']         = $request->calledNumber;
+        $query['CalledShowNumber']     = $request->calledShowNumber;
+        $query['CorpName']             = $request->corpName;
+        $query['DialogId']             = $request->dialogId;
+        $query['EarlyMediaAsr']        = $request->earlyMediaAsr;
+        $query['IsSelfLine']           = $request->isSelfLine;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['ScheduleCall']         = $request->scheduleCall;
+        $query['ScheduleTime']         = $request->scheduleTime;
+        $query['TaskName']             = $request->taskName;
+        $query['TtsParam']             = $request->ttsParam;
+        $query['TtsParamHead']         = $request->ttsParamHead;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchRobotSmartCall',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchRobotSmartCallResponse::fromMap($this->doRPCRequest('BatchRobotSmartCall', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchRobotSmartCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -246,34 +283,6 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param BindNumberAndVoipIdRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return BindNumberAndVoipIdResponse
-     */
-    public function bindNumberAndVoipIdWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return BindNumberAndVoipIdResponse::fromMap($this->doRPCRequest('BindNumberAndVoipId', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param BindNumberAndVoipIdRequest $request
-     *
-     * @return BindNumberAndVoipIdResponse
-     */
-    public function bindNumberAndVoipId($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->bindNumberAndVoipIdWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CancelCallRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -282,11 +291,28 @@ class Dyvmsapi extends OpenApiClient
     public function cancelCallWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CallId']               = $request->callId;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelCall',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CancelCallResponse::fromMap($this->doRPCRequest('CancelCall', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CancelCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -310,11 +336,28 @@ class Dyvmsapi extends OpenApiClient
     public function cancelOrderRobotTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TaskId']               = $request->taskId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelOrderRobotTask',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CancelOrderRobotTaskResponse::fromMap($this->doRPCRequest('CancelOrderRobotTask', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CancelOrderRobotTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -338,11 +381,28 @@ class Dyvmsapi extends OpenApiClient
     public function cancelRobotTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TaskId']               = $request->taskId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelRobotTask',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CancelRobotTaskResponse::fromMap($this->doRPCRequest('CancelRobotTask', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CancelRobotTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -366,11 +426,36 @@ class Dyvmsapi extends OpenApiClient
     public function clickToDialWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AsrFlag']              = $request->asrFlag;
+        $query['AsrModelId']           = $request->asrModelId;
+        $query['CalledNumber']         = $request->calledNumber;
+        $query['CalledShowNumber']     = $request->calledShowNumber;
+        $query['CallerNumber']         = $request->callerNumber;
+        $query['CallerShowNumber']     = $request->callerShowNumber;
+        $query['OutId']                = $request->outId;
+        $query['OwnerId']              = $request->ownerId;
+        $query['RecordFlag']           = $request->recordFlag;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['SessionTimeout']       = $request->sessionTimeout;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ClickToDial',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ClickToDialResponse::fromMap($this->doRPCRequest('ClickToDial', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ClickToDialResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -386,34 +471,6 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param CloseSipAccountRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CloseSipAccountResponse
-     */
-    public function closeSipAccountWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CloseSipAccountResponse::fromMap($this->doRPCRequest('CloseSipAccount', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CloseSipAccountRequest $request
-     *
-     * @return CloseSipAccountResponse
-     */
-    public function closeSipAccount($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->closeSipAccountWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateCallTaskRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -422,11 +479,38 @@ class Dyvmsapi extends OpenApiClient
     public function createCallTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['BizType']              = $request->bizType;
+        $query['Data']                 = $request->data;
+        $query['DataType']             = $request->dataType;
+        $query['FireTime']             = $request->fireTime;
+        $query['OwnerId']              = $request->ownerId;
+        $query['Resource']             = $request->resource;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['ResourceType']         = $request->resourceType;
+        $query['ScheduleType']         = $request->scheduleType;
+        $query['StopTime']             = $request->stopTime;
+        $query['TaskName']             = $request->taskName;
+        $query['TemplateCode']         = $request->templateCode;
+        $query['TemplateName']         = $request->templateName;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCallTask',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateCallTaskResponse::fromMap($this->doRPCRequest('CreateCallTask', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateCallTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -450,11 +534,37 @@ class Dyvmsapi extends OpenApiClient
     public function createRobotTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Caller']               = $request->caller;
+        $query['CorpName']             = $request->corpName;
+        $query['DialogId']             = $request->dialogId;
+        $query['IsSelfLine']           = $request->isSelfLine;
+        $query['NumberStatusIdent']    = $request->numberStatusIdent;
+        $query['OwnerId']              = $request->ownerId;
+        $query['RecallInterval']       = $request->recallInterval;
+        $query['RecallStateCodes']     = $request->recallStateCodes;
+        $query['RecallTimes']          = $request->recallTimes;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['RetryType']            = $request->retryType;
+        $query['TaskName']             = $request->taskName;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRobotTask',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateRobotTaskResponse::fromMap($this->doRPCRequest('CreateRobotTask', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateRobotTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -470,34 +580,6 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param CreateSipAccountRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateSipAccountResponse
-     */
-    public function createSipAccountWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateSipAccountResponse::fromMap($this->doRPCRequest('CreateSipAccount', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateSipAccountRequest $request
-     *
-     * @return CreateSipAccountResponse
-     */
-    public function createSipAccount($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createSipAccountWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteRobotTaskRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -506,11 +588,28 @@ class Dyvmsapi extends OpenApiClient
     public function deleteRobotTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TaskId']               = $request->taskId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRobotTask',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteRobotTaskResponse::fromMap($this->doRPCRequest('DeleteRobotTask', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteRobotTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -526,90 +625,6 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecordDataRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeRecordDataResponse
-     */
-    public function describeRecordDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeRecordDataResponse::fromMap($this->doRPCRequest('DescribeRecordData', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRecordDataRequest $request
-     *
-     * @return DescribeRecordDataResponse
-     */
-    public function describeRecordData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRecordDataWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DoRtcNumberAuthRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DoRtcNumberAuthResponse
-     */
-    public function doRtcNumberAuthWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DoRtcNumberAuthResponse::fromMap($this->doRPCRequest('DoRtcNumberAuth', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DoRtcNumberAuthRequest $request
-     *
-     * @return DoRtcNumberAuthResponse
-     */
-    public function doRtcNumberAuth($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->doRtcNumberAuthWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DoubleCallSeatRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DoubleCallSeatResponse
-     */
-    public function doubleCallSeatWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DoubleCallSeatResponse::fromMap($this->doRPCRequest('DoubleCallSeat', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DoubleCallSeatRequest $request
-     *
-     * @return DoubleCallSeatResponse
-     */
-    public function doubleCallSeat($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->doubleCallSeatWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ExecuteCallTaskRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -618,11 +633,30 @@ class Dyvmsapi extends OpenApiClient
     public function executeCallTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['FireTime']             = $request->fireTime;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Status']               = $request->status;
+        $query['TaskId']               = $request->taskId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteCallTask',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ExecuteCallTaskResponse::fromMap($this->doRPCRequest('ExecuteCallTask', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ExecuteCallTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -646,11 +680,28 @@ class Dyvmsapi extends OpenApiClient
     public function getCallInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['RtcId']                = $request->rtcId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCallInfo',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetCallInfoResponse::fromMap($this->doRPCRequest('GetCallInfo', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetCallInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -674,11 +725,28 @@ class Dyvmsapi extends OpenApiClient
     public function getHotlineQualificationByOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OrderId']              = $request->orderId;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetHotlineQualificationByOrder',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetHotlineQualificationByOrderResponse::fromMap($this->doRPCRequest('GetHotlineQualificationByOrder', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetHotlineQualificationByOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -694,6 +762,50 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
+     * @param GetMqttTokenRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetMqttTokenResponse
+     */
+    public function getMqttTokenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                         = [];
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMqttToken',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMqttTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetMqttTokenRequest $request
+     *
+     * @return GetMqttTokenResponse
+     */
+    public function getMqttToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMqttTokenWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetRtcTokenRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -702,11 +814,30 @@ class Dyvmsapi extends OpenApiClient
     public function getRtcTokenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['DeviceId']             = $request->deviceId;
+        $query['IsCustomAccount']      = $request->isCustomAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['UserId']               = $request->userId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRtcToken',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetRtcTokenResponse::fromMap($this->doRPCRequest('GetRtcToken', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetRtcTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -730,11 +861,28 @@ class Dyvmsapi extends OpenApiClient
     public function getTokenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TokenType']            = $request->tokenType;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetToken',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTokenResponse::fromMap($this->doRPCRequest('GetToken', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -758,11 +906,37 @@ class Dyvmsapi extends OpenApiClient
     public function ivrCallWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['ByeCode']              = $request->byeCode;
+        $query['ByeTtsParams']         = $request->byeTtsParams;
+        $query['CalledNumber']         = $request->calledNumber;
+        $query['CalledShowNumber']     = $request->calledShowNumber;
+        $query['MenuKeyMap']           = $request->menuKeyMap;
+        $query['OutId']                = $request->outId;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PlayTimes']            = $request->playTimes;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['StartCode']            = $request->startCode;
+        $query['StartTtsParams']       = $request->startTtsParams;
+        $query['Timeout']              = $request->timeout;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'IvrCall',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return IvrCallResponse::fromMap($this->doRPCRequest('IvrCall', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return IvrCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -786,11 +960,34 @@ class Dyvmsapi extends OpenApiClient
     public function listCallTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['BizType']              = $request->bizType;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageNumber']           = $request->pageNumber;
+        $query['PageSize']             = $request->pageSize;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Status']               = $request->status;
+        $query['TaskId']               = $request->taskId;
+        $query['TaskName']             = $request->taskName;
+        $query['TemplateName']         = $request->templateName;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCallTask',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListCallTaskResponse::fromMap($this->doRPCRequest('ListCallTask', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListCallTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -814,11 +1011,32 @@ class Dyvmsapi extends OpenApiClient
     public function listCallTaskDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CalledNum']            = $request->calledNum;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageNumber']           = $request->pageNumber;
+        $query['PageSize']             = $request->pageSize;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Status']               = $request->status;
+        $query['TaskId']               = $request->taskId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCallTaskDetail',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListCallTaskDetailResponse::fromMap($this->doRPCRequest('ListCallTaskDetail', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListCallTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -842,11 +1060,31 @@ class Dyvmsapi extends OpenApiClient
     public function listHotlineTransferNumberWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['HotlineNumber']        = $request->hotlineNumber;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageNo']               = $request->pageNo;
+        $query['PageSize']             = $request->pageSize;
+        $query['QualificationId']      = $request->qualificationId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListHotlineTransferNumber',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListHotlineTransferNumberResponse::fromMap($this->doRPCRequest('ListHotlineTransferNumber', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListHotlineTransferNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -870,11 +1108,31 @@ class Dyvmsapi extends OpenApiClient
     public function listHotlineTransferRegisterFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['HotlineNumber']        = $request->hotlineNumber;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageNo']               = $request->pageNo;
+        $query['PageSize']             = $request->pageSize;
+        $query['QualificationId']      = $request->qualificationId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListHotlineTransferRegisterFile',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListHotlineTransferRegisterFileResponse::fromMap($this->doRPCRequest('ListHotlineTransferRegisterFile', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListHotlineTransferRegisterFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -890,90 +1148,6 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param ListOrderedNumbersRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListOrderedNumbersResponse
-     */
-    public function listOrderedNumbersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListOrderedNumbersResponse::fromMap($this->doRPCRequest('ListOrderedNumbers', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListOrderedNumbersRequest $request
-     *
-     * @return ListOrderedNumbersResponse
-     */
-    public function listOrderedNumbers($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listOrderedNumbersWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListOutboundStrategiesRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ListOutboundStrategiesResponse
-     */
-    public function listOutboundStrategiesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListOutboundStrategiesResponse::fromMap($this->doRPCRequest('ListOutboundStrategies', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListOutboundStrategiesRequest $request
-     *
-     * @return ListOutboundStrategiesResponse
-     */
-    public function listOutboundStrategies($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listOutboundStrategiesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListRobotTaskCallsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListRobotTaskCallsResponse
-     */
-    public function listRobotTaskCallsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListRobotTaskCallsResponse::fromMap($this->doRPCRequest('ListRobotTaskCalls', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListRobotTaskCallsRequest $request
-     *
-     * @return ListRobotTaskCallsResponse
-     */
-    public function listRobotTaskCalls($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listRobotTaskCallsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param QueryCallDetailByCallIdRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -982,11 +1156,30 @@ class Dyvmsapi extends OpenApiClient
     public function queryCallDetailByCallIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CallId']               = $request->callId;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ProdId']               = $request->prodId;
+        $query['QueryDate']            = $request->queryDate;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCallDetailByCallId',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryCallDetailByCallIdResponse::fromMap($this->doRPCRequest('QueryCallDetailByCallId', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryCallDetailByCallIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1010,11 +1203,30 @@ class Dyvmsapi extends OpenApiClient
     public function queryCallDetailByTaskIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Callee']               = $request->callee;
+        $query['OwnerId']              = $request->ownerId;
+        $query['QueryDate']            = $request->queryDate;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TaskId']               = $request->taskId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCallDetailByTaskId',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryCallDetailByTaskIdResponse::fromMap($this->doRPCRequest('QueryCallDetailByTaskId', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryCallDetailByTaskIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1038,11 +1250,28 @@ class Dyvmsapi extends OpenApiClient
     public function queryCallInPoolTransferConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerId']              = $request->ownerId;
+        $query['PhoneNumber']          = $request->phoneNumber;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCallInPoolTransferConfig',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryCallInPoolTransferConfigResponse::fromMap($this->doRPCRequest('QueryCallInPoolTransferConfig', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryCallInPoolTransferConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1066,11 +1295,32 @@ class Dyvmsapi extends OpenApiClient
     public function queryCallInTransferRecordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CallInCaller']         = $request->callInCaller;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageNo']               = $request->pageNo;
+        $query['PageSize']             = $request->pageSize;
+        $query['PhoneNumber']          = $request->phoneNumber;
+        $query['QueryDate']            = $request->queryDate;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCallInTransferRecord',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryCallInTransferRecordResponse::fromMap($this->doRPCRequest('QueryCallInTransferRecord', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryCallInTransferRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1094,11 +1344,28 @@ class Dyvmsapi extends OpenApiClient
     public function queryRobotInfoListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AuditStatus']          = $request->auditStatus;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryRobotInfoList',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryRobotInfoListResponse::fromMap($this->doRPCRequest('QueryRobotInfoList', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryRobotInfoListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1122,11 +1389,30 @@ class Dyvmsapi extends OpenApiClient
     public function queryRobotTaskCallDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Callee']               = $request->callee;
+        $query['OwnerId']              = $request->ownerId;
+        $query['QueryDate']            = $request->queryDate;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TaskId']               = $request->taskId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryRobotTaskCallDetail',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryRobotTaskCallDetailResponse::fromMap($this->doRPCRequest('QueryRobotTaskCallDetail', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryRobotTaskCallDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1150,11 +1436,37 @@ class Dyvmsapi extends OpenApiClient
     public function queryRobotTaskCallListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CallResult']           = $request->callResult;
+        $query['Called']               = $request->called;
+        $query['DialogCountFrom']      = $request->dialogCountFrom;
+        $query['DialogCountTo']        = $request->dialogCountTo;
+        $query['DurationFrom']         = $request->durationFrom;
+        $query['DurationTo']           = $request->durationTo;
+        $query['HangupDirection']      = $request->hangupDirection;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageNo']               = $request->pageNo;
+        $query['PageSize']             = $request->pageSize;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TaskId']               = $request->taskId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryRobotTaskCallList',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryRobotTaskCallListResponse::fromMap($this->doRPCRequest('QueryRobotTaskCallList', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryRobotTaskCallListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1178,11 +1490,28 @@ class Dyvmsapi extends OpenApiClient
     public function queryRobotTaskDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Id']                   = $request->id;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryRobotTaskDetail',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryRobotTaskDetailResponse::fromMap($this->doRPCRequest('QueryRobotTaskDetail', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryRobotTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1206,11 +1535,32 @@ class Dyvmsapi extends OpenApiClient
     public function queryRobotTaskListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageNo']               = $request->pageNo;
+        $query['PageSize']             = $request->pageSize;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Status']               = $request->status;
+        $query['TaskName']             = $request->taskName;
+        $query['Time']                 = $request->time;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryRobotTaskList',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryRobotTaskListResponse::fromMap($this->doRPCRequest('QueryRobotTaskList', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryRobotTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1234,11 +1584,27 @@ class Dyvmsapi extends OpenApiClient
     public function queryRobotv2AllListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryRobotv2AllList',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryRobotv2AllListResponse::fromMap($this->doRPCRequest('QueryRobotv2AllList', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryRobotv2AllListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1254,34 +1620,6 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryRtcNumberAuthStatusRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return QueryRtcNumberAuthStatusResponse
-     */
-    public function queryRtcNumberAuthStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryRtcNumberAuthStatusResponse::fromMap($this->doRPCRequest('QueryRtcNumberAuthStatus', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryRtcNumberAuthStatusRequest $request
-     *
-     * @return QueryRtcNumberAuthStatusResponse
-     */
-    public function queryRtcNumberAuthStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryRtcNumberAuthStatusWithOptions($request, $runtime);
-    }
-
-    /**
      * @param QueryVirtualNumberRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1290,11 +1628,31 @@ class Dyvmsapi extends OpenApiClient
     public function queryVirtualNumberWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageNo']               = $request->pageNo;
+        $query['PageSize']             = $request->pageSize;
+        $query['ProdCode']             = $request->prodCode;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['RouteType']            = $request->routeType;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryVirtualNumber',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryVirtualNumberResponse::fromMap($this->doRPCRequest('QueryVirtualNumber', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryVirtualNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1318,11 +1676,36 @@ class Dyvmsapi extends OpenApiClient
     public function queryVirtualNumberRelationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageNo']               = $request->pageNo;
+        $query['PageSize']             = $request->pageSize;
+        $query['PhoneNum']             = $request->phoneNum;
+        $query['ProdCode']             = $request->prodCode;
+        $query['QualificationId']      = $request->qualificationId;
+        $query['RegionNameCity']       = $request->regionNameCity;
+        $query['RelatedNum']           = $request->relatedNum;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['RouteType']            = $request->routeType;
+        $query['SpecId']               = $request->specId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryVirtualNumberRelation',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryVirtualNumberRelationResponse::fromMap($this->doRPCRequest('QueryVirtualNumberRelation', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryVirtualNumberRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1338,59 +1721,48 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryVoipNumberBindInfosRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param RefreshMqttTokenRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return QueryVoipNumberBindInfosResponse
+     * @return RefreshMqttTokenResponse
      */
-    public function queryVoipNumberBindInfosWithOptions($request, $runtime)
+    public function refreshMqttTokenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['ClientId']             = $request->clientId;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshMqttToken',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryVoipNumberBindInfosResponse::fromMap($this->doRPCRequest('QueryVoipNumberBindInfos', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RefreshMqttTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryVoipNumberBindInfosRequest $request
+     * @param RefreshMqttTokenRequest $request
      *
-     * @return QueryVoipNumberBindInfosResponse
+     * @return RefreshMqttTokenResponse
      */
-    public function queryVoipNumberBindInfos($request)
+    public function refreshMqttToken($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->queryVoipNumberBindInfosWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ReportVoipProblemsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ReportVoipProblemsResponse
-     */
-    public function reportVoipProblemsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ReportVoipProblemsResponse::fromMap($this->doRPCRequest('ReportVoipProblems', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ReportVoipProblemsRequest $request
-     *
-     * @return ReportVoipProblemsResponse
-     */
-    public function reportVoipProblems($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->reportVoipProblemsWithOptions($request, $runtime);
+        return $this->refreshMqttTokenWithOptions($request, $runtime);
     }
 
     /**
@@ -1402,11 +1774,30 @@ class Dyvmsapi extends OpenApiClient
     public function sendVerificationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['BizType']              = $request->bizType;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Target']               = $request->target;
+        $query['VerifyType']           = $request->verifyType;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SendVerification',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SendVerificationResponse::fromMap($this->doRPCRequest('SendVerification', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SendVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1430,11 +1821,31 @@ class Dyvmsapi extends OpenApiClient
     public function setTransferCalleePoolConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CalledRouteMode']      = $request->calledRouteMode;
+        $query['Details']              = $request->details;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PhoneNumber']          = $request->phoneNumber;
+        $query['QualificationId']      = $request->qualificationId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetTransferCalleePoolConfig',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetTransferCalleePoolConfigResponse::fromMap($this->doRPCRequest('SetTransferCalleePoolConfig', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetTransferCalleePoolConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1458,11 +1869,35 @@ class Dyvmsapi extends OpenApiClient
     public function singleCallByTtsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CalledNumber']         = $request->calledNumber;
+        $query['CalledShowNumber']     = $request->calledShowNumber;
+        $query['OutId']                = $request->outId;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PlayTimes']            = $request->playTimes;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Speed']                = $request->speed;
+        $query['TtsCode']              = $request->ttsCode;
+        $query['TtsParam']             = $request->ttsParam;
+        $query['Volume']               = $request->volume;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SingleCallByTts',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SingleCallByTtsResponse::fromMap($this->doRPCRequest('SingleCallByTts', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SingleCallByTtsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1486,11 +1921,34 @@ class Dyvmsapi extends OpenApiClient
     public function singleCallByVoiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CalledNumber']         = $request->calledNumber;
+        $query['CalledShowNumber']     = $request->calledShowNumber;
+        $query['OutId']                = $request->outId;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PlayTimes']            = $request->playTimes;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Speed']                = $request->speed;
+        $query['VoiceCode']            = $request->voiceCode;
+        $query['Volume']               = $request->volume;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SingleCallByVoice',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SingleCallByVoiceResponse::fromMap($this->doRPCRequest('SingleCallByVoice', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SingleCallByVoiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1514,11 +1972,53 @@ class Dyvmsapi extends OpenApiClient
     public function smartCallWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['ActionCodeBreak']      = $request->actionCodeBreak;
+        $query['ActionCodeTimeBreak']  = $request->actionCodeTimeBreak;
+        $query['AsrBaseId']            = $request->asrBaseId;
+        $query['AsrModelId']           = $request->asrModelId;
+        $query['BackgroundFileCode']   = $request->backgroundFileCode;
+        $query['BackgroundSpeed']      = $request->backgroundSpeed;
+        $query['BackgroundVolume']     = $request->backgroundVolume;
+        $query['CalledNumber']         = $request->calledNumber;
+        $query['CalledShowNumber']     = $request->calledShowNumber;
+        $query['DynamicId']            = $request->dynamicId;
+        $query['EarlyMediaAsr']        = $request->earlyMediaAsr;
+        $query['EnableITN']            = $request->enableITN;
+        $query['MuteTime']             = $request->muteTime;
+        $query['OutId']                = $request->outId;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PauseTime']            = $request->pauseTime;
+        $query['RecordFlag']           = $request->recordFlag;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['SessionTimeout']       = $request->sessionTimeout;
+        $query['Speed']                = $request->speed;
+        $query['StreamAsr']            = $request->streamAsr;
+        $query['TtsConf']              = $request->ttsConf;
+        $query['TtsSpeed']             = $request->ttsSpeed;
+        $query['TtsStyle']             = $request->ttsStyle;
+        $query['TtsVolume']            = $request->ttsVolume;
+        $query['VoiceCode']            = $request->voiceCode;
+        $query['VoiceCodeParam']       = $request->voiceCodeParam;
+        $query['Volume']               = $request->volume;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SmartCall',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SmartCallResponse::fromMap($this->doRPCRequest('SmartCall', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SmartCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1542,11 +2042,30 @@ class Dyvmsapi extends OpenApiClient
     public function smartCallOperateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CallId']               = $request->callId;
+        $query['Command']              = $request->command;
+        $query['OwnerId']              = $request->ownerId;
+        $query['Param']                = $request->param;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SmartCallOperate',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SmartCallOperateResponse::fromMap($this->doRPCRequest('SmartCallOperate', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SmartCallOperateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1562,34 +2081,6 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param StartMicroOutboundRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return StartMicroOutboundResponse
-     */
-    public function startMicroOutboundWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return StartMicroOutboundResponse::fromMap($this->doRPCRequest('StartMicroOutbound', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param StartMicroOutboundRequest $request
-     *
-     * @return StartMicroOutboundResponse
-     */
-    public function startMicroOutbound($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->startMicroOutboundWithOptions($request, $runtime);
-    }
-
-    /**
      * @param StartRobotTaskRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1598,11 +2089,29 @@ class Dyvmsapi extends OpenApiClient
     public function startRobotTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['ScheduleTime']         = $request->scheduleTime;
+        $query['TaskId']               = $request->taskId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'StartRobotTask',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StartRobotTaskResponse::fromMap($this->doRPCRequest('StartRobotTask', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartRobotTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1626,11 +2135,28 @@ class Dyvmsapi extends OpenApiClient
     public function stopRobotTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TaskId']               = $request->taskId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'StopRobotTask',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StopRobotTaskResponse::fromMap($this->doRPCRequest('StopRobotTask', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopRobotTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1654,11 +2180,37 @@ class Dyvmsapi extends OpenApiClient
     public function submitHotlineTransferRegisterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                             = [];
+        $query['Agreement']                = $request->agreement;
+        $query['HotlineNumber']            = $request->hotlineNumber;
+        $query['OperatorIdentityCard']     = $request->operatorIdentityCard;
+        $query['OperatorMail']             = $request->operatorMail;
+        $query['OperatorMailVerifyCode']   = $request->operatorMailVerifyCode;
+        $query['OperatorMobile']           = $request->operatorMobile;
+        $query['OperatorMobileVerifyCode'] = $request->operatorMobileVerifyCode;
+        $query['OperatorName']             = $request->operatorName;
+        $query['OwnerId']                  = $request->ownerId;
+        $query['QualificationId']          = $request->qualificationId;
+        $query['ResourceOwnerAccount']     = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']          = $request->resourceOwnerId;
+        $query['TransferPhoneNumberInfos'] = $request->transferPhoneNumberInfos;
+        $req                               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitHotlineTransferRegister',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitHotlineTransferRegisterResponse::fromMap($this->doRPCRequest('SubmitHotlineTransferRegister', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitHotlineTransferRegisterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1674,62 +2226,6 @@ class Dyvmsapi extends OpenApiClient
     }
 
     /**
-     * @param UnbindNumberAndVoipIdRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return UnbindNumberAndVoipIdResponse
-     */
-    public function unbindNumberAndVoipIdWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UnbindNumberAndVoipIdResponse::fromMap($this->doRPCRequest('UnbindNumberAndVoipId', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UnbindNumberAndVoipIdRequest $request
-     *
-     * @return UnbindNumberAndVoipIdResponse
-     */
-    public function unbindNumberAndVoipId($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->unbindNumberAndVoipIdWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UndoRtcNumberAuthRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return UndoRtcNumberAuthResponse
-     */
-    public function undoRtcNumberAuthWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UndoRtcNumberAuthResponse::fromMap($this->doRPCRequest('UndoRtcNumberAuth', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UndoRtcNumberAuthRequest $request
-     *
-     * @return UndoRtcNumberAuthResponse
-     */
-    public function undoRtcNumberAuth($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->undoRtcNumberAuthWithOptions($request, $runtime);
-    }
-
-    /**
      * @param UploadRobotTaskCalledFileRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -1738,11 +2234,31 @@ class Dyvmsapi extends OpenApiClient
     public function uploadRobotTaskCalledFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CalledNumber']         = $request->calledNumber;
+        $query['Id']                   = $request->id;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TtsParam']             = $request->ttsParam;
+        $query['TtsParamHead']         = $request->ttsParamHead;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UploadRobotTaskCalledFile',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UploadRobotTaskCalledFileResponse::fromMap($this->doRPCRequest('UploadRobotTaskCalledFile', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UploadRobotTaskCalledFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1755,61 +2271,5 @@ class Dyvmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->uploadRobotTaskCalledFileWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param VoipAddAccountRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return VoipAddAccountResponse
-     */
-    public function voipAddAccountWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return VoipAddAccountResponse::fromMap($this->doRPCRequest('VoipAddAccount', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param VoipAddAccountRequest $request
-     *
-     * @return VoipAddAccountResponse
-     */
-    public function voipAddAccount($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->voipAddAccountWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param VoipGetTokenRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return VoipGetTokenResponse
-     */
-    public function voipGetTokenWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return VoipGetTokenResponse::fromMap($this->doRPCRequest('VoipGetToken', '2017-05-25', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param VoipGetTokenRequest $request
-     *
-     * @return VoipGetTokenResponse
-     */
-    public function voipGetToken($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->voipGetTokenWithOptions($request, $runtime);
     }
 }

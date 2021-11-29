@@ -4,14 +4,20 @@
 
 namespace AlibabaCloud\SDK\Dyvmsapi\V20170525\Models;
 
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\RefreshMqttTokenResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class QueryVoipNumberBindInfosResponseBody extends Model
+class RefreshMqttTokenResponseBody extends Model
 {
     /**
      * @var string
      */
     public $code;
+
+    /**
+     * @var data
+     */
+    public $data;
 
     /**
      * @var string
@@ -21,16 +27,11 @@ class QueryVoipNumberBindInfosResponseBody extends Model
     /**
      * @var string
      */
-    public $module;
-
-    /**
-     * @var string
-     */
     public $requestId;
     protected $_name = [
         'code'      => 'Code',
+        'data'      => 'Data',
         'message'   => 'Message',
-        'module'    => 'Module',
         'requestId' => 'RequestId',
     ];
 
@@ -44,11 +45,11 @@ class QueryVoipNumberBindInfosResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
-        }
-        if (null !== $this->module) {
-            $res['Module'] = $this->module;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -60,7 +61,7 @@ class QueryVoipNumberBindInfosResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return QueryVoipNumberBindInfosResponseBody
+     * @return RefreshMqttTokenResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -68,11 +69,11 @@ class QueryVoipNumberBindInfosResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
-        }
-        if (isset($map['Module'])) {
-            $model->module = $map['Module'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

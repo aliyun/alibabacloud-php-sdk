@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dyvmsapi\V20170525\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class VoipAddAccountResponse extends Model
+class GetMqttTokenResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class VoipAddAccountResponse extends Model
     public $headers;
 
     /**
-     * @var VoipAddAccountResponseBody
+     * @var GetMqttTokenResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class VoipAddAccountResponse extends Model
     /**
      * @param array $map
      *
-     * @return VoipAddAccountResponse
+     * @return GetMqttTokenResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class VoipAddAccountResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = VoipAddAccountResponseBody::fromMap($map['body']);
+            $model->body = GetMqttTokenResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -6,17 +6,12 @@ namespace AlibabaCloud\SDK\Dyvmsapi\V20170525\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class QueryRtcNumberAuthStatusRequest extends Model
+class GetMqttTokenRequest extends Model
 {
     /**
      * @var int
      */
     public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $phoneNumber;
 
     /**
      * @var string
@@ -29,7 +24,6 @@ class QueryRtcNumberAuthStatusRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
-        'phoneNumber'          => 'PhoneNumber',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
     ];
@@ -44,9 +38,6 @@ class QueryRtcNumberAuthStatusRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->phoneNumber) {
-            $res['PhoneNumber'] = $this->phoneNumber;
-        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
@@ -60,16 +51,13 @@ class QueryRtcNumberAuthStatusRequest extends Model
     /**
      * @param array $map
      *
-     * @return QueryRtcNumberAuthStatusRequest
+     * @return GetMqttTokenRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['PhoneNumber'])) {
-            $model->phoneNumber = $map['PhoneNumber'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

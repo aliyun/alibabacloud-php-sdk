@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dyvmsapi\V20170525\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UnbindNumberAndVoipIdResponse extends Model
+class RefreshMqttTokenResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class UnbindNumberAndVoipIdResponse extends Model
     public $headers;
 
     /**
-     * @var UnbindNumberAndVoipIdResponseBody
+     * @var RefreshMqttTokenResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class UnbindNumberAndVoipIdResponse extends Model
     /**
      * @param array $map
      *
-     * @return UnbindNumberAndVoipIdResponse
+     * @return RefreshMqttTokenResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class UnbindNumberAndVoipIdResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = UnbindNumberAndVoipIdResponseBody::fromMap($map['body']);
+            $model->body = RefreshMqttTokenResponseBody::fromMap($map['body']);
         }
 
         return $model;

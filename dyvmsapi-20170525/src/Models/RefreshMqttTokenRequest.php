@@ -6,17 +6,12 @@ namespace AlibabaCloud\SDK\Dyvmsapi\V20170525\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class VoipGetTokenRequest extends Model
+class RefreshMqttTokenRequest extends Model
 {
     /**
      * @var string
      */
-    public $deviceId;
-
-    /**
-     * @var bool
-     */
-    public $isCustomAccount;
+    public $clientId;
 
     /**
      * @var int
@@ -32,18 +27,11 @@ class VoipGetTokenRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $voipId;
     protected $_name = [
-        'deviceId'             => 'DeviceId',
-        'isCustomAccount'      => 'IsCustomAccount',
+        'clientId'             => 'ClientId',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'voipId'               => 'VoipId',
     ];
 
     public function validate()
@@ -53,11 +41,8 @@ class VoipGetTokenRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->deviceId) {
-            $res['DeviceId'] = $this->deviceId;
-        }
-        if (null !== $this->isCustomAccount) {
-            $res['IsCustomAccount'] = $this->isCustomAccount;
+        if (null !== $this->clientId) {
+            $res['ClientId'] = $this->clientId;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -68,9 +53,6 @@ class VoipGetTokenRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->voipId) {
-            $res['VoipId'] = $this->voipId;
-        }
 
         return $res;
     }
@@ -78,16 +60,13 @@ class VoipGetTokenRequest extends Model
     /**
      * @param array $map
      *
-     * @return VoipGetTokenRequest
+     * @return RefreshMqttTokenRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DeviceId'])) {
-            $model->deviceId = $map['DeviceId'];
-        }
-        if (isset($map['IsCustomAccount'])) {
-            $model->isCustomAccount = $map['IsCustomAccount'];
+        if (isset($map['ClientId'])) {
+            $model->clientId = $map['ClientId'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -97,9 +76,6 @@ class VoipGetTokenRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['VoipId'])) {
-            $model->voipId = $map['VoipId'];
         }
 
         return $model;
