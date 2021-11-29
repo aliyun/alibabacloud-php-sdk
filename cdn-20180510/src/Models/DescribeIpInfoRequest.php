@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpInfoRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $IP;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -17,15 +22,10 @@ class DescribeIpInfoRequest extends Model
      * @var string
      */
     public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $IP;
     protected $_name = [
+        'IP'            => 'IP',
         'ownerId'       => 'OwnerId',
         'securityToken' => 'SecurityToken',
-        'IP'            => 'IP',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeIpInfoRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->IP) {
+            $res['IP'] = $this->IP;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->IP) {
-            $res['IP'] = $this->IP;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeIpInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IP'])) {
+            $model->IP = $map['IP'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['IP'])) {
-            $model->IP = $map['IP'];
         }
 
         return $model;

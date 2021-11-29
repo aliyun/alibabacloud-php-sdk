@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainNamesOfVersionResponseBody extends Model
 {
     /**
-     * @var int
+     * @var contents[]
      */
-    public $totalCount;
+    public $contents;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribeDomainNamesOfVersionResponseBody extends Model
     public $requestId;
 
     /**
-     * @var contents[]
+     * @var int
      */
-    public $contents;
+    public $totalCount;
     protected $_name = [
-        'totalCount' => 'TotalCount',
-        'requestId'  => 'RequestId',
         'contents'   => 'Contents',
+        'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class DescribeDomainNamesOfVersionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->contents) {
             $res['Contents'] = [];
             if (null !== $this->contents && \is_array($this->contents)) {
@@ -50,6 +44,12 @@ class DescribeDomainNamesOfVersionResponseBody extends Model
                     $res['Contents'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class DescribeDomainNamesOfVersionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Contents'])) {
             if (!empty($map['Contents'])) {
                 $model->contents = [];
@@ -77,6 +71,12 @@ class DescribeDomainNamesOfVersionResponseBody extends Model
                     $model->contents[$n++] = null !== $item ? contents::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

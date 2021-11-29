@@ -11,29 +11,29 @@ use AlibabaCloud\Tea\Model;
 class domainLogDetail extends Model
 {
     /**
-     * @var int
-     */
-    public $logCount;
-
-    /**
      * @var string
      */
     public $domainName;
 
     /**
-     * @var pageInfos
+     * @var int
      */
-    public $pageInfos;
+    public $logCount;
 
     /**
      * @var logInfos
      */
     public $logInfos;
+
+    /**
+     * @var pageInfos
+     */
+    public $pageInfos;
     protected $_name = [
-        'logCount'   => 'LogCount',
         'domainName' => 'DomainName',
-        'pageInfos'  => 'PageInfos',
+        'logCount'   => 'LogCount',
         'logInfos'   => 'LogInfos',
+        'pageInfos'  => 'PageInfos',
     ];
 
     public function validate()
@@ -43,17 +43,17 @@ class domainLogDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->logCount) {
-            $res['LogCount'] = $this->logCount;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->pageInfos) {
-            $res['PageInfos'] = null !== $this->pageInfos ? $this->pageInfos->toMap() : null;
+        if (null !== $this->logCount) {
+            $res['LogCount'] = $this->logCount;
         }
         if (null !== $this->logInfos) {
             $res['LogInfos'] = null !== $this->logInfos ? $this->logInfos->toMap() : null;
+        }
+        if (null !== $this->pageInfos) {
+            $res['PageInfos'] = null !== $this->pageInfos ? $this->pageInfos->toMap() : null;
         }
 
         return $res;
@@ -67,17 +67,17 @@ class domainLogDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LogCount'])) {
-            $model->logCount = $map['LogCount'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['PageInfos'])) {
-            $model->pageInfos = pageInfos::fromMap($map['PageInfos']);
+        if (isset($map['LogCount'])) {
+            $model->logCount = $map['LogCount'];
         }
         if (isset($map['LogInfos'])) {
             $model->logInfos = logInfos::fromMap($map['LogInfos']);
+        }
+        if (isset($map['PageInfos'])) {
+            $model->pageInfos = pageInfos::fromMap($map['PageInfos']);
         }
 
         return $model;

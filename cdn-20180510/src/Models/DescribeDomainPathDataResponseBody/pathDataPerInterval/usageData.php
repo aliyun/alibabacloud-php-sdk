@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class usageData extends Model
 {
     /**
+     * @var int
+     */
+    public $acc;
+
+    /**
      * @var string
      */
     public $path;
@@ -21,16 +26,11 @@ class usageData extends Model
     /**
      * @var int
      */
-    public $acc;
-
-    /**
-     * @var int
-     */
     public $traffic;
     protected $_name = [
+        'acc'     => 'Acc',
         'path'    => 'Path',
         'time'    => 'Time',
-        'acc'     => 'Acc',
         'traffic' => 'Traffic',
     ];
 
@@ -41,14 +41,14 @@ class usageData extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acc) {
+            $res['Acc'] = $this->acc;
+        }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
         if (null !== $this->time) {
             $res['Time'] = $this->time;
-        }
-        if (null !== $this->acc) {
-            $res['Acc'] = $this->acc;
         }
         if (null !== $this->traffic) {
             $res['Traffic'] = $this->traffic;
@@ -65,14 +65,14 @@ class usageData extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Acc'])) {
+            $model->acc = $map['Acc'];
+        }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
-        }
-        if (isset($map['Acc'])) {
-            $model->acc = $map['Acc'];
         }
         if (isset($map['Traffic'])) {
             $model->traffic = $map['Traffic'];

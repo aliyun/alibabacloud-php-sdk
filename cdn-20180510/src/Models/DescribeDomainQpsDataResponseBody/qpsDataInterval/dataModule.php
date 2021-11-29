@@ -11,11 +11,6 @@ class dataModule extends Model
     /**
      * @var string
      */
-    public $accValue;
-
-    /**
-     * @var string
-     */
     public $accDomesticValue;
 
     /**
@@ -26,12 +21,7 @@ class dataModule extends Model
     /**
      * @var string
      */
-    public $httpsValue;
-
-    /**
-     * @var string
-     */
-    public $httpsOverseasValue;
+    public $accValue;
 
     /**
      * @var string
@@ -41,12 +31,12 @@ class dataModule extends Model
     /**
      * @var string
      */
-    public $httpsAccOverseasValue;
+    public $httpsAccDomesticValue;
 
     /**
      * @var string
      */
-    public $httpsDomesticValue;
+    public $httpsAccOverseasValue;
 
     /**
      * @var string
@@ -56,7 +46,17 @@ class dataModule extends Model
     /**
      * @var string
      */
-    public $value;
+    public $httpsDomesticValue;
+
+    /**
+     * @var string
+     */
+    public $httpsOverseasValue;
+
+    /**
+     * @var string
+     */
+    public $httpsValue;
 
     /**
      * @var string
@@ -71,21 +71,21 @@ class dataModule extends Model
     /**
      * @var string
      */
-    public $httpsAccDomesticValue;
+    public $value;
     protected $_name = [
-        'accValue'              => 'AccValue',
         'accDomesticValue'      => 'AccDomesticValue',
         'accOverseasValue'      => 'AccOverseasValue',
-        'httpsValue'            => 'HttpsValue',
-        'httpsOverseasValue'    => 'HttpsOverseasValue',
+        'accValue'              => 'AccValue',
         'domesticValue'         => 'DomesticValue',
+        'httpsAccDomesticValue' => 'HttpsAccDomesticValue',
         'httpsAccOverseasValue' => 'HttpsAccOverseasValue',
-        'httpsDomesticValue'    => 'HttpsDomesticValue',
         'httpsAccValue'         => 'HttpsAccValue',
-        'value'                 => 'Value',
+        'httpsDomesticValue'    => 'HttpsDomesticValue',
+        'httpsOverseasValue'    => 'HttpsOverseasValue',
+        'httpsValue'            => 'HttpsValue',
         'overseasValue'         => 'OverseasValue',
         'timeStamp'             => 'TimeStamp',
-        'httpsAccDomesticValue' => 'HttpsAccDomesticValue',
+        'value'                 => 'Value',
     ];
 
     public function validate()
@@ -95,35 +95,35 @@ class dataModule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accValue) {
-            $res['AccValue'] = $this->accValue;
-        }
         if (null !== $this->accDomesticValue) {
             $res['AccDomesticValue'] = $this->accDomesticValue;
         }
         if (null !== $this->accOverseasValue) {
             $res['AccOverseasValue'] = $this->accOverseasValue;
         }
-        if (null !== $this->httpsValue) {
-            $res['HttpsValue'] = $this->httpsValue;
-        }
-        if (null !== $this->httpsOverseasValue) {
-            $res['HttpsOverseasValue'] = $this->httpsOverseasValue;
+        if (null !== $this->accValue) {
+            $res['AccValue'] = $this->accValue;
         }
         if (null !== $this->domesticValue) {
             $res['DomesticValue'] = $this->domesticValue;
         }
+        if (null !== $this->httpsAccDomesticValue) {
+            $res['HttpsAccDomesticValue'] = $this->httpsAccDomesticValue;
+        }
         if (null !== $this->httpsAccOverseasValue) {
             $res['HttpsAccOverseasValue'] = $this->httpsAccOverseasValue;
-        }
-        if (null !== $this->httpsDomesticValue) {
-            $res['HttpsDomesticValue'] = $this->httpsDomesticValue;
         }
         if (null !== $this->httpsAccValue) {
             $res['HttpsAccValue'] = $this->httpsAccValue;
         }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
+        if (null !== $this->httpsDomesticValue) {
+            $res['HttpsDomesticValue'] = $this->httpsDomesticValue;
+        }
+        if (null !== $this->httpsOverseasValue) {
+            $res['HttpsOverseasValue'] = $this->httpsOverseasValue;
+        }
+        if (null !== $this->httpsValue) {
+            $res['HttpsValue'] = $this->httpsValue;
         }
         if (null !== $this->overseasValue) {
             $res['OverseasValue'] = $this->overseasValue;
@@ -131,8 +131,8 @@ class dataModule extends Model
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
-        if (null !== $this->httpsAccDomesticValue) {
-            $res['HttpsAccDomesticValue'] = $this->httpsAccDomesticValue;
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -146,35 +146,35 @@ class dataModule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccValue'])) {
-            $model->accValue = $map['AccValue'];
-        }
         if (isset($map['AccDomesticValue'])) {
             $model->accDomesticValue = $map['AccDomesticValue'];
         }
         if (isset($map['AccOverseasValue'])) {
             $model->accOverseasValue = $map['AccOverseasValue'];
         }
-        if (isset($map['HttpsValue'])) {
-            $model->httpsValue = $map['HttpsValue'];
-        }
-        if (isset($map['HttpsOverseasValue'])) {
-            $model->httpsOverseasValue = $map['HttpsOverseasValue'];
+        if (isset($map['AccValue'])) {
+            $model->accValue = $map['AccValue'];
         }
         if (isset($map['DomesticValue'])) {
             $model->domesticValue = $map['DomesticValue'];
         }
+        if (isset($map['HttpsAccDomesticValue'])) {
+            $model->httpsAccDomesticValue = $map['HttpsAccDomesticValue'];
+        }
         if (isset($map['HttpsAccOverseasValue'])) {
             $model->httpsAccOverseasValue = $map['HttpsAccOverseasValue'];
-        }
-        if (isset($map['HttpsDomesticValue'])) {
-            $model->httpsDomesticValue = $map['HttpsDomesticValue'];
         }
         if (isset($map['HttpsAccValue'])) {
             $model->httpsAccValue = $map['HttpsAccValue'];
         }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
+        if (isset($map['HttpsDomesticValue'])) {
+            $model->httpsDomesticValue = $map['HttpsDomesticValue'];
+        }
+        if (isset($map['HttpsOverseasValue'])) {
+            $model->httpsOverseasValue = $map['HttpsOverseasValue'];
+        }
+        if (isset($map['HttpsValue'])) {
+            $model->httpsValue = $map['HttpsValue'];
         }
         if (isset($map['OverseasValue'])) {
             $model->overseasValue = $map['OverseasValue'];
@@ -182,8 +182,8 @@ class dataModule extends Model
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }
-        if (isset($map['HttpsAccDomesticValue'])) {
-            $model->httpsAccDomesticValue = $map['HttpsAccDomesticValue'];
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

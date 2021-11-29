@@ -14,11 +14,6 @@ class DescribeDomainNamesOfVersionRequest extends Model
     public $ownerId;
 
     /**
-     * @var string
-     */
-    public $versionId;
-
-    /**
      * @var int
      */
     public $pageIndex;
@@ -27,11 +22,16 @@ class DescribeDomainNamesOfVersionRequest extends Model
      * @var string
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $versionId;
     protected $_name = [
         'ownerId'   => 'OwnerId',
-        'versionId' => 'VersionId',
         'pageIndex' => 'PageIndex',
         'pageSize'  => 'PageSize',
+        'versionId' => 'VersionId',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class DescribeDomainNamesOfVersionRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->versionId) {
-            $res['VersionId'] = $this->versionId;
-        }
         if (null !== $this->pageIndex) {
             $res['PageIndex'] = $this->pageIndex;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->versionId) {
+            $res['VersionId'] = $this->versionId;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class DescribeDomainNamesOfVersionRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['VersionId'])) {
-            $model->versionId = $map['VersionId'];
-        }
         if (isset($map['PageIndex'])) {
             $model->pageIndex = $map['PageIndex'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['VersionId'])) {
+            $model->versionId = $map['VersionId'];
         }
 
         return $model;

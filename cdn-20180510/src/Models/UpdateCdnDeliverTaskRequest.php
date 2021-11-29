@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateCdnDeliverTaskRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $deliver;
 
     /**
      * @var int
@@ -21,12 +21,17 @@ class UpdateCdnDeliverTaskRequest extends Model
     /**
      * @var string
      */
-    public $name;
+    public $domainName;
 
     /**
      * @var string
      */
-    public $status;
+    public $name;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
@@ -36,25 +41,14 @@ class UpdateCdnDeliverTaskRequest extends Model
     /**
      * @var string
      */
-    public $domainName;
-
-    /**
-     * @var mixed[]
-     */
-    public $deliver;
-
-    /**
-     * @var mixed[]
-     */
     public $schedule;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
-        'deliverId'  => 'DeliverId',
-        'name'       => 'Name',
-        'status'     => 'Status',
-        'reports'    => 'Reports',
-        'domainName' => 'DomainName',
         'deliver'    => 'Deliver',
+        'deliverId'  => 'DeliverId',
+        'domainName' => 'DomainName',
+        'name'       => 'Name',
+        'ownerId'    => 'OwnerId',
+        'reports'    => 'Reports',
         'schedule'   => 'Schedule',
     ];
 
@@ -65,26 +59,23 @@ class UpdateCdnDeliverTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->deliver) {
+            $res['Deliver'] = $this->deliver;
         }
         if (null !== $this->deliverId) {
             $res['DeliverId'] = $this->deliverId;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->reports) {
-            $res['Reports'] = $this->reports;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->deliver) {
-            $res['Deliver'] = $this->deliver;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->reports) {
+            $res['Reports'] = $this->reports;
         }
         if (null !== $this->schedule) {
             $res['Schedule'] = $this->schedule;
@@ -101,26 +92,23 @@ class UpdateCdnDeliverTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['Deliver'])) {
+            $model->deliver = $map['Deliver'];
         }
         if (isset($map['DeliverId'])) {
             $model->deliverId = $map['DeliverId'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Reports'])) {
-            $model->reports = $map['Reports'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['Deliver'])) {
-            $model->deliver = $map['Deliver'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Reports'])) {
+            $model->reports = $map['Reports'];
         }
         if (isset($map['Schedule'])) {
             $model->schedule = $map['Schedule'];

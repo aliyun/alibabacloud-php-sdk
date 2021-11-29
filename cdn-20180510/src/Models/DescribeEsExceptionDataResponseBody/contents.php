@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class contents extends Model
 {
     /**
+     * @var string[]
+     */
+    public $columns;
+
+    /**
      * @var string
      */
     public $name;
@@ -17,15 +22,10 @@ class contents extends Model
      * @var string[]
      */
     public $points;
-
-    /**
-     * @var string[]
-     */
-    public $columns;
     protected $_name = [
+        'columns' => 'Columns',
         'name'    => 'Name',
         'points'  => 'Points',
-        'columns' => 'Columns',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class contents extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->columns) {
+            $res['Columns'] = $this->columns;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
         if (null !== $this->points) {
             $res['Points'] = $this->points;
-        }
-        if (null !== $this->columns) {
-            $res['Columns'] = $this->columns;
         }
 
         return $res;
@@ -56,17 +56,17 @@ class contents extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Columns'])) {
+            if (!empty($map['Columns'])) {
+                $model->columns = $map['Columns'];
+            }
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
         if (isset($map['Points'])) {
             if (!empty($map['Points'])) {
                 $model->points = $map['Points'];
-            }
-        }
-        if (isset($map['Columns'])) {
-            if (!empty($map['Columns'])) {
-                $model->columns = $map['Columns'];
             }
         }
 

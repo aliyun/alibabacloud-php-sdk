@@ -9,24 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainTopClientIpVisitRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $domainName;
-
-    /**
-     * @var string
-     */
-    public $locationNameEn;
-
-    /**
-     * @var string
-     */
-    public $startTime;
 
     /**
      * @var string
@@ -36,20 +21,35 @@ class DescribeDomainTopClientIpVisitRequest extends Model
     /**
      * @var string
      */
+    public $limit;
+
+    /**
+     * @var string
+     */
+    public $locationNameEn;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
     public $sortBy;
 
     /**
      * @var string
      */
-    public $limit;
+    public $startTime;
     protected $_name = [
-        'ownerId'        => 'OwnerId',
         'domainName'     => 'DomainName',
-        'locationNameEn' => 'LocationNameEn',
-        'startTime'      => 'StartTime',
         'endTime'        => 'EndTime',
-        'sortBy'         => 'SortBy',
         'limit'          => 'Limit',
+        'locationNameEn' => 'LocationNameEn',
+        'ownerId'        => 'OwnerId',
+        'sortBy'         => 'SortBy',
+        'startTime'      => 'StartTime',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class DescribeDomainTopClientIpVisitRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->locationNameEn) {
-            $res['LocationNameEn'] = $this->locationNameEn;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->limit) {
+            $res['Limit'] = $this->limit;
+        }
+        if (null !== $this->locationNameEn) {
+            $res['LocationNameEn'] = $this->locationNameEn;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
         }
-        if (null !== $this->limit) {
-            $res['Limit'] = $this->limit;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class DescribeDomainTopClientIpVisitRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['LocationNameEn'])) {
-            $model->locationNameEn = $map['LocationNameEn'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['Limit'])) {
+            $model->limit = $map['Limit'];
+        }
+        if (isset($map['LocationNameEn'])) {
+            $model->locationNameEn = $map['LocationNameEn'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
         }
-        if (isset($map['Limit'])) {
-            $model->limit = $map['Limit'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

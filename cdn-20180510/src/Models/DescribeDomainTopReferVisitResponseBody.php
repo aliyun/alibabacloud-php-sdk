@@ -12,7 +12,7 @@ class DescribeDomainTopReferVisitResponseBody extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $domainName;
 
     /**
      * @var string
@@ -22,16 +22,16 @@ class DescribeDomainTopReferVisitResponseBody extends Model
     /**
      * @var string
      */
-    public $domainName;
+    public $startTime;
 
     /**
      * @var topReferList
      */
     public $topReferList;
     protected $_name = [
-        'startTime'    => 'StartTime',
-        'requestId'    => 'RequestId',
         'domainName'   => 'DomainName',
+        'requestId'    => 'RequestId',
+        'startTime'    => 'StartTime',
         'topReferList' => 'TopReferList',
     ];
 
@@ -42,14 +42,14 @@ class DescribeDomainTopReferVisitResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->topReferList) {
             $res['TopReferList'] = null !== $this->topReferList ? $this->topReferList->toMap() : null;
@@ -66,14 +66,14 @@ class DescribeDomainTopReferVisitResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['TopReferList'])) {
             $model->topReferList = topReferList::fromMap($map['TopReferList']);

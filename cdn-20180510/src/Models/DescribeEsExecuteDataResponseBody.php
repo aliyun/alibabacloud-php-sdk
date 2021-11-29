@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeEsExecuteDataResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var contents[]
      */
     public $contents;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'contents'  => 'Contents',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeEsExecuteDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->contents) {
             $res['Contents'] = [];
             if (null !== $this->contents && \is_array($this->contents)) {
@@ -41,6 +38,9 @@ class DescribeEsExecuteDataResponseBody extends Model
                     $res['Contents'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeEsExecuteDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Contents'])) {
             if (!empty($map['Contents'])) {
                 $model->contents = [];
@@ -65,6 +62,9 @@ class DescribeEsExecuteDataResponseBody extends Model
                     $model->contents[$n++] = null !== $item ? contents::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

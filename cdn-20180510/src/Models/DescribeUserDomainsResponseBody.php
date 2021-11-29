@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserDomainsResponseBody extends Model
 {
     /**
-     * @var string
+     * @var domains
      */
-    public $requestId;
+    public $domains;
 
     /**
      * @var int
@@ -25,20 +25,20 @@ class DescribeUserDomainsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var domains
-     */
-    public $domains;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'domains'    => 'Domains',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'requestId'  => 'RequestId',
         'totalCount' => 'TotalCount',
-        'domains'    => 'Domains',
     ];
 
     public function validate()
@@ -48,8 +48,8 @@ class DescribeUserDomainsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->domains) {
+            $res['Domains'] = null !== $this->domains ? $this->domains->toMap() : null;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -57,11 +57,11 @@ class DescribeUserDomainsResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->domains) {
-            $res['Domains'] = null !== $this->domains ? $this->domains->toMap() : null;
         }
 
         return $res;
@@ -75,8 +75,8 @@ class DescribeUserDomainsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Domains'])) {
+            $model->domains = domains::fromMap($map['Domains']);
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -84,11 +84,11 @@ class DescribeUserDomainsResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['Domains'])) {
-            $model->domains = domains::fromMap($map['Domains']);
         }
 
         return $model;

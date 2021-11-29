@@ -11,22 +11,7 @@ class tasks extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
     public $creationTime;
-
-    /**
-     * @var string
-     */
-    public $objectType;
-
-    /**
-     * @var string
-     */
-    public $process;
 
     /**
      * @var string
@@ -41,14 +26,29 @@ class tasks extends Model
     /**
      * @var string
      */
+    public $objectType;
+
+    /**
+     * @var string
+     */
+    public $process;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $taskId;
     protected $_name = [
-        'status'       => 'Status',
         'creationTime' => 'CreationTime',
-        'objectType'   => 'ObjectType',
-        'process'      => 'Process',
         'description'  => 'Description',
         'objectPath'   => 'ObjectPath',
+        'objectType'   => 'ObjectType',
+        'process'      => 'Process',
+        'status'       => 'Status',
         'taskId'       => 'TaskId',
     ];
 
@@ -59,11 +59,14 @@ class tasks extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->objectPath) {
+            $res['ObjectPath'] = $this->objectPath;
         }
         if (null !== $this->objectType) {
             $res['ObjectType'] = $this->objectType;
@@ -71,11 +74,8 @@ class tasks extends Model
         if (null !== $this->process) {
             $res['Process'] = $this->process;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->objectPath) {
-            $res['ObjectPath'] = $this->objectPath;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -92,11 +92,14 @@ class tasks extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['ObjectPath'])) {
+            $model->objectPath = $map['ObjectPath'];
         }
         if (isset($map['ObjectType'])) {
             $model->objectType = $map['ObjectType'];
@@ -104,11 +107,8 @@ class tasks extends Model
         if (isset($map['Process'])) {
             $model->process = $map['Process'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['ObjectPath'])) {
-            $model->objectPath = $map['ObjectPath'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

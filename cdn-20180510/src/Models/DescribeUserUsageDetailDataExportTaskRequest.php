@@ -16,16 +16,16 @@ class DescribeUserUsageDetailDataExportTaskRequest extends Model
     /**
      * @var string
      */
-    public $pageSize;
+    public $pageNumber;
 
     /**
      * @var string
      */
-    public $pageNumber;
+    public $pageSize;
     protected $_name = [
         'ownerId'    => 'OwnerId',
-        'pageSize'   => 'PageSize',
         'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DescribeUserUsageDetailDataExportTaskRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DescribeUserUsageDetailDataExportTaskRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

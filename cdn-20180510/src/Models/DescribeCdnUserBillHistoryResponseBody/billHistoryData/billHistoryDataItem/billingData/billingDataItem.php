@@ -11,17 +11,7 @@ class billingDataItem extends Model
     /**
      * @var float
      */
-    public $flow;
-
-    /**
-     * @var float
-     */
     public $bandwidth;
-
-    /**
-     * @var float
-     */
-    public $count;
 
     /**
      * @var string
@@ -32,12 +22,22 @@ class billingDataItem extends Model
      * @var string
      */
     public $chargeType;
+
+    /**
+     * @var float
+     */
+    public $count;
+
+    /**
+     * @var float
+     */
+    public $flow;
     protected $_name = [
-        'flow'       => 'Flow',
         'bandwidth'  => 'Bandwidth',
-        'count'      => 'Count',
         'cdnRegion'  => 'CdnRegion',
         'chargeType' => 'ChargeType',
+        'count'      => 'Count',
+        'flow'       => 'Flow',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class billingDataItem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->flow) {
-            $res['Flow'] = $this->flow;
-        }
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
-        }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
         }
         if (null !== $this->cdnRegion) {
             $res['CdnRegion'] = $this->cdnRegion;
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
+        if (null !== $this->flow) {
+            $res['Flow'] = $this->flow;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class billingDataItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Flow'])) {
-            $model->flow = $map['Flow'];
-        }
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
-        }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
         }
         if (isset($map['CdnRegion'])) {
             $model->cdnRegion = $map['CdnRegion'];
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
+        if (isset($map['Flow'])) {
+            $model->flow = $map['Flow'];
         }
 
         return $model;

@@ -11,12 +11,7 @@ class SetReqHeaderConfigRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
+    public $configId;
 
     /**
      * @var string
@@ -29,21 +24,26 @@ class SetReqHeaderConfigRequest extends Model
     public $key;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
+
+    /**
      * @var string
      */
     public $value;
-
-    /**
-     * @var int
-     */
-    public $configId;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
-        'securityToken' => 'SecurityToken',
+        'configId'      => 'ConfigId',
         'domainName'    => 'DomainName',
         'key'           => 'Key',
+        'ownerId'       => 'OwnerId',
+        'securityToken' => 'SecurityToken',
         'value'         => 'Value',
-        'configId'      => 'ConfigId',
     ];
 
     public function validate()
@@ -53,11 +53,8 @@ class SetReqHeaderConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->configId) {
+            $res['ConfigId'] = $this->configId;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -65,11 +62,14 @@ class SetReqHeaderConfigRequest extends Model
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
-        }
-        if (null !== $this->configId) {
-            $res['ConfigId'] = $this->configId;
         }
 
         return $res;
@@ -83,11 +83,8 @@ class SetReqHeaderConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['ConfigId'])) {
+            $model->configId = $map['ConfigId'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
@@ -95,11 +92,14 @@ class SetReqHeaderConfigRequest extends Model
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
+        }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
-        }
-        if (isset($map['ConfigId'])) {
-            $model->configId = $map['ConfigId'];
         }
 
         return $model;

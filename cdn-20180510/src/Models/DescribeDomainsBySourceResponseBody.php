@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainsBySourceResponseBody extends Model
 {
     /**
-     * @var string
+     * @var domainsList
      */
-    public $sources;
+    public $domainsList;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribeDomainsBySourceResponseBody extends Model
     public $requestId;
 
     /**
-     * @var domainsList
+     * @var string
      */
-    public $domainsList;
+    public $sources;
     protected $_name = [
-        'sources'     => 'Sources',
-        'requestId'   => 'RequestId',
         'domainsList' => 'DomainsList',
+        'requestId'   => 'RequestId',
+        'sources'     => 'Sources',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeDomainsBySourceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sources) {
-            $res['Sources'] = $this->sources;
+        if (null !== $this->domainsList) {
+            $res['DomainsList'] = null !== $this->domainsList ? $this->domainsList->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->domainsList) {
-            $res['DomainsList'] = null !== $this->domainsList ? $this->domainsList->toMap() : null;
+        if (null !== $this->sources) {
+            $res['Sources'] = $this->sources;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeDomainsBySourceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Sources'])) {
-            $model->sources = $map['Sources'];
+        if (isset($map['DomainsList'])) {
+            $model->domainsList = domainsList::fromMap($map['DomainsList']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['DomainsList'])) {
-            $model->domainsList = domainsList::fromMap($map['DomainsList']);
+        if (isset($map['Sources'])) {
+            $model->sources = $map['Sources'];
         }
 
         return $model;

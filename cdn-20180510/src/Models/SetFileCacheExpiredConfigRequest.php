@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class SetFileCacheExpiredConfigRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $cacheContent;
+
+    /**
+     * @var string
+     */
+    public $domainName;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -21,16 +31,6 @@ class SetFileCacheExpiredConfigRequest extends Model
     /**
      * @var string
      */
-    public $domainName;
-
-    /**
-     * @var string
-     */
-    public $cacheContent;
-
-    /**
-     * @var string
-     */
     public $TTL;
 
     /**
@@ -38,10 +38,10 @@ class SetFileCacheExpiredConfigRequest extends Model
      */
     public $weight;
     protected $_name = [
+        'cacheContent'  => 'CacheContent',
+        'domainName'    => 'DomainName',
         'ownerId'       => 'OwnerId',
         'securityToken' => 'SecurityToken',
-        'domainName'    => 'DomainName',
-        'cacheContent'  => 'CacheContent',
         'TTL'           => 'TTL',
         'weight'        => 'Weight',
     ];
@@ -53,17 +53,17 @@ class SetFileCacheExpiredConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cacheContent) {
+            $res['CacheContent'] = $this->cacheContent;
+        }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->cacheContent) {
-            $res['CacheContent'] = $this->cacheContent;
         }
         if (null !== $this->TTL) {
             $res['TTL'] = $this->TTL;
@@ -83,17 +83,17 @@ class SetFileCacheExpiredConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CacheContent'])) {
+            $model->cacheContent = $map['CacheContent'];
+        }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['CacheContent'])) {
-            $model->cacheContent = $map['CacheContent'];
         }
         if (isset($map['TTL'])) {
             $model->TTL = $map['TTL'];

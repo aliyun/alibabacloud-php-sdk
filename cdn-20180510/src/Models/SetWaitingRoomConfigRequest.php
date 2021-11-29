@@ -11,7 +11,7 @@ class SetWaitingRoomConfigRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
+    public $allowPct;
 
     /**
      * @var string
@@ -19,14 +19,9 @@ class SetWaitingRoomConfigRequest extends Model
     public $domainName;
 
     /**
-     * @var string
-     */
-    public $waitUri;
-
-    /**
      * @var int
      */
-    public $allowPct;
+    public $gapTime;
 
     /**
      * @var int
@@ -36,19 +31,24 @@ class SetWaitingRoomConfigRequest extends Model
     /**
      * @var int
      */
-    public $gapTime;
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $waitUri;
 
     /**
      * @var string
      */
     public $waitUrl;
     protected $_name = [
-        'ownerId'     => 'OwnerId',
-        'domainName'  => 'DomainName',
-        'waitUri'     => 'WaitUri',
         'allowPct'    => 'AllowPct',
-        'maxTimeWait' => 'MaxTimeWait',
+        'domainName'  => 'DomainName',
         'gapTime'     => 'GapTime',
+        'maxTimeWait' => 'MaxTimeWait',
+        'ownerId'     => 'OwnerId',
+        'waitUri'     => 'WaitUri',
         'waitUrl'     => 'WaitUrl',
     ];
 
@@ -59,23 +59,23 @@ class SetWaitingRoomConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->allowPct) {
+            $res['AllowPct'] = $this->allowPct;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->waitUri) {
-            $res['WaitUri'] = $this->waitUri;
-        }
-        if (null !== $this->allowPct) {
-            $res['AllowPct'] = $this->allowPct;
+        if (null !== $this->gapTime) {
+            $res['GapTime'] = $this->gapTime;
         }
         if (null !== $this->maxTimeWait) {
             $res['MaxTimeWait'] = $this->maxTimeWait;
         }
-        if (null !== $this->gapTime) {
-            $res['GapTime'] = $this->gapTime;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->waitUri) {
+            $res['WaitUri'] = $this->waitUri;
         }
         if (null !== $this->waitUrl) {
             $res['WaitUrl'] = $this->waitUrl;
@@ -92,23 +92,23 @@ class SetWaitingRoomConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['AllowPct'])) {
+            $model->allowPct = $map['AllowPct'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['WaitUri'])) {
-            $model->waitUri = $map['WaitUri'];
-        }
-        if (isset($map['AllowPct'])) {
-            $model->allowPct = $map['AllowPct'];
+        if (isset($map['GapTime'])) {
+            $model->gapTime = $map['GapTime'];
         }
         if (isset($map['MaxTimeWait'])) {
             $model->maxTimeWait = $map['MaxTimeWait'];
         }
-        if (isset($map['GapTime'])) {
-            $model->gapTime = $map['GapTime'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['WaitUri'])) {
+            $model->waitUri = $map['WaitUri'];
         }
         if (isset($map['WaitUrl'])) {
             $model->waitUrl = $map['WaitUrl'];

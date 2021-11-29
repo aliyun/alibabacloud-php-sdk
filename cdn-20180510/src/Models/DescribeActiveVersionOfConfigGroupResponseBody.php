@@ -11,12 +11,27 @@ class DescribeActiveVersionOfConfigGroupResponseBody extends Model
     /**
      * @var string
      */
-    public $status;
+    public $baseVersionId;
 
     /**
      * @var string
      */
-    public $updateTime;
+    public $configGroupId;
+
+    /**
+     * @var string
+     */
+    public $createTime;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $operator;
 
     /**
      * @var string
@@ -31,43 +46,28 @@ class DescribeActiveVersionOfConfigGroupResponseBody extends Model
     /**
      * @var string
      */
-    public $description;
+    public $status;
 
     /**
      * @var string
      */
-    public $createTime;
+    public $updateTime;
 
     /**
      * @var string
      */
     public $versionId;
-
-    /**
-     * @var string
-     */
-    public $configGroupId;
-
-    /**
-     * @var string
-     */
-    public $operator;
-
-    /**
-     * @var string
-     */
-    public $baseVersionId;
     protected $_name = [
-        'status'        => 'Status',
-        'updateTime'    => 'UpdateTime',
+        'baseVersionId' => 'BaseVersionId',
+        'configGroupId' => 'ConfigGroupId',
+        'createTime'    => 'CreateTime',
+        'description'   => 'Description',
+        'operator'      => 'Operator',
         'requestId'     => 'RequestId',
         'seqId'         => 'SeqId',
-        'description'   => 'Description',
-        'createTime'    => 'CreateTime',
+        'status'        => 'Status',
+        'updateTime'    => 'UpdateTime',
         'versionId'     => 'VersionId',
-        'configGroupId' => 'ConfigGroupId',
-        'operator'      => 'Operator',
-        'baseVersionId' => 'BaseVersionId',
     ];
 
     public function validate()
@@ -77,11 +77,20 @@ class DescribeActiveVersionOfConfigGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->baseVersionId) {
+            $res['BaseVersionId'] = $this->baseVersionId;
         }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
+        if (null !== $this->configGroupId) {
+            $res['ConfigGroupId'] = $this->configGroupId;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->operator) {
+            $res['Operator'] = $this->operator;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -89,23 +98,14 @@ class DescribeActiveVersionOfConfigGroupResponseBody extends Model
         if (null !== $this->seqId) {
             $res['SeqId'] = $this->seqId;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
         if (null !== $this->versionId) {
             $res['VersionId'] = $this->versionId;
-        }
-        if (null !== $this->configGroupId) {
-            $res['ConfigGroupId'] = $this->configGroupId;
-        }
-        if (null !== $this->operator) {
-            $res['Operator'] = $this->operator;
-        }
-        if (null !== $this->baseVersionId) {
-            $res['BaseVersionId'] = $this->baseVersionId;
         }
 
         return $res;
@@ -119,11 +119,20 @@ class DescribeActiveVersionOfConfigGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['BaseVersionId'])) {
+            $model->baseVersionId = $map['BaseVersionId'];
         }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
+        if (isset($map['ConfigGroupId'])) {
+            $model->configGroupId = $map['ConfigGroupId'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['Operator'])) {
+            $model->operator = $map['Operator'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
@@ -131,23 +140,14 @@ class DescribeActiveVersionOfConfigGroupResponseBody extends Model
         if (isset($map['SeqId'])) {
             $model->seqId = $map['SeqId'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
         if (isset($map['VersionId'])) {
             $model->versionId = $map['VersionId'];
-        }
-        if (isset($map['ConfigGroupId'])) {
-            $model->configGroupId = $map['ConfigGroupId'];
-        }
-        if (isset($map['Operator'])) {
-            $model->operator = $map['Operator'];
-        }
-        if (isset($map['BaseVersionId'])) {
-            $model->baseVersionId = $map['BaseVersionId'];
         }
 
         return $model;

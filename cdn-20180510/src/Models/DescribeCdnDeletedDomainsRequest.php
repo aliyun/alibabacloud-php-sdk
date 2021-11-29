@@ -2,30 +2,30 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainLogsResponseBody\domainLogDetails\domainLogDetail\pageInfos;
+namespace AlibabaCloud\SDK\Cdn\V20180510\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class pageInfoDetail extends Model
+class DescribeCdnDeletedDomainsRequest extends Model
 {
     /**
      * @var int
      */
-    public $pageIndex;
+    public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
 
     /**
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $total;
     protected $_name = [
-        'pageIndex' => 'PageIndex',
-        'pageSize'  => 'PageSize',
-        'total'     => 'Total',
+        'ownerId'    => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class pageInfoDetail extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageIndex) {
-            $res['PageIndex'] = $this->pageIndex;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -51,19 +51,19 @@ class pageInfoDetail extends Model
     /**
      * @param array $map
      *
-     * @return pageInfoDetail
+     * @return DescribeCdnDeletedDomainsRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageIndex'])) {
-            $model->pageIndex = $map['PageIndex'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
         }
 
         return $model;

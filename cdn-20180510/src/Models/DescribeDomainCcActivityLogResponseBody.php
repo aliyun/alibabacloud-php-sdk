@@ -10,9 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainCcActivityLogResponseBody extends Model
 {
     /**
+     * @var activityLog[]
+     */
+    public $activityLog;
+
+    /**
      * @var int
      */
     public $pageIndex;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -22,23 +32,13 @@ class DescribeDomainCcActivityLogResponseBody extends Model
     /**
      * @var int
      */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
     public $total;
-
-    /**
-     * @var activityLog[]
-     */
-    public $activityLog;
     protected $_name = [
-        'pageIndex'   => 'PageIndex',
-        'requestId'   => 'RequestId',
-        'pageSize'    => 'PageSize',
-        'total'       => 'Total',
         'activityLog' => 'ActivityLog',
+        'pageIndex'   => 'PageIndex',
+        'pageSize'    => 'PageSize',
+        'requestId'   => 'RequestId',
+        'total'       => 'Total',
     ];
 
     public function validate()
@@ -48,18 +48,6 @@ class DescribeDomainCcActivityLogResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageIndex) {
-            $res['PageIndex'] = $this->pageIndex;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
         if (null !== $this->activityLog) {
             $res['ActivityLog'] = [];
             if (null !== $this->activityLog && \is_array($this->activityLog)) {
@@ -68,6 +56,18 @@ class DescribeDomainCcActivityLogResponseBody extends Model
                     $res['ActivityLog'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->pageIndex) {
+            $res['PageIndex'] = $this->pageIndex;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -81,18 +81,6 @@ class DescribeDomainCcActivityLogResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageIndex'])) {
-            $model->pageIndex = $map['PageIndex'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
         if (isset($map['ActivityLog'])) {
             if (!empty($map['ActivityLog'])) {
                 $model->activityLog = [];
@@ -101,6 +89,18 @@ class DescribeDomainCcActivityLogResponseBody extends Model
                     $model->activityLog[$n++] = null !== $item ? activityLog::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PageIndex'])) {
+            $model->pageIndex = $map['PageIndex'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

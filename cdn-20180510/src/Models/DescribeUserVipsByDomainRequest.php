@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserVipsByDomainRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $available;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class DescribeUserVipsByDomainRequest extends Model
     public $domainName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $available;
+    public $ownerId;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
-        'domainName' => 'DomainName',
         'available'  => 'Available',
+        'domainName' => 'DomainName',
+        'ownerId'    => 'OwnerId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeUserVipsByDomainRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->available) {
+            $res['Available'] = $this->available;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->available) {
-            $res['Available'] = $this->available;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeUserVipsByDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['Available'])) {
+            $model->available = $map['Available'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['Available'])) {
-            $model->available = $map['Available'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

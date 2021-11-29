@@ -16,12 +16,7 @@ class certInfo extends Model
     /**
      * @var string
      */
-    public $createTime;
-
-    /**
-     * @var string
-     */
-    public $certType;
+    public $certId;
 
     /**
      * @var string
@@ -31,7 +26,12 @@ class certInfo extends Model
     /**
      * @var string
      */
-    public $certId;
+    public $certType;
+
+    /**
+     * @var string
+     */
+    public $createTime;
 
     /**
      * @var string
@@ -44,10 +44,10 @@ class certInfo extends Model
     public $httpsCrt;
     protected $_name = [
         'certExpireTime' => 'CertExpireTime',
-        'createTime'     => 'CreateTime',
-        'certType'       => 'CertType',
-        'certName'       => 'CertName',
         'certId'         => 'CertId',
+        'certName'       => 'CertName',
+        'certType'       => 'CertType',
+        'createTime'     => 'CreateTime',
         'domainList'     => 'DomainList',
         'httpsCrt'       => 'HttpsCrt',
     ];
@@ -62,17 +62,17 @@ class certInfo extends Model
         if (null !== $this->certExpireTime) {
             $res['CertExpireTime'] = $this->certExpireTime;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->certType) {
-            $res['CertType'] = $this->certType;
+        if (null !== $this->certId) {
+            $res['CertId'] = $this->certId;
         }
         if (null !== $this->certName) {
             $res['CertName'] = $this->certName;
         }
-        if (null !== $this->certId) {
-            $res['CertId'] = $this->certId;
+        if (null !== $this->certType) {
+            $res['CertType'] = $this->certType;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->domainList) {
             $res['DomainList'] = $this->domainList;
@@ -95,17 +95,17 @@ class certInfo extends Model
         if (isset($map['CertExpireTime'])) {
             $model->certExpireTime = $map['CertExpireTime'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['CertType'])) {
-            $model->certType = $map['CertType'];
+        if (isset($map['CertId'])) {
+            $model->certId = $map['CertId'];
         }
         if (isset($map['CertName'])) {
             $model->certName = $map['CertName'];
         }
-        if (isset($map['CertId'])) {
-            $model->certId = $map['CertId'];
+        if (isset($map['CertType'])) {
+            $model->certType = $map['CertType'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['DomainList'])) {
             $model->domainList = $map['DomainList'];

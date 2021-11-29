@@ -11,12 +11,7 @@ class SetHttpHeaderConfigRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
+    public $configId;
 
     /**
      * @var string
@@ -36,14 +31,19 @@ class SetHttpHeaderConfigRequest extends Model
     /**
      * @var int
      */
-    public $configId;
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
-        'securityToken' => 'SecurityToken',
+        'configId'      => 'ConfigId',
         'domainName'    => 'DomainName',
         'headerKey'     => 'HeaderKey',
         'headerValue'   => 'HeaderValue',
-        'configId'      => 'ConfigId',
+        'ownerId'       => 'OwnerId',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -53,11 +53,8 @@ class SetHttpHeaderConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->configId) {
+            $res['ConfigId'] = $this->configId;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -68,8 +65,11 @@ class SetHttpHeaderConfigRequest extends Model
         if (null !== $this->headerValue) {
             $res['HeaderValue'] = $this->headerValue;
         }
-        if (null !== $this->configId) {
-            $res['ConfigId'] = $this->configId;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -83,11 +83,8 @@ class SetHttpHeaderConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['ConfigId'])) {
+            $model->configId = $map['ConfigId'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
@@ -98,8 +95,11 @@ class SetHttpHeaderConfigRequest extends Model
         if (isset($map['HeaderValue'])) {
             $model->headerValue = $map['HeaderValue'];
         }
-        if (isset($map['ConfigId'])) {
-            $model->configId = $map['ConfigId'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

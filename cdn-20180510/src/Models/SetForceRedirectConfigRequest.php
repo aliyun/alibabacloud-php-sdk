@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SetForceRedirectConfigRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $domainName;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -16,22 +21,17 @@ class SetForceRedirectConfigRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $domainName;
-
-    /**
-     * @var string
-     */
     public $redirectType;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
-        'securityToken' => 'SecurityToken',
         'domainName'    => 'DomainName',
+        'ownerId'       => 'OwnerId',
         'redirectType'  => 'RedirectType',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class SetForceRedirectConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->redirectType) {
             $res['RedirectType'] = $this->redirectType;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class SetForceRedirectConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['RedirectType'])) {
             $model->redirectType = $map['RedirectType'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

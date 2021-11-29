@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class BatchSetCdnDomainServerCertificateRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $certName;
 
     /**
      * @var string
      */
-    public $securityToken;
+    public $certType;
 
     /**
      * @var string
@@ -26,12 +26,22 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     /**
      * @var string
      */
-    public $certName;
+    public $forceSet;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
      */
-    public $certType;
+    public $region;
+
+    /**
+     * @var string
+     */
+    public $SSLPri;
 
     /**
      * @var string
@@ -46,28 +56,18 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     /**
      * @var string
      */
-    public $SSLPri;
-
-    /**
-     * @var string
-     */
-    public $region;
-
-    /**
-     * @var string
-     */
-    public $forceSet;
+    public $securityToken;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
-        'securityToken' => 'SecurityToken',
-        'domainName'    => 'DomainName',
         'certName'      => 'CertName',
         'certType'      => 'CertType',
+        'domainName'    => 'DomainName',
+        'forceSet'      => 'ForceSet',
+        'ownerId'       => 'OwnerId',
+        'region'        => 'Region',
+        'SSLPri'        => 'SSLPri',
         'SSLProtocol'   => 'SSLProtocol',
         'SSLPub'        => 'SSLPub',
-        'SSLPri'        => 'SSLPri',
-        'region'        => 'Region',
-        'forceSet'      => 'ForceSet',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -77,20 +77,26 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
-        }
         if (null !== $this->certName) {
             $res['CertName'] = $this->certName;
         }
         if (null !== $this->certType) {
             $res['CertType'] = $this->certType;
+        }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->forceSet) {
+            $res['ForceSet'] = $this->forceSet;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
+        }
+        if (null !== $this->SSLPri) {
+            $res['SSLPri'] = $this->SSLPri;
         }
         if (null !== $this->SSLProtocol) {
             $res['SSLProtocol'] = $this->SSLProtocol;
@@ -98,14 +104,8 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
         if (null !== $this->SSLPub) {
             $res['SSLPub'] = $this->SSLPub;
         }
-        if (null !== $this->SSLPri) {
-            $res['SSLPri'] = $this->SSLPri;
-        }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
-        }
-        if (null !== $this->forceSet) {
-            $res['ForceSet'] = $this->forceSet;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -119,20 +119,26 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
-        }
         if (isset($map['CertName'])) {
             $model->certName = $map['CertName'];
         }
         if (isset($map['CertType'])) {
             $model->certType = $map['CertType'];
+        }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['ForceSet'])) {
+            $model->forceSet = $map['ForceSet'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
+        }
+        if (isset($map['SSLPri'])) {
+            $model->SSLPri = $map['SSLPri'];
         }
         if (isset($map['SSLProtocol'])) {
             $model->SSLProtocol = $map['SSLProtocol'];
@@ -140,14 +146,8 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
         if (isset($map['SSLPub'])) {
             $model->SSLPub = $map['SSLPub'];
         }
-        if (isset($map['SSLPri'])) {
-            $model->SSLPri = $map['SSLPri'];
-        }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
-        }
-        if (isset($map['ForceSet'])) {
-            $model->forceSet = $map['ForceSet'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

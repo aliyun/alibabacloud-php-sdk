@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeRangeDataByLocateAndIspServiceRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $domainNames;
-
-    /**
-     * @var string
-     */
-    public $startTime;
 
     /**
      * @var string
@@ -37,13 +27,23 @@ class DescribeRangeDataByLocateAndIspServiceRequest extends Model
      * @var string
      */
     public $locationNames;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
         'domainNames'   => 'DomainNames',
-        'startTime'     => 'StartTime',
         'endTime'       => 'EndTime',
         'ispNames'      => 'IspNames',
         'locationNames' => 'LocationNames',
+        'ownerId'       => 'OwnerId',
+        'startTime'     => 'StartTime',
     ];
 
     public function validate()
@@ -53,14 +53,8 @@ class DescribeRangeDataByLocateAndIspServiceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->domainNames) {
             $res['DomainNames'] = $this->domainNames;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -70,6 +64,12 @@ class DescribeRangeDataByLocateAndIspServiceRequest extends Model
         }
         if (null !== $this->locationNames) {
             $res['LocationNames'] = $this->locationNames;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -83,14 +83,8 @@ class DescribeRangeDataByLocateAndIspServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['DomainNames'])) {
             $model->domainNames = $map['DomainNames'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
@@ -100,6 +94,12 @@ class DescribeRangeDataByLocateAndIspServiceRequest extends Model
         }
         if (isset($map['LocationNames'])) {
             $model->locationNames = $map['LocationNames'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

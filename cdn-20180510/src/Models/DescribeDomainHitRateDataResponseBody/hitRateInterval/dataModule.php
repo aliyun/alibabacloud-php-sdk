@@ -11,7 +11,7 @@ class dataModule extends Model
     /**
      * @var string
      */
-    public $value;
+    public $httpsValue;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class dataModule extends Model
     /**
      * @var string
      */
-    public $httpsValue;
+    public $value;
     protected $_name = [
-        'value'      => 'Value',
-        'timeStamp'  => 'TimeStamp',
         'httpsValue' => 'HttpsValue',
+        'timeStamp'  => 'TimeStamp',
+        'value'      => 'Value',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class dataModule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
+        if (null !== $this->httpsValue) {
+            $res['HttpsValue'] = $this->httpsValue;
         }
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
-        if (null !== $this->httpsValue) {
-            $res['HttpsValue'] = $this->httpsValue;
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class dataModule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
+        if (isset($map['HttpsValue'])) {
+            $model->httpsValue = $map['HttpsValue'];
         }
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }
-        if (isset($map['HttpsValue'])) {
-            $model->httpsValue = $map['HttpsValue'];
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

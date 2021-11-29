@@ -9,14 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteRealtimeLogDeliveryRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $domain;
 
     /**
      * @var string
      */
-    public $domain;
+    public $logstore;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
@@ -26,17 +31,12 @@ class DeleteRealtimeLogDeliveryRequest extends Model
     /**
      * @var string
      */
-    public $logstore;
-
-    /**
-     * @var string
-     */
     public $region;
     protected $_name = [
-        'ownerId'  => 'OwnerId',
         'domain'   => 'Domain',
-        'project'  => 'Project',
         'logstore' => 'Logstore',
+        'ownerId'  => 'OwnerId',
+        'project'  => 'Project',
         'region'   => 'Region',
     ];
 
@@ -47,17 +47,17 @@ class DeleteRealtimeLogDeliveryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
-        if (null !== $this->project) {
-            $res['Project'] = $this->project;
-        }
         if (null !== $this->logstore) {
             $res['Logstore'] = $this->logstore;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->project) {
+            $res['Project'] = $this->project;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -74,17 +74,17 @@ class DeleteRealtimeLogDeliveryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
-        if (isset($map['Project'])) {
-            $model->project = $map['Project'];
-        }
         if (isset($map['Logstore'])) {
             $model->logstore = $map['Logstore'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Project'])) {
+            $model->project = $map['Project'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];

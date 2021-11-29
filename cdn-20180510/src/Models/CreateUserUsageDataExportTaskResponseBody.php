@@ -16,12 +16,12 @@ class CreateUserUsageDataExportTaskResponseBody extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $startTime;
 
     /**
      * @var string
@@ -29,8 +29,8 @@ class CreateUserUsageDataExportTaskResponseBody extends Model
     public $taskId;
     protected $_name = [
         'endTime'   => 'EndTime',
-        'startTime' => 'StartTime',
         'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
         'taskId'    => 'TaskId',
     ];
 
@@ -44,11 +44,11 @@ class CreateUserUsageDataExportTaskResponseBody extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -68,11 +68,11 @@ class CreateUserUsageDataExportTaskResponseBody extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

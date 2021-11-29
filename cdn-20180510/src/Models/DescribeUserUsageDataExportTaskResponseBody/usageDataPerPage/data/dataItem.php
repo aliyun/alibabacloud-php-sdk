@@ -12,12 +12,7 @@ class dataItem extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $updateTime;
+    public $createTime;
 
     /**
      * @var string
@@ -27,7 +22,17 @@ class dataItem extends Model
     /**
      * @var string
      */
-    public $createTime;
+    public $status;
+
+    /**
+     * @var taskConfig
+     */
+    public $taskConfig;
+
+    /**
+     * @var string
+     */
+    public $taskId;
 
     /**
      * @var string
@@ -37,20 +42,15 @@ class dataItem extends Model
     /**
      * @var string
      */
-    public $taskId;
-
-    /**
-     * @var taskConfig
-     */
-    public $taskConfig;
+    public $updateTime;
     protected $_name = [
-        'status'      => 'Status',
-        'updateTime'  => 'UpdateTime',
-        'downloadUrl' => 'DownloadUrl',
         'createTime'  => 'CreateTime',
-        'taskName'    => 'TaskName',
-        'taskId'      => 'TaskId',
+        'downloadUrl' => 'DownloadUrl',
+        'status'      => 'Status',
         'taskConfig'  => 'TaskConfig',
+        'taskId'      => 'TaskId',
+        'taskName'    => 'TaskName',
+        'updateTime'  => 'UpdateTime',
     ];
 
     public function validate()
@@ -60,26 +60,26 @@ class dataItem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->downloadUrl) {
             $res['DownloadUrl'] = $this->downloadUrl;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
-        if (null !== $this->taskName) {
-            $res['TaskName'] = $this->taskName;
+        if (null !== $this->taskConfig) {
+            $res['TaskConfig'] = null !== $this->taskConfig ? $this->taskConfig->toMap() : null;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-        if (null !== $this->taskConfig) {
-            $res['TaskConfig'] = null !== $this->taskConfig ? $this->taskConfig->toMap() : null;
+        if (null !== $this->taskName) {
+            $res['TaskName'] = $this->taskName;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -93,26 +93,26 @@ class dataItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['DownloadUrl'])) {
             $model->downloadUrl = $map['DownloadUrl'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
-        if (isset($map['TaskName'])) {
-            $model->taskName = $map['TaskName'];
+        if (isset($map['TaskConfig'])) {
+            $model->taskConfig = taskConfig::fromMap($map['TaskConfig']);
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-        if (isset($map['TaskConfig'])) {
-            $model->taskConfig = taskConfig::fromMap($map['TaskConfig']);
+        if (isset($map['TaskName'])) {
+            $model->taskName = $map['TaskName'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

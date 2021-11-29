@@ -11,7 +11,7 @@ class clientIpList extends Model
     /**
      * @var int
      */
-    public $rank;
+    public $acc;
 
     /**
      * @var string
@@ -21,16 +21,16 @@ class clientIpList extends Model
     /**
      * @var int
      */
-    public $acc;
+    public $rank;
 
     /**
      * @var int
      */
     public $traffic;
     protected $_name = [
-        'rank'     => 'Rank',
-        'clientIp' => 'ClientIp',
         'acc'      => 'Acc',
+        'clientIp' => 'ClientIp',
+        'rank'     => 'Rank',
         'traffic'  => 'Traffic',
     ];
 
@@ -41,14 +41,14 @@ class clientIpList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->rank) {
-            $res['Rank'] = $this->rank;
+        if (null !== $this->acc) {
+            $res['Acc'] = $this->acc;
         }
         if (null !== $this->clientIp) {
             $res['ClientIp'] = $this->clientIp;
         }
-        if (null !== $this->acc) {
-            $res['Acc'] = $this->acc;
+        if (null !== $this->rank) {
+            $res['Rank'] = $this->rank;
         }
         if (null !== $this->traffic) {
             $res['Traffic'] = $this->traffic;
@@ -65,14 +65,14 @@ class clientIpList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Rank'])) {
-            $model->rank = $map['Rank'];
+        if (isset($map['Acc'])) {
+            $model->acc = $map['Acc'];
         }
         if (isset($map['ClientIp'])) {
             $model->clientIp = $map['ClientIp'];
         }
-        if (isset($map['Acc'])) {
-            $model->acc = $map['Acc'];
+        if (isset($map['Rank'])) {
+            $model->rank = $map['Rank'];
         }
         if (isset($map['Traffic'])) {
             $model->traffic = $map['Traffic'];

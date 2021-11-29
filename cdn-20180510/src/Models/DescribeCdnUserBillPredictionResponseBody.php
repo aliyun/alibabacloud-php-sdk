@@ -10,14 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnUserBillPredictionResponseBody extends Model
 {
     /**
-     * @var string
+     * @var billPredictionData
      */
-    public $endTime;
+    public $billPredictionData;
 
     /**
      * @var string
      */
-    public $startTime;
+    public $billType;
+
+    /**
+     * @var string
+     */
+    public $endTime;
 
     /**
      * @var string
@@ -27,18 +32,13 @@ class DescribeCdnUserBillPredictionResponseBody extends Model
     /**
      * @var string
      */
-    public $billType;
-
-    /**
-     * @var billPredictionData
-     */
-    public $billPredictionData;
+    public $startTime;
     protected $_name = [
-        'endTime'            => 'EndTime',
-        'startTime'          => 'StartTime',
-        'requestId'          => 'RequestId',
-        'billType'           => 'BillType',
         'billPredictionData' => 'BillPredictionData',
+        'billType'           => 'BillType',
+        'endTime'            => 'EndTime',
+        'requestId'          => 'RequestId',
+        'startTime'          => 'StartTime',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class DescribeCdnUserBillPredictionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->billPredictionData) {
+            $res['BillPredictionData'] = null !== $this->billPredictionData ? $this->billPredictionData->toMap() : null;
         }
         if (null !== $this->billType) {
             $res['BillType'] = $this->billType;
         }
-        if (null !== $this->billPredictionData) {
-            $res['BillPredictionData'] = null !== $this->billPredictionData ? $this->billPredictionData->toMap() : null;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class DescribeCdnUserBillPredictionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['BillPredictionData'])) {
+            $model->billPredictionData = billPredictionData::fromMap($map['BillPredictionData']);
         }
         if (isset($map['BillType'])) {
             $model->billType = $map['BillType'];
         }
-        if (isset($map['BillPredictionData'])) {
-            $model->billPredictionData = billPredictionData::fromMap($map['BillPredictionData']);
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

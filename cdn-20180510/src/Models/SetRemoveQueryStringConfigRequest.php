@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SetRemoveQueryStringConfigRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $domainName;
+    public $aliRemoveArgs;
 
     /**
      * @var int
@@ -26,18 +21,23 @@ class SetRemoveQueryStringConfigRequest extends Model
     /**
      * @var string
      */
-    public $aliRemoveArgs;
+    public $domainName;
 
     /**
      * @var string
      */
     public $keepOssArgs;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
-        'domainName'    => 'DomainName',
-        'configId'      => 'ConfigId',
         'aliRemoveArgs' => 'AliRemoveArgs',
+        'configId'      => 'ConfigId',
+        'domainName'    => 'DomainName',
         'keepOssArgs'   => 'KeepOssArgs',
+        'ownerId'       => 'OwnerId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class SetRemoveQueryStringConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->aliRemoveArgs) {
+            $res['AliRemoveArgs'] = $this->aliRemoveArgs;
         }
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
         }
-        if (null !== $this->aliRemoveArgs) {
-            $res['AliRemoveArgs'] = $this->aliRemoveArgs;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->keepOssArgs) {
             $res['KeepOssArgs'] = $this->keepOssArgs;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class SetRemoveQueryStringConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
+        if (isset($map['AliRemoveArgs'])) {
+            $model->aliRemoveArgs = $map['AliRemoveArgs'];
         }
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
         }
-        if (isset($map['AliRemoveArgs'])) {
-            $model->aliRemoveArgs = $map['AliRemoveArgs'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
         if (isset($map['KeepOssArgs'])) {
             $model->keepOssArgs = $map['KeepOssArgs'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

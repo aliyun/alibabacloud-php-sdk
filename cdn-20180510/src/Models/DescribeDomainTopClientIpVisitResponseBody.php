@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainTopClientIpVisitResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var clientIpList[]
      */
     public $clientIpList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'clientIpList' => 'ClientIpList',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeDomainTopClientIpVisitResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->clientIpList) {
             $res['ClientIpList'] = [];
             if (null !== $this->clientIpList && \is_array($this->clientIpList)) {
@@ -41,6 +38,9 @@ class DescribeDomainTopClientIpVisitResponseBody extends Model
                     $res['ClientIpList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeDomainTopClientIpVisitResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ClientIpList'])) {
             if (!empty($map['ClientIpList'])) {
                 $model->clientIpList = [];
@@ -65,6 +62,9 @@ class DescribeDomainTopClientIpVisitResponseBody extends Model
                     $model->clientIpList[$n++] = null !== $item ? clientIpList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

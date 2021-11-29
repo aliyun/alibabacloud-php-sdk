@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainBpsDataByTimeStampResponseBody extends Model
 {
     /**
+     * @var bpsDataList
+     */
+    public $bpsDataList;
+
+    /**
      * @var string
      */
-    public $timeStamp;
+    public $domainName;
 
     /**
      * @var string
@@ -22,17 +27,12 @@ class DescribeDomainBpsDataByTimeStampResponseBody extends Model
     /**
      * @var string
      */
-    public $domainName;
-
-    /**
-     * @var bpsDataList
-     */
-    public $bpsDataList;
+    public $timeStamp;
     protected $_name = [
-        'timeStamp'   => 'TimeStamp',
-        'requestId'   => 'RequestId',
-        'domainName'  => 'DomainName',
         'bpsDataList' => 'BpsDataList',
+        'domainName'  => 'DomainName',
+        'requestId'   => 'RequestId',
+        'timeStamp'   => 'TimeStamp',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class DescribeDomainBpsDataByTimeStampResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->timeStamp) {
-            $res['TimeStamp'] = $this->timeStamp;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->bpsDataList) {
+            $res['BpsDataList'] = null !== $this->bpsDataList ? $this->bpsDataList->toMap() : null;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->bpsDataList) {
-            $res['BpsDataList'] = null !== $this->bpsDataList ? $this->bpsDataList->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->timeStamp) {
+            $res['TimeStamp'] = $this->timeStamp;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class DescribeDomainBpsDataByTimeStampResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TimeStamp'])) {
-            $model->timeStamp = $map['TimeStamp'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['BpsDataList'])) {
+            $model->bpsDataList = bpsDataList::fromMap($map['BpsDataList']);
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['BpsDataList'])) {
-            $model->bpsDataList = bpsDataList::fromMap($map['BpsDataList']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TimeStamp'])) {
+            $model->timeStamp = $map['TimeStamp'];
         }
 
         return $model;

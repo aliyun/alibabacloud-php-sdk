@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainRealTimeBpsDataRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $domainName;
 
     /**
      * @var string
      */
-    public $domainName;
+    public $endTime;
 
     /**
      * @var string
@@ -29,21 +29,21 @@ class DescribeDomainRealTimeBpsDataRequest extends Model
     public $locationNameEn;
 
     /**
-     * @var string
+     * @var int
      */
-    public $startTime;
+    public $ownerId;
 
     /**
      * @var string
      */
-    public $endTime;
+    public $startTime;
     protected $_name = [
-        'ownerId'        => 'OwnerId',
         'domainName'     => 'DomainName',
+        'endTime'        => 'EndTime',
         'ispNameEn'      => 'IspNameEn',
         'locationNameEn' => 'LocationNameEn',
+        'ownerId'        => 'OwnerId',
         'startTime'      => 'StartTime',
-        'endTime'        => 'EndTime',
     ];
 
     public function validate()
@@ -53,11 +53,11 @@ class DescribeDomainRealTimeBpsDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->ispNameEn) {
             $res['IspNameEn'] = $this->ispNameEn;
@@ -65,11 +65,11 @@ class DescribeDomainRealTimeBpsDataRequest extends Model
         if (null !== $this->locationNameEn) {
             $res['LocationNameEn'] = $this->locationNameEn;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class DescribeDomainRealTimeBpsDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['IspNameEn'])) {
             $model->ispNameEn = $map['IspNameEn'];
@@ -95,11 +95,11 @@ class DescribeDomainRealTimeBpsDataRequest extends Model
         if (isset($map['LocationNameEn'])) {
             $model->locationNameEn = $map['LocationNameEn'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
         }
 
         return $model;

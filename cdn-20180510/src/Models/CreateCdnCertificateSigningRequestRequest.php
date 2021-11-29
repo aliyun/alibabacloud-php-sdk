@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateCdnCertificateSigningRequestRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $city;
 
     /**
      * @var string
@@ -21,7 +21,12 @@ class CreateCdnCertificateSigningRequestRequest extends Model
     /**
      * @var string
      */
-    public $SANs;
+    public $country;
+
+    /**
+     * @var string
+     */
+    public $email;
 
     /**
      * @var string
@@ -34,34 +39,29 @@ class CreateCdnCertificateSigningRequestRequest extends Model
     public $organizationUnit;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
-    public $country;
+    public $SANs;
 
     /**
      * @var string
      */
     public $state;
-
-    /**
-     * @var string
-     */
-    public $city;
-
-    /**
-     * @var string
-     */
-    public $email;
     protected $_name = [
-        'ownerId'          => 'OwnerId',
+        'city'             => 'City',
         'commonName'       => 'CommonName',
-        'SANs'             => 'SANs',
+        'country'          => 'Country',
+        'email'            => 'Email',
         'organization'     => 'Organization',
         'organizationUnit' => 'OrganizationUnit',
-        'country'          => 'Country',
+        'ownerId'          => 'OwnerId',
+        'SANs'             => 'SANs',
         'state'            => 'State',
-        'city'             => 'City',
-        'email'            => 'Email',
     ];
 
     public function validate()
@@ -71,14 +71,17 @@ class CreateCdnCertificateSigningRequestRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->city) {
+            $res['City'] = $this->city;
         }
         if (null !== $this->commonName) {
             $res['CommonName'] = $this->commonName;
         }
-        if (null !== $this->SANs) {
-            $res['SANs'] = $this->SANs;
+        if (null !== $this->country) {
+            $res['Country'] = $this->country;
+        }
+        if (null !== $this->email) {
+            $res['Email'] = $this->email;
         }
         if (null !== $this->organization) {
             $res['Organization'] = $this->organization;
@@ -86,17 +89,14 @@ class CreateCdnCertificateSigningRequestRequest extends Model
         if (null !== $this->organizationUnit) {
             $res['OrganizationUnit'] = $this->organizationUnit;
         }
-        if (null !== $this->country) {
-            $res['Country'] = $this->country;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->SANs) {
+            $res['SANs'] = $this->SANs;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
-        }
-        if (null !== $this->city) {
-            $res['City'] = $this->city;
-        }
-        if (null !== $this->email) {
-            $res['Email'] = $this->email;
         }
 
         return $res;
@@ -110,14 +110,17 @@ class CreateCdnCertificateSigningRequestRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['City'])) {
+            $model->city = $map['City'];
         }
         if (isset($map['CommonName'])) {
             $model->commonName = $map['CommonName'];
         }
-        if (isset($map['SANs'])) {
-            $model->SANs = $map['SANs'];
+        if (isset($map['Country'])) {
+            $model->country = $map['Country'];
+        }
+        if (isset($map['Email'])) {
+            $model->email = $map['Email'];
         }
         if (isset($map['Organization'])) {
             $model->organization = $map['Organization'];
@@ -125,17 +128,14 @@ class CreateCdnCertificateSigningRequestRequest extends Model
         if (isset($map['OrganizationUnit'])) {
             $model->organizationUnit = $map['OrganizationUnit'];
         }
-        if (isset($map['Country'])) {
-            $model->country = $map['Country'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['SANs'])) {
+            $model->SANs = $map['SANs'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];
-        }
-        if (isset($map['City'])) {
-            $model->city = $map['City'];
-        }
-        if (isset($map['Email'])) {
-            $model->email = $map['Email'];
         }
 
         return $model;

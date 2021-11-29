@@ -17,9 +17,15 @@ class DescribeCdnUserResourcePackageRequest extends Model
      * @var string
      */
     public $securityToken;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'ownerId'       => 'OwnerId',
         'securityToken' => 'SecurityToken',
+        'status'        => 'Status',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class DescribeCdnUserResourcePackageRequest extends Model
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class DescribeCdnUserResourcePackageRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

@@ -15,18 +15,18 @@ class DescribeDomainHttpCodeDataByLayerResponseBody extends Model
     public $dataInterval;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var httpCodeDataInterval
      */
     public $httpCodeDataInterval;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'dataInterval'         => 'DataInterval',
-        'requestId'            => 'RequestId',
         'httpCodeDataInterval' => 'HttpCodeDataInterval',
+        'requestId'            => 'RequestId',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class DescribeDomainHttpCodeDataByLayerResponseBody extends Model
         if (null !== $this->dataInterval) {
             $res['DataInterval'] = $this->dataInterval;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->httpCodeDataInterval) {
             $res['HttpCodeDataInterval'] = null !== $this->httpCodeDataInterval ? $this->httpCodeDataInterval->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class DescribeDomainHttpCodeDataByLayerResponseBody extends Model
         if (isset($map['DataInterval'])) {
             $model->dataInterval = $map['DataInterval'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['HttpCodeDataInterval'])) {
             $model->httpCodeDataInterval = httpCodeDataInterval::fromMap($map['HttpCodeDataInterval']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

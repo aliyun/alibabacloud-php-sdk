@@ -11,12 +11,7 @@ class ISPProportionData extends Model
     /**
      * @var string
      */
-    public $totalQuery;
-
-    /**
-     * @var string
-     */
-    public $totalBytes;
+    public $avgObjectSize;
 
     /**
      * @var string
@@ -31,32 +26,12 @@ class ISPProportionData extends Model
     /**
      * @var string
      */
-    public $reqErrRate;
-
-    /**
-     * @var string
-     */
-    public $avgObjectSize;
-
-    /**
-     * @var string
-     */
     public $bps;
 
     /**
      * @var string
      */
-    public $qps;
-
-    /**
-     * @var string
-     */
-    public $proportion;
-
-    /**
-     * @var string
-     */
-    public $ispEname;
+    public $bytesProportion;
 
     /**
      * @var string
@@ -66,20 +41,45 @@ class ISPProportionData extends Model
     /**
      * @var string
      */
-    public $bytesProportion;
+    public $ispEname;
+
+    /**
+     * @var string
+     */
+    public $proportion;
+
+    /**
+     * @var string
+     */
+    public $qps;
+
+    /**
+     * @var string
+     */
+    public $reqErrRate;
+
+    /**
+     * @var string
+     */
+    public $totalBytes;
+
+    /**
+     * @var string
+     */
+    public $totalQuery;
     protected $_name = [
-        'totalQuery'      => 'TotalQuery',
-        'totalBytes'      => 'TotalBytes',
+        'avgObjectSize'   => 'AvgObjectSize',
         'avgResponseRate' => 'AvgResponseRate',
         'avgResponseTime' => 'AvgResponseTime',
-        'reqErrRate'      => 'ReqErrRate',
-        'avgObjectSize'   => 'AvgObjectSize',
         'bps'             => 'Bps',
-        'qps'             => 'Qps',
-        'proportion'      => 'Proportion',
-        'ispEname'        => 'IspEname',
-        'ISP'             => 'ISP',
         'bytesProportion' => 'BytesProportion',
+        'ISP'             => 'ISP',
+        'ispEname'        => 'IspEname',
+        'proportion'      => 'Proportion',
+        'qps'             => 'Qps',
+        'reqErrRate'      => 'ReqErrRate',
+        'totalBytes'      => 'TotalBytes',
+        'totalQuery'      => 'TotalQuery',
     ];
 
     public function validate()
@@ -89,11 +89,8 @@ class ISPProportionData extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalQuery) {
-            $res['TotalQuery'] = $this->totalQuery;
-        }
-        if (null !== $this->totalBytes) {
-            $res['TotalBytes'] = $this->totalBytes;
+        if (null !== $this->avgObjectSize) {
+            $res['AvgObjectSize'] = $this->avgObjectSize;
         }
         if (null !== $this->avgResponseRate) {
             $res['AvgResponseRate'] = $this->avgResponseRate;
@@ -101,29 +98,32 @@ class ISPProportionData extends Model
         if (null !== $this->avgResponseTime) {
             $res['AvgResponseTime'] = $this->avgResponseTime;
         }
-        if (null !== $this->reqErrRate) {
-            $res['ReqErrRate'] = $this->reqErrRate;
-        }
-        if (null !== $this->avgObjectSize) {
-            $res['AvgObjectSize'] = $this->avgObjectSize;
-        }
         if (null !== $this->bps) {
             $res['Bps'] = $this->bps;
         }
-        if (null !== $this->qps) {
-            $res['Qps'] = $this->qps;
-        }
-        if (null !== $this->proportion) {
-            $res['Proportion'] = $this->proportion;
-        }
-        if (null !== $this->ispEname) {
-            $res['IspEname'] = $this->ispEname;
+        if (null !== $this->bytesProportion) {
+            $res['BytesProportion'] = $this->bytesProportion;
         }
         if (null !== $this->ISP) {
             $res['ISP'] = $this->ISP;
         }
-        if (null !== $this->bytesProportion) {
-            $res['BytesProportion'] = $this->bytesProportion;
+        if (null !== $this->ispEname) {
+            $res['IspEname'] = $this->ispEname;
+        }
+        if (null !== $this->proportion) {
+            $res['Proportion'] = $this->proportion;
+        }
+        if (null !== $this->qps) {
+            $res['Qps'] = $this->qps;
+        }
+        if (null !== $this->reqErrRate) {
+            $res['ReqErrRate'] = $this->reqErrRate;
+        }
+        if (null !== $this->totalBytes) {
+            $res['TotalBytes'] = $this->totalBytes;
+        }
+        if (null !== $this->totalQuery) {
+            $res['TotalQuery'] = $this->totalQuery;
         }
 
         return $res;
@@ -137,11 +137,8 @@ class ISPProportionData extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalQuery'])) {
-            $model->totalQuery = $map['TotalQuery'];
-        }
-        if (isset($map['TotalBytes'])) {
-            $model->totalBytes = $map['TotalBytes'];
+        if (isset($map['AvgObjectSize'])) {
+            $model->avgObjectSize = $map['AvgObjectSize'];
         }
         if (isset($map['AvgResponseRate'])) {
             $model->avgResponseRate = $map['AvgResponseRate'];
@@ -149,29 +146,32 @@ class ISPProportionData extends Model
         if (isset($map['AvgResponseTime'])) {
             $model->avgResponseTime = $map['AvgResponseTime'];
         }
-        if (isset($map['ReqErrRate'])) {
-            $model->reqErrRate = $map['ReqErrRate'];
-        }
-        if (isset($map['AvgObjectSize'])) {
-            $model->avgObjectSize = $map['AvgObjectSize'];
-        }
         if (isset($map['Bps'])) {
             $model->bps = $map['Bps'];
         }
-        if (isset($map['Qps'])) {
-            $model->qps = $map['Qps'];
-        }
-        if (isset($map['Proportion'])) {
-            $model->proportion = $map['Proportion'];
-        }
-        if (isset($map['IspEname'])) {
-            $model->ispEname = $map['IspEname'];
+        if (isset($map['BytesProportion'])) {
+            $model->bytesProportion = $map['BytesProportion'];
         }
         if (isset($map['ISP'])) {
             $model->ISP = $map['ISP'];
         }
-        if (isset($map['BytesProportion'])) {
-            $model->bytesProportion = $map['BytesProportion'];
+        if (isset($map['IspEname'])) {
+            $model->ispEname = $map['IspEname'];
+        }
+        if (isset($map['Proportion'])) {
+            $model->proportion = $map['Proportion'];
+        }
+        if (isset($map['Qps'])) {
+            $model->qps = $map['Qps'];
+        }
+        if (isset($map['ReqErrRate'])) {
+            $model->reqErrRate = $map['ReqErrRate'];
+        }
+        if (isset($map['TotalBytes'])) {
+            $model->totalBytes = $map['TotalBytes'];
+        }
+        if (isset($map['TotalQuery'])) {
+            $model->totalQuery = $map['TotalQuery'];
         }
 
         return $model;

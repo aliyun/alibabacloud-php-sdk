@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnHttpsDomainListRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $keyword;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,16 +27,11 @@ class DescribeCdnHttpsDomainListRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $keyword;
     protected $_name = [
+        'keyword'    => 'Keyword',
         'ownerId'    => 'OwnerId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
-        'keyword'    => 'Keyword',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class DescribeCdnHttpsDomainListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->keyword) {
+            $res['Keyword'] = $this->keyword;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -49,9 +52,6 @@ class DescribeCdnHttpsDomainListRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->keyword) {
-            $res['Keyword'] = $this->keyword;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class DescribeCdnHttpsDomainListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Keyword'])) {
+            $model->keyword = $map['Keyword'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -73,9 +76,6 @@ class DescribeCdnHttpsDomainListRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['Keyword'])) {
-            $model->keyword = $map['Keyword'];
         }
 
         return $model;

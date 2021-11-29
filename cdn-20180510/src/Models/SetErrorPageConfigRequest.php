@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class SetErrorPageConfigRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $securityToken;
+    public $customPageUrl;
 
     /**
      * @var string
      */
     public $domainName;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class SetErrorPageConfigRequest extends Model
     /**
      * @var string
      */
-    public $customPageUrl;
+    public $securityToken;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
-        'securityToken' => 'SecurityToken',
-        'domainName'    => 'DomainName',
-        'pageType'      => 'PageType',
         'customPageUrl' => 'CustomPageUrl',
+        'domainName'    => 'DomainName',
+        'ownerId'       => 'OwnerId',
+        'pageType'      => 'PageType',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class SetErrorPageConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->customPageUrl) {
+            $res['CustomPageUrl'] = $this->customPageUrl;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->pageType) {
             $res['PageType'] = $this->pageType;
         }
-        if (null !== $this->customPageUrl) {
-            $res['CustomPageUrl'] = $this->customPageUrl;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class SetErrorPageConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['CustomPageUrl'])) {
+            $model->customPageUrl = $map['CustomPageUrl'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['PageType'])) {
             $model->pageType = $map['PageType'];
         }
-        if (isset($map['CustomPageUrl'])) {
-            $model->customPageUrl = $map['CustomPageUrl'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

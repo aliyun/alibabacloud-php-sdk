@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainQpsDataByLayerRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $domainName;
-
-    /**
-     * @var string
-     */
-    public $startTime;
 
     /**
      * @var string
@@ -41,21 +31,31 @@ class DescribeDomainQpsDataByLayerRequest extends Model
     /**
      * @var string
      */
-    public $locationNameEn;
+    public $layer;
 
     /**
      * @var string
      */
-    public $layer;
+    public $locationNameEn;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
-        'ownerId'        => 'OwnerId',
         'domainName'     => 'DomainName',
-        'startTime'      => 'StartTime',
         'endTime'        => 'EndTime',
         'interval'       => 'Interval',
         'ispNameEn'      => 'IspNameEn',
-        'locationNameEn' => 'LocationNameEn',
         'layer'          => 'Layer',
+        'locationNameEn' => 'LocationNameEn',
+        'ownerId'        => 'OwnerId',
+        'startTime'      => 'StartTime',
     ];
 
     public function validate()
@@ -65,14 +65,8 @@ class DescribeDomainQpsDataByLayerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -83,11 +77,17 @@ class DescribeDomainQpsDataByLayerRequest extends Model
         if (null !== $this->ispNameEn) {
             $res['IspNameEn'] = $this->ispNameEn;
         }
+        if (null !== $this->layer) {
+            $res['Layer'] = $this->layer;
+        }
         if (null !== $this->locationNameEn) {
             $res['LocationNameEn'] = $this->locationNameEn;
         }
-        if (null !== $this->layer) {
-            $res['Layer'] = $this->layer;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -101,14 +101,8 @@ class DescribeDomainQpsDataByLayerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
@@ -119,11 +113,17 @@ class DescribeDomainQpsDataByLayerRequest extends Model
         if (isset($map['IspNameEn'])) {
             $model->ispNameEn = $map['IspNameEn'];
         }
+        if (isset($map['Layer'])) {
+            $model->layer = $map['Layer'];
+        }
         if (isset($map['LocationNameEn'])) {
             $model->locationNameEn = $map['LocationNameEn'];
         }
-        if (isset($map['Layer'])) {
-            $model->layer = $map['Layer'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

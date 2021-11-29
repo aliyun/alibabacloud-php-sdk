@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\AddFCTriggerRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\AddFCTriggerResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchAddCdnDomainRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchAddCdnDomainResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchDeleteCdnDomainConfigRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchDeleteCdnDomainConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchSetCdnDomainConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchSetCdnDomainConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchSetCdnDomainServerCertificateRequest;
@@ -26,7 +28,6 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnCertificateSigningRequestRequ
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnCertificateSigningRequestResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnDeliverTaskRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnDeliverTaskResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnDeliverTaskShrinkRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnSubTaskRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnSubTaskResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateIllegalUrlExportTaskRequest;
@@ -57,10 +58,14 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteUserUsageDataExportTaskRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteUserUsageDataExportTaskResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeActiveVersionOfConfigGroupRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeActiveVersionOfConfigGroupResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeBlockedRegionsRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeBlockedRegionsResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnCertificateDetailRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnCertificateDetailResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnCertificateListRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnCertificateListResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDeletedDomainsRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDeletedDomainsResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDeliverListRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDeliverListResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainByCertificateRequest;
@@ -83,6 +88,10 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnReportRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnReportResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnServiceRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnServiceResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSMCertificateDetailRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSMCertificateDetailResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSMCertificateListRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSMCertificateListResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSubListRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSubListResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnUserBillHistoryRequest;
@@ -103,6 +112,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnWafDomainRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnWafDomainResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCertificateInfoByIDRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCertificateInfoByIDResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeConfigGroupDetailRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeConfigGroupDetailResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeConfigOfVersionRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeConfigOfVersionResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCustomLogConfigRequest;
@@ -135,6 +146,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainISPDataRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainISPDataResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainMax95BpsDataRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainMax95BpsDataResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainMultiUsageDataRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainMultiUsageDataResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainNamesOfVersionRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainNamesOfVersionResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainPathDataRequest;
@@ -279,6 +292,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCcConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCcConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainCSRCertificateRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainCSRCertificateResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainSMCertificateRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainSMCertificateResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainStagingConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetCdnDomainStagingConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetConfigOfVersionRequest;
@@ -323,6 +338,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\SetReqHeaderConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetReqHeaderConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetSourceHostConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetSourceHostConfigResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\SetUserGreenManagerConfigRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\SetUserGreenManagerConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetWaitingRoomConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\SetWaitingRoomConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\StartCdnDomainRequest;
@@ -335,7 +352,6 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\UpdateCdnDeliverTaskRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\UpdateCdnDeliverTaskResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\UpdateCdnDeliverTaskShrinkRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\UpdateCdnSubTaskRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\UpdateCdnSubTaskResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\UpdateFCTriggerRequest;
@@ -345,6 +361,7 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\VerifyDomainOwnerResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Cdn extends OpenApiClient
@@ -402,11 +419,34 @@ class Cdn extends OpenApiClient
     public function addCdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['CdnType']         = $request->cdnType;
+        $query['CheckUrl']        = $request->checkUrl;
+        $query['DomainName']      = $request->domainName;
+        $query['OwnerAccount']    = $request->ownerAccount;
+        $query['OwnerId']         = $request->ownerId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['Scope']           = $request->scope;
+        $query['SecurityToken']   = $request->securityToken;
+        $query['Sources']         = $request->sources;
+        $query['TopLevelDomain']  = $request->topLevelDomain;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddCdnDomain',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddCdnDomainResponse::fromMap($this->doRPCRequest('AddCdnDomain', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -430,11 +470,26 @@ class Cdn extends OpenApiClient
     public function addFCTriggerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['OwnerId']    = $request->ownerId;
+        $query['TriggerARN'] = $request->triggerARN;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddFCTrigger',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddFCTriggerResponse::fromMap($this->doRPCRequest('AddFCTrigger', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddFCTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -458,11 +513,34 @@ class Cdn extends OpenApiClient
     public function batchAddCdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['CdnType']         = $request->cdnType;
+        $query['CheckUrl']        = $request->checkUrl;
+        $query['DomainName']      = $request->domainName;
+        $query['OwnerAccount']    = $request->ownerAccount;
+        $query['OwnerId']         = $request->ownerId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['Scope']           = $request->scope;
+        $query['SecurityToken']   = $request->securityToken;
+        $query['Sources']         = $request->sources;
+        $query['TopLevelDomain']  = $request->topLevelDomain;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchAddCdnDomain',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchAddCdnDomainResponse::fromMap($this->doRPCRequest('BatchAddCdnDomain', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchAddCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -478,6 +556,52 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @param BatchDeleteCdnDomainConfigRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return BatchDeleteCdnDomainConfigResponse
+     */
+    public function batchDeleteCdnDomainConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['DomainNames']   = $request->domainNames;
+        $query['FunctionNames'] = $request->functionNames;
+        $query['OwnerAccount']  = $request->ownerAccount;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchDeleteCdnDomainConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchDeleteCdnDomainConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchDeleteCdnDomainConfigRequest $request
+     *
+     * @return BatchDeleteCdnDomainConfigResponse
+     */
+    public function batchDeleteCdnDomainConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchDeleteCdnDomainConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param BatchSetCdnDomainConfigRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -486,11 +610,29 @@ class Cdn extends OpenApiClient
     public function batchSetCdnDomainConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainNames']   = $request->domainNames;
+        $query['Functions']     = $request->functions;
+        $query['OwnerAccount']  = $request->ownerAccount;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchSetCdnDomainConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchSetCdnDomainConfigResponse::fromMap($this->doRPCRequest('BatchSetCdnDomainConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchSetCdnDomainConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -514,11 +656,34 @@ class Cdn extends OpenApiClient
     public function batchSetCdnDomainServerCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['CertName']      = $request->certName;
+        $query['CertType']      = $request->certType;
+        $query['DomainName']    = $request->domainName;
+        $query['ForceSet']      = $request->forceSet;
+        $query['OwnerId']       = $request->ownerId;
+        $query['Region']        = $request->region;
+        $query['SSLPri']        = $request->SSLPri;
+        $query['SSLProtocol']   = $request->SSLProtocol;
+        $query['SSLPub']        = $request->SSLPub;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchSetCdnDomainServerCertificate',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchSetCdnDomainServerCertificateResponse::fromMap($this->doRPCRequest('BatchSetCdnDomainServerCertificate', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchSetCdnDomainServerCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -542,11 +707,27 @@ class Cdn extends OpenApiClient
     public function batchStartCdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainNames']   = $request->domainNames;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchStartCdnDomain',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchStartCdnDomainResponse::fromMap($this->doRPCRequest('BatchStartCdnDomain', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchStartCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -570,11 +751,27 @@ class Cdn extends OpenApiClient
     public function batchStopCdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainNames']   = $request->domainNames;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchStopCdnDomain',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchStopCdnDomainResponse::fromMap($this->doRPCRequest('BatchStopCdnDomain', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchStopCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -598,11 +795,30 @@ class Cdn extends OpenApiClient
     public function batchUpdateCdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['DomainName']      = $request->domainName;
+        $query['OwnerId']         = $request->ownerId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['SecurityToken']   = $request->securityToken;
+        $query['Sources']         = $request->sources;
+        $query['TopLevelDomain']  = $request->topLevelDomain;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchUpdateCdnDomain',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchUpdateCdnDomainResponse::fromMap($this->doRPCRequest('BatchUpdateCdnDomain', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchUpdateCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -626,11 +842,33 @@ class Cdn extends OpenApiClient
     public function createCdnCertificateSigningRequestWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['City']             = $request->city;
+        $query['CommonName']       = $request->commonName;
+        $query['Country']          = $request->country;
+        $query['Email']            = $request->email;
+        $query['Organization']     = $request->organization;
+        $query['OrganizationUnit'] = $request->organizationUnit;
+        $query['OwnerId']          = $request->ownerId;
+        $query['SANs']             = $request->SANs;
+        $query['State']            = $request->state;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCdnCertificateSigningRequest',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateCdnCertificateSigningRequestResponse::fromMap($this->doRPCRequest('CreateCdnCertificateSigningRequest', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateCdnCertificateSigningRequestResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -646,27 +884,33 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * @param CreateCdnDeliverTaskRequest $tmpReq
+     * @param CreateCdnDeliverTaskRequest $request
      * @param RuntimeOptions              $runtime
      *
      * @return CreateCdnDeliverTaskResponse
      */
-    public function createCdnDeliverTaskWithOptions($tmpReq, $runtime)
+    public function createCdnDeliverTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new CreateCdnDeliverTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deliver)) {
-            $request->deliverShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deliver, 'Deliver', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->schedule)) {
-            $request->scheduleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->schedule, 'Schedule', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        Utils::validateModel($request);
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCdnDeliverTask',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateCdnDeliverTaskResponse::fromMap($this->doRPCRequest('CreateCdnDeliverTask', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateCdnDeliverTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -690,11 +934,25 @@ class Cdn extends OpenApiClient
     public function createCdnSubTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCdnSubTask',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateCdnSubTaskResponse::fromMap($this->doRPCRequest('CreateCdnSubTask', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateCdnSubTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -718,11 +976,27 @@ class Cdn extends OpenApiClient
     public function createIllegalUrlExportTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['OwnerId']   = $request->ownerId;
+        $query['TaskName']  = $request->taskName;
+        $query['TimePoint'] = $request->timePoint;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateIllegalUrlExportTask',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateIllegalUrlExportTaskResponse::fromMap($this->doRPCRequest('CreateIllegalUrlExportTask', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateIllegalUrlExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -748,10 +1022,21 @@ class Cdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRealTimeLogDelivery',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateRealTimeLogDeliveryResponse::fromMap($this->doRPCRequest('CreateRealTimeLogDelivery', '2018-05-10', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return CreateRealTimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -775,11 +1060,32 @@ class Cdn extends OpenApiClient
     public function createUsageDetailDataExportTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['DomainNames'] = $request->domainNames;
+        $query['EndTime']     = $request->endTime;
+        $query['Group']       = $request->group;
+        $query['Language']    = $request->language;
+        $query['OwnerId']     = $request->ownerId;
+        $query['StartTime']   = $request->startTime;
+        $query['TaskName']    = $request->taskName;
+        $query['Type']        = $request->type;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateUsageDetailDataExportTask',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateUsageDetailDataExportTaskResponse::fromMap($this->doRPCRequest('CreateUsageDetailDataExportTask', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateUsageDetailDataExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -803,11 +1109,29 @@ class Cdn extends OpenApiClient
     public function createUserUsageDataExportTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['EndTime']   = $request->endTime;
+        $query['Language']  = $request->language;
+        $query['OwnerId']   = $request->ownerId;
+        $query['StartTime'] = $request->startTime;
+        $query['TaskName']  = $request->taskName;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateUserUsageDataExportTask',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateUserUsageDataExportTaskResponse::fromMap($this->doRPCRequest('CreateUserUsageDataExportTask', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateUserUsageDataExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -831,11 +1155,26 @@ class Cdn extends OpenApiClient
     public function deleteCdnDeliverTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['DeliverId'] = $request->deliverId;
+        $query['OwnerId']   = $request->ownerId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCdnDeliverTask',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteCdnDeliverTaskResponse::fromMap($this->doRPCRequest('DeleteCdnDeliverTask', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteCdnDeliverTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -859,11 +1198,28 @@ class Cdn extends OpenApiClient
     public function deleteCdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerAccount']  = $request->ownerAccount;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCdnDomain',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteCdnDomainResponse::fromMap($this->doRPCRequest('DeleteCdnDomain', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -887,11 +1243,25 @@ class Cdn extends OpenApiClient
     public function deleteCdnSubTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCdnSubTask',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteCdnSubTaskResponse::fromMap($this->doRPCRequest('DeleteCdnSubTask', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteCdnSubTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -915,11 +1285,26 @@ class Cdn extends OpenApiClient
     public function deleteFCTriggerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['OwnerId']    = $request->ownerId;
+        $query['TriggerARN'] = $request->triggerARN;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFCTrigger',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteFCTriggerResponse::fromMap($this->doRPCRequest('DeleteFCTrigger', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteFCTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -945,10 +1330,21 @@ class Cdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRealtimeLogDelivery',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteRealtimeLogDeliveryResponse::fromMap($this->doRPCRequest('DeleteRealtimeLogDelivery', '2018-05-10', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DeleteRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -972,11 +1368,28 @@ class Cdn extends OpenApiClient
     public function deleteSpecificConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ConfigId']      = $request->configId;
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSpecificConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteSpecificConfigResponse::fromMap($this->doRPCRequest('DeleteSpecificConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteSpecificConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1000,11 +1413,28 @@ class Cdn extends OpenApiClient
     public function deleteSpecificStagingConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ConfigId']      = $request->configId;
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSpecificStagingConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteSpecificStagingConfigResponse::fromMap($this->doRPCRequest('DeleteSpecificStagingConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteSpecificStagingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1028,11 +1458,26 @@ class Cdn extends OpenApiClient
     public function deleteUsageDetailDataExportTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $query['TaskId']  = $request->taskId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteUsageDetailDataExportTask',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteUsageDetailDataExportTaskResponse::fromMap($this->doRPCRequest('DeleteUsageDetailDataExportTask', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteUsageDetailDataExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1056,11 +1501,26 @@ class Cdn extends OpenApiClient
     public function deleteUserUsageDataExportTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $query['TaskId']  = $request->taskId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteUserUsageDataExportTask',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteUserUsageDataExportTaskResponse::fromMap($this->doRPCRequest('DeleteUserUsageDataExportTask', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteUserUsageDataExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1084,11 +1544,27 @@ class Cdn extends OpenApiClient
     public function describeActiveVersionOfConfigGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ConfigGroupId'] = $request->configGroupId;
+        $query['Env']           = $request->env;
+        $query['OwnerId']       = $request->ownerId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeActiveVersionOfConfigGroup',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeActiveVersionOfConfigGroupResponse::fromMap($this->doRPCRequest('DescribeActiveVersionOfConfigGroup', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeActiveVersionOfConfigGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1104,6 +1580,46 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeBlockedRegionsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeBlockedRegionsResponse
+     */
+    public function describeBlockedRegionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBlockedRegions',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeBlockedRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeBlockedRegionsRequest $request
+     *
+     * @return DescribeBlockedRegionsResponse
+     */
+    public function describeBlockedRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBlockedRegionsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeCdnCertificateDetailRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -1112,11 +1628,27 @@ class Cdn extends OpenApiClient
     public function describeCdnCertificateDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['CertName']      = $request->certName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnCertificateDetail',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCdnCertificateDetailResponse::fromMap($this->doRPCRequest('DescribeCdnCertificateDetail', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCdnCertificateDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1140,11 +1672,27 @@ class Cdn extends OpenApiClient
     public function describeCdnCertificateListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnCertificateList',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCdnCertificateListResponse::fromMap($this->doRPCRequest('DescribeCdnCertificateList', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCdnCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1160,6 +1708,50 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeCdnDeletedDomainsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeCdnDeletedDomainsResponse
+     */
+    public function describeCdnDeletedDomainsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['OwnerId']    = $request->ownerId;
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnDeletedDomains',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCdnDeletedDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCdnDeletedDomainsRequest $request
+     *
+     * @return DescribeCdnDeletedDomainsResponse
+     */
+    public function describeCdnDeletedDomains($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCdnDeletedDomainsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeCdnDeliverListRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -1168,11 +1760,26 @@ class Cdn extends OpenApiClient
     public function describeCdnDeliverListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['DeliverId'] = $request->deliverId;
+        $query['OwnerId']   = $request->ownerId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnDeliverList',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCdnDeliverListResponse::fromMap($this->doRPCRequest('DescribeCdnDeliverList', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCdnDeliverListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1196,11 +1803,26 @@ class Cdn extends OpenApiClient
     public function describeCdnDomainByCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $query['SSLPub']  = $request->SSLPub;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnDomainByCertificate',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCdnDomainByCertificateResponse::fromMap($this->doRPCRequest('DescribeCdnDomainByCertificate', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCdnDomainByCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1224,11 +1846,29 @@ class Cdn extends OpenApiClient
     public function describeCdnDomainConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ConfigId']      = $request->configId;
+        $query['DomainName']    = $request->domainName;
+        $query['FunctionNames'] = $request->functionNames;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnDomainConfigs',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCdnDomainConfigsResponse::fromMap($this->doRPCRequest('DescribeCdnDomainConfigs', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCdnDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1252,11 +1892,27 @@ class Cdn extends OpenApiClient
     public function describeCdnDomainDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnDomainDetail',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCdnDomainDetailResponse::fromMap($this->doRPCRequest('DescribeCdnDomainDetail', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCdnDomainDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1280,11 +1936,30 @@ class Cdn extends OpenApiClient
     public function describeCdnDomainLogsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['OwnerId']    = $request->ownerId;
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnDomainLogs',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCdnDomainLogsResponse::fromMap($this->doRPCRequest('DescribeCdnDomainLogs', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCdnDomainLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1308,11 +1983,27 @@ class Cdn extends OpenApiClient
     public function describeCdnDomainStagingConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['FunctionNames'] = $request->functionNames;
+        $query['OwnerId']       = $request->ownerId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnDomainStagingConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCdnDomainStagingConfigResponse::fromMap($this->doRPCRequest('DescribeCdnDomainStagingConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCdnDomainStagingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1336,11 +2027,28 @@ class Cdn extends OpenApiClient
     public function describeCdnHttpsDomainListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['Keyword']    = $request->keyword;
+        $query['OwnerId']    = $request->ownerId;
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnHttpsDomainList',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCdnHttpsDomainListResponse::fromMap($this->doRPCRequest('DescribeCdnHttpsDomainList', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCdnHttpsDomainListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1364,11 +2072,26 @@ class Cdn extends OpenApiClient
     public function describeCdnRegionAndIspWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnRegionAndIsp',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCdnRegionAndIspResponse::fromMap($this->doRPCRequest('DescribeCdnRegionAndIsp', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCdnRegionAndIspResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1392,11 +2115,32 @@ class Cdn extends OpenApiClient
     public function describeCdnReportWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['Area']       = $request->area;
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['HttpCode']   = $request->httpCode;
+        $query['IsOverseas'] = $request->isOverseas;
+        $query['OwnerId']    = $request->ownerId;
+        $query['ReportId']   = $request->reportId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnReport',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCdnReportResponse::fromMap($this->doRPCRequest('DescribeCdnReport', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCdnReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1420,11 +2164,26 @@ class Cdn extends OpenApiClient
     public function describeCdnReportListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['OwnerId']  = $request->ownerId;
+        $query['ReportId'] = $request->reportId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnReportList',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCdnReportListResponse::fromMap($this->doRPCRequest('DescribeCdnReportList', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCdnReportListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1440,6 +2199,94 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeCdnSMCertificateDetailRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeCdnSMCertificateDetailResponse
+     */
+    public function describeCdnSMCertificateDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                   = [];
+        $query['CertIdentifier'] = $request->certIdentifier;
+        $query['OwnerId']        = $request->ownerId;
+        $query['SecurityToken']  = $request->securityToken;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnSMCertificateDetail',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCdnSMCertificateDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCdnSMCertificateDetailRequest $request
+     *
+     * @return DescribeCdnSMCertificateDetailResponse
+     */
+    public function describeCdnSMCertificateDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCdnSMCertificateDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCdnSMCertificateListRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeCdnSMCertificateListResponse
+     */
+    public function describeCdnSMCertificateListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnSMCertificateList',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCdnSMCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCdnSMCertificateListRequest $request
+     *
+     * @return DescribeCdnSMCertificateListResponse
+     */
+    public function describeCdnSMCertificateList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCdnSMCertificateListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeCdnServiceRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1448,11 +2295,26 @@ class Cdn extends OpenApiClient
     public function describeCdnServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnService',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCdnServiceResponse::fromMap($this->doRPCRequest('DescribeCdnService', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCdnServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1476,11 +2338,25 @@ class Cdn extends OpenApiClient
     public function describeCdnSubListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnSubList',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCdnSubListResponse::fromMap($this->doRPCRequest('DescribeCdnSubList', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCdnSubListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1504,11 +2380,27 @@ class Cdn extends OpenApiClient
     public function describeCdnUserBillHistoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['EndTime']   = $request->endTime;
+        $query['OwnerId']   = $request->ownerId;
+        $query['StartTime'] = $request->startTime;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnUserBillHistory',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCdnUserBillHistoryResponse::fromMap($this->doRPCRequest('DescribeCdnUserBillHistory', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCdnUserBillHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1532,11 +2424,29 @@ class Cdn extends OpenApiClient
     public function describeCdnUserBillPredictionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['Area']      = $request->area;
+        $query['Dimension'] = $request->dimension;
+        $query['EndTime']   = $request->endTime;
+        $query['OwnerId']   = $request->ownerId;
+        $query['StartTime'] = $request->startTime;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnUserBillPrediction',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCdnUserBillPredictionResponse::fromMap($this->doRPCRequest('DescribeCdnUserBillPrediction', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCdnUserBillPredictionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1560,11 +2470,27 @@ class Cdn extends OpenApiClient
     public function describeCdnUserBillTypeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['EndTime']   = $request->endTime;
+        $query['OwnerId']   = $request->ownerId;
+        $query['StartTime'] = $request->startTime;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnUserBillType',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCdnUserBillTypeResponse::fromMap($this->doRPCRequest('DescribeCdnUserBillType', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCdnUserBillTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1588,11 +2514,26 @@ class Cdn extends OpenApiClient
     public function describeCdnUserConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['FunctionName'] = $request->functionName;
+        $query['OwnerId']      = $request->ownerId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnUserConfigs',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCdnUserConfigsResponse::fromMap($this->doRPCRequest('DescribeCdnUserConfigs', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCdnUserConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1616,11 +2557,29 @@ class Cdn extends OpenApiClient
     public function describeCdnUserDomainsByFuncWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['FuncId']          = $request->funcId;
+        $query['OwnerId']         = $request->ownerId;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnUserDomainsByFunc',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCdnUserDomainsByFuncResponse::fromMap($this->doRPCRequest('DescribeCdnUserDomainsByFunc', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCdnUserDomainsByFuncResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1644,11 +2603,26 @@ class Cdn extends OpenApiClient
     public function describeCdnUserQuotaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnUserQuota',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCdnUserQuotaResponse::fromMap($this->doRPCRequest('DescribeCdnUserQuota', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCdnUserQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1672,11 +2646,27 @@ class Cdn extends OpenApiClient
     public function describeCdnUserResourcePackageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['Status']        = $request->status;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnUserResourcePackage',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCdnUserResourcePackageResponse::fromMap($this->doRPCRequest('DescribeCdnUserResourcePackage', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCdnUserResourcePackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1700,11 +2690,28 @@ class Cdn extends OpenApiClient
     public function describeCdnWafDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['DomainName']      = $request->domainName;
+        $query['OwnerId']         = $request->ownerId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnWafDomain',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCdnWafDomainResponse::fromMap($this->doRPCRequest('DescribeCdnWafDomain', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCdnWafDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1730,10 +2737,21 @@ class Cdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCertificateInfoByID',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCertificateInfoByIDResponse::fromMap($this->doRPCRequest('DescribeCertificateInfoByID', '2018-05-10', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeCertificateInfoByIDResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1749,6 +2767,50 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeConfigGroupDetailRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeConfigGroupDetailResponse
+     */
+    public function describeConfigGroupDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                    = [];
+        $query['ConfigGroupId']   = $request->configGroupId;
+        $query['ConfigGroupName'] = $request->configGroupName;
+        $query['OwnerId']         = $request->ownerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeConfigGroupDetail',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeConfigGroupDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeConfigGroupDetailRequest $request
+     *
+     * @return DescribeConfigGroupDetailResponse
+     */
+    public function describeConfigGroupDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeConfigGroupDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeConfigOfVersionRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -1757,11 +2819,30 @@ class Cdn extends OpenApiClient
     public function describeConfigOfVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['FunctionId']    = $request->functionId;
+        $query['FunctionName']  = $request->functionName;
+        $query['GroupId']       = $request->groupId;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['VersionId']     = $request->versionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeConfigOfVersion',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeConfigOfVersionResponse::fromMap($this->doRPCRequest('DescribeConfigOfVersion', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeConfigOfVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1787,10 +2868,21 @@ class Cdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCustomLogConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCustomLogConfigResponse::fromMap($this->doRPCRequest('DescribeCustomLogConfig', '2018-05-10', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeCustomLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1814,11 +2906,33 @@ class Cdn extends OpenApiClient
     public function describeDomainAverageResponseTimeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DomainName']     = $request->domainName;
+        $query['DomainType']     = $request->domainType;
+        $query['EndTime']        = $request->endTime;
+        $query['Interval']       = $request->interval;
+        $query['IspNameEn']      = $request->ispNameEn;
+        $query['LocationNameEn'] = $request->locationNameEn;
+        $query['OwnerId']        = $request->ownerId;
+        $query['StartTime']      = $request->startTime;
+        $query['TimeMerge']      = $request->timeMerge;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainAverageResponseTime',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainAverageResponseTimeResponse::fromMap($this->doRPCRequest('DescribeDomainAverageResponseTime', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainAverageResponseTimeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1842,11 +2956,31 @@ class Cdn extends OpenApiClient
     public function describeDomainBpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DomainName']     = $request->domainName;
+        $query['EndTime']        = $request->endTime;
+        $query['Interval']       = $request->interval;
+        $query['IspNameEn']      = $request->ispNameEn;
+        $query['LocationNameEn'] = $request->locationNameEn;
+        $query['OwnerId']        = $request->ownerId;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainBpsData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainBpsDataResponse::fromMap($this->doRPCRequest('DescribeDomainBpsData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1870,11 +3004,32 @@ class Cdn extends OpenApiClient
     public function describeDomainBpsDataByLayerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DomainName']     = $request->domainName;
+        $query['EndTime']        = $request->endTime;
+        $query['Interval']       = $request->interval;
+        $query['IspNameEn']      = $request->ispNameEn;
+        $query['Layer']          = $request->layer;
+        $query['LocationNameEn'] = $request->locationNameEn;
+        $query['OwnerId']        = $request->ownerId;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainBpsDataByLayer',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainBpsDataByLayerResponse::fromMap($this->doRPCRequest('DescribeDomainBpsDataByLayer', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainBpsDataByLayerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1898,11 +3053,29 @@ class Cdn extends OpenApiClient
     public function describeDomainBpsDataByTimeStampWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['IspNames']      = $request->ispNames;
+        $query['LocationNames'] = $request->locationNames;
+        $query['OwnerId']       = $request->ownerId;
+        $query['TimePoint']     = $request->timePoint;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainBpsDataByTimeStamp',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainBpsDataByTimeStampResponse::fromMap($this->doRPCRequest('DescribeDomainBpsDataByTimeStamp', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainBpsDataByTimeStampResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1926,11 +3099,33 @@ class Cdn extends OpenApiClient
     public function describeDomainCcActivityLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['EndTime']       = $request->endTime;
+        $query['OwnerId']       = $request->ownerId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['RuleName']      = $request->ruleName;
+        $query['StartTime']     = $request->startTime;
+        $query['TriggerObject'] = $request->triggerObject;
+        $query['Value']         = $request->value;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainCcActivityLog',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainCcActivityLogResponse::fromMap($this->doRPCRequest('DescribeDomainCcActivityLog', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainCcActivityLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1954,11 +3149,26 @@ class Cdn extends OpenApiClient
     public function describeDomainCertificateInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['OwnerId']    = $request->ownerId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainCertificateInfo',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainCertificateInfoResponse::fromMap($this->doRPCRequest('DescribeDomainCertificateInfo', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainCertificateInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1984,10 +3194,21 @@ class Cdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainCustomLogConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainCustomLogConfigResponse::fromMap($this->doRPCRequest('DescribeDomainCustomLogConfig', '2018-05-10', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeDomainCustomLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2013,10 +3234,21 @@ class Cdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainDetailDataByLayer',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainDetailDataByLayerResponse::fromMap($this->doRPCRequest('DescribeDomainDetailDataByLayer', '2018-05-10', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeDomainDetailDataByLayerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2040,11 +3272,29 @@ class Cdn extends OpenApiClient
     public function describeDomainFileSizeProportionDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['EndTime']       = $request->endTime;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StartTime']     = $request->startTime;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainFileSizeProportionData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainFileSizeProportionDataResponse::fromMap($this->doRPCRequest('DescribeDomainFileSizeProportionData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainFileSizeProportionDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2068,11 +3318,29 @@ class Cdn extends OpenApiClient
     public function describeDomainHitRateDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['Interval']   = $request->interval;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainHitRateData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainHitRateDataResponse::fromMap($this->doRPCRequest('DescribeDomainHitRateData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2096,11 +3364,29 @@ class Cdn extends OpenApiClient
     public function describeDomainHttpCodeDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['Interval']   = $request->interval;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainHttpCodeData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainHttpCodeDataResponse::fromMap($this->doRPCRequest('DescribeDomainHttpCodeData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2124,11 +3410,32 @@ class Cdn extends OpenApiClient
     public function describeDomainHttpCodeDataByLayerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DomainName']     = $request->domainName;
+        $query['EndTime']        = $request->endTime;
+        $query['Interval']       = $request->interval;
+        $query['IspNameEn']      = $request->ispNameEn;
+        $query['Layer']          = $request->layer;
+        $query['LocationNameEn'] = $request->locationNameEn;
+        $query['OwnerId']        = $request->ownerId;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainHttpCodeDataByLayer',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainHttpCodeDataByLayerResponse::fromMap($this->doRPCRequest('DescribeDomainHttpCodeDataByLayer', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainHttpCodeDataByLayerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2152,11 +3459,28 @@ class Cdn extends OpenApiClient
     public function describeDomainISPDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainISPData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainISPDataResponse::fromMap($this->doRPCRequest('DescribeDomainISPData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainISPDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2180,11 +3504,30 @@ class Cdn extends OpenApiClient
     public function describeDomainMax95BpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['Cycle']      = $request->cycle;
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $query['TimePoint']  = $request->timePoint;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainMax95BpsData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainMax95BpsDataResponse::fromMap($this->doRPCRequest('DescribeDomainMax95BpsData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainMax95BpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2200,6 +3543,51 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeDomainMultiUsageDataRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDomainMultiUsageDataResponse
+     */
+    public function describeDomainMultiUsageDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainMultiUsageData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDomainMultiUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDomainMultiUsageDataRequest $request
+     *
+     * @return DescribeDomainMultiUsageDataResponse
+     */
+    public function describeDomainMultiUsageData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainMultiUsageDataWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDomainNamesOfVersionRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -2208,11 +3596,28 @@ class Cdn extends OpenApiClient
     public function describeDomainNamesOfVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['OwnerId']   = $request->ownerId;
+        $query['PageIndex'] = $request->pageIndex;
+        $query['PageSize']  = $request->pageSize;
+        $query['VersionId'] = $request->versionId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainNamesOfVersion',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainNamesOfVersionResponse::fromMap($this->doRPCRequest('DescribeDomainNamesOfVersion', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainNamesOfVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2238,10 +3643,21 @@ class Cdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainPathData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainPathDataResponse::fromMap($this->doRPCRequest('DescribeDomainPathData', '2018-05-10', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeDomainPathDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2265,11 +3681,28 @@ class Cdn extends OpenApiClient
     public function describeDomainPvDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainPvData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainPvDataResponse::fromMap($this->doRPCRequest('DescribeDomainPvData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainPvDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2293,11 +3726,31 @@ class Cdn extends OpenApiClient
     public function describeDomainQpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DomainName']     = $request->domainName;
+        $query['EndTime']        = $request->endTime;
+        $query['Interval']       = $request->interval;
+        $query['IspNameEn']      = $request->ispNameEn;
+        $query['LocationNameEn'] = $request->locationNameEn;
+        $query['OwnerId']        = $request->ownerId;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainQpsData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainQpsDataResponse::fromMap($this->doRPCRequest('DescribeDomainQpsData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2321,11 +3774,32 @@ class Cdn extends OpenApiClient
     public function describeDomainQpsDataByLayerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DomainName']     = $request->domainName;
+        $query['EndTime']        = $request->endTime;
+        $query['Interval']       = $request->interval;
+        $query['IspNameEn']      = $request->ispNameEn;
+        $query['Layer']          = $request->layer;
+        $query['LocationNameEn'] = $request->locationNameEn;
+        $query['OwnerId']        = $request->ownerId;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainQpsDataByLayer',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainQpsDataByLayerResponse::fromMap($this->doRPCRequest('DescribeDomainQpsDataByLayer', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainQpsDataByLayerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2351,10 +3825,21 @@ class Cdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainRealTimeBpsData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainRealTimeBpsDataResponse::fromMap($this->doRPCRequest('DescribeDomainRealTimeBpsData', '2018-05-10', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeDomainRealTimeBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2380,10 +3865,21 @@ class Cdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainRealTimeByteHitRateData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainRealTimeByteHitRateDataResponse::fromMap($this->doRPCRequest('DescribeDomainRealTimeByteHitRateData', '2018-05-10', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeDomainRealTimeByteHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2409,10 +3905,21 @@ class Cdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainRealTimeDetailData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainRealTimeDetailDataResponse::fromMap($this->doRPCRequest('DescribeDomainRealTimeDetailData', '2018-05-10', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeDomainRealTimeDetailDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2436,11 +3943,30 @@ class Cdn extends OpenApiClient
     public function describeDomainRealTimeHttpCodeDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DomainName']     = $request->domainName;
+        $query['EndTime']        = $request->endTime;
+        $query['IspNameEn']      = $request->ispNameEn;
+        $query['LocationNameEn'] = $request->locationNameEn;
+        $query['OwnerId']        = $request->ownerId;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainRealTimeHttpCodeData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainRealTimeHttpCodeDataResponse::fromMap($this->doRPCRequest('DescribeDomainRealTimeHttpCodeData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainRealTimeHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2456,35 +3982,6 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainRealtimeLogDeliveryRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return DescribeDomainRealtimeLogDeliveryResponse
-     */
-    public function describeDomainRealtimeLogDeliveryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return DescribeDomainRealtimeLogDeliveryResponse::fromMap($this->doRPCRequest('DescribeDomainRealtimeLogDelivery', '2018-05-10', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDomainRealtimeLogDeliveryRequest $request
-     *
-     * @return DescribeDomainRealtimeLogDeliveryResponse
-     */
-    public function describeDomainRealtimeLogDelivery($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDomainRealtimeLogDeliveryWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeDomainRealTimeQpsDataRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -2495,10 +3992,21 @@ class Cdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainRealTimeQpsData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainRealTimeQpsDataResponse::fromMap($this->doRPCRequest('DescribeDomainRealTimeQpsData', '2018-05-10', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeDomainRealTimeQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2524,10 +4032,21 @@ class Cdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainRealTimeReqHitRateData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainRealTimeReqHitRateDataResponse::fromMap($this->doRPCRequest('DescribeDomainRealTimeReqHitRateData', '2018-05-10', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeDomainRealTimeReqHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2551,11 +4070,28 @@ class Cdn extends OpenApiClient
     public function describeDomainRealTimeSrcBpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainRealTimeSrcBpsData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainRealTimeSrcBpsDataResponse::fromMap($this->doRPCRequest('DescribeDomainRealTimeSrcBpsData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainRealTimeSrcBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2579,11 +4115,30 @@ class Cdn extends OpenApiClient
     public function describeDomainRealTimeSrcHttpCodeDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DomainName']     = $request->domainName;
+        $query['EndTime']        = $request->endTime;
+        $query['IspNameEn']      = $request->ispNameEn;
+        $query['LocationNameEn'] = $request->locationNameEn;
+        $query['OwnerId']        = $request->ownerId;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainRealTimeSrcHttpCodeData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainRealTimeSrcHttpCodeDataResponse::fromMap($this->doRPCRequest('DescribeDomainRealTimeSrcHttpCodeData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainRealTimeSrcHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2607,11 +4162,28 @@ class Cdn extends OpenApiClient
     public function describeDomainRealTimeSrcTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainRealTimeSrcTrafficData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainRealTimeSrcTrafficDataResponse::fromMap($this->doRPCRequest('DescribeDomainRealTimeSrcTrafficData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainRealTimeSrcTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2635,11 +4207,30 @@ class Cdn extends OpenApiClient
     public function describeDomainRealTimeTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DomainName']     = $request->domainName;
+        $query['EndTime']        = $request->endTime;
+        $query['IspNameEn']      = $request->ispNameEn;
+        $query['LocationNameEn'] = $request->locationNameEn;
+        $query['OwnerId']        = $request->ownerId;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainRealTimeTrafficData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainRealTimeTrafficDataResponse::fromMap($this->doRPCRequest('DescribeDomainRealTimeTrafficData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainRealTimeTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2655,6 +4246,46 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeDomainRealtimeLogDeliveryRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeDomainRealtimeLogDeliveryResponse
+     */
+    public function describeDomainRealtimeLogDeliveryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainRealtimeLogDelivery',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDomainRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDomainRealtimeLogDeliveryRequest $request
+     *
+     * @return DescribeDomainRealtimeLogDeliveryResponse
+     */
+    public function describeDomainRealtimeLogDelivery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainRealtimeLogDeliveryWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDomainRegionDataRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -2663,11 +4294,28 @@ class Cdn extends OpenApiClient
     public function describeDomainRegionDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainRegionData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainRegionDataResponse::fromMap($this->doRPCRequest('DescribeDomainRegionData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainRegionDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2691,11 +4339,29 @@ class Cdn extends OpenApiClient
     public function describeDomainReqHitRateDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['Interval']   = $request->interval;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainReqHitRateData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainReqHitRateDataResponse::fromMap($this->doRPCRequest('DescribeDomainReqHitRateData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainReqHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2711,34 +4377,6 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainsBySourceRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeDomainsBySourceResponse
-     */
-    public function describeDomainsBySourceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDomainsBySourceResponse::fromMap($this->doRPCRequest('DescribeDomainsBySource', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDomainsBySourceRequest $request
-     *
-     * @return DescribeDomainsBySourceResponse
-     */
-    public function describeDomainsBySource($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDomainsBySourceWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeDomainSrcBpsDataRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -2747,11 +4385,29 @@ class Cdn extends OpenApiClient
     public function describeDomainSrcBpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['Interval']   = $request->interval;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainSrcBpsData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainSrcBpsDataResponse::fromMap($this->doRPCRequest('DescribeDomainSrcBpsData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainSrcBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2775,11 +4431,29 @@ class Cdn extends OpenApiClient
     public function describeDomainSrcHttpCodeDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['Interval']   = $request->interval;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainSrcHttpCodeData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainSrcHttpCodeDataResponse::fromMap($this->doRPCRequest('DescribeDomainSrcHttpCodeData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainSrcHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2803,11 +4477,29 @@ class Cdn extends OpenApiClient
     public function describeDomainSrcQpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['Interval']   = $request->interval;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainSrcQpsData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainSrcQpsDataResponse::fromMap($this->doRPCRequest('DescribeDomainSrcQpsData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainSrcQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2831,11 +4523,29 @@ class Cdn extends OpenApiClient
     public function describeDomainSrcTopUrlVisitWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['OwnerId']    = $request->ownerId;
+        $query['SortBy']     = $request->sortBy;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainSrcTopUrlVisit',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainSrcTopUrlVisitResponse::fromMap($this->doRPCRequest('DescribeDomainSrcTopUrlVisit', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainSrcTopUrlVisitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2859,11 +4569,29 @@ class Cdn extends OpenApiClient
     public function describeDomainSrcTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['Interval']   = $request->interval;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainSrcTrafficData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainSrcTrafficDataResponse::fromMap($this->doRPCRequest('DescribeDomainSrcTrafficData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainSrcTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2879,34 +4607,6 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainsUsageByDayRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeDomainsUsageByDayResponse
-     */
-    public function describeDomainsUsageByDayWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDomainsUsageByDayResponse::fromMap($this->doRPCRequest('DescribeDomainsUsageByDay', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDomainsUsageByDayRequest $request
-     *
-     * @return DescribeDomainsUsageByDayResponse
-     */
-    public function describeDomainsUsageByDay($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDomainsUsageByDayWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeDomainTopClientIpVisitRequest $request
      * @param RuntimeOptions                        $runtime
      *
@@ -2915,11 +4615,31 @@ class Cdn extends OpenApiClient
     public function describeDomainTopClientIpVisitWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DomainName']     = $request->domainName;
+        $query['EndTime']        = $request->endTime;
+        $query['Limit']          = $request->limit;
+        $query['LocationNameEn'] = $request->locationNameEn;
+        $query['OwnerId']        = $request->ownerId;
+        $query['SortBy']         = $request->sortBy;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainTopClientIpVisit',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainTopClientIpVisitResponse::fromMap($this->doRPCRequest('DescribeDomainTopClientIpVisit', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainTopClientIpVisitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2943,11 +4663,30 @@ class Cdn extends OpenApiClient
     public function describeDomainTopReferVisitWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['OwnerId']    = $request->ownerId;
+        $query['Percent']    = $request->percent;
+        $query['SortBy']     = $request->sortBy;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainTopReferVisit',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainTopReferVisitResponse::fromMap($this->doRPCRequest('DescribeDomainTopReferVisit', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainTopReferVisitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2971,11 +4710,29 @@ class Cdn extends OpenApiClient
     public function describeDomainTopUrlVisitWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['OwnerId']    = $request->ownerId;
+        $query['SortBy']     = $request->sortBy;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainTopUrlVisit',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainTopUrlVisitResponse::fromMap($this->doRPCRequest('DescribeDomainTopUrlVisit', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainTopUrlVisitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2999,11 +4756,31 @@ class Cdn extends OpenApiClient
     public function describeDomainTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DomainName']     = $request->domainName;
+        $query['EndTime']        = $request->endTime;
+        $query['Interval']       = $request->interval;
+        $query['IspNameEn']      = $request->ispNameEn;
+        $query['LocationNameEn'] = $request->locationNameEn;
+        $query['OwnerId']        = $request->ownerId;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainTrafficData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainTrafficDataResponse::fromMap($this->doRPCRequest('DescribeDomainTrafficData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3027,11 +4804,33 @@ class Cdn extends OpenApiClient
     public function describeDomainUsageDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['Area']         = $request->area;
+        $query['DataProtocol'] = $request->dataProtocol;
+        $query['DomainName']   = $request->domainName;
+        $query['EndTime']      = $request->endTime;
+        $query['Field']        = $request->field;
+        $query['Interval']     = $request->interval;
+        $query['OwnerId']      = $request->ownerId;
+        $query['StartTime']    = $request->startTime;
+        $query['Type']         = $request->type;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainUsageData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainUsageDataResponse::fromMap($this->doRPCRequest('DescribeDomainUsageData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3055,11 +4854,28 @@ class Cdn extends OpenApiClient
     public function describeDomainUvDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainUvData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainUvDataResponse::fromMap($this->doRPCRequest('DescribeDomainUvData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainUvDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3075,6 +4891,95 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeDomainsBySourceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDomainsBySourceResponse
+     */
+    public function describeDomainsBySourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['Sources']       = $request->sources;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainsBySource',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDomainsBySourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDomainsBySourceRequest $request
+     *
+     * @return DescribeDomainsBySourceResponse
+     */
+    public function describeDomainsBySource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainsBySourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDomainsUsageByDayRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDomainsUsageByDayResponse
+     */
+    public function describeDomainsUsageByDayWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainsUsageByDay',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDomainsUsageByDayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDomainsUsageByDayRequest $request
+     *
+     * @return DescribeDomainsUsageByDayResponse
+     */
+    public function describeDomainsUsageByDay($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainsUsageByDayWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeEsExceptionDataRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -3083,11 +4988,28 @@ class Cdn extends OpenApiClient
     public function describeEsExceptionDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['EndTime']   = $request->endTime;
+        $query['OwnerId']   = $request->ownerId;
+        $query['RuleId']    = $request->ruleId;
+        $query['StartTime'] = $request->startTime;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEsExceptionData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeEsExceptionDataResponse::fromMap($this->doRPCRequest('DescribeEsExceptionData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeEsExceptionDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3111,11 +5033,28 @@ class Cdn extends OpenApiClient
     public function describeEsExecuteDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['EndTime']   = $request->endTime;
+        $query['OwnerId']   = $request->ownerId;
+        $query['RuleId']    = $request->ruleId;
+        $query['StartTime'] = $request->startTime;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEsExecuteData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeEsExecuteDataResponse::fromMap($this->doRPCRequest('DescribeEsExecuteData', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeEsExecuteDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3141,10 +5080,21 @@ class Cdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFCTrigger',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeFCTriggerResponse::fromMap($this->doRPCRequest('DescribeFCTrigger', '2018-05-10', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeFCTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3168,11 +5118,26 @@ class Cdn extends OpenApiClient
     public function describeIllegalUrlExportTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $query['TaskId']  = $request->taskId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIllegalUrlExportTask',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeIllegalUrlExportTaskResponse::fromMap($this->doRPCRequest('DescribeIllegalUrlExportTask', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeIllegalUrlExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3196,11 +5161,27 @@ class Cdn extends OpenApiClient
     public function describeIpInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['IP']            = $request->IP;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIpInfo',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeIpInfoResponse::fromMap($this->doRPCRequest('DescribeIpInfo', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeIpInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3224,11 +5205,27 @@ class Cdn extends OpenApiClient
     public function describeL2VipsByDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeL2VipsByDomain',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeL2VipsByDomainResponse::fromMap($this->doRPCRequest('DescribeL2VipsByDomain', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeL2VipsByDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3252,11 +5249,30 @@ class Cdn extends OpenApiClient
     public function describeRangeDataByLocateAndIspServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainNames']   = $request->domainNames;
+        $query['EndTime']       = $request->endTime;
+        $query['IspNames']      = $request->ispNames;
+        $query['LocationNames'] = $request->locationNames;
+        $query['OwnerId']       = $request->ownerId;
+        $query['StartTime']     = $request->startTime;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRangeDataByLocateAndIspService',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRangeDataByLocateAndIspServiceResponse::fromMap($this->doRPCRequest('DescribeRangeDataByLocateAndIspService', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRangeDataByLocateAndIspServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3280,11 +5296,30 @@ class Cdn extends OpenApiClient
     public function describeRealtimeDeliveryAccWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['EndTime']   = $request->endTime;
+        $query['Interval']  = $request->interval;
+        $query['LogStore']  = $request->logStore;
+        $query['OwnerId']   = $request->ownerId;
+        $query['Project']   = $request->project;
+        $query['StartTime'] = $request->startTime;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRealtimeDeliveryAcc',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRealtimeDeliveryAccResponse::fromMap($this->doRPCRequest('DescribeRealtimeDeliveryAcc', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRealtimeDeliveryAccResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3308,11 +5343,26 @@ class Cdn extends OpenApiClient
     public function describeRefreshQuotaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRefreshQuota',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRefreshQuotaResponse::fromMap($this->doRPCRequest('DescribeRefreshQuota', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRefreshQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3336,11 +5386,26 @@ class Cdn extends OpenApiClient
     public function describeRefreshTaskByIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $query['TaskId']  = $request->taskId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRefreshTaskById',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRefreshTaskByIdResponse::fromMap($this->doRPCRequest('DescribeRefreshTaskById', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRefreshTaskByIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3364,11 +5429,36 @@ class Cdn extends OpenApiClient
     public function describeRefreshTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['DomainName']      = $request->domainName;
+        $query['EndTime']         = $request->endTime;
+        $query['ObjectPath']      = $request->objectPath;
+        $query['ObjectType']      = $request->objectType;
+        $query['OwnerId']         = $request->ownerId;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['SecurityToken']   = $request->securityToken;
+        $query['StartTime']       = $request->startTime;
+        $query['Status']          = $request->status;
+        $query['TaskId']          = $request->taskId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRefreshTasks',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRefreshTasksResponse::fromMap($this->doRPCRequest('DescribeRefreshTasks', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRefreshTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3392,11 +5482,25 @@ class Cdn extends OpenApiClient
     public function describeStagingIpWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeStagingIp',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeStagingIpResponse::fromMap($this->doRPCRequest('DescribeStagingIp', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeStagingIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3420,11 +5524,28 @@ class Cdn extends OpenApiClient
     public function describeTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['OwnerId']      = $request->ownerId;
+        $query['ResourceId']   = $request->resourceId;
+        $query['ResourceType'] = $request->resourceType;
+        $query['Tag']          = $request->tag;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTagResources',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeTagResourcesResponse::fromMap($this->doRPCRequest('DescribeTagResources', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3448,11 +5569,28 @@ class Cdn extends OpenApiClient
     public function describeTopDomainsByFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['EndTime']   = $request->endTime;
+        $query['Limit']     = $request->limit;
+        $query['OwnerId']   = $request->ownerId;
+        $query['StartTime'] = $request->startTime;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTopDomainsByFlow',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeTopDomainsByFlowResponse::fromMap($this->doRPCRequest('DescribeTopDomainsByFlow', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeTopDomainsByFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3476,11 +5614,25 @@ class Cdn extends OpenApiClient
     public function describeUserCertificateExpireCountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserCertificateExpireCount',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeUserCertificateExpireCountResponse::fromMap($this->doRPCRequest('DescribeUserCertificateExpireCount', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeUserCertificateExpireCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3504,11 +5656,27 @@ class Cdn extends OpenApiClient
     public function describeUserConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['Config']        = $request->config;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserConfigs',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeUserConfigsResponse::fromMap($this->doRPCRequest('DescribeUserConfigs', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeUserConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3532,11 +5700,39 @@ class Cdn extends OpenApiClient
     public function describeUserDomainsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['CdnType']          = $request->cdnType;
+        $query['ChangeEndTime']    = $request->changeEndTime;
+        $query['ChangeStartTime']  = $request->changeStartTime;
+        $query['CheckDomainShow']  = $request->checkDomainShow;
+        $query['Coverage']         = $request->coverage;
+        $query['DomainName']       = $request->domainName;
+        $query['DomainSearchType'] = $request->domainSearchType;
+        $query['DomainStatus']     = $request->domainStatus;
+        $query['OwnerId']          = $request->ownerId;
+        $query['PageNumber']       = $request->pageNumber;
+        $query['PageSize']         = $request->pageSize;
+        $query['ResourceGroupId']  = $request->resourceGroupId;
+        $query['SecurityToken']    = $request->securityToken;
+        $query['Source']           = $request->source;
+        $query['Tag']              = $request->tag;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserDomains',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeUserDomainsResponse::fromMap($this->doRPCRequest('DescribeUserDomains', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeUserDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3560,11 +5756,25 @@ class Cdn extends OpenApiClient
     public function describeUserTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserTags',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeUserTagsResponse::fromMap($this->doRPCRequest('DescribeUserTags', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeUserTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3588,11 +5798,27 @@ class Cdn extends OpenApiClient
     public function describeUserUsageDataExportTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['OwnerId']    = $request->ownerId;
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserUsageDataExportTask',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeUserUsageDataExportTaskResponse::fromMap($this->doRPCRequest('DescribeUserUsageDataExportTask', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeUserUsageDataExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3616,11 +5842,27 @@ class Cdn extends OpenApiClient
     public function describeUserUsageDetailDataExportTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['OwnerId']    = $request->ownerId;
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserUsageDetailDataExportTask',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeUserUsageDetailDataExportTaskResponse::fromMap($this->doRPCRequest('DescribeUserUsageDetailDataExportTask', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeUserUsageDetailDataExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3646,10 +5888,21 @@ class Cdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserVipsByDomain',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeUserVipsByDomainResponse::fromMap($this->doRPCRequest('DescribeUserVipsByDomain', '2018-05-10', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeUserVipsByDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3673,11 +5926,26 @@ class Cdn extends OpenApiClient
     public function describeVerifyContentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['OwnerId']    = $request->ownerId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVerifyContent',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVerifyContentResponse::fromMap($this->doRPCRequest('DescribeVerifyContent', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVerifyContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3703,10 +5971,21 @@ class Cdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableRealtimeLogDelivery',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableRealtimeLogDeliveryResponse::fromMap($this->doRPCRequest('DisableRealtimeLogDelivery', '2018-05-10', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DisableRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3732,10 +6011,21 @@ class Cdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableRealtimeLogDelivery',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableRealtimeLogDeliveryResponse::fromMap($this->doRPCRequest('EnableRealtimeLogDelivery', '2018-05-10', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return EnableRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3761,10 +6051,21 @@ class Cdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDomainsByLogConfigId',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDomainsByLogConfigIdResponse::fromMap($this->doRPCRequest('ListDomainsByLogConfigId', '2018-05-10', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListDomainsByLogConfigIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3790,10 +6091,21 @@ class Cdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFCTrigger',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFCTriggerResponse::fromMap($this->doRPCRequest('ListFCTrigger', '2018-05-10', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListFCTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3819,10 +6131,21 @@ class Cdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRealtimeLogDeliveryDomains',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListRealtimeLogDeliveryDomainsResponse::fromMap($this->doRPCRequest('ListRealtimeLogDeliveryDomains', '2018-05-10', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListRealtimeLogDeliveryDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3848,10 +6171,21 @@ class Cdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRealtimeLogDeliveryInfos',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListRealtimeLogDeliveryInfosResponse::fromMap($this->doRPCRequest('ListRealtimeLogDeliveryInfos', '2018-05-10', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListRealtimeLogDeliveryInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3877,10 +6211,21 @@ class Cdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUserCustomLogConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListUserCustomLogConfigResponse::fromMap($this->doRPCRequest('ListUserCustomLogConfig', '2018-05-10', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListUserCustomLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3904,11 +6249,30 @@ class Cdn extends OpenApiClient
     public function modifyCdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['DomainName']      = $request->domainName;
+        $query['OwnerId']         = $request->ownerId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['SecurityToken']   = $request->securityToken;
+        $query['Sources']         = $request->sources;
+        $query['TopLevelDomain']  = $request->topLevelDomain;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyCdnDomain',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyCdnDomainResponse::fromMap($this->doRPCRequest('ModifyCdnDomain', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3932,11 +6296,27 @@ class Cdn extends OpenApiClient
     public function modifyCdnDomainSchdmByPropertyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['OwnerId']    = $request->ownerId;
+        $query['Property']   = $request->property;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyCdnDomainSchdmByProperty',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyCdnDomainSchdmByPropertyResponse::fromMap($this->doRPCRequest('ModifyCdnDomainSchdmByProperty', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyCdnDomainSchdmByPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3962,10 +6342,21 @@ class Cdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDomainCustomLogConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyDomainCustomLogConfigResponse::fromMap($this->doRPCRequest('ModifyDomainCustomLogConfig', '2018-05-10', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ModifyDomainCustomLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3991,10 +6382,21 @@ class Cdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyRealtimeLogDelivery',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyRealtimeLogDeliveryResponse::fromMap($this->doRPCRequest('ModifyRealtimeLogDelivery', '2018-05-10', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ModifyRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4020,10 +6422,21 @@ class Cdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyUserCustomLogConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyUserCustomLogConfigResponse::fromMap($this->doRPCRequest('ModifyUserCustomLogConfig', '2018-05-10', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ModifyUserCustomLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4047,11 +6460,27 @@ class Cdn extends OpenApiClient
     public function openCdnServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['InternetChargeType'] = $request->internetChargeType;
+        $query['OwnerId']            = $request->ownerId;
+        $query['SecurityToken']      = $request->securityToken;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'OpenCdnService',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return OpenCdnServiceResponse::fromMap($this->doRPCRequest('OpenCdnService', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OpenCdnServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4075,11 +6504,27 @@ class Cdn extends OpenApiClient
     public function publishStagingConfigToProductionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['DomainName']   = $request->domainName;
+        $query['FunctionName'] = $request->functionName;
+        $query['OwnerId']      = $request->ownerId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'PublishStagingConfigToProduction',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return PublishStagingConfigToProductionResponse::fromMap($this->doRPCRequest('PublishStagingConfigToProduction', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PublishStagingConfigToProductionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4103,11 +6548,28 @@ class Cdn extends OpenApiClient
     public function pushObjectCacheWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['Area']          = $request->area;
+        $query['ObjectPath']    = $request->objectPath;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'PushObjectCache',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return PushObjectCacheResponse::fromMap($this->doRPCRequest('PushObjectCache', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PushObjectCacheResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4131,11 +6593,28 @@ class Cdn extends OpenApiClient
     public function refreshObjectCachesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ObjectPath']    = $request->objectPath;
+        $query['ObjectType']    = $request->objectType;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshObjectCaches',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RefreshObjectCachesResponse::fromMap($this->doRPCRequest('RefreshObjectCaches', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RefreshObjectCachesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4159,11 +6638,27 @@ class Cdn extends OpenApiClient
     public function rollbackStagingConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['DomainName']   = $request->domainName;
+        $query['FunctionName'] = $request->functionName;
+        $query['OwnerId']      = $request->ownerId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RollbackStagingConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RollbackStagingConfigResponse::fromMap($this->doRPCRequest('RollbackStagingConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RollbackStagingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4187,11 +6682,29 @@ class Cdn extends OpenApiClient
     public function setCcConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AllowIps']      = $request->allowIps;
+        $query['BlockIps']      = $request->blockIps;
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetCcConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetCcConfigResponse::fromMap($this->doRPCRequest('SetCcConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetCcConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4215,11 +6728,27 @@ class Cdn extends OpenApiClient
     public function setCdnDomainCSRCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['DomainName']        = $request->domainName;
+        $query['OwnerId']           = $request->ownerId;
+        $query['ServerCertificate'] = $request->serverCertificate;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetCdnDomainCSRCertificate',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetCdnDomainCSRCertificateResponse::fromMap($this->doRPCRequest('SetCdnDomainCSRCertificate', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetCdnDomainCSRCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4235,6 +6764,52 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @param SetCdnDomainSMCertificateRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SetCdnDomainSMCertificateResponse
+     */
+    public function setCdnDomainSMCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                   = [];
+        $query['CertIdentifier'] = $request->certIdentifier;
+        $query['DomainName']     = $request->domainName;
+        $query['OwnerId']        = $request->ownerId;
+        $query['SSLProtocol']    = $request->SSLProtocol;
+        $query['SecurityToken']  = $request->securityToken;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetCdnDomainSMCertificate',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetCdnDomainSMCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetCdnDomainSMCertificateRequest $request
+     *
+     * @return SetCdnDomainSMCertificateResponse
+     */
+    public function setCdnDomainSMCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setCdnDomainSMCertificateWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SetCdnDomainStagingConfigRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -4243,11 +6818,27 @@ class Cdn extends OpenApiClient
     public function setCdnDomainStagingConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['Functions']  = $request->functions;
+        $query['OwnerId']    = $request->ownerId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetCdnDomainStagingConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetCdnDomainStagingConfigResponse::fromMap($this->doRPCRequest('SetCdnDomainStagingConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetCdnDomainStagingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4271,11 +6862,33 @@ class Cdn extends OpenApiClient
     public function setConfigOfVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ConfigId']        = $request->configId;
+        $query['FunctionArgs']    = $request->functionArgs;
+        $query['FunctionId']      = $request->functionId;
+        $query['FunctionMatches'] = $request->functionMatches;
+        $query['FunctionName']    = $request->functionName;
+        $query['OwnerAccount']    = $request->ownerAccount;
+        $query['OwnerId']         = $request->ownerId;
+        $query['SecurityToken']   = $request->securityToken;
+        $query['VersionId']       = $request->versionId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetConfigOfVersion',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetConfigOfVersionResponse::fromMap($this->doRPCRequest('SetConfigOfVersion', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetConfigOfVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4299,11 +6912,27 @@ class Cdn extends OpenApiClient
     public function setDomainGreenManagerConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['Enable']     = $request->enable;
+        $query['OwnerId']    = $request->ownerId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDomainGreenManagerConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDomainGreenManagerConfigResponse::fromMap($this->doRPCRequest('SetDomainGreenManagerConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDomainGreenManagerConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4327,11 +6956,33 @@ class Cdn extends OpenApiClient
     public function setDomainServerCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                            = [];
+        $query['CertName']                = $request->certName;
+        $query['CertType']                = $request->certType;
+        $query['DomainName']              = $request->domainName;
+        $query['ForceSet']                = $request->forceSet;
+        $query['OwnerId']                 = $request->ownerId;
+        $query['PrivateKey']              = $request->privateKey;
+        $query['SecurityToken']           = $request->securityToken;
+        $query['ServerCertificate']       = $request->serverCertificate;
+        $query['ServerCertificateStatus'] = $request->serverCertificateStatus;
+        $req                              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDomainServerCertificate',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDomainServerCertificateResponse::fromMap($this->doRPCRequest('SetDomainServerCertificate', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDomainServerCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4355,11 +7006,29 @@ class Cdn extends OpenApiClient
     public function setErrorPageConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['CustomPageUrl'] = $request->customPageUrl;
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['PageType']      = $request->pageType;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetErrorPageConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetErrorPageConfigResponse::fromMap($this->doRPCRequest('SetErrorPageConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetErrorPageConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4383,11 +7052,30 @@ class Cdn extends OpenApiClient
     public function setFileCacheExpiredConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['CacheContent']  = $request->cacheContent;
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['TTL']           = $request->TTL;
+        $query['Weight']        = $request->weight;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetFileCacheExpiredConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetFileCacheExpiredConfigResponse::fromMap($this->doRPCRequest('SetFileCacheExpiredConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetFileCacheExpiredConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4411,11 +7099,28 @@ class Cdn extends OpenApiClient
     public function setForceRedirectConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['RedirectType']  = $request->redirectType;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetForceRedirectConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetForceRedirectConfigResponse::fromMap($this->doRPCRequest('SetForceRedirectConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetForceRedirectConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4439,11 +7144,30 @@ class Cdn extends OpenApiClient
     public function setForwardSchemeConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['ConfigId']         = $request->configId;
+        $query['DomainName']       = $request->domainName;
+        $query['Enable']           = $request->enable;
+        $query['OwnerId']          = $request->ownerId;
+        $query['SchemeOrigin']     = $request->schemeOrigin;
+        $query['SchemeOriginPort'] = $request->schemeOriginPort;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetForwardSchemeConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetForwardSchemeConfigResponse::fromMap($this->doRPCRequest('SetForwardSchemeConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetForwardSchemeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4467,11 +7191,29 @@ class Cdn extends OpenApiClient
     public function setHttpErrorPageConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['ConfigId']   = $request->configId;
+        $query['DomainName'] = $request->domainName;
+        $query['ErrorCode']  = $request->errorCode;
+        $query['OwnerId']    = $request->ownerId;
+        $query['PageUrl']    = $request->pageUrl;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetHttpErrorPageConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetHttpErrorPageConfigResponse::fromMap($this->doRPCRequest('SetHttpErrorPageConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetHttpErrorPageConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4495,11 +7237,30 @@ class Cdn extends OpenApiClient
     public function setHttpHeaderConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ConfigId']      = $request->configId;
+        $query['DomainName']    = $request->domainName;
+        $query['HeaderKey']     = $request->headerKey;
+        $query['HeaderValue']   = $request->headerValue;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetHttpHeaderConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetHttpHeaderConfigResponse::fromMap($this->doRPCRequest('SetHttpHeaderConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetHttpHeaderConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4523,11 +7284,28 @@ class Cdn extends OpenApiClient
     public function setHttpsOptionConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['ConfigId']   = $request->configId;
+        $query['DomainName'] = $request->domainName;
+        $query['Http2']      = $request->http2;
+        $query['OwnerId']    = $request->ownerId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetHttpsOptionConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetHttpsOptionConfigResponse::fromMap($this->doRPCRequest('SetHttpsOptionConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetHttpsOptionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4551,11 +7329,30 @@ class Cdn extends OpenApiClient
     public function setIgnoreQueryStringConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ConfigId']    = $request->configId;
+        $query['DomainName']  = $request->domainName;
+        $query['Enable']      = $request->enable;
+        $query['HashKeyArgs'] = $request->hashKeyArgs;
+        $query['KeepOssArgs'] = $request->keepOssArgs;
+        $query['OwnerId']     = $request->ownerId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetIgnoreQueryStringConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetIgnoreQueryStringConfigResponse::fromMap($this->doRPCRequest('SetIgnoreQueryStringConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetIgnoreQueryStringConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4579,11 +7376,28 @@ class Cdn extends OpenApiClient
     public function setIpAllowListConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AllowIps']      = $request->allowIps;
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetIpAllowListConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetIpAllowListConfigResponse::fromMap($this->doRPCRequest('SetIpAllowListConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetIpAllowListConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4607,11 +7421,28 @@ class Cdn extends OpenApiClient
     public function setIpBlackListConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['BlockIps']   = $request->blockIps;
+        $query['ConfigId']   = $request->configId;
+        $query['DomainName'] = $request->domainName;
+        $query['OwnerId']    = $request->ownerId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetIpBlackListConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetIpBlackListConfigResponse::fromMap($this->doRPCRequest('SetIpBlackListConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetIpBlackListConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4635,11 +7466,28 @@ class Cdn extends OpenApiClient
     public function setOptimizeConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['ConfigId']   = $request->configId;
+        $query['DomainName'] = $request->domainName;
+        $query['Enable']     = $request->enable;
+        $query['OwnerId']    = $request->ownerId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetOptimizeConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetOptimizeConfigResponse::fromMap($this->doRPCRequest('SetOptimizeConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetOptimizeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4663,11 +7511,28 @@ class Cdn extends OpenApiClient
     public function setPageCompressConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['ConfigId']   = $request->configId;
+        $query['DomainName'] = $request->domainName;
+        $query['Enable']     = $request->enable;
+        $query['OwnerId']    = $request->ownerId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetPageCompressConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetPageCompressConfigResponse::fromMap($this->doRPCRequest('SetPageCompressConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetPageCompressConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4691,11 +7556,28 @@ class Cdn extends OpenApiClient
     public function setRangeConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['ConfigId']   = $request->configId;
+        $query['DomainName'] = $request->domainName;
+        $query['Enable']     = $request->enable;
+        $query['OwnerId']    = $request->ownerId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetRangeConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetRangeConfigResponse::fromMap($this->doRPCRequest('SetRangeConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetRangeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4719,11 +7601,31 @@ class Cdn extends OpenApiClient
     public function setRefererConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AllowEmpty']    = $request->allowEmpty;
+        $query['DisableAst']    = $request->disableAst;
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['ReferList']     = $request->referList;
+        $query['ReferType']     = $request->referType;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetRefererConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetRefererConfigResponse::fromMap($this->doRPCRequest('SetRefererConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetRefererConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4747,11 +7649,29 @@ class Cdn extends OpenApiClient
     public function setRemoveQueryStringConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AliRemoveArgs'] = $request->aliRemoveArgs;
+        $query['ConfigId']      = $request->configId;
+        $query['DomainName']    = $request->domainName;
+        $query['KeepOssArgs']   = $request->keepOssArgs;
+        $query['OwnerId']       = $request->ownerId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetRemoveQueryStringConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetRemoveQueryStringConfigResponse::fromMap($this->doRPCRequest('SetRemoveQueryStringConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetRemoveQueryStringConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4775,11 +7695,32 @@ class Cdn extends OpenApiClient
     public function setReqAuthConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['AuthRemoteDesc'] = $request->authRemoteDesc;
+        $query['AuthType']       = $request->authType;
+        $query['DomainName']     = $request->domainName;
+        $query['Key1']           = $request->key1;
+        $query['Key2']           = $request->key2;
+        $query['OwnerId']        = $request->ownerId;
+        $query['SecurityToken']  = $request->securityToken;
+        $query['TimeOut']        = $request->timeOut;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetReqAuthConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetReqAuthConfigResponse::fromMap($this->doRPCRequest('SetReqAuthConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetReqAuthConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4803,11 +7744,30 @@ class Cdn extends OpenApiClient
     public function setReqHeaderConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ConfigId']      = $request->configId;
+        $query['DomainName']    = $request->domainName;
+        $query['Key']           = $request->key;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['Value']         = $request->value;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetReqHeaderConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetReqHeaderConfigResponse::fromMap($this->doRPCRequest('SetReqHeaderConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetReqHeaderConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4831,11 +7791,29 @@ class Cdn extends OpenApiClient
     public function setSourceHostConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['BackSrcDomain'] = $request->backSrcDomain;
+        $query['DomainName']    = $request->domainName;
+        $query['Enable']        = $request->enable;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetSourceHostConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetSourceHostConfigResponse::fromMap($this->doRPCRequest('SetSourceHostConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetSourceHostConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4851,6 +7829,51 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @param SetUserGreenManagerConfigRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SetUserGreenManagerConfigResponse
+     */
+    public function setUserGreenManagerConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['OwnerId']       = $request->ownerId;
+        $query['Quota']         = $request->quota;
+        $query['Ratio']         = $request->ratio;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetUserGreenManagerConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetUserGreenManagerConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetUserGreenManagerConfigRequest $request
+     *
+     * @return SetUserGreenManagerConfigResponse
+     */
+    public function setUserGreenManagerConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setUserGreenManagerConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SetWaitingRoomConfigRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -4859,11 +7882,31 @@ class Cdn extends OpenApiClient
     public function setWaitingRoomConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AllowPct']    = $request->allowPct;
+        $query['DomainName']  = $request->domainName;
+        $query['GapTime']     = $request->gapTime;
+        $query['MaxTimeWait'] = $request->maxTimeWait;
+        $query['OwnerId']     = $request->ownerId;
+        $query['WaitUri']     = $request->waitUri;
+        $query['WaitUrl']     = $request->waitUrl;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetWaitingRoomConfig',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetWaitingRoomConfigResponse::fromMap($this->doRPCRequest('SetWaitingRoomConfig', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetWaitingRoomConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4887,11 +7930,27 @@ class Cdn extends OpenApiClient
     public function startCdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'StartCdnDomain',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StartCdnDomainResponse::fromMap($this->doRPCRequest('StartCdnDomain', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4915,11 +7974,27 @@ class Cdn extends OpenApiClient
     public function stopCdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'StopCdnDomain',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StopCdnDomainResponse::fromMap($this->doRPCRequest('StopCdnDomain', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4943,11 +8018,28 @@ class Cdn extends OpenApiClient
     public function tagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['OwnerId']      = $request->ownerId;
+        $query['ResourceId']   = $request->resourceId;
+        $query['ResourceType'] = $request->resourceType;
+        $query['Tag']          = $request->tag;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return TagResourcesResponse::fromMap($this->doRPCRequest('TagResources', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4971,11 +8063,29 @@ class Cdn extends OpenApiClient
     public function untagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['All']          = $request->all;
+        $query['OwnerId']      = $request->ownerId;
+        $query['ResourceId']   = $request->resourceId;
+        $query['ResourceType'] = $request->resourceType;
+        $query['TagKey']       = $request->tagKey;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UntagResourcesResponse::fromMap($this->doRPCRequest('UntagResources', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4991,27 +8101,33 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * @param UpdateCdnDeliverTaskRequest $tmpReq
+     * @param UpdateCdnDeliverTaskRequest $request
      * @param RuntimeOptions              $runtime
      *
      * @return UpdateCdnDeliverTaskResponse
      */
-    public function updateCdnDeliverTaskWithOptions($tmpReq, $runtime)
+    public function updateCdnDeliverTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new UpdateCdnDeliverTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deliver)) {
-            $request->deliverShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deliver, 'Deliver', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->schedule)) {
-            $request->scheduleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->schedule, 'Schedule', 'json');
-        }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        Utils::validateModel($request);
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCdnDeliverTask',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateCdnDeliverTaskResponse::fromMap($this->doRPCRequest('UpdateCdnDeliverTask', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateCdnDeliverTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5035,11 +8151,25 @@ class Cdn extends OpenApiClient
     public function updateCdnSubTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCdnSubTask',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateCdnSubTaskResponse::fromMap($this->doRPCRequest('UpdateCdnSubTask', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateCdnSubTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5063,11 +8193,26 @@ class Cdn extends OpenApiClient
     public function updateFCTriggerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['OwnerId']    = $request->ownerId;
+        $query['TriggerARN'] = $request->triggerARN;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateFCTrigger',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateFCTriggerResponse::fromMap($this->doRPCRequest('UpdateFCTrigger', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateFCTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5091,11 +8236,27 @@ class Cdn extends OpenApiClient
     public function verifyDomainOwnerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['OwnerId']    = $request->ownerId;
+        $query['VerifyType'] = $request->verifyType;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'VerifyDomainOwner',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return VerifyDomainOwnerResponse::fromMap($this->doRPCRequest('VerifyDomainOwner', '2018-05-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return VerifyDomainOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

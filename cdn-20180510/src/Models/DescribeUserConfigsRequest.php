@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserConfigsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $config;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -17,15 +22,10 @@ class DescribeUserConfigsRequest extends Model
      * @var string
      */
     public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $config;
     protected $_name = [
+        'config'        => 'Config',
         'ownerId'       => 'OwnerId',
         'securityToken' => 'SecurityToken',
-        'config'        => 'Config',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeUserConfigsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->config) {
+            $res['Config'] = $this->config;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->config) {
-            $res['Config'] = $this->config;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeUserConfigsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Config'])) {
+            $model->config = $map['Config'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['Config'])) {
-            $model->config = $map['Config'];
         }
 
         return $model;

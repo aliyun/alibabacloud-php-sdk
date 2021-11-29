@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class AddFCTriggerRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $triggerARN;
-
-    /**
      * @var string
      */
     public $eventMetaName;
@@ -31,12 +21,17 @@ class AddFCTriggerRequest extends Model
     /**
      * @var string
      */
-    public $sourceARN;
+    public $functionARN;
 
     /**
      * @var string
      */
-    public $functionARN;
+    public $notes;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
@@ -46,16 +41,21 @@ class AddFCTriggerRequest extends Model
     /**
      * @var string
      */
-    public $notes;
+    public $sourceARN;
+
+    /**
+     * @var string
+     */
+    public $triggerARN;
     protected $_name = [
-        'ownerId'          => 'OwnerId',
-        'triggerARN'       => 'TriggerARN',
         'eventMetaName'    => 'EventMetaName',
         'eventMetaVersion' => 'EventMetaVersion',
-        'sourceARN'        => 'SourceARN',
         'functionARN'      => 'FunctionARN',
-        'roleARN'          => 'RoleARN',
         'notes'            => 'Notes',
+        'ownerId'          => 'OwnerId',
+        'roleARN'          => 'RoleARN',
+        'sourceARN'        => 'SourceARN',
+        'triggerARN'       => 'TriggerARN',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class AddFCTriggerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->triggerARN) {
-            $res['TriggerARN'] = $this->triggerARN;
-        }
         if (null !== $this->eventMetaName) {
             $res['EventMetaName'] = $this->eventMetaName;
         }
         if (null !== $this->eventMetaVersion) {
             $res['EventMetaVersion'] = $this->eventMetaVersion;
         }
-        if (null !== $this->sourceARN) {
-            $res['SourceARN'] = $this->sourceARN;
-        }
         if (null !== $this->functionARN) {
             $res['FunctionARN'] = $this->functionARN;
+        }
+        if (null !== $this->notes) {
+            $res['Notes'] = $this->notes;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->roleARN) {
             $res['RoleARN'] = $this->roleARN;
         }
-        if (null !== $this->notes) {
-            $res['Notes'] = $this->notes;
+        if (null !== $this->sourceARN) {
+            $res['SourceARN'] = $this->sourceARN;
+        }
+        if (null !== $this->triggerARN) {
+            $res['TriggerARN'] = $this->triggerARN;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class AddFCTriggerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['TriggerARN'])) {
-            $model->triggerARN = $map['TriggerARN'];
-        }
         if (isset($map['EventMetaName'])) {
             $model->eventMetaName = $map['EventMetaName'];
         }
         if (isset($map['EventMetaVersion'])) {
             $model->eventMetaVersion = $map['EventMetaVersion'];
         }
-        if (isset($map['SourceARN'])) {
-            $model->sourceARN = $map['SourceARN'];
-        }
         if (isset($map['FunctionARN'])) {
             $model->functionARN = $map['FunctionARN'];
+        }
+        if (isset($map['Notes'])) {
+            $model->notes = $map['Notes'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['RoleARN'])) {
             $model->roleARN = $map['RoleARN'];
         }
-        if (isset($map['Notes'])) {
-            $model->notes = $map['Notes'];
+        if (isset($map['SourceARN'])) {
+            $model->sourceARN = $map['SourceARN'];
+        }
+        if (isset($map['TriggerARN'])) {
+            $model->triggerARN = $map['TriggerARN'];
         }
 
         return $model;

@@ -13,17 +13,7 @@ class DescribeDomainsUsageByDayResponseBody extends Model
     /**
      * @var string
      */
-    public $endTime;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $dataInterval;
 
     /**
      * @var string
@@ -33,25 +23,35 @@ class DescribeDomainsUsageByDayResponseBody extends Model
     /**
      * @var string
      */
-    public $dataInterval;
+    public $endTime;
 
     /**
-     * @var usageTotal
+     * @var string
      */
-    public $usageTotal;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $startTime;
 
     /**
      * @var usageByDays
      */
     public $usageByDays;
+
+    /**
+     * @var usageTotal
+     */
+    public $usageTotal;
     protected $_name = [
-        'endTime'      => 'EndTime',
-        'startTime'    => 'StartTime',
-        'requestId'    => 'RequestId',
-        'domainName'   => 'DomainName',
         'dataInterval' => 'DataInterval',
-        'usageTotal'   => 'UsageTotal',
+        'domainName'   => 'DomainName',
+        'endTime'      => 'EndTime',
+        'requestId'    => 'RequestId',
+        'startTime'    => 'StartTime',
         'usageByDays'  => 'UsageByDays',
+        'usageTotal'   => 'UsageTotal',
     ];
 
     public function validate()
@@ -61,26 +61,26 @@ class DescribeDomainsUsageByDayResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->dataInterval) {
+            $res['DataInterval'] = $this->dataInterval;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->dataInterval) {
-            $res['DataInterval'] = $this->dataInterval;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->usageTotal) {
-            $res['UsageTotal'] = null !== $this->usageTotal ? $this->usageTotal->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->usageByDays) {
             $res['UsageByDays'] = null !== $this->usageByDays ? $this->usageByDays->toMap() : null;
+        }
+        if (null !== $this->usageTotal) {
+            $res['UsageTotal'] = null !== $this->usageTotal ? $this->usageTotal->toMap() : null;
         }
 
         return $res;
@@ -94,26 +94,26 @@ class DescribeDomainsUsageByDayResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['DataInterval'])) {
+            $model->dataInterval = $map['DataInterval'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['DataInterval'])) {
-            $model->dataInterval = $map['DataInterval'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
-        if (isset($map['UsageTotal'])) {
-            $model->usageTotal = usageTotal::fromMap($map['UsageTotal']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['UsageByDays'])) {
             $model->usageByDays = usageByDays::fromMap($map['UsageByDays']);
+        }
+        if (isset($map['UsageTotal'])) {
+            $model->usageTotal = usageTotal::fromMap($map['UsageTotal']);
         }
 
         return $model;

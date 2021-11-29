@@ -12,12 +12,12 @@ class domainConfig extends Model
     /**
      * @var string
      */
-    public $status;
+    public $configId;
 
     /**
-     * @var string
+     * @var functionArgs
      */
-    public $configId;
+    public $functionArgs;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class domainConfig extends Model
     public $functionName;
 
     /**
-     * @var functionArgs
+     * @var string
      */
-    public $functionArgs;
+    public $status;
     protected $_name = [
-        'status'       => 'Status',
         'configId'     => 'ConfigId',
-        'functionName' => 'FunctionName',
         'functionArgs' => 'FunctionArgs',
+        'functionName' => 'FunctionName',
+        'status'       => 'Status',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class domainConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
+        }
+        if (null !== $this->functionArgs) {
+            $res['FunctionArgs'] = null !== $this->functionArgs ? $this->functionArgs->toMap() : null;
         }
         if (null !== $this->functionName) {
             $res['FunctionName'] = $this->functionName;
         }
-        if (null !== $this->functionArgs) {
-            $res['FunctionArgs'] = null !== $this->functionArgs ? $this->functionArgs->toMap() : null;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class domainConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
+        }
+        if (isset($map['FunctionArgs'])) {
+            $model->functionArgs = functionArgs::fromMap($map['FunctionArgs']);
         }
         if (isset($map['FunctionName'])) {
             $model->functionName = $map['FunctionName'];
         }
-        if (isset($map['FunctionArgs'])) {
-            $model->functionArgs = functionArgs::fromMap($map['FunctionArgs']);
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

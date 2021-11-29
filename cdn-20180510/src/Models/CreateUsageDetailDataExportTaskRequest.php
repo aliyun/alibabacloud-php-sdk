@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateUsageDetailDataExportTaskRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $startTime;
+    public $domainNames;
 
     /**
      * @var string
@@ -31,12 +26,17 @@ class CreateUsageDetailDataExportTaskRequest extends Model
     /**
      * @var string
      */
-    public $domainNames;
+    public $language;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
      */
-    public $type;
+    public $startTime;
 
     /**
      * @var string
@@ -46,16 +46,16 @@ class CreateUsageDetailDataExportTaskRequest extends Model
     /**
      * @var string
      */
-    public $language;
+    public $type;
     protected $_name = [
-        'ownerId'     => 'OwnerId',
-        'startTime'   => 'StartTime',
+        'domainNames' => 'DomainNames',
         'endTime'     => 'EndTime',
         'group'       => 'Group',
-        'domainNames' => 'DomainNames',
-        'type'        => 'Type',
-        'taskName'    => 'TaskName',
         'language'    => 'Language',
+        'ownerId'     => 'OwnerId',
+        'startTime'   => 'StartTime',
+        'taskName'    => 'TaskName',
+        'type'        => 'Type',
     ];
 
     public function validate()
@@ -65,11 +65,8 @@ class CreateUsageDetailDataExportTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->domainNames) {
+            $res['DomainNames'] = $this->domainNames;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -77,17 +74,20 @@ class CreateUsageDetailDataExportTaskRequest extends Model
         if (null !== $this->group) {
             $res['Group'] = $this->group;
         }
-        if (null !== $this->domainNames) {
-            $res['DomainNames'] = $this->domainNames;
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
-        if (null !== $this->language) {
-            $res['Language'] = $this->language;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -101,11 +101,8 @@ class CreateUsageDetailDataExportTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['DomainNames'])) {
+            $model->domainNames = $map['DomainNames'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
@@ -113,17 +110,20 @@ class CreateUsageDetailDataExportTaskRequest extends Model
         if (isset($map['Group'])) {
             $model->group = $map['Group'];
         }
-        if (isset($map['DomainNames'])) {
-            $model->domainNames = $map['DomainNames'];
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }
-        if (isset($map['Language'])) {
-            $model->language = $map['Language'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class contents extends Model
     /**
      * @var string
      */
-    public $domainName;
+    public $domainId;
 
     /**
      * @var string
      */
-    public $domainId;
+    public $domainName;
     protected $_name = [
-        'domainName' => 'DomainName',
         'domainId'   => 'DomainId',
+        'domainName' => 'DomainName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class contents extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
-        }
         if (null !== $this->domainId) {
             $res['DomainId'] = $this->domainId;
+        }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class contents extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
-        }
         if (isset($map['DomainId'])) {
             $model->domainId = $map['DomainId'];
+        }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
         }
 
         return $model;

@@ -11,27 +11,7 @@ class activityLog extends Model
     /**
      * @var string
      */
-    public $value;
-
-    /**
-     * @var int
-     */
-    public $ttl;
-
-    /**
-     * @var string
-     */
     public $action;
-
-    /**
-     * @var string
-     */
-    public $triggerObject;
-
-    /**
-     * @var string
-     */
-    public $timeStamp;
 
     /**
      * @var string
@@ -42,14 +22,34 @@ class activityLog extends Model
      * @var string
      */
     public $ruleName;
+
+    /**
+     * @var string
+     */
+    public $timeStamp;
+
+    /**
+     * @var string
+     */
+    public $triggerObject;
+
+    /**
+     * @var int
+     */
+    public $ttl;
+
+    /**
+     * @var string
+     */
+    public $value;
     protected $_name = [
-        'value'         => 'Value',
-        'ttl'           => 'Ttl',
         'action'        => 'Action',
-        'triggerObject' => 'TriggerObject',
-        'timeStamp'     => 'TimeStamp',
         'domainName'    => 'DomainName',
         'ruleName'      => 'RuleName',
+        'timeStamp'     => 'TimeStamp',
+        'triggerObject' => 'TriggerObject',
+        'ttl'           => 'Ttl',
+        'value'         => 'Value',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class activityLog extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
-        if (null !== $this->ttl) {
-            $res['Ttl'] = $this->ttl;
-        }
         if (null !== $this->action) {
             $res['Action'] = $this->action;
-        }
-        if (null !== $this->triggerObject) {
-            $res['TriggerObject'] = $this->triggerObject;
-        }
-        if (null !== $this->timeStamp) {
-            $res['TimeStamp'] = $this->timeStamp;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
+        }
+        if (null !== $this->timeStamp) {
+            $res['TimeStamp'] = $this->timeStamp;
+        }
+        if (null !== $this->triggerObject) {
+            $res['TriggerObject'] = $this->triggerObject;
+        }
+        if (null !== $this->ttl) {
+            $res['Ttl'] = $this->ttl;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class activityLog extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
-        if (isset($map['Ttl'])) {
-            $model->ttl = $map['Ttl'];
-        }
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
-        }
-        if (isset($map['TriggerObject'])) {
-            $model->triggerObject = $map['TriggerObject'];
-        }
-        if (isset($map['TimeStamp'])) {
-            $model->timeStamp = $map['TimeStamp'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
+        }
+        if (isset($map['TimeStamp'])) {
+            $model->timeStamp = $map['TimeStamp'];
+        }
+        if (isset($map['TriggerObject'])) {
+            $model->triggerObject = $map['TriggerObject'];
+        }
+        if (isset($map['Ttl'])) {
+            $model->ttl = $map['Ttl'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

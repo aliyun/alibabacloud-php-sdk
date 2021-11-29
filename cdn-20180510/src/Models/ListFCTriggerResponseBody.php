@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListFCTriggerResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var FCTriggers[]
      */
     public $FCTriggers;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'FCTriggers' => 'FCTriggers',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class ListFCTriggerResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->FCTriggers) {
             $res['FCTriggers'] = [];
             if (null !== $this->FCTriggers && \is_array($this->FCTriggers)) {
@@ -41,6 +38,9 @@ class ListFCTriggerResponseBody extends Model
                     $res['FCTriggers'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class ListFCTriggerResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['FCTriggers'])) {
             if (!empty($map['FCTriggers'])) {
                 $model->FCTriggers = [];
@@ -65,6 +62,9 @@ class ListFCTriggerResponseBody extends Model
                     $model->FCTriggers[$n++] = null !== $item ? FCTriggers::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -14,18 +14,18 @@ class DescribeUserCertificateExpireCountResponseBody extends Model
     public $expireWithin30DaysCount;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $expiredCount;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'expireWithin30DaysCount' => 'ExpireWithin30DaysCount',
-        'requestId'               => 'RequestId',
         'expiredCount'            => 'ExpiredCount',
+        'requestId'               => 'RequestId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class DescribeUserCertificateExpireCountResponseBody extends Model
         if (null !== $this->expireWithin30DaysCount) {
             $res['ExpireWithin30DaysCount'] = $this->expireWithin30DaysCount;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->expiredCount) {
             $res['ExpiredCount'] = $this->expiredCount;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class DescribeUserCertificateExpireCountResponseBody extends Model
         if (isset($map['ExpireWithin30DaysCount'])) {
             $model->expireWithin30DaysCount = $map['ExpireWithin30DaysCount'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ExpiredCount'])) {
             $model->expiredCount = $map['ExpiredCount'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

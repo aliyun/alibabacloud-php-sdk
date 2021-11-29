@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnHttpsDomainListResponseBody extends Model
 {
     /**
-     * @var int
+     * @var certInfos
      */
-    public $totalCount;
+    public $certInfos;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribeCdnHttpsDomainListResponseBody extends Model
     public $requestId;
 
     /**
-     * @var certInfos
+     * @var int
      */
-    public $certInfos;
+    public $totalCount;
     protected $_name = [
-        'totalCount' => 'TotalCount',
-        'requestId'  => 'RequestId',
         'certInfos'  => 'CertInfos',
+        'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class DescribeCdnHttpsDomainListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->certInfos) {
+            $res['CertInfos'] = null !== $this->certInfos ? $this->certInfos->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->certInfos) {
-            $res['CertInfos'] = null !== $this->certInfos ? $this->certInfos->toMap() : null;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class DescribeCdnHttpsDomainListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['CertInfos'])) {
+            $model->certInfos = certInfos::fromMap($map['CertInfos']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['CertInfos'])) {
-            $model->certInfos = certInfos::fromMap($map['CertInfos']);
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

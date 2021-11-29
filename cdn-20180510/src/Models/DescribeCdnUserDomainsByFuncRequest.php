@@ -11,12 +11,12 @@ class DescribeCdnUserDomainsByFuncRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
+    public $funcId;
 
     /**
      * @var int
      */
-    public $funcId;
+    public $ownerId;
 
     /**
      * @var int
@@ -33,8 +33,8 @@ class DescribeCdnUserDomainsByFuncRequest extends Model
      */
     public $resourceGroupId;
     protected $_name = [
-        'ownerId'         => 'OwnerId',
         'funcId'          => 'FuncId',
+        'ownerId'         => 'OwnerId',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
@@ -47,11 +47,11 @@ class DescribeCdnUserDomainsByFuncRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->funcId) {
             $res['FuncId'] = $this->funcId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -74,11 +74,11 @@ class DescribeCdnUserDomainsByFuncRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['FuncId'])) {
             $model->funcId = $map['FuncId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

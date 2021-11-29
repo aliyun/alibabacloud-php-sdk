@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class accData extends Model
 {
     /**
-     * @var string
-     */
-    public $timeStamp;
-
-    /**
      * @var int
      */
     public $failedNum;
@@ -22,10 +17,15 @@ class accData extends Model
      * @var int
      */
     public $successNum;
+
+    /**
+     * @var string
+     */
+    public $timeStamp;
     protected $_name = [
-        'timeStamp'  => 'TimeStamp',
         'failedNum'  => 'FailedNum',
         'successNum' => 'SuccessNum',
+        'timeStamp'  => 'TimeStamp',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class accData extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->timeStamp) {
-            $res['TimeStamp'] = $this->timeStamp;
-        }
         if (null !== $this->failedNum) {
             $res['FailedNum'] = $this->failedNum;
         }
         if (null !== $this->successNum) {
             $res['SuccessNum'] = $this->successNum;
+        }
+        if (null !== $this->timeStamp) {
+            $res['TimeStamp'] = $this->timeStamp;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class accData extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TimeStamp'])) {
-            $model->timeStamp = $map['TimeStamp'];
-        }
         if (isset($map['FailedNum'])) {
             $model->failedNum = $map['FailedNum'];
         }
         if (isset($map['SuccessNum'])) {
             $model->successNum = $map['SuccessNum'];
+        }
+        if (isset($map['TimeStamp'])) {
+            $model->timeStamp = $map['TimeStamp'];
         }
 
         return $model;

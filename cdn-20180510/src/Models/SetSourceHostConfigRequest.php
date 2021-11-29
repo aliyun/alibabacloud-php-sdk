@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SetSourceHostConfigRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $securityToken;
+    public $backSrcDomain;
 
     /**
      * @var string
@@ -29,15 +24,20 @@ class SetSourceHostConfigRequest extends Model
     public $enable;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
-    public $backSrcDomain;
+    public $securityToken;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
-        'securityToken' => 'SecurityToken',
+        'backSrcDomain' => 'BackSrcDomain',
         'domainName'    => 'DomainName',
         'enable'        => 'Enable',
-        'backSrcDomain' => 'BackSrcDomain',
+        'ownerId'       => 'OwnerId',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -47,11 +47,8 @@ class SetSourceHostConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->backSrcDomain) {
+            $res['BackSrcDomain'] = $this->backSrcDomain;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -59,8 +56,11 @@ class SetSourceHostConfigRequest extends Model
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
-        if (null !== $this->backSrcDomain) {
-            $res['BackSrcDomain'] = $this->backSrcDomain;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -74,11 +74,8 @@ class SetSourceHostConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['BackSrcDomain'])) {
+            $model->backSrcDomain = $map['BackSrcDomain'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
@@ -86,8 +83,11 @@ class SetSourceHostConfigRequest extends Model
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
-        if (isset($map['BackSrcDomain'])) {
-            $model->backSrcDomain = $map['BackSrcDomain'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

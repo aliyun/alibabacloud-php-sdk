@@ -16,16 +16,16 @@ class CreateIllegalUrlExportTaskRequest extends Model
     /**
      * @var string
      */
-    public $timePoint;
+    public $taskName;
 
     /**
      * @var string
      */
-    public $taskName;
+    public $timePoint;
     protected $_name = [
         'ownerId'   => 'OwnerId',
-        'timePoint' => 'TimePoint',
         'taskName'  => 'TaskName',
+        'timePoint' => 'TimePoint',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class CreateIllegalUrlExportTaskRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->timePoint) {
-            $res['TimePoint'] = $this->timePoint;
-        }
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
+        }
+        if (null !== $this->timePoint) {
+            $res['TimePoint'] = $this->timePoint;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class CreateIllegalUrlExportTaskRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['TimePoint'])) {
-            $model->timePoint = $map['TimePoint'];
-        }
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
+        }
+        if (isset($map['TimePoint'])) {
+            $model->timePoint = $map['TimePoint'];
         }
 
         return $model;

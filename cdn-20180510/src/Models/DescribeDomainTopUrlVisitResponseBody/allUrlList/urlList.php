@@ -14,14 +14,14 @@ class urlList extends Model
     public $flow;
 
     /**
-     * @var string
-     */
-    public $urlDetail;
-
-    /**
      * @var float
      */
     public $flowProportion;
+
+    /**
+     * @var string
+     */
+    public $urlDetail;
 
     /**
      * @var string
@@ -34,8 +34,8 @@ class urlList extends Model
     public $visitProportion;
     protected $_name = [
         'flow'            => 'Flow',
-        'urlDetail'       => 'UrlDetail',
         'flowProportion'  => 'FlowProportion',
+        'urlDetail'       => 'UrlDetail',
         'visitData'       => 'VisitData',
         'visitProportion' => 'VisitProportion',
     ];
@@ -50,11 +50,11 @@ class urlList extends Model
         if (null !== $this->flow) {
             $res['Flow'] = $this->flow;
         }
-        if (null !== $this->urlDetail) {
-            $res['UrlDetail'] = $this->urlDetail;
-        }
         if (null !== $this->flowProportion) {
             $res['FlowProportion'] = $this->flowProportion;
+        }
+        if (null !== $this->urlDetail) {
+            $res['UrlDetail'] = $this->urlDetail;
         }
         if (null !== $this->visitData) {
             $res['VisitData'] = $this->visitData;
@@ -77,11 +77,11 @@ class urlList extends Model
         if (isset($map['Flow'])) {
             $model->flow = $map['Flow'];
         }
-        if (isset($map['UrlDetail'])) {
-            $model->urlDetail = $map['UrlDetail'];
-        }
         if (isset($map['FlowProportion'])) {
             $model->flowProportion = $map['FlowProportion'];
+        }
+        if (isset($map['UrlDetail'])) {
+            $model->urlDetail = $map['UrlDetail'];
         }
         if (isset($map['VisitData'])) {
             $model->visitData = $map['VisitData'];

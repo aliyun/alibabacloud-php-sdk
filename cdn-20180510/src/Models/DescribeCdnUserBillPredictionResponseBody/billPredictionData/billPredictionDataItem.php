@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class billPredictionDataItem extends Model
 {
     /**
-     * @var float
+     * @var string
      */
-    public $value;
+    public $area;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class billPredictionDataItem extends Model
     public $timeStp;
 
     /**
-     * @var string
+     * @var float
      */
-    public $area;
+    public $value;
     protected $_name = [
-        'value'   => 'Value',
-        'timeStp' => 'TimeStp',
         'area'    => 'Area',
+        'timeStp' => 'TimeStp',
+        'value'   => 'Value',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class billPredictionDataItem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
+        if (null !== $this->area) {
+            $res['Area'] = $this->area;
         }
         if (null !== $this->timeStp) {
             $res['TimeStp'] = $this->timeStp;
         }
-        if (null !== $this->area) {
-            $res['Area'] = $this->area;
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class billPredictionDataItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
+        if (isset($map['Area'])) {
+            $model->area = $map['Area'];
         }
         if (isset($map['TimeStp'])) {
             $model->timeStp = $map['TimeStp'];
         }
-        if (isset($map['Area'])) {
-            $model->area = $map['Area'];
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

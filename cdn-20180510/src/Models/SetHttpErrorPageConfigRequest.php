@@ -11,7 +11,7 @@ class SetHttpErrorPageConfigRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
+    public $configId;
 
     /**
      * @var string
@@ -24,20 +24,20 @@ class SetHttpErrorPageConfigRequest extends Model
     public $errorCode;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
     public $pageUrl;
-
-    /**
-     * @var int
-     */
-    public $configId;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
+        'configId'   => 'ConfigId',
         'domainName' => 'DomainName',
         'errorCode'  => 'ErrorCode',
+        'ownerId'    => 'OwnerId',
         'pageUrl'    => 'PageUrl',
-        'configId'   => 'ConfigId',
     ];
 
     public function validate()
@@ -47,8 +47,8 @@ class SetHttpErrorPageConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->configId) {
+            $res['ConfigId'] = $this->configId;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
@@ -56,11 +56,11 @@ class SetHttpErrorPageConfigRequest extends Model
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->pageUrl) {
             $res['PageUrl'] = $this->pageUrl;
-        }
-        if (null !== $this->configId) {
-            $res['ConfigId'] = $this->configId;
         }
 
         return $res;
@@ -74,8 +74,8 @@ class SetHttpErrorPageConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['ConfigId'])) {
+            $model->configId = $map['ConfigId'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
@@ -83,11 +83,11 @@ class SetHttpErrorPageConfigRequest extends Model
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['PageUrl'])) {
             $model->pageUrl = $map['PageUrl'];
-        }
-        if (isset($map['ConfigId'])) {
-            $model->configId = $map['ConfigId'];
         }
 
         return $model;

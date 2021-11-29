@@ -14,9 +14,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainSrcTopUrlVisitResponseBody extends Model
 {
     /**
+     * @var allUrlList
+     */
+    public $allUrlList;
+
+    /**
      * @var string
      */
-    public $startTime;
+    public $domainName;
 
     /**
      * @var string
@@ -26,12 +31,7 @@ class DescribeDomainSrcTopUrlVisitResponseBody extends Model
     /**
      * @var string
      */
-    public $domainName;
-
-    /**
-     * @var allUrlList
-     */
-    public $allUrlList;
+    public $startTime;
 
     /**
      * @var url200List
@@ -53,10 +53,10 @@ class DescribeDomainSrcTopUrlVisitResponseBody extends Model
      */
     public $url500List;
     protected $_name = [
-        'startTime'  => 'StartTime',
-        'requestId'  => 'RequestId',
-        'domainName' => 'DomainName',
         'allUrlList' => 'AllUrlList',
+        'domainName' => 'DomainName',
+        'requestId'  => 'RequestId',
+        'startTime'  => 'StartTime',
         'url200List' => 'Url200List',
         'url300List' => 'Url300List',
         'url400List' => 'Url400List',
@@ -70,17 +70,17 @@ class DescribeDomainSrcTopUrlVisitResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->allUrlList) {
+            $res['AllUrlList'] = null !== $this->allUrlList ? $this->allUrlList->toMap() : null;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->allUrlList) {
-            $res['AllUrlList'] = null !== $this->allUrlList ? $this->allUrlList->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->url200List) {
             $res['Url200List'] = null !== $this->url200List ? $this->url200List->toMap() : null;
@@ -106,17 +106,17 @@ class DescribeDomainSrcTopUrlVisitResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['AllUrlList'])) {
+            $model->allUrlList = allUrlList::fromMap($map['AllUrlList']);
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['AllUrlList'])) {
-            $model->allUrlList = allUrlList::fromMap($map['AllUrlList']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['Url200List'])) {
             $model->url200List = url200List::fromMap($map['Url200List']);

@@ -11,7 +11,7 @@ class ossLogConfig extends Model
     /**
      * @var string
      */
-    public $prefix;
+    public $bucket;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class ossLogConfig extends Model
     /**
      * @var string
      */
-    public $bucket;
+    public $prefix;
     protected $_name = [
-        'prefix' => 'Prefix',
-        'enable' => 'Enable',
         'bucket' => 'Bucket',
+        'enable' => 'Enable',
+        'prefix' => 'Prefix',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ossLogConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->prefix) {
-            $res['Prefix'] = $this->prefix;
+        if (null !== $this->bucket) {
+            $res['Bucket'] = $this->bucket;
         }
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
-        if (null !== $this->bucket) {
-            $res['Bucket'] = $this->bucket;
+        if (null !== $this->prefix) {
+            $res['Prefix'] = $this->prefix;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ossLogConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Prefix'])) {
-            $model->prefix = $map['Prefix'];
+        if (isset($map['Bucket'])) {
+            $model->bucket = $map['Bucket'];
         }
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
-        if (isset($map['Bucket'])) {
-            $model->bucket = $map['Bucket'];
+        if (isset($map['Prefix'])) {
+            $model->prefix = $map['Prefix'];
         }
 
         return $model;

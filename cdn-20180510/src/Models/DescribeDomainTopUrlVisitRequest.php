@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainTopUrlVisitRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $domainName;
@@ -21,23 +16,28 @@ class DescribeDomainTopUrlVisitRequest extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $endTime;
 
     /**
-     * @var string
+     * @var int
      */
-    public $endTime;
+    public $ownerId;
 
     /**
      * @var string
      */
     public $sortBy;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
         'domainName' => 'DomainName',
-        'startTime'  => 'StartTime',
         'endTime'    => 'EndTime',
+        'ownerId'    => 'OwnerId',
         'sortBy'     => 'SortBy',
+        'startTime'  => 'StartTime',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeDomainTopUrlVisitRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeDomainTopUrlVisitRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

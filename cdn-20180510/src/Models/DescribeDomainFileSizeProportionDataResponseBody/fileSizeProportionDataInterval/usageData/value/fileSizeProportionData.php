@@ -11,15 +11,15 @@ class fileSizeProportionData extends Model
     /**
      * @var string
      */
-    public $proportion;
+    public $fileSize;
 
     /**
      * @var string
      */
-    public $fileSize;
+    public $proportion;
     protected $_name = [
-        'proportion' => 'Proportion',
         'fileSize'   => 'FileSize',
+        'proportion' => 'Proportion',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class fileSizeProportionData extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->proportion) {
-            $res['Proportion'] = $this->proportion;
-        }
         if (null !== $this->fileSize) {
             $res['FileSize'] = $this->fileSize;
+        }
+        if (null !== $this->proportion) {
+            $res['Proportion'] = $this->proportion;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class fileSizeProportionData extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Proportion'])) {
-            $model->proportion = $map['Proportion'];
-        }
         if (isset($map['FileSize'])) {
             $model->fileSize = $map['FileSize'];
+        }
+        if (isset($map['Proportion'])) {
+            $model->proportion = $map['Proportion'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class DescribeCustomLogConfigResponseBody extends Model
     /**
      * @var string
      */
-    public $tag;
+    public $remark;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class DescribeCustomLogConfigResponseBody extends Model
     /**
      * @var string
      */
-    public $remark;
+    public $sample;
 
     /**
      * @var string
      */
-    public $sample;
+    public $tag;
     protected $_name = [
-        'tag'       => 'Tag',
-        'requestId' => 'RequestId',
         'remark'    => 'Remark',
+        'requestId' => 'RequestId',
         'sample'    => 'Sample',
+        'tag'       => 'Tag',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DescribeCustomLogConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tag) {
-            $res['Tag'] = $this->tag;
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
-        }
         if (null !== $this->sample) {
             $res['Sample'] = $this->sample;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DescribeCustomLogConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tag'])) {
-            $model->tag = $map['Tag'];
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
-        }
         if (isset($map['Sample'])) {
             $model->sample = $map['Sample'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
         }
 
         return $model;

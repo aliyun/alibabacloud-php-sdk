@@ -9,9 +9,19 @@ use AlibabaCloud\Tea\Model;
 class topDomain extends Model
 {
     /**
+     * @var string
+     */
+    public $domainName;
+
+    /**
      * @var float
      */
     public $maxBps;
+
+    /**
+     * @var string
+     */
+    public $maxBpsTime;
 
     /**
      * @var int
@@ -26,30 +36,20 @@ class topDomain extends Model
     /**
      * @var string
      */
-    public $trafficPercent;
-
-    /**
-     * @var string
-     */
-    public $domainName;
-
-    /**
-     * @var string
-     */
     public $totalTraffic;
 
     /**
      * @var string
      */
-    public $maxBpsTime;
+    public $trafficPercent;
     protected $_name = [
+        'domainName'     => 'DomainName',
         'maxBps'         => 'MaxBps',
+        'maxBpsTime'     => 'MaxBpsTime',
         'rank'           => 'Rank',
         'totalAccess'    => 'TotalAccess',
-        'trafficPercent' => 'TrafficPercent',
-        'domainName'     => 'DomainName',
         'totalTraffic'   => 'TotalTraffic',
-        'maxBpsTime'     => 'MaxBpsTime',
+        'trafficPercent' => 'TrafficPercent',
     ];
 
     public function validate()
@@ -59,8 +59,14 @@ class topDomain extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
         if (null !== $this->maxBps) {
             $res['MaxBps'] = $this->maxBps;
+        }
+        if (null !== $this->maxBpsTime) {
+            $res['MaxBpsTime'] = $this->maxBpsTime;
         }
         if (null !== $this->rank) {
             $res['Rank'] = $this->rank;
@@ -68,17 +74,11 @@ class topDomain extends Model
         if (null !== $this->totalAccess) {
             $res['TotalAccess'] = $this->totalAccess;
         }
-        if (null !== $this->trafficPercent) {
-            $res['TrafficPercent'] = $this->trafficPercent;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
-        }
         if (null !== $this->totalTraffic) {
             $res['TotalTraffic'] = $this->totalTraffic;
         }
-        if (null !== $this->maxBpsTime) {
-            $res['MaxBpsTime'] = $this->maxBpsTime;
+        if (null !== $this->trafficPercent) {
+            $res['TrafficPercent'] = $this->trafficPercent;
         }
 
         return $res;
@@ -92,8 +92,14 @@ class topDomain extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
         if (isset($map['MaxBps'])) {
             $model->maxBps = $map['MaxBps'];
+        }
+        if (isset($map['MaxBpsTime'])) {
+            $model->maxBpsTime = $map['MaxBpsTime'];
         }
         if (isset($map['Rank'])) {
             $model->rank = $map['Rank'];
@@ -101,17 +107,11 @@ class topDomain extends Model
         if (isset($map['TotalAccess'])) {
             $model->totalAccess = $map['TotalAccess'];
         }
-        if (isset($map['TrafficPercent'])) {
-            $model->trafficPercent = $map['TrafficPercent'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
-        }
         if (isset($map['TotalTraffic'])) {
             $model->totalTraffic = $map['TotalTraffic'];
         }
-        if (isset($map['MaxBpsTime'])) {
-            $model->maxBpsTime = $map['MaxBpsTime'];
+        if (isset($map['TrafficPercent'])) {
+            $model->trafficPercent = $map['TrafficPercent'];
         }
 
         return $model;

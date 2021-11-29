@@ -12,27 +12,7 @@ class DescribeDomainPathDataResponseBody extends Model
     /**
      * @var string
      */
-    public $endTime;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $totalCount;
+    public $dataInterval;
 
     /**
      * @var string
@@ -42,21 +22,41 @@ class DescribeDomainPathDataResponseBody extends Model
     /**
      * @var string
      */
-    public $dataInterval;
+    public $endTime;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var pathDataPerInterval
      */
     public $pathDataPerInterval;
+
+    /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'endTime'             => 'EndTime',
-        'startTime'           => 'StartTime',
-        'pageSize'            => 'PageSize',
-        'pageNumber'          => 'PageNumber',
-        'totalCount'          => 'TotalCount',
-        'domainName'          => 'DomainName',
         'dataInterval'        => 'DataInterval',
+        'domainName'          => 'DomainName',
+        'endTime'             => 'EndTime',
+        'pageNumber'          => 'PageNumber',
+        'pageSize'            => 'PageSize',
         'pathDataPerInterval' => 'PathDataPerInterval',
+        'startTime'           => 'StartTime',
+        'totalCount'          => 'TotalCount',
     ];
 
     public function validate()
@@ -66,29 +66,29 @@ class DescribeDomainPathDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->dataInterval) {
+            $res['DataInterval'] = $this->dataInterval;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->dataInterval) {
-            $res['DataInterval'] = $this->dataInterval;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->pathDataPerInterval) {
             $res['PathDataPerInterval'] = null !== $this->pathDataPerInterval ? $this->pathDataPerInterval->toMap() : null;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -102,29 +102,29 @@ class DescribeDomainPathDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['DataInterval'])) {
+            $model->dataInterval = $map['DataInterval'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['DataInterval'])) {
-            $model->dataInterval = $map['DataInterval'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['PathDataPerInterval'])) {
             $model->pathDataPerInterval = pathDataPerInterval::fromMap($map['PathDataPerInterval']);
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

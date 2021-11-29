@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainHitRateDataRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $domainName;
-
-    /**
-     * @var string
-     */
-    public $startTime;
 
     /**
      * @var string
@@ -32,12 +22,22 @@ class DescribeDomainHitRateDataRequest extends Model
      * @var string
      */
     public $interval;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
         'domainName' => 'DomainName',
-        'startTime'  => 'StartTime',
         'endTime'    => 'EndTime',
         'interval'   => 'Interval',
+        'ownerId'    => 'OwnerId',
+        'startTime'  => 'StartTime',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeDomainHitRateDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeDomainHitRateDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

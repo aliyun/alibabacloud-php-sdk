@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnUserConfigsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var configs[]
      */
     public $configs;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'configs'   => 'Configs',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeCdnUserConfigsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->configs) {
             $res['Configs'] = [];
             if (null !== $this->configs && \is_array($this->configs)) {
@@ -41,6 +38,9 @@ class DescribeCdnUserConfigsResponseBody extends Model
                     $res['Configs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeCdnUserConfigsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Configs'])) {
             if (!empty($map['Configs'])) {
                 $model->configs = [];
@@ -65,6 +62,9 @@ class DescribeCdnUserConfigsResponseBody extends Model
                     $model->configs[$n++] = null !== $item ? configs::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

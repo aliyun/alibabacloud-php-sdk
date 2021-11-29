@@ -16,7 +16,7 @@ class DescribeCdnUserQuotaResponseBody extends Model
     /**
      * @var int
      */
-    public $refreshUrlRemain;
+    public $blockRemain;
 
     /**
      * @var int
@@ -26,27 +26,12 @@ class DescribeCdnUserQuotaResponseBody extends Model
     /**
      * @var int
      */
-    public $blockRemain;
+    public $preloadQuota;
 
     /**
      * @var int
      */
     public $preloadRemain;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $refreshUrlQuota;
-
-    /**
-     * @var int
-     */
-    public $preloadQuota;
 
     /**
      * @var int
@@ -57,17 +42,32 @@ class DescribeCdnUserQuotaResponseBody extends Model
      * @var int
      */
     public $refreshDirRemain;
+
+    /**
+     * @var int
+     */
+    public $refreshUrlQuota;
+
+    /**
+     * @var int
+     */
+    public $refreshUrlRemain;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'blockQuota'       => 'BlockQuota',
-        'refreshUrlRemain' => 'RefreshUrlRemain',
-        'domainQuota'      => 'DomainQuota',
         'blockRemain'      => 'BlockRemain',
-        'preloadRemain'    => 'PreloadRemain',
-        'requestId'        => 'RequestId',
-        'refreshUrlQuota'  => 'RefreshUrlQuota',
+        'domainQuota'      => 'DomainQuota',
         'preloadQuota'     => 'PreloadQuota',
+        'preloadRemain'    => 'PreloadRemain',
         'refreshDirQuota'  => 'RefreshDirQuota',
         'refreshDirRemain' => 'RefreshDirRemain',
+        'refreshUrlQuota'  => 'RefreshUrlQuota',
+        'refreshUrlRemain' => 'RefreshUrlRemain',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -80,32 +80,32 @@ class DescribeCdnUserQuotaResponseBody extends Model
         if (null !== $this->blockQuota) {
             $res['BlockQuota'] = $this->blockQuota;
         }
-        if (null !== $this->refreshUrlRemain) {
-            $res['RefreshUrlRemain'] = $this->refreshUrlRemain;
+        if (null !== $this->blockRemain) {
+            $res['BlockRemain'] = $this->blockRemain;
         }
         if (null !== $this->domainQuota) {
             $res['DomainQuota'] = $this->domainQuota;
         }
-        if (null !== $this->blockRemain) {
-            $res['BlockRemain'] = $this->blockRemain;
+        if (null !== $this->preloadQuota) {
+            $res['PreloadQuota'] = $this->preloadQuota;
         }
         if (null !== $this->preloadRemain) {
             $res['PreloadRemain'] = $this->preloadRemain;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->refreshUrlQuota) {
-            $res['RefreshUrlQuota'] = $this->refreshUrlQuota;
-        }
-        if (null !== $this->preloadQuota) {
-            $res['PreloadQuota'] = $this->preloadQuota;
         }
         if (null !== $this->refreshDirQuota) {
             $res['RefreshDirQuota'] = $this->refreshDirQuota;
         }
         if (null !== $this->refreshDirRemain) {
             $res['RefreshDirRemain'] = $this->refreshDirRemain;
+        }
+        if (null !== $this->refreshUrlQuota) {
+            $res['RefreshUrlQuota'] = $this->refreshUrlQuota;
+        }
+        if (null !== $this->refreshUrlRemain) {
+            $res['RefreshUrlRemain'] = $this->refreshUrlRemain;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -122,32 +122,32 @@ class DescribeCdnUserQuotaResponseBody extends Model
         if (isset($map['BlockQuota'])) {
             $model->blockQuota = $map['BlockQuota'];
         }
-        if (isset($map['RefreshUrlRemain'])) {
-            $model->refreshUrlRemain = $map['RefreshUrlRemain'];
+        if (isset($map['BlockRemain'])) {
+            $model->blockRemain = $map['BlockRemain'];
         }
         if (isset($map['DomainQuota'])) {
             $model->domainQuota = $map['DomainQuota'];
         }
-        if (isset($map['BlockRemain'])) {
-            $model->blockRemain = $map['BlockRemain'];
+        if (isset($map['PreloadQuota'])) {
+            $model->preloadQuota = $map['PreloadQuota'];
         }
         if (isset($map['PreloadRemain'])) {
             $model->preloadRemain = $map['PreloadRemain'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['RefreshUrlQuota'])) {
-            $model->refreshUrlQuota = $map['RefreshUrlQuota'];
-        }
-        if (isset($map['PreloadQuota'])) {
-            $model->preloadQuota = $map['PreloadQuota'];
         }
         if (isset($map['RefreshDirQuota'])) {
             $model->refreshDirQuota = $map['RefreshDirQuota'];
         }
         if (isset($map['RefreshDirRemain'])) {
             $model->refreshDirRemain = $map['RefreshDirRemain'];
+        }
+        if (isset($map['RefreshUrlQuota'])) {
+            $model->refreshUrlQuota = $map['RefreshUrlQuota'];
+        }
+        if (isset($map['RefreshUrlRemain'])) {
+            $model->refreshUrlRemain = $map['RefreshUrlRemain'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

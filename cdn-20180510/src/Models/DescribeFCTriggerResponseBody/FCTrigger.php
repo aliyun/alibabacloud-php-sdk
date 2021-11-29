@@ -11,7 +11,17 @@ class FCTrigger extends Model
     /**
      * @var string
      */
-    public $triggerARN;
+    public $eventMetaName;
+
+    /**
+     * @var string
+     */
+    public $eventMetaVersion;
+
+    /**
+     * @var string
+     */
+    public $notes;
 
     /**
      * @var string
@@ -26,24 +36,14 @@ class FCTrigger extends Model
     /**
      * @var string
      */
-    public $notes;
-
-    /**
-     * @var string
-     */
-    public $eventMetaName;
-
-    /**
-     * @var string
-     */
-    public $eventMetaVersion;
+    public $triggerARN;
     protected $_name = [
-        'triggerARN'       => 'TriggerARN',
-        'roleARN'          => 'RoleARN',
-        'sourceArn'        => 'SourceArn',
-        'notes'            => 'Notes',
         'eventMetaName'    => 'EventMetaName',
         'eventMetaVersion' => 'EventMetaVersion',
+        'notes'            => 'Notes',
+        'roleARN'          => 'RoleARN',
+        'sourceArn'        => 'SourceArn',
+        'triggerARN'       => 'TriggerARN',
     ];
 
     public function validate()
@@ -53,8 +53,14 @@ class FCTrigger extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->triggerARN) {
-            $res['TriggerARN'] = $this->triggerARN;
+        if (null !== $this->eventMetaName) {
+            $res['EventMetaName'] = $this->eventMetaName;
+        }
+        if (null !== $this->eventMetaVersion) {
+            $res['EventMetaVersion'] = $this->eventMetaVersion;
+        }
+        if (null !== $this->notes) {
+            $res['Notes'] = $this->notes;
         }
         if (null !== $this->roleARN) {
             $res['RoleARN'] = $this->roleARN;
@@ -62,14 +68,8 @@ class FCTrigger extends Model
         if (null !== $this->sourceArn) {
             $res['SourceArn'] = $this->sourceArn;
         }
-        if (null !== $this->notes) {
-            $res['Notes'] = $this->notes;
-        }
-        if (null !== $this->eventMetaName) {
-            $res['EventMetaName'] = $this->eventMetaName;
-        }
-        if (null !== $this->eventMetaVersion) {
-            $res['EventMetaVersion'] = $this->eventMetaVersion;
+        if (null !== $this->triggerARN) {
+            $res['TriggerARN'] = $this->triggerARN;
         }
 
         return $res;
@@ -83,8 +83,14 @@ class FCTrigger extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TriggerARN'])) {
-            $model->triggerARN = $map['TriggerARN'];
+        if (isset($map['EventMetaName'])) {
+            $model->eventMetaName = $map['EventMetaName'];
+        }
+        if (isset($map['EventMetaVersion'])) {
+            $model->eventMetaVersion = $map['EventMetaVersion'];
+        }
+        if (isset($map['Notes'])) {
+            $model->notes = $map['Notes'];
         }
         if (isset($map['RoleARN'])) {
             $model->roleARN = $map['RoleARN'];
@@ -92,14 +98,8 @@ class FCTrigger extends Model
         if (isset($map['SourceArn'])) {
             $model->sourceArn = $map['SourceArn'];
         }
-        if (isset($map['Notes'])) {
-            $model->notes = $map['Notes'];
-        }
-        if (isset($map['EventMetaName'])) {
-            $model->eventMetaName = $map['EventMetaName'];
-        }
-        if (isset($map['EventMetaVersion'])) {
-            $model->eventMetaVersion = $map['EventMetaVersion'];
+        if (isset($map['TriggerARN'])) {
+            $model->triggerARN = $map['TriggerARN'];
         }
 
         return $model;

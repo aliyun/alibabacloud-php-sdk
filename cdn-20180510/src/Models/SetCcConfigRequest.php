@@ -9,21 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SetCcConfigRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $domainName;
-
-    /**
      * @var string
      */
     public $allowIps;
@@ -32,12 +17,27 @@ class SetCcConfigRequest extends Model
      * @var string
      */
     public $blockIps;
+
+    /**
+     * @var string
+     */
+    public $domainName;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
-        'securityToken' => 'SecurityToken',
-        'domainName'    => 'DomainName',
         'allowIps'      => 'AllowIps',
         'blockIps'      => 'BlockIps',
+        'domainName'    => 'DomainName',
+        'ownerId'       => 'OwnerId',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class SetCcConfigRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
-        }
         if (null !== $this->allowIps) {
             $res['AllowIps'] = $this->allowIps;
         }
         if (null !== $this->blockIps) {
             $res['BlockIps'] = $this->blockIps;
+        }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class SetCcConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
-        }
         if (isset($map['AllowIps'])) {
             $model->allowIps = $map['AllowIps'];
         }
         if (isset($map['BlockIps'])) {
             $model->blockIps = $map['BlockIps'];
+        }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;
