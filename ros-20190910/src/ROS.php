@@ -22,6 +22,9 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\CreateStackRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateStackResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateTemplateRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateTemplateResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\CreateTemplateScratchRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\CreateTemplateScratchResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\CreateTemplateScratchShrinkRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\DeleteChangeSetRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\DeleteChangeSetResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\DeleteStackGroupRequest;
@@ -33,6 +36,8 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\DeleteStackRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\DeleteStackResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\DeleteTemplateRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\DeleteTemplateResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\DeleteTemplateScratchRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\DeleteTemplateScratchResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\DetectStackDriftRequest;
@@ -44,6 +49,8 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\DetectStackResourceDriftRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\DetectStackResourceDriftResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ExecuteChangeSetRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ExecuteChangeSetResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GenerateTemplateByScratchRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GenerateTemplateByScratchResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GenerateTemplatePolicyRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GenerateTemplatePolicyResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetChangeSetRequest;
@@ -77,6 +84,8 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateParameterConstraintsRespons
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateParameterConstraintsShrinkRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateScratchRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateScratchResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateSummaryRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateSummaryResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListChangeSetsRequest;
@@ -106,6 +115,8 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListTagValuesRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListTagValuesResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListTemplateScratchesRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListTemplateScratchesResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListTemplatesRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListTemplatesResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListTemplateVersionsRequest;
@@ -140,12 +151,16 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\UpdateStackTemplateByResourcesRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\UpdateStackTemplateByResourcesResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\UpdateTemplateRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\UpdateTemplateResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\UpdateTemplateScratchRequest;
+use AlibabaCloud\SDK\ROS\V20190910\Models\UpdateTemplateScratchResponse;
+use AlibabaCloud\SDK\ROS\V20190910\Models\UpdateTemplateScratchShrinkRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ValidateTemplateRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ValidateTemplateResponse;
 use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class ROS extends OpenApiClient
@@ -190,11 +205,27 @@ class ROS extends OpenApiClient
     public function cancelUpdateStackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['CancelType'] = $request->cancelType;
+        $query['RegionId']   = $request->regionId;
+        $query['StackId']    = $request->stackId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelUpdateStack',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CancelUpdateStackResponse::fromMap($this->doRPCRequest('CancelUpdateStack', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CancelUpdateStackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -218,11 +249,36 @@ class ROS extends OpenApiClient
     public function continueCreateStackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['DryRun']              = $request->dryRun;
+        $query['Mode']                = $request->mode;
+        $query['Parallelism']         = $request->parallelism;
+        $query['Parameters']          = $request->parameters;
+        $query['RamRoleName']         = $request->ramRoleName;
+        $query['RecreatingResources'] = $request->recreatingResources;
+        $query['RegionId']            = $request->regionId;
+        $query['StackId']             = $request->stackId;
+        $query['TemplateBody']        = $request->templateBody;
+        $query['TemplateId']          = $request->templateId;
+        $query['TemplateURL']         = $request->templateURL;
+        $query['TemplateVersion']     = $request->templateVersion;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ContinueCreateStack',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ContinueCreateStackResponse::fromMap($this->doRPCRequest('ContinueCreateStack', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ContinueCreateStackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -246,11 +302,49 @@ class ROS extends OpenApiClient
     public function createChangeSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                                = [];
+        $query['ChangeSetName']               = $request->changeSetName;
+        $query['ChangeSetType']               = $request->changeSetType;
+        $query['ClientToken']                 = $request->clientToken;
+        $query['Description']                 = $request->description;
+        $query['DisableRollback']             = $request->disableRollback;
+        $query['NotificationURLs']            = $request->notificationURLs;
+        $query['Parallelism']                 = $request->parallelism;
+        $query['Parameters']                  = $request->parameters;
+        $query['RamRoleName']                 = $request->ramRoleName;
+        $query['RegionId']                    = $request->regionId;
+        $query['ReplacementOption']           = $request->replacementOption;
+        $query['ResourcesToImport']           = $request->resourcesToImport;
+        $query['StackId']                     = $request->stackId;
+        $query['StackName']                   = $request->stackName;
+        $query['StackPolicyBody']             = $request->stackPolicyBody;
+        $query['StackPolicyDuringUpdateBody'] = $request->stackPolicyDuringUpdateBody;
+        $query['StackPolicyDuringUpdateURL']  = $request->stackPolicyDuringUpdateURL;
+        $query['StackPolicyURL']              = $request->stackPolicyURL;
+        $query['TemplateBody']                = $request->templateBody;
+        $query['TemplateId']                  = $request->templateId;
+        $query['TemplateScratchId']           = $request->templateScratchId;
+        $query['TemplateURL']                 = $request->templateURL;
+        $query['TemplateVersion']             = $request->templateVersion;
+        $query['TimeoutInMinutes']            = $request->timeoutInMinutes;
+        $query['UsePreviousParameters']       = $request->usePreviousParameters;
+        $req                                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateChangeSet',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateChangeSetResponse::fromMap($this->doRPCRequest('CreateChangeSet', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateChangeSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -274,11 +368,44 @@ class ROS extends OpenApiClient
     public function createStackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['ClientToken']        = $request->clientToken;
+        $query['CreateOption']       = $request->createOption;
+        $query['DeletionProtection'] = $request->deletionProtection;
+        $query['DisableRollback']    = $request->disableRollback;
+        $query['NotificationURLs']   = $request->notificationURLs;
+        $query['Parallelism']        = $request->parallelism;
+        $query['Parameters']         = $request->parameters;
+        $query['RamRoleName']        = $request->ramRoleName;
+        $query['RegionId']           = $request->regionId;
+        $query['ResourceGroupId']    = $request->resourceGroupId;
+        $query['StackName']          = $request->stackName;
+        $query['StackPolicyBody']    = $request->stackPolicyBody;
+        $query['StackPolicyURL']     = $request->stackPolicyURL;
+        $query['Tags']               = $request->tags;
+        $query['TemplateBody']       = $request->templateBody;
+        $query['TemplateId']         = $request->templateId;
+        $query['TemplateScratchId']  = $request->templateScratchId;
+        $query['TemplateURL']        = $request->templateURL;
+        $query['TemplateVersion']    = $request->templateVersion;
+        $query['TimeoutInMinutes']   = $request->timeoutInMinutes;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateStack',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateStackResponse::fromMap($this->doRPCRequest('CreateStack', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateStackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -307,11 +434,38 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->autoDeployment)) {
             $request->autoDeploymentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->autoDeployment), 'AutoDeployment', 'json');
         }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                           = [];
+        $query['AdministrationRoleName'] = $request->administrationRoleName;
+        $query['AutoDeployment']         = $request->autoDeploymentShrink;
+        $query['ClientToken']            = $request->clientToken;
+        $query['Description']            = $request->description;
+        $query['ExecutionRoleName']      = $request->executionRoleName;
+        $query['Parameters']             = $request->parameters;
+        $query['PermissionModel']        = $request->permissionModel;
+        $query['RegionId']               = $request->regionId;
+        $query['ResourceGroupId']        = $request->resourceGroupId;
+        $query['StackGroupName']         = $request->stackGroupName;
+        $query['TemplateBody']           = $request->templateBody;
+        $query['TemplateId']             = $request->templateId;
+        $query['TemplateURL']            = $request->templateURL;
+        $query['TemplateVersion']        = $request->templateVersion;
+        $req                             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateStackGroup',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateStackGroupResponse::fromMap($this->doRPCRequest('CreateStackGroup', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateStackGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -349,11 +503,35 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->regionIds)) {
             $request->regionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
         }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AccountIds']           = $request->accountIdsShrink;
+        $query['ClientToken']          = $request->clientToken;
+        $query['DeploymentTargets']    = $request->deploymentTargetsShrink;
+        $query['DisableRollback']      = $request->disableRollback;
+        $query['OperationDescription'] = $request->operationDescription;
+        $query['OperationPreferences'] = $request->operationPreferencesShrink;
+        $query['ParameterOverrides']   = $request->parameterOverrides;
+        $query['RegionId']             = $request->regionId;
+        $query['RegionIds']            = $request->regionIdsShrink;
+        $query['StackGroupName']       = $request->stackGroupName;
+        $query['TimeoutInMinutes']     = $request->timeoutInMinutes;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateStackInstances',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateStackInstancesResponse::fromMap($this->doRPCRequest('CreateStackInstances', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateStackInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -377,11 +555,29 @@ class ROS extends OpenApiClient
     public function createTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Description']     = $request->description;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['TemplateBody']    = $request->templateBody;
+        $query['TemplateName']    = $request->templateName;
+        $query['TemplateURL']     = $request->templateURL;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTemplate',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateTemplateResponse::fromMap($this->doRPCRequest('CreateTemplate', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -397,6 +593,71 @@ class ROS extends OpenApiClient
     }
 
     /**
+     * @param CreateTemplateScratchRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateTemplateScratchResponse
+     */
+    public function createTemplateScratchWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateTemplateScratchShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->preferenceParameters)) {
+            $request->preferenceParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->preferenceParameters, 'PreferenceParameters', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->sourceResourceGroup)) {
+            $request->sourceResourceGroupShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->sourceResourceGroup), 'SourceResourceGroup', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->sourceResources)) {
+            $request->sourceResourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceResources, 'SourceResources', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->sourceTag)) {
+            $request->sourceTagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->sourceTag), 'SourceTag', 'json');
+        }
+        $query                         = [];
+        $query['ClientToken']          = $request->clientToken;
+        $query['Description']          = $request->description;
+        $query['ExecutionMode']        = $request->executionMode;
+        $query['LogicalIdStrategy']    = $request->logicalIdStrategy;
+        $query['PreferenceParameters'] = $request->preferenceParametersShrink;
+        $query['RegionId']             = $request->regionId;
+        $query['SourceResourceGroup']  = $request->sourceResourceGroupShrink;
+        $query['SourceResources']      = $request->sourceResourcesShrink;
+        $query['SourceTag']            = $request->sourceTagShrink;
+        $query['TemplateScratchType']  = $request->templateScratchType;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTemplateScratch',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateTemplateScratchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateTemplateScratchRequest $request
+     *
+     * @return CreateTemplateScratchResponse
+     */
+    public function createTemplateScratch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTemplateScratchWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteChangeSetRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -405,11 +666,26 @@ class ROS extends OpenApiClient
     public function deleteChangeSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ChangeSetId'] = $request->changeSetId;
+        $query['RegionId']    = $request->regionId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteChangeSet',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteChangeSetResponse::fromMap($this->doRPCRequest('DeleteChangeSet', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteChangeSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -433,11 +709,29 @@ class ROS extends OpenApiClient
     public function deleteStackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['RamRoleName']        = $request->ramRoleName;
+        $query['RegionId']           = $request->regionId;
+        $query['RetainAllResources'] = $request->retainAllResources;
+        $query['RetainResources']    = $request->retainResources;
+        $query['StackId']            = $request->stackId;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteStack',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteStackResponse::fromMap($this->doRPCRequest('DeleteStack', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteStackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -461,11 +755,26 @@ class ROS extends OpenApiClient
     public function deleteStackGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['RegionId']       = $request->regionId;
+        $query['StackGroupName'] = $request->stackGroupName;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteStackGroup',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteStackGroupResponse::fromMap($this->doRPCRequest('DeleteStackGroup', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteStackGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -503,11 +812,33 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->regionIds)) {
             $request->regionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
         }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AccountIds']           = $request->accountIdsShrink;
+        $query['ClientToken']          = $request->clientToken;
+        $query['DeploymentTargets']    = $request->deploymentTargetsShrink;
+        $query['OperationDescription'] = $request->operationDescription;
+        $query['OperationPreferences'] = $request->operationPreferencesShrink;
+        $query['RegionId']             = $request->regionId;
+        $query['RegionIds']            = $request->regionIdsShrink;
+        $query['RetainStacks']         = $request->retainStacks;
+        $query['StackGroupName']       = $request->stackGroupName;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteStackInstances',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteStackInstancesResponse::fromMap($this->doRPCRequest('DeleteStackInstances', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteStackInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -531,11 +862,25 @@ class ROS extends OpenApiClient
     public function deleteTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['TemplateId'] = $request->templateId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTemplate',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteTemplateResponse::fromMap($this->doRPCRequest('DeleteTemplate', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -551,6 +896,49 @@ class ROS extends OpenApiClient
     }
 
     /**
+     * @param DeleteTemplateScratchRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteTemplateScratchResponse
+     */
+    public function deleteTemplateScratchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                      = [];
+        $query['RegionId']          = $request->regionId;
+        $query['TemplateScratchId'] = $request->templateScratchId;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTemplateScratch',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteTemplateScratchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteTemplateScratchRequest $request
+     *
+     * @return DeleteTemplateScratchResponse
+     */
+    public function deleteTemplateScratch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTemplateScratchWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeRegionsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -559,11 +947,25 @@ class ROS extends OpenApiClient
     public function describeRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['AcceptLanguage'] = $request->acceptLanguage;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRegions',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -587,11 +989,28 @@ class ROS extends OpenApiClient
     public function detectStackDriftWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['ClientToken']       = $request->clientToken;
+        $query['LogicalResourceId'] = $request->logicalResourceId;
+        $query['RegionId']          = $request->regionId;
+        $query['StackId']           = $request->stackId;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectStackDrift',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DetectStackDriftResponse::fromMap($this->doRPCRequest('DetectStackDrift', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetectStackDriftResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -620,11 +1039,28 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->operationPreferences)) {
             $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
         }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['ClientToken']          = $request->clientToken;
+        $query['OperationPreferences'] = $request->operationPreferencesShrink;
+        $query['RegionId']             = $request->regionId;
+        $query['StackGroupName']       = $request->stackGroupName;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectStackGroupDrift',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DetectStackGroupDriftResponse::fromMap($this->doRPCRequest('DetectStackGroupDrift', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetectStackGroupDriftResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -648,11 +1084,28 @@ class ROS extends OpenApiClient
     public function detectStackResourceDriftWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['ClientToken']       = $request->clientToken;
+        $query['LogicalResourceId'] = $request->logicalResourceId;
+        $query['RegionId']          = $request->regionId;
+        $query['StackId']           = $request->stackId;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectStackResourceDrift',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DetectStackResourceDriftResponse::fromMap($this->doRPCRequest('DetectStackResourceDrift', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetectStackResourceDriftResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -676,11 +1129,27 @@ class ROS extends OpenApiClient
     public function executeChangeSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ChangeSetId'] = $request->changeSetId;
+        $query['ClientToken'] = $request->clientToken;
+        $query['RegionId']    = $request->regionId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteChangeSet',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ExecuteChangeSetResponse::fromMap($this->doRPCRequest('ExecuteChangeSet', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ExecuteChangeSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -696,6 +1165,50 @@ class ROS extends OpenApiClient
     }
 
     /**
+     * @param GenerateTemplateByScratchRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GenerateTemplateByScratchResponse
+     */
+    public function generateTemplateByScratchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                      = [];
+        $query['ProvisionRegionId'] = $request->provisionRegionId;
+        $query['RegionId']          = $request->regionId;
+        $query['TemplateScratchId'] = $request->templateScratchId;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateTemplateByScratch',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenerateTemplateByScratchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GenerateTemplateByScratchRequest $request
+     *
+     * @return GenerateTemplateByScratchResponse
+     */
+    public function generateTemplateByScratch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateTemplateByScratchWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GenerateTemplatePolicyRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -704,11 +1217,28 @@ class ROS extends OpenApiClient
     public function generateTemplatePolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['TemplateBody']    = $request->templateBody;
+        $query['TemplateId']      = $request->templateId;
+        $query['TemplateURL']     = $request->templateURL;
+        $query['TemplateVersion'] = $request->templateVersion;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateTemplatePolicy',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GenerateTemplatePolicyResponse::fromMap($this->doRPCRequest('GenerateTemplatePolicy', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GenerateTemplatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -732,11 +1262,27 @@ class ROS extends OpenApiClient
     public function getChangeSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['ChangeSetId']  = $request->changeSetId;
+        $query['RegionId']     = $request->regionId;
+        $query['ShowTemplate'] = $request->showTemplate;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetChangeSet',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetChangeSetResponse::fromMap($this->doRPCRequest('GetChangeSet', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetChangeSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -760,11 +1306,26 @@ class ROS extends OpenApiClient
     public function getFeatureDetailsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['Feature']  = $request->feature;
+        $query['RegionId'] = $request->regionId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetFeatureDetails',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetFeatureDetailsResponse::fromMap($this->doRPCRequest('GetFeatureDetails', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetFeatureDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -788,11 +1349,25 @@ class ROS extends OpenApiClient
     public function getResourceTypeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['ResourceType'] = $request->resourceType;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetResourceType',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetResourceTypeResponse::fromMap($this->doRPCRequest('GetResourceType', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -816,11 +1391,25 @@ class ROS extends OpenApiClient
     public function getResourceTypeTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['ResourceType'] = $request->resourceType;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetResourceTypeTemplate',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetResourceTypeTemplateResponse::fromMap($this->doRPCRequest('GetResourceTypeTemplate', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetResourceTypeTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -844,11 +1433,31 @@ class ROS extends OpenApiClient
     public function getServiceProvisionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Parameters']      = $request->parameters;
+        $query['RegionId']        = $request->regionId;
+        $query['Services']        = $request->services;
+        $query['TemplateBody']    = $request->templateBody;
+        $query['TemplateId']      = $request->templateId;
+        $query['TemplateURL']     = $request->templateURL;
+        $query['TemplateVersion'] = $request->templateVersion;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetServiceProvisions',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetServiceProvisionsResponse::fromMap($this->doRPCRequest('GetServiceProvisions', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetServiceProvisionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -872,11 +1481,29 @@ class ROS extends OpenApiClient
     public function getStackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['ClientToken']          = $request->clientToken;
+        $query['OutputOption']         = $request->outputOption;
+        $query['RegionId']             = $request->regionId;
+        $query['ShowResourceProgress'] = $request->showResourceProgress;
+        $query['StackId']              = $request->stackId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetStack',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetStackResponse::fromMap($this->doRPCRequest('GetStack', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetStackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -900,11 +1527,26 @@ class ROS extends OpenApiClient
     public function getStackDriftDetectionStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['DriftDetectionId'] = $request->driftDetectionId;
+        $query['RegionId']         = $request->regionId;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetStackDriftDetectionStatus',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetStackDriftDetectionStatusResponse::fromMap($this->doRPCRequest('GetStackDriftDetectionStatus', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetStackDriftDetectionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -928,11 +1570,27 @@ class ROS extends OpenApiClient
     public function getStackGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['RegionId']       = $request->regionId;
+        $query['StackGroupId']   = $request->stackGroupId;
+        $query['StackGroupName'] = $request->stackGroupName;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetStackGroup',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetStackGroupResponse::fromMap($this->doRPCRequest('GetStackGroup', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetStackGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -956,11 +1614,26 @@ class ROS extends OpenApiClient
     public function getStackGroupOperationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['OperationId'] = $request->operationId;
+        $query['RegionId']    = $request->regionId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetStackGroupOperation',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetStackGroupOperationResponse::fromMap($this->doRPCRequest('GetStackGroupOperation', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetStackGroupOperationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -984,11 +1657,28 @@ class ROS extends OpenApiClient
     public function getStackInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                           = [];
+        $query['RegionId']               = $request->regionId;
+        $query['StackGroupName']         = $request->stackGroupName;
+        $query['StackInstanceAccountId'] = $request->stackInstanceAccountId;
+        $query['StackInstanceRegionId']  = $request->stackInstanceRegionId;
+        $req                             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetStackInstance',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetStackInstanceResponse::fromMap($this->doRPCRequest('GetStackInstance', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetStackInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1012,11 +1702,26 @@ class ROS extends OpenApiClient
     public function getStackPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['RegionId'] = $request->regionId;
+        $query['StackId']  = $request->stackId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetStackPolicy',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetStackPolicyResponse::fromMap($this->doRPCRequest('GetStackPolicy', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetStackPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1040,11 +1745,29 @@ class ROS extends OpenApiClient
     public function getStackResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                           = [];
+        $query['ClientToken']            = $request->clientToken;
+        $query['LogicalResourceId']      = $request->logicalResourceId;
+        $query['RegionId']               = $request->regionId;
+        $query['ShowResourceAttributes'] = $request->showResourceAttributes;
+        $query['StackId']                = $request->stackId;
+        $req                             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetStackResource',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetStackResourceResponse::fromMap($this->doRPCRequest('GetStackResource', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetStackResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1068,11 +1791,32 @@ class ROS extends OpenApiClient
     public function getTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['ChangeSetId']       = $request->changeSetId;
+        $query['IncludePermission'] = $request->includePermission;
+        $query['RegionId']          = $request->regionId;
+        $query['StackGroupName']    = $request->stackGroupName;
+        $query['StackId']           = $request->stackId;
+        $query['TemplateId']        = $request->templateId;
+        $query['TemplateStage']     = $request->templateStage;
+        $query['TemplateVersion']   = $request->templateVersion;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTemplate',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTemplateResponse::fromMap($this->doRPCRequest('GetTemplate', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1096,11 +1840,31 @@ class ROS extends OpenApiClient
     public function getTemplateEstimateCostWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClientToken']     = $request->clientToken;
+        $query['Parameters']      = $request->parameters;
+        $query['RegionId']        = $request->regionId;
+        $query['TemplateBody']    = $request->templateBody;
+        $query['TemplateId']      = $request->templateId;
+        $query['TemplateURL']     = $request->templateURL;
+        $query['TemplateVersion'] = $request->templateVersion;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTemplateEstimateCost',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTemplateEstimateCostResponse::fromMap($this->doRPCRequest('GetTemplateEstimateCost', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTemplateEstimateCostResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1129,11 +1893,32 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->parametersKeyFilter)) {
             $request->parametersKeyFilterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parametersKeyFilter, 'ParametersKeyFilter', 'json');
         }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['ClientToken']         = $request->clientToken;
+        $query['Parameters']          = $request->parameters;
+        $query['ParametersKeyFilter'] = $request->parametersKeyFilterShrink;
+        $query['RegionId']            = $request->regionId;
+        $query['TemplateBody']        = $request->templateBody;
+        $query['TemplateId']          = $request->templateId;
+        $query['TemplateURL']         = $request->templateURL;
+        $query['TemplateVersion']     = $request->templateVersion;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTemplateParameterConstraints',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTemplateParameterConstraintsResponse::fromMap($this->doRPCRequest('GetTemplateParameterConstraints', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTemplateParameterConstraintsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1149,6 +1934,50 @@ class ROS extends OpenApiClient
     }
 
     /**
+     * @param GetTemplateScratchRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetTemplateScratchResponse
+     */
+    public function getTemplateScratchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                      = [];
+        $query['RegionId']          = $request->regionId;
+        $query['ShowDataOption']    = $request->showDataOption;
+        $query['TemplateScratchId'] = $request->templateScratchId;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTemplateScratch',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTemplateScratchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTemplateScratchRequest $request
+     *
+     * @return GetTemplateScratchResponse
+     */
+    public function getTemplateScratch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTemplateScratchWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetTemplateSummaryRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1157,11 +1986,32 @@ class ROS extends OpenApiClient
     public function getTemplateSummaryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ChangeSetId']     = $request->changeSetId;
+        $query['RegionId']        = $request->regionId;
+        $query['StackGroupName']  = $request->stackGroupName;
+        $query['StackId']         = $request->stackId;
+        $query['TemplateBody']    = $request->templateBody;
+        $query['TemplateId']      = $request->templateId;
+        $query['TemplateURL']     = $request->templateURL;
+        $query['TemplateVersion'] = $request->templateVersion;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTemplateSummary',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTemplateSummaryResponse::fromMap($this->doRPCRequest('GetTemplateSummary', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTemplateSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1185,11 +2035,32 @@ class ROS extends OpenApiClient
     public function listChangeSetsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ChangeSetId']     = $request->changeSetId;
+        $query['ChangeSetName']   = $request->changeSetName;
+        $query['ExecutionStatus'] = $request->executionStatus;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['StackId']         = $request->stackId;
+        $query['Status']          = $request->status;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListChangeSets',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListChangeSetsResponse::fromMap($this->doRPCRequest('ListChangeSets', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListChangeSetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1211,9 +2082,20 @@ class ROS extends OpenApiClient
      */
     public function listResourceTypesWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListResourceTypes',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListResourceTypesResponse::fromMap($this->doRPCRequest('ListResourceTypes', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListResourceTypesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1235,11 +2117,31 @@ class ROS extends OpenApiClient
     public function listStackEventsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['LogicalResourceId'] = $request->logicalResourceId;
+        $query['PageNumber']        = $request->pageNumber;
+        $query['PageSize']          = $request->pageSize;
+        $query['RegionId']          = $request->regionId;
+        $query['ResourceType']      = $request->resourceType;
+        $query['StackId']           = $request->stackId;
+        $query['Status']            = $request->status;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListStackEvents',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListStackEventsResponse::fromMap($this->doRPCRequest('ListStackEvents', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListStackEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1263,11 +2165,28 @@ class ROS extends OpenApiClient
     public function listStackGroupOperationResultsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['OperationId'] = $request->operationId;
+        $query['PageNumber']  = $request->pageNumber;
+        $query['PageSize']    = $request->pageSize;
+        $query['RegionId']    = $request->regionId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListStackGroupOperationResults',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListStackGroupOperationResultsResponse::fromMap($this->doRPCRequest('ListStackGroupOperationResults', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListStackGroupOperationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1291,11 +2210,28 @@ class ROS extends OpenApiClient
     public function listStackGroupOperationsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['PageNumber']     = $request->pageNumber;
+        $query['PageSize']       = $request->pageSize;
+        $query['RegionId']       = $request->regionId;
+        $query['StackGroupName'] = $request->stackGroupName;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListStackGroupOperations',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListStackGroupOperationsResponse::fromMap($this->doRPCRequest('ListStackGroupOperations', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListStackGroupOperationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1319,11 +2255,29 @@ class ROS extends OpenApiClient
     public function listStackGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['Status']          = $request->status;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListStackGroups',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListStackGroupsResponse::fromMap($this->doRPCRequest('ListStackGroups', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListStackGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1347,11 +2301,30 @@ class ROS extends OpenApiClient
     public function listStackInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                           = [];
+        $query['PageNumber']             = $request->pageNumber;
+        $query['PageSize']               = $request->pageSize;
+        $query['RegionId']               = $request->regionId;
+        $query['StackGroupName']         = $request->stackGroupName;
+        $query['StackInstanceAccountId'] = $request->stackInstanceAccountId;
+        $query['StackInstanceRegionId']  = $request->stackInstanceRegionId;
+        $req                             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListStackInstances',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListStackInstancesResponse::fromMap($this->doRPCRequest('ListStackInstances', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListStackInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1375,11 +2348,31 @@ class ROS extends OpenApiClient
     public function listStackOperationRisksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['ClientToken']        = $request->clientToken;
+        $query['OperationType']      = $request->operationType;
+        $query['RamRoleName']        = $request->ramRoleName;
+        $query['RegionId']           = $request->regionId;
+        $query['RetainAllResources'] = $request->retainAllResources;
+        $query['RetainResources']    = $request->retainResources;
+        $query['StackId']            = $request->stackId;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListStackOperationRisks',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListStackOperationRisksResponse::fromMap($this->doRPCRequest('ListStackOperationRisks', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListStackOperationRisksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1403,11 +2396,29 @@ class ROS extends OpenApiClient
     public function listStackResourceDriftsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['MaxResults']          = $request->maxResults;
+        $query['NextToken']           = $request->nextToken;
+        $query['RegionId']            = $request->regionId;
+        $query['ResourceDriftStatus'] = $request->resourceDriftStatus;
+        $query['StackId']             = $request->stackId;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListStackResourceDrifts',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListStackResourceDriftsResponse::fromMap($this->doRPCRequest('ListStackResourceDrifts', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListStackResourceDriftsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1431,11 +2442,26 @@ class ROS extends OpenApiClient
     public function listStackResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['RegionId'] = $request->regionId;
+        $query['StackId']  = $request->stackId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListStackResources',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListStackResourcesResponse::fromMap($this->doRPCRequest('ListStackResources', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListStackResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1459,11 +2485,35 @@ class ROS extends OpenApiClient
     public function listStacksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['ParentStackId']   = $request->parentStackId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['ShowNestedStack'] = $request->showNestedStack;
+        $query['StackId']         = $request->stackId;
+        $query['StackIds']        = $request->stackIds;
+        $query['StackName']       = $request->stackName;
+        $query['Status']          = $request->status;
+        $query['Tag']             = $request->tag;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListStacks',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListStacksResponse::fromMap($this->doRPCRequest('ListStacks', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListStacksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1487,11 +2537,27 @@ class ROS extends OpenApiClient
     public function listTagKeysWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['NextToken']    = $request->nextToken;
+        $query['RegionId']     = $request->regionId;
+        $query['ResourceType'] = $request->resourceType;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagKeys',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTagKeysResponse::fromMap($this->doRPCRequest('ListTagKeys', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1515,11 +2581,29 @@ class ROS extends OpenApiClient
     public function listTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['NextToken']    = $request->nextToken;
+        $query['RegionId']     = $request->regionId;
+        $query['ResourceId']   = $request->resourceId;
+        $query['ResourceType'] = $request->resourceType;
+        $query['Tag']          = $request->tag;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTagResourcesResponse::fromMap($this->doRPCRequest('ListTagResources', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1543,11 +2627,28 @@ class ROS extends OpenApiClient
     public function listTagValuesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['Key']          = $request->key;
+        $query['NextToken']    = $request->nextToken;
+        $query['RegionId']     = $request->regionId;
+        $query['ResourceType'] = $request->resourceType;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagValues',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTagValuesResponse::fromMap($this->doRPCRequest('ListTagValues', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1563,6 +2664,53 @@ class ROS extends OpenApiClient
     }
 
     /**
+     * @param ListTemplateScratchesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListTemplateScratchesResponse
+     */
+    public function listTemplateScratchesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                        = [];
+        $query['PageNumber']          = $request->pageNumber;
+        $query['PageSize']            = $request->pageSize;
+        $query['RegionId']            = $request->regionId;
+        $query['Status']              = $request->status;
+        $query['TemplateScratchId']   = $request->templateScratchId;
+        $query['TemplateScratchType'] = $request->templateScratchType;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTemplateScratches',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTemplateScratchesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTemplateScratchesRequest $request
+     *
+     * @return ListTemplateScratchesResponse
+     */
+    public function listTemplateScratches($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTemplateScratchesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListTemplateVersionsRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -1571,11 +2719,27 @@ class ROS extends OpenApiClient
     public function listTemplateVersionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['MaxResults'] = $request->maxResults;
+        $query['NextToken']  = $request->nextToken;
+        $query['TemplateId'] = $request->templateId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTemplateVersions',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTemplateVersionsResponse::fromMap($this->doRPCRequest('ListTemplateVersions', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTemplateVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1599,11 +2763,30 @@ class ROS extends OpenApiClient
     public function listTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['ShareType']       = $request->shareType;
+        $query['Tag']             = $request->tag;
+        $query['TemplateName']    = $request->templateName;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTemplates',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTemplatesResponse::fromMap($this->doRPCRequest('ListTemplates', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1627,11 +2810,28 @@ class ROS extends OpenApiClient
     public function moveResourceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        $query['RegionId']           = $request->regionId;
+        $query['ResourceId']         = $request->resourceId;
+        $query['ResourceType']       = $request->resourceType;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'MoveResourceGroup',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return MoveResourceGroupResponse::fromMap($this->doRPCRequest('MoveResourceGroup', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1655,11 +2855,37 @@ class ROS extends OpenApiClient
     public function previewStackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['ClientToken']      = $request->clientToken;
+        $query['DisableRollback']  = $request->disableRollback;
+        $query['Parallelism']      = $request->parallelism;
+        $query['Parameters']       = $request->parameters;
+        $query['RegionId']         = $request->regionId;
+        $query['StackName']        = $request->stackName;
+        $query['StackPolicyBody']  = $request->stackPolicyBody;
+        $query['StackPolicyURL']   = $request->stackPolicyURL;
+        $query['TemplateBody']     = $request->templateBody;
+        $query['TemplateId']       = $request->templateId;
+        $query['TemplateURL']      = $request->templateURL;
+        $query['TemplateVersion']  = $request->templateVersion;
+        $query['TimeoutInMinutes'] = $request->timeoutInMinutes;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'PreviewStack',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return PreviewStackResponse::fromMap($this->doRPCRequest('PreviewStack', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PreviewStackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1683,11 +2909,27 @@ class ROS extends OpenApiClient
     public function setDeletionProtectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['DeletionProtection'] = $request->deletionProtection;
+        $query['RegionId']           = $request->regionId;
+        $query['StackId']            = $request->stackId;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDeletionProtection',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDeletionProtectionResponse::fromMap($this->doRPCRequest('SetDeletionProtection', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDeletionProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1711,11 +2953,28 @@ class ROS extends OpenApiClient
     public function setStackPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['RegionId']        = $request->regionId;
+        $query['StackId']         = $request->stackId;
+        $query['StackPolicyBody'] = $request->stackPolicyBody;
+        $query['StackPolicyURL']  = $request->stackPolicyURL;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetStackPolicy',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetStackPolicyResponse::fromMap($this->doRPCRequest('SetStackPolicy', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetStackPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1739,11 +2998,29 @@ class ROS extends OpenApiClient
     public function setTemplatePermissionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['AccountIds']      = $request->accountIds;
+        $query['ShareOption']     = $request->shareOption;
+        $query['TemplateId']      = $request->templateId;
+        $query['TemplateVersion'] = $request->templateVersion;
+        $query['VersionOption']   = $request->versionOption;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetTemplatePermission',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetTemplatePermissionResponse::fromMap($this->doRPCRequest('SetTemplatePermission', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetTemplatePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1767,11 +3044,30 @@ class ROS extends OpenApiClient
     public function signalResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['ClientToken']       = $request->clientToken;
+        $query['LogicalResourceId'] = $request->logicalResourceId;
+        $query['RegionId']          = $request->regionId;
+        $query['StackId']           = $request->stackId;
+        $query['Status']            = $request->status;
+        $query['UniqueId']          = $request->uniqueId;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SignalResource',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SignalResourceResponse::fromMap($this->doRPCRequest('SignalResource', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SignalResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1795,11 +3091,26 @@ class ROS extends OpenApiClient
     public function stopStackGroupOperationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['OperationId'] = $request->operationId;
+        $query['RegionId']    = $request->regionId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'StopStackGroupOperation',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StopStackGroupOperationResponse::fromMap($this->doRPCRequest('StopStackGroupOperation', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopStackGroupOperationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1823,11 +3134,28 @@ class ROS extends OpenApiClient
     public function tagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['RegionId']     = $request->regionId;
+        $query['ResourceId']   = $request->resourceId;
+        $query['ResourceType'] = $request->resourceType;
+        $query['Tag']          = $request->tag;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return TagResourcesResponse::fromMap($this->doRPCRequest('TagResources', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1851,11 +3179,29 @@ class ROS extends OpenApiClient
     public function untagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['All']          = $request->all;
+        $query['RegionId']     = $request->regionId;
+        $query['ResourceId']   = $request->resourceId;
+        $query['ResourceType'] = $request->resourceType;
+        $query['TagKey']       = $request->tagKey;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UntagResourcesResponse::fromMap($this->doRPCRequest('UntagResources', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1879,11 +3225,43 @@ class ROS extends OpenApiClient
     public function updateStackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                                = [];
+        $query['ClientToken']                 = $request->clientToken;
+        $query['DisableRollback']             = $request->disableRollback;
+        $query['Parallelism']                 = $request->parallelism;
+        $query['Parameters']                  = $request->parameters;
+        $query['RamRoleName']                 = $request->ramRoleName;
+        $query['RegionId']                    = $request->regionId;
+        $query['ReplacementOption']           = $request->replacementOption;
+        $query['StackId']                     = $request->stackId;
+        $query['StackPolicyBody']             = $request->stackPolicyBody;
+        $query['StackPolicyDuringUpdateBody'] = $request->stackPolicyDuringUpdateBody;
+        $query['StackPolicyDuringUpdateURL']  = $request->stackPolicyDuringUpdateURL;
+        $query['StackPolicyURL']              = $request->stackPolicyURL;
+        $query['Tags']                        = $request->tags;
+        $query['TemplateBody']                = $request->templateBody;
+        $query['TemplateId']                  = $request->templateId;
+        $query['TemplateURL']                 = $request->templateURL;
+        $query['TemplateVersion']             = $request->templateVersion;
+        $query['TimeoutInMinutes']            = $request->timeoutInMinutes;
+        $query['UsePreviousParameters']       = $request->usePreviousParameters;
+        $req                                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateStack',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateStackResponse::fromMap($this->doRPCRequest('UpdateStack', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateStackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1924,11 +3302,42 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->regionIds)) {
             $request->regionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
         }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                           = [];
+        $query['AccountIds']             = $request->accountIdsShrink;
+        $query['AdministrationRoleName'] = $request->administrationRoleName;
+        $query['AutoDeployment']         = $request->autoDeploymentShrink;
+        $query['ClientToken']            = $request->clientToken;
+        $query['DeploymentTargets']      = $request->deploymentTargetsShrink;
+        $query['Description']            = $request->description;
+        $query['ExecutionRoleName']      = $request->executionRoleName;
+        $query['OperationDescription']   = $request->operationDescription;
+        $query['OperationPreferences']   = $request->operationPreferencesShrink;
+        $query['Parameters']             = $request->parameters;
+        $query['PermissionModel']        = $request->permissionModel;
+        $query['RegionId']               = $request->regionId;
+        $query['RegionIds']              = $request->regionIdsShrink;
+        $query['StackGroupName']         = $request->stackGroupName;
+        $query['TemplateBody']           = $request->templateBody;
+        $query['TemplateId']             = $request->templateId;
+        $query['TemplateURL']            = $request->templateURL;
+        $query['TemplateVersion']        = $request->templateVersion;
+        $req                             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateStackGroup',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateStackGroupResponse::fromMap($this->doRPCRequest('UpdateStackGroup', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateStackGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1966,11 +3375,34 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($tmpReq->regionIds)) {
             $request->regionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
         }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AccountIds']           = $request->accountIdsShrink;
+        $query['ClientToken']          = $request->clientToken;
+        $query['DeploymentTargets']    = $request->deploymentTargetsShrink;
+        $query['OperationDescription'] = $request->operationDescription;
+        $query['OperationPreferences'] = $request->operationPreferencesShrink;
+        $query['ParameterOverrides']   = $request->parameterOverrides;
+        $query['RegionId']             = $request->regionId;
+        $query['RegionIds']            = $request->regionIdsShrink;
+        $query['StackGroupName']       = $request->stackGroupName;
+        $query['TimeoutInMinutes']     = $request->timeoutInMinutes;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateStackInstances',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateStackInstancesResponse::fromMap($this->doRPCRequest('UpdateStackInstances', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateStackInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1994,11 +3426,30 @@ class ROS extends OpenApiClient
     public function updateStackTemplateByResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['ClientToken']       = $request->clientToken;
+        $query['DryRun']            = $request->dryRun;
+        $query['LogicalResourceId'] = $request->logicalResourceId;
+        $query['RegionId']          = $request->regionId;
+        $query['StackId']           = $request->stackId;
+        $query['TemplateFormat']    = $request->templateFormat;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateStackTemplateByResources',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateStackTemplateByResourcesResponse::fromMap($this->doRPCRequest('UpdateStackTemplateByResources', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateStackTemplateByResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2022,11 +3473,29 @@ class ROS extends OpenApiClient
     public function updateTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['Description']  = $request->description;
+        $query['TemplateBody'] = $request->templateBody;
+        $query['TemplateId']   = $request->templateId;
+        $query['TemplateName'] = $request->templateName;
+        $query['TemplateURL']  = $request->templateURL;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTemplate',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateTemplateResponse::fromMap($this->doRPCRequest('UpdateTemplate', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2042,6 +3511,71 @@ class ROS extends OpenApiClient
     }
 
     /**
+     * @param UpdateTemplateScratchRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateTemplateScratchResponse
+     */
+    public function updateTemplateScratchWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateTemplateScratchShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->preferenceParameters)) {
+            $request->preferenceParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->preferenceParameters, 'PreferenceParameters', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->sourceResourceGroup)) {
+            $request->sourceResourceGroupShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->sourceResourceGroup), 'SourceResourceGroup', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->sourceResources)) {
+            $request->sourceResourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceResources, 'SourceResources', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->sourceTag)) {
+            $request->sourceTagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->sourceTag), 'SourceTag', 'json');
+        }
+        $query                         = [];
+        $query['ClientToken']          = $request->clientToken;
+        $query['Description']          = $request->description;
+        $query['ExecutionMode']        = $request->executionMode;
+        $query['LogicalIdStrategy']    = $request->logicalIdStrategy;
+        $query['PreferenceParameters'] = $request->preferenceParametersShrink;
+        $query['RegionId']             = $request->regionId;
+        $query['SourceResourceGroup']  = $request->sourceResourceGroupShrink;
+        $query['SourceResources']      = $request->sourceResourcesShrink;
+        $query['SourceTag']            = $request->sourceTagShrink;
+        $query['TemplateScratchId']    = $request->templateScratchId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTemplateScratch',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTemplateScratchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTemplateScratchRequest $request
+     *
+     * @return UpdateTemplateScratchResponse
+     */
+    public function updateTemplateScratch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTemplateScratchWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ValidateTemplateRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2050,11 +3584,29 @@ class ROS extends OpenApiClient
     public function validateTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['ClientToken']      = $request->clientToken;
+        $query['RegionId']         = $request->regionId;
+        $query['TemplateBody']     = $request->templateBody;
+        $query['TemplateURL']      = $request->templateURL;
+        $query['ValidationOption'] = $request->validationOption;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ValidateTemplate',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ValidateTemplateResponse::fromMap($this->doRPCRequest('ValidateTemplate', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ValidateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
