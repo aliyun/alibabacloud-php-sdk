@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDagResponseBody;
+namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDagsResponseBody\data;
 
 use AlibabaCloud\Tea\Model;
 
-class data extends Model
+class dags extends Model
 {
     /**
      * @var int
@@ -141,7 +141,7 @@ class data extends Model
     /**
      * @param array $map
      *
-     * @return data
+     * @return dags
      */
     public static function fromMap($map = [])
     {

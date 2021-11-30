@@ -17,7 +17,7 @@
     "alibabacloud/openplatform-20191219": "^1.0.3",
     "alibabacloud/tea-oss-utils": "^0.2.0",
     "alibabacloud/tea-fileform": "^0.3.0",
-    "alibabacloud/darabonba-openapi": "^0.2.0",
+    "alibabacloud/darabonba-openapi": "^0.2.3",
     "alibabacloud/openapi-util": "^0.1.9",
     "alibabacloud/endpoint-util": "^0.1.0"
   },

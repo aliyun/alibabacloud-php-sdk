@@ -34,6 +34,11 @@ class instances extends Model
     public $createTime;
 
     /**
+     * @var string
+     */
+    public $createUser;
+
+    /**
      * @var int
      */
     public $cycTime;
@@ -93,6 +98,7 @@ class instances extends Model
         'beginWaitTimeTime' => 'BeginWaitTimeTime',
         'bizDate'           => 'BizDate',
         'createTime'        => 'CreateTime',
+        'createUser'        => 'CreateUser',
         'cycTime'           => 'CycTime',
         'dagId'             => 'DagId',
         'dagType'           => 'DagType',
@@ -127,6 +133,9 @@ class instances extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->createUser) {
+            $res['CreateUser'] = $this->createUser;
         }
         if (null !== $this->cycTime) {
             $res['CycTime'] = $this->cycTime;
@@ -187,6 +196,9 @@ class instances extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['CreateUser'])) {
+            $model->createUser = $map['CreateUser'];
         }
         if (isset($map['CycTime'])) {
             $model->cycTime = $map['CycTime'];

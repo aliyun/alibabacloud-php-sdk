@@ -45,6 +45,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDataSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDISyncTaskRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateDISyncTaskResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateExportMigrationRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateExportMigrationResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateFileRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateFileResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateFolderRequest;
@@ -228,6 +230,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaTableThemeLevelRequ
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMetaTableThemeLevelResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMigrationProcessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMigrationProcessResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMigrationSummaryRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetMigrationSummaryResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetNodeChildrenRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetNodeChildrenResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetNodeCodeRequest;
@@ -284,6 +288,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListCalcEnginesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListCalcEnginesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListConnectionsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListConnectionsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDagsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDagsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataServiceApiAuthoritiesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataServiceApiAuthoritiesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDataServiceApisRequest;
@@ -1090,6 +1096,34 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateExportMigrationRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateExportMigrationResponse
+     */
+    public function createExportMigrationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return CreateExportMigrationResponse::fromMap($this->doRPCRequest('CreateExportMigration', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param CreateExportMigrationRequest $request
+     *
+     * @return CreateExportMigrationResponse
+     */
+    public function createExportMigration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createExportMigrationWithOptions($request, $runtime);
     }
 
     /**
@@ -3731,6 +3765,34 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param GetMigrationSummaryRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetMigrationSummaryResponse
+     */
+    public function getMigrationSummaryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return GetMigrationSummaryResponse::fromMap($this->doRPCRequest('GetMigrationSummary', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param GetMigrationSummaryRequest $request
+     *
+     * @return GetMigrationSummaryResponse
+     */
+    public function getMigrationSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMigrationSummaryWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetNodeRequest $request
      * @param RuntimeOptions $runtime
      *
@@ -4572,6 +4634,34 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDISyncTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDagsRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListDagsResponse
+     */
+    public function listDagsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDagsResponse::fromMap($this->doRPCRequest('ListDags', '2020-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDagsRequest $request
+     *
+     * @return ListDagsResponse
+     */
+    public function listDags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDagsWithOptions($request, $runtime);
     }
 
     /**
