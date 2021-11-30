@@ -2,30 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Ga\V20191120\Models\ListAvailableBusiRegionsResponseBody;
+namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class regions extends Model
+class DescribeAcceleratorAutoRenewAttributeRequest extends Model
 {
     /**
      * @var string
      */
-    public $localName;
-
-    /**
-     * @var bool
-     */
-    public $pop;
+    public $acceleratorId;
 
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'localName' => 'LocalName',
-        'pop'       => 'Pop',
-        'regionId'  => 'RegionId',
+        'acceleratorId' => 'AcceleratorId',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -35,11 +29,8 @@ class regions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->localName) {
-            $res['LocalName'] = $this->localName;
-        }
-        if (null !== $this->pop) {
-            $res['Pop'] = $this->pop;
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -51,16 +42,13 @@ class regions extends Model
     /**
      * @param array $map
      *
-     * @return regions
+     * @return DescribeAcceleratorAutoRenewAttributeRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LocalName'])) {
-            $model->localName = $map['LocalName'];
-        }
-        if (isset($map['Pop'])) {
-            $model->pop = $map['Pop'];
+        if (isset($map['AcceleratorId'])) {
+            $model->acceleratorId = $map['AcceleratorId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

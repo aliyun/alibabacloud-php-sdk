@@ -72,6 +72,8 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteListenerRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteListenerResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteSpareIpsRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DeleteSpareIpsResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeAcceleratorAutoRenewAttributeRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeAcceleratorAutoRenewAttributeResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeAcceleratorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeAcceleratorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeBandwidthPackageRequest;
@@ -140,6 +142,8 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\RemoveEntriesFromAclRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\RemoveEntriesFromAclResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ReplaceBandwidthPackageRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ReplaceBandwidthPackageResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAcceleratorAutoRenewAttributeRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAcceleratorAutoRenewAttributeResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAcceleratorConfirmRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAcceleratorConfirmResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAcceleratorRequest;
@@ -737,14 +741,16 @@ class Ga extends OpenApiClient
     public function createBasicAcceleratorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                  = [];
-        $query['AutoPay']       = $request->autoPay;
-        $query['AutoUseCoupon'] = $request->autoUseCoupon;
-        $query['ClientToken']   = $request->clientToken;
-        $query['Duration']      = $request->duration;
-        $query['PricingCycle']  = $request->pricingCycle;
-        $query['RegionId']      = $request->regionId;
-        $req                    = new OpenApiRequest([
+        $query                      = [];
+        $query['AutoPay']           = $request->autoPay;
+        $query['AutoRenew']         = $request->autoRenew;
+        $query['AutoRenewDuration'] = $request->autoRenewDuration;
+        $query['AutoUseCoupon']     = $request->autoUseCoupon;
+        $query['ClientToken']       = $request->clientToken;
+        $query['Duration']          = $request->duration;
+        $query['PricingCycle']      = $request->pricingCycle;
+        $query['RegionId']          = $request->regionId;
+        $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
             'body'  => Utils::toMap($request),
         ]);
@@ -1781,6 +1787,49 @@ class Ga extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAcceleratorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAcceleratorAutoRenewAttributeRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeAcceleratorAutoRenewAttributeResponse
+     */
+    public function describeAcceleratorAutoRenewAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['AcceleratorId'] = $request->acceleratorId;
+        $query['RegionId']      = $request->regionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAcceleratorAutoRenewAttribute',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAcceleratorAutoRenewAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAcceleratorAutoRenewAttributeRequest $request
+     *
+     * @return DescribeAcceleratorAutoRenewAttributeResponse
+     */
+    public function describeAcceleratorAutoRenewAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAcceleratorAutoRenewAttributeWithOptions($request, $runtime);
     }
 
     /**
@@ -3304,6 +3353,54 @@ class Ga extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAcceleratorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateAcceleratorAutoRenewAttributeRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return UpdateAcceleratorAutoRenewAttributeResponse
+     */
+    public function updateAcceleratorAutoRenewAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                      = [];
+        $query['AcceleratorId']     = $request->acceleratorId;
+        $query['AutoRenew']         = $request->autoRenew;
+        $query['AutoRenewDuration'] = $request->autoRenewDuration;
+        $query['ClientToken']       = $request->clientToken;
+        $query['Name']              = $request->name;
+        $query['RegionId']          = $request->regionId;
+        $query['RenewalStatus']     = $request->renewalStatus;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAcceleratorAutoRenewAttribute',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAcceleratorAutoRenewAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAcceleratorAutoRenewAttributeRequest $request
+     *
+     * @return UpdateAcceleratorAutoRenewAttributeResponse
+     */
+    public function updateAcceleratorAutoRenewAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAcceleratorAutoRenewAttributeWithOptions($request, $runtime);
     }
 
     /**

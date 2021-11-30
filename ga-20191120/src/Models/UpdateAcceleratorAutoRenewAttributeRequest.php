@@ -6,72 +6,50 @@ namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateBasicAcceleratorRequest extends Model
+class UpdateAcceleratorAutoRenewAttributeRequest extends Model
 {
     /**
-     * @description 自动续费
-     *
-     * @var bool
+     * @var string
      */
-    public $autoPay;
+    public $acceleratorId;
 
     /**
-     * @description 自动续费
-     *
      * @var bool
      */
     public $autoRenew;
 
     /**
-     * @description 续费周期
-     *
      * @var int
      */
     public $autoRenewDuration;
 
     /**
-     * @description 自动使用优惠券
-     *
-     * @var string
-     */
-    public $autoUseCoupon;
-
-    /**
-     * @description 客户端Token
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 购买时长
-     *
-     * @var int
-     */
-    public $duration;
-
-    /**
-     * @description 时长单位
-     *
      * @var string
      */
-    public $pricingCycle;
+    public $name;
 
     /**
-     * @description RegionId
-     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $renewalStatus;
     protected $_name = [
-        'autoPay'           => 'AutoPay',
+        'acceleratorId'     => 'AcceleratorId',
         'autoRenew'         => 'AutoRenew',
         'autoRenewDuration' => 'AutoRenewDuration',
-        'autoUseCoupon'     => 'AutoUseCoupon',
         'clientToken'       => 'ClientToken',
-        'duration'          => 'Duration',
-        'pricingCycle'      => 'PricingCycle',
+        'name'              => 'Name',
         'regionId'          => 'RegionId',
+        'renewalStatus'     => 'RenewalStatus',
     ];
 
     public function validate()
@@ -81,8 +59,8 @@ class CreateBasicAcceleratorRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->autoPay) {
-            $res['AutoPay'] = $this->autoPay;
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
         }
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
@@ -90,20 +68,17 @@ class CreateBasicAcceleratorRequest extends Model
         if (null !== $this->autoRenewDuration) {
             $res['AutoRenewDuration'] = $this->autoRenewDuration;
         }
-        if (null !== $this->autoUseCoupon) {
-            $res['AutoUseCoupon'] = $this->autoUseCoupon;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
-        }
-        if (null !== $this->pricingCycle) {
-            $res['PricingCycle'] = $this->pricingCycle;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->renewalStatus) {
+            $res['RenewalStatus'] = $this->renewalStatus;
         }
 
         return $res;
@@ -112,13 +87,13 @@ class CreateBasicAcceleratorRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateBasicAcceleratorRequest
+     * @return UpdateAcceleratorAutoRenewAttributeRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AutoPay'])) {
-            $model->autoPay = $map['AutoPay'];
+        if (isset($map['AcceleratorId'])) {
+            $model->acceleratorId = $map['AcceleratorId'];
         }
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
@@ -126,20 +101,17 @@ class CreateBasicAcceleratorRequest extends Model
         if (isset($map['AutoRenewDuration'])) {
             $model->autoRenewDuration = $map['AutoRenewDuration'];
         }
-        if (isset($map['AutoUseCoupon'])) {
-            $model->autoUseCoupon = $map['AutoUseCoupon'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
-        }
-        if (isset($map['PricingCycle'])) {
-            $model->pricingCycle = $map['PricingCycle'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RenewalStatus'])) {
+            $model->renewalStatus = $map['RenewalStatus'];
         }
 
         return $model;
