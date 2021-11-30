@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description 是否删除全部自定义标签，仅当tag_keys为空时生效，取值：[true,false]。
+     *
+     * @var bool
+     */
+    public $all;
+
+    /**
      * @description 资源所属的地域ID
      *
      * @var string
@@ -36,6 +43,7 @@ class UntagResourcesRequest extends Model
      */
     public $tagKeys;
     protected $_name = [
+        'all'          => 'all',
         'regionId'     => 'region_id',
         'resourceIds'  => 'resource_ids',
         'resourceType' => 'resource_type',
@@ -49,6 +57,9 @@ class UntagResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->all) {
+            $res['all'] = $this->all;
+        }
         if (null !== $this->regionId) {
             $res['region_id'] = $this->regionId;
         }
@@ -73,6 +84,9 @@ class UntagResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['all'])) {
+            $model->all = $map['all'];
+        }
         if (isset($map['region_id'])) {
             $model->regionId = $map['region_id'];
         }

@@ -26,6 +26,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\CreateTemplateRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateTemplateResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateTriggerRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateTriggerResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactGroupResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterNodepoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterNodesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterNodesResponse;
@@ -135,14 +137,17 @@ use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleOutClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleOutClusterResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\StartAlertResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\StartWorkflowRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\StartWorkflowResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\StopAlertResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UnInstallClusterAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UnInstallClusterAddonsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\UpdateContactGroupForAlertResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateK8sClusterUserConfigExpireResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateTemplateRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateTemplateResponse;
@@ -385,7 +390,7 @@ class CS extends OpenApiClient
             'action'      => 'CancelComponentUpgrade',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $clusterId . '/components/{componentId}/cancel',
+            'pathname'    => '/clusters/' . $clusterId . '/components/' . $componentId . '/cancel',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1098,6 +1103,80 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @return DeleteAlertContactResponse
+     */
+    public function deleteAlertContact()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAlertContactWithOptions($headers, $runtime);
+    }
+
+    /**
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteAlertContactResponse
+     */
+    public function deleteAlertContactWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAlertContact',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/alert/contacts',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DeleteAlertContactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return DeleteAlertContactGroupResponse
+     */
+    public function deleteAlertContactGroup()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAlertContactGroupWithOptions($headers, $runtime);
+    }
+
+    /**
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteAlertContactGroupResponse
+     */
+    public function deleteAlertContactGroupWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAlertContactGroup',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/alert/contact_groups',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DeleteAlertContactGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string               $ClusterId
      * @param DeleteClusterRequest $request
      *
@@ -1190,7 +1269,7 @@ class CS extends OpenApiClient
             'action'      => 'DeleteClusterNodepool',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/nodepools/{NodepoolId}',
+            'pathname'    => '/clusters/' . $ClusterId . '/nodepools/' . $NodepoolId . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1387,7 +1466,7 @@ class CS extends OpenApiClient
             'action'      => 'DeletePolicyInstance',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $clusterId . '/policies/{policyName}',
+            'pathname'    => '/clusters/' . $clusterId . '/policies/' . $policyName . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1530,7 +1609,7 @@ class CS extends OpenApiClient
             'action'      => 'DeployPolicyInstance',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $clusterId . '/policies/{policyName}',
+            'pathname'    => '/clusters/' . $clusterId . '/policies/' . $policyName . '',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1667,7 +1746,7 @@ class CS extends OpenApiClient
             'action'      => 'DescribeClusterAddonMetadata',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $clusterId . '/components/{componentId}/metadata',
+            'pathname'    => '/clusters/' . $clusterId . '/components/' . $componentId . '/metadata',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1711,7 +1790,7 @@ class CS extends OpenApiClient
             'action'      => 'DescribeClusterAddonUpgradeStatus',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/components/{ComponentId}/upgradestatus',
+            'pathname'    => '/clusters/' . $ClusterId . '/components/' . $ComponentId . '/upgradestatus',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2037,7 +2116,7 @@ class CS extends OpenApiClient
             'action'      => 'DescribeClusterNodePoolDetail',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/nodepools/{NodepoolId}',
+            'pathname'    => '/clusters/' . $ClusterId . '/nodepools/' . $NodepoolId . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3736,7 +3815,7 @@ class CS extends OpenApiClient
             'action'      => 'ModifyClusterAddon',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $clusterId . '/components/{componentId}/config',
+            'pathname'    => '/clusters/' . $clusterId . '/components/' . $componentId . '/config',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3855,7 +3934,7 @@ class CS extends OpenApiClient
             'action'      => 'ModifyClusterNodePool',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/nodepools/{NodepoolId}',
+            'pathname'    => '/clusters/' . $ClusterId . '/nodepools/' . $NodepoolId . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3961,7 +4040,7 @@ class CS extends OpenApiClient
             'action'      => 'ModifyPolicyInstance',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $clusterId . '/policies/{policyName}',
+            'pathname'    => '/clusters/' . $clusterId . '/policies/' . $policyName . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4092,7 +4171,7 @@ class CS extends OpenApiClient
             'action'      => 'PauseComponentUpgrade',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $clusterid . '/components/{componentid}/pause',
+            'pathname'    => '/clusters/' . $clusterid . '/components/' . $componentid . '/pause',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4232,7 +4311,7 @@ class CS extends OpenApiClient
             'action'      => 'ResumeComponentUpgrade',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $clusterid . '/components/{componentid}/resume',
+            'pathname'    => '/clusters/' . $clusterid . '/components/' . $componentid . '/resume',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4428,7 +4507,7 @@ class CS extends OpenApiClient
             'action'      => 'ScaleClusterNodePool',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/' . $ClusterId . '/nodepools/{NodepoolId}',
+            'pathname'    => '/clusters/' . $ClusterId . '/nodepools/' . $NodepoolId . '',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4549,6 +4628,47 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @param string $ClusterId
+     *
+     * @return StartAlertResponse
+     */
+    public function startAlert($ClusterId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startAlertWithOptions($ClusterId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StartAlertResponse
+     */
+    public function startAlertWithOptions($ClusterId, $headers, $runtime)
+    {
+        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
+        $req       = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'StartAlert',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/alert/' . $ClusterId . '/alert_rule/start',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return StartAlertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param StartWorkflowRequest $request
      *
      * @return StartWorkflowResponse
@@ -4649,6 +4769,47 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @param string $ClusterId
+     *
+     * @return StopAlertResponse
+     */
+    public function stopAlert($ClusterId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopAlertWithOptions($ClusterId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopAlertResponse
+     */
+    public function stopAlertWithOptions($ClusterId, $headers, $runtime)
+    {
+        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
+        $req       = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'StopAlert',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/alert/' . $ClusterId . '/alert_rule/stop',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return StopAlertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param TagResourcesRequest $request
      *
      * @return TagResourcesResponse
@@ -4697,7 +4858,7 @@ class CS extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'json',
         ]);
 
         return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4772,6 +4933,9 @@ class CS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->all)) {
+            @$query['all'] = $request->all;
+        }
         if (!Utils::isUnset($request->regionId)) {
             @$query['region_id'] = $request->regionId;
         }
@@ -4797,10 +4961,51 @@ class CS extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'json',
         ]);
 
         return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterId
+     *
+     * @return UpdateContactGroupForAlertResponse
+     */
+    public function updateContactGroupForAlert($ClusterId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateContactGroupForAlertWithOptions($ClusterId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return UpdateContactGroupForAlertResponse
+     */
+    public function updateContactGroupForAlertWithOptions($ClusterId, $headers, $runtime)
+    {
+        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
+        $req       = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateContactGroupForAlert',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/alert/' . $ClusterId . '/alert_rule/contact_groups',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateContactGroupForAlertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
