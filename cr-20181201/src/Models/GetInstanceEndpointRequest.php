@@ -11,20 +11,20 @@ class GetInstanceEndpointRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $endpointType;
 
     /**
      * @var string
      */
-    public $endpointType;
+    public $instanceId;
 
     /**
      * @var string
      */
     public $moduleName;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
         'endpointType' => 'EndpointType',
+        'instanceId'   => 'InstanceId',
         'moduleName'   => 'ModuleName',
     ];
 
@@ -35,11 +35,11 @@ class GetInstanceEndpointRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->endpointType) {
             $res['EndpointType'] = $this->endpointType;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->moduleName) {
             $res['ModuleName'] = $this->moduleName;
@@ -56,11 +56,11 @@ class GetInstanceEndpointRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['EndpointType'])) {
             $model->endpointType = $map['EndpointType'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['ModuleName'])) {
             $model->moduleName = $map['ModuleName'];

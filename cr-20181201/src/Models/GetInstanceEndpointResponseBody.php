@@ -11,9 +11,34 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceEndpointResponseBody extends Model
 {
     /**
+     * @var bool
+     */
+    public $aclEnable;
+
+    /**
+     * @var aclEntries[]
+     */
+    public $aclEntries;
+
+    /**
      * @var string
      */
-    public $status;
+    public $code;
+
+    /**
+     * @var domains[]
+     */
+    public $domains;
+
+    /**
+     * @var bool
+     */
+    public $enable;
+
+    /**
+     * @var bool
+     */
+    public $isSuccess;
 
     /**
      * @var string
@@ -23,41 +48,16 @@ class GetInstanceEndpointResponseBody extends Model
     /**
      * @var string
      */
-    public $code;
-
-    /**
-     * @var bool
-     */
-    public $isSuccess;
-
-    /**
-     * @var bool
-     */
-    public $aclEnable;
-
-    /**
-     * @var bool
-     */
-    public $enable;
-
-    /**
-     * @var domains[]
-     */
-    public $domains;
-
-    /**
-     * @var aclEntries[]
-     */
-    public $aclEntries;
+    public $status;
     protected $_name = [
-        'status'     => 'Status',
-        'requestId'  => 'RequestId',
-        'code'       => 'Code',
-        'isSuccess'  => 'IsSuccess',
         'aclEnable'  => 'AclEnable',
-        'enable'     => 'Enable',
-        'domains'    => 'Domains',
         'aclEntries' => 'AclEntries',
+        'code'       => 'Code',
+        'domains'    => 'Domains',
+        'enable'     => 'Enable',
+        'isSuccess'  => 'IsSuccess',
+        'requestId'  => 'RequestId',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -67,23 +67,20 @@ class GetInstanceEndpointResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->isSuccess) {
-            $res['IsSuccess'] = $this->isSuccess;
-        }
         if (null !== $this->aclEnable) {
             $res['AclEnable'] = $this->aclEnable;
         }
-        if (null !== $this->enable) {
-            $res['Enable'] = $this->enable;
+        if (null !== $this->aclEntries) {
+            $res['AclEntries'] = [];
+            if (null !== $this->aclEntries && \is_array($this->aclEntries)) {
+                $n = 0;
+                foreach ($this->aclEntries as $item) {
+                    $res['AclEntries'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->domains) {
             $res['Domains'] = [];
@@ -94,14 +91,17 @@ class GetInstanceEndpointResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->aclEntries) {
-            $res['AclEntries'] = [];
-            if (null !== $this->aclEntries && \is_array($this->aclEntries)) {
-                $n = 0;
-                foreach ($this->aclEntries as $item) {
-                    $res['AclEntries'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->enable) {
+            $res['Enable'] = $this->enable;
+        }
+        if (null !== $this->isSuccess) {
+            $res['IsSuccess'] = $this->isSuccess;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -115,23 +115,20 @@ class GetInstanceEndpointResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['IsSuccess'])) {
-            $model->isSuccess = $map['IsSuccess'];
-        }
         if (isset($map['AclEnable'])) {
             $model->aclEnable = $map['AclEnable'];
         }
-        if (isset($map['Enable'])) {
-            $model->enable = $map['Enable'];
+        if (isset($map['AclEntries'])) {
+            if (!empty($map['AclEntries'])) {
+                $model->aclEntries = [];
+                $n                 = 0;
+                foreach ($map['AclEntries'] as $item) {
+                    $model->aclEntries[$n++] = null !== $item ? aclEntries::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['Domains'])) {
             if (!empty($map['Domains'])) {
@@ -142,14 +139,17 @@ class GetInstanceEndpointResponseBody extends Model
                 }
             }
         }
-        if (isset($map['AclEntries'])) {
-            if (!empty($map['AclEntries'])) {
-                $model->aclEntries = [];
-                $n                 = 0;
-                foreach ($map['AclEntries'] as $item) {
-                    $model->aclEntries[$n++] = null !== $item ? aclEntries::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['Enable'])) {
+            $model->enable = $map['Enable'];
+        }
+        if (isset($map['IsSuccess'])) {
+            $model->isSuccess = $map['IsSuccess'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

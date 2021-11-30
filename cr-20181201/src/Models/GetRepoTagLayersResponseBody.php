@@ -20,19 +20,19 @@ class GetRepoTagLayersResponseBody extends Model
     public $isSuccess;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var layers[]
      */
     public $layers;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'code'      => 'Code',
         'isSuccess' => 'IsSuccess',
-        'requestId' => 'RequestId',
         'layers'    => 'Layers',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -48,9 +48,6 @@ class GetRepoTagLayersResponseBody extends Model
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->layers) {
             $res['Layers'] = [];
             if (null !== $this->layers && \is_array($this->layers)) {
@@ -59,6 +56,9 @@ class GetRepoTagLayersResponseBody extends Model
                     $res['Layers'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -78,9 +78,6 @@ class GetRepoTagLayersResponseBody extends Model
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Layers'])) {
             if (!empty($map['Layers'])) {
                 $model->layers = [];
@@ -89,6 +86,9 @@ class GetRepoTagLayersResponseBody extends Model
                     $model->layers[$n++] = null !== $item ? layers::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

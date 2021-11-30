@@ -16,27 +16,12 @@ class manifest extends Model
     /**
      * @var string
      */
-    public $tag;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $mediaType;
-
-    /**
-     * @var int
-     */
-    public $schemaVersion;
-
-    /**
-     * @var string
-     */
     public $architecture;
+
+    /**
+     * @var config
+     */
+    public $config;
 
     /**
      * @var fsLayers[]
@@ -49,30 +34,45 @@ class manifest extends Model
     public $history;
 
     /**
-     * @var signatures[]
-     */
-    public $signatures;
-
-    /**
      * @var layers[]
      */
     public $layers;
 
     /**
-     * @var config
+     * @var string
      */
-    public $config;
+    public $mediaType;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var int
+     */
+    public $schemaVersion;
+
+    /**
+     * @var signatures[]
+     */
+    public $signatures;
+
+    /**
+     * @var string
+     */
+    public $tag;
     protected $_name = [
-        'tag'           => 'Tag',
-        'name'          => 'Name',
-        'mediaType'     => 'MediaType',
-        'schemaVersion' => 'SchemaVersion',
         'architecture'  => 'Architecture',
+        'config'        => 'Config',
         'fsLayers'      => 'FsLayers',
         'history'       => 'History',
-        'signatures'    => 'Signatures',
         'layers'        => 'Layers',
-        'config'        => 'Config',
+        'mediaType'     => 'MediaType',
+        'name'          => 'Name',
+        'schemaVersion' => 'SchemaVersion',
+        'signatures'    => 'Signatures',
+        'tag'           => 'Tag',
     ];
 
     public function validate()
@@ -82,20 +82,11 @@ class manifest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tag) {
-            $res['Tag'] = $this->tag;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->mediaType) {
-            $res['MediaType'] = $this->mediaType;
-        }
-        if (null !== $this->schemaVersion) {
-            $res['SchemaVersion'] = $this->schemaVersion;
-        }
         if (null !== $this->architecture) {
             $res['Architecture'] = $this->architecture;
+        }
+        if (null !== $this->config) {
+            $res['Config'] = null !== $this->config ? $this->config->toMap() : null;
         }
         if (null !== $this->fsLayers) {
             $res['FsLayers'] = [];
@@ -115,15 +106,6 @@ class manifest extends Model
                 }
             }
         }
-        if (null !== $this->signatures) {
-            $res['Signatures'] = [];
-            if (null !== $this->signatures && \is_array($this->signatures)) {
-                $n = 0;
-                foreach ($this->signatures as $item) {
-                    $res['Signatures'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->layers) {
             $res['Layers'] = [];
             if (null !== $this->layers && \is_array($this->layers)) {
@@ -133,8 +115,26 @@ class manifest extends Model
                 }
             }
         }
-        if (null !== $this->config) {
-            $res['Config'] = null !== $this->config ? $this->config->toMap() : null;
+        if (null !== $this->mediaType) {
+            $res['MediaType'] = $this->mediaType;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->schemaVersion) {
+            $res['SchemaVersion'] = $this->schemaVersion;
+        }
+        if (null !== $this->signatures) {
+            $res['Signatures'] = [];
+            if (null !== $this->signatures && \is_array($this->signatures)) {
+                $n = 0;
+                foreach ($this->signatures as $item) {
+                    $res['Signatures'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
         }
 
         return $res;
@@ -148,20 +148,11 @@ class manifest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Tag'])) {
-            $model->tag = $map['Tag'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['MediaType'])) {
-            $model->mediaType = $map['MediaType'];
-        }
-        if (isset($map['SchemaVersion'])) {
-            $model->schemaVersion = $map['SchemaVersion'];
-        }
         if (isset($map['Architecture'])) {
             $model->architecture = $map['Architecture'];
+        }
+        if (isset($map['Config'])) {
+            $model->config = config::fromMap($map['Config']);
         }
         if (isset($map['FsLayers'])) {
             if (!empty($map['FsLayers'])) {
@@ -181,15 +172,6 @@ class manifest extends Model
                 }
             }
         }
-        if (isset($map['Signatures'])) {
-            if (!empty($map['Signatures'])) {
-                $model->signatures = [];
-                $n                 = 0;
-                foreach ($map['Signatures'] as $item) {
-                    $model->signatures[$n++] = null !== $item ? signatures::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['Layers'])) {
             if (!empty($map['Layers'])) {
                 $model->layers = [];
@@ -199,8 +181,26 @@ class manifest extends Model
                 }
             }
         }
-        if (isset($map['Config'])) {
-            $model->config = config::fromMap($map['Config']);
+        if (isset($map['MediaType'])) {
+            $model->mediaType = $map['MediaType'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['SchemaVersion'])) {
+            $model->schemaVersion = $map['SchemaVersion'];
+        }
+        if (isset($map['Signatures'])) {
+            if (!empty($map['Signatures'])) {
+                $model->signatures = [];
+                $n                 = 0;
+                foreach ($map['Signatures'] as $item) {
+                    $model->signatures[$n++] = null !== $item ? signatures::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
         }
 
         return $model;

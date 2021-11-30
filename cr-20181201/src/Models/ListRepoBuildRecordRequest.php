@@ -14,11 +14,6 @@ class ListRepoBuildRecordRequest extends Model
     public $instanceId;
 
     /**
-     * @var string
-     */
-    public $repoId;
-
-    /**
      * @var int
      */
     public $pageNo;
@@ -27,11 +22,16 @@ class ListRepoBuildRecordRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $repoId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'repoId'     => 'RepoId',
         'pageNo'     => 'PageNo',
         'pageSize'   => 'PageSize',
+        'repoId'     => 'RepoId',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class ListRepoBuildRecordRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->repoId) {
-            $res['RepoId'] = $this->repoId;
-        }
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->repoId) {
+            $res['RepoId'] = $this->repoId;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class ListRepoBuildRecordRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['RepoId'])) {
-            $model->repoId = $map['RepoId'];
-        }
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RepoId'])) {
+            $model->repoId = $map['RepoId'];
         }
 
         return $model;

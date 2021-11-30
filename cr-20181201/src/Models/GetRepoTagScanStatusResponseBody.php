@@ -11,11 +11,6 @@ class GetRepoTagScanStatusResponseBody extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
     public $code;
 
     /**
@@ -32,12 +27,17 @@ class GetRepoTagScanStatusResponseBody extends Model
      * @var string
      */
     public $scanService;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'      => 'Status',
         'code'        => 'Code',
         'isSuccess'   => 'IsSuccess',
         'requestId'   => 'RequestId',
         'scanService' => 'ScanService',
+        'status'      => 'Status',
     ];
 
     public function validate()
@@ -47,9 +47,6 @@ class GetRepoTagScanStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -61,6 +58,9 @@ class GetRepoTagScanStatusResponseBody extends Model
         }
         if (null !== $this->scanService) {
             $res['ScanService'] = $this->scanService;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -74,9 +74,6 @@ class GetRepoTagScanStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -88,6 +85,9 @@ class GetRepoTagScanStatusResponseBody extends Model
         }
         if (isset($map['ScanService'])) {
             $model->scanService = $map['ScanService'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

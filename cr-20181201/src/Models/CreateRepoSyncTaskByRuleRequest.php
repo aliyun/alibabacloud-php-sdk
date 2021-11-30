@@ -21,17 +21,17 @@ class CreateRepoSyncTaskByRuleRequest extends Model
     /**
      * @var string
      */
-    public $tag;
+    public $syncRuleId;
 
     /**
      * @var string
      */
-    public $syncRuleId;
+    public $tag;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'repoId'     => 'RepoId',
-        'tag'        => 'Tag',
         'syncRuleId' => 'SyncRuleId',
+        'tag'        => 'Tag',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class CreateRepoSyncTaskByRuleRequest extends Model
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
         }
-        if (null !== $this->tag) {
-            $res['Tag'] = $this->tag;
-        }
         if (null !== $this->syncRuleId) {
             $res['SyncRuleId'] = $this->syncRuleId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class CreateRepoSyncTaskByRuleRequest extends Model
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];
         }
-        if (isset($map['Tag'])) {
-            $model->tag = $map['Tag'];
-        }
         if (isset($map['SyncRuleId'])) {
             $model->syncRuleId = $map['SyncRuleId'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
         }
 
         return $model;

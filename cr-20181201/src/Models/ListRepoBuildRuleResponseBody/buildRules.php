@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class buildRules extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $dockerfileLocation;
+    public $buildArgs;
 
     /**
      * @var string
@@ -21,7 +21,22 @@ class buildRules extends Model
     /**
      * @var string
      */
-    public $pushType;
+    public $dockerfileLocation;
+
+    /**
+     * @var string
+     */
+    public $dockerfileName;
+
+    /**
+     * @var string
+     */
+    public $imageTag;
+
+    /**
+     * @var string[]
+     */
+    public $platforms;
 
     /**
      * @var string
@@ -31,31 +46,16 @@ class buildRules extends Model
     /**
      * @var string
      */
-    public $imageTag;
-
-    /**
-     * @var string
-     */
-    public $dockerfileName;
-
-    /**
-     * @var string[]
-     */
-    public $platforms;
-
-    /**
-     * @var string[]
-     */
-    public $buildArgs;
+    public $pushType;
     protected $_name = [
-        'dockerfileLocation' => 'DockerfileLocation',
-        'buildRuleId'        => 'BuildRuleId',
-        'pushType'           => 'PushType',
-        'pushName'           => 'PushName',
-        'imageTag'           => 'ImageTag',
-        'dockerfileName'     => 'DockerfileName',
-        'platforms'          => 'Platforms',
         'buildArgs'          => 'BuildArgs',
+        'buildRuleId'        => 'BuildRuleId',
+        'dockerfileLocation' => 'DockerfileLocation',
+        'dockerfileName'     => 'DockerfileName',
+        'imageTag'           => 'ImageTag',
+        'platforms'          => 'Platforms',
+        'pushName'           => 'PushName',
+        'pushType'           => 'PushType',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class buildRules extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dockerfileLocation) {
-            $res['DockerfileLocation'] = $this->dockerfileLocation;
+        if (null !== $this->buildArgs) {
+            $res['BuildArgs'] = $this->buildArgs;
         }
         if (null !== $this->buildRuleId) {
             $res['BuildRuleId'] = $this->buildRuleId;
         }
-        if (null !== $this->pushType) {
-            $res['PushType'] = $this->pushType;
-        }
-        if (null !== $this->pushName) {
-            $res['PushName'] = $this->pushName;
-        }
-        if (null !== $this->imageTag) {
-            $res['ImageTag'] = $this->imageTag;
+        if (null !== $this->dockerfileLocation) {
+            $res['DockerfileLocation'] = $this->dockerfileLocation;
         }
         if (null !== $this->dockerfileName) {
             $res['DockerfileName'] = $this->dockerfileName;
         }
+        if (null !== $this->imageTag) {
+            $res['ImageTag'] = $this->imageTag;
+        }
         if (null !== $this->platforms) {
             $res['Platforms'] = $this->platforms;
         }
-        if (null !== $this->buildArgs) {
-            $res['BuildArgs'] = $this->buildArgs;
+        if (null !== $this->pushName) {
+            $res['PushName'] = $this->pushName;
+        }
+        if (null !== $this->pushType) {
+            $res['PushType'] = $this->pushType;
         }
 
         return $res;
@@ -101,33 +101,33 @@ class buildRules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DockerfileLocation'])) {
-            $model->dockerfileLocation = $map['DockerfileLocation'];
+        if (isset($map['BuildArgs'])) {
+            if (!empty($map['BuildArgs'])) {
+                $model->buildArgs = $map['BuildArgs'];
+            }
         }
         if (isset($map['BuildRuleId'])) {
             $model->buildRuleId = $map['BuildRuleId'];
         }
-        if (isset($map['PushType'])) {
-            $model->pushType = $map['PushType'];
-        }
-        if (isset($map['PushName'])) {
-            $model->pushName = $map['PushName'];
-        }
-        if (isset($map['ImageTag'])) {
-            $model->imageTag = $map['ImageTag'];
+        if (isset($map['DockerfileLocation'])) {
+            $model->dockerfileLocation = $map['DockerfileLocation'];
         }
         if (isset($map['DockerfileName'])) {
             $model->dockerfileName = $map['DockerfileName'];
+        }
+        if (isset($map['ImageTag'])) {
+            $model->imageTag = $map['ImageTag'];
         }
         if (isset($map['Platforms'])) {
             if (!empty($map['Platforms'])) {
                 $model->platforms = $map['Platforms'];
             }
         }
-        if (isset($map['BuildArgs'])) {
-            if (!empty($map['BuildArgs'])) {
-                $model->buildArgs = $map['BuildArgs'];
-            }
+        if (isset($map['PushName'])) {
+            $model->pushName = $map['PushName'];
+        }
+        if (isset($map['PushType'])) {
+            $model->pushType = $map['PushType'];
         }
 
         return $model;

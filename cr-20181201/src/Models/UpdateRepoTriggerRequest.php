@@ -21,17 +21,12 @@ class UpdateRepoTriggerRequest extends Model
     /**
      * @var string
      */
+    public $triggerId;
+
+    /**
+     * @var string
+     */
     public $triggerName;
-
-    /**
-     * @var string
-     */
-    public $triggerUrl;
-
-    /**
-     * @var string
-     */
-    public $triggerType;
 
     /**
      * @var string
@@ -41,15 +36,20 @@ class UpdateRepoTriggerRequest extends Model
     /**
      * @var string
      */
-    public $triggerId;
+    public $triggerType;
+
+    /**
+     * @var string
+     */
+    public $triggerUrl;
     protected $_name = [
         'instanceId'  => 'InstanceId',
         'repoId'      => 'RepoId',
-        'triggerName' => 'TriggerName',
-        'triggerUrl'  => 'TriggerUrl',
-        'triggerType' => 'TriggerType',
-        'triggerTag'  => 'TriggerTag',
         'triggerId'   => 'TriggerId',
+        'triggerName' => 'TriggerName',
+        'triggerTag'  => 'TriggerTag',
+        'triggerType' => 'TriggerType',
+        'triggerUrl'  => 'TriggerUrl',
     ];
 
     public function validate()
@@ -65,20 +65,20 @@ class UpdateRepoTriggerRequest extends Model
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
         }
+        if (null !== $this->triggerId) {
+            $res['TriggerId'] = $this->triggerId;
+        }
         if (null !== $this->triggerName) {
             $res['TriggerName'] = $this->triggerName;
-        }
-        if (null !== $this->triggerUrl) {
-            $res['TriggerUrl'] = $this->triggerUrl;
-        }
-        if (null !== $this->triggerType) {
-            $res['TriggerType'] = $this->triggerType;
         }
         if (null !== $this->triggerTag) {
             $res['TriggerTag'] = $this->triggerTag;
         }
-        if (null !== $this->triggerId) {
-            $res['TriggerId'] = $this->triggerId;
+        if (null !== $this->triggerType) {
+            $res['TriggerType'] = $this->triggerType;
+        }
+        if (null !== $this->triggerUrl) {
+            $res['TriggerUrl'] = $this->triggerUrl;
         }
 
         return $res;
@@ -98,20 +98,20 @@ class UpdateRepoTriggerRequest extends Model
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];
         }
+        if (isset($map['TriggerId'])) {
+            $model->triggerId = $map['TriggerId'];
+        }
         if (isset($map['TriggerName'])) {
             $model->triggerName = $map['TriggerName'];
-        }
-        if (isset($map['TriggerUrl'])) {
-            $model->triggerUrl = $map['TriggerUrl'];
-        }
-        if (isset($map['TriggerType'])) {
-            $model->triggerType = $map['TriggerType'];
         }
         if (isset($map['TriggerTag'])) {
             $model->triggerTag = $map['TriggerTag'];
         }
-        if (isset($map['TriggerId'])) {
-            $model->triggerId = $map['TriggerId'];
+        if (isset($map['TriggerType'])) {
+            $model->triggerType = $map['TriggerType'];
+        }
+        if (isset($map['TriggerUrl'])) {
+            $model->triggerUrl = $map['TriggerUrl'];
         }
 
         return $model;

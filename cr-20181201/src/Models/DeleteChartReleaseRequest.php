@@ -11,12 +11,12 @@ class DeleteChartReleaseRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $chart;
 
     /**
      * @var string
      */
-    public $chart;
+    public $instanceId;
 
     /**
      * @var string
@@ -33,8 +33,8 @@ class DeleteChartReleaseRequest extends Model
      */
     public $repoNamespaceName;
     protected $_name = [
-        'instanceId'        => 'InstanceId',
         'chart'             => 'Chart',
+        'instanceId'        => 'InstanceId',
         'release'           => 'Release',
         'repoName'          => 'RepoName',
         'repoNamespaceName' => 'RepoNamespaceName',
@@ -47,11 +47,11 @@ class DeleteChartReleaseRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->chart) {
             $res['Chart'] = $this->chart;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->release) {
             $res['Release'] = $this->release;
@@ -74,11 +74,11 @@ class DeleteChartReleaseRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['Chart'])) {
             $model->chart = $map['Chart'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Release'])) {
             $model->release = $map['Release'];

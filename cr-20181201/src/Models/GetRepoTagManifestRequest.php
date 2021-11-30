@@ -16,7 +16,7 @@ class GetRepoTagManifestRequest extends Model
     /**
      * @var string
      */
-    public $tag;
+    public $repoId;
 
     /**
      * @var int
@@ -26,12 +26,12 @@ class GetRepoTagManifestRequest extends Model
     /**
      * @var string
      */
-    public $repoId;
+    public $tag;
     protected $_name = [
         'instanceId'    => 'InstanceId',
-        'tag'           => 'Tag',
-        'schemaVersion' => 'SchemaVersion',
         'repoId'        => 'RepoId',
+        'schemaVersion' => 'SchemaVersion',
+        'tag'           => 'Tag',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class GetRepoTagManifestRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->tag) {
-            $res['Tag'] = $this->tag;
+        if (null !== $this->repoId) {
+            $res['RepoId'] = $this->repoId;
         }
         if (null !== $this->schemaVersion) {
             $res['SchemaVersion'] = $this->schemaVersion;
         }
-        if (null !== $this->repoId) {
-            $res['RepoId'] = $this->repoId;
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class GetRepoTagManifestRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['Tag'])) {
-            $model->tag = $map['Tag'];
+        if (isset($map['RepoId'])) {
+            $model->repoId = $map['RepoId'];
         }
         if (isset($map['SchemaVersion'])) {
             $model->schemaVersion = $map['SchemaVersion'];
         }
-        if (isset($map['RepoId'])) {
-            $model->repoId = $map['RepoId'];
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
         }
 
         return $model;

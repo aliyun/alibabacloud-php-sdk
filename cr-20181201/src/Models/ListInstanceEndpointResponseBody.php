@@ -15,6 +15,11 @@ class ListInstanceEndpointResponseBody extends Model
     public $code;
 
     /**
+     * @var endpoints[]
+     */
+    public $endpoints;
+
+    /**
      * @var bool
      */
     public $isSuccess;
@@ -23,16 +28,11 @@ class ListInstanceEndpointResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var endpoints[]
-     */
-    public $endpoints;
     protected $_name = [
         'code'      => 'Code',
+        'endpoints' => 'Endpoints',
         'isSuccess' => 'IsSuccess',
         'requestId' => 'RequestId',
-        'endpoints' => 'Endpoints',
     ];
 
     public function validate()
@@ -45,12 +45,6 @@ class ListInstanceEndpointResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->isSuccess) {
-            $res['IsSuccess'] = $this->isSuccess;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->endpoints) {
             $res['Endpoints'] = [];
             if (null !== $this->endpoints && \is_array($this->endpoints)) {
@@ -59,6 +53,12 @@ class ListInstanceEndpointResponseBody extends Model
                     $res['Endpoints'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->isSuccess) {
+            $res['IsSuccess'] = $this->isSuccess;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -75,12 +75,6 @@ class ListInstanceEndpointResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['IsSuccess'])) {
-            $model->isSuccess = $map['IsSuccess'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Endpoints'])) {
             if (!empty($map['Endpoints'])) {
                 $model->endpoints = [];
@@ -89,6 +83,12 @@ class ListInstanceEndpointResponseBody extends Model
                     $model->endpoints[$n++] = null !== $item ? endpoints::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['IsSuccess'])) {
+            $model->isSuccess = $map['IsSuccess'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -13,7 +13,32 @@ class syncTasks extends Model
     /**
      * @var int
      */
+    public $createTime;
+
+    /**
+     * @var bool
+     */
+    public $crossUser;
+
+    /**
+     * @var imageFrom
+     */
+    public $imageFrom;
+
+    /**
+     * @var imageTo
+     */
+    public $imageTo;
+
+    /**
+     * @var int
+     */
     public $modifedTime;
+
+    /**
+     * @var string
+     */
+    public $syncBatchTaskId;
 
     /**
      * @var string
@@ -31,39 +56,20 @@ class syncTasks extends Model
     public $taskStatus;
 
     /**
-     * @var int
-     */
-    public $createTime;
-
-    /**
-     * @var string
-     */
-    public $syncBatchTaskId;
-
-    /**
      * @var string
      */
     public $taskTrigger;
-
-    /**
-     * @var imageFrom
-     */
-    public $imageFrom;
-
-    /**
-     * @var imageTo
-     */
-    public $imageTo;
     protected $_name = [
+        'createTime'      => 'CreateTime',
+        'crossUser'       => 'CrossUser',
+        'imageFrom'       => 'ImageFrom',
+        'imageTo'         => 'ImageTo',
         'modifedTime'     => 'ModifedTime',
+        'syncBatchTaskId' => 'SyncBatchTaskId',
         'syncRuleId'      => 'SyncRuleId',
         'syncTaskId'      => 'SyncTaskId',
         'taskStatus'      => 'TaskStatus',
-        'createTime'      => 'CreateTime',
-        'syncBatchTaskId' => 'SyncBatchTaskId',
         'taskTrigger'     => 'TaskTrigger',
-        'imageFrom'       => 'ImageFrom',
-        'imageTo'         => 'ImageTo',
     ];
 
     public function validate()
@@ -73,8 +79,23 @@ class syncTasks extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->crossUser) {
+            $res['CrossUser'] = $this->crossUser;
+        }
+        if (null !== $this->imageFrom) {
+            $res['ImageFrom'] = null !== $this->imageFrom ? $this->imageFrom->toMap() : null;
+        }
+        if (null !== $this->imageTo) {
+            $res['ImageTo'] = null !== $this->imageTo ? $this->imageTo->toMap() : null;
+        }
         if (null !== $this->modifedTime) {
             $res['ModifedTime'] = $this->modifedTime;
+        }
+        if (null !== $this->syncBatchTaskId) {
+            $res['SyncBatchTaskId'] = $this->syncBatchTaskId;
         }
         if (null !== $this->syncRuleId) {
             $res['SyncRuleId'] = $this->syncRuleId;
@@ -85,20 +106,8 @@ class syncTasks extends Model
         if (null !== $this->taskStatus) {
             $res['TaskStatus'] = $this->taskStatus;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->syncBatchTaskId) {
-            $res['SyncBatchTaskId'] = $this->syncBatchTaskId;
-        }
         if (null !== $this->taskTrigger) {
             $res['TaskTrigger'] = $this->taskTrigger;
-        }
-        if (null !== $this->imageFrom) {
-            $res['ImageFrom'] = null !== $this->imageFrom ? $this->imageFrom->toMap() : null;
-        }
-        if (null !== $this->imageTo) {
-            $res['ImageTo'] = null !== $this->imageTo ? $this->imageTo->toMap() : null;
         }
 
         return $res;
@@ -112,8 +121,23 @@ class syncTasks extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['CrossUser'])) {
+            $model->crossUser = $map['CrossUser'];
+        }
+        if (isset($map['ImageFrom'])) {
+            $model->imageFrom = imageFrom::fromMap($map['ImageFrom']);
+        }
+        if (isset($map['ImageTo'])) {
+            $model->imageTo = imageTo::fromMap($map['ImageTo']);
+        }
         if (isset($map['ModifedTime'])) {
             $model->modifedTime = $map['ModifedTime'];
+        }
+        if (isset($map['SyncBatchTaskId'])) {
+            $model->syncBatchTaskId = $map['SyncBatchTaskId'];
         }
         if (isset($map['SyncRuleId'])) {
             $model->syncRuleId = $map['SyncRuleId'];
@@ -124,20 +148,8 @@ class syncTasks extends Model
         if (isset($map['TaskStatus'])) {
             $model->taskStatus = $map['TaskStatus'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['SyncBatchTaskId'])) {
-            $model->syncBatchTaskId = $map['SyncBatchTaskId'];
-        }
         if (isset($map['TaskTrigger'])) {
             $model->taskTrigger = $map['TaskTrigger'];
-        }
-        if (isset($map['ImageFrom'])) {
-            $model->imageFrom = imageFrom::fromMap($map['ImageFrom']);
-        }
-        if (isset($map['ImageTo'])) {
-            $model->imageTo = imageTo::fromMap($map['ImageTo']);
         }
 
         return $model;

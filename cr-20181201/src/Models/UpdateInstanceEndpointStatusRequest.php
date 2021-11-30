@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceEndpointStatusRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $endpointType;
-
-    /**
      * @var bool
      */
     public $enable;
@@ -26,11 +16,21 @@ class UpdateInstanceEndpointStatusRequest extends Model
     /**
      * @var string
      */
+    public $endpointType;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $moduleName;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'endpointType' => 'EndpointType',
         'enable'       => 'Enable',
+        'endpointType' => 'EndpointType',
+        'instanceId'   => 'InstanceId',
         'moduleName'   => 'ModuleName',
     ];
 
@@ -41,14 +41,14 @@ class UpdateInstanceEndpointStatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->enable) {
+            $res['Enable'] = $this->enable;
         }
         if (null !== $this->endpointType) {
             $res['EndpointType'] = $this->endpointType;
         }
-        if (null !== $this->enable) {
-            $res['Enable'] = $this->enable;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->moduleName) {
             $res['ModuleName'] = $this->moduleName;
@@ -65,14 +65,14 @@ class UpdateInstanceEndpointStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['Enable'])) {
+            $model->enable = $map['Enable'];
         }
         if (isset($map['EndpointType'])) {
             $model->endpointType = $map['EndpointType'];
         }
-        if (isset($map['Enable'])) {
-            $model->enable = $map['Enable'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['ModuleName'])) {
             $model->moduleName = $map['ModuleName'];

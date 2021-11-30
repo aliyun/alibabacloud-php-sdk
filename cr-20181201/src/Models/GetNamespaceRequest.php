@@ -16,16 +16,16 @@ class GetNamespaceRequest extends Model
     /**
      * @var string
      */
-    public $namespaceName;
+    public $namespaceId;
 
     /**
      * @var string
      */
-    public $namespaceId;
+    public $namespaceName;
     protected $_name = [
         'instanceId'    => 'InstanceId',
-        'namespaceName' => 'NamespaceName',
         'namespaceId'   => 'NamespaceId',
+        'namespaceName' => 'NamespaceName',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class GetNamespaceRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->namespaceName) {
-            $res['NamespaceName'] = $this->namespaceName;
-        }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
+        }
+        if (null !== $this->namespaceName) {
+            $res['NamespaceName'] = $this->namespaceName;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class GetNamespaceRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['NamespaceName'])) {
-            $model->namespaceName = $map['NamespaceName'];
-        }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
+        }
+        if (isset($map['NamespaceName'])) {
+            $model->namespaceName = $map['NamespaceName'];
         }
 
         return $model;

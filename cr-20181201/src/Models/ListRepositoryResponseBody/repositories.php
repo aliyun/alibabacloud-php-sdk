@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class repositories extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $summary;
+    public $createTime;
 
     /**
      * @var string
      */
-    public $repoBuildType;
+    public $instanceId;
 
     /**
      * @var int
@@ -26,32 +26,22 @@ class repositories extends Model
     /**
      * @var string
      */
+    public $repoBuildType;
+
+    /**
+     * @var string
+     */
     public $repoId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $createTime;
+    public $repoName;
 
     /**
      * @var string
      */
     public $repoNamespaceName;
-
-    /**
-     * @var bool
-     */
-    public $tagImmutability;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $repoType;
 
     /**
      * @var string
@@ -61,19 +51,29 @@ class repositories extends Model
     /**
      * @var string
      */
-    public $repoName;
+    public $repoType;
+
+    /**
+     * @var string
+     */
+    public $summary;
+
+    /**
+     * @var bool
+     */
+    public $tagImmutability;
     protected $_name = [
-        'summary'           => 'Summary',
-        'repoBuildType'     => 'RepoBuildType',
-        'modifiedTime'      => 'ModifiedTime',
-        'repoId'            => 'RepoId',
         'createTime'        => 'CreateTime',
-        'repoNamespaceName' => 'RepoNamespaceName',
-        'tagImmutability'   => 'TagImmutability',
         'instanceId'        => 'InstanceId',
-        'repoType'          => 'RepoType',
-        'repoStatus'        => 'RepoStatus',
+        'modifiedTime'      => 'ModifiedTime',
+        'repoBuildType'     => 'RepoBuildType',
+        'repoId'            => 'RepoId',
         'repoName'          => 'RepoName',
+        'repoNamespaceName' => 'RepoNamespaceName',
+        'repoStatus'        => 'RepoStatus',
+        'repoType'          => 'RepoType',
+        'summary'           => 'Summary',
+        'tagImmutability'   => 'TagImmutability',
     ];
 
     public function validate()
@@ -83,38 +83,38 @@ class repositories extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->summary) {
-            $res['Summary'] = $this->summary;
-        }
-        if (null !== $this->repoBuildType) {
-            $res['RepoBuildType'] = $this->repoBuildType;
-        }
-        if (null !== $this->modifiedTime) {
-            $res['ModifiedTime'] = $this->modifiedTime;
-        }
-        if (null !== $this->repoId) {
-            $res['RepoId'] = $this->repoId;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->repoNamespaceName) {
-            $res['RepoNamespaceName'] = $this->repoNamespaceName;
-        }
-        if (null !== $this->tagImmutability) {
-            $res['TagImmutability'] = $this->tagImmutability;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->repoType) {
-            $res['RepoType'] = $this->repoType;
+        if (null !== $this->modifiedTime) {
+            $res['ModifiedTime'] = $this->modifiedTime;
+        }
+        if (null !== $this->repoBuildType) {
+            $res['RepoBuildType'] = $this->repoBuildType;
+        }
+        if (null !== $this->repoId) {
+            $res['RepoId'] = $this->repoId;
+        }
+        if (null !== $this->repoName) {
+            $res['RepoName'] = $this->repoName;
+        }
+        if (null !== $this->repoNamespaceName) {
+            $res['RepoNamespaceName'] = $this->repoNamespaceName;
         }
         if (null !== $this->repoStatus) {
             $res['RepoStatus'] = $this->repoStatus;
         }
-        if (null !== $this->repoName) {
-            $res['RepoName'] = $this->repoName;
+        if (null !== $this->repoType) {
+            $res['RepoType'] = $this->repoType;
+        }
+        if (null !== $this->summary) {
+            $res['Summary'] = $this->summary;
+        }
+        if (null !== $this->tagImmutability) {
+            $res['TagImmutability'] = $this->tagImmutability;
         }
 
         return $res;
@@ -128,38 +128,38 @@ class repositories extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Summary'])) {
-            $model->summary = $map['Summary'];
-        }
-        if (isset($map['RepoBuildType'])) {
-            $model->repoBuildType = $map['RepoBuildType'];
-        }
-        if (isset($map['ModifiedTime'])) {
-            $model->modifiedTime = $map['ModifiedTime'];
-        }
-        if (isset($map['RepoId'])) {
-            $model->repoId = $map['RepoId'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['RepoNamespaceName'])) {
-            $model->repoNamespaceName = $map['RepoNamespaceName'];
-        }
-        if (isset($map['TagImmutability'])) {
-            $model->tagImmutability = $map['TagImmutability'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['RepoType'])) {
-            $model->repoType = $map['RepoType'];
+        if (isset($map['ModifiedTime'])) {
+            $model->modifiedTime = $map['ModifiedTime'];
+        }
+        if (isset($map['RepoBuildType'])) {
+            $model->repoBuildType = $map['RepoBuildType'];
+        }
+        if (isset($map['RepoId'])) {
+            $model->repoId = $map['RepoId'];
+        }
+        if (isset($map['RepoName'])) {
+            $model->repoName = $map['RepoName'];
+        }
+        if (isset($map['RepoNamespaceName'])) {
+            $model->repoNamespaceName = $map['RepoNamespaceName'];
         }
         if (isset($map['RepoStatus'])) {
             $model->repoStatus = $map['RepoStatus'];
         }
-        if (isset($map['RepoName'])) {
-            $model->repoName = $map['RepoName'];
+        if (isset($map['RepoType'])) {
+            $model->repoType = $map['RepoType'];
+        }
+        if (isset($map['Summary'])) {
+            $model->summary = $map['Summary'];
+        }
+        if (isset($map['TagImmutability'])) {
+            $model->tagImmutability = $map['TagImmutability'];
         }
 
         return $model;

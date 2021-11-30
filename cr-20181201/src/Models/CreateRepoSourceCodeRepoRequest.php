@@ -9,19 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CreateRepoSourceCodeRepoRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $instanceId;
+    public $autoBuild;
 
     /**
      * @var string
      */
-    public $repoId;
-
-    /**
-     * @var string
-     */
-    public $codeRepoType;
+    public $codeRepoName;
 
     /**
      * @var string
@@ -31,12 +26,17 @@ class CreateRepoSourceCodeRepoRequest extends Model
     /**
      * @var string
      */
-    public $codeRepoName;
+    public $codeRepoType;
 
     /**
      * @var bool
      */
-    public $autoBuild;
+    public $disableCacheBuild;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var bool
@@ -44,18 +44,18 @@ class CreateRepoSourceCodeRepoRequest extends Model
     public $overseaBuild;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $disableCacheBuild;
+    public $repoId;
     protected $_name = [
-        'instanceId'            => 'InstanceId',
-        'repoId'                => 'RepoId',
-        'codeRepoType'          => 'CodeRepoType',
-        'codeRepoNamespaceName' => 'CodeRepoNamespaceName',
-        'codeRepoName'          => 'CodeRepoName',
         'autoBuild'             => 'AutoBuild',
-        'overseaBuild'          => 'OverseaBuild',
+        'codeRepoName'          => 'CodeRepoName',
+        'codeRepoNamespaceName' => 'CodeRepoNamespaceName',
+        'codeRepoType'          => 'CodeRepoType',
         'disableCacheBuild'     => 'DisableCacheBuild',
+        'instanceId'            => 'InstanceId',
+        'overseaBuild'          => 'OverseaBuild',
+        'repoId'                => 'RepoId',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class CreateRepoSourceCodeRepoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->repoId) {
-            $res['RepoId'] = $this->repoId;
-        }
-        if (null !== $this->codeRepoType) {
-            $res['CodeRepoType'] = $this->codeRepoType;
-        }
-        if (null !== $this->codeRepoNamespaceName) {
-            $res['CodeRepoNamespaceName'] = $this->codeRepoNamespaceName;
+        if (null !== $this->autoBuild) {
+            $res['AutoBuild'] = $this->autoBuild;
         }
         if (null !== $this->codeRepoName) {
             $res['CodeRepoName'] = $this->codeRepoName;
         }
-        if (null !== $this->autoBuild) {
-            $res['AutoBuild'] = $this->autoBuild;
+        if (null !== $this->codeRepoNamespaceName) {
+            $res['CodeRepoNamespaceName'] = $this->codeRepoNamespaceName;
+        }
+        if (null !== $this->codeRepoType) {
+            $res['CodeRepoType'] = $this->codeRepoType;
+        }
+        if (null !== $this->disableCacheBuild) {
+            $res['DisableCacheBuild'] = $this->disableCacheBuild;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->overseaBuild) {
             $res['OverseaBuild'] = $this->overseaBuild;
         }
-        if (null !== $this->disableCacheBuild) {
-            $res['DisableCacheBuild'] = $this->disableCacheBuild;
+        if (null !== $this->repoId) {
+            $res['RepoId'] = $this->repoId;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class CreateRepoSourceCodeRepoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['RepoId'])) {
-            $model->repoId = $map['RepoId'];
-        }
-        if (isset($map['CodeRepoType'])) {
-            $model->codeRepoType = $map['CodeRepoType'];
-        }
-        if (isset($map['CodeRepoNamespaceName'])) {
-            $model->codeRepoNamespaceName = $map['CodeRepoNamespaceName'];
+        if (isset($map['AutoBuild'])) {
+            $model->autoBuild = $map['AutoBuild'];
         }
         if (isset($map['CodeRepoName'])) {
             $model->codeRepoName = $map['CodeRepoName'];
         }
-        if (isset($map['AutoBuild'])) {
-            $model->autoBuild = $map['AutoBuild'];
+        if (isset($map['CodeRepoNamespaceName'])) {
+            $model->codeRepoNamespaceName = $map['CodeRepoNamespaceName'];
+        }
+        if (isset($map['CodeRepoType'])) {
+            $model->codeRepoType = $map['CodeRepoType'];
+        }
+        if (isset($map['DisableCacheBuild'])) {
+            $model->disableCacheBuild = $map['DisableCacheBuild'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['OverseaBuild'])) {
             $model->overseaBuild = $map['OverseaBuild'];
         }
-        if (isset($map['DisableCacheBuild'])) {
-            $model->disableCacheBuild = $map['DisableCacheBuild'];
+        if (isset($map['RepoId'])) {
+            $model->repoId = $map['RepoId'];
         }
 
         return $model;

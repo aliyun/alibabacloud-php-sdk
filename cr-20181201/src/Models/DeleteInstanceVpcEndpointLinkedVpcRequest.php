@@ -16,22 +16,22 @@ class DeleteInstanceVpcEndpointLinkedVpcRequest extends Model
     /**
      * @var string
      */
+    public $moduleName;
+
+    /**
+     * @var string
+     */
     public $vpcId;
 
     /**
      * @var string
      */
     public $vswitchId;
-
-    /**
-     * @var string
-     */
-    public $moduleName;
     protected $_name = [
         'instanceId' => 'InstanceId',
+        'moduleName' => 'ModuleName',
         'vpcId'      => 'VpcId',
         'vswitchId'  => 'VswitchId',
-        'moduleName' => 'ModuleName',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class DeleteInstanceVpcEndpointLinkedVpcRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->moduleName) {
+            $res['ModuleName'] = $this->moduleName;
+        }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
         if (null !== $this->vswitchId) {
             $res['VswitchId'] = $this->vswitchId;
-        }
-        if (null !== $this->moduleName) {
-            $res['ModuleName'] = $this->moduleName;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class DeleteInstanceVpcEndpointLinkedVpcRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['ModuleName'])) {
+            $model->moduleName = $map['ModuleName'];
+        }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
         if (isset($map['VswitchId'])) {
             $model->vswitchId = $map['VswitchId'];
-        }
-        if (isset($map['ModuleName'])) {
-            $model->moduleName = $map['ModuleName'];
         }
 
         return $model;

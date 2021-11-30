@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class buildTaskLogs extends Model
 {
     /**
-     * @var string
-     */
-    public $message;
-
-    /**
      * @var int
      */
     public $lineNumber;
+
+    /**
+     * @var string
+     */
+    public $message;
     protected $_name = [
-        'message'    => 'Message',
         'lineNumber' => 'LineNumber',
+        'message'    => 'Message',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class buildTaskLogs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
         if (null !== $this->lineNumber) {
             $res['LineNumber'] = $this->lineNumber;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class buildTaskLogs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
         if (isset($map['LineNumber'])) {
             $model->lineNumber = $map['LineNumber'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
 
         return $model;

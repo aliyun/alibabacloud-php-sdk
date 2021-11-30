@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $modifiedTime;
-
-    /**
      * @var string
      */
-    public $requestId;
+    public $code;
 
     /**
      * @var int
      */
     public $createTime;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string
@@ -36,32 +36,32 @@ class GetInstanceResponseBody extends Model
     /**
      * @var string
      */
-    public $code;
-
-    /**
-     * @var string
-     */
     public $instanceStatus;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
 
     /**
      * @var bool
      */
     public $isSuccess;
+
+    /**
+     * @var int
+     */
+    public $modifiedTime;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'modifiedTime'          => 'ModifiedTime',
-        'requestId'             => 'RequestId',
+        'code'                  => 'Code',
         'createTime'            => 'CreateTime',
+        'instanceId'            => 'InstanceId',
         'instanceName'          => 'InstanceName',
         'instanceSpecification' => 'InstanceSpecification',
-        'code'                  => 'Code',
         'instanceStatus'        => 'InstanceStatus',
-        'instanceId'            => 'InstanceId',
         'isSuccess'             => 'IsSuccess',
+        'modifiedTime'          => 'ModifiedTime',
+        'requestId'             => 'RequestId',
     ];
 
     public function validate()
@@ -71,14 +71,14 @@ class GetInstanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->modifiedTime) {
-            $res['ModifiedTime'] = $this->modifiedTime;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
@@ -86,17 +86,17 @@ class GetInstanceResponseBody extends Model
         if (null !== $this->instanceSpecification) {
             $res['InstanceSpecification'] = $this->instanceSpecification;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->instanceStatus) {
             $res['InstanceStatus'] = $this->instanceStatus;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
+        }
+        if (null !== $this->modifiedTime) {
+            $res['ModifiedTime'] = $this->modifiedTime;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -110,14 +110,14 @@ class GetInstanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ModifiedTime'])) {
-            $model->modifiedTime = $map['ModifiedTime'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
@@ -125,17 +125,17 @@ class GetInstanceResponseBody extends Model
         if (isset($map['InstanceSpecification'])) {
             $model->instanceSpecification = $map['InstanceSpecification'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['InstanceStatus'])) {
             $model->instanceStatus = $map['InstanceStatus'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
+        }
+        if (isset($map['ModifiedTime'])) {
+            $model->modifiedTime = $map['ModifiedTime'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

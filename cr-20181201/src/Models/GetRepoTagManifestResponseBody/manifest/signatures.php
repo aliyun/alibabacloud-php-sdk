@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class signatures extends Model
 {
     /**
-     * @var string
-     */
-    public $signature;
-
-    /**
      * @var mixed[]
      */
     public $header;
@@ -22,10 +17,15 @@ class signatures extends Model
      * @var string
      */
     public $protected;
+
+    /**
+     * @var string
+     */
+    public $signature;
     protected $_name = [
-        'signature' => 'Signature',
         'header'    => 'Header',
         'protected' => 'Protected',
+        'signature' => 'Signature',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class signatures extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->signature) {
-            $res['Signature'] = $this->signature;
-        }
         if (null !== $this->header) {
             $res['Header'] = $this->header;
         }
         if (null !== $this->protected) {
             $res['Protected'] = $this->protected;
+        }
+        if (null !== $this->signature) {
+            $res['Signature'] = $this->signature;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class signatures extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Signature'])) {
-            $model->signature = $map['Signature'];
-        }
         if (isset($map['Header'])) {
             $model->header = $map['Header'];
         }
         if (isset($map['Protected'])) {
             $model->protected = $map['Protected'];
+        }
+        if (isset($map['Signature'])) {
+            $model->signature = $map['Signature'];
         }
 
         return $model;

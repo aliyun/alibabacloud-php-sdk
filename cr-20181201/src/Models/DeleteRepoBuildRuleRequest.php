@@ -11,21 +11,21 @@ class DeleteRepoBuildRuleRequest extends Model
     /**
      * @var string
      */
+    public $buildRuleId;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
      * @var string
      */
     public $repoId;
-
-    /**
-     * @var string
-     */
-    public $buildRuleId;
     protected $_name = [
+        'buildRuleId' => 'BuildRuleId',
         'instanceId'  => 'InstanceId',
         'repoId'      => 'RepoId',
-        'buildRuleId' => 'BuildRuleId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteRepoBuildRuleRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->buildRuleId) {
+            $res['BuildRuleId'] = $this->buildRuleId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
-        }
-        if (null !== $this->buildRuleId) {
-            $res['BuildRuleId'] = $this->buildRuleId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DeleteRepoBuildRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BuildRuleId'])) {
+            $model->buildRuleId = $map['BuildRuleId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];
-        }
-        if (isset($map['BuildRuleId'])) {
-            $model->buildRuleId = $map['BuildRuleId'];
         }
 
         return $model;

@@ -11,11 +11,6 @@ class DeleteInstanceEndpointAclPolicyRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
     public $endpointType;
 
     /**
@@ -26,11 +21,16 @@ class DeleteInstanceEndpointAclPolicyRequest extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $moduleName;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
         'endpointType' => 'EndpointType',
         'entry'        => 'Entry',
+        'instanceId'   => 'InstanceId',
         'moduleName'   => 'ModuleName',
     ];
 
@@ -41,14 +41,14 @@ class DeleteInstanceEndpointAclPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->endpointType) {
             $res['EndpointType'] = $this->endpointType;
         }
         if (null !== $this->entry) {
             $res['Entry'] = $this->entry;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->moduleName) {
             $res['ModuleName'] = $this->moduleName;
@@ -65,14 +65,14 @@ class DeleteInstanceEndpointAclPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['EndpointType'])) {
             $model->endpointType = $map['EndpointType'];
         }
         if (isset($map['Entry'])) {
             $model->entry = $map['Entry'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['ModuleName'])) {
             $model->moduleName = $map['ModuleName'];

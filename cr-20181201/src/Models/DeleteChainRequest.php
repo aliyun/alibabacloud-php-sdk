@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListRepoTriggerRecordRequest extends Model
+class DeleteChainRequest extends Model
 {
     /**
      * @var string
      */
-    public $instanceId;
+    public $chainId;
 
     /**
      * @var string
      */
-    public $triggerRecordId;
+    public $instanceId;
     protected $_name = [
-        'instanceId'      => 'InstanceId',
-        'triggerRecordId' => 'TriggerRecordId',
+        'chainId'    => 'ChainId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ListRepoTriggerRecordRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->chainId) {
+            $res['ChainId'] = $this->chainId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->triggerRecordId) {
-            $res['TriggerRecordId'] = $this->triggerRecordId;
         }
 
         return $res;
@@ -42,16 +42,16 @@ class ListRepoTriggerRecordRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListRepoTriggerRecordRequest
+     * @return DeleteChainRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChainId'])) {
+            $model->chainId = $map['ChainId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['TriggerRecordId'])) {
-            $model->triggerRecordId = $map['TriggerRecordId'];
         }
 
         return $model;

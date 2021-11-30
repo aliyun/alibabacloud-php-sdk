@@ -11,7 +11,7 @@ class GetRepositoryResponseBody extends Model
     /**
      * @var string
      */
-    public $summary;
+    public $code;
 
     /**
      * @var int
@@ -19,14 +19,44 @@ class GetRepositoryResponseBody extends Model
     public $createTime;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $isSuccess;
+    public $detail;
 
     /**
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var bool
+     */
+    public $isSuccess;
+
+    /**
+     * @var int
+     */
+    public $modifiedTime;
+
+    /**
+     * @var string
+     */
+    public $repoBuildType;
+
+    /**
+     * @var string
+     */
+    public $repoId;
+
+    /**
+     * @var string
+     */
+    public $repoName;
+
+    /**
+     * @var string
+     */
+    public $repoNamespaceName;
 
     /**
      * @var string
@@ -41,63 +71,33 @@ class GetRepositoryResponseBody extends Model
     /**
      * @var string
      */
-    public $repoBuildType;
-
-    /**
-     * @var int
-     */
-    public $modifiedTime;
-
-    /**
-     * @var string
-     */
     public $requestId;
 
     /**
      * @var string
      */
-    public $repoId;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @var string
-     */
-    public $repoNamespaceName;
+    public $summary;
 
     /**
      * @var bool
      */
     public $tagImmutability;
-
-    /**
-     * @var string
-     */
-    public $repoName;
-
-    /**
-     * @var string
-     */
-    public $detail;
     protected $_name = [
-        'summary'           => 'Summary',
+        'code'              => 'Code',
         'createTime'        => 'CreateTime',
-        'isSuccess'         => 'IsSuccess',
+        'detail'            => 'Detail',
         'instanceId'        => 'InstanceId',
+        'isSuccess'         => 'IsSuccess',
+        'modifiedTime'      => 'ModifiedTime',
+        'repoBuildType'     => 'RepoBuildType',
+        'repoId'            => 'RepoId',
+        'repoName'          => 'RepoName',
+        'repoNamespaceName' => 'RepoNamespaceName',
         'repoStatus'        => 'RepoStatus',
         'repoType'          => 'RepoType',
-        'repoBuildType'     => 'RepoBuildType',
-        'modifiedTime'      => 'ModifiedTime',
         'requestId'         => 'RequestId',
-        'repoId'            => 'RepoId',
-        'code'              => 'Code',
-        'repoNamespaceName' => 'RepoNamespaceName',
+        'summary'           => 'Summary',
         'tagImmutability'   => 'TagImmutability',
-        'repoName'          => 'RepoName',
-        'detail'            => 'Detail',
     ];
 
     public function validate()
@@ -107,17 +107,35 @@ class GetRepositoryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->summary) {
-            $res['Summary'] = $this->summary;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->isSuccess) {
-            $res['IsSuccess'] = $this->isSuccess;
+        if (null !== $this->detail) {
+            $res['Detail'] = $this->detail;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->isSuccess) {
+            $res['IsSuccess'] = $this->isSuccess;
+        }
+        if (null !== $this->modifiedTime) {
+            $res['ModifiedTime'] = $this->modifiedTime;
+        }
+        if (null !== $this->repoBuildType) {
+            $res['RepoBuildType'] = $this->repoBuildType;
+        }
+        if (null !== $this->repoId) {
+            $res['RepoId'] = $this->repoId;
+        }
+        if (null !== $this->repoName) {
+            $res['RepoName'] = $this->repoName;
+        }
+        if (null !== $this->repoNamespaceName) {
+            $res['RepoNamespaceName'] = $this->repoNamespaceName;
         }
         if (null !== $this->repoStatus) {
             $res['RepoStatus'] = $this->repoStatus;
@@ -125,32 +143,14 @@ class GetRepositoryResponseBody extends Model
         if (null !== $this->repoType) {
             $res['RepoType'] = $this->repoType;
         }
-        if (null !== $this->repoBuildType) {
-            $res['RepoBuildType'] = $this->repoBuildType;
-        }
-        if (null !== $this->modifiedTime) {
-            $res['ModifiedTime'] = $this->modifiedTime;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->repoId) {
-            $res['RepoId'] = $this->repoId;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->repoNamespaceName) {
-            $res['RepoNamespaceName'] = $this->repoNamespaceName;
+        if (null !== $this->summary) {
+            $res['Summary'] = $this->summary;
         }
         if (null !== $this->tagImmutability) {
             $res['TagImmutability'] = $this->tagImmutability;
-        }
-        if (null !== $this->repoName) {
-            $res['RepoName'] = $this->repoName;
-        }
-        if (null !== $this->detail) {
-            $res['Detail'] = $this->detail;
         }
 
         return $res;
@@ -164,17 +164,35 @@ class GetRepositoryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Summary'])) {
-            $model->summary = $map['Summary'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['IsSuccess'])) {
-            $model->isSuccess = $map['IsSuccess'];
+        if (isset($map['Detail'])) {
+            $model->detail = $map['Detail'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['IsSuccess'])) {
+            $model->isSuccess = $map['IsSuccess'];
+        }
+        if (isset($map['ModifiedTime'])) {
+            $model->modifiedTime = $map['ModifiedTime'];
+        }
+        if (isset($map['RepoBuildType'])) {
+            $model->repoBuildType = $map['RepoBuildType'];
+        }
+        if (isset($map['RepoId'])) {
+            $model->repoId = $map['RepoId'];
+        }
+        if (isset($map['RepoName'])) {
+            $model->repoName = $map['RepoName'];
+        }
+        if (isset($map['RepoNamespaceName'])) {
+            $model->repoNamespaceName = $map['RepoNamespaceName'];
         }
         if (isset($map['RepoStatus'])) {
             $model->repoStatus = $map['RepoStatus'];
@@ -182,32 +200,14 @@ class GetRepositoryResponseBody extends Model
         if (isset($map['RepoType'])) {
             $model->repoType = $map['RepoType'];
         }
-        if (isset($map['RepoBuildType'])) {
-            $model->repoBuildType = $map['RepoBuildType'];
-        }
-        if (isset($map['ModifiedTime'])) {
-            $model->modifiedTime = $map['ModifiedTime'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['RepoId'])) {
-            $model->repoId = $map['RepoId'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['RepoNamespaceName'])) {
-            $model->repoNamespaceName = $map['RepoNamespaceName'];
+        if (isset($map['Summary'])) {
+            $model->summary = $map['Summary'];
         }
         if (isset($map['TagImmutability'])) {
             $model->tagImmutability = $map['TagImmutability'];
-        }
-        if (isset($map['RepoName'])) {
-            $model->repoName = $map['RepoName'];
-        }
-        if (isset($map['Detail'])) {
-            $model->detail = $map['Detail'];
         }
 
         return $model;

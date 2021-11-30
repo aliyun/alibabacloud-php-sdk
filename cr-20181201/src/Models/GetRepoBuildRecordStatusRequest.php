@@ -11,21 +11,21 @@ class GetRepoBuildRecordStatusRequest extends Model
     /**
      * @var string
      */
+    public $buildRecordId;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
      * @var string
      */
     public $repoId;
-
-    /**
-     * @var string
-     */
-    public $buildRecordId;
     protected $_name = [
+        'buildRecordId' => 'BuildRecordId',
         'instanceId'    => 'InstanceId',
         'repoId'        => 'RepoId',
-        'buildRecordId' => 'BuildRecordId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetRepoBuildRecordStatusRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->buildRecordId) {
+            $res['BuildRecordId'] = $this->buildRecordId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
-        }
-        if (null !== $this->buildRecordId) {
-            $res['BuildRecordId'] = $this->buildRecordId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetRepoBuildRecordStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BuildRecordId'])) {
+            $model->buildRecordId = $map['BuildRecordId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];
-        }
-        if (isset($map['BuildRecordId'])) {
-            $model->buildRecordId = $map['BuildRecordId'];
         }
 
         return $model;

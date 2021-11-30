@@ -11,21 +11,21 @@ class sourceArtifact extends Model
     /**
      * @var string
      */
+    public $artifactType;
+
+    /**
+     * @var string
+     */
     public $repoId;
 
     /**
      * @var string
      */
     public $version;
-
-    /**
-     * @var string
-     */
-    public $artifactType;
     protected $_name = [
+        'artifactType' => 'ArtifactType',
         'repoId'       => 'RepoId',
         'version'      => 'Version',
-        'artifactType' => 'ArtifactType',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class sourceArtifact extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->artifactType) {
+            $res['ArtifactType'] = $this->artifactType;
+        }
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
-        }
-        if (null !== $this->artifactType) {
-            $res['ArtifactType'] = $this->artifactType;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class sourceArtifact extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArtifactType'])) {
+            $model->artifactType = $map['ArtifactType'];
+        }
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
-        }
-        if (isset($map['ArtifactType'])) {
-            $model->artifactType = $map['ArtifactType'];
         }
 
         return $model;

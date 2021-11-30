@@ -11,6 +11,11 @@ class CreateRepositoryRequest extends Model
     /**
      * @var string
      */
+    public $detail;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -34,21 +39,16 @@ class CreateRepositoryRequest extends Model
     public $summary;
 
     /**
-     * @var string
-     */
-    public $detail;
-
-    /**
      * @var bool
      */
     public $tagImmutability;
     protected $_name = [
+        'detail'            => 'Detail',
         'instanceId'        => 'InstanceId',
         'repoName'          => 'RepoName',
         'repoNamespaceName' => 'RepoNamespaceName',
         'repoType'          => 'RepoType',
         'summary'           => 'Summary',
-        'detail'            => 'Detail',
         'tagImmutability'   => 'TagImmutability',
     ];
 
@@ -59,6 +59,9 @@ class CreateRepositoryRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->detail) {
+            $res['Detail'] = $this->detail;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -73,9 +76,6 @@ class CreateRepositoryRequest extends Model
         }
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
-        }
-        if (null !== $this->detail) {
-            $res['Detail'] = $this->detail;
         }
         if (null !== $this->tagImmutability) {
             $res['TagImmutability'] = $this->tagImmutability;
@@ -92,6 +92,9 @@ class CreateRepositoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Detail'])) {
+            $model->detail = $map['Detail'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -106,9 +109,6 @@ class CreateRepositoryRequest extends Model
         }
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
-        }
-        if (isset($map['Detail'])) {
-            $model->detail = $map['Detail'];
         }
         if (isset($map['TagImmutability'])) {
             $model->tagImmutability = $map['TagImmutability'];

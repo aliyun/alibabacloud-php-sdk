@@ -9,9 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetRepoTagScanSummaryResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $code;
+
+    /**
      * @var int
      */
-    public $unknownSeverity;
+    public $highSeverity;
+
+    /**
+     * @var bool
+     */
+    public $isSuccess;
+
+    /**
+     * @var int
+     */
+    public $lowSeverity;
+
+    /**
+     * @var int
+     */
+    public $mediumSeverity;
 
     /**
      * @var string
@@ -24,38 +44,18 @@ class GetRepoTagScanSummaryResponseBody extends Model
     public $totalSeverity;
 
     /**
-     * @var string
-     */
-    public $code;
-
-    /**
      * @var int
      */
-    public $mediumSeverity;
-
-    /**
-     * @var bool
-     */
-    public $isSuccess;
-
-    /**
-     * @var int
-     */
-    public $highSeverity;
-
-    /**
-     * @var int
-     */
-    public $lowSeverity;
+    public $unknownSeverity;
     protected $_name = [
-        'unknownSeverity' => 'UnknownSeverity',
+        'code'            => 'Code',
+        'highSeverity'    => 'HighSeverity',
+        'isSuccess'       => 'IsSuccess',
+        'lowSeverity'     => 'LowSeverity',
+        'mediumSeverity'  => 'MediumSeverity',
         'requestId'       => 'RequestId',
         'totalSeverity'   => 'TotalSeverity',
-        'code'            => 'Code',
-        'mediumSeverity'  => 'MediumSeverity',
-        'isSuccess'       => 'IsSuccess',
-        'highSeverity'    => 'HighSeverity',
-        'lowSeverity'     => 'LowSeverity',
+        'unknownSeverity' => 'UnknownSeverity',
     ];
 
     public function validate()
@@ -65,8 +65,20 @@ class GetRepoTagScanSummaryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->unknownSeverity) {
-            $res['UnknownSeverity'] = $this->unknownSeverity;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->highSeverity) {
+            $res['HighSeverity'] = $this->highSeverity;
+        }
+        if (null !== $this->isSuccess) {
+            $res['IsSuccess'] = $this->isSuccess;
+        }
+        if (null !== $this->lowSeverity) {
+            $res['LowSeverity'] = $this->lowSeverity;
+        }
+        if (null !== $this->mediumSeverity) {
+            $res['MediumSeverity'] = $this->mediumSeverity;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -74,20 +86,8 @@ class GetRepoTagScanSummaryResponseBody extends Model
         if (null !== $this->totalSeverity) {
             $res['TotalSeverity'] = $this->totalSeverity;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->mediumSeverity) {
-            $res['MediumSeverity'] = $this->mediumSeverity;
-        }
-        if (null !== $this->isSuccess) {
-            $res['IsSuccess'] = $this->isSuccess;
-        }
-        if (null !== $this->highSeverity) {
-            $res['HighSeverity'] = $this->highSeverity;
-        }
-        if (null !== $this->lowSeverity) {
-            $res['LowSeverity'] = $this->lowSeverity;
+        if (null !== $this->unknownSeverity) {
+            $res['UnknownSeverity'] = $this->unknownSeverity;
         }
 
         return $res;
@@ -101,8 +101,20 @@ class GetRepoTagScanSummaryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UnknownSeverity'])) {
-            $model->unknownSeverity = $map['UnknownSeverity'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['HighSeverity'])) {
+            $model->highSeverity = $map['HighSeverity'];
+        }
+        if (isset($map['IsSuccess'])) {
+            $model->isSuccess = $map['IsSuccess'];
+        }
+        if (isset($map['LowSeverity'])) {
+            $model->lowSeverity = $map['LowSeverity'];
+        }
+        if (isset($map['MediumSeverity'])) {
+            $model->mediumSeverity = $map['MediumSeverity'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
@@ -110,20 +122,8 @@ class GetRepoTagScanSummaryResponseBody extends Model
         if (isset($map['TotalSeverity'])) {
             $model->totalSeverity = $map['TotalSeverity'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['MediumSeverity'])) {
-            $model->mediumSeverity = $map['MediumSeverity'];
-        }
-        if (isset($map['IsSuccess'])) {
-            $model->isSuccess = $map['IsSuccess'];
-        }
-        if (isset($map['HighSeverity'])) {
-            $model->highSeverity = $map['HighSeverity'];
-        }
-        if (isset($map['LowSeverity'])) {
-            $model->lowSeverity = $map['LowSeverity'];
+        if (isset($map['UnknownSeverity'])) {
+            $model->unknownSeverity = $map['UnknownSeverity'];
         }
 
         return $model;

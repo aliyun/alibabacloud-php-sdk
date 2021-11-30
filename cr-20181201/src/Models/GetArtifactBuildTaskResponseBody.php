@@ -11,29 +11,9 @@ use AlibabaCloud\Tea\Model;
 class GetArtifactBuildTaskResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $endTime;
-
-    /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
      * @var string
      */
     public $artifactBuildType;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $taskStatus;
 
     /**
      * @var string
@@ -46,9 +26,9 @@ class GetArtifactBuildTaskResponseBody extends Model
     public $code;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $isSuccess;
+    public $endTime;
 
     /**
      * @var string[]
@@ -56,26 +36,46 @@ class GetArtifactBuildTaskResponseBody extends Model
     public $instructions;
 
     /**
+     * @var bool
+     */
+    public $isSuccess;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var sourceArtifact
      */
     public $sourceArtifact;
 
     /**
+     * @var int
+     */
+    public $startTime;
+
+    /**
      * @var targetArtifact
      */
     public $targetArtifact;
+
+    /**
+     * @var string
+     */
+    public $taskStatus;
     protected $_name = [
-        'endTime'           => 'EndTime',
-        'startTime'         => 'StartTime',
         'artifactBuildType' => 'ArtifactBuildType',
-        'requestId'         => 'RequestId',
-        'taskStatus'        => 'TaskStatus',
         'buildTaskId'       => 'BuildTaskId',
         'code'              => 'Code',
-        'isSuccess'         => 'IsSuccess',
+        'endTime'           => 'EndTime',
         'instructions'      => 'Instructions',
+        'isSuccess'         => 'IsSuccess',
+        'requestId'         => 'RequestId',
         'sourceArtifact'    => 'SourceArtifact',
+        'startTime'         => 'StartTime',
         'targetArtifact'    => 'TargetArtifact',
+        'taskStatus'        => 'TaskStatus',
     ];
 
     public function validate()
@@ -85,20 +85,8 @@ class GetArtifactBuildTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->artifactBuildType) {
             $res['ArtifactBuildType'] = $this->artifactBuildType;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->taskStatus) {
-            $res['TaskStatus'] = $this->taskStatus;
         }
         if (null !== $this->buildTaskId) {
             $res['BuildTaskId'] = $this->buildTaskId;
@@ -106,17 +94,29 @@ class GetArtifactBuildTaskResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->isSuccess) {
-            $res['IsSuccess'] = $this->isSuccess;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->instructions) {
             $res['Instructions'] = $this->instructions;
         }
+        if (null !== $this->isSuccess) {
+            $res['IsSuccess'] = $this->isSuccess;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->sourceArtifact) {
             $res['SourceArtifact'] = null !== $this->sourceArtifact ? $this->sourceArtifact->toMap() : null;
         }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
         if (null !== $this->targetArtifact) {
             $res['TargetArtifact'] = null !== $this->targetArtifact ? $this->targetArtifact->toMap() : null;
+        }
+        if (null !== $this->taskStatus) {
+            $res['TaskStatus'] = $this->taskStatus;
         }
 
         return $res;
@@ -130,20 +130,8 @@ class GetArtifactBuildTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['ArtifactBuildType'])) {
             $model->artifactBuildType = $map['ArtifactBuildType'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['TaskStatus'])) {
-            $model->taskStatus = $map['TaskStatus'];
         }
         if (isset($map['BuildTaskId'])) {
             $model->buildTaskId = $map['BuildTaskId'];
@@ -151,19 +139,31 @@ class GetArtifactBuildTaskResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['IsSuccess'])) {
-            $model->isSuccess = $map['IsSuccess'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['Instructions'])) {
             if (!empty($map['Instructions'])) {
                 $model->instructions = $map['Instructions'];
             }
         }
+        if (isset($map['IsSuccess'])) {
+            $model->isSuccess = $map['IsSuccess'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['SourceArtifact'])) {
             $model->sourceArtifact = sourceArtifact::fromMap($map['SourceArtifact']);
         }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
         if (isset($map['TargetArtifact'])) {
             $model->targetArtifact = targetArtifact::fromMap($map['TargetArtifact']);
+        }
+        if (isset($map['TaskStatus'])) {
+            $model->taskStatus = $map['TaskStatus'];
         }
 
         return $model;

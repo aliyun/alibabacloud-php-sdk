@@ -15,14 +15,9 @@ class GetInstanceVpcEndpointResponseBody extends Model
     public $code;
 
     /**
-     * @var bool
+     * @var string[]
      */
-    public $isSuccess;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $domains;
 
     /**
      * @var bool
@@ -30,21 +25,26 @@ class GetInstanceVpcEndpointResponseBody extends Model
     public $enable;
 
     /**
-     * @var string[]
+     * @var bool
      */
-    public $domains;
+    public $isSuccess;
 
     /**
      * @var linkedVpcs[]
      */
     public $linkedVpcs;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'code'       => 'Code',
-        'isSuccess'  => 'IsSuccess',
-        'requestId'  => 'RequestId',
-        'enable'     => 'Enable',
         'domains'    => 'Domains',
+        'enable'     => 'Enable',
+        'isSuccess'  => 'IsSuccess',
         'linkedVpcs' => 'LinkedVpcs',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -57,17 +57,14 @@ class GetInstanceVpcEndpointResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->isSuccess) {
-            $res['IsSuccess'] = $this->isSuccess;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->domains) {
+            $res['Domains'] = $this->domains;
         }
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
-        if (null !== $this->domains) {
-            $res['Domains'] = $this->domains;
+        if (null !== $this->isSuccess) {
+            $res['IsSuccess'] = $this->isSuccess;
         }
         if (null !== $this->linkedVpcs) {
             $res['LinkedVpcs'] = [];
@@ -77,6 +74,9 @@ class GetInstanceVpcEndpointResponseBody extends Model
                     $res['LinkedVpcs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -93,19 +93,16 @@ class GetInstanceVpcEndpointResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['IsSuccess'])) {
-            $model->isSuccess = $map['IsSuccess'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Enable'])) {
-            $model->enable = $map['Enable'];
-        }
         if (isset($map['Domains'])) {
             if (!empty($map['Domains'])) {
                 $model->domains = $map['Domains'];
             }
+        }
+        if (isset($map['Enable'])) {
+            $model->enable = $map['Enable'];
+        }
+        if (isset($map['IsSuccess'])) {
+            $model->isSuccess = $map['IsSuccess'];
         }
         if (isset($map['LinkedVpcs'])) {
             if (!empty($map['LinkedVpcs'])) {
@@ -115,6 +112,9 @@ class GetInstanceVpcEndpointResponseBody extends Model
                     $model->linkedVpcs[$n++] = null !== $item ? linkedVpcs::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

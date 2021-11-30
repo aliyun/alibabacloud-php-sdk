@@ -11,11 +11,6 @@ class image extends Model
     /**
      * @var string
      */
-    public $repoNamespaceName;
-
-    /**
-     * @var string
-     */
     public $imageTag;
 
     /**
@@ -27,11 +22,16 @@ class image extends Model
      * @var string
      */
     public $repoName;
+
+    /**
+     * @var string
+     */
+    public $repoNamespaceName;
     protected $_name = [
-        'repoNamespaceName' => 'RepoNamespaceName',
         'imageTag'          => 'ImageTag',
         'repoId'            => 'RepoId',
         'repoName'          => 'RepoName',
+        'repoNamespaceName' => 'RepoNamespaceName',
     ];
 
     public function validate()
@@ -41,9 +41,6 @@ class image extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->repoNamespaceName) {
-            $res['RepoNamespaceName'] = $this->repoNamespaceName;
-        }
         if (null !== $this->imageTag) {
             $res['ImageTag'] = $this->imageTag;
         }
@@ -52,6 +49,9 @@ class image extends Model
         }
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
+        }
+        if (null !== $this->repoNamespaceName) {
+            $res['RepoNamespaceName'] = $this->repoNamespaceName;
         }
 
         return $res;
@@ -65,9 +65,6 @@ class image extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RepoNamespaceName'])) {
-            $model->repoNamespaceName = $map['RepoNamespaceName'];
-        }
         if (isset($map['ImageTag'])) {
             $model->imageTag = $map['ImageTag'];
         }
@@ -76,6 +73,9 @@ class image extends Model
         }
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];
+        }
+        if (isset($map['RepoNamespaceName'])) {
+            $model->repoNamespaceName = $map['RepoNamespaceName'];
         }
 
         return $model;

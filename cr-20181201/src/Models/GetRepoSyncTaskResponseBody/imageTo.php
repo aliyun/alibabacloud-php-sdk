@@ -11,7 +11,7 @@ class imageTo extends Model
     /**
      * @var string
      */
-    public $repoNamespaceName;
+    public $imageTag;
 
     /**
      * @var string
@@ -21,7 +21,7 @@ class imageTo extends Model
     /**
      * @var string
      */
-    public $imageTag;
+    public $regionId;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class imageTo extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $repoNamespaceName;
     protected $_name = [
-        'repoNamespaceName' => 'RepoNamespaceName',
-        'instanceId'        => 'InstanceId',
         'imageTag'          => 'ImageTag',
-        'repoName'          => 'RepoName',
+        'instanceId'        => 'InstanceId',
         'regionId'          => 'RegionId',
+        'repoName'          => 'RepoName',
+        'repoNamespaceName' => 'RepoNamespaceName',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class imageTo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->repoNamespaceName) {
-            $res['RepoNamespaceName'] = $this->repoNamespaceName;
+        if (null !== $this->imageTag) {
+            $res['ImageTag'] = $this->imageTag;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->imageTag) {
-            $res['ImageTag'] = $this->imageTag;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->repoNamespaceName) {
+            $res['RepoNamespaceName'] = $this->repoNamespaceName;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class imageTo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RepoNamespaceName'])) {
-            $model->repoNamespaceName = $map['RepoNamespaceName'];
+        if (isset($map['ImageTag'])) {
+            $model->imageTag = $map['ImageTag'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['ImageTag'])) {
-            $model->imageTag = $map['ImageTag'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['RepoNamespaceName'])) {
+            $model->repoNamespaceName = $map['RepoNamespaceName'];
         }
 
         return $model;

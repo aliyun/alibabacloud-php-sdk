@@ -26,7 +26,7 @@ class CreateRepoTriggerRequest extends Model
     /**
      * @var string
      */
-    public $triggerUrl;
+    public $triggerTag;
 
     /**
      * @var string
@@ -36,14 +36,14 @@ class CreateRepoTriggerRequest extends Model
     /**
      * @var string
      */
-    public $triggerTag;
+    public $triggerUrl;
     protected $_name = [
         'instanceId'  => 'InstanceId',
         'repoId'      => 'RepoId',
         'triggerName' => 'TriggerName',
-        'triggerUrl'  => 'TriggerUrl',
-        'triggerType' => 'TriggerType',
         'triggerTag'  => 'TriggerTag',
+        'triggerType' => 'TriggerType',
+        'triggerUrl'  => 'TriggerUrl',
     ];
 
     public function validate()
@@ -62,14 +62,14 @@ class CreateRepoTriggerRequest extends Model
         if (null !== $this->triggerName) {
             $res['TriggerName'] = $this->triggerName;
         }
-        if (null !== $this->triggerUrl) {
-            $res['TriggerUrl'] = $this->triggerUrl;
+        if (null !== $this->triggerTag) {
+            $res['TriggerTag'] = $this->triggerTag;
         }
         if (null !== $this->triggerType) {
             $res['TriggerType'] = $this->triggerType;
         }
-        if (null !== $this->triggerTag) {
-            $res['TriggerTag'] = $this->triggerTag;
+        if (null !== $this->triggerUrl) {
+            $res['TriggerUrl'] = $this->triggerUrl;
         }
 
         return $res;
@@ -92,14 +92,14 @@ class CreateRepoTriggerRequest extends Model
         if (isset($map['TriggerName'])) {
             $model->triggerName = $map['TriggerName'];
         }
-        if (isset($map['TriggerUrl'])) {
-            $model->triggerUrl = $map['TriggerUrl'];
+        if (isset($map['TriggerTag'])) {
+            $model->triggerTag = $map['TriggerTag'];
         }
         if (isset($map['TriggerType'])) {
             $model->triggerType = $map['TriggerType'];
         }
-        if (isset($map['TriggerTag'])) {
-            $model->triggerTag = $map['TriggerTag'];
+        if (isset($map['TriggerUrl'])) {
+            $model->triggerUrl = $map['TriggerUrl'];
         }
 
         return $model;

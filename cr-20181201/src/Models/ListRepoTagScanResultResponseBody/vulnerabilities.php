@@ -11,12 +11,12 @@ class vulnerabilities extends Model
     /**
      * @var string
      */
-    public $severity;
+    public $addedBy;
 
     /**
      * @var string
      */
-    public $addedBy;
+    public $cveLink;
 
     /**
      * @var string
@@ -36,17 +36,17 @@ class vulnerabilities extends Model
     /**
      * @var string
      */
+    public $fixCmd;
+
+    /**
+     * @var string
+     */
+    public $severity;
+
+    /**
+     * @var string
+     */
     public $version;
-
-    /**
-     * @var string
-     */
-    public $versionFormat;
-
-    /**
-     * @var string
-     */
-    public $cveLink;
 
     /**
      * @var string
@@ -56,18 +56,18 @@ class vulnerabilities extends Model
     /**
      * @var string
      */
-    public $fixCmd;
+    public $versionFormat;
     protected $_name = [
-        'severity'      => 'Severity',
         'addedBy'       => 'AddedBy',
+        'cveLink'       => 'CveLink',
         'cveName'       => 'CveName',
         'description'   => 'Description',
         'feature'       => 'Feature',
-        'version'       => 'Version',
-        'versionFormat' => 'VersionFormat',
-        'cveLink'       => 'CveLink',
-        'versionFixed'  => 'VersionFixed',
         'fixCmd'        => 'FixCmd',
+        'severity'      => 'Severity',
+        'version'       => 'Version',
+        'versionFixed'  => 'VersionFixed',
+        'versionFormat' => 'VersionFormat',
     ];
 
     public function validate()
@@ -77,11 +77,11 @@ class vulnerabilities extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->severity) {
-            $res['Severity'] = $this->severity;
-        }
         if (null !== $this->addedBy) {
             $res['AddedBy'] = $this->addedBy;
+        }
+        if (null !== $this->cveLink) {
+            $res['CveLink'] = $this->cveLink;
         }
         if (null !== $this->cveName) {
             $res['CveName'] = $this->cveName;
@@ -92,20 +92,20 @@ class vulnerabilities extends Model
         if (null !== $this->feature) {
             $res['Feature'] = $this->feature;
         }
+        if (null !== $this->fixCmd) {
+            $res['FixCmd'] = $this->fixCmd;
+        }
+        if (null !== $this->severity) {
+            $res['Severity'] = $this->severity;
+        }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
-        }
-        if (null !== $this->versionFormat) {
-            $res['VersionFormat'] = $this->versionFormat;
-        }
-        if (null !== $this->cveLink) {
-            $res['CveLink'] = $this->cveLink;
         }
         if (null !== $this->versionFixed) {
             $res['VersionFixed'] = $this->versionFixed;
         }
-        if (null !== $this->fixCmd) {
-            $res['FixCmd'] = $this->fixCmd;
+        if (null !== $this->versionFormat) {
+            $res['VersionFormat'] = $this->versionFormat;
         }
 
         return $res;
@@ -119,11 +119,11 @@ class vulnerabilities extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Severity'])) {
-            $model->severity = $map['Severity'];
-        }
         if (isset($map['AddedBy'])) {
             $model->addedBy = $map['AddedBy'];
+        }
+        if (isset($map['CveLink'])) {
+            $model->cveLink = $map['CveLink'];
         }
         if (isset($map['CveName'])) {
             $model->cveName = $map['CveName'];
@@ -134,20 +134,20 @@ class vulnerabilities extends Model
         if (isset($map['Feature'])) {
             $model->feature = $map['Feature'];
         }
+        if (isset($map['FixCmd'])) {
+            $model->fixCmd = $map['FixCmd'];
+        }
+        if (isset($map['Severity'])) {
+            $model->severity = $map['Severity'];
+        }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
-        }
-        if (isset($map['VersionFormat'])) {
-            $model->versionFormat = $map['VersionFormat'];
-        }
-        if (isset($map['CveLink'])) {
-            $model->cveLink = $map['CveLink'];
         }
         if (isset($map['VersionFixed'])) {
             $model->versionFixed = $map['VersionFixed'];
         }
-        if (isset($map['FixCmd'])) {
-            $model->fixCmd = $map['FixCmd'];
+        if (isset($map['VersionFormat'])) {
+            $model->versionFormat = $map['VersionFormat'];
         }
 
         return $model;

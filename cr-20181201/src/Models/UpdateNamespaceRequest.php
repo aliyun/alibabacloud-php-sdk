@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateNamespaceRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $namespaceName;
-
-    /**
      * @var bool
      */
     public $autoCreateRepo;
@@ -27,11 +17,21 @@ class UpdateNamespaceRequest extends Model
      * @var string
      */
     public $defaultRepoType;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $namespaceName;
     protected $_name = [
-        'instanceId'      => 'InstanceId',
-        'namespaceName'   => 'NamespaceName',
         'autoCreateRepo'  => 'AutoCreateRepo',
         'defaultRepoType' => 'DefaultRepoType',
+        'instanceId'      => 'InstanceId',
+        'namespaceName'   => 'NamespaceName',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class UpdateNamespaceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->namespaceName) {
-            $res['NamespaceName'] = $this->namespaceName;
-        }
         if (null !== $this->autoCreateRepo) {
             $res['AutoCreateRepo'] = $this->autoCreateRepo;
         }
         if (null !== $this->defaultRepoType) {
             $res['DefaultRepoType'] = $this->defaultRepoType;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->namespaceName) {
+            $res['NamespaceName'] = $this->namespaceName;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class UpdateNamespaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['NamespaceName'])) {
-            $model->namespaceName = $map['NamespaceName'];
-        }
         if (isset($map['AutoCreateRepo'])) {
             $model->autoCreateRepo = $map['AutoCreateRepo'];
         }
         if (isset($map['DefaultRepoType'])) {
             $model->defaultRepoType = $map['DefaultRepoType'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['NamespaceName'])) {
+            $model->namespaceName = $map['NamespaceName'];
         }
 
         return $model;

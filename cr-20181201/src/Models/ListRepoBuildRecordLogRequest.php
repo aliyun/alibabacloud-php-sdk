@@ -11,27 +11,27 @@ class ListRepoBuildRecordLogRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $repoId;
-
-    /**
-     * @var string
-     */
     public $buildRecordId;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var int
      */
     public $offset;
+
+    /**
+     * @var string
+     */
+    public $repoId;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
-        'repoId'        => 'RepoId',
         'buildRecordId' => 'BuildRecordId',
+        'instanceId'    => 'InstanceId',
         'offset'        => 'Offset',
+        'repoId'        => 'RepoId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ListRepoBuildRecordLogRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->repoId) {
-            $res['RepoId'] = $this->repoId;
-        }
         if (null !== $this->buildRecordId) {
             $res['BuildRecordId'] = $this->buildRecordId;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->offset) {
             $res['Offset'] = $this->offset;
+        }
+        if (null !== $this->repoId) {
+            $res['RepoId'] = $this->repoId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ListRepoBuildRecordLogRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['RepoId'])) {
-            $model->repoId = $map['RepoId'];
-        }
         if (isset($map['BuildRecordId'])) {
             $model->buildRecordId = $map['BuildRecordId'];
         }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['Offset'])) {
             $model->offset = $map['Offset'];
+        }
+        if (isset($map['RepoId'])) {
+            $model->repoId = $map['RepoId'];
         }
 
         return $model;

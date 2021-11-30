@@ -11,17 +11,17 @@ class instances extends Model
     /**
      * @var string
      */
-    public $modifiedTime;
+    public $createTime;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string
      */
     public $instanceName;
-
-    /**
-     * @var string
-     */
-    public $createTime;
 
     /**
      * @var string
@@ -36,19 +36,19 @@ class instances extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $modifiedTime;
 
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'modifiedTime'          => 'ModifiedTime',
-        'instanceName'          => 'InstanceName',
         'createTime'            => 'CreateTime',
+        'instanceId'            => 'InstanceId',
+        'instanceName'          => 'InstanceName',
         'instanceSpecification' => 'InstanceSpecification',
         'instanceStatus'        => 'InstanceStatus',
-        'instanceId'            => 'InstanceId',
+        'modifiedTime'          => 'ModifiedTime',
         'regionId'              => 'RegionId',
     ];
 
@@ -59,14 +59,14 @@ class instances extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->modifiedTime) {
-            $res['ModifiedTime'] = $this->modifiedTime;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->instanceSpecification) {
             $res['InstanceSpecification'] = $this->instanceSpecification;
@@ -74,8 +74,8 @@ class instances extends Model
         if (null !== $this->instanceStatus) {
             $res['InstanceStatus'] = $this->instanceStatus;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->modifiedTime) {
+            $res['ModifiedTime'] = $this->modifiedTime;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -92,14 +92,14 @@ class instances extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ModifiedTime'])) {
-            $model->modifiedTime = $map['ModifiedTime'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['InstanceSpecification'])) {
             $model->instanceSpecification = $map['InstanceSpecification'];
@@ -107,8 +107,8 @@ class instances extends Model
         if (isset($map['InstanceStatus'])) {
             $model->instanceStatus = $map['InstanceStatus'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['ModifiedTime'])) {
+            $model->modifiedTime = $map['ModifiedTime'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

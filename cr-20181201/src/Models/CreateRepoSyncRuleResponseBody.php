@@ -14,11 +14,6 @@ class CreateRepoSyncRuleResponseBody extends Model
     public $code;
 
     /**
-     * @var string
-     */
-    public $syncRuleId;
-
-    /**
      * @var bool
      */
     public $isSuccess;
@@ -27,11 +22,16 @@ class CreateRepoSyncRuleResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $syncRuleId;
     protected $_name = [
         'code'       => 'Code',
-        'syncRuleId' => 'SyncRuleId',
         'isSuccess'  => 'IsSuccess',
         'requestId'  => 'RequestId',
+        'syncRuleId' => 'SyncRuleId',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class CreateRepoSyncRuleResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->syncRuleId) {
-            $res['SyncRuleId'] = $this->syncRuleId;
-        }
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->syncRuleId) {
+            $res['SyncRuleId'] = $this->syncRuleId;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class CreateRepoSyncRuleResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['SyncRuleId'])) {
-            $model->syncRuleId = $map['SyncRuleId'];
-        }
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SyncRuleId'])) {
+            $model->syncRuleId = $map['SyncRuleId'];
         }
 
         return $model;

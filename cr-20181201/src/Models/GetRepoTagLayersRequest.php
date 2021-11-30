@@ -11,6 +11,11 @@ class GetRepoTagLayersRequest extends Model
     /**
      * @var string
      */
+    public $digest;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -22,16 +27,11 @@ class GetRepoTagLayersRequest extends Model
      * @var string
      */
     public $tag;
-
-    /**
-     * @var string
-     */
-    public $digest;
     protected $_name = [
+        'digest'     => 'Digest',
         'instanceId' => 'InstanceId',
         'repoId'     => 'RepoId',
         'tag'        => 'Tag',
-        'digest'     => 'Digest',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class GetRepoTagLayersRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->digest) {
+            $res['Digest'] = $this->digest;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -49,9 +52,6 @@ class GetRepoTagLayersRequest extends Model
         }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
-        }
-        if (null !== $this->digest) {
-            $res['Digest'] = $this->digest;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class GetRepoTagLayersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Digest'])) {
+            $model->digest = $map['Digest'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -73,9 +76,6 @@ class GetRepoTagLayersRequest extends Model
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
-        }
-        if (isset($map['Digest'])) {
-            $model->digest = $map['Digest'];
         }
 
         return $model;

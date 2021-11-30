@@ -11,6 +11,11 @@ class CreateRepoTagRequest extends Model
     /**
      * @var string
      */
+    public $fromTag;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -26,17 +31,12 @@ class CreateRepoTagRequest extends Model
     /**
      * @var string
      */
-    public $fromTag;
-
-    /**
-     * @var string
-     */
     public $toTag;
     protected $_name = [
+        'fromTag'       => 'FromTag',
         'instanceId'    => 'InstanceId',
         'namespaceName' => 'NamespaceName',
         'repoName'      => 'RepoName',
-        'fromTag'       => 'FromTag',
         'toTag'         => 'ToTag',
     ];
 
@@ -47,6 +47,9 @@ class CreateRepoTagRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fromTag) {
+            $res['FromTag'] = $this->fromTag;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -55,9 +58,6 @@ class CreateRepoTagRequest extends Model
         }
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
-        }
-        if (null !== $this->fromTag) {
-            $res['FromTag'] = $this->fromTag;
         }
         if (null !== $this->toTag) {
             $res['ToTag'] = $this->toTag;
@@ -74,6 +74,9 @@ class CreateRepoTagRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FromTag'])) {
+            $model->fromTag = $map['FromTag'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -82,9 +85,6 @@ class CreateRepoTagRequest extends Model
         }
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];
-        }
-        if (isset($map['FromTag'])) {
-            $model->fromTag = $map['FromTag'];
         }
         if (isset($map['ToTag'])) {
             $model->toTag = $map['ToTag'];

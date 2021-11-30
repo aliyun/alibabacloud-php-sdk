@@ -14,6 +14,11 @@ class GetInstanceCountResponseBody extends Model
     public $code;
 
     /**
+     * @var int
+     */
+    public $count;
+
+    /**
      * @var bool
      */
     public $isSuccess;
@@ -22,16 +27,11 @@ class GetInstanceCountResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var int
-     */
-    public $count;
     protected $_name = [
         'code'      => 'Code',
+        'count'     => 'Count',
         'isSuccess' => 'IsSuccess',
         'requestId' => 'RequestId',
-        'count'     => 'Count',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class GetInstanceCountResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class GetInstanceCountResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
         }
 
         return $model;

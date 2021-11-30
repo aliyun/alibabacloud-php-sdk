@@ -20,19 +20,19 @@ class GetRepoTagManifestResponseBody extends Model
     public $isSuccess;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var manifest
      */
     public $manifest;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'code'      => 'Code',
         'isSuccess' => 'IsSuccess',
-        'requestId' => 'RequestId',
         'manifest'  => 'Manifest',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -48,11 +48,11 @@ class GetRepoTagManifestResponseBody extends Model
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->manifest) {
             $res['Manifest'] = null !== $this->manifest ? $this->manifest->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -72,11 +72,11 @@ class GetRepoTagManifestResponseBody extends Model
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Manifest'])) {
             $model->manifest = manifest::fromMap($map['Manifest']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

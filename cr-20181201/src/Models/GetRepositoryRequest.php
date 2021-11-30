@@ -21,17 +21,17 @@ class GetRepositoryRequest extends Model
     /**
      * @var string
      */
-    public $repoNamespaceName;
+    public $repoName;
 
     /**
      * @var string
      */
-    public $repoName;
+    public $repoNamespaceName;
     protected $_name = [
         'instanceId'        => 'InstanceId',
         'repoId'            => 'RepoId',
-        'repoNamespaceName' => 'RepoNamespaceName',
         'repoName'          => 'RepoName',
+        'repoNamespaceName' => 'RepoNamespaceName',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class GetRepositoryRequest extends Model
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
         }
-        if (null !== $this->repoNamespaceName) {
-            $res['RepoNamespaceName'] = $this->repoNamespaceName;
-        }
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
+        }
+        if (null !== $this->repoNamespaceName) {
+            $res['RepoNamespaceName'] = $this->repoNamespaceName;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class GetRepositoryRequest extends Model
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];
         }
-        if (isset($map['RepoNamespaceName'])) {
-            $model->repoNamespaceName = $map['RepoNamespaceName'];
-        }
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];
+        }
+        if (isset($map['RepoNamespaceName'])) {
+            $model->repoNamespaceName = $map['RepoNamespaceName'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class CreateInstanceEndpointAclPolicyRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $comment;
 
     /**
      * @var string
@@ -26,17 +26,17 @@ class CreateInstanceEndpointAclPolicyRequest extends Model
     /**
      * @var string
      */
-    public $comment;
+    public $instanceId;
 
     /**
      * @var string
      */
     public $moduleName;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
+        'comment'      => 'Comment',
         'endpointType' => 'EndpointType',
         'entry'        => 'Entry',
-        'comment'      => 'Comment',
+        'instanceId'   => 'InstanceId',
         'moduleName'   => 'ModuleName',
     ];
 
@@ -47,8 +47,8 @@ class CreateInstanceEndpointAclPolicyRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
         }
         if (null !== $this->endpointType) {
             $res['EndpointType'] = $this->endpointType;
@@ -56,8 +56,8 @@ class CreateInstanceEndpointAclPolicyRequest extends Model
         if (null !== $this->entry) {
             $res['Entry'] = $this->entry;
         }
-        if (null !== $this->comment) {
-            $res['Comment'] = $this->comment;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->moduleName) {
             $res['ModuleName'] = $this->moduleName;
@@ -74,8 +74,8 @@ class CreateInstanceEndpointAclPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
         }
         if (isset($map['EndpointType'])) {
             $model->endpointType = $map['EndpointType'];
@@ -83,8 +83,8 @@ class CreateInstanceEndpointAclPolicyRequest extends Model
         if (isset($map['Entry'])) {
             $model->entry = $map['Entry'];
         }
-        if (isset($map['Comment'])) {
-            $model->comment = $map['Comment'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['ModuleName'])) {
             $model->moduleName = $map['ModuleName'];

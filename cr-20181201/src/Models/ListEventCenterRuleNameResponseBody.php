@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
-use AlibabaCloud\SDK\Cr\V20181201\Models\ListRepoTriggerRecordResponseBody\repoTriggerRecords;
+use AlibabaCloud\SDK\Cr\V20181201\Models\ListEventCenterRuleNameResponseBody\ruleNames;
 use AlibabaCloud\Tea\Model;
 
-class ListRepoTriggerRecordResponseBody extends Model
+class ListEventCenterRuleNameResponseBody extends Model
 {
     /**
      * @var string
@@ -20,19 +20,21 @@ class ListRepoTriggerRecordResponseBody extends Model
     public $isSuccess;
 
     /**
+     * @description Id of the request
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @var repoTriggerRecords[]
+     * @var ruleNames[]
      */
-    public $repoTriggerRecords;
+    public $ruleNames;
     protected $_name = [
-        'code'               => 'Code',
-        'isSuccess'          => 'IsSuccess',
-        'requestId'          => 'RequestId',
-        'repoTriggerRecords' => 'RepoTriggerRecords',
+        'code'      => 'Code',
+        'isSuccess' => 'IsSuccess',
+        'requestId' => 'RequestId',
+        'ruleNames' => 'RuleNames',
     ];
 
     public function validate()
@@ -51,12 +53,12 @@ class ListRepoTriggerRecordResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->repoTriggerRecords) {
-            $res['RepoTriggerRecords'] = [];
-            if (null !== $this->repoTriggerRecords && \is_array($this->repoTriggerRecords)) {
+        if (null !== $this->ruleNames) {
+            $res['RuleNames'] = [];
+            if (null !== $this->ruleNames && \is_array($this->ruleNames)) {
                 $n = 0;
-                foreach ($this->repoTriggerRecords as $item) {
-                    $res['RepoTriggerRecords'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->ruleNames as $item) {
+                    $res['RuleNames'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -67,7 +69,7 @@ class ListRepoTriggerRecordResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListRepoTriggerRecordResponseBody
+     * @return ListEventCenterRuleNameResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -81,12 +83,12 @@ class ListRepoTriggerRecordResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['RepoTriggerRecords'])) {
-            if (!empty($map['RepoTriggerRecords'])) {
-                $model->repoTriggerRecords = [];
-                $n                         = 0;
-                foreach ($map['RepoTriggerRecords'] as $item) {
-                    $model->repoTriggerRecords[$n++] = null !== $item ? repoTriggerRecords::fromMap($item) : $item;
+        if (isset($map['RuleNames'])) {
+            if (!empty($map['RuleNames'])) {
+                $model->ruleNames = [];
+                $n                = 0;
+                foreach ($map['RuleNames'] as $item) {
+                    $model->ruleNames[$n++] = null !== $item ? ruleNames::fromMap($item) : $item;
                 }
             }
         }

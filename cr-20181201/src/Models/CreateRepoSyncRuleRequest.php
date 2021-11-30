@@ -26,7 +26,22 @@ class CreateRepoSyncRuleRequest extends Model
     /**
      * @var string
      */
-    public $targetRegionId;
+    public $syncRuleName;
+
+    /**
+     * @var string
+     */
+    public $syncScope;
+
+    /**
+     * @var string
+     */
+    public $syncTrigger;
+
+    /**
+     * @var string
+     */
+    public $tagFilter;
 
     /**
      * @var string
@@ -41,39 +56,30 @@ class CreateRepoSyncRuleRequest extends Model
     /**
      * @var string
      */
+    public $targetRegionId;
+
+    /**
+     * @var string
+     */
     public $targetRepoName;
 
     /**
      * @var string
      */
-    public $tagFilter;
-
-    /**
-     * @var string
-     */
-    public $syncScope;
-
-    /**
-     * @var string
-     */
-    public $syncRuleName;
-
-    /**
-     * @var string
-     */
-    public $syncTrigger;
+    public $targetUserId;
     protected $_name = [
         'instanceId'          => 'InstanceId',
         'namespaceName'       => 'NamespaceName',
         'repoName'            => 'RepoName',
-        'targetRegionId'      => 'TargetRegionId',
+        'syncRuleName'        => 'SyncRuleName',
+        'syncScope'           => 'SyncScope',
+        'syncTrigger'         => 'SyncTrigger',
+        'tagFilter'           => 'TagFilter',
         'targetInstanceId'    => 'TargetInstanceId',
         'targetNamespaceName' => 'TargetNamespaceName',
+        'targetRegionId'      => 'TargetRegionId',
         'targetRepoName'      => 'TargetRepoName',
-        'tagFilter'           => 'TagFilter',
-        'syncScope'           => 'SyncScope',
-        'syncRuleName'        => 'SyncRuleName',
-        'syncTrigger'         => 'SyncTrigger',
+        'targetUserId'        => 'TargetUserId',
     ];
 
     public function validate()
@@ -92,8 +98,17 @@ class CreateRepoSyncRuleRequest extends Model
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
         }
-        if (null !== $this->targetRegionId) {
-            $res['TargetRegionId'] = $this->targetRegionId;
+        if (null !== $this->syncRuleName) {
+            $res['SyncRuleName'] = $this->syncRuleName;
+        }
+        if (null !== $this->syncScope) {
+            $res['SyncScope'] = $this->syncScope;
+        }
+        if (null !== $this->syncTrigger) {
+            $res['SyncTrigger'] = $this->syncTrigger;
+        }
+        if (null !== $this->tagFilter) {
+            $res['TagFilter'] = $this->tagFilter;
         }
         if (null !== $this->targetInstanceId) {
             $res['TargetInstanceId'] = $this->targetInstanceId;
@@ -101,20 +116,14 @@ class CreateRepoSyncRuleRequest extends Model
         if (null !== $this->targetNamespaceName) {
             $res['TargetNamespaceName'] = $this->targetNamespaceName;
         }
+        if (null !== $this->targetRegionId) {
+            $res['TargetRegionId'] = $this->targetRegionId;
+        }
         if (null !== $this->targetRepoName) {
             $res['TargetRepoName'] = $this->targetRepoName;
         }
-        if (null !== $this->tagFilter) {
-            $res['TagFilter'] = $this->tagFilter;
-        }
-        if (null !== $this->syncScope) {
-            $res['SyncScope'] = $this->syncScope;
-        }
-        if (null !== $this->syncRuleName) {
-            $res['SyncRuleName'] = $this->syncRuleName;
-        }
-        if (null !== $this->syncTrigger) {
-            $res['SyncTrigger'] = $this->syncTrigger;
+        if (null !== $this->targetUserId) {
+            $res['TargetUserId'] = $this->targetUserId;
         }
 
         return $res;
@@ -137,8 +146,17 @@ class CreateRepoSyncRuleRequest extends Model
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];
         }
-        if (isset($map['TargetRegionId'])) {
-            $model->targetRegionId = $map['TargetRegionId'];
+        if (isset($map['SyncRuleName'])) {
+            $model->syncRuleName = $map['SyncRuleName'];
+        }
+        if (isset($map['SyncScope'])) {
+            $model->syncScope = $map['SyncScope'];
+        }
+        if (isset($map['SyncTrigger'])) {
+            $model->syncTrigger = $map['SyncTrigger'];
+        }
+        if (isset($map['TagFilter'])) {
+            $model->tagFilter = $map['TagFilter'];
         }
         if (isset($map['TargetInstanceId'])) {
             $model->targetInstanceId = $map['TargetInstanceId'];
@@ -146,20 +164,14 @@ class CreateRepoSyncRuleRequest extends Model
         if (isset($map['TargetNamespaceName'])) {
             $model->targetNamespaceName = $map['TargetNamespaceName'];
         }
+        if (isset($map['TargetRegionId'])) {
+            $model->targetRegionId = $map['TargetRegionId'];
+        }
         if (isset($map['TargetRepoName'])) {
             $model->targetRepoName = $map['TargetRepoName'];
         }
-        if (isset($map['TagFilter'])) {
-            $model->tagFilter = $map['TagFilter'];
-        }
-        if (isset($map['SyncScope'])) {
-            $model->syncScope = $map['SyncScope'];
-        }
-        if (isset($map['SyncRuleName'])) {
-            $model->syncRuleName = $map['SyncRuleName'];
-        }
-        if (isset($map['SyncTrigger'])) {
-            $model->syncTrigger = $map['SyncTrigger'];
+        if (isset($map['TargetUserId'])) {
+            $model->targetUserId = $map['TargetUserId'];
         }
 
         return $model;

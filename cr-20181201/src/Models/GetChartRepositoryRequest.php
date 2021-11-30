@@ -16,16 +16,16 @@ class GetChartRepositoryRequest extends Model
     /**
      * @var string
      */
-    public $repoNamespaceName;
+    public $repoName;
 
     /**
      * @var string
      */
-    public $repoName;
+    public $repoNamespaceName;
     protected $_name = [
         'instanceId'        => 'InstanceId',
-        'repoNamespaceName' => 'RepoNamespaceName',
         'repoName'          => 'RepoName',
+        'repoNamespaceName' => 'RepoNamespaceName',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class GetChartRepositoryRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->repoNamespaceName) {
-            $res['RepoNamespaceName'] = $this->repoNamespaceName;
-        }
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
+        }
+        if (null !== $this->repoNamespaceName) {
+            $res['RepoNamespaceName'] = $this->repoNamespaceName;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class GetChartRepositoryRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['RepoNamespaceName'])) {
-            $model->repoNamespaceName = $map['RepoNamespaceName'];
-        }
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];
+        }
+        if (isset($map['RepoNamespaceName'])) {
+            $model->repoNamespaceName = $map['RepoNamespaceName'];
         }
 
         return $model;

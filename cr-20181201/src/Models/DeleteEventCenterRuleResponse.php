@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListRepoTriggerRecordResponse extends Model
+class DeleteEventCenterRuleResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class ListRepoTriggerRecordResponse extends Model
     public $headers;
 
     /**
-     * @var ListRepoTriggerRecordResponseBody
+     * @var DeleteEventCenterRuleResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class ListRepoTriggerRecordResponse extends Model
     /**
      * @param array $map
      *
-     * @return ListRepoTriggerRecordResponse
+     * @return DeleteEventCenterRuleResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class ListRepoTriggerRecordResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = ListRepoTriggerRecordResponseBody::fromMap($map['body']);
+            $model->body = DeleteEventCenterRuleResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -16,12 +16,12 @@ class ListChartNamespaceRequest extends Model
     /**
      * @var string
      */
-    public $namespaceStatus;
+    public $namespaceName;
 
     /**
      * @var string
      */
-    public $namespaceName;
+    public $namespaceStatus;
 
     /**
      * @var int
@@ -34,8 +34,8 @@ class ListChartNamespaceRequest extends Model
     public $pageSize;
     protected $_name = [
         'instanceId'      => 'InstanceId',
-        'namespaceStatus' => 'NamespaceStatus',
         'namespaceName'   => 'NamespaceName',
+        'namespaceStatus' => 'NamespaceStatus',
         'pageNo'          => 'PageNo',
         'pageSize'        => 'PageSize',
     ];
@@ -50,11 +50,11 @@ class ListChartNamespaceRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->namespaceStatus) {
-            $res['NamespaceStatus'] = $this->namespaceStatus;
-        }
         if (null !== $this->namespaceName) {
             $res['NamespaceName'] = $this->namespaceName;
+        }
+        if (null !== $this->namespaceStatus) {
+            $res['NamespaceStatus'] = $this->namespaceStatus;
         }
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
@@ -77,11 +77,11 @@ class ListChartNamespaceRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['NamespaceStatus'])) {
-            $model->namespaceStatus = $map['NamespaceStatus'];
-        }
         if (isset($map['NamespaceName'])) {
             $model->namespaceName = $map['NamespaceName'];
+        }
+        if (isset($map['NamespaceStatus'])) {
+            $model->namespaceStatus = $map['NamespaceStatus'];
         }
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];

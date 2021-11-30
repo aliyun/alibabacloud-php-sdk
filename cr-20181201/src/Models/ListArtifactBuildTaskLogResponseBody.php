@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListArtifactBuildTaskLogResponseBody extends Model
 {
     /**
+     * @var buildTaskLogs[]
+     */
+    public $buildTaskLogs;
+
+    /**
      * @var string
      */
     public $code;
@@ -28,17 +33,12 @@ class ListArtifactBuildTaskLogResponseBody extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var buildTaskLogs[]
-     */
-    public $buildTaskLogs;
     protected $_name = [
+        'buildTaskLogs' => 'BuildTaskLogs',
         'code'          => 'Code',
         'isSuccess'     => 'IsSuccess',
         'requestId'     => 'RequestId',
         'totalCount'    => 'TotalCount',
-        'buildTaskLogs' => 'BuildTaskLogs',
     ];
 
     public function validate()
@@ -48,6 +48,15 @@ class ListArtifactBuildTaskLogResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->buildTaskLogs) {
+            $res['BuildTaskLogs'] = [];
+            if (null !== $this->buildTaskLogs && \is_array($this->buildTaskLogs)) {
+                $n = 0;
+                foreach ($this->buildTaskLogs as $item) {
+                    $res['BuildTaskLogs'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -59,15 +68,6 @@ class ListArtifactBuildTaskLogResponseBody extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->buildTaskLogs) {
-            $res['BuildTaskLogs'] = [];
-            if (null !== $this->buildTaskLogs && \is_array($this->buildTaskLogs)) {
-                $n = 0;
-                foreach ($this->buildTaskLogs as $item) {
-                    $res['BuildTaskLogs'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
 
         return $res;
@@ -81,6 +81,15 @@ class ListArtifactBuildTaskLogResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BuildTaskLogs'])) {
+            if (!empty($map['BuildTaskLogs'])) {
+                $model->buildTaskLogs = [];
+                $n                    = 0;
+                foreach ($map['BuildTaskLogs'] as $item) {
+                    $model->buildTaskLogs[$n++] = null !== $item ? buildTaskLogs::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -92,15 +101,6 @@ class ListArtifactBuildTaskLogResponseBody extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['BuildTaskLogs'])) {
-            if (!empty($map['BuildTaskLogs'])) {
-                $model->buildTaskLogs = [];
-                $n                    = 0;
-                foreach ($map['BuildTaskLogs'] as $item) {
-                    $model->buildTaskLogs[$n++] = null !== $item ? buildTaskLogs::fromMap($item) : $item;
-                }
-            }
         }
 
         return $model;

@@ -12,17 +12,7 @@ class ListChartRepositoryResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $code;
-
-    /**
-     * @var int
-     */
-    public $pageNo;
 
     /**
      * @var bool
@@ -32,25 +22,35 @@ class ListChartRepositoryResponseBody extends Model
     /**
      * @var int
      */
-    public $pageSize;
+    public $pageNo;
 
     /**
-     * @var string
+     * @var int
      */
-    public $totalCount;
+    public $pageSize;
 
     /**
      * @var repositories[]
      */
     public $repositories;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $totalCount;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'code'         => 'Code',
-        'pageNo'       => 'PageNo',
         'isSuccess'    => 'IsSuccess',
+        'pageNo'       => 'PageNo',
         'pageSize'     => 'PageSize',
-        'totalCount'   => 'TotalCount',
         'repositories' => 'Repositories',
+        'requestId'    => 'RequestId',
+        'totalCount'   => 'TotalCount',
     ];
 
     public function validate()
@@ -60,23 +60,17 @@ class ListChartRepositoryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
-        }
-        if (null !== $this->pageNo) {
-            $res['PageNo'] = $this->pageNo;
         }
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
         }
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->repositories) {
             $res['Repositories'] = [];
@@ -86,6 +80,12 @@ class ListChartRepositoryResponseBody extends Model
                     $res['Repositories'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -99,23 +99,17 @@ class ListChartRepositoryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
-        }
-        if (isset($map['PageNo'])) {
-            $model->pageNo = $map['PageNo'];
         }
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
         }
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['Repositories'])) {
             if (!empty($map['Repositories'])) {
@@ -125,6 +119,12 @@ class ListChartRepositoryResponseBody extends Model
                     $model->repositories[$n++] = null !== $item ? repositories::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

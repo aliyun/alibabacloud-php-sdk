@@ -11,12 +11,7 @@ class images extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var int
-     */
-    public $imageSize;
+    public $digest;
 
     /**
      * @var string
@@ -26,7 +21,12 @@ class images extends Model
     /**
      * @var string
      */
-    public $digest;
+    public $imageId;
+
+    /**
+     * @var int
+     */
+    public $imageSize;
 
     /**
      * @var string
@@ -36,20 +36,20 @@ class images extends Model
     /**
      * @var string
      */
-    public $tag;
+    public $status;
 
     /**
      * @var string
      */
-    public $imageId;
+    public $tag;
     protected $_name = [
-        'status'      => 'Status',
-        'imageSize'   => 'ImageSize',
-        'imageCreate' => 'ImageCreate',
         'digest'      => 'Digest',
-        'imageUpdate' => 'ImageUpdate',
-        'tag'         => 'Tag',
+        'imageCreate' => 'ImageCreate',
         'imageId'     => 'ImageId',
+        'imageSize'   => 'ImageSize',
+        'imageUpdate' => 'ImageUpdate',
+        'status'      => 'Status',
+        'tag'         => 'Tag',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class images extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->imageSize) {
-            $res['ImageSize'] = $this->imageSize;
+        if (null !== $this->digest) {
+            $res['Digest'] = $this->digest;
         }
         if (null !== $this->imageCreate) {
             $res['ImageCreate'] = $this->imageCreate;
         }
-        if (null !== $this->digest) {
-            $res['Digest'] = $this->digest;
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->imageSize) {
+            $res['ImageSize'] = $this->imageSize;
         }
         if (null !== $this->imageUpdate) {
             $res['ImageUpdate'] = $this->imageUpdate;
         }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
-        }
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class images extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['ImageSize'])) {
-            $model->imageSize = $map['ImageSize'];
+        if (isset($map['Digest'])) {
+            $model->digest = $map['Digest'];
         }
         if (isset($map['ImageCreate'])) {
             $model->imageCreate = $map['ImageCreate'];
         }
-        if (isset($map['Digest'])) {
-            $model->digest = $map['Digest'];
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['ImageSize'])) {
+            $model->imageSize = $map['ImageSize'];
         }
         if (isset($map['ImageUpdate'])) {
             $model->imageUpdate = $map['ImageUpdate'];
         }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
-        }
-        if (isset($map['ImageId'])) {
-            $model->imageId = $map['ImageId'];
         }
 
         return $model;

@@ -11,6 +11,11 @@ class UpdateRepoBuildRuleResponseBody extends Model
     /**
      * @var string
      */
+    public $buildRuleId;
+
+    /**
+     * @var string
+     */
     public $code;
 
     /**
@@ -22,16 +27,11 @@ class UpdateRepoBuildRuleResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $buildRuleId;
     protected $_name = [
+        'buildRuleId' => 'BuildRuleId',
         'code'        => 'Code',
         'isSuccess'   => 'IsSuccess',
         'requestId'   => 'RequestId',
-        'buildRuleId' => 'BuildRuleId',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class UpdateRepoBuildRuleResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->buildRuleId) {
+            $res['BuildRuleId'] = $this->buildRuleId;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -49,9 +52,6 @@ class UpdateRepoBuildRuleResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->buildRuleId) {
-            $res['BuildRuleId'] = $this->buildRuleId;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class UpdateRepoBuildRuleResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BuildRuleId'])) {
+            $model->buildRuleId = $map['BuildRuleId'];
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -73,9 +76,6 @@ class UpdateRepoBuildRuleResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['BuildRuleId'])) {
-            $model->buildRuleId = $map['BuildRuleId'];
         }
 
         return $model;

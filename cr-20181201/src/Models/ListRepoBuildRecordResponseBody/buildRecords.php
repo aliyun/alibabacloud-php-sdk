@@ -12,12 +12,7 @@ class buildRecords extends Model
     /**
      * @var string
      */
-    public $endTime;
-
-    /**
-     * @var string
-     */
-    public $startTime;
+    public $buildRecordId;
 
     /**
      * @var string
@@ -27,18 +22,23 @@ class buildRecords extends Model
     /**
      * @var string
      */
-    public $buildRecordId;
+    public $endTime;
 
     /**
      * @var image
      */
     public $image;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
-        'endTime'       => 'EndTime',
-        'startTime'     => 'StartTime',
-        'buildStatus'   => 'BuildStatus',
         'buildRecordId' => 'BuildRecordId',
+        'buildStatus'   => 'BuildStatus',
+        'endTime'       => 'EndTime',
         'image'         => 'Image',
+        'startTime'     => 'StartTime',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class buildRecords extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->buildRecordId) {
+            $res['BuildRecordId'] = $this->buildRecordId;
         }
         if (null !== $this->buildStatus) {
             $res['BuildStatus'] = $this->buildStatus;
         }
-        if (null !== $this->buildRecordId) {
-            $res['BuildRecordId'] = $this->buildRecordId;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->image) {
             $res['Image'] = null !== $this->image ? $this->image->toMap() : null;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class buildRecords extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['BuildRecordId'])) {
+            $model->buildRecordId = $map['BuildRecordId'];
         }
         if (isset($map['BuildStatus'])) {
             $model->buildStatus = $map['BuildStatus'];
         }
-        if (isset($map['BuildRecordId'])) {
-            $model->buildRecordId = $map['BuildRecordId'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['Image'])) {
             $model->image = image::fromMap($map['Image']);
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

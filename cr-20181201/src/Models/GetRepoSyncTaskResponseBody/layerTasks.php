@@ -11,17 +11,12 @@ class layerTasks extends Model
     /**
      * @var string
      */
-    public $taskStatus;
+    public $artifactDigest;
 
     /**
      * @var string
      */
     public $digest;
-
-    /**
-     * @var int
-     */
-    public $syncedSize;
 
     /**
      * @var int
@@ -34,16 +29,21 @@ class layerTasks extends Model
     public $syncLayerTaskId;
 
     /**
+     * @var int
+     */
+    public $syncedSize;
+
+    /**
      * @var string
      */
-    public $artifactDigest;
+    public $taskStatus;
     protected $_name = [
-        'taskStatus'      => 'TaskStatus',
+        'artifactDigest'  => 'ArtifactDigest',
         'digest'          => 'Digest',
-        'syncedSize'      => 'SyncedSize',
         'size'            => 'Size',
         'syncLayerTaskId' => 'SyncLayerTaskId',
-        'artifactDigest'  => 'ArtifactDigest',
+        'syncedSize'      => 'SyncedSize',
+        'taskStatus'      => 'TaskStatus',
     ];
 
     public function validate()
@@ -53,14 +53,11 @@ class layerTasks extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskStatus) {
-            $res['TaskStatus'] = $this->taskStatus;
+        if (null !== $this->artifactDigest) {
+            $res['ArtifactDigest'] = $this->artifactDigest;
         }
         if (null !== $this->digest) {
             $res['Digest'] = $this->digest;
-        }
-        if (null !== $this->syncedSize) {
-            $res['SyncedSize'] = $this->syncedSize;
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
@@ -68,8 +65,11 @@ class layerTasks extends Model
         if (null !== $this->syncLayerTaskId) {
             $res['SyncLayerTaskId'] = $this->syncLayerTaskId;
         }
-        if (null !== $this->artifactDigest) {
-            $res['ArtifactDigest'] = $this->artifactDigest;
+        if (null !== $this->syncedSize) {
+            $res['SyncedSize'] = $this->syncedSize;
+        }
+        if (null !== $this->taskStatus) {
+            $res['TaskStatus'] = $this->taskStatus;
         }
 
         return $res;
@@ -83,14 +83,11 @@ class layerTasks extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskStatus'])) {
-            $model->taskStatus = $map['TaskStatus'];
+        if (isset($map['ArtifactDigest'])) {
+            $model->artifactDigest = $map['ArtifactDigest'];
         }
         if (isset($map['Digest'])) {
             $model->digest = $map['Digest'];
-        }
-        if (isset($map['SyncedSize'])) {
-            $model->syncedSize = $map['SyncedSize'];
         }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
@@ -98,8 +95,11 @@ class layerTasks extends Model
         if (isset($map['SyncLayerTaskId'])) {
             $model->syncLayerTaskId = $map['SyncLayerTaskId'];
         }
-        if (isset($map['ArtifactDigest'])) {
-            $model->artifactDigest = $map['ArtifactDigest'];
+        if (isset($map['SyncedSize'])) {
+            $model->syncedSize = $map['SyncedSize'];
+        }
+        if (isset($map['TaskStatus'])) {
+            $model->taskStatus = $map['TaskStatus'];
         }
 
         return $model;

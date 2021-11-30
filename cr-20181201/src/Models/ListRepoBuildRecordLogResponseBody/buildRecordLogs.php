@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class buildRecordLogs extends Model
 {
     /**
+     * @var string
+     */
+    public $buildStage;
+
+    /**
      * @var int
      */
     public $lineNumber;
@@ -17,15 +22,10 @@ class buildRecordLogs extends Model
      * @var string
      */
     public $message;
-
-    /**
-     * @var string
-     */
-    public $buildStage;
     protected $_name = [
+        'buildStage' => 'BuildStage',
         'lineNumber' => 'LineNumber',
         'message'    => 'Message',
-        'buildStage' => 'BuildStage',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class buildRecordLogs extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->buildStage) {
+            $res['BuildStage'] = $this->buildStage;
+        }
         if (null !== $this->lineNumber) {
             $res['LineNumber'] = $this->lineNumber;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
-        }
-        if (null !== $this->buildStage) {
-            $res['BuildStage'] = $this->buildStage;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class buildRecordLogs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BuildStage'])) {
+            $model->buildStage = $map['BuildStage'];
+        }
         if (isset($map['LineNumber'])) {
             $model->lineNumber = $map['LineNumber'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
-        }
-        if (isset($map['BuildStage'])) {
-            $model->buildStage = $map['BuildStage'];
         }
 
         return $model;

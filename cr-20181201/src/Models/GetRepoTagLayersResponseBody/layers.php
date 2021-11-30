@@ -16,12 +16,7 @@ class layers extends Model
     /**
      * @var int
      */
-    public $layerIndex;
-
-    /**
-     * @var string
-     */
-    public $layerInstruction;
+    public $blobSize;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class layers extends Model
     /**
      * @var int
      */
-    public $blobSize;
+    public $layerIndex;
+
+    /**
+     * @var string
+     */
+    public $layerInstruction;
     protected $_name = [
         'blobDigest'       => 'BlobDigest',
+        'blobSize'         => 'BlobSize',
+        'layerCMD'         => 'LayerCMD',
         'layerIndex'       => 'LayerIndex',
         'layerInstruction' => 'LayerInstruction',
-        'layerCMD'         => 'LayerCMD',
-        'blobSize'         => 'BlobSize',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class layers extends Model
         if (null !== $this->blobDigest) {
             $res['BlobDigest'] = $this->blobDigest;
         }
+        if (null !== $this->blobSize) {
+            $res['BlobSize'] = $this->blobSize;
+        }
+        if (null !== $this->layerCMD) {
+            $res['LayerCMD'] = $this->layerCMD;
+        }
         if (null !== $this->layerIndex) {
             $res['LayerIndex'] = $this->layerIndex;
         }
         if (null !== $this->layerInstruction) {
             $res['LayerInstruction'] = $this->layerInstruction;
-        }
-        if (null !== $this->layerCMD) {
-            $res['LayerCMD'] = $this->layerCMD;
-        }
-        if (null !== $this->blobSize) {
-            $res['BlobSize'] = $this->blobSize;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class layers extends Model
         if (isset($map['BlobDigest'])) {
             $model->blobDigest = $map['BlobDigest'];
         }
+        if (isset($map['BlobSize'])) {
+            $model->blobSize = $map['BlobSize'];
+        }
+        if (isset($map['LayerCMD'])) {
+            $model->layerCMD = $map['LayerCMD'];
+        }
         if (isset($map['LayerIndex'])) {
             $model->layerIndex = $map['LayerIndex'];
         }
         if (isset($map['LayerInstruction'])) {
             $model->layerInstruction = $map['LayerInstruction'];
-        }
-        if (isset($map['LayerCMD'])) {
-            $model->layerCMD = $map['LayerCMD'];
-        }
-        if (isset($map['BlobSize'])) {
-            $model->blobSize = $map['BlobSize'];
         }
 
         return $model;

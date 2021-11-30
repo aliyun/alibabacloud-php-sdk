@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class repositories extends Model
 {
     /**
+     * @var int
+     */
+    public $createTime;
+
+    /**
      * @var string
      */
-    public $summary;
+    public $instanceId;
 
     /**
      * @var int
@@ -24,9 +29,9 @@ class repositories extends Model
     public $repoId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $createTime;
+    public $repoName;
 
     /**
      * @var string
@@ -36,7 +41,7 @@ class repositories extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $repoStatus;
 
     /**
      * @var string
@@ -46,22 +51,17 @@ class repositories extends Model
     /**
      * @var string
      */
-    public $repoStatus;
-
-    /**
-     * @var string
-     */
-    public $repoName;
+    public $summary;
     protected $_name = [
-        'summary'           => 'Summary',
+        'createTime'        => 'CreateTime',
+        'instanceId'        => 'InstanceId',
         'modifiedTime'      => 'ModifiedTime',
         'repoId'            => 'RepoId',
-        'createTime'        => 'CreateTime',
-        'repoNamespaceName' => 'RepoNamespaceName',
-        'instanceId'        => 'InstanceId',
-        'repoType'          => 'RepoType',
-        'repoStatus'        => 'RepoStatus',
         'repoName'          => 'RepoName',
+        'repoNamespaceName' => 'RepoNamespaceName',
+        'repoStatus'        => 'RepoStatus',
+        'repoType'          => 'RepoType',
+        'summary'           => 'Summary',
     ];
 
     public function validate()
@@ -71,8 +71,11 @@ class repositories extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->summary) {
-            $res['Summary'] = $this->summary;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
@@ -80,23 +83,20 @@ class repositories extends Model
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->repoName) {
+            $res['RepoName'] = $this->repoName;
         }
         if (null !== $this->repoNamespaceName) {
             $res['RepoNamespaceName'] = $this->repoNamespaceName;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->repoStatus) {
+            $res['RepoStatus'] = $this->repoStatus;
         }
         if (null !== $this->repoType) {
             $res['RepoType'] = $this->repoType;
         }
-        if (null !== $this->repoStatus) {
-            $res['RepoStatus'] = $this->repoStatus;
-        }
-        if (null !== $this->repoName) {
-            $res['RepoName'] = $this->repoName;
+        if (null !== $this->summary) {
+            $res['Summary'] = $this->summary;
         }
 
         return $res;
@@ -110,8 +110,11 @@ class repositories extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Summary'])) {
-            $model->summary = $map['Summary'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
@@ -119,23 +122,20 @@ class repositories extends Model
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['RepoName'])) {
+            $model->repoName = $map['RepoName'];
         }
         if (isset($map['RepoNamespaceName'])) {
             $model->repoNamespaceName = $map['RepoNamespaceName'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['RepoStatus'])) {
+            $model->repoStatus = $map['RepoStatus'];
         }
         if (isset($map['RepoType'])) {
             $model->repoType = $map['RepoType'];
         }
-        if (isset($map['RepoStatus'])) {
-            $model->repoStatus = $map['RepoStatus'];
-        }
-        if (isset($map['RepoName'])) {
-            $model->repoName = $map['RepoName'];
+        if (isset($map['Summary'])) {
+            $model->summary = $map['Summary'];
         }
 
         return $model;

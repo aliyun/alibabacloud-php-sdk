@@ -11,6 +11,11 @@ class GetRepoTagScanSummaryRequest extends Model
     /**
      * @var string
      */
+    public $digest;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -21,23 +26,18 @@ class GetRepoTagScanSummaryRequest extends Model
     /**
      * @var string
      */
-    public $tag;
-
-    /**
-     * @var string
-     */
     public $scanTaskId;
 
     /**
      * @var string
      */
-    public $digest;
+    public $tag;
     protected $_name = [
+        'digest'     => 'Digest',
         'instanceId' => 'InstanceId',
         'repoId'     => 'RepoId',
-        'tag'        => 'Tag',
         'scanTaskId' => 'ScanTaskId',
-        'digest'     => 'Digest',
+        'tag'        => 'Tag',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class GetRepoTagScanSummaryRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->digest) {
+            $res['Digest'] = $this->digest;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
         }
-        if (null !== $this->tag) {
-            $res['Tag'] = $this->tag;
-        }
         if (null !== $this->scanTaskId) {
             $res['ScanTaskId'] = $this->scanTaskId;
         }
-        if (null !== $this->digest) {
-            $res['Digest'] = $this->digest;
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class GetRepoTagScanSummaryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Digest'])) {
+            $model->digest = $map['Digest'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];
         }
-        if (isset($map['Tag'])) {
-            $model->tag = $map['Tag'];
-        }
         if (isset($map['ScanTaskId'])) {
             $model->scanTaskId = $map['ScanTaskId'];
         }
-        if (isset($map['Digest'])) {
-            $model->digest = $map['Digest'];
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
         }
 
         return $model;

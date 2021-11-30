@@ -14,11 +14,6 @@ class CreateChartRepositoryResponseBody extends Model
     public $code;
 
     /**
-     * @var string
-     */
-    public $repoId;
-
-    /**
      * @var bool
      */
     public $isSuccess;
@@ -26,11 +21,16 @@ class CreateChartRepositoryResponseBody extends Model
     /**
      * @var string
      */
+    public $repoId;
+
+    /**
+     * @var string
+     */
     public $requestId;
     protected $_name = [
         'code'      => 'Code',
-        'repoId'    => 'RepoId',
         'isSuccess' => 'IsSuccess',
+        'repoId'    => 'RepoId',
         'requestId' => 'RequestId',
     ];
 
@@ -44,11 +44,11 @@ class CreateChartRepositoryResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->repoId) {
-            $res['RepoId'] = $this->repoId;
-        }
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
+        }
+        if (null !== $this->repoId) {
+            $res['RepoId'] = $this->repoId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -68,11 +68,11 @@ class CreateChartRepositoryResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['RepoId'])) {
-            $model->repoId = $map['RepoId'];
-        }
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
+        }
+        if (isset($map['RepoId'])) {
+            $model->repoId = $map['RepoId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

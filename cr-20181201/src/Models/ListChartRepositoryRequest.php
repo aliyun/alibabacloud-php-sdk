@@ -14,9 +14,14 @@ class ListChartRepositoryRequest extends Model
     public $instanceId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $repoStatus;
+    public $pageNo;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -29,21 +34,16 @@ class ListChartRepositoryRequest extends Model
     public $repoNamespaceName;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageNo;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
+    public $repoStatus;
     protected $_name = [
         'instanceId'        => 'InstanceId',
-        'repoStatus'        => 'RepoStatus',
-        'repoName'          => 'RepoName',
-        'repoNamespaceName' => 'RepoNamespaceName',
         'pageNo'            => 'PageNo',
         'pageSize'          => 'PageSize',
+        'repoName'          => 'RepoName',
+        'repoNamespaceName' => 'RepoNamespaceName',
+        'repoStatus'        => 'RepoStatus',
     ];
 
     public function validate()
@@ -56,8 +56,11 @@ class ListChartRepositoryRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->repoStatus) {
-            $res['RepoStatus'] = $this->repoStatus;
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
@@ -65,11 +68,8 @@ class ListChartRepositoryRequest extends Model
         if (null !== $this->repoNamespaceName) {
             $res['RepoNamespaceName'] = $this->repoNamespaceName;
         }
-        if (null !== $this->pageNo) {
-            $res['PageNo'] = $this->pageNo;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->repoStatus) {
+            $res['RepoStatus'] = $this->repoStatus;
         }
 
         return $res;
@@ -86,8 +86,11 @@ class ListChartRepositoryRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['RepoStatus'])) {
-            $model->repoStatus = $map['RepoStatus'];
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];
@@ -95,11 +98,8 @@ class ListChartRepositoryRequest extends Model
         if (isset($map['RepoNamespaceName'])) {
             $model->repoNamespaceName = $map['RepoNamespaceName'];
         }
-        if (isset($map['PageNo'])) {
-            $model->pageNo = $map['PageNo'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['RepoStatus'])) {
+            $model->repoStatus = $map['RepoStatus'];
         }
 
         return $model;

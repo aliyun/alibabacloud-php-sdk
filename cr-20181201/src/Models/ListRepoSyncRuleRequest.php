@@ -14,6 +14,11 @@ class ListRepoSyncRuleRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $namespaceName;
+
+    /**
      * @var int
      */
     public $pageNo;
@@ -22,11 +27,6 @@ class ListRepoSyncRuleRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $namespaceName;
 
     /**
      * @var string
@@ -44,9 +44,9 @@ class ListRepoSyncRuleRequest extends Model
     public $targetRegionId;
     protected $_name = [
         'instanceId'       => 'InstanceId',
+        'namespaceName'    => 'NamespaceName',
         'pageNo'           => 'PageNo',
         'pageSize'         => 'PageSize',
-        'namespaceName'    => 'NamespaceName',
         'repoName'         => 'RepoName',
         'targetInstanceId' => 'TargetInstanceId',
         'targetRegionId'   => 'TargetRegionId',
@@ -62,14 +62,14 @@ class ListRepoSyncRuleRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->namespaceName) {
+            $res['NamespaceName'] = $this->namespaceName;
+        }
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->namespaceName) {
-            $res['NamespaceName'] = $this->namespaceName;
         }
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
@@ -95,14 +95,14 @@ class ListRepoSyncRuleRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['NamespaceName'])) {
+            $model->namespaceName = $map['NamespaceName'];
+        }
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['NamespaceName'])) {
-            $model->namespaceName = $map['NamespaceName'];
         }
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];

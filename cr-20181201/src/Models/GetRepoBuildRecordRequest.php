@@ -11,15 +11,15 @@ class GetRepoBuildRecordRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $buildRecordId;
 
     /**
      * @var string
      */
-    public $buildRecordId;
+    public $instanceId;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
         'buildRecordId' => 'BuildRecordId',
+        'instanceId'    => 'InstanceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetRepoBuildRecordRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->buildRecordId) {
             $res['BuildRecordId'] = $this->buildRecordId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetRepoBuildRecordRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['BuildRecordId'])) {
             $model->buildRecordId = $map['BuildRecordId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

@@ -16,12 +16,7 @@ class UpdateChartRepositoryRequest extends Model
     /**
      * @var string
      */
-    public $repoType;
-
-    /**
-     * @var string
-     */
-    public $summary;
+    public $repoName;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class UpdateChartRepositoryRequest extends Model
     /**
      * @var string
      */
-    public $repoName;
+    public $repoType;
+
+    /**
+     * @var string
+     */
+    public $summary;
     protected $_name = [
         'instanceId'        => 'InstanceId',
+        'repoName'          => 'RepoName',
+        'repoNamespaceName' => 'RepoNamespaceName',
         'repoType'          => 'RepoType',
         'summary'           => 'Summary',
-        'repoNamespaceName' => 'RepoNamespaceName',
-        'repoName'          => 'RepoName',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class UpdateChartRepositoryRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->repoName) {
+            $res['RepoName'] = $this->repoName;
+        }
+        if (null !== $this->repoNamespaceName) {
+            $res['RepoNamespaceName'] = $this->repoNamespaceName;
+        }
         if (null !== $this->repoType) {
             $res['RepoType'] = $this->repoType;
         }
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
-        }
-        if (null !== $this->repoNamespaceName) {
-            $res['RepoNamespaceName'] = $this->repoNamespaceName;
-        }
-        if (null !== $this->repoName) {
-            $res['RepoName'] = $this->repoName;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class UpdateChartRepositoryRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['RepoName'])) {
+            $model->repoName = $map['RepoName'];
+        }
+        if (isset($map['RepoNamespaceName'])) {
+            $model->repoNamespaceName = $map['RepoNamespaceName'];
+        }
         if (isset($map['RepoType'])) {
             $model->repoType = $map['RepoType'];
         }
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
-        }
-        if (isset($map['RepoNamespaceName'])) {
-            $model->repoNamespaceName = $map['RepoNamespaceName'];
-        }
-        if (isset($map['RepoName'])) {
-            $model->repoName = $map['RepoName'];
         }
 
         return $model;
