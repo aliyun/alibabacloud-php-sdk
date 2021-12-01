@@ -37,7 +37,7 @@ class scene extends Model
      *
      * @var string
      */
-    public $constantThroughputTimers;
+    public $constantThroughputTimerType;
 
     /**
      * @description DNS配置
@@ -121,7 +121,7 @@ class scene extends Model
      *
      * @var string
      */
-    public $syncTimers;
+    public $syncTimerType;
 
     /**
      * @description 测试文件
@@ -144,25 +144,25 @@ class scene extends Model
      */
     public $vpcId;
     protected $_name = [
-        'agentCount'               => 'AgentCount',
-        'baseInfo'                 => 'BaseInfo',
-        'concurrency'              => 'Concurrency',
-        'constantThroughputTimers' => 'ConstantThroughputTimers',
-        'dnsCacheConfig'           => 'DnsCacheConfig',
-        'duration'                 => 'Duration',
-        'environmentId'            => 'EnvironmentId',
-        'fileList'                 => 'FileList',
-        'isVpcTest'                => 'IsVpcTest',
-        'rampUp'                   => 'RampUp',
-        'regionId'                 => 'RegionId',
-        'sceneId'                  => 'SceneId',
-        'sceneName'                => 'SceneName',
-        'securityGroupId'          => 'SecurityGroupId',
-        'steps'                    => 'Steps',
-        'syncTimers'               => 'SyncTimers',
-        'testFile'                 => 'TestFile',
-        'vSwitchId'                => 'VSwitchId',
-        'vpcId'                    => 'VpcId',
+        'agentCount'                  => 'AgentCount',
+        'baseInfo'                    => 'BaseInfo',
+        'concurrency'                 => 'Concurrency',
+        'constantThroughputTimerType' => 'ConstantThroughputTimerType',
+        'dnsCacheConfig'              => 'DnsCacheConfig',
+        'duration'                    => 'Duration',
+        'environmentId'               => 'EnvironmentId',
+        'fileList'                    => 'FileList',
+        'isVpcTest'                   => 'IsVpcTest',
+        'rampUp'                      => 'RampUp',
+        'regionId'                    => 'RegionId',
+        'sceneId'                     => 'SceneId',
+        'sceneName'                   => 'SceneName',
+        'securityGroupId'             => 'SecurityGroupId',
+        'steps'                       => 'Steps',
+        'syncTimerType'               => 'SyncTimerType',
+        'testFile'                    => 'TestFile',
+        'vSwitchId'                   => 'VSwitchId',
+        'vpcId'                       => 'VpcId',
     ];
 
     public function validate()
@@ -181,8 +181,8 @@ class scene extends Model
         if (null !== $this->concurrency) {
             $res['Concurrency'] = $this->concurrency;
         }
-        if (null !== $this->constantThroughputTimers) {
-            $res['ConstantThroughputTimers'] = $this->constantThroughputTimers;
+        if (null !== $this->constantThroughputTimerType) {
+            $res['ConstantThroughputTimerType'] = $this->constantThroughputTimerType;
         }
         if (null !== $this->dnsCacheConfig) {
             $res['DnsCacheConfig'] = null !== $this->dnsCacheConfig ? $this->dnsCacheConfig->toMap() : null;
@@ -223,8 +223,8 @@ class scene extends Model
         if (null !== $this->steps) {
             $res['Steps'] = $this->steps;
         }
-        if (null !== $this->syncTimers) {
-            $res['SyncTimers'] = $this->syncTimers;
+        if (null !== $this->syncTimerType) {
+            $res['SyncTimerType'] = $this->syncTimerType;
         }
         if (null !== $this->testFile) {
             $res['TestFile'] = $this->testFile;
@@ -256,8 +256,8 @@ class scene extends Model
         if (isset($map['Concurrency'])) {
             $model->concurrency = $map['Concurrency'];
         }
-        if (isset($map['ConstantThroughputTimers'])) {
-            $model->constantThroughputTimers = $map['ConstantThroughputTimers'];
+        if (isset($map['ConstantThroughputTimerType'])) {
+            $model->constantThroughputTimerType = $map['ConstantThroughputTimerType'];
         }
         if (isset($map['DnsCacheConfig'])) {
             $model->dnsCacheConfig = dnsCacheConfig::fromMap($map['DnsCacheConfig']);
@@ -298,8 +298,8 @@ class scene extends Model
         if (isset($map['Steps'])) {
             $model->steps = $map['Steps'];
         }
-        if (isset($map['SyncTimers'])) {
-            $model->syncTimers = $map['SyncTimers'];
+        if (isset($map['SyncTimerType'])) {
+            $model->syncTimerType = $map['SyncTimerType'];
         }
         if (isset($map['TestFile'])) {
             $model->testFile = $map['TestFile'];
