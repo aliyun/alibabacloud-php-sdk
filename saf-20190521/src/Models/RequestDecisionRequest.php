@@ -6,25 +6,19 @@ namespace AlibabaCloud\SDK\Saf\V20190521\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ExecuteRequestSGRequest extends Model
+class RequestDecisionRequest extends Model
 {
     /**
      * @var string
      */
-    public $lang;
-
-    /**
-     * @var string
-     */
-    public $service;
+    public $eventCode;
 
     /**
      * @var string
      */
     public $serviceParameters;
     protected $_name = [
-        'lang'              => 'Lang',
-        'service'           => 'Service',
+        'eventCode'         => 'EventCode',
         'serviceParameters' => 'ServiceParameters',
     ];
 
@@ -35,11 +29,8 @@ class ExecuteRequestSGRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->service) {
-            $res['Service'] = $this->service;
+        if (null !== $this->eventCode) {
+            $res['EventCode'] = $this->eventCode;
         }
         if (null !== $this->serviceParameters) {
             $res['ServiceParameters'] = $this->serviceParameters;
@@ -51,16 +42,13 @@ class ExecuteRequestSGRequest extends Model
     /**
      * @param array $map
      *
-     * @return ExecuteRequestSGRequest
+     * @return RequestDecisionRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['Service'])) {
-            $model->service = $map['Service'];
+        if (isset($map['EventCode'])) {
+            $model->eventCode = $map['EventCode'];
         }
         if (isset($map['ServiceParameters'])) {
             $model->serviceParameters = $map['ServiceParameters'];

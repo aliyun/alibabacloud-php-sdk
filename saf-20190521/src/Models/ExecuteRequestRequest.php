@@ -11,15 +11,15 @@ class ExecuteRequestRequest extends Model
     /**
      * @var string
      */
-    public $serviceParameters;
+    public $service;
 
     /**
      * @var string
      */
-    public $service;
+    public $serviceParameters;
     protected $_name = [
-        'serviceParameters' => 'ServiceParameters',
         'service'           => 'Service',
+        'serviceParameters' => 'ServiceParameters',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ExecuteRequestRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serviceParameters) {
-            $res['ServiceParameters'] = $this->serviceParameters;
-        }
         if (null !== $this->service) {
             $res['Service'] = $this->service;
+        }
+        if (null !== $this->serviceParameters) {
+            $res['ServiceParameters'] = $this->serviceParameters;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ExecuteRequestRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServiceParameters'])) {
-            $model->serviceParameters = $map['ServiceParameters'];
-        }
         if (isset($map['Service'])) {
             $model->service = $map['Service'];
+        }
+        if (isset($map['ServiceParameters'])) {
+            $model->serviceParameters = $map['ServiceParameters'];
         }
 
         return $model;

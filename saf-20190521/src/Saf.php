@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Saf\V20190521;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Saf\V20190521\Models\ExecuteExtendServiceRequest;
 use AlibabaCloud\SDK\Saf\V20190521\Models\ExecuteExtendServiceResponse;
 use AlibabaCloud\SDK\Saf\V20190521\Models\ExecuteRequestMLRequest;
@@ -13,9 +14,12 @@ use AlibabaCloud\SDK\Saf\V20190521\Models\ExecuteRequestRequest;
 use AlibabaCloud\SDK\Saf\V20190521\Models\ExecuteRequestResponse;
 use AlibabaCloud\SDK\Saf\V20190521\Models\ExecuteRequestSGRequest;
 use AlibabaCloud\SDK\Saf\V20190521\Models\ExecuteRequestSGResponse;
+use AlibabaCloud\SDK\Saf\V20190521\Models\RequestDecisionRequest;
+use AlibabaCloud\SDK\Saf\V20190521\Models\RequestDecisionResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Saf extends OpenApiClient
@@ -63,11 +67,27 @@ class Saf extends OpenApiClient
     public function executeExtendServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['Region']            = $request->region;
+        $query['Service']           = $request->service;
+        $query['ServiceParameters'] = $request->serviceParameters;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteExtendService',
+            'version'     => '2019-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ExecuteExtendServiceResponse::fromMap($this->doRPCRequest('ExecuteExtendService', '2019-05-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ExecuteExtendServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -91,11 +111,26 @@ class Saf extends OpenApiClient
     public function executeRequestWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['Service']           = $request->service;
+        $query['ServiceParameters'] = $request->serviceParameters;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteRequest',
+            'version'     => '2019-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ExecuteRequestResponse::fromMap($this->doRPCRequest('ExecuteRequest', '2019-05-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ExecuteRequestResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -119,11 +154,27 @@ class Saf extends OpenApiClient
     public function executeRequestMLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['Lang']              = $request->lang;
+        $query['Service']           = $request->service;
+        $query['ServiceParameters'] = $request->serviceParameters;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteRequestML',
+            'version'     => '2019-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ExecuteRequestMLResponse::fromMap($this->doRPCRequest('ExecuteRequestML', '2019-05-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ExecuteRequestMLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -147,11 +198,27 @@ class Saf extends OpenApiClient
     public function executeRequestSGWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['Lang']              = $request->lang;
+        $query['Service']           = $request->service;
+        $query['ServiceParameters'] = $request->serviceParameters;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteRequestSG',
+            'version'     => '2019-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ExecuteRequestSGResponse::fromMap($this->doRPCRequest('ExecuteRequestSG', '2019-05-21', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ExecuteRequestSGResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -164,5 +231,48 @@ class Saf extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->executeRequestSGWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RequestDecisionRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RequestDecisionResponse
+     */
+    public function requestDecisionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                      = [];
+        $query['EventCode']         = $request->eventCode;
+        $query['ServiceParameters'] = $request->serviceParameters;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RequestDecision',
+            'version'     => '2019-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RequestDecisionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RequestDecisionRequest $request
+     *
+     * @return RequestDecisionResponse
+     */
+    public function requestDecision($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->requestDecisionWithOptions($request, $runtime);
     }
 }
