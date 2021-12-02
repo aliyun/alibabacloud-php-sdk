@@ -17,16 +17,16 @@ class RetouchBodyAdvanceRequest extends Model
     /**
      * @var float
      */
-    public $slimDegree;
+    public $lengthenDegree;
 
     /**
      * @var float
      */
-    public $lengthenDegree;
+    public $slimDegree;
     protected $_name = [
         'imageURLObject' => 'ImageURLObject',
-        'slimDegree'     => 'SlimDegree',
         'lengthenDegree' => 'LengthenDegree',
+        'slimDegree'     => 'SlimDegree',
     ];
 
     public function validate()
@@ -40,11 +40,11 @@ class RetouchBodyAdvanceRequest extends Model
         if (null !== $this->imageURLObject) {
             $res['ImageURLObject'] = $this->imageURLObject;
         }
-        if (null !== $this->slimDegree) {
-            $res['SlimDegree'] = $this->slimDegree;
-        }
         if (null !== $this->lengthenDegree) {
             $res['LengthenDegree'] = $this->lengthenDegree;
+        }
+        if (null !== $this->slimDegree) {
+            $res['SlimDegree'] = $this->slimDegree;
         }
 
         return $res;
@@ -61,11 +61,11 @@ class RetouchBodyAdvanceRequest extends Model
         if (isset($map['ImageURLObject'])) {
             $model->imageURLObject = $map['ImageURLObject'];
         }
-        if (isset($map['SlimDegree'])) {
-            $model->slimDegree = $map['SlimDegree'];
-        }
         if (isset($map['LengthenDegree'])) {
             $model->lengthenDegree = $map['LengthenDegree'];
+        }
+        if (isset($map['SlimDegree'])) {
+            $model->slimDegree = $map['SlimDegree'];
         }
 
         return $model;

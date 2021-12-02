@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class pose extends Model
 {
     /**
+     * @var float
+     */
+    public $score;
+
+    /**
      * @var int
      */
     public $x;
@@ -17,15 +22,10 @@ class pose extends Model
      * @var int
      */
     public $y;
-
-    /**
-     * @var float
-     */
-    public $score;
     protected $_name = [
+        'score' => 'Score',
         'x'     => 'X',
         'y'     => 'Y',
-        'score' => 'Score',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class pose extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->score) {
+            $res['Score'] = $this->score;
+        }
         if (null !== $this->x) {
             $res['X'] = $this->x;
         }
         if (null !== $this->y) {
             $res['Y'] = $this->y;
-        }
-        if (null !== $this->score) {
-            $res['Score'] = $this->score;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class pose extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Score'])) {
+            $model->score = $map['Score'];
+        }
         if (isset($map['X'])) {
             $model->x = $map['X'];
         }
         if (isset($map['Y'])) {
             $model->y = $map['Y'];
-        }
-        if (isset($map['Score'])) {
-            $model->score = $map['Score'];
         }
 
         return $model;

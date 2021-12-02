@@ -21,49 +21,9 @@ use AlibabaCloud\Tea\Model;
 class attributes extends Model
 {
     /**
-     * @var gender
-     */
-    public $gender;
-
-    /**
-     * @var orient
-     */
-    public $orient;
-
-    /**
      * @var age
      */
     public $age;
-
-    /**
-     * @var upperWear
-     */
-    public $upperWear;
-
-    /**
-     * @var glasses
-     */
-    public $glasses;
-
-    /**
-     * @var lowerWear
-     */
-    public $lowerWear;
-
-    /**
-     * @var lowerColor
-     */
-    public $lowerColor;
-
-    /**
-     * @var hat
-     */
-    public $hat;
-
-    /**
-     * @var handbag
-     */
-    public $handbag;
 
     /**
      * @var backpack
@@ -71,27 +31,67 @@ class attributes extends Model
     public $backpack;
 
     /**
-     * @var upperColor
+     * @var gender
      */
-    public $upperColor;
+    public $gender;
+
+    /**
+     * @var glasses
+     */
+    public $glasses;
+
+    /**
+     * @var handbag
+     */
+    public $handbag;
+
+    /**
+     * @var hat
+     */
+    public $hat;
+
+    /**
+     * @var lowerColor
+     */
+    public $lowerColor;
+
+    /**
+     * @var lowerWear
+     */
+    public $lowerWear;
+
+    /**
+     * @var orient
+     */
+    public $orient;
 
     /**
      * @var shoulderBag
      */
     public $shoulderBag;
+
+    /**
+     * @var upperColor
+     */
+    public $upperColor;
+
+    /**
+     * @var upperWear
+     */
+    public $upperWear;
     protected $_name = [
-        'gender'      => 'Gender',
-        'orient'      => 'Orient',
         'age'         => 'Age',
-        'upperWear'   => 'UpperWear',
-        'glasses'     => 'Glasses',
-        'lowerWear'   => 'LowerWear',
-        'lowerColor'  => 'LowerColor',
-        'hat'         => 'Hat',
-        'handbag'     => 'Handbag',
         'backpack'    => 'Backpack',
-        'upperColor'  => 'UpperColor',
+        'gender'      => 'Gender',
+        'glasses'     => 'Glasses',
+        'handbag'     => 'Handbag',
+        'hat'         => 'Hat',
+        'lowerColor'  => 'LowerColor',
+        'lowerWear'   => 'LowerWear',
+        'orient'      => 'Orient',
         'shoulderBag' => 'ShoulderBag',
+        'upperColor'  => 'UpperColor',
+        'upperWear'   => 'UpperWear',
     ];
 
     public function validate()
@@ -101,41 +101,41 @@ class attributes extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->gender) {
-            $res['Gender'] = null !== $this->gender ? $this->gender->toMap() : null;
-        }
-        if (null !== $this->orient) {
-            $res['Orient'] = null !== $this->orient ? $this->orient->toMap() : null;
-        }
         if (null !== $this->age) {
             $res['Age'] = null !== $this->age ? $this->age->toMap() : null;
-        }
-        if (null !== $this->upperWear) {
-            $res['UpperWear'] = null !== $this->upperWear ? $this->upperWear->toMap() : null;
-        }
-        if (null !== $this->glasses) {
-            $res['Glasses'] = null !== $this->glasses ? $this->glasses->toMap() : null;
-        }
-        if (null !== $this->lowerWear) {
-            $res['LowerWear'] = null !== $this->lowerWear ? $this->lowerWear->toMap() : null;
-        }
-        if (null !== $this->lowerColor) {
-            $res['LowerColor'] = null !== $this->lowerColor ? $this->lowerColor->toMap() : null;
-        }
-        if (null !== $this->hat) {
-            $res['Hat'] = null !== $this->hat ? $this->hat->toMap() : null;
-        }
-        if (null !== $this->handbag) {
-            $res['Handbag'] = null !== $this->handbag ? $this->handbag->toMap() : null;
         }
         if (null !== $this->backpack) {
             $res['Backpack'] = null !== $this->backpack ? $this->backpack->toMap() : null;
         }
-        if (null !== $this->upperColor) {
-            $res['UpperColor'] = null !== $this->upperColor ? $this->upperColor->toMap() : null;
+        if (null !== $this->gender) {
+            $res['Gender'] = null !== $this->gender ? $this->gender->toMap() : null;
+        }
+        if (null !== $this->glasses) {
+            $res['Glasses'] = null !== $this->glasses ? $this->glasses->toMap() : null;
+        }
+        if (null !== $this->handbag) {
+            $res['Handbag'] = null !== $this->handbag ? $this->handbag->toMap() : null;
+        }
+        if (null !== $this->hat) {
+            $res['Hat'] = null !== $this->hat ? $this->hat->toMap() : null;
+        }
+        if (null !== $this->lowerColor) {
+            $res['LowerColor'] = null !== $this->lowerColor ? $this->lowerColor->toMap() : null;
+        }
+        if (null !== $this->lowerWear) {
+            $res['LowerWear'] = null !== $this->lowerWear ? $this->lowerWear->toMap() : null;
+        }
+        if (null !== $this->orient) {
+            $res['Orient'] = null !== $this->orient ? $this->orient->toMap() : null;
         }
         if (null !== $this->shoulderBag) {
             $res['ShoulderBag'] = null !== $this->shoulderBag ? $this->shoulderBag->toMap() : null;
+        }
+        if (null !== $this->upperColor) {
+            $res['UpperColor'] = null !== $this->upperColor ? $this->upperColor->toMap() : null;
+        }
+        if (null !== $this->upperWear) {
+            $res['UpperWear'] = null !== $this->upperWear ? $this->upperWear->toMap() : null;
         }
 
         return $res;
@@ -149,41 +149,41 @@ class attributes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Gender'])) {
-            $model->gender = gender::fromMap($map['Gender']);
-        }
-        if (isset($map['Orient'])) {
-            $model->orient = orient::fromMap($map['Orient']);
-        }
         if (isset($map['Age'])) {
             $model->age = age::fromMap($map['Age']);
-        }
-        if (isset($map['UpperWear'])) {
-            $model->upperWear = upperWear::fromMap($map['UpperWear']);
-        }
-        if (isset($map['Glasses'])) {
-            $model->glasses = glasses::fromMap($map['Glasses']);
-        }
-        if (isset($map['LowerWear'])) {
-            $model->lowerWear = lowerWear::fromMap($map['LowerWear']);
-        }
-        if (isset($map['LowerColor'])) {
-            $model->lowerColor = lowerColor::fromMap($map['LowerColor']);
-        }
-        if (isset($map['Hat'])) {
-            $model->hat = hat::fromMap($map['Hat']);
-        }
-        if (isset($map['Handbag'])) {
-            $model->handbag = handbag::fromMap($map['Handbag']);
         }
         if (isset($map['Backpack'])) {
             $model->backpack = backpack::fromMap($map['Backpack']);
         }
-        if (isset($map['UpperColor'])) {
-            $model->upperColor = upperColor::fromMap($map['UpperColor']);
+        if (isset($map['Gender'])) {
+            $model->gender = gender::fromMap($map['Gender']);
+        }
+        if (isset($map['Glasses'])) {
+            $model->glasses = glasses::fromMap($map['Glasses']);
+        }
+        if (isset($map['Handbag'])) {
+            $model->handbag = handbag::fromMap($map['Handbag']);
+        }
+        if (isset($map['Hat'])) {
+            $model->hat = hat::fromMap($map['Hat']);
+        }
+        if (isset($map['LowerColor'])) {
+            $model->lowerColor = lowerColor::fromMap($map['LowerColor']);
+        }
+        if (isset($map['LowerWear'])) {
+            $model->lowerWear = lowerWear::fromMap($map['LowerWear']);
+        }
+        if (isset($map['Orient'])) {
+            $model->orient = orient::fromMap($map['Orient']);
         }
         if (isset($map['ShoulderBag'])) {
             $model->shoulderBag = shoulderBag::fromMap($map['ShoulderBag']);
+        }
+        if (isset($map['UpperColor'])) {
+            $model->upperColor = upperColor::fromMap($map['UpperColor']);
+        }
+        if (isset($map['UpperWear'])) {
+            $model->upperWear = upperWear::fromMap($map['UpperWear']);
         }
 
         return $model;

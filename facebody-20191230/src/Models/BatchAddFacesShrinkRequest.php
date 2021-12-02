@@ -19,16 +19,6 @@ class BatchAddFacesShrinkRequest extends Model
     public $entityId;
 
     /**
-     * @var float
-     */
-    public $similarityScoreThresholdInEntity;
-
-    /**
-     * @var float
-     */
-    public $similarityScoreThresholdBetweenEntity;
-
-    /**
      * @var string
      */
     public $facesShrink;
@@ -37,13 +27,23 @@ class BatchAddFacesShrinkRequest extends Model
      * @var float
      */
     public $qualityScoreThreshold;
+
+    /**
+     * @var float
+     */
+    public $similarityScoreThresholdBetweenEntity;
+
+    /**
+     * @var float
+     */
+    public $similarityScoreThresholdInEntity;
     protected $_name = [
         'dbName'                                => 'DbName',
         'entityId'                              => 'EntityId',
-        'similarityScoreThresholdInEntity'      => 'SimilarityScoreThresholdInEntity',
-        'similarityScoreThresholdBetweenEntity' => 'SimilarityScoreThresholdBetweenEntity',
         'facesShrink'                           => 'Faces',
         'qualityScoreThreshold'                 => 'QualityScoreThreshold',
+        'similarityScoreThresholdBetweenEntity' => 'SimilarityScoreThresholdBetweenEntity',
+        'similarityScoreThresholdInEntity'      => 'SimilarityScoreThresholdInEntity',
     ];
 
     public function validate()
@@ -59,17 +59,17 @@ class BatchAddFacesShrinkRequest extends Model
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
         }
-        if (null !== $this->similarityScoreThresholdInEntity) {
-            $res['SimilarityScoreThresholdInEntity'] = $this->similarityScoreThresholdInEntity;
-        }
-        if (null !== $this->similarityScoreThresholdBetweenEntity) {
-            $res['SimilarityScoreThresholdBetweenEntity'] = $this->similarityScoreThresholdBetweenEntity;
-        }
         if (null !== $this->facesShrink) {
             $res['Faces'] = $this->facesShrink;
         }
         if (null !== $this->qualityScoreThreshold) {
             $res['QualityScoreThreshold'] = $this->qualityScoreThreshold;
+        }
+        if (null !== $this->similarityScoreThresholdBetweenEntity) {
+            $res['SimilarityScoreThresholdBetweenEntity'] = $this->similarityScoreThresholdBetweenEntity;
+        }
+        if (null !== $this->similarityScoreThresholdInEntity) {
+            $res['SimilarityScoreThresholdInEntity'] = $this->similarityScoreThresholdInEntity;
         }
 
         return $res;
@@ -89,17 +89,17 @@ class BatchAddFacesShrinkRequest extends Model
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
         }
-        if (isset($map['SimilarityScoreThresholdInEntity'])) {
-            $model->similarityScoreThresholdInEntity = $map['SimilarityScoreThresholdInEntity'];
-        }
-        if (isset($map['SimilarityScoreThresholdBetweenEntity'])) {
-            $model->similarityScoreThresholdBetweenEntity = $map['SimilarityScoreThresholdBetweenEntity'];
-        }
         if (isset($map['Faces'])) {
             $model->facesShrink = $map['Faces'];
         }
         if (isset($map['QualityScoreThreshold'])) {
             $model->qualityScoreThreshold = $map['QualityScoreThreshold'];
+        }
+        if (isset($map['SimilarityScoreThresholdBetweenEntity'])) {
+            $model->similarityScoreThresholdBetweenEntity = $map['SimilarityScoreThresholdBetweenEntity'];
+        }
+        if (isset($map['SimilarityScoreThresholdInEntity'])) {
+            $model->similarityScoreThresholdInEntity = $map['SimilarityScoreThresholdInEntity'];
         }
 
         return $model;

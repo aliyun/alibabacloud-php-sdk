@@ -19,36 +19,6 @@ class BeautifyBodyAdvanceRequest extends Model
     public $imageURLObject;
 
     /**
-     * @var int
-     */
-    public $originalWidth;
-
-    /**
-     * @var int
-     */
-    public $originalHeight;
-
-    /**
-     * @var int
-     */
-    public $custom;
-
-    /**
-     * @var float
-     */
-    public $maleLiquifyDegree;
-
-    /**
-     * @var float
-     */
-    public $femaleLiquifyDegree;
-
-    /**
-     * @var float
-     */
-    public $lengthenDegree;
-
-    /**
      * @var ageRange
      */
     public $ageRange;
@@ -59,32 +29,62 @@ class BeautifyBodyAdvanceRequest extends Model
     public $bodyBoxes;
 
     /**
+     * @var int
+     */
+    public $custom;
+
+    /**
      * @var faceList[]
      */
     public $faceList;
 
     /**
-     * @var poseList[]
+     * @var float
      */
-    public $poseList;
+    public $femaleLiquifyDegree;
 
     /**
      * @var bool
      */
     public $isPregnant;
+
+    /**
+     * @var float
+     */
+    public $lengthenDegree;
+
+    /**
+     * @var float
+     */
+    public $maleLiquifyDegree;
+
+    /**
+     * @var int
+     */
+    public $originalHeight;
+
+    /**
+     * @var int
+     */
+    public $originalWidth;
+
+    /**
+     * @var poseList[]
+     */
+    public $poseList;
     protected $_name = [
         'imageURLObject'      => 'ImageURLObject',
-        'originalWidth'       => 'OriginalWidth',
-        'originalHeight'      => 'OriginalHeight',
-        'custom'              => 'Custom',
-        'maleLiquifyDegree'   => 'MaleLiquifyDegree',
-        'femaleLiquifyDegree' => 'FemaleLiquifyDegree',
-        'lengthenDegree'      => 'LengthenDegree',
         'ageRange'            => 'AgeRange',
         'bodyBoxes'           => 'BodyBoxes',
+        'custom'              => 'Custom',
         'faceList'            => 'FaceList',
-        'poseList'            => 'PoseList',
+        'femaleLiquifyDegree' => 'FemaleLiquifyDegree',
         'isPregnant'          => 'IsPregnant',
+        'lengthenDegree'      => 'LengthenDegree',
+        'maleLiquifyDegree'   => 'MaleLiquifyDegree',
+        'originalHeight'      => 'OriginalHeight',
+        'originalWidth'       => 'OriginalWidth',
+        'poseList'            => 'PoseList',
     ];
 
     public function validate()
@@ -98,24 +98,6 @@ class BeautifyBodyAdvanceRequest extends Model
         if (null !== $this->imageURLObject) {
             $res['ImageURLObject'] = $this->imageURLObject;
         }
-        if (null !== $this->originalWidth) {
-            $res['OriginalWidth'] = $this->originalWidth;
-        }
-        if (null !== $this->originalHeight) {
-            $res['OriginalHeight'] = $this->originalHeight;
-        }
-        if (null !== $this->custom) {
-            $res['Custom'] = $this->custom;
-        }
-        if (null !== $this->maleLiquifyDegree) {
-            $res['MaleLiquifyDegree'] = $this->maleLiquifyDegree;
-        }
-        if (null !== $this->femaleLiquifyDegree) {
-            $res['FemaleLiquifyDegree'] = $this->femaleLiquifyDegree;
-        }
-        if (null !== $this->lengthenDegree) {
-            $res['LengthenDegree'] = $this->lengthenDegree;
-        }
         if (null !== $this->ageRange) {
             $res['AgeRange'] = null !== $this->ageRange ? $this->ageRange->toMap() : null;
         }
@@ -128,6 +110,9 @@ class BeautifyBodyAdvanceRequest extends Model
                 }
             }
         }
+        if (null !== $this->custom) {
+            $res['Custom'] = $this->custom;
+        }
         if (null !== $this->faceList) {
             $res['FaceList'] = [];
             if (null !== $this->faceList && \is_array($this->faceList)) {
@@ -137,6 +122,24 @@ class BeautifyBodyAdvanceRequest extends Model
                 }
             }
         }
+        if (null !== $this->femaleLiquifyDegree) {
+            $res['FemaleLiquifyDegree'] = $this->femaleLiquifyDegree;
+        }
+        if (null !== $this->isPregnant) {
+            $res['IsPregnant'] = $this->isPregnant;
+        }
+        if (null !== $this->lengthenDegree) {
+            $res['LengthenDegree'] = $this->lengthenDegree;
+        }
+        if (null !== $this->maleLiquifyDegree) {
+            $res['MaleLiquifyDegree'] = $this->maleLiquifyDegree;
+        }
+        if (null !== $this->originalHeight) {
+            $res['OriginalHeight'] = $this->originalHeight;
+        }
+        if (null !== $this->originalWidth) {
+            $res['OriginalWidth'] = $this->originalWidth;
+        }
         if (null !== $this->poseList) {
             $res['PoseList'] = [];
             if (null !== $this->poseList && \is_array($this->poseList)) {
@@ -145,9 +148,6 @@ class BeautifyBodyAdvanceRequest extends Model
                     $res['PoseList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->isPregnant) {
-            $res['IsPregnant'] = $this->isPregnant;
         }
 
         return $res;
@@ -164,24 +164,6 @@ class BeautifyBodyAdvanceRequest extends Model
         if (isset($map['ImageURLObject'])) {
             $model->imageURLObject = $map['ImageURLObject'];
         }
-        if (isset($map['OriginalWidth'])) {
-            $model->originalWidth = $map['OriginalWidth'];
-        }
-        if (isset($map['OriginalHeight'])) {
-            $model->originalHeight = $map['OriginalHeight'];
-        }
-        if (isset($map['Custom'])) {
-            $model->custom = $map['Custom'];
-        }
-        if (isset($map['MaleLiquifyDegree'])) {
-            $model->maleLiquifyDegree = $map['MaleLiquifyDegree'];
-        }
-        if (isset($map['FemaleLiquifyDegree'])) {
-            $model->femaleLiquifyDegree = $map['FemaleLiquifyDegree'];
-        }
-        if (isset($map['LengthenDegree'])) {
-            $model->lengthenDegree = $map['LengthenDegree'];
-        }
         if (isset($map['AgeRange'])) {
             $model->ageRange = ageRange::fromMap($map['AgeRange']);
         }
@@ -194,6 +176,9 @@ class BeautifyBodyAdvanceRequest extends Model
                 }
             }
         }
+        if (isset($map['Custom'])) {
+            $model->custom = $map['Custom'];
+        }
         if (isset($map['FaceList'])) {
             if (!empty($map['FaceList'])) {
                 $model->faceList = [];
@@ -203,6 +188,24 @@ class BeautifyBodyAdvanceRequest extends Model
                 }
             }
         }
+        if (isset($map['FemaleLiquifyDegree'])) {
+            $model->femaleLiquifyDegree = $map['FemaleLiquifyDegree'];
+        }
+        if (isset($map['IsPregnant'])) {
+            $model->isPregnant = $map['IsPregnant'];
+        }
+        if (isset($map['LengthenDegree'])) {
+            $model->lengthenDegree = $map['LengthenDegree'];
+        }
+        if (isset($map['MaleLiquifyDegree'])) {
+            $model->maleLiquifyDegree = $map['MaleLiquifyDegree'];
+        }
+        if (isset($map['OriginalHeight'])) {
+            $model->originalHeight = $map['OriginalHeight'];
+        }
+        if (isset($map['OriginalWidth'])) {
+            $model->originalWidth = $map['OriginalWidth'];
+        }
         if (isset($map['PoseList'])) {
             if (!empty($map['PoseList'])) {
                 $model->poseList = [];
@@ -211,9 +214,6 @@ class BeautifyBodyAdvanceRequest extends Model
                     $model->poseList[$n++] = null !== $item ? poseList::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['IsPregnant'])) {
-            $model->isPregnant = $map['IsPregnant'];
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class entities extends Model
 {
     /**
+     * @var int
+     */
+    public $createdAt;
+
+    /**
      * @var string
      */
     public $dbName;
@@ -19,6 +24,11 @@ class entities extends Model
     public $entityId;
 
     /**
+     * @var int
+     */
+    public $faceCount;
+
+    /**
      * @var string
      */
     public $labels;
@@ -26,23 +36,13 @@ class entities extends Model
     /**
      * @var int
      */
-    public $createdAt;
-
-    /**
-     * @var int
-     */
-    public $faceCount;
-
-    /**
-     * @var int
-     */
     public $updatedAt;
     protected $_name = [
+        'createdAt' => 'CreatedAt',
         'dbName'    => 'DbName',
         'entityId'  => 'EntityId',
-        'labels'    => 'Labels',
-        'createdAt' => 'CreatedAt',
         'faceCount' => 'FaceCount',
+        'labels'    => 'Labels',
         'updatedAt' => 'UpdatedAt',
     ];
 
@@ -53,20 +53,20 @@ class entities extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createdAt) {
+            $res['CreatedAt'] = $this->createdAt;
+        }
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
         }
-        if (null !== $this->labels) {
-            $res['Labels'] = $this->labels;
-        }
-        if (null !== $this->createdAt) {
-            $res['CreatedAt'] = $this->createdAt;
-        }
         if (null !== $this->faceCount) {
             $res['FaceCount'] = $this->faceCount;
+        }
+        if (null !== $this->labels) {
+            $res['Labels'] = $this->labels;
         }
         if (null !== $this->updatedAt) {
             $res['UpdatedAt'] = $this->updatedAt;
@@ -83,20 +83,20 @@ class entities extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreatedAt'])) {
+            $model->createdAt = $map['CreatedAt'];
+        }
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
         }
-        if (isset($map['Labels'])) {
-            $model->labels = $map['Labels'];
-        }
-        if (isset($map['CreatedAt'])) {
-            $model->createdAt = $map['CreatedAt'];
-        }
         if (isset($map['FaceCount'])) {
             $model->faceCount = $map['FaceCount'];
+        }
+        if (isset($map['Labels'])) {
+            $model->labels = $map['Labels'];
         }
         if (isset($map['UpdatedAt'])) {
             $model->updatedAt = $map['UpdatedAt'];

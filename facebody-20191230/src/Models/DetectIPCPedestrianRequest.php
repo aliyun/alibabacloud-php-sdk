@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DetectIPCPedestrianRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $imageData;
-
-    /**
-     * @var int
-     */
-    public $width;
-
-    /**
      * @var int
      */
     public $height;
@@ -26,12 +16,22 @@ class DetectIPCPedestrianRequest extends Model
     /**
      * @var string
      */
+    public $imageData;
+
+    /**
+     * @var string
+     */
     public $imageURL;
+
+    /**
+     * @var int
+     */
+    public $width;
     protected $_name = [
-        'imageData' => 'ImageData',
-        'width'     => 'Width',
         'height'    => 'Height',
+        'imageData' => 'ImageData',
         'imageURL'  => 'ImageURL',
+        'width'     => 'Width',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DetectIPCPedestrianRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageData) {
-            $res['ImageData'] = $this->imageData;
-        }
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
-        }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
+        if (null !== $this->imageData) {
+            $res['ImageData'] = $this->imageData;
+        }
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DetectIPCPedestrianRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageData'])) {
-            $model->imageData = $map['ImageData'];
-        }
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
-        }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
+        if (isset($map['ImageData'])) {
+            $model->imageData = $map['ImageData'];
+        }
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

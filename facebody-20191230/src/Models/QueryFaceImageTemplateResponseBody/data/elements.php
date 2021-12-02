@@ -16,28 +16,28 @@ class elements extends Model
     /**
      * @var string
      */
-    public $updateTime;
-
-    /**
-     * @var string
-     */
-    public $userId;
-
-    /**
-     * @var string
-     */
     public $templateId;
 
     /**
      * @var string
      */
     public $templateURL;
+
+    /**
+     * @var string
+     */
+    public $updateTime;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
         'createTime'  => 'CreateTime',
-        'updateTime'  => 'UpdateTime',
-        'userId'      => 'UserId',
         'templateId'  => 'TemplateId',
         'templateURL' => 'TemplateURL',
+        'updateTime'  => 'UpdateTime',
+        'userId'      => 'UserId',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class elements extends Model
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
         if (null !== $this->templateURL) {
             $res['TemplateURL'] = $this->templateURL;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class elements extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
         if (isset($map['TemplateURL'])) {
             $model->templateURL = $map['TemplateURL'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

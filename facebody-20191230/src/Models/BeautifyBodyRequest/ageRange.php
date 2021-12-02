@@ -11,15 +11,15 @@ class ageRange extends Model
     /**
      * @var int
      */
-    public $ageMinimum;
+    public $ageMax;
 
     /**
      * @var int
      */
-    public $ageMax;
+    public $ageMinimum;
     protected $_name = [
-        'ageMinimum' => 'AgeMinimum',
         'ageMax'     => 'AgeMax',
+        'ageMinimum' => 'AgeMinimum',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ageRange extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ageMinimum) {
-            $res['AgeMinimum'] = $this->ageMinimum;
-        }
         if (null !== $this->ageMax) {
             $res['AgeMax'] = $this->ageMax;
+        }
+        if (null !== $this->ageMinimum) {
+            $res['AgeMinimum'] = $this->ageMinimum;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ageRange extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AgeMinimum'])) {
-            $model->ageMinimum = $map['AgeMinimum'];
-        }
         if (isset($map['AgeMax'])) {
             $model->ageMax = $map['AgeMax'];
+        }
+        if (isset($map['AgeMinimum'])) {
+            $model->ageMinimum = $map['AgeMinimum'];
         }
 
         return $model;

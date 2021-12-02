@@ -11,11 +11,6 @@ class qualities extends Model
     /**
      * @var float[]
      */
-    public $scoreList;
-
-    /**
-     * @var float[]
-     */
     public $blurList;
 
     /**
@@ -47,8 +42,12 @@ class qualities extends Model
      * @var float[]
      */
     public $poseList;
+
+    /**
+     * @var float[]
+     */
+    public $scoreList;
     protected $_name = [
-        'scoreList' => 'ScoreList',
         'blurList'  => 'BlurList',
         'fnfList'   => 'FnfList',
         'glassList' => 'GlassList',
@@ -56,6 +55,7 @@ class qualities extends Model
         'maskList'  => 'MaskList',
         'noiseList' => 'NoiseList',
         'poseList'  => 'PoseList',
+        'scoreList' => 'ScoreList',
     ];
 
     public function validate()
@@ -65,9 +65,6 @@ class qualities extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->scoreList) {
-            $res['ScoreList'] = $this->scoreList;
-        }
         if (null !== $this->blurList) {
             $res['BlurList'] = $this->blurList;
         }
@@ -89,6 +86,9 @@ class qualities extends Model
         if (null !== $this->poseList) {
             $res['PoseList'] = $this->poseList;
         }
+        if (null !== $this->scoreList) {
+            $res['ScoreList'] = $this->scoreList;
+        }
 
         return $res;
     }
@@ -101,11 +101,6 @@ class qualities extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ScoreList'])) {
-            if (!empty($map['ScoreList'])) {
-                $model->scoreList = $map['ScoreList'];
-            }
-        }
         if (isset($map['BlurList'])) {
             if (!empty($map['BlurList'])) {
                 $model->blurList = $map['BlurList'];
@@ -139,6 +134,11 @@ class qualities extends Model
         if (isset($map['PoseList'])) {
             if (!empty($map['PoseList'])) {
                 $model->poseList = $map['PoseList'];
+            }
+        }
+        if (isset($map['ScoreList'])) {
+            if (!empty($map['ScoreList'])) {
+                $model->scoreList = $map['ScoreList'];
             }
         }
 

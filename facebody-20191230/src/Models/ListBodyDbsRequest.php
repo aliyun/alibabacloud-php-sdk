@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListBodyDbsRequest extends Model
 {
     /**
-     * @description 起始位置(不含)
-     *
-     * @var int
-     */
-    public $offset;
-
-    /**
      * @description 分页数量
      *
      * @var int
      */
     public $limit;
+
+    /**
+     * @description 起始位置(不含)
+     *
+     * @var int
+     */
+    public $offset;
     protected $_name = [
-        'offset' => 'Offset',
         'limit'  => 'Limit',
+        'offset' => 'Offset',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class ListBodyDbsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->offset) {
-            $res['Offset'] = $this->offset;
-        }
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
+        }
+        if (null !== $this->offset) {
+            $res['Offset'] = $this->offset;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class ListBodyDbsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Offset'])) {
-            $model->offset = $map['Offset'];
-        }
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
+        }
+        if (isset($map['Offset'])) {
+            $model->offset = $map['Offset'];
         }
 
         return $model;

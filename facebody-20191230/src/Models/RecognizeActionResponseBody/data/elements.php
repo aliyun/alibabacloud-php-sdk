@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class elements extends Model
 {
     /**
-     * @var float[]
+     * @var boxes[]
      */
-    public $scores;
+    public $boxes;
 
     /**
      * @var string[]
@@ -20,18 +20,18 @@ class elements extends Model
     public $labels;
 
     /**
-     * @var boxes[]
+     * @var float[]
      */
-    public $boxes;
+    public $scores;
 
     /**
      * @var int
      */
     public $timestamp;
     protected $_name = [
-        'scores'    => 'Scores',
-        'labels'    => 'Labels',
         'boxes'     => 'Boxes',
+        'labels'    => 'Labels',
+        'scores'    => 'Scores',
         'timestamp' => 'Timestamp',
     ];
 
@@ -42,12 +42,6 @@ class elements extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->scores) {
-            $res['Scores'] = $this->scores;
-        }
-        if (null !== $this->labels) {
-            $res['Labels'] = $this->labels;
-        }
         if (null !== $this->boxes) {
             $res['Boxes'] = [];
             if (null !== $this->boxes && \is_array($this->boxes)) {
@@ -56,6 +50,12 @@ class elements extends Model
                     $res['Boxes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->labels) {
+            $res['Labels'] = $this->labels;
+        }
+        if (null !== $this->scores) {
+            $res['Scores'] = $this->scores;
         }
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
@@ -72,16 +72,6 @@ class elements extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Scores'])) {
-            if (!empty($map['Scores'])) {
-                $model->scores = $map['Scores'];
-            }
-        }
-        if (isset($map['Labels'])) {
-            if (!empty($map['Labels'])) {
-                $model->labels = $map['Labels'];
-            }
-        }
         if (isset($map['Boxes'])) {
             if (!empty($map['Boxes'])) {
                 $model->boxes = [];
@@ -89,6 +79,16 @@ class elements extends Model
                 foreach ($map['Boxes'] as $item) {
                     $model->boxes[$n++] = null !== $item ? boxes::fromMap($item) : $item;
                 }
+            }
+        }
+        if (isset($map['Labels'])) {
+            if (!empty($map['Labels'])) {
+                $model->labels = $map['Labels'];
+            }
+        }
+        if (isset($map['Scores'])) {
+            if (!empty($map['Scores'])) {
+                $model->scores = $map['Scores'];
             }
         }
         if (isset($map['Timestamp'])) {

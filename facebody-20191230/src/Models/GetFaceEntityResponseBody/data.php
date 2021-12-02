@@ -20,19 +20,19 @@ class data extends Model
     public $entityId;
 
     /**
-     * @var string
-     */
-    public $labels;
-
-    /**
      * @var faces[]
      */
     public $faces;
+
+    /**
+     * @var string
+     */
+    public $labels;
     protected $_name = [
         'dbName'   => 'DbName',
         'entityId' => 'EntityId',
-        'labels'   => 'Labels',
         'faces'    => 'Faces',
+        'labels'   => 'Labels',
     ];
 
     public function validate()
@@ -48,9 +48,6 @@ class data extends Model
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
         }
-        if (null !== $this->labels) {
-            $res['Labels'] = $this->labels;
-        }
         if (null !== $this->faces) {
             $res['Faces'] = [];
             if (null !== $this->faces && \is_array($this->faces)) {
@@ -59,6 +56,9 @@ class data extends Model
                     $res['Faces'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->labels) {
+            $res['Labels'] = $this->labels;
         }
 
         return $res;
@@ -78,9 +78,6 @@ class data extends Model
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
         }
-        if (isset($map['Labels'])) {
-            $model->labels = $map['Labels'];
-        }
         if (isset($map['Faces'])) {
             if (!empty($map['Faces'])) {
                 $model->faces = [];
@@ -89,6 +86,9 @@ class data extends Model
                     $model->faces[$n++] = null !== $item ? faces::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Labels'])) {
+            $model->labels = $map['Labels'];
         }
 
         return $model;

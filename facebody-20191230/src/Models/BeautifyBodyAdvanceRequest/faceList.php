@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class faceList extends Model
 {
     /**
+     * @var int
+     */
+    public $age;
+
+    /**
      * @var faceBox
      */
     public $faceBox;
@@ -17,15 +22,10 @@ class faceList extends Model
     /**
      * @var int
      */
-    public $age;
-
-    /**
-     * @var int
-     */
     public $gender;
     protected $_name = [
-        'faceBox' => 'FaceBox',
         'age'     => 'Age',
+        'faceBox' => 'FaceBox',
         'gender'  => 'Gender',
     ];
 
@@ -36,11 +36,11 @@ class faceList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->faceBox) {
-            $res['FaceBox'] = null !== $this->faceBox ? $this->faceBox->toMap() : null;
-        }
         if (null !== $this->age) {
             $res['Age'] = $this->age;
+        }
+        if (null !== $this->faceBox) {
+            $res['FaceBox'] = null !== $this->faceBox ? $this->faceBox->toMap() : null;
         }
         if (null !== $this->gender) {
             $res['Gender'] = $this->gender;
@@ -57,11 +57,11 @@ class faceList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FaceBox'])) {
-            $model->faceBox = faceBox::fromMap($map['FaceBox']);
-        }
         if (isset($map['Age'])) {
             $model->age = $map['Age'];
+        }
+        if (isset($map['FaceBox'])) {
+            $model->faceBox = faceBox::fromMap($map['FaceBox']);
         }
         if (isset($map['Gender'])) {
             $model->gender = $map['Gender'];

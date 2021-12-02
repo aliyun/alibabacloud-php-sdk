@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
-     * @var hands
-     */
-    public $hands;
-
-    /**
      * @var box
      */
     public $box;
+
+    /**
+     * @var hands
+     */
+    public $hands;
     protected $_name = [
-        'hands' => 'Hands',
         'box'   => 'Box',
+        'hands' => 'Hands',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class results extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->hands) {
-            $res['Hands'] = null !== $this->hands ? $this->hands->toMap() : null;
-        }
         if (null !== $this->box) {
             $res['Box'] = null !== $this->box ? $this->box->toMap() : null;
+        }
+        if (null !== $this->hands) {
+            $res['Hands'] = null !== $this->hands ? $this->hands->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class results extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Hands'])) {
-            $model->hands = hands::fromMap($map['Hands']);
-        }
         if (isset($map['Box'])) {
             $model->box = box::fromMap($map['Box']);
+        }
+        if (isset($map['Hands'])) {
+            $model->hands = hands::fromMap($map['Hands']);
         }
 
         return $model;

@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class box extends Model
 {
     /**
-     * @var positions[]
-     */
-    public $positions;
-
-    /**
      * @var float
      */
     public $confident;
+
+    /**
+     * @var positions[]
+     */
+    public $positions;
     protected $_name = [
-        'positions' => 'Positions',
         'confident' => 'Confident',
+        'positions' => 'Positions',
     ];
 
     public function validate()
@@ -30,6 +30,9 @@ class box extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->confident) {
+            $res['Confident'] = $this->confident;
+        }
         if (null !== $this->positions) {
             $res['Positions'] = [];
             if (null !== $this->positions && \is_array($this->positions)) {
@@ -38,9 +41,6 @@ class box extends Model
                     $res['Positions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->confident) {
-            $res['Confident'] = $this->confident;
         }
 
         return $res;
@@ -54,6 +54,9 @@ class box extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Confident'])) {
+            $model->confident = $map['Confident'];
+        }
         if (isset($map['Positions'])) {
             if (!empty($map['Positions'])) {
                 $model->positions = [];
@@ -62,9 +65,6 @@ class box extends Model
                     $model->positions[$n++] = null !== $item ? positions::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Confident'])) {
-            $model->confident = $map['Confident'];
         }
 
         return $model;

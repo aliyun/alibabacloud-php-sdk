@@ -19,9 +19,9 @@ class DetectFaceRequest extends Model
     public $landmark;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $quality;
+    public $maxFaceNumber;
 
     /**
      * @var bool
@@ -29,15 +29,15 @@ class DetectFaceRequest extends Model
     public $pose;
 
     /**
-     * @var int
+     * @var bool
      */
-    public $maxFaceNumber;
+    public $quality;
     protected $_name = [
         'imageURL'      => 'ImageURL',
         'landmark'      => 'Landmark',
-        'quality'       => 'Quality',
-        'pose'          => 'Pose',
         'maxFaceNumber' => 'MaxFaceNumber',
+        'pose'          => 'Pose',
+        'quality'       => 'Quality',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class DetectFaceRequest extends Model
         if (null !== $this->landmark) {
             $res['Landmark'] = $this->landmark;
         }
-        if (null !== $this->quality) {
-            $res['Quality'] = $this->quality;
+        if (null !== $this->maxFaceNumber) {
+            $res['MaxFaceNumber'] = $this->maxFaceNumber;
         }
         if (null !== $this->pose) {
             $res['Pose'] = $this->pose;
         }
-        if (null !== $this->maxFaceNumber) {
-            $res['MaxFaceNumber'] = $this->maxFaceNumber;
+        if (null !== $this->quality) {
+            $res['Quality'] = $this->quality;
         }
 
         return $res;
@@ -80,14 +80,14 @@ class DetectFaceRequest extends Model
         if (isset($map['Landmark'])) {
             $model->landmark = $map['Landmark'];
         }
-        if (isset($map['Quality'])) {
-            $model->quality = $map['Quality'];
+        if (isset($map['MaxFaceNumber'])) {
+            $model->maxFaceNumber = $map['MaxFaceNumber'];
         }
         if (isset($map['Pose'])) {
             $model->pose = $map['Pose'];
         }
-        if (isset($map['MaxFaceNumber'])) {
-            $model->maxFaceNumber = $map['MaxFaceNumber'];
+        if (isset($map['Quality'])) {
+            $model->quality = $map['Quality'];
         }
 
         return $model;

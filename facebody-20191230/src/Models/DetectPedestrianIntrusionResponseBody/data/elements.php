@@ -10,21 +10,6 @@ use AlibabaCloud\Tea\Model;
 class elements extends Model
 {
     /**
-     * @var int
-     */
-    public $score;
-
-    /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var bool
-     */
-    public $isIntrude;
-
-    /**
      * @var box
      */
     public $box;
@@ -33,12 +18,27 @@ class elements extends Model
      * @var int
      */
     public $boxId;
+
+    /**
+     * @var bool
+     */
+    public $isIntrude;
+
+    /**
+     * @var int
+     */
+    public $score;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'score'     => 'Score',
-        'type'      => 'Type',
-        'isIntrude' => 'IsIntrude',
         'box'       => 'Box',
         'boxId'     => 'BoxId',
+        'isIntrude' => 'IsIntrude',
+        'score'     => 'Score',
+        'type'      => 'Type',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class elements extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->score) {
-            $res['Score'] = $this->score;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->isIntrude) {
-            $res['IsIntrude'] = $this->isIntrude;
-        }
         if (null !== $this->box) {
             $res['Box'] = null !== $this->box ? $this->box->toMap() : null;
         }
         if (null !== $this->boxId) {
             $res['BoxId'] = $this->boxId;
+        }
+        if (null !== $this->isIntrude) {
+            $res['IsIntrude'] = $this->isIntrude;
+        }
+        if (null !== $this->score) {
+            $res['Score'] = $this->score;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class elements extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Score'])) {
-            $model->score = $map['Score'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['IsIntrude'])) {
-            $model->isIntrude = $map['IsIntrude'];
-        }
         if (isset($map['Box'])) {
             $model->box = box::fromMap($map['Box']);
         }
         if (isset($map['BoxId'])) {
             $model->boxId = $map['BoxId'];
+        }
+        if (isset($map['IsIntrude'])) {
+            $model->isIntrude = $map['IsIntrude'];
+        }
+        if (isset($map['Score'])) {
+            $model->score = $map['Score'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

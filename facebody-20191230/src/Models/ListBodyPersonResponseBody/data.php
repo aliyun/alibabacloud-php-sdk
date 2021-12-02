@@ -10,19 +10,19 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var personList[]
+     */
+    public $personList;
+
+    /**
      * @description 数据总量
      *
      * @var int
      */
     public $total;
-
-    /**
-     * @var personList[]
-     */
-    public $personList;
     protected $_name = [
-        'total'      => 'Total',
         'personList' => 'PersonList',
+        'total'      => 'Total',
     ];
 
     public function validate()
@@ -32,9 +32,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
         if (null !== $this->personList) {
             $res['PersonList'] = [];
             if (null !== $this->personList && \is_array($this->personList)) {
@@ -43,6 +40,9 @@ class data extends Model
                     $res['PersonList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -56,9 +56,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
         if (isset($map['PersonList'])) {
             if (!empty($map['PersonList'])) {
                 $model->personList = [];
@@ -67,6 +64,9 @@ class data extends Model
                     $model->personList[$n++] = null !== $item ? personList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

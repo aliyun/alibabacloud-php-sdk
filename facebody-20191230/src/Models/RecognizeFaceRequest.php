@@ -9,29 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RecognizeFaceRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $imageURL;
-
-    /**
      * @var bool
      */
     public $age;
-
-    /**
-     * @var bool
-     */
-    public $gender;
-
-    /**
-     * @var bool
-     */
-    public $hat;
-
-    /**
-     * @var bool
-     */
-    public $glass;
 
     /**
      * @var bool
@@ -46,28 +26,48 @@ class RecognizeFaceRequest extends Model
     /**
      * @var bool
      */
-    public $mask;
+    public $gender;
 
     /**
      * @var bool
      */
-    public $quality;
+    public $glass;
+
+    /**
+     * @var bool
+     */
+    public $hat;
+
+    /**
+     * @var string
+     */
+    public $imageURL;
+
+    /**
+     * @var bool
+     */
+    public $mask;
 
     /**
      * @var int
      */
     public $maxFaceNumber;
+
+    /**
+     * @var bool
+     */
+    public $quality;
     protected $_name = [
-        'imageURL'      => 'ImageURL',
         'age'           => 'Age',
-        'gender'        => 'Gender',
-        'hat'           => 'Hat',
-        'glass'         => 'Glass',
         'beauty'        => 'Beauty',
         'expression'    => 'Expression',
+        'gender'        => 'Gender',
+        'glass'         => 'Glass',
+        'hat'           => 'Hat',
+        'imageURL'      => 'ImageURL',
         'mask'          => 'Mask',
-        'quality'       => 'Quality',
         'maxFaceNumber' => 'MaxFaceNumber',
+        'quality'       => 'Quality',
     ];
 
     public function validate()
@@ -77,20 +77,8 @@ class RecognizeFaceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageURL) {
-            $res['ImageURL'] = $this->imageURL;
-        }
         if (null !== $this->age) {
             $res['Age'] = $this->age;
-        }
-        if (null !== $this->gender) {
-            $res['Gender'] = $this->gender;
-        }
-        if (null !== $this->hat) {
-            $res['Hat'] = $this->hat;
-        }
-        if (null !== $this->glass) {
-            $res['Glass'] = $this->glass;
         }
         if (null !== $this->beauty) {
             $res['Beauty'] = $this->beauty;
@@ -98,14 +86,26 @@ class RecognizeFaceRequest extends Model
         if (null !== $this->expression) {
             $res['Expression'] = $this->expression;
         }
+        if (null !== $this->gender) {
+            $res['Gender'] = $this->gender;
+        }
+        if (null !== $this->glass) {
+            $res['Glass'] = $this->glass;
+        }
+        if (null !== $this->hat) {
+            $res['Hat'] = $this->hat;
+        }
+        if (null !== $this->imageURL) {
+            $res['ImageURL'] = $this->imageURL;
+        }
         if (null !== $this->mask) {
             $res['Mask'] = $this->mask;
         }
-        if (null !== $this->quality) {
-            $res['Quality'] = $this->quality;
-        }
         if (null !== $this->maxFaceNumber) {
             $res['MaxFaceNumber'] = $this->maxFaceNumber;
+        }
+        if (null !== $this->quality) {
+            $res['Quality'] = $this->quality;
         }
 
         return $res;
@@ -119,20 +119,8 @@ class RecognizeFaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURL'])) {
-            $model->imageURL = $map['ImageURL'];
-        }
         if (isset($map['Age'])) {
             $model->age = $map['Age'];
-        }
-        if (isset($map['Gender'])) {
-            $model->gender = $map['Gender'];
-        }
-        if (isset($map['Hat'])) {
-            $model->hat = $map['Hat'];
-        }
-        if (isset($map['Glass'])) {
-            $model->glass = $map['Glass'];
         }
         if (isset($map['Beauty'])) {
             $model->beauty = $map['Beauty'];
@@ -140,14 +128,26 @@ class RecognizeFaceRequest extends Model
         if (isset($map['Expression'])) {
             $model->expression = $map['Expression'];
         }
+        if (isset($map['Gender'])) {
+            $model->gender = $map['Gender'];
+        }
+        if (isset($map['Glass'])) {
+            $model->glass = $map['Glass'];
+        }
+        if (isset($map['Hat'])) {
+            $model->hat = $map['Hat'];
+        }
+        if (isset($map['ImageURL'])) {
+            $model->imageURL = $map['ImageURL'];
+        }
         if (isset($map['Mask'])) {
             $model->mask = $map['Mask'];
         }
-        if (isset($map['Quality'])) {
-            $model->quality = $map['Quality'];
-        }
         if (isset($map['MaxFaceNumber'])) {
             $model->maxFaceNumber = $map['MaxFaceNumber'];
+        }
+        if (isset($map['Quality'])) {
+            $model->quality = $map['Quality'];
         }
 
         return $model;

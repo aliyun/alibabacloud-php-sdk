@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class elements extends Model
 {
     /**
-     * @var float
+     * @var float[]
      */
-    public $confidence;
+    public $box;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class elements extends Model
     public $category;
 
     /**
-     * @var float[]
+     * @var float
      */
-    public $box;
+    public $confidence;
     protected $_name = [
-        'confidence' => 'Confidence',
-        'category'   => 'Category',
         'box'        => 'Box',
+        'category'   => 'Category',
+        'confidence' => 'Confidence',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class elements extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->confidence) {
-            $res['Confidence'] = $this->confidence;
+        if (null !== $this->box) {
+            $res['Box'] = $this->box;
         }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
-        if (null !== $this->box) {
-            $res['Box'] = $this->box;
+        if (null !== $this->confidence) {
+            $res['Confidence'] = $this->confidence;
         }
 
         return $res;
@@ -56,16 +56,16 @@ class elements extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Confidence'])) {
-            $model->confidence = $map['Confidence'];
-        }
-        if (isset($map['Category'])) {
-            $model->category = $map['Category'];
-        }
         if (isset($map['Box'])) {
             if (!empty($map['Box'])) {
                 $model->box = $map['Box'];
             }
+        }
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
+        if (isset($map['Confidence'])) {
+            $model->confidence = $map['Confidence'];
         }
 
         return $model;

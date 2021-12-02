@@ -37,20 +37,20 @@ class AddFaceAdvanceRequest extends Model
     /**
      * @var float
      */
-    public $similarityScoreThresholdInEntity;
+    public $similarityScoreThresholdBetweenEntity;
 
     /**
      * @var float
      */
-    public $similarityScoreThresholdBetweenEntity;
+    public $similarityScoreThresholdInEntity;
     protected $_name = [
         'imageUrlObject'                        => 'ImageUrlObject',
         'dbName'                                => 'DbName',
         'entityId'                              => 'EntityId',
         'extraData'                             => 'ExtraData',
         'qualityScoreThreshold'                 => 'QualityScoreThreshold',
-        'similarityScoreThresholdInEntity'      => 'SimilarityScoreThresholdInEntity',
         'similarityScoreThresholdBetweenEntity' => 'SimilarityScoreThresholdBetweenEntity',
+        'similarityScoreThresholdInEntity'      => 'SimilarityScoreThresholdInEntity',
     ];
 
     public function validate()
@@ -76,11 +76,11 @@ class AddFaceAdvanceRequest extends Model
         if (null !== $this->qualityScoreThreshold) {
             $res['QualityScoreThreshold'] = $this->qualityScoreThreshold;
         }
-        if (null !== $this->similarityScoreThresholdInEntity) {
-            $res['SimilarityScoreThresholdInEntity'] = $this->similarityScoreThresholdInEntity;
-        }
         if (null !== $this->similarityScoreThresholdBetweenEntity) {
             $res['SimilarityScoreThresholdBetweenEntity'] = $this->similarityScoreThresholdBetweenEntity;
+        }
+        if (null !== $this->similarityScoreThresholdInEntity) {
+            $res['SimilarityScoreThresholdInEntity'] = $this->similarityScoreThresholdInEntity;
         }
 
         return $res;
@@ -109,11 +109,11 @@ class AddFaceAdvanceRequest extends Model
         if (isset($map['QualityScoreThreshold'])) {
             $model->qualityScoreThreshold = $map['QualityScoreThreshold'];
         }
-        if (isset($map['SimilarityScoreThresholdInEntity'])) {
-            $model->similarityScoreThresholdInEntity = $map['SimilarityScoreThresholdInEntity'];
-        }
         if (isset($map['SimilarityScoreThresholdBetweenEntity'])) {
             $model->similarityScoreThresholdBetweenEntity = $map['SimilarityScoreThresholdBetweenEntity'];
+        }
+        if (isset($map['SimilarityScoreThresholdInEntity'])) {
+            $model->similarityScoreThresholdInEntity = $map['SimilarityScoreThresholdInEntity'];
         }
 
         return $model;

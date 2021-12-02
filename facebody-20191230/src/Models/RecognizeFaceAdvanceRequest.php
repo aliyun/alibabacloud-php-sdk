@@ -22,21 +22,6 @@ class RecognizeFaceAdvanceRequest extends Model
     /**
      * @var bool
      */
-    public $gender;
-
-    /**
-     * @var bool
-     */
-    public $hat;
-
-    /**
-     * @var bool
-     */
-    public $glass;
-
-    /**
-     * @var bool
-     */
     public $beauty;
 
     /**
@@ -47,28 +32,43 @@ class RecognizeFaceAdvanceRequest extends Model
     /**
      * @var bool
      */
-    public $mask;
+    public $gender;
 
     /**
      * @var bool
      */
-    public $quality;
+    public $glass;
+
+    /**
+     * @var bool
+     */
+    public $hat;
+
+    /**
+     * @var bool
+     */
+    public $mask;
 
     /**
      * @var int
      */
     public $maxFaceNumber;
+
+    /**
+     * @var bool
+     */
+    public $quality;
     protected $_name = [
         'imageURLObject' => 'ImageURLObject',
         'age'            => 'Age',
-        'gender'         => 'Gender',
-        'hat'            => 'Hat',
-        'glass'          => 'Glass',
         'beauty'         => 'Beauty',
         'expression'     => 'Expression',
+        'gender'         => 'Gender',
+        'glass'          => 'Glass',
+        'hat'            => 'Hat',
         'mask'           => 'Mask',
-        'quality'        => 'Quality',
         'maxFaceNumber'  => 'MaxFaceNumber',
+        'quality'        => 'Quality',
     ];
 
     public function validate()
@@ -85,29 +85,29 @@ class RecognizeFaceAdvanceRequest extends Model
         if (null !== $this->age) {
             $res['Age'] = $this->age;
         }
-        if (null !== $this->gender) {
-            $res['Gender'] = $this->gender;
-        }
-        if (null !== $this->hat) {
-            $res['Hat'] = $this->hat;
-        }
-        if (null !== $this->glass) {
-            $res['Glass'] = $this->glass;
-        }
         if (null !== $this->beauty) {
             $res['Beauty'] = $this->beauty;
         }
         if (null !== $this->expression) {
             $res['Expression'] = $this->expression;
         }
+        if (null !== $this->gender) {
+            $res['Gender'] = $this->gender;
+        }
+        if (null !== $this->glass) {
+            $res['Glass'] = $this->glass;
+        }
+        if (null !== $this->hat) {
+            $res['Hat'] = $this->hat;
+        }
         if (null !== $this->mask) {
             $res['Mask'] = $this->mask;
         }
-        if (null !== $this->quality) {
-            $res['Quality'] = $this->quality;
-        }
         if (null !== $this->maxFaceNumber) {
             $res['MaxFaceNumber'] = $this->maxFaceNumber;
+        }
+        if (null !== $this->quality) {
+            $res['Quality'] = $this->quality;
         }
 
         return $res;
@@ -127,29 +127,29 @@ class RecognizeFaceAdvanceRequest extends Model
         if (isset($map['Age'])) {
             $model->age = $map['Age'];
         }
-        if (isset($map['Gender'])) {
-            $model->gender = $map['Gender'];
-        }
-        if (isset($map['Hat'])) {
-            $model->hat = $map['Hat'];
-        }
-        if (isset($map['Glass'])) {
-            $model->glass = $map['Glass'];
-        }
         if (isset($map['Beauty'])) {
             $model->beauty = $map['Beauty'];
         }
         if (isset($map['Expression'])) {
             $model->expression = $map['Expression'];
         }
+        if (isset($map['Gender'])) {
+            $model->gender = $map['Gender'];
+        }
+        if (isset($map['Glass'])) {
+            $model->glass = $map['Glass'];
+        }
+        if (isset($map['Hat'])) {
+            $model->hat = $map['Hat'];
+        }
         if (isset($map['Mask'])) {
             $model->mask = $map['Mask'];
         }
-        if (isset($map['Quality'])) {
-            $model->quality = $map['Quality'];
-        }
         if (isset($map['MaxFaceNumber'])) {
             $model->maxFaceNumber = $map['MaxFaceNumber'];
+        }
+        if (isset($map['Quality'])) {
+            $model->quality = $map['Quality'];
         }
 
         return $model;

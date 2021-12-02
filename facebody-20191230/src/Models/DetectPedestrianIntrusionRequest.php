@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DetectPedestrianIntrusionRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $imageURL;
-
-    /**
      * @var detectRegion[]
      */
     public $detectRegion;
@@ -22,10 +17,15 @@ class DetectPedestrianIntrusionRequest extends Model
     /**
      * @var string
      */
+    public $imageURL;
+
+    /**
+     * @var string
+     */
     public $regionType;
     protected $_name = [
-        'imageURL'     => 'ImageURL',
         'detectRegion' => 'DetectRegion',
+        'imageURL'     => 'ImageURL',
         'regionType'   => 'RegionType',
     ];
 
@@ -36,9 +36,6 @@ class DetectPedestrianIntrusionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageURL) {
-            $res['ImageURL'] = $this->imageURL;
-        }
         if (null !== $this->detectRegion) {
             $res['DetectRegion'] = [];
             if (null !== $this->detectRegion && \is_array($this->detectRegion)) {
@@ -47,6 +44,9 @@ class DetectPedestrianIntrusionRequest extends Model
                     $res['DetectRegion'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->imageURL) {
+            $res['ImageURL'] = $this->imageURL;
         }
         if (null !== $this->regionType) {
             $res['RegionType'] = $this->regionType;
@@ -63,9 +63,6 @@ class DetectPedestrianIntrusionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURL'])) {
-            $model->imageURL = $map['ImageURL'];
-        }
         if (isset($map['DetectRegion'])) {
             if (!empty($map['DetectRegion'])) {
                 $model->detectRegion = [];
@@ -74,6 +71,9 @@ class DetectPedestrianIntrusionRequest extends Model
                     $model->detectRegion[$n++] = null !== $item ? detectRegion::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ImageURL'])) {
+            $model->imageURL = $map['ImageURL'];
         }
         if (isset($map['RegionType'])) {
             $model->regionType = $map['RegionType'];

@@ -11,20 +11,20 @@ class insertedFaces extends Model
     /**
      * @var string
      */
-    public $imageURL;
+    public $faceId;
 
     /**
      * @var string
      */
-    public $faceId;
+    public $imageURL;
 
     /**
      * @var float
      */
     public $qualitieScore;
     protected $_name = [
-        'imageURL'      => 'ImageURL',
         'faceId'        => 'FaceId',
+        'imageURL'      => 'ImageURL',
         'qualitieScore' => 'QualitieScore',
     ];
 
@@ -35,11 +35,11 @@ class insertedFaces extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageURL) {
-            $res['ImageURL'] = $this->imageURL;
-        }
         if (null !== $this->faceId) {
             $res['FaceId'] = $this->faceId;
+        }
+        if (null !== $this->imageURL) {
+            $res['ImageURL'] = $this->imageURL;
         }
         if (null !== $this->qualitieScore) {
             $res['QualitieScore'] = $this->qualitieScore;
@@ -56,11 +56,11 @@ class insertedFaces extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURL'])) {
-            $model->imageURL = $map['ImageURL'];
-        }
         if (isset($map['FaceId'])) {
             $model->faceId = $map['FaceId'];
+        }
+        if (isset($map['ImageURL'])) {
+            $model->imageURL = $map['ImageURL'];
         }
         if (isset($map['QualitieScore'])) {
             $model->qualitieScore = $map['QualitieScore'];

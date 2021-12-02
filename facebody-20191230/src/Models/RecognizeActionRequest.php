@@ -15,11 +15,6 @@ class RecognizeActionRequest extends Model
     public $type;
 
     /**
-     * @var string
-     */
-    public $videoUrl;
-
-    /**
      * @var URLList[]
      */
     public $URLList;
@@ -28,11 +23,16 @@ class RecognizeActionRequest extends Model
      * @var int[]
      */
     public $videoData;
+
+    /**
+     * @var string
+     */
+    public $videoUrl;
     protected $_name = [
         'type'      => 'Type',
-        'videoUrl'  => 'VideoUrl',
         'URLList'   => 'URLList',
         'videoData' => 'VideoData',
+        'videoUrl'  => 'VideoUrl',
     ];
 
     public function validate()
@@ -45,9 +45,6 @@ class RecognizeActionRequest extends Model
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-        if (null !== $this->videoUrl) {
-            $res['VideoUrl'] = $this->videoUrl;
-        }
         if (null !== $this->URLList) {
             $res['URLList'] = [];
             if (null !== $this->URLList && \is_array($this->URLList)) {
@@ -59,6 +56,9 @@ class RecognizeActionRequest extends Model
         }
         if (null !== $this->videoData) {
             $res['VideoData'] = $this->videoData;
+        }
+        if (null !== $this->videoUrl) {
+            $res['VideoUrl'] = $this->videoUrl;
         }
 
         return $res;
@@ -75,9 +75,6 @@ class RecognizeActionRequest extends Model
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-        if (isset($map['VideoUrl'])) {
-            $model->videoUrl = $map['VideoUrl'];
-        }
         if (isset($map['URLList'])) {
             if (!empty($map['URLList'])) {
                 $model->URLList = [];
@@ -89,6 +86,9 @@ class RecognizeActionRequest extends Model
         }
         if (isset($map['VideoData'])) {
             $model->videoData = $map['VideoData'];
+        }
+        if (isset($map['VideoUrl'])) {
+            $model->videoUrl = $map['VideoUrl'];
         }
 
         return $model;

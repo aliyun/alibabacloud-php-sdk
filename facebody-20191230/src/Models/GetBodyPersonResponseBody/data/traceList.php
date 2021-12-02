@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class traceList extends Model
 {
     /**
-     * @description TraceId
-     *
-     * @var int
-     */
-    public $id;
-
-    /**
      * @description 自定义Trace信息
      *
      * @var string
      */
     public $extraData;
+
+    /**
+     * @description TraceId
+     *
+     * @var int
+     */
+    public $id;
     protected $_name = [
-        'id'        => 'Id',
         'extraData' => 'ExtraData',
+        'id'        => 'Id',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class traceList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
         if (null !== $this->extraData) {
             $res['ExtraData'] = $this->extraData;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class traceList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
         if (isset($map['ExtraData'])) {
             $model->extraData = $map['ExtraData'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
 
         return $model;

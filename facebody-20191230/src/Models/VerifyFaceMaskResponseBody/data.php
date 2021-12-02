@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var float[]
+     * @var float
      */
-    public $thresholds;
+    public $confidence;
 
     /**
      * @var int
@@ -19,9 +19,9 @@ class data extends Model
     public $mask;
 
     /**
-     * @var float
+     * @var int
      */
-    public $confidence;
+    public $maskRef;
 
     /**
      * @var int[]
@@ -34,16 +34,16 @@ class data extends Model
     public $rectangleRef;
 
     /**
-     * @var int
+     * @var float[]
      */
-    public $maskRef;
+    public $thresholds;
     protected $_name = [
-        'thresholds'   => 'Thresholds',
-        'mask'         => 'Mask',
         'confidence'   => 'Confidence',
+        'mask'         => 'Mask',
+        'maskRef'      => 'MaskRef',
         'rectangle'    => 'Rectangle',
         'rectangleRef' => 'RectangleRef',
-        'maskRef'      => 'MaskRef',
+        'thresholds'   => 'Thresholds',
     ];
 
     public function validate()
@@ -53,14 +53,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->thresholds) {
-            $res['Thresholds'] = $this->thresholds;
+        if (null !== $this->confidence) {
+            $res['Confidence'] = $this->confidence;
         }
         if (null !== $this->mask) {
             $res['Mask'] = $this->mask;
         }
-        if (null !== $this->confidence) {
-            $res['Confidence'] = $this->confidence;
+        if (null !== $this->maskRef) {
+            $res['MaskRef'] = $this->maskRef;
         }
         if (null !== $this->rectangle) {
             $res['Rectangle'] = $this->rectangle;
@@ -68,8 +68,8 @@ class data extends Model
         if (null !== $this->rectangleRef) {
             $res['RectangleRef'] = $this->rectangleRef;
         }
-        if (null !== $this->maskRef) {
-            $res['MaskRef'] = $this->maskRef;
+        if (null !== $this->thresholds) {
+            $res['Thresholds'] = $this->thresholds;
         }
 
         return $res;
@@ -83,16 +83,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Thresholds'])) {
-            if (!empty($map['Thresholds'])) {
-                $model->thresholds = $map['Thresholds'];
-            }
+        if (isset($map['Confidence'])) {
+            $model->confidence = $map['Confidence'];
         }
         if (isset($map['Mask'])) {
             $model->mask = $map['Mask'];
         }
-        if (isset($map['Confidence'])) {
-            $model->confidence = $map['Confidence'];
+        if (isset($map['MaskRef'])) {
+            $model->maskRef = $map['MaskRef'];
         }
         if (isset($map['Rectangle'])) {
             if (!empty($map['Rectangle'])) {
@@ -104,8 +102,10 @@ class data extends Model
                 $model->rectangleRef = $map['RectangleRef'];
             }
         }
-        if (isset($map['MaskRef'])) {
-            $model->maskRef = $map['MaskRef'];
+        if (isset($map['Thresholds'])) {
+            if (!empty($map['Thresholds'])) {
+                $model->thresholds = $map['Thresholds'];
+            }
         }
 
         return $model;

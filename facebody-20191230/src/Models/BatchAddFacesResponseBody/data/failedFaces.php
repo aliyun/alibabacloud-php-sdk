@@ -11,20 +11,20 @@ class failedFaces extends Model
     /**
      * @var string
      */
-    public $imageURL;
+    public $code;
 
     /**
      * @var string
      */
-    public $code;
+    public $imageURL;
 
     /**
      * @var string
      */
     public $message;
     protected $_name = [
-        'imageURL' => 'ImageURL',
         'code'     => 'Code',
+        'imageURL' => 'ImageURL',
         'message'  => 'Message',
     ];
 
@@ -35,11 +35,11 @@ class failedFaces extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageURL) {
-            $res['ImageURL'] = $this->imageURL;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->imageURL) {
+            $res['ImageURL'] = $this->imageURL;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -56,11 +56,11 @@ class failedFaces extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURL'])) {
-            $model->imageURL = $map['ImageURL'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['ImageURL'])) {
+            $model->imageURL = $map['ImageURL'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

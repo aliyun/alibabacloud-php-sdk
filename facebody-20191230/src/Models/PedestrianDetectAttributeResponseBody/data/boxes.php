@@ -16,7 +16,7 @@ class boxes extends Model
     /**
      * @var float
      */
-    public $topLeftY;
+    public $bottomRightY;
 
     /**
      * @var float
@@ -31,13 +31,13 @@ class boxes extends Model
     /**
      * @var float
      */
-    public $bottomRightY;
+    public $topLeftY;
     protected $_name = [
         'bottomRightX' => 'BottomRightX',
-        'topLeftY'     => 'TopLeftY',
+        'bottomRightY' => 'BottomRightY',
         'score'        => 'Score',
         'topLeftX'     => 'TopLeftX',
-        'bottomRightY' => 'BottomRightY',
+        'topLeftY'     => 'TopLeftY',
     ];
 
     public function validate()
@@ -50,8 +50,8 @@ class boxes extends Model
         if (null !== $this->bottomRightX) {
             $res['BottomRightX'] = $this->bottomRightX;
         }
-        if (null !== $this->topLeftY) {
-            $res['TopLeftY'] = $this->topLeftY;
+        if (null !== $this->bottomRightY) {
+            $res['BottomRightY'] = $this->bottomRightY;
         }
         if (null !== $this->score) {
             $res['Score'] = $this->score;
@@ -59,8 +59,8 @@ class boxes extends Model
         if (null !== $this->topLeftX) {
             $res['TopLeftX'] = $this->topLeftX;
         }
-        if (null !== $this->bottomRightY) {
-            $res['BottomRightY'] = $this->bottomRightY;
+        if (null !== $this->topLeftY) {
+            $res['TopLeftY'] = $this->topLeftY;
         }
 
         return $res;
@@ -77,8 +77,8 @@ class boxes extends Model
         if (isset($map['BottomRightX'])) {
             $model->bottomRightX = $map['BottomRightX'];
         }
-        if (isset($map['TopLeftY'])) {
-            $model->topLeftY = $map['TopLeftY'];
+        if (isset($map['BottomRightY'])) {
+            $model->bottomRightY = $map['BottomRightY'];
         }
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
@@ -86,8 +86,8 @@ class boxes extends Model
         if (isset($map['TopLeftX'])) {
             $model->topLeftX = $map['TopLeftX'];
         }
-        if (isset($map['BottomRightY'])) {
-            $model->bottomRightY = $map['BottomRightY'];
+        if (isset($map['TopLeftY'])) {
+            $model->topLeftY = $map['TopLeftY'];
         }
 
         return $model;

@@ -11,12 +11,7 @@ class bodyBoxes extends Model
     /**
      * @var float
      */
-    public $x;
-
-    /**
-     * @var float
-     */
-    public $y;
+    public $height;
 
     /**
      * @var float
@@ -26,12 +21,17 @@ class bodyBoxes extends Model
     /**
      * @var float
      */
-    public $height;
+    public $x;
+
+    /**
+     * @var float
+     */
+    public $y;
     protected $_name = [
+        'height' => 'Height',
+        'width'  => 'Width',
         'x'      => 'X',
         'y'      => 'Y',
-        'width'  => 'Width',
-        'height' => 'Height',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class bodyBoxes extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->height) {
+            $res['Height'] = $this->height;
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
+        }
         if (null !== $this->x) {
             $res['X'] = $this->x;
         }
         if (null !== $this->y) {
             $res['Y'] = $this->y;
-        }
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
-        }
-        if (null !== $this->height) {
-            $res['Height'] = $this->height;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class bodyBoxes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Height'])) {
+            $model->height = $map['Height'];
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
+        }
         if (isset($map['X'])) {
             $model->x = $map['X'];
         }
         if (isset($map['Y'])) {
             $model->y = $map['Y'];
-        }
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
-        }
-        if (isset($map['Height'])) {
-            $model->height = $map['Height'];
         }
 
         return $model;

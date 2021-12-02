@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class tasks extends Model
 {
     /**
-     * @var string
-     */
-    public $imageURL;
-
-    /**
      * @var int[]
      */
     public $imageData;
+
+    /**
+     * @var string
+     */
+    public $imageURL;
     protected $_name = [
-        'imageURL'  => 'ImageURL',
         'imageData' => 'ImageData',
+        'imageURL'  => 'ImageURL',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class tasks extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageURL) {
-            $res['ImageURL'] = $this->imageURL;
-        }
         if (null !== $this->imageData) {
             $res['ImageData'] = $this->imageData;
+        }
+        if (null !== $this->imageURL) {
+            $res['ImageURL'] = $this->imageURL;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class tasks extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageURL'])) {
-            $model->imageURL = $map['ImageURL'];
-        }
         if (isset($map['ImageData'])) {
             $model->imageData = $map['ImageData'];
+        }
+        if (isset($map['ImageURL'])) {
+            $model->imageURL = $map['ImageURL'];
         }
 
         return $model;

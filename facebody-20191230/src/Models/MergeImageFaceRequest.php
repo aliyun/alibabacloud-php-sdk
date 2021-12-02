@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class MergeImageFaceRequest extends Model
 {
     /**
-     * @description A short description of struct
-     *
      * @var string
      */
-    public $userId;
+    public $imageURL;
 
     /**
      * @var string
@@ -21,13 +19,15 @@ class MergeImageFaceRequest extends Model
     public $templateId;
 
     /**
+     * @description A short description of struct
+     *
      * @var string
      */
-    public $imageURL;
+    public $userId;
     protected $_name = [
-        'userId'     => 'UserId',
-        'templateId' => 'TemplateId',
         'imageURL'   => 'ImageURL',
+        'templateId' => 'TemplateId',
+        'userId'     => 'UserId',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class MergeImageFaceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->imageURL) {
+            $res['ImageURL'] = $this->imageURL;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
-        if (null !== $this->imageURL) {
-            $res['ImageURL'] = $this->imageURL;
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class MergeImageFaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['ImageURL'])) {
+            $model->imageURL = $map['ImageURL'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
-        if (isset($map['ImageURL'])) {
-            $model->imageURL = $map['ImageURL'];
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class frames extends Model
 {
     /**
-     * @var string
-     */
-    public $url;
-
-    /**
      * @var float
      */
     public $rate;
+
+    /**
+     * @var string
+     */
+    public $url;
     protected $_name = [
-        'url'  => 'Url',
         'rate' => 'Rate',
+        'url'  => 'Url',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class frames extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
         if (null !== $this->rate) {
             $res['Rate'] = $this->rate;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class frames extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
-        }
         if (isset($map['Rate'])) {
             $model->rate = $map['Rate'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class MonitorExaminationRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $imageURL;
+
+    /**
      * @description A short description of struct
      *
      * @var int
      */
     public $type;
-
-    /**
-     * @var string
-     */
-    public $imageURL;
     protected $_name = [
-        'type'     => 'Type',
         'imageURL' => 'ImageURL',
+        'type'     => 'Type',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class MonitorExaminationRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class MonitorExaminationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

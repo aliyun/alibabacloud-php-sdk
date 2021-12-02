@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class detectRegion extends Model
 {
     /**
-     * @var rect
-     */
-    public $rect;
-
-    /**
      * @var line
      */
     public $line;
+
+    /**
+     * @var rect
+     */
+    public $rect;
     protected $_name = [
-        'rect' => 'Rect',
         'line' => 'Line',
+        'rect' => 'Rect',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class detectRegion extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->rect) {
-            $res['Rect'] = null !== $this->rect ? $this->rect->toMap() : null;
-        }
         if (null !== $this->line) {
             $res['Line'] = null !== $this->line ? $this->line->toMap() : null;
+        }
+        if (null !== $this->rect) {
+            $res['Rect'] = null !== $this->rect ? $this->rect->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class detectRegion extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Rect'])) {
-            $model->rect = rect::fromMap($map['Rect']);
-        }
         if (isset($map['Line'])) {
             $model->line = line::fromMap($map['Line']);
+        }
+        if (isset($map['Rect'])) {
+            $model->rect = rect::fromMap($map['Rect']);
         }
 
         return $model;

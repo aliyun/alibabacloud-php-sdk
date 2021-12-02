@@ -20,31 +20,31 @@ class SearchFaceAdvanceRequest extends Model
     public $dbName;
 
     /**
-     * @var int
-     */
-    public $limit;
-
-    /**
      * @var string
      */
     public $dbNames;
 
     /**
-     * @var float
+     * @var int
      */
-    public $qualityScoreThreshold;
+    public $limit;
 
     /**
      * @var int
      */
     public $maxFaceNum;
+
+    /**
+     * @var float
+     */
+    public $qualityScoreThreshold;
     protected $_name = [
         'imageUrlObject'        => 'ImageUrlObject',
         'dbName'                => 'DbName',
-        'limit'                 => 'Limit',
         'dbNames'               => 'DbNames',
-        'qualityScoreThreshold' => 'QualityScoreThreshold',
+        'limit'                 => 'Limit',
         'maxFaceNum'            => 'MaxFaceNum',
+        'qualityScoreThreshold' => 'QualityScoreThreshold',
     ];
 
     public function validate()
@@ -61,17 +61,17 @@ class SearchFaceAdvanceRequest extends Model
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
-        if (null !== $this->limit) {
-            $res['Limit'] = $this->limit;
-        }
         if (null !== $this->dbNames) {
             $res['DbNames'] = $this->dbNames;
         }
-        if (null !== $this->qualityScoreThreshold) {
-            $res['QualityScoreThreshold'] = $this->qualityScoreThreshold;
+        if (null !== $this->limit) {
+            $res['Limit'] = $this->limit;
         }
         if (null !== $this->maxFaceNum) {
             $res['MaxFaceNum'] = $this->maxFaceNum;
+        }
+        if (null !== $this->qualityScoreThreshold) {
+            $res['QualityScoreThreshold'] = $this->qualityScoreThreshold;
         }
 
         return $res;
@@ -91,17 +91,17 @@ class SearchFaceAdvanceRequest extends Model
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
-        if (isset($map['Limit'])) {
-            $model->limit = $map['Limit'];
-        }
         if (isset($map['DbNames'])) {
             $model->dbNames = $map['DbNames'];
         }
-        if (isset($map['QualityScoreThreshold'])) {
-            $model->qualityScoreThreshold = $map['QualityScoreThreshold'];
+        if (isset($map['Limit'])) {
+            $model->limit = $map['Limit'];
         }
         if (isset($map['MaxFaceNum'])) {
             $model->maxFaceNum = $map['MaxFaceNum'];
+        }
+        if (isset($map['QualityScoreThreshold'])) {
+            $model->qualityScoreThreshold = $map['QualityScoreThreshold'];
         }
 
         return $model;

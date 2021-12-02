@@ -23,23 +23,23 @@ class data extends Model
     /**
      * @var int
      */
+    public $height;
+
+    /**
+     * @var int
+     */
     public $personNumber;
 
     /**
      * @var int
      */
     public $width;
-
-    /**
-     * @var int
-     */
-    public $height;
     protected $_name = [
         'attributes'   => 'Attributes',
         'boxes'        => 'Boxes',
+        'height'       => 'Height',
         'personNumber' => 'PersonNumber',
         'width'        => 'Width',
-        'height'       => 'Height',
     ];
 
     public function validate()
@@ -67,14 +67,14 @@ class data extends Model
                 }
             }
         }
+        if (null !== $this->height) {
+            $res['Height'] = $this->height;
+        }
         if (null !== $this->personNumber) {
             $res['PersonNumber'] = $this->personNumber;
         }
         if (null !== $this->width) {
             $res['Width'] = $this->width;
-        }
-        if (null !== $this->height) {
-            $res['Height'] = $this->height;
         }
 
         return $res;
@@ -106,14 +106,14 @@ class data extends Model
                 }
             }
         }
+        if (isset($map['Height'])) {
+            $model->height = $map['Height'];
+        }
         if (isset($map['PersonNumber'])) {
             $model->personNumber = $map['PersonNumber'];
         }
         if (isset($map['Width'])) {
             $model->width = $map['Width'];
-        }
-        if (isset($map['Height'])) {
-            $model->height = $map['Height'];
         }
 
         return $model;

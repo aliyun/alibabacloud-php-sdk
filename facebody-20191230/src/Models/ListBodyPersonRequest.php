@@ -16,22 +16,22 @@ class ListBodyPersonRequest extends Model
     public $dbId;
 
     /**
-     * @description 起始位置(不含)
-     *
-     * @var int
-     */
-    public $offset;
-
-    /**
      * @description 分页数量
      *
      * @var int
      */
     public $limit;
+
+    /**
+     * @description 起始位置(不含)
+     *
+     * @var int
+     */
+    public $offset;
     protected $_name = [
         'dbId'   => 'DbId',
-        'offset' => 'Offset',
         'limit'  => 'Limit',
+        'offset' => 'Offset',
     ];
 
     public function validate()
@@ -44,11 +44,11 @@ class ListBodyPersonRequest extends Model
         if (null !== $this->dbId) {
             $res['DbId'] = $this->dbId;
         }
-        if (null !== $this->offset) {
-            $res['Offset'] = $this->offset;
-        }
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
+        }
+        if (null !== $this->offset) {
+            $res['Offset'] = $this->offset;
         }
 
         return $res;
@@ -65,11 +65,11 @@ class ListBodyPersonRequest extends Model
         if (isset($map['DbId'])) {
             $model->dbId = $map['DbId'];
         }
-        if (isset($map['Offset'])) {
-            $model->offset = $map['Offset'];
-        }
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
+        }
+        if (isset($map['Offset'])) {
+            $model->offset = $map['Offset'];
         }
 
         return $model;

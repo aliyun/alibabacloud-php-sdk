@@ -12,20 +12,20 @@ class ExtractPedestrianFeatureAttributeRequest extends Model
     /**
      * @var string
      */
-    public $mode;
+    public $imageURL;
 
     /**
      * @var string
      */
-    public $imageURL;
+    public $mode;
 
     /**
      * @var urlList[]
      */
     public $urlList;
     protected $_name = [
-        'mode'     => 'Mode',
         'imageURL' => 'ImageURL',
+        'mode'     => 'Mode',
         'urlList'  => 'UrlList',
     ];
 
@@ -36,11 +36,11 @@ class ExtractPedestrianFeatureAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->mode) {
-            $res['Mode'] = $this->mode;
-        }
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
         }
         if (null !== $this->urlList) {
             $res['UrlList'] = [];
@@ -63,11 +63,11 @@ class ExtractPedestrianFeatureAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Mode'])) {
-            $model->mode = $map['Mode'];
-        }
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
         }
         if (isset($map['UrlList'])) {
             if (!empty($map['UrlList'])) {

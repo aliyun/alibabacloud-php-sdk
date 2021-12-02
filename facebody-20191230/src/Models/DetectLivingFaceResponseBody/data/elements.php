@@ -15,18 +15,18 @@ class elements extends Model
     public $imageURL;
 
     /**
-     * @var string
-     */
-    public $taskId;
-
-    /**
      * @var results[]
      */
     public $results;
+
+    /**
+     * @var string
+     */
+    public $taskId;
     protected $_name = [
         'imageURL' => 'ImageURL',
-        'taskId'   => 'TaskId',
         'results'  => 'Results',
+        'taskId'   => 'TaskId',
     ];
 
     public function validate()
@@ -39,9 +39,6 @@ class elements extends Model
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
         }
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
-        }
         if (null !== $this->results) {
             $res['Results'] = [];
             if (null !== $this->results && \is_array($this->results)) {
@@ -50,6 +47,9 @@ class elements extends Model
                     $res['Results'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -66,9 +66,6 @@ class elements extends Model
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
         }
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
-        }
         if (isset($map['Results'])) {
             if (!empty($map['Results'])) {
                 $model->results = [];
@@ -77,6 +74,9 @@ class elements extends Model
                     $model->results[$n++] = null !== $item ? results::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

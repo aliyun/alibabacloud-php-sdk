@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class QueryFaceImageTemplateRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $templateId;
+
+    /**
      * @description A short description of struct
      *
      * @var string
      */
     public $userId;
-
-    /**
-     * @var string
-     */
-    public $templateId;
     protected $_name = [
-        'userId'     => 'UserId',
         'templateId' => 'TemplateId',
+        'userId'     => 'UserId',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class QueryFaceImageTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class QueryFaceImageTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

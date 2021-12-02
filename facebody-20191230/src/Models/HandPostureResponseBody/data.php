@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var outputs[]
-     */
-    public $outputs;
-
-    /**
      * @var metaObject
      */
     public $metaObject;
+
+    /**
+     * @var outputs[]
+     */
+    public $outputs;
     protected $_name = [
-        'outputs'    => 'Outputs',
         'metaObject' => 'MetaObject',
+        'outputs'    => 'Outputs',
     ];
 
     public function validate()
@@ -31,6 +31,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->metaObject) {
+            $res['MetaObject'] = null !== $this->metaObject ? $this->metaObject->toMap() : null;
+        }
         if (null !== $this->outputs) {
             $res['Outputs'] = [];
             if (null !== $this->outputs && \is_array($this->outputs)) {
@@ -39,9 +42,6 @@ class data extends Model
                     $res['Outputs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->metaObject) {
-            $res['MetaObject'] = null !== $this->metaObject ? $this->metaObject->toMap() : null;
         }
 
         return $res;
@@ -55,6 +55,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MetaObject'])) {
+            $model->metaObject = metaObject::fromMap($map['MetaObject']);
+        }
         if (isset($map['Outputs'])) {
             if (!empty($map['Outputs'])) {
                 $model->outputs = [];
@@ -63,9 +66,6 @@ class data extends Model
                     $model->outputs[$n++] = null !== $item ? outputs::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['MetaObject'])) {
-            $model->metaObject = metaObject::fromMap($map['MetaObject']);
         }
 
         return $model;

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var float[]
+     * @var int
      */
-    public $faceProbabilityList;
+    public $faceCount;
 
     /**
      * @var float[]
      */
-    public $pupils;
+    public $faceProbabilityList;
 
     /**
      * @var int[]
@@ -27,7 +27,12 @@ class data extends Model
     /**
      * @var int
      */
-    public $faceCount;
+    public $landmarkCount;
+
+    /**
+     * @var float[]
+     */
+    public $landmarks;
 
     /**
      * @var float[]
@@ -37,25 +42,20 @@ class data extends Model
     /**
      * @var float[]
      */
-    public $landmarks;
-
-    /**
-     * @var int
-     */
-    public $landmarkCount;
+    public $pupils;
 
     /**
      * @var qualities
      */
     public $qualities;
     protected $_name = [
-        'faceProbabilityList' => 'FaceProbabilityList',
-        'pupils'              => 'Pupils',
-        'faceRectangles'      => 'FaceRectangles',
         'faceCount'           => 'FaceCount',
-        'poseList'            => 'PoseList',
-        'landmarks'           => 'Landmarks',
+        'faceProbabilityList' => 'FaceProbabilityList',
+        'faceRectangles'      => 'FaceRectangles',
         'landmarkCount'       => 'LandmarkCount',
+        'landmarks'           => 'Landmarks',
+        'poseList'            => 'PoseList',
+        'pupils'              => 'Pupils',
         'qualities'           => 'Qualities',
     ];
 
@@ -66,26 +66,26 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->faceCount) {
+            $res['FaceCount'] = $this->faceCount;
+        }
         if (null !== $this->faceProbabilityList) {
             $res['FaceProbabilityList'] = $this->faceProbabilityList;
-        }
-        if (null !== $this->pupils) {
-            $res['Pupils'] = $this->pupils;
         }
         if (null !== $this->faceRectangles) {
             $res['FaceRectangles'] = $this->faceRectangles;
         }
-        if (null !== $this->faceCount) {
-            $res['FaceCount'] = $this->faceCount;
-        }
-        if (null !== $this->poseList) {
-            $res['PoseList'] = $this->poseList;
+        if (null !== $this->landmarkCount) {
+            $res['LandmarkCount'] = $this->landmarkCount;
         }
         if (null !== $this->landmarks) {
             $res['Landmarks'] = $this->landmarks;
         }
-        if (null !== $this->landmarkCount) {
-            $res['LandmarkCount'] = $this->landmarkCount;
+        if (null !== $this->poseList) {
+            $res['PoseList'] = $this->poseList;
+        }
+        if (null !== $this->pupils) {
+            $res['Pupils'] = $this->pupils;
         }
         if (null !== $this->qualities) {
             $res['Qualities'] = null !== $this->qualities ? $this->qualities->toMap() : null;
@@ -102,14 +102,12 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FaceCount'])) {
+            $model->faceCount = $map['FaceCount'];
+        }
         if (isset($map['FaceProbabilityList'])) {
             if (!empty($map['FaceProbabilityList'])) {
                 $model->faceProbabilityList = $map['FaceProbabilityList'];
-            }
-        }
-        if (isset($map['Pupils'])) {
-            if (!empty($map['Pupils'])) {
-                $model->pupils = $map['Pupils'];
             }
         }
         if (isset($map['FaceRectangles'])) {
@@ -117,21 +115,23 @@ class data extends Model
                 $model->faceRectangles = $map['FaceRectangles'];
             }
         }
-        if (isset($map['FaceCount'])) {
-            $model->faceCount = $map['FaceCount'];
-        }
-        if (isset($map['PoseList'])) {
-            if (!empty($map['PoseList'])) {
-                $model->poseList = $map['PoseList'];
-            }
+        if (isset($map['LandmarkCount'])) {
+            $model->landmarkCount = $map['LandmarkCount'];
         }
         if (isset($map['Landmarks'])) {
             if (!empty($map['Landmarks'])) {
                 $model->landmarks = $map['Landmarks'];
             }
         }
-        if (isset($map['LandmarkCount'])) {
-            $model->landmarkCount = $map['LandmarkCount'];
+        if (isset($map['PoseList'])) {
+            if (!empty($map['PoseList'])) {
+                $model->poseList = $map['PoseList'];
+            }
+        }
+        if (isset($map['Pupils'])) {
+            if (!empty($map['Pupils'])) {
+                $model->pupils = $map['Pupils'];
+            }
         }
         if (isset($map['Qualities'])) {
             $model->qualities = qualities::fromMap($map['Qualities']);

@@ -15,6 +15,11 @@ class DetectIPCPedestrianAdvanceRequest extends Model
     public $imageURLObject;
 
     /**
+     * @var int
+     */
+    public $height;
+
+    /**
      * @var string
      */
     public $imageData;
@@ -23,16 +28,11 @@ class DetectIPCPedestrianAdvanceRequest extends Model
      * @var int
      */
     public $width;
-
-    /**
-     * @var int
-     */
-    public $height;
     protected $_name = [
         'imageURLObject' => 'ImageURLObject',
+        'height'         => 'Height',
         'imageData'      => 'ImageData',
         'width'          => 'Width',
-        'height'         => 'Height',
     ];
 
     public function validate()
@@ -46,14 +46,14 @@ class DetectIPCPedestrianAdvanceRequest extends Model
         if (null !== $this->imageURLObject) {
             $res['ImageURLObject'] = $this->imageURLObject;
         }
+        if (null !== $this->height) {
+            $res['Height'] = $this->height;
+        }
         if (null !== $this->imageData) {
             $res['ImageData'] = $this->imageData;
         }
         if (null !== $this->width) {
             $res['Width'] = $this->width;
-        }
-        if (null !== $this->height) {
-            $res['Height'] = $this->height;
         }
 
         return $res;
@@ -70,14 +70,14 @@ class DetectIPCPedestrianAdvanceRequest extends Model
         if (isset($map['ImageURLObject'])) {
             $model->imageURLObject = $map['ImageURLObject'];
         }
+        if (isset($map['Height'])) {
+            $model->height = $map['Height'];
+        }
         if (isset($map['ImageData'])) {
             $model->imageData = $map['ImageData'];
         }
         if (isset($map['Width'])) {
             $model->width = $map['Width'];
-        }
-        if (isset($map['Height'])) {
-            $model->height = $map['Height'];
         }
 
         return $model;

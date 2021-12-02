@@ -9,11 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CompareFaceRequest extends Model
 {
     /**
-     * @description 质量分阈值，取值范围 [0.0, 100.0],   0.0或空  表示不做质量分判断逻辑。
-     *
-     * @var float
+     * @var int[]
      */
-    public $qualityScoreThreshold;
+    public $imageDataA;
+
+    /**
+     * @var int[]
+     */
+    public $imageDataB;
 
     /**
      * @var string
@@ -26,20 +29,17 @@ class CompareFaceRequest extends Model
     public $imageURLB;
 
     /**
-     * @var int[]
+     * @description 质量分阈值，取值范围 [0.0, 100.0],   0.0或空  表示不做质量分判断逻辑。
+     *
+     * @var float
      */
-    public $imageDataA;
-
-    /**
-     * @var int[]
-     */
-    public $imageDataB;
+    public $qualityScoreThreshold;
     protected $_name = [
-        'qualityScoreThreshold' => 'QualityScoreThreshold',
-        'imageURLA'             => 'ImageURLA',
-        'imageURLB'             => 'ImageURLB',
         'imageDataA'            => 'ImageDataA',
         'imageDataB'            => 'ImageDataB',
+        'imageURLA'             => 'ImageURLA',
+        'imageURLB'             => 'ImageURLB',
+        'qualityScoreThreshold' => 'QualityScoreThreshold',
     ];
 
     public function validate()
@@ -49,8 +49,11 @@ class CompareFaceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->qualityScoreThreshold) {
-            $res['QualityScoreThreshold'] = $this->qualityScoreThreshold;
+        if (null !== $this->imageDataA) {
+            $res['ImageDataA'] = $this->imageDataA;
+        }
+        if (null !== $this->imageDataB) {
+            $res['ImageDataB'] = $this->imageDataB;
         }
         if (null !== $this->imageURLA) {
             $res['ImageURLA'] = $this->imageURLA;
@@ -58,11 +61,8 @@ class CompareFaceRequest extends Model
         if (null !== $this->imageURLB) {
             $res['ImageURLB'] = $this->imageURLB;
         }
-        if (null !== $this->imageDataA) {
-            $res['ImageDataA'] = $this->imageDataA;
-        }
-        if (null !== $this->imageDataB) {
-            $res['ImageDataB'] = $this->imageDataB;
+        if (null !== $this->qualityScoreThreshold) {
+            $res['QualityScoreThreshold'] = $this->qualityScoreThreshold;
         }
 
         return $res;
@@ -76,8 +76,11 @@ class CompareFaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['QualityScoreThreshold'])) {
-            $model->qualityScoreThreshold = $map['QualityScoreThreshold'];
+        if (isset($map['ImageDataA'])) {
+            $model->imageDataA = $map['ImageDataA'];
+        }
+        if (isset($map['ImageDataB'])) {
+            $model->imageDataB = $map['ImageDataB'];
         }
         if (isset($map['ImageURLA'])) {
             $model->imageURLA = $map['ImageURLA'];
@@ -85,11 +88,8 @@ class CompareFaceRequest extends Model
         if (isset($map['ImageURLB'])) {
             $model->imageURLB = $map['ImageURLB'];
         }
-        if (isset($map['ImageDataA'])) {
-            $model->imageDataA = $map['ImageDataA'];
-        }
-        if (isset($map['ImageDataB'])) {
-            $model->imageDataB = $map['ImageDataB'];
+        if (isset($map['QualityScoreThreshold'])) {
+            $model->qualityScoreThreshold = $map['QualityScoreThreshold'];
         }
 
         return $model;

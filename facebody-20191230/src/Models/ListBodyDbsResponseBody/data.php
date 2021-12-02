@@ -10,19 +10,19 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var dbList[]
+     */
+    public $dbList;
+
+    /**
      * @description 数据库ID
      *
      * @var int
      */
     public $total;
-
-    /**
-     * @var dbList[]
-     */
-    public $dbList;
     protected $_name = [
-        'total'  => 'Total',
         'dbList' => 'DbList',
+        'total'  => 'Total',
     ];
 
     public function validate()
@@ -32,9 +32,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
-        }
         if (null !== $this->dbList) {
             $res['DbList'] = [];
             if (null !== $this->dbList && \is_array($this->dbList)) {
@@ -43,6 +40,9 @@ class data extends Model
                     $res['DbList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -56,9 +56,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
-        }
         if (isset($map['DbList'])) {
             if (!empty($map['DbList'])) {
                 $model->dbList = [];
@@ -67,6 +64,9 @@ class data extends Model
                     $model->dbList[$n++] = null !== $item ? dbList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

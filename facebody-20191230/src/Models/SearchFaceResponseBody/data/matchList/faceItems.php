@@ -9,9 +9,24 @@ use AlibabaCloud\Tea\Model;
 class faceItems extends Model
 {
     /**
+     * @var float
+     */
+    public $confidence;
+
+    /**
+     * @var string
+     */
+    public $dbName;
+
+    /**
      * @var string
      */
     public $entityId;
+
+    /**
+     * @var string
+     */
+    public $extraData;
 
     /**
      * @var string
@@ -22,28 +37,13 @@ class faceItems extends Model
      * @var float
      */
     public $score;
-
-    /**
-     * @var string
-     */
-    public $extraData;
-
-    /**
-     * @var string
-     */
-    public $dbName;
-
-    /**
-     * @var float
-     */
-    public $confidence;
     protected $_name = [
+        'confidence' => 'Confidence',
+        'dbName'     => 'DbName',
         'entityId'   => 'EntityId',
+        'extraData'  => 'ExtraData',
         'faceId'     => 'FaceId',
         'score'      => 'Score',
-        'extraData'  => 'ExtraData',
-        'dbName'     => 'DbName',
-        'confidence' => 'Confidence',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class faceItems extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->confidence) {
+            $res['Confidence'] = $this->confidence;
+        }
+        if (null !== $this->dbName) {
+            $res['DbName'] = $this->dbName;
+        }
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
+        }
+        if (null !== $this->extraData) {
+            $res['ExtraData'] = $this->extraData;
         }
         if (null !== $this->faceId) {
             $res['FaceId'] = $this->faceId;
         }
         if (null !== $this->score) {
             $res['Score'] = $this->score;
-        }
-        if (null !== $this->extraData) {
-            $res['ExtraData'] = $this->extraData;
-        }
-        if (null !== $this->dbName) {
-            $res['DbName'] = $this->dbName;
-        }
-        if (null !== $this->confidence) {
-            $res['Confidence'] = $this->confidence;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class faceItems extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Confidence'])) {
+            $model->confidence = $map['Confidence'];
+        }
+        if (isset($map['DbName'])) {
+            $model->dbName = $map['DbName'];
+        }
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
+        }
+        if (isset($map['ExtraData'])) {
+            $model->extraData = $map['ExtraData'];
         }
         if (isset($map['FaceId'])) {
             $model->faceId = $map['FaceId'];
         }
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
-        }
-        if (isset($map['ExtraData'])) {
-            $model->extraData = $map['ExtraData'];
-        }
-        if (isset($map['DbName'])) {
-            $model->dbName = $map['DbName'];
-        }
-        if (isset($map['Confidence'])) {
-            $model->confidence = $map['Confidence'];
         }
 
         return $model;

@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class bodies extends Model
 {
     /**
-     * @var positions[]
-     */
-    public $positions;
-
-    /**
      * @var float
      */
     public $confident;
@@ -23,10 +18,15 @@ class bodies extends Model
      * @var string
      */
     public $label;
+
+    /**
+     * @var positions[]
+     */
+    public $positions;
     protected $_name = [
-        'positions' => 'Positions',
         'confident' => 'Confident',
         'label'     => 'Label',
+        'positions' => 'Positions',
     ];
 
     public function validate()
@@ -36,6 +36,12 @@ class bodies extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->confident) {
+            $res['Confident'] = $this->confident;
+        }
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
+        }
         if (null !== $this->positions) {
             $res['Positions'] = [];
             if (null !== $this->positions && \is_array($this->positions)) {
@@ -44,12 +50,6 @@ class bodies extends Model
                     $res['Positions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->confident) {
-            $res['Confident'] = $this->confident;
-        }
-        if (null !== $this->label) {
-            $res['Label'] = $this->label;
         }
 
         return $res;
@@ -63,6 +63,12 @@ class bodies extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Confident'])) {
+            $model->confident = $map['Confident'];
+        }
+        if (isset($map['Label'])) {
+            $model->label = $map['Label'];
+        }
         if (isset($map['Positions'])) {
             if (!empty($map['Positions'])) {
                 $model->positions = [];
@@ -71,12 +77,6 @@ class bodies extends Model
                     $model->positions[$n++] = null !== $item ? positions::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Confident'])) {
-            $model->confident = $map['Confident'];
-        }
-        if (isset($map['Label'])) {
-            $model->label = $map['Label'];
         }
 
         return $model;

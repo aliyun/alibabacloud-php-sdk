@@ -16,18 +16,18 @@ class matchList extends Model
     public $dbId;
 
     /**
+     * @description 自定义数据信息
+     *
+     * @var string
+     */
+    public $extraData;
+
+    /**
      * @description 人员ID
      *
      * @var int
      */
     public $personId;
-
-    /**
-     * @description TraceId
-     *
-     * @var int
-     */
-    public $traceId;
 
     /**
      * @description 匹配度分值，越大越相似，取值范围[-1.0, 1.0]
@@ -37,17 +37,17 @@ class matchList extends Model
     public $score;
 
     /**
-     * @description 自定义数据信息
+     * @description TraceId
      *
-     * @var string
+     * @var int
      */
-    public $extraData;
+    public $traceId;
     protected $_name = [
         'dbId'      => 'DbId',
-        'personId'  => 'PersonId',
-        'traceId'   => 'TraceId',
-        'score'     => 'Score',
         'extraData' => 'ExtraData',
+        'personId'  => 'PersonId',
+        'score'     => 'Score',
+        'traceId'   => 'TraceId',
     ];
 
     public function validate()
@@ -60,17 +60,17 @@ class matchList extends Model
         if (null !== $this->dbId) {
             $res['DbId'] = $this->dbId;
         }
+        if (null !== $this->extraData) {
+            $res['ExtraData'] = $this->extraData;
+        }
         if (null !== $this->personId) {
             $res['PersonId'] = $this->personId;
-        }
-        if (null !== $this->traceId) {
-            $res['TraceId'] = $this->traceId;
         }
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
-        if (null !== $this->extraData) {
-            $res['ExtraData'] = $this->extraData;
+        if (null !== $this->traceId) {
+            $res['TraceId'] = $this->traceId;
         }
 
         return $res;
@@ -87,17 +87,17 @@ class matchList extends Model
         if (isset($map['DbId'])) {
             $model->dbId = $map['DbId'];
         }
+        if (isset($map['ExtraData'])) {
+            $model->extraData = $map['ExtraData'];
+        }
         if (isset($map['PersonId'])) {
             $model->personId = $map['PersonId'];
-        }
-        if (isset($map['TraceId'])) {
-            $model->traceId = $map['TraceId'];
         }
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }
-        if (isset($map['ExtraData'])) {
-            $model->extraData = $map['ExtraData'];
+        if (isset($map['TraceId'])) {
+            $model->traceId = $map['TraceId'];
         }
 
         return $model;

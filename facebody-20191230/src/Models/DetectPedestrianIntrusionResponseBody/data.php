@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var int
+     * @var elements[]
      */
-    public $imageWidth;
+    public $elements;
 
     /**
      * @var int
@@ -20,13 +20,13 @@ class data extends Model
     public $imageHeight;
 
     /**
-     * @var elements[]
+     * @var int
      */
-    public $elements;
+    public $imageWidth;
     protected $_name = [
-        'imageWidth'  => 'ImageWidth',
-        'imageHeight' => 'ImageHeight',
         'elements'    => 'Elements',
+        'imageHeight' => 'ImageHeight',
+        'imageWidth'  => 'ImageWidth',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageWidth) {
-            $res['ImageWidth'] = $this->imageWidth;
-        }
-        if (null !== $this->imageHeight) {
-            $res['ImageHeight'] = $this->imageHeight;
-        }
         if (null !== $this->elements) {
             $res['Elements'] = [];
             if (null !== $this->elements && \is_array($this->elements)) {
@@ -50,6 +44,12 @@ class data extends Model
                     $res['Elements'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->imageHeight) {
+            $res['ImageHeight'] = $this->imageHeight;
+        }
+        if (null !== $this->imageWidth) {
+            $res['ImageWidth'] = $this->imageWidth;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageWidth'])) {
-            $model->imageWidth = $map['ImageWidth'];
-        }
-        if (isset($map['ImageHeight'])) {
-            $model->imageHeight = $map['ImageHeight'];
-        }
         if (isset($map['Elements'])) {
             if (!empty($map['Elements'])) {
                 $model->elements = [];
@@ -77,6 +71,12 @@ class data extends Model
                     $model->elements[$n++] = null !== $item ? elements::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ImageHeight'])) {
+            $model->imageHeight = $map['ImageHeight'];
+        }
+        if (isset($map['ImageWidth'])) {
+            $model->imageWidth = $map['ImageWidth'];
         }
 
         return $model;

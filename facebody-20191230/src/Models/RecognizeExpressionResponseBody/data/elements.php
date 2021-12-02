@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class elements extends Model
 {
     /**
-     * @var faceRectangle
-     */
-    public $faceRectangle;
-
-    /**
      * @var string
      */
     public $expression;
@@ -23,10 +18,15 @@ class elements extends Model
      * @var float
      */
     public $faceProbability;
+
+    /**
+     * @var faceRectangle
+     */
+    public $faceRectangle;
     protected $_name = [
-        'faceRectangle'   => 'FaceRectangle',
         'expression'      => 'Expression',
         'faceProbability' => 'FaceProbability',
+        'faceRectangle'   => 'FaceRectangle',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class elements extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->faceRectangle) {
-            $res['FaceRectangle'] = null !== $this->faceRectangle ? $this->faceRectangle->toMap() : null;
-        }
         if (null !== $this->expression) {
             $res['Expression'] = $this->expression;
         }
         if (null !== $this->faceProbability) {
             $res['FaceProbability'] = $this->faceProbability;
+        }
+        if (null !== $this->faceRectangle) {
+            $res['FaceRectangle'] = null !== $this->faceRectangle ? $this->faceRectangle->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class elements extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FaceRectangle'])) {
-            $model->faceRectangle = faceRectangle::fromMap($map['FaceRectangle']);
-        }
         if (isset($map['Expression'])) {
             $model->expression = $map['Expression'];
         }
         if (isset($map['FaceProbability'])) {
             $model->faceProbability = $map['FaceProbability'];
+        }
+        if (isset($map['FaceRectangle'])) {
+            $model->faceRectangle = faceRectangle::fromMap($map['FaceRectangle']);
         }
 
         return $model;

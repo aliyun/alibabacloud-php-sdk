@@ -11,21 +11,21 @@ class data extends Model
     /**
      * @var string
      */
+    public $action;
+
+    /**
+     * @var string
+     */
     public $XFlowURL;
 
     /**
      * @var string
      */
     public $YFlowURL;
-
-    /**
-     * @var string
-     */
-    public $action;
     protected $_name = [
+        'action'   => 'Action',
         'XFlowURL' => 'XFlowURL',
         'YFlowURL' => 'YFlowURL',
-        'action'   => 'Action',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->action) {
+            $res['Action'] = $this->action;
+        }
         if (null !== $this->XFlowURL) {
             $res['XFlowURL'] = $this->XFlowURL;
         }
         if (null !== $this->YFlowURL) {
             $res['YFlowURL'] = $this->YFlowURL;
-        }
-        if (null !== $this->action) {
-            $res['Action'] = $this->action;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Action'])) {
+            $model->action = $map['Action'];
+        }
         if (isset($map['XFlowURL'])) {
             $model->XFlowURL = $map['XFlowURL'];
         }
         if (isset($map['YFlowURL'])) {
             $model->YFlowURL = $map['YFlowURL'];
-        }
-        if (isset($map['Action'])) {
-            $model->action = $map['Action'];
         }
 
         return $model;

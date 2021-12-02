@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class hands extends Model
 {
     /**
-     * @var keyPoints[]
-     */
-    public $keyPoints;
-
-    /**
      * @var float
      */
     public $confident;
+
+    /**
+     * @var keyPoints[]
+     */
+    public $keyPoints;
     protected $_name = [
-        'keyPoints' => 'KeyPoints',
         'confident' => 'Confident',
+        'keyPoints' => 'KeyPoints',
     ];
 
     public function validate()
@@ -30,6 +30,9 @@ class hands extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->confident) {
+            $res['Confident'] = $this->confident;
+        }
         if (null !== $this->keyPoints) {
             $res['KeyPoints'] = [];
             if (null !== $this->keyPoints && \is_array($this->keyPoints)) {
@@ -38,9 +41,6 @@ class hands extends Model
                     $res['KeyPoints'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->confident) {
-            $res['Confident'] = $this->confident;
         }
 
         return $res;
@@ -54,6 +54,9 @@ class hands extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Confident'])) {
+            $model->confident = $map['Confident'];
+        }
         if (isset($map['KeyPoints'])) {
             if (!empty($map['KeyPoints'])) {
                 $model->keyPoints = [];
@@ -62,9 +65,6 @@ class hands extends Model
                     $model->keyPoints[$n++] = null !== $item ? keyPoints::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Confident'])) {
-            $model->confident = $map['Confident'];
         }
 
         return $model;

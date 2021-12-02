@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
-     * @var string
-     */
-    public $suggestion;
-
-    /**
      * @var frames[]
      */
     public $frames;
@@ -28,11 +23,16 @@ class results extends Model
      * @var float
      */
     public $rate;
+
+    /**
+     * @var string
+     */
+    public $suggestion;
     protected $_name = [
-        'suggestion' => 'Suggestion',
         'frames'     => 'Frames',
         'label'      => 'Label',
         'rate'       => 'Rate',
+        'suggestion' => 'Suggestion',
     ];
 
     public function validate()
@@ -42,9 +42,6 @@ class results extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->suggestion) {
-            $res['Suggestion'] = $this->suggestion;
-        }
         if (null !== $this->frames) {
             $res['Frames'] = [];
             if (null !== $this->frames && \is_array($this->frames)) {
@@ -60,6 +57,9 @@ class results extends Model
         if (null !== $this->rate) {
             $res['Rate'] = $this->rate;
         }
+        if (null !== $this->suggestion) {
+            $res['Suggestion'] = $this->suggestion;
+        }
 
         return $res;
     }
@@ -72,9 +72,6 @@ class results extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Suggestion'])) {
-            $model->suggestion = $map['Suggestion'];
-        }
         if (isset($map['Frames'])) {
             if (!empty($map['Frames'])) {
                 $model->frames = [];
@@ -89,6 +86,9 @@ class results extends Model
         }
         if (isset($map['Rate'])) {
             $model->rate = $map['Rate'];
+        }
+        if (isset($map['Suggestion'])) {
+            $model->suggestion = $map['Suggestion'];
         }
 
         return $model;

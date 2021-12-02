@@ -14,26 +14,6 @@ class ListFaceEntitiesRequest extends Model
     public $dbName;
 
     /**
-     * @var int
-     */
-    public $offset;
-
-    /**
-     * @var int
-     */
-    public $limit;
-
-    /**
-     * @var string
-     */
-    public $token;
-
-    /**
-     * @var string
-     */
-    public $labels;
-
-    /**
      * @var string
      */
     public $entityIdPrefix;
@@ -41,15 +21,35 @@ class ListFaceEntitiesRequest extends Model
     /**
      * @var string
      */
+    public $labels;
+
+    /**
+     * @var int
+     */
+    public $limit;
+
+    /**
+     * @var int
+     */
+    public $offset;
+
+    /**
+     * @var string
+     */
     public $order;
+
+    /**
+     * @var string
+     */
+    public $token;
     protected $_name = [
         'dbName'         => 'DbName',
-        'offset'         => 'Offset',
-        'limit'          => 'Limit',
-        'token'          => 'Token',
-        'labels'         => 'Labels',
         'entityIdPrefix' => 'EntityIdPrefix',
+        'labels'         => 'Labels',
+        'limit'          => 'Limit',
+        'offset'         => 'Offset',
         'order'          => 'Order',
+        'token'          => 'Token',
     ];
 
     public function validate()
@@ -62,23 +62,23 @@ class ListFaceEntitiesRequest extends Model
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
-        if (null !== $this->offset) {
-            $res['Offset'] = $this->offset;
-        }
-        if (null !== $this->limit) {
-            $res['Limit'] = $this->limit;
-        }
-        if (null !== $this->token) {
-            $res['Token'] = $this->token;
+        if (null !== $this->entityIdPrefix) {
+            $res['EntityIdPrefix'] = $this->entityIdPrefix;
         }
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
         }
-        if (null !== $this->entityIdPrefix) {
-            $res['EntityIdPrefix'] = $this->entityIdPrefix;
+        if (null !== $this->limit) {
+            $res['Limit'] = $this->limit;
+        }
+        if (null !== $this->offset) {
+            $res['Offset'] = $this->offset;
         }
         if (null !== $this->order) {
             $res['Order'] = $this->order;
+        }
+        if (null !== $this->token) {
+            $res['Token'] = $this->token;
         }
 
         return $res;
@@ -95,23 +95,23 @@ class ListFaceEntitiesRequest extends Model
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
-        if (isset($map['Offset'])) {
-            $model->offset = $map['Offset'];
-        }
-        if (isset($map['Limit'])) {
-            $model->limit = $map['Limit'];
-        }
-        if (isset($map['Token'])) {
-            $model->token = $map['Token'];
+        if (isset($map['EntityIdPrefix'])) {
+            $model->entityIdPrefix = $map['EntityIdPrefix'];
         }
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];
         }
-        if (isset($map['EntityIdPrefix'])) {
-            $model->entityIdPrefix = $map['EntityIdPrefix'];
+        if (isset($map['Limit'])) {
+            $model->limit = $map['Limit'];
+        }
+        if (isset($map['Offset'])) {
+            $model->offset = $map['Offset'];
         }
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
+        }
+        if (isset($map['Token'])) {
+            $model->token = $map['Token'];
         }
 
         return $model;

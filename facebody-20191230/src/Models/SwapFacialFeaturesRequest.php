@@ -14,30 +14,30 @@ class SwapFacialFeaturesRequest extends Model
     public $editPart;
 
     /**
-     * @var string
-     */
-    public $sourceImageURL;
-
-    /**
-     * @var string
-     */
-    public $targetImageURL;
-
-    /**
      * @var int[]
      */
     public $sourceImageData;
 
     /**
+     * @var string
+     */
+    public $sourceImageURL;
+
+    /**
      * @var int[]
      */
     public $targetImageData;
+
+    /**
+     * @var string
+     */
+    public $targetImageURL;
     protected $_name = [
         'editPart'        => 'EditPart',
-        'sourceImageURL'  => 'SourceImageURL',
-        'targetImageURL'  => 'TargetImageURL',
         'sourceImageData' => 'SourceImageData',
+        'sourceImageURL'  => 'SourceImageURL',
         'targetImageData' => 'TargetImageData',
+        'targetImageURL'  => 'TargetImageURL',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class SwapFacialFeaturesRequest extends Model
         if (null !== $this->editPart) {
             $res['EditPart'] = $this->editPart;
         }
-        if (null !== $this->sourceImageURL) {
-            $res['SourceImageURL'] = $this->sourceImageURL;
-        }
-        if (null !== $this->targetImageURL) {
-            $res['TargetImageURL'] = $this->targetImageURL;
-        }
         if (null !== $this->sourceImageData) {
             $res['SourceImageData'] = $this->sourceImageData;
         }
+        if (null !== $this->sourceImageURL) {
+            $res['SourceImageURL'] = $this->sourceImageURL;
+        }
         if (null !== $this->targetImageData) {
             $res['TargetImageData'] = $this->targetImageData;
+        }
+        if (null !== $this->targetImageURL) {
+            $res['TargetImageURL'] = $this->targetImageURL;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class SwapFacialFeaturesRequest extends Model
         if (isset($map['EditPart'])) {
             $model->editPart = $map['EditPart'];
         }
-        if (isset($map['SourceImageURL'])) {
-            $model->sourceImageURL = $map['SourceImageURL'];
-        }
-        if (isset($map['TargetImageURL'])) {
-            $model->targetImageURL = $map['TargetImageURL'];
-        }
         if (isset($map['SourceImageData'])) {
             $model->sourceImageData = $map['SourceImageData'];
         }
+        if (isset($map['SourceImageURL'])) {
+            $model->sourceImageURL = $map['SourceImageURL'];
+        }
         if (isset($map['TargetImageData'])) {
             $model->targetImageData = $map['TargetImageData'];
+        }
+        if (isset($map['TargetImageURL'])) {
+            $model->targetImageURL = $map['TargetImageURL'];
         }
 
         return $model;

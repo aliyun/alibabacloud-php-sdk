@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class keyPoints extends Model
 {
     /**
-     * @var positions[]
-     */
-    public $positions;
-
-    /**
      * @var string
      */
     public $label;
+
+    /**
+     * @var positions[]
+     */
+    public $positions;
     protected $_name = [
-        'positions' => 'Positions',
         'label'     => 'Label',
+        'positions' => 'Positions',
     ];
 
     public function validate()
@@ -30,6 +30,9 @@ class keyPoints extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
+        }
         if (null !== $this->positions) {
             $res['Positions'] = [];
             if (null !== $this->positions && \is_array($this->positions)) {
@@ -38,9 +41,6 @@ class keyPoints extends Model
                     $res['Positions'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->label) {
-            $res['Label'] = $this->label;
         }
 
         return $res;
@@ -54,6 +54,9 @@ class keyPoints extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Label'])) {
+            $model->label = $map['Label'];
+        }
         if (isset($map['Positions'])) {
             if (!empty($map['Positions'])) {
                 $model->positions = [];
@@ -62,9 +65,6 @@ class keyPoints extends Model
                     $model->positions[$n++] = null !== $item ? positions::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Label'])) {
-            $model->label = $map['Label'];
         }
 
         return $model;

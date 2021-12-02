@@ -16,17 +16,17 @@ class AddFaceRequest extends Model
     /**
      * @var string
      */
-    public $imageUrl;
-
-    /**
-     * @var string
-     */
     public $entityId;
 
     /**
      * @var string
      */
     public $extraData;
+
+    /**
+     * @var string
+     */
+    public $imageUrl;
 
     /**
      * @var float
@@ -36,20 +36,20 @@ class AddFaceRequest extends Model
     /**
      * @var float
      */
-    public $similarityScoreThresholdInEntity;
+    public $similarityScoreThresholdBetweenEntity;
 
     /**
      * @var float
      */
-    public $similarityScoreThresholdBetweenEntity;
+    public $similarityScoreThresholdInEntity;
     protected $_name = [
         'dbName'                                => 'DbName',
-        'imageUrl'                              => 'ImageUrl',
         'entityId'                              => 'EntityId',
         'extraData'                             => 'ExtraData',
+        'imageUrl'                              => 'ImageUrl',
         'qualityScoreThreshold'                 => 'QualityScoreThreshold',
-        'similarityScoreThresholdInEntity'      => 'SimilarityScoreThresholdInEntity',
         'similarityScoreThresholdBetweenEntity' => 'SimilarityScoreThresholdBetweenEntity',
+        'similarityScoreThresholdInEntity'      => 'SimilarityScoreThresholdInEntity',
     ];
 
     public function validate()
@@ -62,23 +62,23 @@ class AddFaceRequest extends Model
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
-        if (null !== $this->imageUrl) {
-            $res['ImageUrl'] = $this->imageUrl;
-        }
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
         }
         if (null !== $this->extraData) {
             $res['ExtraData'] = $this->extraData;
         }
+        if (null !== $this->imageUrl) {
+            $res['ImageUrl'] = $this->imageUrl;
+        }
         if (null !== $this->qualityScoreThreshold) {
             $res['QualityScoreThreshold'] = $this->qualityScoreThreshold;
         }
-        if (null !== $this->similarityScoreThresholdInEntity) {
-            $res['SimilarityScoreThresholdInEntity'] = $this->similarityScoreThresholdInEntity;
-        }
         if (null !== $this->similarityScoreThresholdBetweenEntity) {
             $res['SimilarityScoreThresholdBetweenEntity'] = $this->similarityScoreThresholdBetweenEntity;
+        }
+        if (null !== $this->similarityScoreThresholdInEntity) {
+            $res['SimilarityScoreThresholdInEntity'] = $this->similarityScoreThresholdInEntity;
         }
 
         return $res;
@@ -95,23 +95,23 @@ class AddFaceRequest extends Model
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
-        if (isset($map['ImageUrl'])) {
-            $model->imageUrl = $map['ImageUrl'];
-        }
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];
         }
         if (isset($map['ExtraData'])) {
             $model->extraData = $map['ExtraData'];
         }
+        if (isset($map['ImageUrl'])) {
+            $model->imageUrl = $map['ImageUrl'];
+        }
         if (isset($map['QualityScoreThreshold'])) {
             $model->qualityScoreThreshold = $map['QualityScoreThreshold'];
         }
-        if (isset($map['SimilarityScoreThresholdInEntity'])) {
-            $model->similarityScoreThresholdInEntity = $map['SimilarityScoreThresholdInEntity'];
-        }
         if (isset($map['SimilarityScoreThresholdBetweenEntity'])) {
             $model->similarityScoreThresholdBetweenEntity = $map['SimilarityScoreThresholdBetweenEntity'];
+        }
+        if (isset($map['SimilarityScoreThresholdInEntity'])) {
+            $model->similarityScoreThresholdInEntity = $map['SimilarityScoreThresholdInEntity'];
         }
 
         return $model;

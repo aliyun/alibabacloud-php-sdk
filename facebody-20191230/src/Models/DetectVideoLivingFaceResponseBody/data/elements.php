@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class elements extends Model
 {
     /**
-     * @var int[]
+     * @var float
      */
-    public $rect;
+    public $faceConfidence;
 
     /**
      * @var float
@@ -19,13 +19,13 @@ class elements extends Model
     public $liveConfidence;
 
     /**
-     * @var float
+     * @var int[]
      */
-    public $faceConfidence;
+    public $rect;
     protected $_name = [
-        'rect'           => 'Rect',
-        'liveConfidence' => 'LiveConfidence',
         'faceConfidence' => 'FaceConfidence',
+        'liveConfidence' => 'LiveConfidence',
+        'rect'           => 'Rect',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class elements extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->rect) {
-            $res['Rect'] = $this->rect;
+        if (null !== $this->faceConfidence) {
+            $res['FaceConfidence'] = $this->faceConfidence;
         }
         if (null !== $this->liveConfidence) {
             $res['LiveConfidence'] = $this->liveConfidence;
         }
-        if (null !== $this->faceConfidence) {
-            $res['FaceConfidence'] = $this->faceConfidence;
+        if (null !== $this->rect) {
+            $res['Rect'] = $this->rect;
         }
 
         return $res;
@@ -56,16 +56,16 @@ class elements extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Rect'])) {
-            if (!empty($map['Rect'])) {
-                $model->rect = $map['Rect'];
-            }
+        if (isset($map['FaceConfidence'])) {
+            $model->faceConfidence = $map['FaceConfidence'];
         }
         if (isset($map['LiveConfidence'])) {
             $model->liveConfidence = $map['LiveConfidence'];
         }
-        if (isset($map['FaceConfidence'])) {
-            $model->faceConfidence = $map['FaceConfidence'];
+        if (isset($map['Rect'])) {
+            if (!empty($map['Rect'])) {
+                $model->rect = $map['Rect'];
+            }
         }
 
         return $model;

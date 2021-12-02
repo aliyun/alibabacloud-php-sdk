@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var entities[]
+     */
+    public $entities;
+
+    /**
      * @var string
      */
     public $token;
@@ -18,15 +23,10 @@ class data extends Model
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var entities[]
-     */
-    public $entities;
     protected $_name = [
+        'entities'   => 'Entities',
         'token'      => 'Token',
         'totalCount' => 'TotalCount',
-        'entities'   => 'Entities',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->token) {
-            $res['Token'] = $this->token;
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->entities) {
             $res['Entities'] = [];
             if (null !== $this->entities && \is_array($this->entities)) {
@@ -50,6 +44,12 @@ class data extends Model
                     $res['Entities'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->token) {
+            $res['Token'] = $this->token;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Token'])) {
-            $model->token = $map['Token'];
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['Entities'])) {
             if (!empty($map['Entities'])) {
                 $model->entities = [];
@@ -77,6 +71,12 @@ class data extends Model
                     $model->entities[$n++] = null !== $item ? entities::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Token'])) {
+            $model->token = $map['Token'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

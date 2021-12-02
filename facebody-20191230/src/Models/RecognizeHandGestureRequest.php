@@ -18,16 +18,16 @@ class RecognizeHandGestureRequest extends Model
     /**
      * @var string
      */
-    public $imageURL;
+    public $gestureType;
 
     /**
      * @var string
      */
-    public $gestureType;
+    public $imageURL;
     protected $_name = [
         'appId'       => 'AppId',
-        'imageURL'    => 'ImageURL',
         'gestureType' => 'GestureType',
+        'imageURL'    => 'ImageURL',
     ];
 
     public function validate()
@@ -40,11 +40,11 @@ class RecognizeHandGestureRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->imageURL) {
-            $res['ImageURL'] = $this->imageURL;
-        }
         if (null !== $this->gestureType) {
             $res['GestureType'] = $this->gestureType;
+        }
+        if (null !== $this->imageURL) {
+            $res['ImageURL'] = $this->imageURL;
         }
 
         return $res;
@@ -61,11 +61,11 @@ class RecognizeHandGestureRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['ImageURL'])) {
-            $model->imageURL = $map['ImageURL'];
-        }
         if (isset($map['GestureType'])) {
             $model->gestureType = $map['GestureType'];
+        }
+        if (isset($map['ImageURL'])) {
+            $model->imageURL = $map['ImageURL'];
         }
 
         return $model;
