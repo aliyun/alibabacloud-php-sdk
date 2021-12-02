@@ -11,15 +11,15 @@ class AddIPv6TranslatorAclListEntryResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $aclEntryId;
 
     /**
      * @var string
      */
-    public $aclEntryId;
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'aclEntryId' => 'AclEntryId',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class AddIPv6TranslatorAclListEntryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->aclEntryId) {
             $res['AclEntryId'] = $this->aclEntryId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class AddIPv6TranslatorAclListEntryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AclEntryId'])) {
             $model->aclEntryId = $map['AclEntryId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

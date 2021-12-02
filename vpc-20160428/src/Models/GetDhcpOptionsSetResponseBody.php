@@ -11,14 +11,9 @@ use AlibabaCloud\Tea\Model;
 class GetDhcpOptionsSetResponseBody extends Model
 {
     /**
-     * @var string
+     * @var associateVpcs[]
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $dhcpOptionsSetId;
+    public $associateVpcs;
 
     /**
      * @var dhcpOptions
@@ -28,7 +23,17 @@ class GetDhcpOptionsSetResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $dhcpOptionsSetDescription;
+
+    /**
+     * @var string
+     */
+    public $dhcpOptionsSetId;
+
+    /**
+     * @var string
+     */
+    public $dhcpOptionsSetName;
 
     /**
      * @var int
@@ -38,26 +43,21 @@ class GetDhcpOptionsSetResponseBody extends Model
     /**
      * @var string
      */
-    public $dhcpOptionsSetName;
-
-    /**
-     * @var associateVpcs[]
-     */
-    public $associateVpcs;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $dhcpOptionsSetDescription;
+    public $status;
     protected $_name = [
-        'status'                    => 'Status',
-        'dhcpOptionsSetId'          => 'DhcpOptionsSetId',
-        'dhcpOptions'               => 'DhcpOptions',
-        'requestId'                 => 'RequestId',
-        'ownerId'                   => 'OwnerId',
-        'dhcpOptionsSetName'        => 'DhcpOptionsSetName',
         'associateVpcs'             => 'AssociateVpcs',
+        'dhcpOptions'               => 'DhcpOptions',
         'dhcpOptionsSetDescription' => 'DhcpOptionsSetDescription',
+        'dhcpOptionsSetId'          => 'DhcpOptionsSetId',
+        'dhcpOptionsSetName'        => 'DhcpOptionsSetName',
+        'ownerId'                   => 'OwnerId',
+        'requestId'                 => 'RequestId',
+        'status'                    => 'Status',
     ];
 
     public function validate()
@@ -67,24 +67,6 @@ class GetDhcpOptionsSetResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->dhcpOptionsSetId) {
-            $res['DhcpOptionsSetId'] = $this->dhcpOptionsSetId;
-        }
-        if (null !== $this->dhcpOptions) {
-            $res['DhcpOptions'] = null !== $this->dhcpOptions ? $this->dhcpOptions->toMap() : null;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->dhcpOptionsSetName) {
-            $res['DhcpOptionsSetName'] = $this->dhcpOptionsSetName;
-        }
         if (null !== $this->associateVpcs) {
             $res['AssociateVpcs'] = [];
             if (null !== $this->associateVpcs && \is_array($this->associateVpcs)) {
@@ -94,8 +76,26 @@ class GetDhcpOptionsSetResponseBody extends Model
                 }
             }
         }
+        if (null !== $this->dhcpOptions) {
+            $res['DhcpOptions'] = null !== $this->dhcpOptions ? $this->dhcpOptions->toMap() : null;
+        }
         if (null !== $this->dhcpOptionsSetDescription) {
             $res['DhcpOptionsSetDescription'] = $this->dhcpOptionsSetDescription;
+        }
+        if (null !== $this->dhcpOptionsSetId) {
+            $res['DhcpOptionsSetId'] = $this->dhcpOptionsSetId;
+        }
+        if (null !== $this->dhcpOptionsSetName) {
+            $res['DhcpOptionsSetName'] = $this->dhcpOptionsSetName;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -109,24 +109,6 @@ class GetDhcpOptionsSetResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['DhcpOptionsSetId'])) {
-            $model->dhcpOptionsSetId = $map['DhcpOptionsSetId'];
-        }
-        if (isset($map['DhcpOptions'])) {
-            $model->dhcpOptions = dhcpOptions::fromMap($map['DhcpOptions']);
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['DhcpOptionsSetName'])) {
-            $model->dhcpOptionsSetName = $map['DhcpOptionsSetName'];
-        }
         if (isset($map['AssociateVpcs'])) {
             if (!empty($map['AssociateVpcs'])) {
                 $model->associateVpcs = [];
@@ -136,8 +118,26 @@ class GetDhcpOptionsSetResponseBody extends Model
                 }
             }
         }
+        if (isset($map['DhcpOptions'])) {
+            $model->dhcpOptions = dhcpOptions::fromMap($map['DhcpOptions']);
+        }
         if (isset($map['DhcpOptionsSetDescription'])) {
             $model->dhcpOptionsSetDescription = $map['DhcpOptionsSetDescription'];
+        }
+        if (isset($map['DhcpOptionsSetId'])) {
+            $model->dhcpOptionsSetId = $map['DhcpOptionsSetId'];
+        }
+        if (isset($map['DhcpOptionsSetName'])) {
+            $model->dhcpOptionsSetName = $map['DhcpOptionsSetName'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

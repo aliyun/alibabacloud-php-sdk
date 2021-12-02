@@ -11,37 +11,17 @@ class routerInterfaceType extends Model
     /**
      * @var string
      */
-    public $reservationActiveTime;
+    public $accessPointId;
+
+    /**
+     * @var int
+     */
+    public $bandwidth;
 
     /**
      * @var string
      */
-    public $healthCheckTargetIp;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $creationTime;
-
-    /**
-     * @var string
-     */
-    public $reservationOrderType;
-
-    /**
-     * @var string
-     */
-    public $oppositeInterfaceId;
-
-    /**
-     * @var string
-     */
-    public $spec;
+    public $businessStatus;
 
     /**
      * @var string
@@ -51,37 +31,12 @@ class routerInterfaceType extends Model
     /**
      * @var string
      */
-    public $routerInterfaceId;
-
-    /**
-     * @var int
-     */
-    public $hcThreshold;
+    public $connectedTime;
 
     /**
      * @var string
      */
-    public $oppositeRouterType;
-
-    /**
-     * @var string
-     */
-    public $oppositeInterfaceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $vpcInstanceId;
-
-    /**
-     * @var string
-     */
-    public $oppositeVpcInstanceId;
-
-    /**
-     * @var string
-     */
-    public $reservationInternetChargeType;
+    public $creationTime;
 
     /**
      * @var bool
@@ -94,14 +49,14 @@ class routerInterfaceType extends Model
     public $description;
 
     /**
-     * @var int
+     * @var string
      */
-    public $bandwidth;
+    public $endTime;
 
     /**
      * @var string
      */
-    public $reservationBandwidth;
+    public $hasReservationData;
 
     /**
      * @var int
@@ -109,34 +64,9 @@ class routerInterfaceType extends Model
     public $hcRate;
 
     /**
-     * @var string
+     * @var int
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $oppositeRouterId;
-
-    /**
-     * @var string
-     */
-    public $oppositeInterfaceSpec;
-
-    /**
-     * @var string
-     */
-    public $routerId;
-
-    /**
-     * @var string
-     */
-    public $oppositeInterfaceBusinessStatus;
-
-    /**
-     * @var string
-     */
-    public $connectedTime;
+    public $hcThreshold;
 
     /**
      * @var string
@@ -146,27 +76,22 @@ class routerInterfaceType extends Model
     /**
      * @var string
      */
-    public $oppositeInterfaceStatus;
+    public $healthCheckTargetIp;
 
     /**
      * @var string
      */
-    public $endTime;
+    public $ipv6Status;
 
     /**
      * @var string
      */
-    public $oppositeRegionId;
+    public $name;
 
     /**
      * @var string
      */
     public $oppositeAccessPointId;
-
-    /**
-     * @var string
-     */
-    public $businessStatus;
 
     /**
      * @var int
@@ -176,7 +101,67 @@ class routerInterfaceType extends Model
     /**
      * @var string
      */
-    public $routerType;
+    public $oppositeInterfaceBusinessStatus;
+
+    /**
+     * @var string
+     */
+    public $oppositeInterfaceId;
+
+    /**
+     * @var string
+     */
+    public $oppositeInterfaceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $oppositeInterfaceSpec;
+
+    /**
+     * @var string
+     */
+    public $oppositeInterfaceStatus;
+
+    /**
+     * @var string
+     */
+    public $oppositeRegionId;
+
+    /**
+     * @var string
+     */
+    public $oppositeRouterId;
+
+    /**
+     * @var string
+     */
+    public $oppositeRouterType;
+
+    /**
+     * @var string
+     */
+    public $oppositeVpcInstanceId;
+
+    /**
+     * @var string
+     */
+    public $reservationActiveTime;
+
+    /**
+     * @var string
+     */
+    public $reservationBandwidth;
+
+    /**
+     * @var string
+     */
+    public $reservationInternetChargeType;
+
+    /**
+     * @var string
+     */
+    public $reservationOrderType;
 
     /**
      * @var string
@@ -186,50 +171,71 @@ class routerInterfaceType extends Model
     /**
      * @var string
      */
-    public $hasReservationData;
+    public $routerId;
 
     /**
      * @var string
      */
-    public $accessPointId;
+    public $routerInterfaceId;
+
+    /**
+     * @var string
+     */
+    public $routerType;
+
+    /**
+     * @var string
+     */
+    public $spec;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $vpcInstanceId;
     protected $_name = [
-        'reservationActiveTime'           => 'ReservationActiveTime',
-        'healthCheckTargetIp'             => 'HealthCheckTargetIp',
-        'status'                          => 'Status',
-        'creationTime'                    => 'CreationTime',
-        'reservationOrderType'            => 'ReservationOrderType',
-        'oppositeInterfaceId'             => 'OppositeInterfaceId',
-        'spec'                            => 'Spec',
+        'accessPointId'                   => 'AccessPointId',
+        'bandwidth'                       => 'Bandwidth',
+        'businessStatus'                  => 'BusinessStatus',
         'chargeType'                      => 'ChargeType',
-        'routerInterfaceId'               => 'RouterInterfaceId',
-        'hcThreshold'                     => 'HcThreshold',
-        'oppositeRouterType'              => 'OppositeRouterType',
-        'oppositeInterfaceOwnerId'        => 'OppositeInterfaceOwnerId',
-        'vpcInstanceId'                   => 'VpcInstanceId',
-        'oppositeVpcInstanceId'           => 'OppositeVpcInstanceId',
-        'reservationInternetChargeType'   => 'ReservationInternetChargeType',
+        'connectedTime'                   => 'ConnectedTime',
+        'creationTime'                    => 'CreationTime',
         'crossBorder'                     => 'CrossBorder',
         'description'                     => 'Description',
-        'bandwidth'                       => 'Bandwidth',
-        'reservationBandwidth'            => 'ReservationBandwidth',
-        'hcRate'                          => 'HcRate',
-        'name'                            => 'Name',
-        'oppositeRouterId'                => 'OppositeRouterId',
-        'oppositeInterfaceSpec'           => 'OppositeInterfaceSpec',
-        'routerId'                        => 'RouterId',
-        'oppositeInterfaceBusinessStatus' => 'OppositeInterfaceBusinessStatus',
-        'connectedTime'                   => 'ConnectedTime',
-        'healthCheckSourceIp'             => 'HealthCheckSourceIp',
-        'oppositeInterfaceStatus'         => 'OppositeInterfaceStatus',
         'endTime'                         => 'EndTime',
-        'oppositeRegionId'                => 'OppositeRegionId',
-        'oppositeAccessPointId'           => 'OppositeAccessPointId',
-        'businessStatus'                  => 'BusinessStatus',
-        'oppositeBandwidth'               => 'OppositeBandwidth',
-        'routerType'                      => 'RouterType',
-        'role'                            => 'Role',
         'hasReservationData'              => 'HasReservationData',
-        'accessPointId'                   => 'AccessPointId',
+        'hcRate'                          => 'HcRate',
+        'hcThreshold'                     => 'HcThreshold',
+        'healthCheckSourceIp'             => 'HealthCheckSourceIp',
+        'healthCheckTargetIp'             => 'HealthCheckTargetIp',
+        'ipv6Status'                      => 'Ipv6Status',
+        'name'                            => 'Name',
+        'oppositeAccessPointId'           => 'OppositeAccessPointId',
+        'oppositeBandwidth'               => 'OppositeBandwidth',
+        'oppositeInterfaceBusinessStatus' => 'OppositeInterfaceBusinessStatus',
+        'oppositeInterfaceId'             => 'OppositeInterfaceId',
+        'oppositeInterfaceOwnerId'        => 'OppositeInterfaceOwnerId',
+        'oppositeInterfaceSpec'           => 'OppositeInterfaceSpec',
+        'oppositeInterfaceStatus'         => 'OppositeInterfaceStatus',
+        'oppositeRegionId'                => 'OppositeRegionId',
+        'oppositeRouterId'                => 'OppositeRouterId',
+        'oppositeRouterType'              => 'OppositeRouterType',
+        'oppositeVpcInstanceId'           => 'OppositeVpcInstanceId',
+        'reservationActiveTime'           => 'ReservationActiveTime',
+        'reservationBandwidth'            => 'ReservationBandwidth',
+        'reservationInternetChargeType'   => 'ReservationInternetChargeType',
+        'reservationOrderType'            => 'ReservationOrderType',
+        'role'                            => 'Role',
+        'routerId'                        => 'RouterId',
+        'routerInterfaceId'               => 'RouterInterfaceId',
+        'routerType'                      => 'RouterType',
+        'spec'                            => 'Spec',
+        'status'                          => 'Status',
+        'vpcInstanceId'                   => 'VpcInstanceId',
     ];
 
     public function validate()
@@ -239,50 +245,23 @@ class routerInterfaceType extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->reservationActiveTime) {
-            $res['ReservationActiveTime'] = $this->reservationActiveTime;
+        if (null !== $this->accessPointId) {
+            $res['AccessPointId'] = $this->accessPointId;
         }
-        if (null !== $this->healthCheckTargetIp) {
-            $res['HealthCheckTargetIp'] = $this->healthCheckTargetIp;
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->reservationOrderType) {
-            $res['ReservationOrderType'] = $this->reservationOrderType;
-        }
-        if (null !== $this->oppositeInterfaceId) {
-            $res['OppositeInterfaceId'] = $this->oppositeInterfaceId;
-        }
-        if (null !== $this->spec) {
-            $res['Spec'] = $this->spec;
+        if (null !== $this->businessStatus) {
+            $res['BusinessStatus'] = $this->businessStatus;
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
-        if (null !== $this->routerInterfaceId) {
-            $res['RouterInterfaceId'] = $this->routerInterfaceId;
+        if (null !== $this->connectedTime) {
+            $res['ConnectedTime'] = $this->connectedTime;
         }
-        if (null !== $this->hcThreshold) {
-            $res['HcThreshold'] = $this->hcThreshold;
-        }
-        if (null !== $this->oppositeRouterType) {
-            $res['OppositeRouterType'] = $this->oppositeRouterType;
-        }
-        if (null !== $this->oppositeInterfaceOwnerId) {
-            $res['OppositeInterfaceOwnerId'] = $this->oppositeInterfaceOwnerId;
-        }
-        if (null !== $this->vpcInstanceId) {
-            $res['VpcInstanceId'] = $this->vpcInstanceId;
-        }
-        if (null !== $this->oppositeVpcInstanceId) {
-            $res['OppositeVpcInstanceId'] = $this->oppositeVpcInstanceId;
-        }
-        if (null !== $this->reservationInternetChargeType) {
-            $res['ReservationInternetChargeType'] = $this->reservationInternetChargeType;
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
         if (null !== $this->crossBorder) {
             $res['CrossBorder'] = $this->crossBorder;
@@ -290,65 +269,95 @@ class routerInterfaceType extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->bandwidth) {
-            $res['Bandwidth'] = $this->bandwidth;
-        }
-        if (null !== $this->reservationBandwidth) {
-            $res['ReservationBandwidth'] = $this->reservationBandwidth;
-        }
-        if (null !== $this->hcRate) {
-            $res['HcRate'] = $this->hcRate;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->oppositeRouterId) {
-            $res['OppositeRouterId'] = $this->oppositeRouterId;
-        }
-        if (null !== $this->oppositeInterfaceSpec) {
-            $res['OppositeInterfaceSpec'] = $this->oppositeInterfaceSpec;
-        }
-        if (null !== $this->routerId) {
-            $res['RouterId'] = $this->routerId;
-        }
-        if (null !== $this->oppositeInterfaceBusinessStatus) {
-            $res['OppositeInterfaceBusinessStatus'] = $this->oppositeInterfaceBusinessStatus;
-        }
-        if (null !== $this->connectedTime) {
-            $res['ConnectedTime'] = $this->connectedTime;
-        }
-        if (null !== $this->healthCheckSourceIp) {
-            $res['HealthCheckSourceIp'] = $this->healthCheckSourceIp;
-        }
-        if (null !== $this->oppositeInterfaceStatus) {
-            $res['OppositeInterfaceStatus'] = $this->oppositeInterfaceStatus;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->oppositeRegionId) {
-            $res['OppositeRegionId'] = $this->oppositeRegionId;
-        }
-        if (null !== $this->oppositeAccessPointId) {
-            $res['OppositeAccessPointId'] = $this->oppositeAccessPointId;
-        }
-        if (null !== $this->businessStatus) {
-            $res['BusinessStatus'] = $this->businessStatus;
-        }
-        if (null !== $this->oppositeBandwidth) {
-            $res['OppositeBandwidth'] = $this->oppositeBandwidth;
-        }
-        if (null !== $this->routerType) {
-            $res['RouterType'] = $this->routerType;
-        }
-        if (null !== $this->role) {
-            $res['Role'] = $this->role;
         }
         if (null !== $this->hasReservationData) {
             $res['HasReservationData'] = $this->hasReservationData;
         }
-        if (null !== $this->accessPointId) {
-            $res['AccessPointId'] = $this->accessPointId;
+        if (null !== $this->hcRate) {
+            $res['HcRate'] = $this->hcRate;
+        }
+        if (null !== $this->hcThreshold) {
+            $res['HcThreshold'] = $this->hcThreshold;
+        }
+        if (null !== $this->healthCheckSourceIp) {
+            $res['HealthCheckSourceIp'] = $this->healthCheckSourceIp;
+        }
+        if (null !== $this->healthCheckTargetIp) {
+            $res['HealthCheckTargetIp'] = $this->healthCheckTargetIp;
+        }
+        if (null !== $this->ipv6Status) {
+            $res['Ipv6Status'] = $this->ipv6Status;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->oppositeAccessPointId) {
+            $res['OppositeAccessPointId'] = $this->oppositeAccessPointId;
+        }
+        if (null !== $this->oppositeBandwidth) {
+            $res['OppositeBandwidth'] = $this->oppositeBandwidth;
+        }
+        if (null !== $this->oppositeInterfaceBusinessStatus) {
+            $res['OppositeInterfaceBusinessStatus'] = $this->oppositeInterfaceBusinessStatus;
+        }
+        if (null !== $this->oppositeInterfaceId) {
+            $res['OppositeInterfaceId'] = $this->oppositeInterfaceId;
+        }
+        if (null !== $this->oppositeInterfaceOwnerId) {
+            $res['OppositeInterfaceOwnerId'] = $this->oppositeInterfaceOwnerId;
+        }
+        if (null !== $this->oppositeInterfaceSpec) {
+            $res['OppositeInterfaceSpec'] = $this->oppositeInterfaceSpec;
+        }
+        if (null !== $this->oppositeInterfaceStatus) {
+            $res['OppositeInterfaceStatus'] = $this->oppositeInterfaceStatus;
+        }
+        if (null !== $this->oppositeRegionId) {
+            $res['OppositeRegionId'] = $this->oppositeRegionId;
+        }
+        if (null !== $this->oppositeRouterId) {
+            $res['OppositeRouterId'] = $this->oppositeRouterId;
+        }
+        if (null !== $this->oppositeRouterType) {
+            $res['OppositeRouterType'] = $this->oppositeRouterType;
+        }
+        if (null !== $this->oppositeVpcInstanceId) {
+            $res['OppositeVpcInstanceId'] = $this->oppositeVpcInstanceId;
+        }
+        if (null !== $this->reservationActiveTime) {
+            $res['ReservationActiveTime'] = $this->reservationActiveTime;
+        }
+        if (null !== $this->reservationBandwidth) {
+            $res['ReservationBandwidth'] = $this->reservationBandwidth;
+        }
+        if (null !== $this->reservationInternetChargeType) {
+            $res['ReservationInternetChargeType'] = $this->reservationInternetChargeType;
+        }
+        if (null !== $this->reservationOrderType) {
+            $res['ReservationOrderType'] = $this->reservationOrderType;
+        }
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
+        }
+        if (null !== $this->routerId) {
+            $res['RouterId'] = $this->routerId;
+        }
+        if (null !== $this->routerInterfaceId) {
+            $res['RouterInterfaceId'] = $this->routerInterfaceId;
+        }
+        if (null !== $this->routerType) {
+            $res['RouterType'] = $this->routerType;
+        }
+        if (null !== $this->spec) {
+            $res['Spec'] = $this->spec;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->vpcInstanceId) {
+            $res['VpcInstanceId'] = $this->vpcInstanceId;
         }
 
         return $res;
@@ -362,50 +371,23 @@ class routerInterfaceType extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ReservationActiveTime'])) {
-            $model->reservationActiveTime = $map['ReservationActiveTime'];
+        if (isset($map['AccessPointId'])) {
+            $model->accessPointId = $map['AccessPointId'];
         }
-        if (isset($map['HealthCheckTargetIp'])) {
-            $model->healthCheckTargetIp = $map['HealthCheckTargetIp'];
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['ReservationOrderType'])) {
-            $model->reservationOrderType = $map['ReservationOrderType'];
-        }
-        if (isset($map['OppositeInterfaceId'])) {
-            $model->oppositeInterfaceId = $map['OppositeInterfaceId'];
-        }
-        if (isset($map['Spec'])) {
-            $model->spec = $map['Spec'];
+        if (isset($map['BusinessStatus'])) {
+            $model->businessStatus = $map['BusinessStatus'];
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
-        if (isset($map['RouterInterfaceId'])) {
-            $model->routerInterfaceId = $map['RouterInterfaceId'];
+        if (isset($map['ConnectedTime'])) {
+            $model->connectedTime = $map['ConnectedTime'];
         }
-        if (isset($map['HcThreshold'])) {
-            $model->hcThreshold = $map['HcThreshold'];
-        }
-        if (isset($map['OppositeRouterType'])) {
-            $model->oppositeRouterType = $map['OppositeRouterType'];
-        }
-        if (isset($map['OppositeInterfaceOwnerId'])) {
-            $model->oppositeInterfaceOwnerId = $map['OppositeInterfaceOwnerId'];
-        }
-        if (isset($map['VpcInstanceId'])) {
-            $model->vpcInstanceId = $map['VpcInstanceId'];
-        }
-        if (isset($map['OppositeVpcInstanceId'])) {
-            $model->oppositeVpcInstanceId = $map['OppositeVpcInstanceId'];
-        }
-        if (isset($map['ReservationInternetChargeType'])) {
-            $model->reservationInternetChargeType = $map['ReservationInternetChargeType'];
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
         if (isset($map['CrossBorder'])) {
             $model->crossBorder = $map['CrossBorder'];
@@ -413,65 +395,95 @@ class routerInterfaceType extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['Bandwidth'])) {
-            $model->bandwidth = $map['Bandwidth'];
-        }
-        if (isset($map['ReservationBandwidth'])) {
-            $model->reservationBandwidth = $map['ReservationBandwidth'];
-        }
-        if (isset($map['HcRate'])) {
-            $model->hcRate = $map['HcRate'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['OppositeRouterId'])) {
-            $model->oppositeRouterId = $map['OppositeRouterId'];
-        }
-        if (isset($map['OppositeInterfaceSpec'])) {
-            $model->oppositeInterfaceSpec = $map['OppositeInterfaceSpec'];
-        }
-        if (isset($map['RouterId'])) {
-            $model->routerId = $map['RouterId'];
-        }
-        if (isset($map['OppositeInterfaceBusinessStatus'])) {
-            $model->oppositeInterfaceBusinessStatus = $map['OppositeInterfaceBusinessStatus'];
-        }
-        if (isset($map['ConnectedTime'])) {
-            $model->connectedTime = $map['ConnectedTime'];
-        }
-        if (isset($map['HealthCheckSourceIp'])) {
-            $model->healthCheckSourceIp = $map['HealthCheckSourceIp'];
-        }
-        if (isset($map['OppositeInterfaceStatus'])) {
-            $model->oppositeInterfaceStatus = $map['OppositeInterfaceStatus'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['OppositeRegionId'])) {
-            $model->oppositeRegionId = $map['OppositeRegionId'];
-        }
-        if (isset($map['OppositeAccessPointId'])) {
-            $model->oppositeAccessPointId = $map['OppositeAccessPointId'];
-        }
-        if (isset($map['BusinessStatus'])) {
-            $model->businessStatus = $map['BusinessStatus'];
-        }
-        if (isset($map['OppositeBandwidth'])) {
-            $model->oppositeBandwidth = $map['OppositeBandwidth'];
-        }
-        if (isset($map['RouterType'])) {
-            $model->routerType = $map['RouterType'];
-        }
-        if (isset($map['Role'])) {
-            $model->role = $map['Role'];
         }
         if (isset($map['HasReservationData'])) {
             $model->hasReservationData = $map['HasReservationData'];
         }
-        if (isset($map['AccessPointId'])) {
-            $model->accessPointId = $map['AccessPointId'];
+        if (isset($map['HcRate'])) {
+            $model->hcRate = $map['HcRate'];
+        }
+        if (isset($map['HcThreshold'])) {
+            $model->hcThreshold = $map['HcThreshold'];
+        }
+        if (isset($map['HealthCheckSourceIp'])) {
+            $model->healthCheckSourceIp = $map['HealthCheckSourceIp'];
+        }
+        if (isset($map['HealthCheckTargetIp'])) {
+            $model->healthCheckTargetIp = $map['HealthCheckTargetIp'];
+        }
+        if (isset($map['Ipv6Status'])) {
+            $model->ipv6Status = $map['Ipv6Status'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['OppositeAccessPointId'])) {
+            $model->oppositeAccessPointId = $map['OppositeAccessPointId'];
+        }
+        if (isset($map['OppositeBandwidth'])) {
+            $model->oppositeBandwidth = $map['OppositeBandwidth'];
+        }
+        if (isset($map['OppositeInterfaceBusinessStatus'])) {
+            $model->oppositeInterfaceBusinessStatus = $map['OppositeInterfaceBusinessStatus'];
+        }
+        if (isset($map['OppositeInterfaceId'])) {
+            $model->oppositeInterfaceId = $map['OppositeInterfaceId'];
+        }
+        if (isset($map['OppositeInterfaceOwnerId'])) {
+            $model->oppositeInterfaceOwnerId = $map['OppositeInterfaceOwnerId'];
+        }
+        if (isset($map['OppositeInterfaceSpec'])) {
+            $model->oppositeInterfaceSpec = $map['OppositeInterfaceSpec'];
+        }
+        if (isset($map['OppositeInterfaceStatus'])) {
+            $model->oppositeInterfaceStatus = $map['OppositeInterfaceStatus'];
+        }
+        if (isset($map['OppositeRegionId'])) {
+            $model->oppositeRegionId = $map['OppositeRegionId'];
+        }
+        if (isset($map['OppositeRouterId'])) {
+            $model->oppositeRouterId = $map['OppositeRouterId'];
+        }
+        if (isset($map['OppositeRouterType'])) {
+            $model->oppositeRouterType = $map['OppositeRouterType'];
+        }
+        if (isset($map['OppositeVpcInstanceId'])) {
+            $model->oppositeVpcInstanceId = $map['OppositeVpcInstanceId'];
+        }
+        if (isset($map['ReservationActiveTime'])) {
+            $model->reservationActiveTime = $map['ReservationActiveTime'];
+        }
+        if (isset($map['ReservationBandwidth'])) {
+            $model->reservationBandwidth = $map['ReservationBandwidth'];
+        }
+        if (isset($map['ReservationInternetChargeType'])) {
+            $model->reservationInternetChargeType = $map['ReservationInternetChargeType'];
+        }
+        if (isset($map['ReservationOrderType'])) {
+            $model->reservationOrderType = $map['ReservationOrderType'];
+        }
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
+        }
+        if (isset($map['RouterId'])) {
+            $model->routerId = $map['RouterId'];
+        }
+        if (isset($map['RouterInterfaceId'])) {
+            $model->routerInterfaceId = $map['RouterInterfaceId'];
+        }
+        if (isset($map['RouterType'])) {
+            $model->routerType = $map['RouterType'];
+        }
+        if (isset($map['Spec'])) {
+            $model->spec = $map['Spec'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['VpcInstanceId'])) {
+            $model->vpcInstanceId = $map['VpcInstanceId'];
         }
 
         return $model;

@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListNatGatewayEcsMetricRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var bool
      */
     public $dryRun;
@@ -21,12 +16,17 @@ class ListNatGatewayEcsMetricRequest extends Model
     /**
      * @var string
      */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
     public $natGatewayId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $timePoint;
+    public $nextToken;
 
     /**
      * @var string
@@ -46,22 +46,22 @@ class ListNatGatewayEcsMetricRequest extends Model
     /**
      * @var string
      */
-    public $nextToken;
+    public $regionId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $maxResults;
+    public $timePoint;
     protected $_name = [
-        'regionId'         => 'RegionId',
         'dryRun'           => 'DryRun',
+        'maxResults'       => 'MaxResults',
         'natGatewayId'     => 'NatGatewayId',
-        'timePoint'        => 'TimePoint',
+        'nextToken'        => 'NextToken',
         'orderKey'         => 'OrderKey',
         'orderType'        => 'OrderType',
         'privateIpAddress' => 'PrivateIpAddress',
-        'nextToken'        => 'NextToken',
-        'maxResults'       => 'MaxResults',
+        'regionId'         => 'RegionId',
+        'timePoint'        => 'TimePoint',
     ];
 
     public function validate()
@@ -71,17 +71,17 @@ class ListNatGatewayEcsMetricRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
         }
-        if (null !== $this->timePoint) {
-            $res['TimePoint'] = $this->timePoint;
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->orderKey) {
             $res['OrderKey'] = $this->orderKey;
@@ -92,11 +92,11 @@ class ListNatGatewayEcsMetricRequest extends Model
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
+        if (null !== $this->timePoint) {
+            $res['TimePoint'] = $this->timePoint;
         }
 
         return $res;
@@ -110,17 +110,17 @@ class ListNatGatewayEcsMetricRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
         }
-        if (isset($map['TimePoint'])) {
-            $model->timePoint = $map['TimePoint'];
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['OrderKey'])) {
             $model->orderKey = $map['OrderKey'];
@@ -131,11 +131,11 @@ class ListNatGatewayEcsMetricRequest extends Model
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
         }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
+        if (isset($map['TimePoint'])) {
+            $model->timePoint = $map['TimePoint'];
         }
 
         return $model;

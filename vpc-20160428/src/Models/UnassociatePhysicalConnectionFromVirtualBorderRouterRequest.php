@@ -11,12 +11,17 @@ class UnassociatePhysicalConnectionFromVirtualBorderRouterRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $clientToken;
 
     /**
      * @var string
      */
-    public $vbrId;
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
@@ -24,9 +29,9 @@ class UnassociatePhysicalConnectionFromVirtualBorderRouterRequest extends Model
     public $physicalConnectionId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $regionId;
 
     /**
      * @var string
@@ -41,21 +46,16 @@ class UnassociatePhysicalConnectionFromVirtualBorderRouterRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
+    public $vbrId;
     protected $_name = [
-        'regionId'             => 'RegionId',
-        'vbrId'                => 'VbrId',
-        'physicalConnectionId' => 'PhysicalConnectionId',
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
         'clientToken'          => 'ClientToken',
         'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
+        'physicalConnectionId' => 'PhysicalConnectionId',
+        'regionId'             => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'vbrId'                => 'VbrId',
     ];
 
     public function validate()
@@ -65,17 +65,20 @@ class UnassociatePhysicalConnectionFromVirtualBorderRouterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->vbrId) {
-            $res['VbrId'] = $this->vbrId;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->physicalConnectionId) {
             $res['PhysicalConnectionId'] = $this->physicalConnectionId;
         }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -83,11 +86,8 @@ class UnassociatePhysicalConnectionFromVirtualBorderRouterRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->vbrId) {
+            $res['VbrId'] = $this->vbrId;
         }
 
         return $res;
@@ -101,17 +101,20 @@ class UnassociatePhysicalConnectionFromVirtualBorderRouterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['VbrId'])) {
-            $model->vbrId = $map['VbrId'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PhysicalConnectionId'])) {
             $model->physicalConnectionId = $map['PhysicalConnectionId'];
         }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -119,11 +122,8 @@ class UnassociatePhysicalConnectionFromVirtualBorderRouterRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['VbrId'])) {
+            $model->vbrId = $map['VbrId'];
         }
 
         return $model;

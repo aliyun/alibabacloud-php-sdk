@@ -11,7 +11,7 @@ class globalAccelerationInstance extends Model
     /**
      * @var string
      */
-    public $serverIpAddress;
+    public $globalAccelerationInstanceId;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class globalAccelerationInstance extends Model
     /**
      * @var string
      */
-    public $globalAccelerationInstanceId;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $serverIpAddress;
     protected $_name = [
-        'serverIpAddress'              => 'ServerIpAddress',
-        'ipAddress'                    => 'IpAddress',
         'globalAccelerationInstanceId' => 'GlobalAccelerationInstanceId',
+        'ipAddress'                    => 'IpAddress',
         'regionId'                     => 'RegionId',
+        'serverIpAddress'              => 'ServerIpAddress',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class globalAccelerationInstance extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->serverIpAddress) {
-            $res['ServerIpAddress'] = $this->serverIpAddress;
+        if (null !== $this->globalAccelerationInstanceId) {
+            $res['GlobalAccelerationInstanceId'] = $this->globalAccelerationInstanceId;
         }
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
         }
-        if (null !== $this->globalAccelerationInstanceId) {
-            $res['GlobalAccelerationInstanceId'] = $this->globalAccelerationInstanceId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->serverIpAddress) {
+            $res['ServerIpAddress'] = $this->serverIpAddress;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class globalAccelerationInstance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ServerIpAddress'])) {
-            $model->serverIpAddress = $map['ServerIpAddress'];
+        if (isset($map['GlobalAccelerationInstanceId'])) {
+            $model->globalAccelerationInstanceId = $map['GlobalAccelerationInstanceId'];
         }
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
         }
-        if (isset($map['GlobalAccelerationInstanceId'])) {
-            $model->globalAccelerationInstanceId = $map['GlobalAccelerationInstanceId'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ServerIpAddress'])) {
+            $model->serverIpAddress = $map['ServerIpAddress'];
         }
 
         return $model;

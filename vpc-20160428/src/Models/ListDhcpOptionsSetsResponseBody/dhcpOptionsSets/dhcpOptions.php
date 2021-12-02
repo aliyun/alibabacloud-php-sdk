@@ -11,15 +11,15 @@ class dhcpOptions extends Model
     /**
      * @var string
      */
-    public $domainNameServers;
+    public $domainName;
 
     /**
      * @var string
      */
-    public $domainName;
+    public $domainNameServers;
     protected $_name = [
-        'domainNameServers' => 'DomainNameServers',
         'domainName'        => 'DomainName',
+        'domainNameServers' => 'DomainNameServers',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class dhcpOptions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domainNameServers) {
-            $res['DomainNameServers'] = $this->domainNameServers;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->domainNameServers) {
+            $res['DomainNameServers'] = $this->domainNameServers;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class dhcpOptions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DomainNameServers'])) {
-            $model->domainNameServers = $map['DomainNameServers'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['DomainNameServers'])) {
+            $model->domainNameServers = $map['DomainNameServers'];
         }
 
         return $model;

@@ -10,9 +10,49 @@ use AlibabaCloud\Tea\Model;
 class CreateRouteEntryRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $destinationCidrBlock;
+
+    /**
+     * @var string
+     */
+    public $nextHopId;
+
+    /**
+     * @var nextHopList[]
+     */
+    public $nextHopList;
+
+    /**
+     * @var string
+     */
+    public $nextHopType;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -27,72 +67,26 @@ class CreateRouteEntryRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $routeTableId;
-
-    /**
-     * @var string
-     */
-    public $destinationCidrBlock;
-
-    /**
-     * @var string
-     */
-    public $nextHopId;
-
-    /**
-     * @var string
-     */
-    public $privateIpAddress;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
     public $routeEntryName;
 
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $nextHopType;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var nextHopList[]
-     */
-    public $nextHopList;
+    public $routeTableId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'regionId'             => 'RegionId',
-        'routeTableId'         => 'RouteTableId',
+        'clientToken'          => 'ClientToken',
+        'description'          => 'Description',
         'destinationCidrBlock' => 'DestinationCidrBlock',
         'nextHopId'            => 'NextHopId',
-        'privateIpAddress'     => 'PrivateIpAddress',
-        'clientToken'          => 'ClientToken',
-        'routeEntryName'       => 'RouteEntryName',
-        'description'          => 'Description',
+        'nextHopList'          => 'NextHopList',
         'nextHopType'          => 'NextHopType',
         'ownerAccount'         => 'OwnerAccount',
-        'nextHopList'          => 'NextHopList',
+        'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'routeEntryName'       => 'RouteEntryName',
+        'routeTableId'         => 'RouteTableId',
     ];
 
     public function validate()
@@ -102,44 +96,17 @@ class CreateRouteEntryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->routeTableId) {
-            $res['RouteTableId'] = $this->routeTableId;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->destinationCidrBlock) {
             $res['DestinationCidrBlock'] = $this->destinationCidrBlock;
         }
         if (null !== $this->nextHopId) {
             $res['NextHopId'] = $this->nextHopId;
-        }
-        if (null !== $this->privateIpAddress) {
-            $res['PrivateIpAddress'] = $this->privateIpAddress;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->routeEntryName) {
-            $res['RouteEntryName'] = $this->routeEntryName;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->nextHopType) {
-            $res['NextHopType'] = $this->nextHopType;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->nextHopList) {
             $res['NextHopList'] = [];
@@ -149,6 +116,30 @@ class CreateRouteEntryRequest extends Model
                     $res['NextHopList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->nextHopType) {
+            $res['NextHopType'] = $this->nextHopType;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->routeEntryName) {
+            $res['RouteEntryName'] = $this->routeEntryName;
+        }
+        if (null !== $this->routeTableId) {
+            $res['RouteTableId'] = $this->routeTableId;
         }
 
         return $res;
@@ -162,44 +153,17 @@ class CreateRouteEntryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['RouteTableId'])) {
-            $model->routeTableId = $map['RouteTableId'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['DestinationCidrBlock'])) {
             $model->destinationCidrBlock = $map['DestinationCidrBlock'];
         }
         if (isset($map['NextHopId'])) {
             $model->nextHopId = $map['NextHopId'];
-        }
-        if (isset($map['PrivateIpAddress'])) {
-            $model->privateIpAddress = $map['PrivateIpAddress'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['RouteEntryName'])) {
-            $model->routeEntryName = $map['RouteEntryName'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['NextHopType'])) {
-            $model->nextHopType = $map['NextHopType'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['NextHopList'])) {
             if (!empty($map['NextHopList'])) {
@@ -209,6 +173,30 @@ class CreateRouteEntryRequest extends Model
                     $model->nextHopList[$n++] = null !== $item ? nextHopList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['NextHopType'])) {
+            $model->nextHopType = $map['NextHopType'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['RouteEntryName'])) {
+            $model->routeEntryName = $map['RouteEntryName'];
+        }
+        if (isset($map['RouteTableId'])) {
+            $model->routeTableId = $map['RouteTableId'];
         }
 
         return $model;

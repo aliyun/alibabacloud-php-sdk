@@ -11,22 +11,17 @@ class forwardTableEntry extends Model
     /**
      * @var string
      */
-    public $status;
+    public $externalIp;
+
+    /**
+     * @var string
+     */
+    public $externalPort;
 
     /**
      * @var string
      */
     public $forwardEntryId;
-
-    /**
-     * @var string
-     */
-    public $internalIp;
-
-    /**
-     * @var string
-     */
-    public $internalPort;
 
     /**
      * @var string
@@ -41,27 +36,32 @@ class forwardTableEntry extends Model
     /**
      * @var string
      */
+    public $internalIp;
+
+    /**
+     * @var string
+     */
+    public $internalPort;
+
+    /**
+     * @var string
+     */
     public $ipProtocol;
 
     /**
      * @var string
      */
-    public $externalPort;
-
-    /**
-     * @var string
-     */
-    public $externalIp;
+    public $status;
     protected $_name = [
-        'status'           => 'Status',
+        'externalIp'       => 'ExternalIp',
+        'externalPort'     => 'ExternalPort',
         'forwardEntryId'   => 'ForwardEntryId',
-        'internalIp'       => 'InternalIp',
-        'internalPort'     => 'InternalPort',
         'forwardEntryName' => 'ForwardEntryName',
         'forwardTableId'   => 'ForwardTableId',
+        'internalIp'       => 'InternalIp',
+        'internalPort'     => 'InternalPort',
         'ipProtocol'       => 'IpProtocol',
-        'externalPort'     => 'ExternalPort',
-        'externalIp'       => 'ExternalIp',
+        'status'           => 'Status',
     ];
 
     public function validate()
@@ -71,17 +71,14 @@ class forwardTableEntry extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->externalIp) {
+            $res['ExternalIp'] = $this->externalIp;
+        }
+        if (null !== $this->externalPort) {
+            $res['ExternalPort'] = $this->externalPort;
         }
         if (null !== $this->forwardEntryId) {
             $res['ForwardEntryId'] = $this->forwardEntryId;
-        }
-        if (null !== $this->internalIp) {
-            $res['InternalIp'] = $this->internalIp;
-        }
-        if (null !== $this->internalPort) {
-            $res['InternalPort'] = $this->internalPort;
         }
         if (null !== $this->forwardEntryName) {
             $res['ForwardEntryName'] = $this->forwardEntryName;
@@ -89,14 +86,17 @@ class forwardTableEntry extends Model
         if (null !== $this->forwardTableId) {
             $res['ForwardTableId'] = $this->forwardTableId;
         }
+        if (null !== $this->internalIp) {
+            $res['InternalIp'] = $this->internalIp;
+        }
+        if (null !== $this->internalPort) {
+            $res['InternalPort'] = $this->internalPort;
+        }
         if (null !== $this->ipProtocol) {
             $res['IpProtocol'] = $this->ipProtocol;
         }
-        if (null !== $this->externalPort) {
-            $res['ExternalPort'] = $this->externalPort;
-        }
-        if (null !== $this->externalIp) {
-            $res['ExternalIp'] = $this->externalIp;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -110,17 +110,14 @@ class forwardTableEntry extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['ExternalIp'])) {
+            $model->externalIp = $map['ExternalIp'];
+        }
+        if (isset($map['ExternalPort'])) {
+            $model->externalPort = $map['ExternalPort'];
         }
         if (isset($map['ForwardEntryId'])) {
             $model->forwardEntryId = $map['ForwardEntryId'];
-        }
-        if (isset($map['InternalIp'])) {
-            $model->internalIp = $map['InternalIp'];
-        }
-        if (isset($map['InternalPort'])) {
-            $model->internalPort = $map['InternalPort'];
         }
         if (isset($map['ForwardEntryName'])) {
             $model->forwardEntryName = $map['ForwardEntryName'];
@@ -128,14 +125,17 @@ class forwardTableEntry extends Model
         if (isset($map['ForwardTableId'])) {
             $model->forwardTableId = $map['ForwardTableId'];
         }
+        if (isset($map['InternalIp'])) {
+            $model->internalIp = $map['InternalIp'];
+        }
+        if (isset($map['InternalPort'])) {
+            $model->internalPort = $map['InternalPort'];
+        }
         if (isset($map['IpProtocol'])) {
             $model->ipProtocol = $map['IpProtocol'];
         }
-        if (isset($map['ExternalPort'])) {
-            $model->externalPort = $map['ExternalPort'];
-        }
-        if (isset($map['ExternalIp'])) {
-            $model->externalIp = $map['ExternalIp'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

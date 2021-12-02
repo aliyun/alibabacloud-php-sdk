@@ -11,20 +11,20 @@ class CreateFlowLogResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $flowLogId;
 
     /**
      * @var string
      */
-    public $flowLogId;
+    public $requestId;
 
     /**
      * @var string
      */
     public $success;
     protected $_name = [
-        'requestId' => 'RequestId',
         'flowLogId' => 'FlowLogId',
+        'requestId' => 'RequestId',
         'success'   => 'Success',
     ];
 
@@ -35,11 +35,11 @@ class CreateFlowLogResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->flowLogId) {
             $res['FlowLogId'] = $this->flowLogId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -56,11 +56,11 @@ class CreateFlowLogResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['FlowLogId'])) {
             $model->flowLogId = $map['FlowLogId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

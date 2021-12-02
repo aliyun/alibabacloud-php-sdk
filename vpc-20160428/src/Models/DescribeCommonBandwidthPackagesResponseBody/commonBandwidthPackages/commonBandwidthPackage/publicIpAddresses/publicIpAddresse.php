@@ -11,21 +11,21 @@ class publicIpAddresse extends Model
     /**
      * @var string
      */
-    public $ipAddress;
-
-    /**
-     * @var string
-     */
     public $allocationId;
 
     /**
      * @var string
      */
     public $bandwidthPackageIpRelationStatus;
+
+    /**
+     * @var string
+     */
+    public $ipAddress;
     protected $_name = [
-        'ipAddress'                        => 'IpAddress',
         'allocationId'                     => 'AllocationId',
         'bandwidthPackageIpRelationStatus' => 'BandwidthPackageIpRelationStatus',
+        'ipAddress'                        => 'IpAddress',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class publicIpAddresse extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ipAddress) {
-            $res['IpAddress'] = $this->ipAddress;
-        }
         if (null !== $this->allocationId) {
             $res['AllocationId'] = $this->allocationId;
         }
         if (null !== $this->bandwidthPackageIpRelationStatus) {
             $res['BandwidthPackageIpRelationStatus'] = $this->bandwidthPackageIpRelationStatus;
+        }
+        if (null !== $this->ipAddress) {
+            $res['IpAddress'] = $this->ipAddress;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class publicIpAddresse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IpAddress'])) {
-            $model->ipAddress = $map['IpAddress'];
-        }
         if (isset($map['AllocationId'])) {
             $model->allocationId = $map['AllocationId'];
         }
         if (isset($map['BandwidthPackageIpRelationStatus'])) {
             $model->bandwidthPackageIpRelationStatus = $map['BandwidthPackageIpRelationStatus'];
+        }
+        if (isset($map['IpAddress'])) {
+            $model->ipAddress = $map['IpAddress'];
         }
 
         return $model;

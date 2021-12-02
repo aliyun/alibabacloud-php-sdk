@@ -11,7 +11,7 @@ class snatTableEntry extends Model
     /**
      * @var string
      */
-    public $status;
+    public $snatEntryId;
 
     /**
      * @var string
@@ -21,17 +21,7 @@ class snatTableEntry extends Model
     /**
      * @var string
      */
-    public $sourceVSwitchId;
-
-    /**
-     * @var string
-     */
-    public $sourceCIDR;
-
-    /**
-     * @var string
-     */
-    public $snatEntryId;
+    public $snatIp;
 
     /**
      * @var string
@@ -41,15 +31,25 @@ class snatTableEntry extends Model
     /**
      * @var string
      */
-    public $snatIp;
+    public $sourceCIDR;
+
+    /**
+     * @var string
+     */
+    public $sourceVSwitchId;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'          => 'Status',
-        'snatEntryName'   => 'SnatEntryName',
-        'sourceVSwitchId' => 'SourceVSwitchId',
-        'sourceCIDR'      => 'SourceCIDR',
         'snatEntryId'     => 'SnatEntryId',
-        'snatTableId'     => 'SnatTableId',
+        'snatEntryName'   => 'SnatEntryName',
         'snatIp'          => 'SnatIp',
+        'snatTableId'     => 'SnatTableId',
+        'sourceCIDR'      => 'SourceCIDR',
+        'sourceVSwitchId' => 'SourceVSwitchId',
+        'status'          => 'Status',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class snatTableEntry extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->snatEntryId) {
+            $res['SnatEntryId'] = $this->snatEntryId;
         }
         if (null !== $this->snatEntryName) {
             $res['SnatEntryName'] = $this->snatEntryName;
         }
-        if (null !== $this->sourceVSwitchId) {
-            $res['SourceVSwitchId'] = $this->sourceVSwitchId;
-        }
-        if (null !== $this->sourceCIDR) {
-            $res['SourceCIDR'] = $this->sourceCIDR;
-        }
-        if (null !== $this->snatEntryId) {
-            $res['SnatEntryId'] = $this->snatEntryId;
+        if (null !== $this->snatIp) {
+            $res['SnatIp'] = $this->snatIp;
         }
         if (null !== $this->snatTableId) {
             $res['SnatTableId'] = $this->snatTableId;
         }
-        if (null !== $this->snatIp) {
-            $res['SnatIp'] = $this->snatIp;
+        if (null !== $this->sourceCIDR) {
+            $res['SourceCIDR'] = $this->sourceCIDR;
+        }
+        if (null !== $this->sourceVSwitchId) {
+            $res['SourceVSwitchId'] = $this->sourceVSwitchId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class snatTableEntry extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['SnatEntryId'])) {
+            $model->snatEntryId = $map['SnatEntryId'];
         }
         if (isset($map['SnatEntryName'])) {
             $model->snatEntryName = $map['SnatEntryName'];
         }
-        if (isset($map['SourceVSwitchId'])) {
-            $model->sourceVSwitchId = $map['SourceVSwitchId'];
-        }
-        if (isset($map['SourceCIDR'])) {
-            $model->sourceCIDR = $map['SourceCIDR'];
-        }
-        if (isset($map['SnatEntryId'])) {
-            $model->snatEntryId = $map['SnatEntryId'];
+        if (isset($map['SnatIp'])) {
+            $model->snatIp = $map['SnatIp'];
         }
         if (isset($map['SnatTableId'])) {
             $model->snatTableId = $map['SnatTableId'];
         }
-        if (isset($map['SnatIp'])) {
-            $model->snatIp = $map['SnatIp'];
+        if (isset($map['SourceCIDR'])) {
+            $model->sourceCIDR = $map['SourceCIDR'];
+        }
+        if (isset($map['SourceVSwitchId'])) {
+            $model->sourceVSwitchId = $map['SourceVSwitchId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

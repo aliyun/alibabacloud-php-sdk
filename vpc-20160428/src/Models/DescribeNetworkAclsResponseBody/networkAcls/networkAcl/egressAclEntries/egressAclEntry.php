@@ -11,12 +11,17 @@ class egressAclEntry extends Model
     /**
      * @var string
      */
-    public $networkAclEntryId;
+    public $description;
 
     /**
      * @var string
      */
-    public $entryType;
+    public $destinationCidrIp;
+
+    /**
+     * @var string
+     */
+    public $networkAclEntryId;
 
     /**
      * @var string
@@ -31,31 +36,20 @@ class egressAclEntry extends Model
     /**
      * @var string
      */
-    public $description;
+    public $port;
 
     /**
      * @var string
      */
     public $protocol;
-
-    /**
-     * @var string
-     */
-    public $destinationCidrIp;
-
-    /**
-     * @var string
-     */
-    public $port;
     protected $_name = [
+        'description'         => 'Description',
+        'destinationCidrIp'   => 'DestinationCidrIp',
         'networkAclEntryId'   => 'NetworkAclEntryId',
-        'entryType'           => 'EntryType',
         'networkAclEntryName' => 'NetworkAclEntryName',
         'policy'              => 'Policy',
-        'description'         => 'Description',
-        'protocol'            => 'Protocol',
-        'destinationCidrIp'   => 'DestinationCidrIp',
         'port'                => 'Port',
+        'protocol'            => 'Protocol',
     ];
 
     public function validate()
@@ -65,11 +59,14 @@ class egressAclEntry extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->destinationCidrIp) {
+            $res['DestinationCidrIp'] = $this->destinationCidrIp;
+        }
         if (null !== $this->networkAclEntryId) {
             $res['NetworkAclEntryId'] = $this->networkAclEntryId;
-        }
-        if (null !== $this->entryType) {
-            $res['EntryType'] = $this->entryType;
         }
         if (null !== $this->networkAclEntryName) {
             $res['NetworkAclEntryName'] = $this->networkAclEntryName;
@@ -77,17 +74,11 @@ class egressAclEntry extends Model
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
-        }
-        if (null !== $this->destinationCidrIp) {
-            $res['DestinationCidrIp'] = $this->destinationCidrIp;
-        }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
         }
 
         return $res;
@@ -101,11 +92,14 @@ class egressAclEntry extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['DestinationCidrIp'])) {
+            $model->destinationCidrIp = $map['DestinationCidrIp'];
+        }
         if (isset($map['NetworkAclEntryId'])) {
             $model->networkAclEntryId = $map['NetworkAclEntryId'];
-        }
-        if (isset($map['EntryType'])) {
-            $model->entryType = $map['EntryType'];
         }
         if (isset($map['NetworkAclEntryName'])) {
             $model->networkAclEntryName = $map['NetworkAclEntryName'];
@@ -113,17 +107,11 @@ class egressAclEntry extends Model
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
-        }
-        if (isset($map['DestinationCidrIp'])) {
-            $model->destinationCidrIp = $map['DestinationCidrIp'];
-        }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
         }
 
         return $model;

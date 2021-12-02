@@ -9,31 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListIpsecServersRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $ipsecServerName;
-
-    /**
-     * @var string
-     */
-    public $vpnGatewayId;
-
-    /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
-
-    /**
      * @var string[]
      */
     public $ipsecServerId;
@@ -41,21 +16,34 @@ class ListIpsecServersRequest extends Model
     /**
      * @var string
      */
-    public $callerBid;
+    public $ipsecServerName;
 
     /**
      * @var int
      */
-    public $resourceOwnerId;
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $vpnGatewayId;
     protected $_name = [
-        'regionId'        => 'RegionId',
-        'ipsecServerName' => 'IpsecServerName',
-        'vpnGatewayId'    => 'VpnGatewayId',
-        'nextToken'       => 'NextToken',
-        'maxResults'      => 'MaxResults',
         'ipsecServerId'   => 'IpsecServerId',
-        'callerBid'       => 'callerBid',
-        'resourceOwnerId' => 'ResourceOwnerId',
+        'ipsecServerName' => 'IpsecServerName',
+        'maxResults'      => 'MaxResults',
+        'nextToken'       => 'NextToken',
+        'regionId'        => 'RegionId',
+        'vpnGatewayId'    => 'VpnGatewayId',
     ];
 
     public function validate()
@@ -65,29 +53,23 @@ class ListIpsecServersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->ipsecServerId) {
+            $res['IpsecServerId'] = $this->ipsecServerId;
         }
         if (null !== $this->ipsecServerName) {
             $res['IpsecServerName'] = $this->ipsecServerName;
         }
-        if (null !== $this->vpnGatewayId) {
-            $res['VpnGatewayId'] = $this->vpnGatewayId;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->ipsecServerId) {
-            $res['IpsecServerId'] = $this->ipsecServerId;
-        }
-        if (null !== $this->callerBid) {
-            $res['callerBid'] = $this->callerBid;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->vpnGatewayId) {
+            $res['VpnGatewayId'] = $this->vpnGatewayId;
         }
 
         return $res;
@@ -101,31 +83,25 @@ class ListIpsecServersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['IpsecServerName'])) {
-            $model->ipsecServerName = $map['IpsecServerName'];
-        }
-        if (isset($map['VpnGatewayId'])) {
-            $model->vpnGatewayId = $map['VpnGatewayId'];
-        }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
         if (isset($map['IpsecServerId'])) {
             if (!empty($map['IpsecServerId'])) {
                 $model->ipsecServerId = $map['IpsecServerId'];
             }
         }
-        if (isset($map['callerBid'])) {
-            $model->callerBid = $map['callerBid'];
+        if (isset($map['IpsecServerName'])) {
+            $model->ipsecServerName = $map['IpsecServerName'];
         }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['VpnGatewayId'])) {
+            $model->vpnGatewayId = $map['VpnGatewayId'];
         }
 
         return $model;

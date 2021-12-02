@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpv6GatewaysResponseBody extends Model
 {
     /**
+     * @var ipv6Gateways
+     */
+    public $ipv6Gateways;
+
+    /**
      * @var int
      */
-    public $totalCount;
+    public $pageNumber;
 
     /**
      * @var int
@@ -27,18 +32,13 @@ class DescribeIpv6GatewaysResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
-
-    /**
-     * @var ipv6Gateways
-     */
-    public $ipv6Gateways;
+    public $totalCount;
     protected $_name = [
-        'totalCount'   => 'TotalCount',
+        'ipv6Gateways' => 'Ipv6Gateways',
+        'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
         'requestId'    => 'RequestId',
-        'pageNumber'   => 'PageNumber',
-        'ipv6Gateways' => 'Ipv6Gateways',
+        'totalCount'   => 'TotalCount',
     ];
 
     public function validate()
@@ -48,8 +48,11 @@ class DescribeIpv6GatewaysResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->ipv6Gateways) {
+            $res['Ipv6Gateways'] = null !== $this->ipv6Gateways ? $this->ipv6Gateways->toMap() : null;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -57,11 +60,8 @@ class DescribeIpv6GatewaysResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->ipv6Gateways) {
-            $res['Ipv6Gateways'] = null !== $this->ipv6Gateways ? $this->ipv6Gateways->toMap() : null;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -75,8 +75,11 @@ class DescribeIpv6GatewaysResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['Ipv6Gateways'])) {
+            $model->ipv6Gateways = ipv6Gateways::fromMap($map['Ipv6Gateways']);
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
@@ -84,11 +87,8 @@ class DescribeIpv6GatewaysResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['Ipv6Gateways'])) {
-            $model->ipv6Gateways = ipv6Gateways::fromMap($map['Ipv6Gateways']);
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

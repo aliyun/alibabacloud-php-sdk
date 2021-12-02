@@ -11,6 +11,16 @@ class ModifyNetworkAclAttributesRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $networkAclId;
 
     /**
@@ -19,9 +29,9 @@ class ModifyNetworkAclAttributesRequest extends Model
     public $networkAclName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $description;
+    public $ownerId;
 
     /**
      * @var string
@@ -37,25 +47,15 @@ class ModifyNetworkAclAttributesRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
+        'clientToken'          => 'ClientToken',
+        'description'          => 'Description',
         'networkAclId'         => 'NetworkAclId',
         'networkAclName'       => 'NetworkAclName',
-        'description'          => 'Description',
+        'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerId'              => 'OwnerId',
-        'clientToken'          => 'ClientToken',
     ];
 
     public function validate()
@@ -65,14 +65,20 @@ class ModifyNetworkAclAttributesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->networkAclId) {
             $res['NetworkAclId'] = $this->networkAclId;
         }
         if (null !== $this->networkAclName) {
             $res['NetworkAclName'] = $this->networkAclName;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -82,12 +88,6 @@ class ModifyNetworkAclAttributesRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -101,14 +101,20 @@ class ModifyNetworkAclAttributesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['NetworkAclId'])) {
             $model->networkAclId = $map['NetworkAclId'];
         }
         if (isset($map['NetworkAclName'])) {
             $model->networkAclName = $map['NetworkAclName'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
@@ -118,12 +124,6 @@ class ModifyNetworkAclAttributesRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

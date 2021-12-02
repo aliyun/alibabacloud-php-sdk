@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GetNatGatewayConvertStatusResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $dstNatType;
-
-    /**
      * @var convertSteps[]
      */
     public $convertSteps;
@@ -27,12 +17,22 @@ class GetNatGatewayConvertStatusResponseBody extends Model
     /**
      * @var string
      */
+    public $dstNatType;
+
+    /**
+     * @var string
+     */
     public $natGatewayId;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'dstNatType'   => 'DstNatType',
         'convertSteps' => 'ConvertSteps',
+        'dstNatType'   => 'DstNatType',
         'natGatewayId' => 'NatGatewayId',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -42,12 +42,6 @@ class GetNatGatewayConvertStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->dstNatType) {
-            $res['DstNatType'] = $this->dstNatType;
-        }
         if (null !== $this->convertSteps) {
             $res['ConvertSteps'] = [];
             if (null !== $this->convertSteps && \is_array($this->convertSteps)) {
@@ -57,8 +51,14 @@ class GetNatGatewayConvertStatusResponseBody extends Model
                 }
             }
         }
+        if (null !== $this->dstNatType) {
+            $res['DstNatType'] = $this->dstNatType;
+        }
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -72,12 +72,6 @@ class GetNatGatewayConvertStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['DstNatType'])) {
-            $model->dstNatType = $map['DstNatType'];
-        }
         if (isset($map['ConvertSteps'])) {
             if (!empty($map['ConvertSteps'])) {
                 $model->convertSteps = [];
@@ -87,8 +81,14 @@ class GetNatGatewayConvertStatusResponseBody extends Model
                 }
             }
         }
+        if (isset($map['DstNatType'])) {
+            $model->dstNatType = $map['DstNatType'];
+        }
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

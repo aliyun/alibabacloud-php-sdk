@@ -17,9 +17,15 @@ class zone extends Model
      * @var string
      */
     public $zoneId;
+
+    /**
+     * @var string
+     */
+    public $zoneType;
     protected $_name = [
         'localName' => 'LocalName',
         'zoneId'    => 'ZoneId',
+        'zoneType'  => 'ZoneType',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class zone extends Model
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
+        }
+        if (null !== $this->zoneType) {
+            $res['ZoneType'] = $this->zoneType;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class zone extends Model
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
+        }
+        if (isset($map['ZoneType'])) {
+            $model->zoneType = $map['ZoneType'];
         }
 
         return $model;

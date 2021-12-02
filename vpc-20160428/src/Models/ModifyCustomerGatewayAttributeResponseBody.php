@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyCustomerGatewayAttributeResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $createTime;
 
     /**
      * @var string
@@ -24,9 +19,9 @@ class ModifyCustomerGatewayAttributeResponseBody extends Model
     public $customerGatewayId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $createTime;
+    public $description;
 
     /**
      * @var string
@@ -37,13 +32,18 @@ class ModifyCustomerGatewayAttributeResponseBody extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'description'       => 'Description',
-        'requestId'         => 'RequestId',
-        'customerGatewayId' => 'CustomerGatewayId',
         'createTime'        => 'CreateTime',
+        'customerGatewayId' => 'CustomerGatewayId',
+        'description'       => 'Description',
         'ipAddress'         => 'IpAddress',
         'name'              => 'Name',
+        'requestId'         => 'RequestId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class ModifyCustomerGatewayAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->customerGatewayId) {
             $res['CustomerGatewayId'] = $this->customerGatewayId;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class ModifyCustomerGatewayAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['CustomerGatewayId'])) {
             $model->customerGatewayId = $map['CustomerGatewayId'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

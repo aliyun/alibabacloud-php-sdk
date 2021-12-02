@@ -11,12 +11,7 @@ class CreateIpsecServerResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $vpnGatewayId;
+    public $creationTime;
 
     /**
      * @var string
@@ -26,7 +21,7 @@ class CreateIpsecServerResponseBody extends Model
     /**
      * @var string
      */
-    public $creationTime;
+    public $ipsecServerName;
 
     /**
      * @var string
@@ -36,14 +31,19 @@ class CreateIpsecServerResponseBody extends Model
     /**
      * @var string
      */
-    public $ipsecServerName;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $vpnGatewayId;
     protected $_name = [
+        'creationTime'    => 'CreationTime',
+        'ipsecServerId'   => 'IpsecServerId',
+        'ipsecServerName' => 'IpsecServerName',
+        'regionId'        => 'RegionId',
         'requestId'       => 'RequestId',
         'vpnGatewayId'    => 'VpnGatewayId',
-        'ipsecServerId'   => 'IpsecServerId',
-        'creationTime'    => 'CreationTime',
-        'regionId'        => 'RegionId',
-        'ipsecServerName' => 'IpsecServerName',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class CreateIpsecServerResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->ipsecServerId) {
+            $res['IpsecServerId'] = $this->ipsecServerId;
+        }
+        if (null !== $this->ipsecServerName) {
+            $res['IpsecServerName'] = $this->ipsecServerName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->vpnGatewayId) {
             $res['VpnGatewayId'] = $this->vpnGatewayId;
-        }
-        if (null !== $this->ipsecServerId) {
-            $res['IpsecServerId'] = $this->ipsecServerId;
-        }
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->ipsecServerName) {
-            $res['IpsecServerName'] = $this->ipsecServerName;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class CreateIpsecServerResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['IpsecServerId'])) {
+            $model->ipsecServerId = $map['IpsecServerId'];
+        }
+        if (isset($map['IpsecServerName'])) {
+            $model->ipsecServerName = $map['IpsecServerName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['VpnGatewayId'])) {
             $model->vpnGatewayId = $map['VpnGatewayId'];
-        }
-        if (isset($map['IpsecServerId'])) {
-            $model->ipsecServerId = $map['IpsecServerId'];
-        }
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['IpsecServerName'])) {
-            $model->ipsecServerName = $map['IpsecServerName'];
         }
 
         return $model;

@@ -21,17 +21,17 @@ class instanceRenewAttribute extends Model
     /**
      * @var string
      */
-    public $renewalStatus;
+    public $pricingCycle;
 
     /**
      * @var string
      */
-    public $pricingCycle;
+    public $renewalStatus;
     protected $_name = [
         'duration'      => 'Duration',
         'instanceId'    => 'InstanceId',
-        'renewalStatus' => 'RenewalStatus',
         'pricingCycle'  => 'PricingCycle',
+        'renewalStatus' => 'RenewalStatus',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class instanceRenewAttribute extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->renewalStatus) {
-            $res['RenewalStatus'] = $this->renewalStatus;
-        }
         if (null !== $this->pricingCycle) {
             $res['PricingCycle'] = $this->pricingCycle;
+        }
+        if (null !== $this->renewalStatus) {
+            $res['RenewalStatus'] = $this->renewalStatus;
         }
 
         return $res;
@@ -71,11 +71,11 @@ class instanceRenewAttribute extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['RenewalStatus'])) {
-            $model->renewalStatus = $map['RenewalStatus'];
-        }
         if (isset($map['PricingCycle'])) {
             $model->pricingCycle = $map['PricingCycle'];
+        }
+        if (isset($map['RenewalStatus'])) {
+            $model->renewalStatus = $map['RenewalStatus'];
         }
 
         return $model;

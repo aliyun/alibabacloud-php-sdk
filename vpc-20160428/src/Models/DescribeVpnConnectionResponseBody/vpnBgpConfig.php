@@ -11,7 +11,27 @@ class vpnBgpConfig extends Model
     /**
      * @var string
      */
-    public $status;
+    public $authKey;
+
+    /**
+     * @var string
+     */
+    public $enableBgp;
+
+    /**
+     * @var int
+     */
+    public $localAsn;
+
+    /**
+     * @var string
+     */
+    public $localBgpIp;
+
+    /**
+     * @var int
+     */
+    public $peerAsn;
 
     /**
      * @var string
@@ -21,35 +41,21 @@ class vpnBgpConfig extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $tunnelCidr;
-
-    /**
-     * @var string
-     */
-    public $enableBgp;
-
-    /**
-     * @var string
-     */
-    public $localBgpIp;
-
-    /**
-     * @var string
-     */
-    public $peerAsn;
-
-    /**
-     * @var string
-     */
-    public $localAsn;
     protected $_name = [
-        'status'     => 'Status',
-        'peerBgpIp'  => 'PeerBgpIp',
-        'tunnelCidr' => 'TunnelCidr',
+        'authKey'    => 'AuthKey',
         'enableBgp'  => 'EnableBgp',
+        'localAsn'   => 'LocalAsn',
         'localBgpIp' => 'LocalBgpIp',
         'peerAsn'    => 'PeerAsn',
-        'localAsn'   => 'LocalAsn',
+        'peerBgpIp'  => 'PeerBgpIp',
+        'status'     => 'Status',
+        'tunnelCidr' => 'TunnelCidr',
     ];
 
     public function validate()
@@ -59,17 +65,14 @@ class vpnBgpConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->peerBgpIp) {
-            $res['PeerBgpIp'] = $this->peerBgpIp;
-        }
-        if (null !== $this->tunnelCidr) {
-            $res['TunnelCidr'] = $this->tunnelCidr;
+        if (null !== $this->authKey) {
+            $res['AuthKey'] = $this->authKey;
         }
         if (null !== $this->enableBgp) {
             $res['EnableBgp'] = $this->enableBgp;
+        }
+        if (null !== $this->localAsn) {
+            $res['LocalAsn'] = $this->localAsn;
         }
         if (null !== $this->localBgpIp) {
             $res['LocalBgpIp'] = $this->localBgpIp;
@@ -77,8 +80,14 @@ class vpnBgpConfig extends Model
         if (null !== $this->peerAsn) {
             $res['PeerAsn'] = $this->peerAsn;
         }
-        if (null !== $this->localAsn) {
-            $res['LocalAsn'] = $this->localAsn;
+        if (null !== $this->peerBgpIp) {
+            $res['PeerBgpIp'] = $this->peerBgpIp;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->tunnelCidr) {
+            $res['TunnelCidr'] = $this->tunnelCidr;
         }
 
         return $res;
@@ -92,17 +101,14 @@ class vpnBgpConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['PeerBgpIp'])) {
-            $model->peerBgpIp = $map['PeerBgpIp'];
-        }
-        if (isset($map['TunnelCidr'])) {
-            $model->tunnelCidr = $map['TunnelCidr'];
+        if (isset($map['AuthKey'])) {
+            $model->authKey = $map['AuthKey'];
         }
         if (isset($map['EnableBgp'])) {
             $model->enableBgp = $map['EnableBgp'];
+        }
+        if (isset($map['LocalAsn'])) {
+            $model->localAsn = $map['LocalAsn'];
         }
         if (isset($map['LocalBgpIp'])) {
             $model->localBgpIp = $map['LocalBgpIp'];
@@ -110,8 +116,14 @@ class vpnBgpConfig extends Model
         if (isset($map['PeerAsn'])) {
             $model->peerAsn = $map['PeerAsn'];
         }
-        if (isset($map['LocalAsn'])) {
-            $model->localAsn = $map['LocalAsn'];
+        if (isset($map['PeerBgpIp'])) {
+            $model->peerBgpIp = $map['PeerBgpIp'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['TunnelCidr'])) {
+            $model->tunnelCidr = $map['TunnelCidr'];
         }
 
         return $model;

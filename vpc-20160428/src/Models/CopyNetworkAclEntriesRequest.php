@@ -11,7 +11,7 @@ class CopyNetworkAclEntriesRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $clientToken;
 
     /**
      * @var string
@@ -19,9 +19,14 @@ class CopyNetworkAclEntriesRequest extends Model
     public $networkAclId;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var string
      */
-    public $sourceNetworkAclId;
+    public $regionId;
 
     /**
      * @var string
@@ -34,22 +39,17 @@ class CopyNetworkAclEntriesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $clientToken;
+    public $sourceNetworkAclId;
     protected $_name = [
-        'regionId'             => 'RegionId',
+        'clientToken'          => 'ClientToken',
         'networkAclId'         => 'NetworkAclId',
-        'sourceNetworkAclId'   => 'SourceNetworkAclId',
+        'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerId'              => 'OwnerId',
-        'clientToken'          => 'ClientToken',
+        'sourceNetworkAclId'   => 'SourceNetworkAclId',
     ];
 
     public function validate()
@@ -59,14 +59,17 @@ class CopyNetworkAclEntriesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->networkAclId) {
             $res['NetworkAclId'] = $this->networkAclId;
         }
-        if (null !== $this->sourceNetworkAclId) {
-            $res['SourceNetworkAclId'] = $this->sourceNetworkAclId;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -74,11 +77,8 @@ class CopyNetworkAclEntriesRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->sourceNetworkAclId) {
+            $res['SourceNetworkAclId'] = $this->sourceNetworkAclId;
         }
 
         return $res;
@@ -92,14 +92,17 @@ class CopyNetworkAclEntriesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['NetworkAclId'])) {
             $model->networkAclId = $map['NetworkAclId'];
         }
-        if (isset($map['SourceNetworkAclId'])) {
-            $model->sourceNetworkAclId = $map['SourceNetworkAclId'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -107,11 +110,8 @@ class CopyNetworkAclEntriesRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['SourceNetworkAclId'])) {
+            $model->sourceNetworkAclId = $map['SourceNetworkAclId'];
         }
 
         return $model;

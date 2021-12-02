@@ -11,15 +11,15 @@ class CreateExpressCloudConnectionResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $eccId;
 
     /**
      * @var string
      */
-    public $eccId;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'eccId'     => 'EccId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateExpressCloudConnectionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->eccId) {
             $res['EccId'] = $this->eccId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateExpressCloudConnectionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['EccId'])) {
             $model->eccId = $map['EccId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

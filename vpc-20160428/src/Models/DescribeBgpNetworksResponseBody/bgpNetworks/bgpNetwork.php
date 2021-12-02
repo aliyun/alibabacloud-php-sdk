@@ -11,12 +11,7 @@ class bgpNetwork extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
+    public $dstCidrBlock;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class bgpNetwork extends Model
     /**
      * @var string
      */
-    public $dstCidrBlock;
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
+        'dstCidrBlock' => 'DstCidrBlock',
+        'routerId'     => 'RouterId',
         'status'       => 'Status',
         'vpcId'        => 'VpcId',
-        'routerId'     => 'RouterId',
-        'dstCidrBlock' => 'DstCidrBlock',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class bgpNetwork extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dstCidrBlock) {
+            $res['DstCidrBlock'] = $this->dstCidrBlock;
+        }
+        if (null !== $this->routerId) {
+            $res['RouterId'] = $this->routerId;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->routerId) {
-            $res['RouterId'] = $this->routerId;
-        }
-        if (null !== $this->dstCidrBlock) {
-            $res['DstCidrBlock'] = $this->dstCidrBlock;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class bgpNetwork extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DstCidrBlock'])) {
+            $model->dstCidrBlock = $map['DstCidrBlock'];
+        }
+        if (isset($map['RouterId'])) {
+            $model->routerId = $map['RouterId'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['RouterId'])) {
-            $model->routerId = $map['RouterId'];
-        }
-        if (isset($map['DstCidrBlock'])) {
-            $model->dstCidrBlock = $map['DstCidrBlock'];
         }
 
         return $model;

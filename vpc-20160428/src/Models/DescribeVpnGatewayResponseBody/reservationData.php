@@ -11,17 +11,22 @@ class reservationData extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $reservationOrderType;
+    public $reservationEndTime;
 
     /**
      * @var string
      */
     public $reservationIpsec;
+
+    /**
+     * @var int
+     */
+    public $reservationMaxConnections;
+
+    /**
+     * @var string
+     */
+    public $reservationOrderType;
 
     /**
      * @var string
@@ -34,22 +39,17 @@ class reservationData extends Model
     public $reservationSsl;
 
     /**
-     * @var int
-     */
-    public $reservationMaxConnections;
-
-    /**
      * @var string
      */
-    public $reservationEndTime;
+    public $status;
     protected $_name = [
-        'status'                    => 'Status',
-        'reservationOrderType'      => 'ReservationOrderType',
+        'reservationEndTime'        => 'ReservationEndTime',
         'reservationIpsec'          => 'ReservationIpsec',
+        'reservationMaxConnections' => 'ReservationMaxConnections',
+        'reservationOrderType'      => 'ReservationOrderType',
         'reservationSpec'           => 'ReservationSpec',
         'reservationSsl'            => 'ReservationSsl',
-        'reservationMaxConnections' => 'ReservationMaxConnections',
-        'reservationEndTime'        => 'ReservationEndTime',
+        'status'                    => 'Status',
     ];
 
     public function validate()
@@ -59,14 +59,17 @@ class reservationData extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->reservationOrderType) {
-            $res['ReservationOrderType'] = $this->reservationOrderType;
+        if (null !== $this->reservationEndTime) {
+            $res['ReservationEndTime'] = $this->reservationEndTime;
         }
         if (null !== $this->reservationIpsec) {
             $res['ReservationIpsec'] = $this->reservationIpsec;
+        }
+        if (null !== $this->reservationMaxConnections) {
+            $res['ReservationMaxConnections'] = $this->reservationMaxConnections;
+        }
+        if (null !== $this->reservationOrderType) {
+            $res['ReservationOrderType'] = $this->reservationOrderType;
         }
         if (null !== $this->reservationSpec) {
             $res['ReservationSpec'] = $this->reservationSpec;
@@ -74,11 +77,8 @@ class reservationData extends Model
         if (null !== $this->reservationSsl) {
             $res['ReservationSsl'] = $this->reservationSsl;
         }
-        if (null !== $this->reservationMaxConnections) {
-            $res['ReservationMaxConnections'] = $this->reservationMaxConnections;
-        }
-        if (null !== $this->reservationEndTime) {
-            $res['ReservationEndTime'] = $this->reservationEndTime;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -92,14 +92,17 @@ class reservationData extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['ReservationOrderType'])) {
-            $model->reservationOrderType = $map['ReservationOrderType'];
+        if (isset($map['ReservationEndTime'])) {
+            $model->reservationEndTime = $map['ReservationEndTime'];
         }
         if (isset($map['ReservationIpsec'])) {
             $model->reservationIpsec = $map['ReservationIpsec'];
+        }
+        if (isset($map['ReservationMaxConnections'])) {
+            $model->reservationMaxConnections = $map['ReservationMaxConnections'];
+        }
+        if (isset($map['ReservationOrderType'])) {
+            $model->reservationOrderType = $map['ReservationOrderType'];
         }
         if (isset($map['ReservationSpec'])) {
             $model->reservationSpec = $map['ReservationSpec'];
@@ -107,11 +110,8 @@ class reservationData extends Model
         if (isset($map['ReservationSsl'])) {
             $model->reservationSsl = $map['ReservationSsl'];
         }
-        if (isset($map['ReservationMaxConnections'])) {
-            $model->reservationMaxConnections = $map['ReservationMaxConnections'];
-        }
-        if (isset($map['ReservationEndTime'])) {
-            $model->reservationEndTime = $map['ReservationEndTime'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

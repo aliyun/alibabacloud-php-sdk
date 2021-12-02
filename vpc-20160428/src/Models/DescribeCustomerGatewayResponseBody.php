@@ -9,19 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomerGatewayResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $description;
+    public $asn;
 
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $customerGatewayId;
+    public $authKey;
 
     /**
      * @var int
@@ -31,25 +26,36 @@ class DescribeCustomerGatewayResponseBody extends Model
     /**
      * @var string
      */
-    public $ipAddress;
+    public $customerGatewayId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $asn;
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $ipAddress;
 
     /**
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'description'       => 'Description',
-        'requestId'         => 'RequestId',
-        'customerGatewayId' => 'CustomerGatewayId',
-        'createTime'        => 'CreateTime',
-        'ipAddress'         => 'IpAddress',
         'asn'               => 'Asn',
+        'authKey'           => 'AuthKey',
+        'createTime'        => 'CreateTime',
+        'customerGatewayId' => 'CustomerGatewayId',
+        'description'       => 'Description',
+        'ipAddress'         => 'IpAddress',
         'name'              => 'Name',
+        'requestId'         => 'RequestId',
     ];
 
     public function validate()
@@ -59,26 +65,29 @@ class DescribeCustomerGatewayResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->asn) {
+            $res['Asn'] = $this->asn;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->customerGatewayId) {
-            $res['CustomerGatewayId'] = $this->customerGatewayId;
+        if (null !== $this->authKey) {
+            $res['AuthKey'] = $this->authKey;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+        if (null !== $this->customerGatewayId) {
+            $res['CustomerGatewayId'] = $this->customerGatewayId;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
         }
-        if (null !== $this->asn) {
-            $res['Asn'] = $this->asn;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -92,26 +101,29 @@ class DescribeCustomerGatewayResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['Asn'])) {
+            $model->asn = $map['Asn'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['CustomerGatewayId'])) {
-            $model->customerGatewayId = $map['CustomerGatewayId'];
+        if (isset($map['AuthKey'])) {
+            $model->authKey = $map['AuthKey'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+        if (isset($map['CustomerGatewayId'])) {
+            $model->customerGatewayId = $map['CustomerGatewayId'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
         }
-        if (isset($map['Asn'])) {
-            $model->asn = $map['Asn'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

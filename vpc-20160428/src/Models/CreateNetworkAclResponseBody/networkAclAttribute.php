@@ -14,16 +14,6 @@ class networkAclAttribute extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
     public $creationTime;
 
     /**
@@ -37,11 +27,6 @@ class networkAclAttribute extends Model
     public $egressAclEntries;
 
     /**
-     * @var string
-     */
-    public $networkAclName;
-
-    /**
      * @var ingressAclEntries
      */
     public $ingressAclEntries;
@@ -52,6 +37,16 @@ class networkAclAttribute extends Model
     public $networkAclId;
 
     /**
+     * @var string
+     */
+    public $networkAclName;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var resources
      */
     public $resources;
@@ -59,18 +54,23 @@ class networkAclAttribute extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
-        'status'            => 'Status',
-        'vpcId'             => 'VpcId',
         'creationTime'      => 'CreationTime',
         'description'       => 'Description',
         'egressAclEntries'  => 'EgressAclEntries',
-        'networkAclName'    => 'NetworkAclName',
         'ingressAclEntries' => 'IngressAclEntries',
         'networkAclId'      => 'NetworkAclId',
-        'resources'         => 'Resources',
+        'networkAclName'    => 'NetworkAclName',
         'regionId'          => 'RegionId',
+        'resources'         => 'Resources',
+        'status'            => 'Status',
+        'vpcId'             => 'VpcId',
     ];
 
     public function validate()
@@ -80,12 +80,6 @@ class networkAclAttribute extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
@@ -95,20 +89,26 @@ class networkAclAttribute extends Model
         if (null !== $this->egressAclEntries) {
             $res['EgressAclEntries'] = null !== $this->egressAclEntries ? $this->egressAclEntries->toMap() : null;
         }
-        if (null !== $this->networkAclName) {
-            $res['NetworkAclName'] = $this->networkAclName;
-        }
         if (null !== $this->ingressAclEntries) {
             $res['IngressAclEntries'] = null !== $this->ingressAclEntries ? $this->ingressAclEntries->toMap() : null;
         }
         if (null !== $this->networkAclId) {
             $res['NetworkAclId'] = $this->networkAclId;
         }
-        if (null !== $this->resources) {
-            $res['Resources'] = null !== $this->resources ? $this->resources->toMap() : null;
+        if (null !== $this->networkAclName) {
+            $res['NetworkAclName'] = $this->networkAclName;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resources) {
+            $res['Resources'] = null !== $this->resources ? $this->resources->toMap() : null;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -122,12 +122,6 @@ class networkAclAttribute extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
@@ -137,20 +131,26 @@ class networkAclAttribute extends Model
         if (isset($map['EgressAclEntries'])) {
             $model->egressAclEntries = egressAclEntries::fromMap($map['EgressAclEntries']);
         }
-        if (isset($map['NetworkAclName'])) {
-            $model->networkAclName = $map['NetworkAclName'];
-        }
         if (isset($map['IngressAclEntries'])) {
             $model->ingressAclEntries = ingressAclEntries::fromMap($map['IngressAclEntries']);
         }
         if (isset($map['NetworkAclId'])) {
             $model->networkAclId = $map['NetworkAclId'];
         }
-        if (isset($map['Resources'])) {
-            $model->resources = resources::fromMap($map['Resources']);
+        if (isset($map['NetworkAclName'])) {
+            $model->networkAclName = $map['NetworkAclName'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Resources'])) {
+            $model->resources = resources::fromMap($map['Resources']);
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

@@ -14,11 +14,17 @@ class ipList extends Model
     public $ipAddress;
 
     /**
+     * @var string
+     */
+    public $privateIpAddress;
+
+    /**
      * @var bool
      */
     public $snatEntryEnabled;
     protected $_name = [
         'ipAddress'        => 'IpAddress',
+        'privateIpAddress' => 'PrivateIpAddress',
         'snatEntryEnabled' => 'SnatEntryEnabled',
     ];
 
@@ -31,6 +37,9 @@ class ipList extends Model
         $res = [];
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
+        }
+        if (null !== $this->privateIpAddress) {
+            $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
         if (null !== $this->snatEntryEnabled) {
             $res['SnatEntryEnabled'] = $this->snatEntryEnabled;
@@ -49,6 +58,9 @@ class ipList extends Model
         $model = new self();
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
+        }
+        if (isset($map['PrivateIpAddress'])) {
+            $model->privateIpAddress = $map['PrivateIpAddress'];
         }
         if (isset($map['SnatEntryEnabled'])) {
             $model->snatEntryEnabled = $map['SnatEntryEnabled'];

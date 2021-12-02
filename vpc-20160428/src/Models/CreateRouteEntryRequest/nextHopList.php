@@ -14,18 +14,18 @@ class nextHopList extends Model
     public $nextHopId;
 
     /**
-     * @var int
-     */
-    public $weight;
-
-    /**
      * @var string
      */
     public $nextHopType;
+
+    /**
+     * @var int
+     */
+    public $weight;
     protected $_name = [
         'nextHopId'   => 'NextHopId',
-        'weight'      => 'Weight',
         'nextHopType' => 'NextHopType',
+        'weight'      => 'Weight',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class nextHopList extends Model
         if (null !== $this->nextHopId) {
             $res['NextHopId'] = $this->nextHopId;
         }
-        if (null !== $this->weight) {
-            $res['Weight'] = $this->weight;
-        }
         if (null !== $this->nextHopType) {
             $res['NextHopType'] = $this->nextHopType;
+        }
+        if (null !== $this->weight) {
+            $res['Weight'] = $this->weight;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class nextHopList extends Model
         if (isset($map['NextHopId'])) {
             $model->nextHopId = $map['NextHopId'];
         }
-        if (isset($map['Weight'])) {
-            $model->weight = $map['Weight'];
-        }
         if (isset($map['NextHopType'])) {
             $model->nextHopType = $map['NextHopType'];
+        }
+        if (isset($map['Weight'])) {
+            $model->weight = $map['Weight'];
         }
 
         return $model;

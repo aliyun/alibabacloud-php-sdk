@@ -9,9 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpnGatewayAttributeResponseBody extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoPropagate;
+
+    /**
      * @var string
      */
-    public $status;
+    public $businessStatus;
+
+    /**
+     * @var int
+     */
+    public $createTime;
 
     /**
      * @var string
@@ -31,22 +41,7 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $createTime;
-
-    /**
-     * @var string
-     */
-    public $vSwitchId;
-
-    /**
-     * @var bool
-     */
-    public $autoPropagate;
+    public $internetIp;
 
     /**
      * @var string
@@ -56,12 +51,27 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $businessStatus;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $spec;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
 
     /**
      * @var string
@@ -71,33 +81,23 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $internetIp;
-
-    /**
-     * @var string
-     */
     public $vpnGatewayId;
-
-    /**
-     * @var string
-     */
-    public $spec;
     protected $_name = [
-        'status'         => 'Status',
+        'autoPropagate'  => 'AutoPropagate',
+        'businessStatus' => 'BusinessStatus',
+        'createTime'     => 'CreateTime',
         'description'    => 'Description',
         'enableBgp'      => 'EnableBgp',
         'endTime'        => 'EndTime',
-        'requestId'      => 'RequestId',
-        'createTime'     => 'CreateTime',
-        'vSwitchId'      => 'VSwitchId',
-        'autoPropagate'  => 'AutoPropagate',
-        'intranetIp'     => 'IntranetIp',
-        'businessStatus' => 'BusinessStatus',
-        'name'           => 'Name',
-        'vpcId'          => 'VpcId',
         'internetIp'     => 'InternetIp',
-        'vpnGatewayId'   => 'VpnGatewayId',
+        'intranetIp'     => 'IntranetIp',
+        'name'           => 'Name',
+        'requestId'      => 'RequestId',
         'spec'           => 'Spec',
+        'status'         => 'Status',
+        'vSwitchId'      => 'VSwitchId',
+        'vpcId'          => 'VpcId',
+        'vpnGatewayId'   => 'VpnGatewayId',
     ];
 
     public function validate()
@@ -107,8 +107,14 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->autoPropagate) {
+            $res['AutoPropagate'] = $this->autoPropagate;
+        }
+        if (null !== $this->businessStatus) {
+            $res['BusinessStatus'] = $this->businessStatus;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -119,38 +125,32 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
-        if (null !== $this->autoPropagate) {
-            $res['AutoPropagate'] = $this->autoPropagate;
+        if (null !== $this->internetIp) {
+            $res['InternetIp'] = $this->internetIp;
         }
         if (null !== $this->intranetIp) {
             $res['IntranetIp'] = $this->intranetIp;
         }
-        if (null !== $this->businessStatus) {
-            $res['BusinessStatus'] = $this->businessStatus;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->spec) {
+            $res['Spec'] = $this->spec;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
-        if (null !== $this->internetIp) {
-            $res['InternetIp'] = $this->internetIp;
-        }
         if (null !== $this->vpnGatewayId) {
             $res['VpnGatewayId'] = $this->vpnGatewayId;
-        }
-        if (null !== $this->spec) {
-            $res['Spec'] = $this->spec;
         }
 
         return $res;
@@ -164,8 +164,14 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['AutoPropagate'])) {
+            $model->autoPropagate = $map['AutoPropagate'];
+        }
+        if (isset($map['BusinessStatus'])) {
+            $model->businessStatus = $map['BusinessStatus'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -176,38 +182,32 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
-        if (isset($map['AutoPropagate'])) {
-            $model->autoPropagate = $map['AutoPropagate'];
+        if (isset($map['InternetIp'])) {
+            $model->internetIp = $map['InternetIp'];
         }
         if (isset($map['IntranetIp'])) {
             $model->intranetIp = $map['IntranetIp'];
         }
-        if (isset($map['BusinessStatus'])) {
-            $model->businessStatus = $map['BusinessStatus'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Spec'])) {
+            $model->spec = $map['Spec'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
-        if (isset($map['InternetIp'])) {
-            $model->internetIp = $map['InternetIp'];
-        }
         if (isset($map['VpnGatewayId'])) {
             $model->vpnGatewayId = $map['VpnGatewayId'];
-        }
-        if (isset($map['Spec'])) {
-            $model->spec = $map['Spec'];
         }
 
         return $model;

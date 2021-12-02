@@ -9,9 +9,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeVSwitchAttributesRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -27,29 +42,14 @@ class DescribeVSwitchAttributesRequest extends Model
      * @var string
      */
     public $vSwitchId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var bool
-     */
-    public $dryRun;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     protected $_name = [
+        'dryRun'               => 'DryRun',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'vSwitchId'            => 'VSwitchId',
-        'regionId'             => 'RegionId',
-        'dryRun'               => 'DryRun',
-        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
@@ -59,8 +59,17 @@ class DescribeVSwitchAttributesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -70,15 +79,6 @@ class DescribeVSwitchAttributesRequest extends Model
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->dryRun) {
-            $res['DryRun'] = $this->dryRun;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -92,8 +92,17 @@ class DescribeVSwitchAttributesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -103,15 +112,6 @@ class DescribeVSwitchAttributesRequest extends Model
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['DryRun'])) {
-            $model->dryRun = $map['DryRun'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

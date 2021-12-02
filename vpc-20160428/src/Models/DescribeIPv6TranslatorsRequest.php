@@ -11,27 +11,17 @@ class DescribeIPv6TranslatorsRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
+    public $allocateIpv4Addr;
 
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
+    public $allocateIpv6Addr;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $businessStatus;
 
     /**
      * @var string
@@ -46,27 +36,12 @@ class DescribeIPv6TranslatorsRequest extends Model
     /**
      * @var string
      */
-    public $spec;
+    public $ownerAccount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $allocateIpv6Addr;
-
-    /**
-     * @var string
-     */
-    public $allocateIpv4Addr;
-
-    /**
-     * @var string
-     */
-    public $payType;
+    public $ownerId;
 
     /**
      * @var int
@@ -81,23 +56,48 @@ class DescribeIPv6TranslatorsRequest extends Model
     /**
      * @var string
      */
-    public $businessStatus;
+    public $payType;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $spec;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'regionId'             => 'RegionId',
+        'allocateIpv4Addr'     => 'AllocateIpv4Addr',
+        'allocateIpv6Addr'     => 'AllocateIpv6Addr',
+        'businessStatus'       => 'BusinessStatus',
         'ipv6TranslatorId'     => 'Ipv6TranslatorId',
         'name'                 => 'Name',
-        'spec'                 => 'Spec',
-        'status'               => 'Status',
-        'allocateIpv6Addr'     => 'AllocateIpv6Addr',
-        'allocateIpv4Addr'     => 'AllocateIpv4Addr',
-        'payType'              => 'PayType',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
-        'businessStatus'       => 'BusinessStatus',
+        'payType'              => 'PayType',
+        'regionId'             => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'spec'                 => 'Spec',
+        'status'               => 'Status',
     ];
 
     public function validate()
@@ -107,20 +107,14 @@ class DescribeIPv6TranslatorsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->allocateIpv4Addr) {
+            $res['AllocateIpv4Addr'] = $this->allocateIpv4Addr;
         }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->allocateIpv6Addr) {
+            $res['AllocateIpv6Addr'] = $this->allocateIpv6Addr;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->businessStatus) {
+            $res['BusinessStatus'] = $this->businessStatus;
         }
         if (null !== $this->ipv6TranslatorId) {
             $res['Ipv6TranslatorId'] = $this->ipv6TranslatorId;
@@ -128,20 +122,11 @@ class DescribeIPv6TranslatorsRequest extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->spec) {
-            $res['Spec'] = $this->spec;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->allocateIpv6Addr) {
-            $res['AllocateIpv6Addr'] = $this->allocateIpv6Addr;
-        }
-        if (null !== $this->allocateIpv4Addr) {
-            $res['AllocateIpv4Addr'] = $this->allocateIpv4Addr;
-        }
-        if (null !== $this->payType) {
-            $res['PayType'] = $this->payType;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -149,8 +134,23 @@ class DescribeIPv6TranslatorsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->businessStatus) {
-            $res['BusinessStatus'] = $this->businessStatus;
+        if (null !== $this->payType) {
+            $res['PayType'] = $this->payType;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->spec) {
+            $res['Spec'] = $this->spec;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -164,20 +164,14 @@ class DescribeIPv6TranslatorsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['AllocateIpv4Addr'])) {
+            $model->allocateIpv4Addr = $map['AllocateIpv4Addr'];
         }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['AllocateIpv6Addr'])) {
+            $model->allocateIpv6Addr = $map['AllocateIpv6Addr'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['BusinessStatus'])) {
+            $model->businessStatus = $map['BusinessStatus'];
         }
         if (isset($map['Ipv6TranslatorId'])) {
             $model->ipv6TranslatorId = $map['Ipv6TranslatorId'];
@@ -185,20 +179,11 @@ class DescribeIPv6TranslatorsRequest extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Spec'])) {
-            $model->spec = $map['Spec'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['AllocateIpv6Addr'])) {
-            $model->allocateIpv6Addr = $map['AllocateIpv6Addr'];
-        }
-        if (isset($map['AllocateIpv4Addr'])) {
-            $model->allocateIpv4Addr = $map['AllocateIpv4Addr'];
-        }
-        if (isset($map['PayType'])) {
-            $model->payType = $map['PayType'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -206,8 +191,23 @@ class DescribeIPv6TranslatorsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['BusinessStatus'])) {
-            $model->businessStatus = $map['BusinessStatus'];
+        if (isset($map['PayType'])) {
+            $model->payType = $map['PayType'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Spec'])) {
+            $model->spec = $map['Spec'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

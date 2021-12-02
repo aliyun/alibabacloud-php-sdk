@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ipsecConfig extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ipsecLifetime;
+    public $ipsecAuthAlg;
 
     /**
      * @var string
@@ -19,19 +19,19 @@ class ipsecConfig extends Model
     public $ipsecEncAlg;
 
     /**
-     * @var string
+     * @var int
      */
-    public $ipsecPfs;
+    public $ipsecLifetime;
 
     /**
      * @var string
      */
-    public $ipsecAuthAlg;
+    public $ipsecPfs;
     protected $_name = [
-        'ipsecLifetime' => 'IpsecLifetime',
-        'ipsecEncAlg'   => 'IpsecEncAlg',
-        'ipsecPfs'      => 'IpsecPfs',
         'ipsecAuthAlg'  => 'IpsecAuthAlg',
+        'ipsecEncAlg'   => 'IpsecEncAlg',
+        'ipsecLifetime' => 'IpsecLifetime',
+        'ipsecPfs'      => 'IpsecPfs',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ipsecConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ipsecLifetime) {
-            $res['IpsecLifetime'] = $this->ipsecLifetime;
+        if (null !== $this->ipsecAuthAlg) {
+            $res['IpsecAuthAlg'] = $this->ipsecAuthAlg;
         }
         if (null !== $this->ipsecEncAlg) {
             $res['IpsecEncAlg'] = $this->ipsecEncAlg;
         }
+        if (null !== $this->ipsecLifetime) {
+            $res['IpsecLifetime'] = $this->ipsecLifetime;
+        }
         if (null !== $this->ipsecPfs) {
             $res['IpsecPfs'] = $this->ipsecPfs;
-        }
-        if (null !== $this->ipsecAuthAlg) {
-            $res['IpsecAuthAlg'] = $this->ipsecAuthAlg;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ipsecConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IpsecLifetime'])) {
-            $model->ipsecLifetime = $map['IpsecLifetime'];
+        if (isset($map['IpsecAuthAlg'])) {
+            $model->ipsecAuthAlg = $map['IpsecAuthAlg'];
         }
         if (isset($map['IpsecEncAlg'])) {
             $model->ipsecEncAlg = $map['IpsecEncAlg'];
         }
+        if (isset($map['IpsecLifetime'])) {
+            $model->ipsecLifetime = $map['IpsecLifetime'];
+        }
         if (isset($map['IpsecPfs'])) {
             $model->ipsecPfs = $map['IpsecPfs'];
-        }
-        if (isset($map['IpsecAuthAlg'])) {
-            $model->ipsecAuthAlg = $map['IpsecAuthAlg'];
         }
 
         return $model;

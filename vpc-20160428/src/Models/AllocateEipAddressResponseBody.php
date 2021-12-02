@@ -11,16 +11,6 @@ class AllocateEipAddressResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
-     * @var string
-     */
     public $allocationId;
 
     /**
@@ -32,12 +22,22 @@ class AllocateEipAddressResponseBody extends Model
      * @var int
      */
     public $orderId;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'resourceGroupId' => 'ResourceGroupId',
         'allocationId'    => 'AllocationId',
         'eipAddress'      => 'EipAddress',
         'orderId'         => 'OrderId',
+        'requestId'       => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -47,12 +47,6 @@ class AllocateEipAddressResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->allocationId) {
             $res['AllocationId'] = $this->allocationId;
         }
@@ -61,6 +55,12 @@ class AllocateEipAddressResponseBody extends Model
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -74,12 +74,6 @@ class AllocateEipAddressResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['AllocationId'])) {
             $model->allocationId = $map['AllocationId'];
         }
@@ -88,6 +82,12 @@ class AllocateEipAddressResponseBody extends Model
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

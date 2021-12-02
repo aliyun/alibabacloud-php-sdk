@@ -11,15 +11,27 @@ class dhcpOptions extends Model
     /**
      * @var string
      */
-    public $domainNameServers;
+    public $bootFileName;
 
     /**
      * @var string
      */
     public $domainName;
+
+    /**
+     * @var string
+     */
+    public $domainNameServers;
+
+    /**
+     * @var string
+     */
+    public $TFTPServerName;
     protected $_name = [
-        'domainNameServers' => 'DomainNameServers',
+        'bootFileName'      => 'BootFileName',
         'domainName'        => 'DomainName',
+        'domainNameServers' => 'DomainNameServers',
+        'TFTPServerName'    => 'TFTPServerName',
     ];
 
     public function validate()
@@ -29,11 +41,17 @@ class dhcpOptions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domainNameServers) {
-            $res['DomainNameServers'] = $this->domainNameServers;
+        if (null !== $this->bootFileName) {
+            $res['BootFileName'] = $this->bootFileName;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->domainNameServers) {
+            $res['DomainNameServers'] = $this->domainNameServers;
+        }
+        if (null !== $this->TFTPServerName) {
+            $res['TFTPServerName'] = $this->TFTPServerName;
         }
 
         return $res;
@@ -47,11 +65,17 @@ class dhcpOptions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DomainNameServers'])) {
-            $model->domainNameServers = $map['DomainNameServers'];
+        if (isset($map['BootFileName'])) {
+            $model->bootFileName = $map['BootFileName'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['DomainNameServers'])) {
+            $model->domainNameServers = $map['DomainNameServers'];
+        }
+        if (isset($map['TFTPServerName'])) {
+            $model->TFTPServerName = $map['TFTPServerName'];
         }
 
         return $model;

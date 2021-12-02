@@ -9,9 +9,39 @@ use AlibabaCloud\Tea\Model;
 class DescribeBgpGroupsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $bgpGroupId;
+
+    /**
+     * @var bool
+     */
+    public $isDefault;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -27,47 +57,17 @@ class DescribeBgpGroupsRequest extends Model
      * @var string
      */
     public $routerId;
-
-    /**
-     * @var string
-     */
-    public $bgpGroupId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var bool
-     */
-    public $isDefault;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     protected $_name = [
+        'bgpGroupId'           => 'BgpGroupId',
+        'isDefault'            => 'IsDefault',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'pageNumber'           => 'PageNumber',
+        'pageSize'             => 'PageSize',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'routerId'             => 'RouterId',
-        'bgpGroupId'           => 'BgpGroupId',
-        'regionId'             => 'RegionId',
-        'isDefault'            => 'IsDefault',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
@@ -77,8 +77,26 @@ class DescribeBgpGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bgpGroupId) {
+            $res['BgpGroupId'] = $this->bgpGroupId;
+        }
+        if (null !== $this->isDefault) {
+            $res['IsDefault'] = $this->isDefault;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -88,24 +106,6 @@ class DescribeBgpGroupsRequest extends Model
         }
         if (null !== $this->routerId) {
             $res['RouterId'] = $this->routerId;
-        }
-        if (null !== $this->bgpGroupId) {
-            $res['BgpGroupId'] = $this->bgpGroupId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->isDefault) {
-            $res['IsDefault'] = $this->isDefault;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -119,8 +119,26 @@ class DescribeBgpGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BgpGroupId'])) {
+            $model->bgpGroupId = $map['BgpGroupId'];
+        }
+        if (isset($map['IsDefault'])) {
+            $model->isDefault = $map['IsDefault'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -130,24 +148,6 @@ class DescribeBgpGroupsRequest extends Model
         }
         if (isset($map['RouterId'])) {
             $model->routerId = $map['RouterId'];
-        }
-        if (isset($map['BgpGroupId'])) {
-            $model->bgpGroupId = $map['BgpGroupId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['IsDefault'])) {
-            $model->isDefault = $map['IsDefault'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

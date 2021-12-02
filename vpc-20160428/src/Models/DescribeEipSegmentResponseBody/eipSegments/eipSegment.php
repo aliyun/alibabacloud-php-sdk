@@ -16,11 +16,6 @@ class eipSegment extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
     public $descritpion;
 
     /**
@@ -41,21 +36,26 @@ class eipSegment extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $segment;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $status;
     protected $_name = [
         'creationTime' => 'CreationTime',
-        'status'       => 'Status',
         'descritpion'  => 'Descritpion',
         'instanceId'   => 'InstanceId',
         'ipCount'      => 'IpCount',
         'name'         => 'Name',
-        'segment'      => 'Segment',
         'regionId'     => 'RegionId',
+        'segment'      => 'Segment',
+        'status'       => 'Status',
     ];
 
     public function validate()
@@ -67,9 +67,6 @@ class eipSegment extends Model
         $res = [];
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
         }
         if (null !== $this->descritpion) {
             $res['Descritpion'] = $this->descritpion;
@@ -83,11 +80,14 @@ class eipSegment extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->segment) {
             $res['Segment'] = $this->segment;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -104,9 +104,6 @@ class eipSegment extends Model
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['Descritpion'])) {
             $model->descritpion = $map['Descritpion'];
         }
@@ -119,11 +116,14 @@ class eipSegment extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['Segment'])) {
             $model->segment = $map['Segment'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

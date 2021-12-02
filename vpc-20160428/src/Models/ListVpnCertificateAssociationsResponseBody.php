@@ -12,7 +12,7 @@ class ListVpnCertificateAssociationsResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $maxResults;
 
     /**
      * @var string
@@ -25,20 +25,20 @@ class ListVpnCertificateAssociationsResponseBody extends Model
     public $requestId;
 
     /**
+     * @var int
+     */
+    public $totalCount;
+
+    /**
      * @var vpnCertificateRelations[]
      */
     public $vpnCertificateRelations;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
     protected $_name = [
-        'totalCount'              => 'TotalCount',
+        'maxResults'              => 'MaxResults',
         'nextToken'               => 'NextToken',
         'requestId'               => 'RequestId',
+        'totalCount'              => 'TotalCount',
         'vpnCertificateRelations' => 'VpnCertificateRelations',
-        'maxResults'              => 'MaxResults',
     ];
 
     public function validate()
@@ -48,14 +48,17 @@ class ListVpnCertificateAssociationsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->vpnCertificateRelations) {
             $res['VpnCertificateRelations'] = [];
@@ -65,9 +68,6 @@ class ListVpnCertificateAssociationsResponseBody extends Model
                     $res['VpnCertificateRelations'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
         }
 
         return $res;
@@ -81,14 +81,17 @@ class ListVpnCertificateAssociationsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['VpnCertificateRelations'])) {
             if (!empty($map['VpnCertificateRelations'])) {
@@ -98,9 +101,6 @@ class ListVpnCertificateAssociationsResponseBody extends Model
                     $model->vpnCertificateRelations[$n++] = null !== $item ? vpnCertificateRelations::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
         }
 
         return $model;

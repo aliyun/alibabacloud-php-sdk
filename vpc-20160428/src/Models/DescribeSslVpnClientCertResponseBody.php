@@ -11,12 +11,27 @@ class DescribeSslVpnClientCertResponseBody extends Model
     /**
      * @var string
      */
-    public $status;
+    public $caCert;
 
     /**
      * @var string
      */
     public $clientCert;
+
+    /**
+     * @var string
+     */
+    public $clientConfig;
+
+    /**
+     * @var string
+     */
+    public $clientKey;
+
+    /**
+     * @var int
+     */
+    public $createTime;
 
     /**
      * @var int
@@ -26,17 +41,17 @@ class DescribeSslVpnClientCertResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var int
-     */
-    public $createTime;
+    public $name;
 
     /**
      * @var string
      */
-    public $clientKey;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var string
@@ -51,35 +66,20 @@ class DescribeSslVpnClientCertResponseBody extends Model
     /**
      * @var string
      */
-    public $caCert;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $clientConfig;
-
-    /**
-     * @var string
-     */
-    public $name;
+    public $status;
     protected $_name = [
-        'status'             => 'Status',
+        'caCert'             => 'CaCert',
         'clientCert'         => 'ClientCert',
-        'endTime'            => 'EndTime',
-        'requestId'          => 'RequestId',
-        'createTime'         => 'CreateTime',
+        'clientConfig'       => 'ClientConfig',
         'clientKey'          => 'ClientKey',
+        'createTime'         => 'CreateTime',
+        'endTime'            => 'EndTime',
+        'name'               => 'Name',
+        'regionId'           => 'RegionId',
+        'requestId'          => 'RequestId',
         'sslVpnClientCertId' => 'SslVpnClientCertId',
         'sslVpnServerId'     => 'SslVpnServerId',
-        'caCert'             => 'CaCert',
-        'regionId'           => 'RegionId',
-        'clientConfig'       => 'ClientConfig',
-        'name'               => 'Name',
+        'status'             => 'Status',
     ];
 
     public function validate()
@@ -89,23 +89,32 @@ class DescribeSslVpnClientCertResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->caCert) {
+            $res['CaCert'] = $this->caCert;
         }
         if (null !== $this->clientCert) {
             $res['ClientCert'] = $this->clientCert;
         }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
+        if (null !== $this->clientConfig) {
+            $res['ClientConfig'] = $this->clientConfig;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->clientKey) {
+            $res['ClientKey'] = $this->clientKey;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->clientKey) {
-            $res['ClientKey'] = $this->clientKey;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->sslVpnClientCertId) {
             $res['SslVpnClientCertId'] = $this->sslVpnClientCertId;
@@ -113,17 +122,8 @@ class DescribeSslVpnClientCertResponseBody extends Model
         if (null !== $this->sslVpnServerId) {
             $res['SslVpnServerId'] = $this->sslVpnServerId;
         }
-        if (null !== $this->caCert) {
-            $res['CaCert'] = $this->caCert;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->clientConfig) {
-            $res['ClientConfig'] = $this->clientConfig;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -137,23 +137,32 @@ class DescribeSslVpnClientCertResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['CaCert'])) {
+            $model->caCert = $map['CaCert'];
         }
         if (isset($map['ClientCert'])) {
             $model->clientCert = $map['ClientCert'];
         }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
+        if (isset($map['ClientConfig'])) {
+            $model->clientConfig = $map['ClientConfig'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ClientKey'])) {
+            $model->clientKey = $map['ClientKey'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['ClientKey'])) {
-            $model->clientKey = $map['ClientKey'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['SslVpnClientCertId'])) {
             $model->sslVpnClientCertId = $map['SslVpnClientCertId'];
@@ -161,17 +170,8 @@ class DescribeSslVpnClientCertResponseBody extends Model
         if (isset($map['SslVpnServerId'])) {
             $model->sslVpnServerId = $map['SslVpnServerId'];
         }
-        if (isset($map['CaCert'])) {
-            $model->caCert = $map['CaCert'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ClientConfig'])) {
-            $model->clientConfig = $map['ClientConfig'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

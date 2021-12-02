@@ -11,6 +11,16 @@ use AlibabaCloud\Tea\Model;
 class vSwitch extends Model
 {
     /**
+     * @var int
+     */
+    public $availableIpAddressCount;
+
+    /**
+     * @var string
+     */
+    public $cidrBlock;
+
+    /**
      * @var string
      */
     public $creationTime;
@@ -18,32 +28,17 @@ class vSwitch extends Model
     /**
      * @var string
      */
-    public $status;
+    public $description;
 
     /**
      * @var string
      */
-    public $vpcId;
+    public $ipv6CidrBlock;
 
     /**
      * @var bool
      */
     public $isDefault;
-
-    /**
-     * @var int
-     */
-    public $availableIpAddressCount;
-
-    /**
-     * @var tags
-     */
-    public $tags;
-
-    /**
-     * @var routeTable
-     */
-    public $routeTable;
 
     /**
      * @var string
@@ -58,54 +53,59 @@ class vSwitch extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var routeTable
+     */
+    public $routeTable;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
+     * @var string
+     */
     public $vSwitchId;
 
     /**
      * @var string
      */
-    public $cidrBlock;
+    public $vSwitchName;
 
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
+    public $vpcId;
 
     /**
      * @var string
      */
     public $zoneId;
-
-    /**
-     * @var string
-     */
-    public $ipv6CidrBlock;
-
-    /**
-     * @var string
-     */
-    public $vSwitchName;
     protected $_name = [
-        'creationTime'            => 'CreationTime',
-        'status'                  => 'Status',
-        'vpcId'                   => 'VpcId',
-        'isDefault'               => 'IsDefault',
         'availableIpAddressCount' => 'AvailableIpAddressCount',
-        'tags'                    => 'Tags',
-        'routeTable'              => 'RouteTable',
+        'cidrBlock'               => 'CidrBlock',
+        'creationTime'            => 'CreationTime',
+        'description'             => 'Description',
+        'ipv6CidrBlock'           => 'Ipv6CidrBlock',
+        'isDefault'               => 'IsDefault',
         'networkAclId'            => 'NetworkAclId',
         'ownerId'                 => 'OwnerId',
-        'vSwitchId'               => 'VSwitchId',
-        'cidrBlock'               => 'CidrBlock',
-        'description'             => 'Description',
         'resourceGroupId'         => 'ResourceGroupId',
-        'zoneId'                  => 'ZoneId',
-        'ipv6CidrBlock'           => 'Ipv6CidrBlock',
+        'routeTable'              => 'RouteTable',
+        'status'                  => 'Status',
+        'tags'                    => 'Tags',
+        'vSwitchId'               => 'VSwitchId',
         'vSwitchName'             => 'VSwitchName',
+        'vpcId'                   => 'VpcId',
+        'zoneId'                  => 'ZoneId',
     ];
 
     public function validate()
@@ -115,26 +115,23 @@ class vSwitch extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->isDefault) {
-            $res['IsDefault'] = $this->isDefault;
-        }
         if (null !== $this->availableIpAddressCount) {
             $res['AvailableIpAddressCount'] = $this->availableIpAddressCount;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        if (null !== $this->cidrBlock) {
+            $res['CidrBlock'] = $this->cidrBlock;
         }
-        if (null !== $this->routeTable) {
-            $res['RouteTable'] = null !== $this->routeTable ? $this->routeTable->toMap() : null;
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->ipv6CidrBlock) {
+            $res['Ipv6CidrBlock'] = $this->ipv6CidrBlock;
+        }
+        if (null !== $this->isDefault) {
+            $res['IsDefault'] = $this->isDefault;
         }
         if (null !== $this->networkAclId) {
             $res['NetworkAclId'] = $this->networkAclId;
@@ -142,26 +139,29 @@ class vSwitch extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
-        if (null !== $this->cidrBlock) {
-            $res['CidrBlock'] = $this->cidrBlock;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
+        if (null !== $this->routeTable) {
+            $res['RouteTable'] = null !== $this->routeTable ? $this->routeTable->toMap() : null;
         }
-        if (null !== $this->ipv6CidrBlock) {
-            $res['Ipv6CidrBlock'] = $this->ipv6CidrBlock;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
         if (null !== $this->vSwitchName) {
             $res['VSwitchName'] = $this->vSwitchName;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -175,26 +175,23 @@ class vSwitch extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['IsDefault'])) {
-            $model->isDefault = $map['IsDefault'];
-        }
         if (isset($map['AvailableIpAddressCount'])) {
             $model->availableIpAddressCount = $map['AvailableIpAddressCount'];
         }
-        if (isset($map['Tags'])) {
-            $model->tags = tags::fromMap($map['Tags']);
+        if (isset($map['CidrBlock'])) {
+            $model->cidrBlock = $map['CidrBlock'];
         }
-        if (isset($map['RouteTable'])) {
-            $model->routeTable = routeTable::fromMap($map['RouteTable']);
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['Ipv6CidrBlock'])) {
+            $model->ipv6CidrBlock = $map['Ipv6CidrBlock'];
+        }
+        if (isset($map['IsDefault'])) {
+            $model->isDefault = $map['IsDefault'];
         }
         if (isset($map['NetworkAclId'])) {
             $model->networkAclId = $map['NetworkAclId'];
@@ -202,26 +199,29 @@ class vSwitch extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
-        if (isset($map['CidrBlock'])) {
-            $model->cidrBlock = $map['CidrBlock'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
+        if (isset($map['RouteTable'])) {
+            $model->routeTable = routeTable::fromMap($map['RouteTable']);
         }
-        if (isset($map['Ipv6CidrBlock'])) {
-            $model->ipv6CidrBlock = $map['Ipv6CidrBlock'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
         if (isset($map['VSwitchName'])) {
             $model->vSwitchName = $map['VSwitchName'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

@@ -11,24 +11,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateNetworkAclEntriesRequest extends Model
 {
     /**
-     * @var bool
-     */
-    public $updateIngressAclEntries;
-
-    /**
-     * @var bool
-     */
-    public $updateEgressAclEntries;
-
-    /**
      * @var string
      */
-    public $networkAclId;
+    public $clientToken;
 
     /**
-     * @var string
+     * @var egressAclEntries[]
      */
-    public $regionId;
+    public $egressAclEntries;
 
     /**
      * @var ingressAclEntries[]
@@ -36,9 +26,19 @@ class UpdateNetworkAclEntriesRequest extends Model
     public $ingressAclEntries;
 
     /**
-     * @var egressAclEntries[]
+     * @var string
      */
-    public $egressAclEntries;
+    public $networkAclId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -51,25 +51,25 @@ class UpdateNetworkAclEntriesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var int
+     * @var bool
      */
-    public $ownerId;
+    public $updateEgressAclEntries;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $clientToken;
+    public $updateIngressAclEntries;
     protected $_name = [
-        'updateIngressAclEntries' => 'UpdateIngressAclEntries',
-        'updateEgressAclEntries'  => 'UpdateEgressAclEntries',
-        'networkAclId'            => 'NetworkAclId',
-        'regionId'                => 'RegionId',
-        'ingressAclEntries'       => 'IngressAclEntries',
+        'clientToken'             => 'ClientToken',
         'egressAclEntries'        => 'EgressAclEntries',
+        'ingressAclEntries'       => 'IngressAclEntries',
+        'networkAclId'            => 'NetworkAclId',
+        'ownerId'                 => 'OwnerId',
+        'regionId'                => 'RegionId',
         'resourceOwnerAccount'    => 'ResourceOwnerAccount',
         'resourceOwnerId'         => 'ResourceOwnerId',
-        'ownerId'                 => 'OwnerId',
-        'clientToken'             => 'ClientToken',
+        'updateEgressAclEntries'  => 'UpdateEgressAclEntries',
+        'updateIngressAclEntries' => 'UpdateIngressAclEntries',
     ];
 
     public function validate()
@@ -79,26 +79,8 @@ class UpdateNetworkAclEntriesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->updateIngressAclEntries) {
-            $res['UpdateIngressAclEntries'] = $this->updateIngressAclEntries;
-        }
-        if (null !== $this->updateEgressAclEntries) {
-            $res['UpdateEgressAclEntries'] = $this->updateEgressAclEntries;
-        }
-        if (null !== $this->networkAclId) {
-            $res['NetworkAclId'] = $this->networkAclId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->ingressAclEntries) {
-            $res['IngressAclEntries'] = [];
-            if (null !== $this->ingressAclEntries && \is_array($this->ingressAclEntries)) {
-                $n = 0;
-                foreach ($this->ingressAclEntries as $item) {
-                    $res['IngressAclEntries'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->egressAclEntries) {
             $res['EgressAclEntries'] = [];
@@ -109,17 +91,35 @@ class UpdateNetworkAclEntriesRequest extends Model
                 }
             }
         }
+        if (null !== $this->ingressAclEntries) {
+            $res['IngressAclEntries'] = [];
+            if (null !== $this->ingressAclEntries && \is_array($this->ingressAclEntries)) {
+                $n = 0;
+                foreach ($this->ingressAclEntries as $item) {
+                    $res['IngressAclEntries'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->networkAclId) {
+            $res['NetworkAclId'] = $this->networkAclId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->updateEgressAclEntries) {
+            $res['UpdateEgressAclEntries'] = $this->updateEgressAclEntries;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->updateIngressAclEntries) {
+            $res['UpdateIngressAclEntries'] = $this->updateIngressAclEntries;
         }
 
         return $res;
@@ -133,26 +133,8 @@ class UpdateNetworkAclEntriesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UpdateIngressAclEntries'])) {
-            $model->updateIngressAclEntries = $map['UpdateIngressAclEntries'];
-        }
-        if (isset($map['UpdateEgressAclEntries'])) {
-            $model->updateEgressAclEntries = $map['UpdateEgressAclEntries'];
-        }
-        if (isset($map['NetworkAclId'])) {
-            $model->networkAclId = $map['NetworkAclId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['IngressAclEntries'])) {
-            if (!empty($map['IngressAclEntries'])) {
-                $model->ingressAclEntries = [];
-                $n                        = 0;
-                foreach ($map['IngressAclEntries'] as $item) {
-                    $model->ingressAclEntries[$n++] = null !== $item ? ingressAclEntries::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['EgressAclEntries'])) {
             if (!empty($map['EgressAclEntries'])) {
@@ -163,17 +145,35 @@ class UpdateNetworkAclEntriesRequest extends Model
                 }
             }
         }
+        if (isset($map['IngressAclEntries'])) {
+            if (!empty($map['IngressAclEntries'])) {
+                $model->ingressAclEntries = [];
+                $n                        = 0;
+                foreach ($map['IngressAclEntries'] as $item) {
+                    $model->ingressAclEntries[$n++] = null !== $item ? ingressAclEntries::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['NetworkAclId'])) {
+            $model->networkAclId = $map['NetworkAclId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['UpdateEgressAclEntries'])) {
+            $model->updateEgressAclEntries = $map['UpdateEgressAclEntries'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['UpdateIngressAclEntries'])) {
+            $model->updateIngressAclEntries = $map['UpdateIngressAclEntries'];
         }
 
         return $model;

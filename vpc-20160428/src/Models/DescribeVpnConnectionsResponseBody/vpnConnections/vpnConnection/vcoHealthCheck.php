@@ -11,12 +11,12 @@ class vcoHealthCheck extends Model
     /**
      * @var string
      */
-    public $status;
+    public $dip;
 
     /**
      * @var string
      */
-    public $dip;
+    public $enable;
 
     /**
      * @var int
@@ -36,14 +36,14 @@ class vcoHealthCheck extends Model
     /**
      * @var string
      */
-    public $enable;
+    public $status;
     protected $_name = [
-        'status'   => 'Status',
         'dip'      => 'Dip',
+        'enable'   => 'Enable',
         'interval' => 'Interval',
         'retry'    => 'Retry',
         'sip'      => 'Sip',
-        'enable'   => 'Enable',
+        'status'   => 'Status',
     ];
 
     public function validate()
@@ -53,11 +53,11 @@ class vcoHealthCheck extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->dip) {
             $res['Dip'] = $this->dip;
+        }
+        if (null !== $this->enable) {
+            $res['Enable'] = $this->enable;
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
@@ -68,8 +68,8 @@ class vcoHealthCheck extends Model
         if (null !== $this->sip) {
             $res['Sip'] = $this->sip;
         }
-        if (null !== $this->enable) {
-            $res['Enable'] = $this->enable;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -83,11 +83,11 @@ class vcoHealthCheck extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['Dip'])) {
             $model->dip = $map['Dip'];
+        }
+        if (isset($map['Enable'])) {
+            $model->enable = $map['Enable'];
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
@@ -98,8 +98,8 @@ class vcoHealthCheck extends Model
         if (isset($map['Sip'])) {
             $model->sip = $map['Sip'];
         }
-        if (isset($map['Enable'])) {
-            $model->enable = $map['Enable'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

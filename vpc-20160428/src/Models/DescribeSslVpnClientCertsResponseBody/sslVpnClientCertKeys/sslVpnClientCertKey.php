@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class sslVpnClientCertKey extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $status;
+    public $createTime;
 
     /**
      * @var int
@@ -19,9 +19,14 @@ class sslVpnClientCertKey extends Model
     public $endTime;
 
     /**
-     * @var int
+     * @var string
      */
-    public $createTime;
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -36,20 +41,15 @@ class sslVpnClientCertKey extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $status;
     protected $_name = [
-        'status'             => 'Status',
-        'endTime'            => 'EndTime',
         'createTime'         => 'CreateTime',
-        'sslVpnClientCertId' => 'SslVpnClientCertId',
-        'sslVpnServerId'     => 'SslVpnServerId',
+        'endTime'            => 'EndTime',
         'name'               => 'Name',
         'regionId'           => 'RegionId',
+        'sslVpnClientCertId' => 'SslVpnClientCertId',
+        'sslVpnServerId'     => 'SslVpnServerId',
+        'status'             => 'Status',
     ];
 
     public function validate()
@@ -59,14 +59,17 @@ class sslVpnClientCertKey extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->sslVpnClientCertId) {
             $res['SslVpnClientCertId'] = $this->sslVpnClientCertId;
@@ -74,11 +77,8 @@ class sslVpnClientCertKey extends Model
         if (null !== $this->sslVpnServerId) {
             $res['SslVpnServerId'] = $this->sslVpnServerId;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -92,14 +92,17 @@ class sslVpnClientCertKey extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SslVpnClientCertId'])) {
             $model->sslVpnClientCertId = $map['SslVpnClientCertId'];
@@ -107,11 +110,8 @@ class sslVpnClientCertKey extends Model
         if (isset($map['SslVpnServerId'])) {
             $model->sslVpnServerId = $map['SslVpnServerId'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

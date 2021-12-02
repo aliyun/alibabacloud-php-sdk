@@ -11,7 +11,7 @@ class resource extends Model
     /**
      * @var string
      */
-    public $status;
+    public $resourceId;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class resource extends Model
     /**
      * @var string
      */
-    public $resourceId;
+    public $status;
     protected $_name = [
-        'status'       => 'Status',
-        'resourceType' => 'ResourceType',
         'resourceId'   => 'ResourceId',
+        'resourceType' => 'ResourceType',
+        'status'       => 'Status',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class resource extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
-        if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class resource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
-        if (isset($map['ResourceId'])) {
-            $model->resourceId = $map['ResourceId'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

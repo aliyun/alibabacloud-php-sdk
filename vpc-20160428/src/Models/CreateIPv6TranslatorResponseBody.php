@@ -11,17 +11,12 @@ class CreateIPv6TranslatorResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $ipv6TranslatorId;
 
     /**
      * @var string
      */
-    public $spec;
+    public $name;
 
     /**
      * @var int
@@ -31,13 +26,18 @@ class CreateIPv6TranslatorResponseBody extends Model
     /**
      * @var string
      */
-    public $name;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $spec;
     protected $_name = [
-        'requestId'        => 'RequestId',
         'ipv6TranslatorId' => 'Ipv6TranslatorId',
-        'spec'             => 'Spec',
-        'orderId'          => 'OrderId',
         'name'             => 'Name',
+        'orderId'          => 'OrderId',
+        'requestId'        => 'RequestId',
+        'spec'             => 'Spec',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class CreateIPv6TranslatorResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->ipv6TranslatorId) {
             $res['Ipv6TranslatorId'] = $this->ipv6TranslatorId;
         }
-        if (null !== $this->spec) {
-            $res['Spec'] = $this->spec;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->spec) {
+            $res['Spec'] = $this->spec;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class CreateIPv6TranslatorResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Ipv6TranslatorId'])) {
             $model->ipv6TranslatorId = $map['Ipv6TranslatorId'];
         }
-        if (isset($map['Spec'])) {
-            $model->spec = $map['Spec'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Spec'])) {
+            $model->spec = $map['Spec'];
         }
 
         return $model;

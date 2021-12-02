@@ -12,12 +12,37 @@ class DescribeVpnGatewaysRequest extends Model
     /**
      * @var string
      */
+    public $businessStatus;
+
+    /**
+     * @var bool
+     */
+    public $includeReservationData;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -32,7 +57,12 @@ class DescribeVpnGatewaysRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $status;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
 
     /**
      * @var string
@@ -43,50 +73,20 @@ class DescribeVpnGatewaysRequest extends Model
      * @var string
      */
     public $vpnGatewayId;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $businessStatus;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var bool
-     */
-    public $includeReservationData;
-
-    /**
-     * @var tag[]
-     */
-    public $tag;
     protected $_name = [
+        'businessStatus'         => 'BusinessStatus',
+        'includeReservationData' => 'IncludeReservationData',
         'ownerAccount'           => 'OwnerAccount',
         'ownerId'                => 'OwnerId',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
-        'regionId'               => 'RegionId',
-        'vpcId'                  => 'VpcId',
-        'vpnGatewayId'           => 'VpnGatewayId',
-        'status'                 => 'Status',
-        'businessStatus'         => 'BusinessStatus',
         'pageNumber'             => 'PageNumber',
         'pageSize'               => 'PageSize',
-        'includeReservationData' => 'IncludeReservationData',
+        'regionId'               => 'RegionId',
+        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
+        'resourceOwnerId'        => 'ResourceOwnerId',
+        'status'                 => 'Status',
         'tag'                    => 'Tag',
+        'vpcId'                  => 'VpcId',
+        'vpnGatewayId'           => 'VpnGatewayId',
     ];
 
     public function validate()
@@ -96,32 +96,17 @@ class DescribeVpnGatewaysRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->businessStatus) {
+            $res['BusinessStatus'] = $this->businessStatus;
+        }
+        if (null !== $this->includeReservationData) {
+            $res['IncludeReservationData'] = $this->includeReservationData;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->vpnGatewayId) {
-            $res['VpnGatewayId'] = $this->vpnGatewayId;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->businessStatus) {
-            $res['BusinessStatus'] = $this->businessStatus;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -129,8 +114,17 @@ class DescribeVpnGatewaysRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->includeReservationData) {
-            $res['IncludeReservationData'] = $this->includeReservationData;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -140,6 +134,12 @@ class DescribeVpnGatewaysRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->vpnGatewayId) {
+            $res['VpnGatewayId'] = $this->vpnGatewayId;
         }
 
         return $res;
@@ -153,32 +153,17 @@ class DescribeVpnGatewaysRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessStatus'])) {
+            $model->businessStatus = $map['BusinessStatus'];
+        }
+        if (isset($map['IncludeReservationData'])) {
+            $model->includeReservationData = $map['IncludeReservationData'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['VpnGatewayId'])) {
-            $model->vpnGatewayId = $map['VpnGatewayId'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['BusinessStatus'])) {
-            $model->businessStatus = $map['BusinessStatus'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -186,8 +171,17 @@ class DescribeVpnGatewaysRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['IncludeReservationData'])) {
-            $model->includeReservationData = $map['IncludeReservationData'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
@@ -197,6 +191,12 @@ class DescribeVpnGatewaysRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['VpnGatewayId'])) {
+            $model->vpnGatewayId = $map['VpnGatewayId'];
         }
 
         return $model;

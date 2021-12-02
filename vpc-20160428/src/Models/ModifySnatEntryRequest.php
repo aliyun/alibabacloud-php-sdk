@@ -9,9 +9,24 @@ use AlibabaCloud\Tea\Model;
 class ModifySnatEntryRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -26,27 +41,7 @@ class ModifySnatEntryRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $snatTableId;
-
-    /**
-     * @var string
-     */
     public $snatEntryId;
-
-    /**
-     * @var string
-     */
-    public $snatIp;
 
     /**
      * @var string
@@ -56,18 +51,23 @@ class ModifySnatEntryRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $snatIp;
+
+    /**
+     * @var string
+     */
+    public $snatTableId;
     protected $_name = [
+        'clientToken'          => 'ClientToken',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
-        'snatTableId'          => 'SnatTableId',
         'snatEntryId'          => 'SnatEntryId',
-        'snatIp'               => 'SnatIp',
         'snatEntryName'        => 'SnatEntryName',
-        'clientToken'          => 'ClientToken',
+        'snatIp'               => 'SnatIp',
+        'snatTableId'          => 'SnatTableId',
     ];
 
     public function validate()
@@ -77,8 +77,17 @@ class ModifySnatEntryRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -86,26 +95,17 @@ class ModifySnatEntryRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->snatTableId) {
-            $res['SnatTableId'] = $this->snatTableId;
-        }
         if (null !== $this->snatEntryId) {
             $res['SnatEntryId'] = $this->snatEntryId;
-        }
-        if (null !== $this->snatIp) {
-            $res['SnatIp'] = $this->snatIp;
         }
         if (null !== $this->snatEntryName) {
             $res['SnatEntryName'] = $this->snatEntryName;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->snatIp) {
+            $res['SnatIp'] = $this->snatIp;
+        }
+        if (null !== $this->snatTableId) {
+            $res['SnatTableId'] = $this->snatTableId;
         }
 
         return $res;
@@ -119,8 +119,17 @@ class ModifySnatEntryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -128,26 +137,17 @@ class ModifySnatEntryRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['SnatTableId'])) {
-            $model->snatTableId = $map['SnatTableId'];
-        }
         if (isset($map['SnatEntryId'])) {
             $model->snatEntryId = $map['SnatEntryId'];
-        }
-        if (isset($map['SnatIp'])) {
-            $model->snatIp = $map['SnatIp'];
         }
         if (isset($map['SnatEntryName'])) {
             $model->snatEntryName = $map['SnatEntryName'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['SnatIp'])) {
+            $model->snatIp = $map['SnatIp'];
+        }
+        if (isset($map['SnatTableId'])) {
+            $model->snatTableId = $map['SnatTableId'];
         }
 
         return $model;

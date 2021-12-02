@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class ListNatGatewayEcsMetricResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var metricDataList[]
+     */
+    public $metricDataList;
+
+    /**
      * @var string
      */
     public $nextToken;
@@ -18,21 +28,11 @@ class ListNatGatewayEcsMetricResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var metricDataList[]
-     */
-    public $metricDataList;
-
-    /**
-     * @var int
-     */
-    public $maxResults;
     protected $_name = [
+        'maxResults'     => 'MaxResults',
+        'metricDataList' => 'MetricDataList',
         'nextToken'      => 'NextToken',
         'requestId'      => 'RequestId',
-        'metricDataList' => 'MetricDataList',
-        'maxResults'     => 'MaxResults',
     ];
 
     public function validate()
@@ -42,11 +42,8 @@ class ListNatGatewayEcsMetricResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->metricDataList) {
             $res['MetricDataList'] = [];
@@ -57,8 +54,11 @@ class ListNatGatewayEcsMetricResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -72,11 +72,8 @@ class ListNatGatewayEcsMetricResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['MetricDataList'])) {
             if (!empty($map['MetricDataList'])) {
@@ -87,8 +84,11 @@ class ListNatGatewayEcsMetricResponseBody extends Model
                 }
             }
         }
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

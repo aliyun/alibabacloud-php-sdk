@@ -11,42 +11,17 @@ class CreateIPv6TranslatorEntryRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
+    public $aclId;
 
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
+    public $aclStatus;
 
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $ipv6TranslatorId;
-
-    /**
-     * @var string
-     */
-    public $entryName;
-
-    /**
-     * @var string
-     */
-    public $entryDescription;
+    public $aclType;
 
     /**
      * @var int
@@ -64,11 +39,6 @@ class CreateIPv6TranslatorEntryRequest extends Model
     public $backendIpv4Port;
 
     /**
-     * @var string
-     */
-    public $transProtocol;
-
-    /**
      * @var int
      */
     public $entryBandwidth;
@@ -76,34 +46,64 @@ class CreateIPv6TranslatorEntryRequest extends Model
     /**
      * @var string
      */
-    public $aclStatus;
+    public $entryDescription;
 
     /**
      * @var string
      */
-    public $aclType;
+    public $entryName;
 
     /**
      * @var string
      */
-    public $aclId;
+    public $ipv6TranslatorId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $transProtocol;
     protected $_name = [
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'regionId'             => 'RegionId',
-        'ipv6TranslatorId'     => 'Ipv6TranslatorId',
-        'entryName'            => 'EntryName',
-        'entryDescription'     => 'EntryDescription',
+        'aclId'                => 'AclId',
+        'aclStatus'            => 'AclStatus',
+        'aclType'              => 'AclType',
         'allocateIpv6Port'     => 'AllocateIpv6Port',
         'backendIpv4Addr'      => 'BackendIpv4Addr',
         'backendIpv4Port'      => 'BackendIpv4Port',
-        'transProtocol'        => 'TransProtocol',
         'entryBandwidth'       => 'EntryBandwidth',
-        'aclStatus'            => 'AclStatus',
-        'aclType'              => 'AclType',
-        'aclId'                => 'AclId',
+        'entryDescription'     => 'EntryDescription',
+        'entryName'            => 'EntryName',
+        'ipv6TranslatorId'     => 'Ipv6TranslatorId',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'transProtocol'        => 'TransProtocol',
     ];
 
     public function validate()
@@ -113,29 +113,14 @@ class CreateIPv6TranslatorEntryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->aclId) {
+            $res['AclId'] = $this->aclId;
         }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->aclStatus) {
+            $res['AclStatus'] = $this->aclStatus;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->ipv6TranslatorId) {
-            $res['Ipv6TranslatorId'] = $this->ipv6TranslatorId;
-        }
-        if (null !== $this->entryName) {
-            $res['EntryName'] = $this->entryName;
-        }
-        if (null !== $this->entryDescription) {
-            $res['EntryDescription'] = $this->entryDescription;
+        if (null !== $this->aclType) {
+            $res['AclType'] = $this->aclType;
         }
         if (null !== $this->allocateIpv6Port) {
             $res['AllocateIpv6Port'] = $this->allocateIpv6Port;
@@ -146,20 +131,35 @@ class CreateIPv6TranslatorEntryRequest extends Model
         if (null !== $this->backendIpv4Port) {
             $res['BackendIpv4Port'] = $this->backendIpv4Port;
         }
-        if (null !== $this->transProtocol) {
-            $res['TransProtocol'] = $this->transProtocol;
-        }
         if (null !== $this->entryBandwidth) {
             $res['EntryBandwidth'] = $this->entryBandwidth;
         }
-        if (null !== $this->aclStatus) {
-            $res['AclStatus'] = $this->aclStatus;
+        if (null !== $this->entryDescription) {
+            $res['EntryDescription'] = $this->entryDescription;
         }
-        if (null !== $this->aclType) {
-            $res['AclType'] = $this->aclType;
+        if (null !== $this->entryName) {
+            $res['EntryName'] = $this->entryName;
         }
-        if (null !== $this->aclId) {
-            $res['AclId'] = $this->aclId;
+        if (null !== $this->ipv6TranslatorId) {
+            $res['Ipv6TranslatorId'] = $this->ipv6TranslatorId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->transProtocol) {
+            $res['TransProtocol'] = $this->transProtocol;
         }
 
         return $res;
@@ -173,29 +173,14 @@ class CreateIPv6TranslatorEntryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['AclId'])) {
+            $model->aclId = $map['AclId'];
         }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['AclStatus'])) {
+            $model->aclStatus = $map['AclStatus'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Ipv6TranslatorId'])) {
-            $model->ipv6TranslatorId = $map['Ipv6TranslatorId'];
-        }
-        if (isset($map['EntryName'])) {
-            $model->entryName = $map['EntryName'];
-        }
-        if (isset($map['EntryDescription'])) {
-            $model->entryDescription = $map['EntryDescription'];
+        if (isset($map['AclType'])) {
+            $model->aclType = $map['AclType'];
         }
         if (isset($map['AllocateIpv6Port'])) {
             $model->allocateIpv6Port = $map['AllocateIpv6Port'];
@@ -206,20 +191,35 @@ class CreateIPv6TranslatorEntryRequest extends Model
         if (isset($map['BackendIpv4Port'])) {
             $model->backendIpv4Port = $map['BackendIpv4Port'];
         }
-        if (isset($map['TransProtocol'])) {
-            $model->transProtocol = $map['TransProtocol'];
-        }
         if (isset($map['EntryBandwidth'])) {
             $model->entryBandwidth = $map['EntryBandwidth'];
         }
-        if (isset($map['AclStatus'])) {
-            $model->aclStatus = $map['AclStatus'];
+        if (isset($map['EntryDescription'])) {
+            $model->entryDescription = $map['EntryDescription'];
         }
-        if (isset($map['AclType'])) {
-            $model->aclType = $map['AclType'];
+        if (isset($map['EntryName'])) {
+            $model->entryName = $map['EntryName'];
         }
-        if (isset($map['AclId'])) {
-            $model->aclId = $map['AclId'];
+        if (isset($map['Ipv6TranslatorId'])) {
+            $model->ipv6TranslatorId = $map['Ipv6TranslatorId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['TransProtocol'])) {
+            $model->transProtocol = $map['TransProtocol'];
         }
 
         return $model;

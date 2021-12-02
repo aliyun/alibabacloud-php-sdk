@@ -11,15 +11,15 @@ class CreateIPv6TranslatorEntryResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $ipv6TranslatorEntryId;
 
     /**
      * @var string
      */
-    public $ipv6TranslatorEntryId;
+    public $requestId;
     protected $_name = [
-        'requestId'             => 'RequestId',
         'ipv6TranslatorEntryId' => 'Ipv6TranslatorEntryId',
+        'requestId'             => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateIPv6TranslatorEntryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->ipv6TranslatorEntryId) {
             $res['Ipv6TranslatorEntryId'] = $this->ipv6TranslatorEntryId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateIPv6TranslatorEntryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Ipv6TranslatorEntryId'])) {
             $model->ipv6TranslatorEntryId = $map['Ipv6TranslatorEntryId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

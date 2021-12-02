@@ -16,12 +16,12 @@ class PMInfo extends Model
     /**
      * @var string
      */
-    public $PMName;
+    public $PMCertificateType;
 
     /**
      * @var string
      */
-    public $PMCertificateType;
+    public $PMContactInfo;
 
     /**
      * @var string
@@ -31,13 +31,13 @@ class PMInfo extends Model
     /**
      * @var string
      */
-    public $PMContactInfo;
+    public $PMName;
     protected $_name = [
         'PMCertificateNo'   => 'PMCertificateNo',
-        'PMName'            => 'PMName',
         'PMCertificateType' => 'PMCertificateType',
-        'PMGender'          => 'PMGender',
         'PMContactInfo'     => 'PMContactInfo',
+        'PMGender'          => 'PMGender',
+        'PMName'            => 'PMName',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class PMInfo extends Model
         if (null !== $this->PMCertificateNo) {
             $res['PMCertificateNo'] = $this->PMCertificateNo;
         }
-        if (null !== $this->PMName) {
-            $res['PMName'] = $this->PMName;
-        }
         if (null !== $this->PMCertificateType) {
             $res['PMCertificateType'] = $this->PMCertificateType;
+        }
+        if (null !== $this->PMContactInfo) {
+            $res['PMContactInfo'] = $this->PMContactInfo;
         }
         if (null !== $this->PMGender) {
             $res['PMGender'] = $this->PMGender;
         }
-        if (null !== $this->PMContactInfo) {
-            $res['PMContactInfo'] = $this->PMContactInfo;
+        if (null !== $this->PMName) {
+            $res['PMName'] = $this->PMName;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class PMInfo extends Model
         if (isset($map['PMCertificateNo'])) {
             $model->PMCertificateNo = $map['PMCertificateNo'];
         }
-        if (isset($map['PMName'])) {
-            $model->PMName = $map['PMName'];
-        }
         if (isset($map['PMCertificateType'])) {
             $model->PMCertificateType = $map['PMCertificateType'];
+        }
+        if (isset($map['PMContactInfo'])) {
+            $model->PMContactInfo = $map['PMContactInfo'];
         }
         if (isset($map['PMGender'])) {
             $model->PMGender = $map['PMGender'];
         }
-        if (isset($map['PMContactInfo'])) {
-            $model->PMContactInfo = $map['PMContactInfo'];
+        if (isset($map['PMName'])) {
+            $model->PMName = $map['PMName'];
         }
 
         return $model;

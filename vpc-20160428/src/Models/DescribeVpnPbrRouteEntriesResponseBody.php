@@ -12,7 +12,7 @@ class DescribeVpnPbrRouteEntriesResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $pageNumber;
 
     /**
      * @var int
@@ -27,17 +27,17 @@ class DescribeVpnPbrRouteEntriesResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
+    public $totalCount;
 
     /**
      * @var vpnPbrRouteEntries
      */
     public $vpnPbrRouteEntries;
     protected $_name = [
-        'totalCount'         => 'TotalCount',
+        'pageNumber'         => 'PageNumber',
         'pageSize'           => 'PageSize',
         'requestId'          => 'RequestId',
-        'pageNumber'         => 'PageNumber',
+        'totalCount'         => 'TotalCount',
         'vpnPbrRouteEntries' => 'VpnPbrRouteEntries',
     ];
 
@@ -48,8 +48,8 @@ class DescribeVpnPbrRouteEntriesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -57,8 +57,8 @@ class DescribeVpnPbrRouteEntriesResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->vpnPbrRouteEntries) {
             $res['VpnPbrRouteEntries'] = null !== $this->vpnPbrRouteEntries ? $this->vpnPbrRouteEntries->toMap() : null;
@@ -75,8 +75,8 @@ class DescribeVpnPbrRouteEntriesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
@@ -84,8 +84,8 @@ class DescribeVpnPbrRouteEntriesResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['VpnPbrRouteEntries'])) {
             $model->vpnPbrRouteEntries = vpnPbrRouteEntries::fromMap($map['VpnPbrRouteEntries']);

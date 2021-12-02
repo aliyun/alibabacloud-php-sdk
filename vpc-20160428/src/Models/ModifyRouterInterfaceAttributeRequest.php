@@ -9,29 +9,34 @@ use AlibabaCloud\Tea\Model;
 class ModifyRouterInterfaceAttributeRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $deleteHealthCheckIp;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var int
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
+    public $hcRate;
 
     /**
      * @var int
      */
-    public $resourceOwnerId;
+    public $hcThreshold;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $healthCheckSourceIp;
 
     /**
      * @var string
      */
-    public $routerInterfaceId;
+    public $healthCheckTargetIp;
 
     /**
      * @var string
@@ -41,12 +46,12 @@ class ModifyRouterInterfaceAttributeRequest extends Model
     /**
      * @var string
      */
-    public $description;
+    public $oppositeInterfaceId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $oppositeInterfaceId;
+    public $oppositeInterfaceOwnerId;
 
     /**
      * @var string
@@ -61,49 +66,44 @@ class ModifyRouterInterfaceAttributeRequest extends Model
     /**
      * @var int
      */
-    public $oppositeInterfaceOwnerId;
+    public $ownerId;
 
     /**
      * @var string
      */
-    public $healthCheckSourceIp;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $healthCheckTargetIp;
+    public $resourceOwnerAccount;
 
     /**
      * @var int
      */
-    public $hcThreshold;
+    public $resourceOwnerId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $hcRate;
-
-    /**
-     * @var bool
-     */
-    public $deleteHealthCheckIp;
+    public $routerInterfaceId;
     protected $_name = [
-        'ownerId'                  => 'OwnerId',
-        'resourceOwnerAccount'     => 'ResourceOwnerAccount',
-        'resourceOwnerId'          => 'ResourceOwnerId',
-        'regionId'                 => 'RegionId',
-        'routerInterfaceId'        => 'RouterInterfaceId',
-        'name'                     => 'Name',
+        'deleteHealthCheckIp'      => 'DeleteHealthCheckIp',
         'description'              => 'Description',
-        'oppositeInterfaceId'      => 'OppositeInterfaceId',
-        'oppositeRouterId'         => 'OppositeRouterId',
-        'oppositeRouterType'       => 'OppositeRouterType',
-        'oppositeInterfaceOwnerId' => 'OppositeInterfaceOwnerId',
+        'hcRate'                   => 'HcRate',
+        'hcThreshold'              => 'HcThreshold',
         'healthCheckSourceIp'      => 'HealthCheckSourceIp',
         'healthCheckTargetIp'      => 'HealthCheckTargetIp',
-        'hcThreshold'              => 'HcThreshold',
-        'hcRate'                   => 'HcRate',
-        'deleteHealthCheckIp'      => 'DeleteHealthCheckIp',
+        'name'                     => 'Name',
+        'oppositeInterfaceId'      => 'OppositeInterfaceId',
+        'oppositeInterfaceOwnerId' => 'OppositeInterfaceOwnerId',
+        'oppositeRouterId'         => 'OppositeRouterId',
+        'oppositeRouterType'       => 'OppositeRouterType',
+        'ownerId'                  => 'OwnerId',
+        'regionId'                 => 'RegionId',
+        'resourceOwnerAccount'     => 'ResourceOwnerAccount',
+        'resourceOwnerId'          => 'ResourceOwnerId',
+        'routerInterfaceId'        => 'RouterInterfaceId',
     ];
 
     public function validate()
@@ -113,38 +113,17 @@ class ModifyRouterInterfaceAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->routerInterfaceId) {
-            $res['RouterInterfaceId'] = $this->routerInterfaceId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->deleteHealthCheckIp) {
+            $res['DeleteHealthCheckIp'] = $this->deleteHealthCheckIp;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->oppositeInterfaceId) {
-            $res['OppositeInterfaceId'] = $this->oppositeInterfaceId;
+        if (null !== $this->hcRate) {
+            $res['HcRate'] = $this->hcRate;
         }
-        if (null !== $this->oppositeRouterId) {
-            $res['OppositeRouterId'] = $this->oppositeRouterId;
-        }
-        if (null !== $this->oppositeRouterType) {
-            $res['OppositeRouterType'] = $this->oppositeRouterType;
-        }
-        if (null !== $this->oppositeInterfaceOwnerId) {
-            $res['OppositeInterfaceOwnerId'] = $this->oppositeInterfaceOwnerId;
+        if (null !== $this->hcThreshold) {
+            $res['HcThreshold'] = $this->hcThreshold;
         }
         if (null !== $this->healthCheckSourceIp) {
             $res['HealthCheckSourceIp'] = $this->healthCheckSourceIp;
@@ -152,14 +131,35 @@ class ModifyRouterInterfaceAttributeRequest extends Model
         if (null !== $this->healthCheckTargetIp) {
             $res['HealthCheckTargetIp'] = $this->healthCheckTargetIp;
         }
-        if (null !== $this->hcThreshold) {
-            $res['HcThreshold'] = $this->hcThreshold;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
-        if (null !== $this->hcRate) {
-            $res['HcRate'] = $this->hcRate;
+        if (null !== $this->oppositeInterfaceId) {
+            $res['OppositeInterfaceId'] = $this->oppositeInterfaceId;
         }
-        if (null !== $this->deleteHealthCheckIp) {
-            $res['DeleteHealthCheckIp'] = $this->deleteHealthCheckIp;
+        if (null !== $this->oppositeInterfaceOwnerId) {
+            $res['OppositeInterfaceOwnerId'] = $this->oppositeInterfaceOwnerId;
+        }
+        if (null !== $this->oppositeRouterId) {
+            $res['OppositeRouterId'] = $this->oppositeRouterId;
+        }
+        if (null !== $this->oppositeRouterType) {
+            $res['OppositeRouterType'] = $this->oppositeRouterType;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->routerInterfaceId) {
+            $res['RouterInterfaceId'] = $this->routerInterfaceId;
         }
 
         return $res;
@@ -173,38 +173,17 @@ class ModifyRouterInterfaceAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['RouterInterfaceId'])) {
-            $model->routerInterfaceId = $map['RouterInterfaceId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['DeleteHealthCheckIp'])) {
+            $model->deleteHealthCheckIp = $map['DeleteHealthCheckIp'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['OppositeInterfaceId'])) {
-            $model->oppositeInterfaceId = $map['OppositeInterfaceId'];
+        if (isset($map['HcRate'])) {
+            $model->hcRate = $map['HcRate'];
         }
-        if (isset($map['OppositeRouterId'])) {
-            $model->oppositeRouterId = $map['OppositeRouterId'];
-        }
-        if (isset($map['OppositeRouterType'])) {
-            $model->oppositeRouterType = $map['OppositeRouterType'];
-        }
-        if (isset($map['OppositeInterfaceOwnerId'])) {
-            $model->oppositeInterfaceOwnerId = $map['OppositeInterfaceOwnerId'];
+        if (isset($map['HcThreshold'])) {
+            $model->hcThreshold = $map['HcThreshold'];
         }
         if (isset($map['HealthCheckSourceIp'])) {
             $model->healthCheckSourceIp = $map['HealthCheckSourceIp'];
@@ -212,14 +191,35 @@ class ModifyRouterInterfaceAttributeRequest extends Model
         if (isset($map['HealthCheckTargetIp'])) {
             $model->healthCheckTargetIp = $map['HealthCheckTargetIp'];
         }
-        if (isset($map['HcThreshold'])) {
-            $model->hcThreshold = $map['HcThreshold'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
-        if (isset($map['HcRate'])) {
-            $model->hcRate = $map['HcRate'];
+        if (isset($map['OppositeInterfaceId'])) {
+            $model->oppositeInterfaceId = $map['OppositeInterfaceId'];
         }
-        if (isset($map['DeleteHealthCheckIp'])) {
-            $model->deleteHealthCheckIp = $map['DeleteHealthCheckIp'];
+        if (isset($map['OppositeInterfaceOwnerId'])) {
+            $model->oppositeInterfaceOwnerId = $map['OppositeInterfaceOwnerId'];
+        }
+        if (isset($map['OppositeRouterId'])) {
+            $model->oppositeRouterId = $map['OppositeRouterId'];
+        }
+        if (isset($map['OppositeRouterType'])) {
+            $model->oppositeRouterType = $map['OppositeRouterType'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['RouterInterfaceId'])) {
+            $model->routerInterfaceId = $map['RouterInterfaceId'];
         }
 
         return $model;

@@ -11,7 +11,12 @@ class DeleteIpsecServerRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $dryRun;
 
     /**
      * @var string
@@ -21,29 +26,12 @@ class DeleteIpsecServerRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $callerBid;
-
-    /**
-     * @var string
-     */
-    public $dryRun;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
+    public $regionId;
     protected $_name = [
-        'regionId'        => 'RegionId',
-        'ipsecServerId'   => 'IpsecServerId',
-        'clientToken'     => 'ClientToken',
-        'callerBid'       => 'callerBid',
-        'dryRun'          => 'DryRun',
-        'resourceOwnerId' => 'ResourceOwnerId',
+        'clientToken'   => 'ClientToken',
+        'dryRun'        => 'DryRun',
+        'ipsecServerId' => 'IpsecServerId',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -53,23 +41,17 @@ class DeleteIpsecServerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->ipsecServerId) {
-            $res['IpsecServerId'] = $this->ipsecServerId;
-        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->callerBid) {
-            $res['callerBid'] = $this->callerBid;
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->ipsecServerId) {
+            $res['IpsecServerId'] = $this->ipsecServerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -83,23 +65,17 @@ class DeleteIpsecServerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['IpsecServerId'])) {
-            $model->ipsecServerId = $map['IpsecServerId'];
-        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['callerBid'])) {
-            $model->callerBid = $map['callerBid'];
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['IpsecServerId'])) {
+            $model->ipsecServerId = $map['IpsecServerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -11,12 +11,17 @@ class natGatewayPrivateInfo extends Model
     /**
      * @var string
      */
-    public $vswitchId;
+    public $eniInstanceId;
 
     /**
      * @var string
      */
-    public $eniInstanceId;
+    public $eniType;
+
+    /**
+     * @var string
+     */
+    public $izNo;
 
     /**
      * @var int
@@ -31,13 +36,14 @@ class natGatewayPrivateInfo extends Model
     /**
      * @var string
      */
-    public $izNo;
+    public $vswitchId;
     protected $_name = [
-        'vswitchId'        => 'VswitchId',
         'eniInstanceId'    => 'EniInstanceId',
+        'eniType'          => 'EniType',
+        'izNo'             => 'IzNo',
         'maxBandwidth'     => 'MaxBandwidth',
         'privateIpAddress' => 'PrivateIpAddress',
-        'izNo'             => 'IzNo',
+        'vswitchId'        => 'VswitchId',
     ];
 
     public function validate()
@@ -47,11 +53,14 @@ class natGatewayPrivateInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vswitchId) {
-            $res['VswitchId'] = $this->vswitchId;
-        }
         if (null !== $this->eniInstanceId) {
             $res['EniInstanceId'] = $this->eniInstanceId;
+        }
+        if (null !== $this->eniType) {
+            $res['EniType'] = $this->eniType;
+        }
+        if (null !== $this->izNo) {
+            $res['IzNo'] = $this->izNo;
         }
         if (null !== $this->maxBandwidth) {
             $res['MaxBandwidth'] = $this->maxBandwidth;
@@ -59,8 +68,8 @@ class natGatewayPrivateInfo extends Model
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
-        if (null !== $this->izNo) {
-            $res['IzNo'] = $this->izNo;
+        if (null !== $this->vswitchId) {
+            $res['VswitchId'] = $this->vswitchId;
         }
 
         return $res;
@@ -74,11 +83,14 @@ class natGatewayPrivateInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VswitchId'])) {
-            $model->vswitchId = $map['VswitchId'];
-        }
         if (isset($map['EniInstanceId'])) {
             $model->eniInstanceId = $map['EniInstanceId'];
+        }
+        if (isset($map['EniType'])) {
+            $model->eniType = $map['EniType'];
+        }
+        if (isset($map['IzNo'])) {
+            $model->izNo = $map['IzNo'];
         }
         if (isset($map['MaxBandwidth'])) {
             $model->maxBandwidth = $map['MaxBandwidth'];
@@ -86,8 +98,8 @@ class natGatewayPrivateInfo extends Model
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
         }
-        if (isset($map['IzNo'])) {
-            $model->izNo = $map['IzNo'];
+        if (isset($map['VswitchId'])) {
+            $model->vswitchId = $map['VswitchId'];
         }
 
         return $model;

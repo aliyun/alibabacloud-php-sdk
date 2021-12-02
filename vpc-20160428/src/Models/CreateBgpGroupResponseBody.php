@@ -11,15 +11,15 @@ class CreateBgpGroupResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $bgpGroupId;
 
     /**
      * @var string
      */
-    public $bgpGroupId;
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'bgpGroupId' => 'BgpGroupId',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateBgpGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->bgpGroupId) {
             $res['BgpGroupId'] = $this->bgpGroupId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateBgpGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['BgpGroupId'])) {
             $model->bgpGroupId = $map['BgpGroupId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

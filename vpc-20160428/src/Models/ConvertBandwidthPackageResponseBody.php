@@ -11,15 +11,15 @@ class ConvertBandwidthPackageResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $convertInstanceId;
 
     /**
      * @var string
      */
-    public $convertInstanceId;
+    public $requestId;
     protected $_name = [
-        'requestId'         => 'RequestId',
         'convertInstanceId' => 'ConvertInstanceId',
+        'requestId'         => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ConvertBandwidthPackageResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->convertInstanceId) {
             $res['ConvertInstanceId'] = $this->convertInstanceId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ConvertBandwidthPackageResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['ConvertInstanceId'])) {
             $model->convertInstanceId = $map['ConvertInstanceId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

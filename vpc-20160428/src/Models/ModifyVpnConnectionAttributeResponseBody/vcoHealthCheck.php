@@ -14,6 +14,11 @@ class vcoHealthCheck extends Model
     public $dip;
 
     /**
+     * @var string
+     */
+    public $enable;
+
+    /**
      * @var int
      */
     public $interval;
@@ -27,17 +32,12 @@ class vcoHealthCheck extends Model
      * @var string
      */
     public $sip;
-
-    /**
-     * @var string
-     */
-    public $enable;
     protected $_name = [
         'dip'      => 'Dip',
+        'enable'   => 'Enable',
         'interval' => 'Interval',
         'retry'    => 'Retry',
         'sip'      => 'Sip',
-        'enable'   => 'Enable',
     ];
 
     public function validate()
@@ -50,6 +50,9 @@ class vcoHealthCheck extends Model
         if (null !== $this->dip) {
             $res['Dip'] = $this->dip;
         }
+        if (null !== $this->enable) {
+            $res['Enable'] = $this->enable;
+        }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
@@ -58,9 +61,6 @@ class vcoHealthCheck extends Model
         }
         if (null !== $this->sip) {
             $res['Sip'] = $this->sip;
-        }
-        if (null !== $this->enable) {
-            $res['Enable'] = $this->enable;
         }
 
         return $res;
@@ -77,6 +77,9 @@ class vcoHealthCheck extends Model
         if (isset($map['Dip'])) {
             $model->dip = $map['Dip'];
         }
+        if (isset($map['Enable'])) {
+            $model->enable = $map['Enable'];
+        }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
@@ -85,9 +88,6 @@ class vcoHealthCheck extends Model
         }
         if (isset($map['Sip'])) {
             $model->sip = $map['Sip'];
-        }
-        if (isset($map['Enable'])) {
-            $model->enable = $map['Enable'];
         }
 
         return $model;

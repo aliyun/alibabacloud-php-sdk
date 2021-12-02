@@ -11,32 +11,7 @@ class bgpPeer extends Model
     /**
      * @var string
      */
-    public $peerIpAddress;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $bgpGroupId;
-
-    /**
-     * @var string
-     */
-    public $routerId;
-
-    /**
-     * @var string
-     */
-    public $bgpStatus;
-
-    /**
-     * @var string
-     */
-    public $peerAsn;
+    public $authKey;
 
     /**
      * @var int
@@ -46,17 +21,22 @@ class bgpPeer extends Model
     /**
      * @var string
      */
-    public $localAsn;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $bgpGroupId;
 
     /**
      * @var string
      */
     public $bgpPeerId;
+
+    /**
+     * @var string
+     */
+    public $bgpStatus;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var bool
@@ -76,12 +56,37 @@ class bgpPeer extends Model
     /**
      * @var string
      */
+    public $isFake;
+
+    /**
+     * @var string
+     */
     public $keepalive;
 
     /**
      * @var string
      */
-    public $description;
+    public $localAsn;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $peerAsn;
+
+    /**
+     * @var string
+     */
+    public $peerIpAddress;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -91,37 +96,32 @@ class bgpPeer extends Model
     /**
      * @var string
      */
-    public $isFake;
+    public $routerId;
 
     /**
      * @var string
      */
-    public $authKey;
-
-    /**
-     * @var string
-     */
-    public $name;
+    public $status;
     protected $_name = [
-        'peerIpAddress' => 'PeerIpAddress',
-        'status'        => 'Status',
-        'bgpGroupId'    => 'BgpGroupId',
-        'routerId'      => 'RouterId',
-        'bgpStatus'     => 'BgpStatus',
-        'peerAsn'       => 'PeerAsn',
+        'authKey'       => 'AuthKey',
         'bfdMultiHop'   => 'BfdMultiHop',
-        'localAsn'      => 'LocalAsn',
-        'regionId'      => 'RegionId',
+        'bgpGroupId'    => 'BgpGroupId',
         'bgpPeerId'     => 'BgpPeerId',
+        'bgpStatus'     => 'BgpStatus',
+        'description'   => 'Description',
         'enableBfd'     => 'EnableBfd',
         'hold'          => 'Hold',
         'ipVersion'     => 'IpVersion',
-        'keepalive'     => 'Keepalive',
-        'description'   => 'Description',
-        'routeLimit'    => 'RouteLimit',
         'isFake'        => 'IsFake',
-        'authKey'       => 'AuthKey',
+        'keepalive'     => 'Keepalive',
+        'localAsn'      => 'LocalAsn',
         'name'          => 'Name',
+        'peerAsn'       => 'PeerAsn',
+        'peerIpAddress' => 'PeerIpAddress',
+        'regionId'      => 'RegionId',
+        'routeLimit'    => 'RouteLimit',
+        'routerId'      => 'RouterId',
+        'status'        => 'Status',
     ];
 
     public function validate()
@@ -131,35 +131,23 @@ class bgpPeer extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->peerIpAddress) {
-            $res['PeerIpAddress'] = $this->peerIpAddress;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->bgpGroupId) {
-            $res['BgpGroupId'] = $this->bgpGroupId;
-        }
-        if (null !== $this->routerId) {
-            $res['RouterId'] = $this->routerId;
-        }
-        if (null !== $this->bgpStatus) {
-            $res['BgpStatus'] = $this->bgpStatus;
-        }
-        if (null !== $this->peerAsn) {
-            $res['PeerAsn'] = $this->peerAsn;
+        if (null !== $this->authKey) {
+            $res['AuthKey'] = $this->authKey;
         }
         if (null !== $this->bfdMultiHop) {
             $res['BfdMultiHop'] = $this->bfdMultiHop;
         }
-        if (null !== $this->localAsn) {
-            $res['LocalAsn'] = $this->localAsn;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->bgpGroupId) {
+            $res['BgpGroupId'] = $this->bgpGroupId;
         }
         if (null !== $this->bgpPeerId) {
             $res['BgpPeerId'] = $this->bgpPeerId;
+        }
+        if (null !== $this->bgpStatus) {
+            $res['BgpStatus'] = $this->bgpStatus;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->enableBfd) {
             $res['EnableBfd'] = $this->enableBfd;
@@ -170,23 +158,35 @@ class bgpPeer extends Model
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
         }
+        if (null !== $this->isFake) {
+            $res['IsFake'] = $this->isFake;
+        }
         if (null !== $this->keepalive) {
             $res['Keepalive'] = $this->keepalive;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->localAsn) {
+            $res['LocalAsn'] = $this->localAsn;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->peerAsn) {
+            $res['PeerAsn'] = $this->peerAsn;
+        }
+        if (null !== $this->peerIpAddress) {
+            $res['PeerIpAddress'] = $this->peerIpAddress;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->routeLimit) {
             $res['RouteLimit'] = $this->routeLimit;
         }
-        if (null !== $this->isFake) {
-            $res['IsFake'] = $this->isFake;
+        if (null !== $this->routerId) {
+            $res['RouterId'] = $this->routerId;
         }
-        if (null !== $this->authKey) {
-            $res['AuthKey'] = $this->authKey;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -200,35 +200,23 @@ class bgpPeer extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PeerIpAddress'])) {
-            $model->peerIpAddress = $map['PeerIpAddress'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['BgpGroupId'])) {
-            $model->bgpGroupId = $map['BgpGroupId'];
-        }
-        if (isset($map['RouterId'])) {
-            $model->routerId = $map['RouterId'];
-        }
-        if (isset($map['BgpStatus'])) {
-            $model->bgpStatus = $map['BgpStatus'];
-        }
-        if (isset($map['PeerAsn'])) {
-            $model->peerAsn = $map['PeerAsn'];
+        if (isset($map['AuthKey'])) {
+            $model->authKey = $map['AuthKey'];
         }
         if (isset($map['BfdMultiHop'])) {
             $model->bfdMultiHop = $map['BfdMultiHop'];
         }
-        if (isset($map['LocalAsn'])) {
-            $model->localAsn = $map['LocalAsn'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['BgpGroupId'])) {
+            $model->bgpGroupId = $map['BgpGroupId'];
         }
         if (isset($map['BgpPeerId'])) {
             $model->bgpPeerId = $map['BgpPeerId'];
+        }
+        if (isset($map['BgpStatus'])) {
+            $model->bgpStatus = $map['BgpStatus'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['EnableBfd'])) {
             $model->enableBfd = $map['EnableBfd'];
@@ -239,23 +227,35 @@ class bgpPeer extends Model
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];
         }
+        if (isset($map['IsFake'])) {
+            $model->isFake = $map['IsFake'];
+        }
         if (isset($map['Keepalive'])) {
             $model->keepalive = $map['Keepalive'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['LocalAsn'])) {
+            $model->localAsn = $map['LocalAsn'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['PeerAsn'])) {
+            $model->peerAsn = $map['PeerAsn'];
+        }
+        if (isset($map['PeerIpAddress'])) {
+            $model->peerIpAddress = $map['PeerIpAddress'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RouteLimit'])) {
             $model->routeLimit = $map['RouteLimit'];
         }
-        if (isset($map['IsFake'])) {
-            $model->isFake = $map['IsFake'];
+        if (isset($map['RouterId'])) {
+            $model->routerId = $map['RouterId'];
         }
-        if (isset($map['AuthKey'])) {
-            $model->authKey = $map['AuthKey'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

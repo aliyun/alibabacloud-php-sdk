@@ -11,27 +11,17 @@ class UnassociateVpcCidrBlockRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $secondaryCidrBlock;
-
-    /**
-     * @var string
-     */
-    public $IPv6CidrBlock;
+    public $ownerAccount;
 
     /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -46,16 +36,20 @@ class UnassociateVpcCidrBlockRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $secondaryCidrBlock;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
-        'regionId'             => 'RegionId',
-        'vpcId'                => 'VpcId',
-        'secondaryCidrBlock'   => 'SecondaryCidrBlock',
-        'IPv6CidrBlock'        => 'IPv6CidrBlock',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
+        'secondaryCidrBlock'   => 'SecondaryCidrBlock',
+        'vpcId'                => 'VpcId',
     ];
 
     public function validate()
@@ -65,20 +59,14 @@ class UnassociateVpcCidrBlockRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->secondaryCidrBlock) {
-            $res['SecondaryCidrBlock'] = $this->secondaryCidrBlock;
-        }
-        if (null !== $this->IPv6CidrBlock) {
-            $res['IPv6CidrBlock'] = $this->IPv6CidrBlock;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -86,8 +74,11 @@ class UnassociateVpcCidrBlockRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->secondaryCidrBlock) {
+            $res['SecondaryCidrBlock'] = $this->secondaryCidrBlock;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -101,20 +92,14 @@ class UnassociateVpcCidrBlockRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['SecondaryCidrBlock'])) {
-            $model->secondaryCidrBlock = $map['SecondaryCidrBlock'];
-        }
-        if (isset($map['IPv6CidrBlock'])) {
-            $model->IPv6CidrBlock = $map['IPv6CidrBlock'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -122,8 +107,11 @@ class UnassociateVpcCidrBlockRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['SecondaryCidrBlock'])) {
+            $model->secondaryCidrBlock = $map['SecondaryCidrBlock'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

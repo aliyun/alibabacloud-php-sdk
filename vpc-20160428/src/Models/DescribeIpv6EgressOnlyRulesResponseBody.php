@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpv6EgressOnlyRulesResponseBody extends Model
 {
     /**
+     * @var ipv6EgressOnlyRules
+     */
+    public $ipv6EgressOnlyRules;
+
+    /**
      * @var int
      */
-    public $totalCount;
+    public $pageNumber;
 
     /**
      * @var int
@@ -27,18 +32,13 @@ class DescribeIpv6EgressOnlyRulesResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
-
-    /**
-     * @var ipv6EgressOnlyRules
-     */
-    public $ipv6EgressOnlyRules;
+    public $totalCount;
     protected $_name = [
-        'totalCount'          => 'TotalCount',
+        'ipv6EgressOnlyRules' => 'Ipv6EgressOnlyRules',
+        'pageNumber'          => 'PageNumber',
         'pageSize'            => 'PageSize',
         'requestId'           => 'RequestId',
-        'pageNumber'          => 'PageNumber',
-        'ipv6EgressOnlyRules' => 'Ipv6EgressOnlyRules',
+        'totalCount'          => 'TotalCount',
     ];
 
     public function validate()
@@ -48,8 +48,11 @@ class DescribeIpv6EgressOnlyRulesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->ipv6EgressOnlyRules) {
+            $res['Ipv6EgressOnlyRules'] = null !== $this->ipv6EgressOnlyRules ? $this->ipv6EgressOnlyRules->toMap() : null;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -57,11 +60,8 @@ class DescribeIpv6EgressOnlyRulesResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->ipv6EgressOnlyRules) {
-            $res['Ipv6EgressOnlyRules'] = null !== $this->ipv6EgressOnlyRules ? $this->ipv6EgressOnlyRules->toMap() : null;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -75,8 +75,11 @@ class DescribeIpv6EgressOnlyRulesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['Ipv6EgressOnlyRules'])) {
+            $model->ipv6EgressOnlyRules = ipv6EgressOnlyRules::fromMap($map['Ipv6EgressOnlyRules']);
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
@@ -84,11 +87,8 @@ class DescribeIpv6EgressOnlyRulesResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['Ipv6EgressOnlyRules'])) {
-            $model->ipv6EgressOnlyRules = ipv6EgressOnlyRules::fromMap($map['Ipv6EgressOnlyRules']);
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

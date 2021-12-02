@@ -11,22 +11,7 @@ class UpdateNatGatewayNatTypeRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $natGatewayId;
-
-    /**
-     * @var string
-     */
-    public $vSwitchId;
-
-    /**
-     * @var string
-     */
-    public $natType;
+    public $clientToken;
 
     /**
      * @var bool
@@ -36,12 +21,27 @@ class UpdateNatGatewayNatTypeRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $natGatewayId;
+
+    /**
+     * @var string
+     */
+    public $natType;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -56,18 +56,18 @@ class UpdateNatGatewayNatTypeRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $vSwitchId;
     protected $_name = [
-        'regionId'             => 'RegionId',
-        'natGatewayId'         => 'NatGatewayId',
-        'vSwitchId'            => 'VSwitchId',
-        'natType'              => 'NatType',
-        'dryRun'               => 'DryRun',
         'clientToken'          => 'ClientToken',
+        'dryRun'               => 'DryRun',
+        'natGatewayId'         => 'NatGatewayId',
+        'natType'              => 'NatType',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
+        'vSwitchId'            => 'VSwitchId',
     ];
 
     public function validate()
@@ -77,26 +77,26 @@ class UpdateNatGatewayNatTypeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->natGatewayId) {
-            $res['NatGatewayId'] = $this->natGatewayId;
-        }
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
-        if (null !== $this->natType) {
-            $res['NatType'] = $this->natType;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->natGatewayId) {
+            $res['NatGatewayId'] = $this->natGatewayId;
+        }
+        if (null !== $this->natType) {
+            $res['NatType'] = $this->natType;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -104,8 +104,8 @@ class UpdateNatGatewayNatTypeRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
 
         return $res;
@@ -119,26 +119,26 @@ class UpdateNatGatewayNatTypeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['NatGatewayId'])) {
-            $model->natGatewayId = $map['NatGatewayId'];
-        }
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
-        if (isset($map['NatType'])) {
-            $model->natType = $map['NatType'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['NatGatewayId'])) {
+            $model->natGatewayId = $map['NatGatewayId'];
+        }
+        if (isset($map['NatType'])) {
+            $model->natType = $map['NatType'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -146,8 +146,8 @@ class UpdateNatGatewayNatTypeRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
 
         return $model;

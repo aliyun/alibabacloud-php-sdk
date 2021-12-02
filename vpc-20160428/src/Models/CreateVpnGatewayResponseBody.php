@@ -11,12 +11,7 @@ class CreateVpnGatewayResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $vpnGatewayId;
+    public $name;
 
     /**
      * @var int
@@ -26,12 +21,17 @@ class CreateVpnGatewayResponseBody extends Model
     /**
      * @var string
      */
-    public $name;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $vpnGatewayId;
     protected $_name = [
+        'name'         => 'Name',
+        'orderId'      => 'OrderId',
         'requestId'    => 'RequestId',
         'vpnGatewayId' => 'VpnGatewayId',
-        'orderId'      => 'OrderId',
-        'name'         => 'Name',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class CreateVpnGatewayResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->vpnGatewayId) {
             $res['VpnGatewayId'] = $this->vpnGatewayId;
-        }
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class CreateVpnGatewayResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['VpnGatewayId'])) {
             $model->vpnGatewayId = $map['VpnGatewayId'];
-        }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
 
         return $model;

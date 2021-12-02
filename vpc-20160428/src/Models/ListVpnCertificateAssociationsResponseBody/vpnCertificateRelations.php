@@ -11,17 +11,7 @@ class vpnCertificateRelations extends Model
     /**
      * @var string
      */
-    public $certificateType;
-
-    /**
-     * @var string
-     */
     public $associationTime;
-
-    /**
-     * @var string
-     */
-    public $vpnGatewayId;
 
     /**
      * @var string
@@ -31,13 +21,23 @@ class vpnCertificateRelations extends Model
     /**
      * @var string
      */
+    public $certificateType;
+
+    /**
+     * @var string
+     */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $vpnGatewayId;
     protected $_name = [
-        'certificateType' => 'CertificateType',
         'associationTime' => 'AssociationTime',
-        'vpnGatewayId'    => 'VpnGatewayId',
         'certificateId'   => 'CertificateId',
+        'certificateType' => 'CertificateType',
         'regionId'        => 'RegionId',
+        'vpnGatewayId'    => 'VpnGatewayId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class vpnCertificateRelations extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->certificateType) {
-            $res['CertificateType'] = $this->certificateType;
-        }
         if (null !== $this->associationTime) {
             $res['AssociationTime'] = $this->associationTime;
-        }
-        if (null !== $this->vpnGatewayId) {
-            $res['VpnGatewayId'] = $this->vpnGatewayId;
         }
         if (null !== $this->certificateId) {
             $res['CertificateId'] = $this->certificateId;
         }
+        if (null !== $this->certificateType) {
+            $res['CertificateType'] = $this->certificateType;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->vpnGatewayId) {
+            $res['VpnGatewayId'] = $this->vpnGatewayId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class vpnCertificateRelations extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CertificateType'])) {
-            $model->certificateType = $map['CertificateType'];
-        }
         if (isset($map['AssociationTime'])) {
             $model->associationTime = $map['AssociationTime'];
-        }
-        if (isset($map['VpnGatewayId'])) {
-            $model->vpnGatewayId = $map['VpnGatewayId'];
         }
         if (isset($map['CertificateId'])) {
             $model->certificateId = $map['CertificateId'];
         }
+        if (isset($map['CertificateType'])) {
+            $model->certificateType = $map['CertificateType'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['VpnGatewayId'])) {
+            $model->vpnGatewayId = $map['VpnGatewayId'];
         }
 
         return $model;

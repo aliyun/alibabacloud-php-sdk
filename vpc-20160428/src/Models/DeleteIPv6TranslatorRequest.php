@@ -11,6 +11,16 @@ class DeleteIPv6TranslatorRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $ipv6TranslatorId;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -21,35 +31,25 @@ class DeleteIPv6TranslatorRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $ipv6TranslatorId;
     protected $_name = [
+        'clientToken'          => 'ClientToken',
+        'ipv6TranslatorId'     => 'Ipv6TranslatorId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'clientToken'          => 'ClientToken',
-        'regionId'             => 'RegionId',
-        'ipv6TranslatorId'     => 'Ipv6TranslatorId',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class DeleteIPv6TranslatorRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->ipv6TranslatorId) {
+            $res['Ipv6TranslatorId'] = $this->ipv6TranslatorId;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->ipv6TranslatorId) {
-            $res['Ipv6TranslatorId'] = $this->ipv6TranslatorId;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class DeleteIPv6TranslatorRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Ipv6TranslatorId'])) {
+            $model->ipv6TranslatorId = $map['Ipv6TranslatorId'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['Ipv6TranslatorId'])) {
-            $model->ipv6TranslatorId = $map['Ipv6TranslatorId'];
         }
 
         return $model;

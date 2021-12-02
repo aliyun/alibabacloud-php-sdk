@@ -11,15 +11,15 @@ class CreateIPv6TranslatorAclListResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $aclId;
 
     /**
      * @var string
      */
-    public $aclId;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'aclId'     => 'AclId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateIPv6TranslatorAclListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->aclId) {
             $res['AclId'] = $this->aclId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateIPv6TranslatorAclListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AclId'])) {
             $model->aclId = $map['AclId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -12,17 +12,12 @@ class physicalConnectionLOAType extends Model
     /**
      * @var string
      */
-    public $status;
+    public $companyLocalizedName;
 
     /**
      * @var string
      */
-    public $lineLabel;
-
-    /**
-     * @var string
-     */
-    public $lineCode;
+    public $companyName;
 
     /**
      * @var string
@@ -32,27 +27,17 @@ class physicalConnectionLOAType extends Model
     /**
      * @var string
      */
-    public $SI;
-
-    /**
-     * @var string
-     */
-    public $loaUrl;
-
-    /**
-     * @var string
-     */
-    public $companyLocalizedName;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
-     * @var PMInfo
+     * @var string
      */
-    public $PMInfo;
+    public $lineCode;
+
+    /**
+     * @var string
+     */
+    public $lineLabel;
 
     /**
      * @var string
@@ -62,19 +47,34 @@ class physicalConnectionLOAType extends Model
     /**
      * @var string
      */
-    public $companyName;
+    public $loaUrl;
+
+    /**
+     * @var PMInfo
+     */
+    public $PMInfo;
+
+    /**
+     * @var string
+     */
+    public $SI;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'               => 'Status',
-        'lineLabel'            => 'LineLabel',
-        'lineCode'             => 'LineCode',
-        'constructionTime'     => 'ConstructionTime',
-        'SI'                   => 'SI',
-        'loaUrl'               => 'LoaUrl',
         'companyLocalizedName' => 'CompanyLocalizedName',
-        'instanceId'           => 'InstanceId',
-        'PMInfo'               => 'PMInfo',
-        'lineType'             => 'LineType',
         'companyName'          => 'CompanyName',
+        'constructionTime'     => 'ConstructionTime',
+        'instanceId'           => 'InstanceId',
+        'lineCode'             => 'LineCode',
+        'lineLabel'            => 'LineLabel',
+        'lineType'             => 'LineType',
+        'loaUrl'               => 'LoaUrl',
+        'PMInfo'               => 'PMInfo',
+        'SI'                   => 'SI',
+        'status'               => 'Status',
     ];
 
     public function validate()
@@ -84,38 +84,38 @@ class physicalConnectionLOAType extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->companyLocalizedName) {
+            $res['CompanyLocalizedName'] = $this->companyLocalizedName;
         }
-        if (null !== $this->lineLabel) {
-            $res['LineLabel'] = $this->lineLabel;
-        }
-        if (null !== $this->lineCode) {
-            $res['LineCode'] = $this->lineCode;
+        if (null !== $this->companyName) {
+            $res['CompanyName'] = $this->companyName;
         }
         if (null !== $this->constructionTime) {
             $res['ConstructionTime'] = $this->constructionTime;
         }
-        if (null !== $this->SI) {
-            $res['SI'] = $this->SI;
-        }
-        if (null !== $this->loaUrl) {
-            $res['LoaUrl'] = $this->loaUrl;
-        }
-        if (null !== $this->companyLocalizedName) {
-            $res['CompanyLocalizedName'] = $this->companyLocalizedName;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->PMInfo) {
-            $res['PMInfo'] = null !== $this->PMInfo ? $this->PMInfo->toMap() : null;
+        if (null !== $this->lineCode) {
+            $res['LineCode'] = $this->lineCode;
+        }
+        if (null !== $this->lineLabel) {
+            $res['LineLabel'] = $this->lineLabel;
         }
         if (null !== $this->lineType) {
             $res['LineType'] = $this->lineType;
         }
-        if (null !== $this->companyName) {
-            $res['CompanyName'] = $this->companyName;
+        if (null !== $this->loaUrl) {
+            $res['LoaUrl'] = $this->loaUrl;
+        }
+        if (null !== $this->PMInfo) {
+            $res['PMInfo'] = null !== $this->PMInfo ? $this->PMInfo->toMap() : null;
+        }
+        if (null !== $this->SI) {
+            $res['SI'] = $this->SI;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -129,38 +129,38 @@ class physicalConnectionLOAType extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['CompanyLocalizedName'])) {
+            $model->companyLocalizedName = $map['CompanyLocalizedName'];
         }
-        if (isset($map['LineLabel'])) {
-            $model->lineLabel = $map['LineLabel'];
-        }
-        if (isset($map['LineCode'])) {
-            $model->lineCode = $map['LineCode'];
+        if (isset($map['CompanyName'])) {
+            $model->companyName = $map['CompanyName'];
         }
         if (isset($map['ConstructionTime'])) {
             $model->constructionTime = $map['ConstructionTime'];
         }
-        if (isset($map['SI'])) {
-            $model->SI = $map['SI'];
-        }
-        if (isset($map['LoaUrl'])) {
-            $model->loaUrl = $map['LoaUrl'];
-        }
-        if (isset($map['CompanyLocalizedName'])) {
-            $model->companyLocalizedName = $map['CompanyLocalizedName'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['PMInfo'])) {
-            $model->PMInfo = PMInfo::fromMap($map['PMInfo']);
+        if (isset($map['LineCode'])) {
+            $model->lineCode = $map['LineCode'];
+        }
+        if (isset($map['LineLabel'])) {
+            $model->lineLabel = $map['LineLabel'];
         }
         if (isset($map['LineType'])) {
             $model->lineType = $map['LineType'];
         }
-        if (isset($map['CompanyName'])) {
-            $model->companyName = $map['CompanyName'];
+        if (isset($map['LoaUrl'])) {
+            $model->loaUrl = $map['LoaUrl'];
+        }
+        if (isset($map['PMInfo'])) {
+            $model->PMInfo = PMInfo::fromMap($map['PMInfo']);
+        }
+        if (isset($map['SI'])) {
+            $model->SI = $map['SI'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

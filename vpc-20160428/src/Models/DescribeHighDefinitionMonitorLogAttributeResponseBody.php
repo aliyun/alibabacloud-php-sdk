@@ -11,16 +11,6 @@ class DescribeHighDefinitionMonitorLogAttributeResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $logStore;
-
-    /**
-     * @var string
-     */
     public $instanceId;
 
     /**
@@ -36,13 +26,23 @@ class DescribeHighDefinitionMonitorLogAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $logStore;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var string
+     */
     public $success;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'logStore'     => 'LogStore',
         'instanceId'   => 'InstanceId',
         'instanceType' => 'InstanceType',
         'logProject'   => 'LogProject',
+        'logStore'     => 'LogStore',
+        'requestId'    => 'RequestId',
         'success'      => 'Success',
     ];
 
@@ -53,12 +53,6 @@ class DescribeHighDefinitionMonitorLogAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->logStore) {
-            $res['LogStore'] = $this->logStore;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -67,6 +61,12 @@ class DescribeHighDefinitionMonitorLogAttributeResponseBody extends Model
         }
         if (null !== $this->logProject) {
             $res['LogProject'] = $this->logProject;
+        }
+        if (null !== $this->logStore) {
+            $res['LogStore'] = $this->logStore;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -83,12 +83,6 @@ class DescribeHighDefinitionMonitorLogAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['LogStore'])) {
-            $model->logStore = $map['LogStore'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -97,6 +91,12 @@ class DescribeHighDefinitionMonitorLogAttributeResponseBody extends Model
         }
         if (isset($map['LogProject'])) {
             $model->logProject = $map['LogProject'];
+        }
+        if (isset($map['LogStore'])) {
+            $model->logStore = $map['LogStore'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

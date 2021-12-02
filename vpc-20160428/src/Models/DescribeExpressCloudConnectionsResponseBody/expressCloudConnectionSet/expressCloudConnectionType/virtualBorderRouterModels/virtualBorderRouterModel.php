@@ -11,20 +11,20 @@ class virtualBorderRouterModel extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $accessPointId;
 
     /**
      * @var string
      */
-    public $accessPointId;
+    public $instanceId;
 
     /**
      * @var string
      */
     public $physicalConnectionId;
     protected $_name = [
-        'instanceId'           => 'InstanceId',
         'accessPointId'        => 'AccessPointId',
+        'instanceId'           => 'InstanceId',
         'physicalConnectionId' => 'PhysicalConnectionId',
     ];
 
@@ -35,11 +35,11 @@ class virtualBorderRouterModel extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->accessPointId) {
             $res['AccessPointId'] = $this->accessPointId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->physicalConnectionId) {
             $res['PhysicalConnectionId'] = $this->physicalConnectionId;
@@ -56,11 +56,11 @@ class virtualBorderRouterModel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['AccessPointId'])) {
             $model->accessPointId = $map['AccessPointId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['PhysicalConnectionId'])) {
             $model->physicalConnectionId = $map['PhysicalConnectionId'];

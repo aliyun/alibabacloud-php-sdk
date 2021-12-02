@@ -11,27 +11,17 @@ class UpdateIpsecServerRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $ipsecServerId;
-
-    /**
-     * @var string
-     */
-    public $localSubnet;
-
-    /**
-     * @var string
-     */
     public $clientIpPool;
 
     /**
      * @var string
      */
-    public $ipsecServerName;
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $dryRun;
 
     /**
      * @var bool
@@ -49,9 +39,19 @@ class UpdateIpsecServerRequest extends Model
     public $ipsecConfig;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $pskEnabled;
+    public $ipsecServerId;
+
+    /**
+     * @var string
+     */
+    public $ipsecServerName;
+
+    /**
+     * @var string
+     */
+    public $localSubnet;
 
     /**
      * @var string
@@ -61,49 +61,25 @@ class UpdateIpsecServerRequest extends Model
     /**
      * @var bool
      */
-    public $multiFactorAuthEnabled;
+    public $pskEnabled;
 
     /**
      * @var string
      */
-    public $IDaaSInstanceId;
-
-    /**
-     * @var string
-     */
-    public $callerBid;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $dryRun;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
+    public $regionId;
     protected $_name = [
-        'regionId'               => 'RegionId',
-        'ipsecServerId'          => 'IpsecServerId',
-        'localSubnet'            => 'LocalSubnet',
-        'clientIpPool'           => 'ClientIpPool',
-        'ipsecServerName'        => 'IpsecServerName',
-        'effectImmediately'      => 'EffectImmediately',
-        'ikeConfig'              => 'IkeConfig',
-        'ipsecConfig'            => 'IpsecConfig',
-        'pskEnabled'             => 'PskEnabled',
-        'psk'                    => 'Psk',
-        'multiFactorAuthEnabled' => 'MultiFactorAuthEnabled',
-        'IDaaSInstanceId'        => 'IDaaSInstanceId',
-        'callerBid'              => 'callerBid',
-        'clientToken'            => 'ClientToken',
-        'dryRun'                 => 'DryRun',
-        'resourceOwnerId'        => 'ResourceOwnerId',
+        'clientIpPool'      => 'ClientIpPool',
+        'clientToken'       => 'ClientToken',
+        'dryRun'            => 'DryRun',
+        'effectImmediately' => 'EffectImmediately',
+        'ikeConfig'         => 'IkeConfig',
+        'ipsecConfig'       => 'IpsecConfig',
+        'ipsecServerId'     => 'IpsecServerId',
+        'ipsecServerName'   => 'IpsecServerName',
+        'localSubnet'       => 'LocalSubnet',
+        'psk'               => 'Psk',
+        'pskEnabled'        => 'PskEnabled',
+        'regionId'          => 'RegionId',
     ];
 
     public function validate()
@@ -113,20 +89,14 @@ class UpdateIpsecServerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->ipsecServerId) {
-            $res['IpsecServerId'] = $this->ipsecServerId;
-        }
-        if (null !== $this->localSubnet) {
-            $res['LocalSubnet'] = $this->localSubnet;
-        }
         if (null !== $this->clientIpPool) {
             $res['ClientIpPool'] = $this->clientIpPool;
         }
-        if (null !== $this->ipsecServerName) {
-            $res['IpsecServerName'] = $this->ipsecServerName;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->effectImmediately) {
             $res['EffectImmediately'] = $this->effectImmediately;
@@ -137,29 +107,23 @@ class UpdateIpsecServerRequest extends Model
         if (null !== $this->ipsecConfig) {
             $res['IpsecConfig'] = $this->ipsecConfig;
         }
-        if (null !== $this->pskEnabled) {
-            $res['PskEnabled'] = $this->pskEnabled;
+        if (null !== $this->ipsecServerId) {
+            $res['IpsecServerId'] = $this->ipsecServerId;
+        }
+        if (null !== $this->ipsecServerName) {
+            $res['IpsecServerName'] = $this->ipsecServerName;
+        }
+        if (null !== $this->localSubnet) {
+            $res['LocalSubnet'] = $this->localSubnet;
         }
         if (null !== $this->psk) {
             $res['Psk'] = $this->psk;
         }
-        if (null !== $this->multiFactorAuthEnabled) {
-            $res['MultiFactorAuthEnabled'] = $this->multiFactorAuthEnabled;
+        if (null !== $this->pskEnabled) {
+            $res['PskEnabled'] = $this->pskEnabled;
         }
-        if (null !== $this->IDaaSInstanceId) {
-            $res['IDaaSInstanceId'] = $this->IDaaSInstanceId;
-        }
-        if (null !== $this->callerBid) {
-            $res['callerBid'] = $this->callerBid;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->dryRun) {
-            $res['DryRun'] = $this->dryRun;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -173,20 +137,14 @@ class UpdateIpsecServerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['IpsecServerId'])) {
-            $model->ipsecServerId = $map['IpsecServerId'];
-        }
-        if (isset($map['LocalSubnet'])) {
-            $model->localSubnet = $map['LocalSubnet'];
-        }
         if (isset($map['ClientIpPool'])) {
             $model->clientIpPool = $map['ClientIpPool'];
         }
-        if (isset($map['IpsecServerName'])) {
-            $model->ipsecServerName = $map['IpsecServerName'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['EffectImmediately'])) {
             $model->effectImmediately = $map['EffectImmediately'];
@@ -197,29 +155,23 @@ class UpdateIpsecServerRequest extends Model
         if (isset($map['IpsecConfig'])) {
             $model->ipsecConfig = $map['IpsecConfig'];
         }
-        if (isset($map['PskEnabled'])) {
-            $model->pskEnabled = $map['PskEnabled'];
+        if (isset($map['IpsecServerId'])) {
+            $model->ipsecServerId = $map['IpsecServerId'];
+        }
+        if (isset($map['IpsecServerName'])) {
+            $model->ipsecServerName = $map['IpsecServerName'];
+        }
+        if (isset($map['LocalSubnet'])) {
+            $model->localSubnet = $map['LocalSubnet'];
         }
         if (isset($map['Psk'])) {
             $model->psk = $map['Psk'];
         }
-        if (isset($map['MultiFactorAuthEnabled'])) {
-            $model->multiFactorAuthEnabled = $map['MultiFactorAuthEnabled'];
+        if (isset($map['PskEnabled'])) {
+            $model->pskEnabled = $map['PskEnabled'];
         }
-        if (isset($map['IDaaSInstanceId'])) {
-            $model->IDaaSInstanceId = $map['IDaaSInstanceId'];
-        }
-        if (isset($map['callerBid'])) {
-            $model->callerBid = $map['callerBid'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['DryRun'])) {
-            $model->dryRun = $map['DryRun'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

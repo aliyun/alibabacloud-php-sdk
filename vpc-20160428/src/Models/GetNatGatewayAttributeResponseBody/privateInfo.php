@@ -11,12 +11,12 @@ class privateInfo extends Model
     /**
      * @var string
      */
-    public $vswitchId;
+    public $eniInstanceId;
 
     /**
      * @var string
      */
-    public $eniInstanceId;
+    public $izNo;
 
     /**
      * @var int
@@ -31,13 +31,13 @@ class privateInfo extends Model
     /**
      * @var string
      */
-    public $izNo;
+    public $vswitchId;
     protected $_name = [
-        'vswitchId'        => 'VswitchId',
         'eniInstanceId'    => 'EniInstanceId',
+        'izNo'             => 'IzNo',
         'maxBandwidth'     => 'MaxBandwidth',
         'privateIpAddress' => 'PrivateIpAddress',
-        'izNo'             => 'IzNo',
+        'vswitchId'        => 'VswitchId',
     ];
 
     public function validate()
@@ -47,11 +47,11 @@ class privateInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vswitchId) {
-            $res['VswitchId'] = $this->vswitchId;
-        }
         if (null !== $this->eniInstanceId) {
             $res['EniInstanceId'] = $this->eniInstanceId;
+        }
+        if (null !== $this->izNo) {
+            $res['IzNo'] = $this->izNo;
         }
         if (null !== $this->maxBandwidth) {
             $res['MaxBandwidth'] = $this->maxBandwidth;
@@ -59,8 +59,8 @@ class privateInfo extends Model
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
-        if (null !== $this->izNo) {
-            $res['IzNo'] = $this->izNo;
+        if (null !== $this->vswitchId) {
+            $res['VswitchId'] = $this->vswitchId;
         }
 
         return $res;
@@ -74,11 +74,11 @@ class privateInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VswitchId'])) {
-            $model->vswitchId = $map['VswitchId'];
-        }
         if (isset($map['EniInstanceId'])) {
             $model->eniInstanceId = $map['EniInstanceId'];
+        }
+        if (isset($map['IzNo'])) {
+            $model->izNo = $map['IzNo'];
         }
         if (isset($map['MaxBandwidth'])) {
             $model->maxBandwidth = $map['MaxBandwidth'];
@@ -86,8 +86,8 @@ class privateInfo extends Model
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
         }
-        if (isset($map['IzNo'])) {
-            $model->izNo = $map['IzNo'];
+        if (isset($map['VswitchId'])) {
+            $model->vswitchId = $map['VswitchId'];
         }
 
         return $model;

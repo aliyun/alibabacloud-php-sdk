@@ -11,27 +11,17 @@ class CreateIpsecServerRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $vpnGatewayId;
-
-    /**
-     * @var string
-     */
-    public $localSubnet;
-
-    /**
-     * @var string
-     */
     public $clientIpPool;
 
     /**
      * @var string
      */
-    public $ipSecServerName;
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $dryRun;
 
     /**
      * @var bool
@@ -46,12 +36,17 @@ class CreateIpsecServerRequest extends Model
     /**
      * @var string
      */
+    public $ipSecServerName;
+
+    /**
+     * @var string
+     */
     public $ipsecConfig;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $pskEnabled;
+    public $localSubnet;
 
     /**
      * @var string
@@ -61,49 +56,30 @@ class CreateIpsecServerRequest extends Model
     /**
      * @var bool
      */
-    public $multiFactorAuthEnabled;
+    public $pskEnabled;
 
     /**
      * @var string
      */
-    public $IDaaSInstanceId;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $callerBid;
-
-    /**
-     * @var string
-     */
-    public $dryRun;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
+    public $vpnGatewayId;
     protected $_name = [
-        'regionId'               => 'RegionId',
-        'vpnGatewayId'           => 'VpnGatewayId',
-        'localSubnet'            => 'LocalSubnet',
-        'clientIpPool'           => 'ClientIpPool',
-        'ipSecServerName'        => 'IpSecServerName',
-        'effectImmediately'      => 'EffectImmediately',
-        'ikeConfig'              => 'IkeConfig',
-        'ipsecConfig'            => 'IpsecConfig',
-        'pskEnabled'             => 'PskEnabled',
-        'psk'                    => 'Psk',
-        'multiFactorAuthEnabled' => 'MultiFactorAuthEnabled',
-        'IDaaSInstanceId'        => 'IDaaSInstanceId',
-        'clientToken'            => 'ClientToken',
-        'callerBid'              => 'callerBid',
-        'dryRun'                 => 'DryRun',
-        'resourceOwnerId'        => 'ResourceOwnerId',
+        'clientIpPool'      => 'ClientIpPool',
+        'clientToken'       => 'ClientToken',
+        'dryRun'            => 'DryRun',
+        'effectImmediately' => 'EffectImmediately',
+        'ikeConfig'         => 'IkeConfig',
+        'ipSecServerName'   => 'IpSecServerName',
+        'ipsecConfig'       => 'IpsecConfig',
+        'localSubnet'       => 'LocalSubnet',
+        'psk'               => 'Psk',
+        'pskEnabled'        => 'PskEnabled',
+        'regionId'          => 'RegionId',
+        'vpnGatewayId'      => 'VpnGatewayId',
     ];
 
     public function validate()
@@ -113,20 +89,14 @@ class CreateIpsecServerRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->vpnGatewayId) {
-            $res['VpnGatewayId'] = $this->vpnGatewayId;
-        }
-        if (null !== $this->localSubnet) {
-            $res['LocalSubnet'] = $this->localSubnet;
-        }
         if (null !== $this->clientIpPool) {
             $res['ClientIpPool'] = $this->clientIpPool;
         }
-        if (null !== $this->ipSecServerName) {
-            $res['IpSecServerName'] = $this->ipSecServerName;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->effectImmediately) {
             $res['EffectImmediately'] = $this->effectImmediately;
@@ -134,32 +104,26 @@ class CreateIpsecServerRequest extends Model
         if (null !== $this->ikeConfig) {
             $res['IkeConfig'] = $this->ikeConfig;
         }
+        if (null !== $this->ipSecServerName) {
+            $res['IpSecServerName'] = $this->ipSecServerName;
+        }
         if (null !== $this->ipsecConfig) {
             $res['IpsecConfig'] = $this->ipsecConfig;
         }
-        if (null !== $this->pskEnabled) {
-            $res['PskEnabled'] = $this->pskEnabled;
+        if (null !== $this->localSubnet) {
+            $res['LocalSubnet'] = $this->localSubnet;
         }
         if (null !== $this->psk) {
             $res['Psk'] = $this->psk;
         }
-        if (null !== $this->multiFactorAuthEnabled) {
-            $res['MultiFactorAuthEnabled'] = $this->multiFactorAuthEnabled;
+        if (null !== $this->pskEnabled) {
+            $res['PskEnabled'] = $this->pskEnabled;
         }
-        if (null !== $this->IDaaSInstanceId) {
-            $res['IDaaSInstanceId'] = $this->IDaaSInstanceId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->callerBid) {
-            $res['callerBid'] = $this->callerBid;
-        }
-        if (null !== $this->dryRun) {
-            $res['DryRun'] = $this->dryRun;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->vpnGatewayId) {
+            $res['VpnGatewayId'] = $this->vpnGatewayId;
         }
 
         return $res;
@@ -173,20 +137,14 @@ class CreateIpsecServerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['VpnGatewayId'])) {
-            $model->vpnGatewayId = $map['VpnGatewayId'];
-        }
-        if (isset($map['LocalSubnet'])) {
-            $model->localSubnet = $map['LocalSubnet'];
-        }
         if (isset($map['ClientIpPool'])) {
             $model->clientIpPool = $map['ClientIpPool'];
         }
-        if (isset($map['IpSecServerName'])) {
-            $model->ipSecServerName = $map['IpSecServerName'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['EffectImmediately'])) {
             $model->effectImmediately = $map['EffectImmediately'];
@@ -194,32 +152,26 @@ class CreateIpsecServerRequest extends Model
         if (isset($map['IkeConfig'])) {
             $model->ikeConfig = $map['IkeConfig'];
         }
+        if (isset($map['IpSecServerName'])) {
+            $model->ipSecServerName = $map['IpSecServerName'];
+        }
         if (isset($map['IpsecConfig'])) {
             $model->ipsecConfig = $map['IpsecConfig'];
         }
-        if (isset($map['PskEnabled'])) {
-            $model->pskEnabled = $map['PskEnabled'];
+        if (isset($map['LocalSubnet'])) {
+            $model->localSubnet = $map['LocalSubnet'];
         }
         if (isset($map['Psk'])) {
             $model->psk = $map['Psk'];
         }
-        if (isset($map['MultiFactorAuthEnabled'])) {
-            $model->multiFactorAuthEnabled = $map['MultiFactorAuthEnabled'];
+        if (isset($map['PskEnabled'])) {
+            $model->pskEnabled = $map['PskEnabled'];
         }
-        if (isset($map['IDaaSInstanceId'])) {
-            $model->IDaaSInstanceId = $map['IDaaSInstanceId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['callerBid'])) {
-            $model->callerBid = $map['callerBid'];
-        }
-        if (isset($map['DryRun'])) {
-            $model->dryRun = $map['DryRun'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['VpnGatewayId'])) {
+            $model->vpnGatewayId = $map['VpnGatewayId'];
         }
 
         return $model;

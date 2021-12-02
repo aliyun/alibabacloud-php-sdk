@@ -11,17 +11,7 @@ class ModifyInstanceAutoRenewalAttributeRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $pricingCycle;
+    public $clientToken;
 
     /**
      * @var int
@@ -31,22 +21,32 @@ class ModifyInstanceAutoRenewalAttributeRequest extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $instanceType;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $renewalStatus;
 
     /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $pricingCycle;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $renewalStatus;
 
     /**
      * @var string
@@ -58,14 +58,14 @@ class ModifyInstanceAutoRenewalAttributeRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'regionId'             => 'RegionId',
-        'instanceId'           => 'InstanceId',
-        'pricingCycle'         => 'PricingCycle',
-        'duration'             => 'Duration',
-        'instanceType'         => 'InstanceType',
         'clientToken'          => 'ClientToken',
-        'renewalStatus'        => 'RenewalStatus',
+        'duration'             => 'Duration',
+        'instanceId'           => 'InstanceId',
+        'instanceType'         => 'InstanceType',
         'ownerId'              => 'OwnerId',
+        'pricingCycle'         => 'PricingCycle',
+        'regionId'             => 'RegionId',
+        'renewalStatus'        => 'RenewalStatus',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
     ];
@@ -77,29 +77,29 @@ class ModifyInstanceAutoRenewalAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->pricingCycle) {
-            $res['PricingCycle'] = $this->pricingCycle;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pricingCycle) {
+            $res['PricingCycle'] = $this->pricingCycle;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->renewalStatus) {
             $res['RenewalStatus'] = $this->renewalStatus;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -119,29 +119,29 @@ class ModifyInstanceAutoRenewalAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['PricingCycle'])) {
-            $model->pricingCycle = $map['PricingCycle'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PricingCycle'])) {
+            $model->pricingCycle = $map['PricingCycle'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RenewalStatus'])) {
             $model->renewalStatus = $map['RenewalStatus'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

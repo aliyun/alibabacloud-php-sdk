@@ -16,28 +16,28 @@ class ipv6InternetBandwidth extends Model
     /**
      * @var string
      */
-    public $internetChargeType;
-
-    /**
-     * @var string
-     */
     public $businessStatus;
 
     /**
      * @var string
      */
-    public $ipv6InternetBandwidthId;
+    public $instanceChargeType;
 
     /**
      * @var string
      */
-    public $instanceChargeType;
+    public $internetChargeType;
+
+    /**
+     * @var string
+     */
+    public $ipv6InternetBandwidthId;
     protected $_name = [
         'bandwidth'               => 'Bandwidth',
-        'internetChargeType'      => 'InternetChargeType',
         'businessStatus'          => 'BusinessStatus',
-        'ipv6InternetBandwidthId' => 'Ipv6InternetBandwidthId',
         'instanceChargeType'      => 'InstanceChargeType',
+        'internetChargeType'      => 'InternetChargeType',
+        'ipv6InternetBandwidthId' => 'Ipv6InternetBandwidthId',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class ipv6InternetBandwidth extends Model
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
         }
-        if (null !== $this->internetChargeType) {
-            $res['InternetChargeType'] = $this->internetChargeType;
-        }
         if (null !== $this->businessStatus) {
             $res['BusinessStatus'] = $this->businessStatus;
         }
-        if (null !== $this->ipv6InternetBandwidthId) {
-            $res['Ipv6InternetBandwidthId'] = $this->ipv6InternetBandwidthId;
-        }
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
+        }
+        if (null !== $this->internetChargeType) {
+            $res['InternetChargeType'] = $this->internetChargeType;
+        }
+        if (null !== $this->ipv6InternetBandwidthId) {
+            $res['Ipv6InternetBandwidthId'] = $this->ipv6InternetBandwidthId;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class ipv6InternetBandwidth extends Model
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }
-        if (isset($map['InternetChargeType'])) {
-            $model->internetChargeType = $map['InternetChargeType'];
-        }
         if (isset($map['BusinessStatus'])) {
             $model->businessStatus = $map['BusinessStatus'];
         }
-        if (isset($map['Ipv6InternetBandwidthId'])) {
-            $model->ipv6InternetBandwidthId = $map['Ipv6InternetBandwidthId'];
-        }
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];
+        }
+        if (isset($map['InternetChargeType'])) {
+            $model->internetChargeType = $map['InternetChargeType'];
+        }
+        if (isset($map['Ipv6InternetBandwidthId'])) {
+            $model->ipv6InternetBandwidthId = $map['Ipv6InternetBandwidthId'];
         }
 
         return $model;

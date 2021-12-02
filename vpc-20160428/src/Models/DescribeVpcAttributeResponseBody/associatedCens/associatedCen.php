@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class associatedCen extends Model
 {
     /**
+     * @var string
+     */
+    public $cenId;
+
+    /**
      * @var int
      */
     public $cenOwnerId;
@@ -16,15 +21,10 @@ class associatedCen extends Model
     /**
      * @var string
      */
-    public $cenId;
-
-    /**
-     * @var string
-     */
     public $cenStatus;
     protected $_name = [
-        'cenOwnerId' => 'CenOwnerId',
         'cenId'      => 'CenId',
+        'cenOwnerId' => 'CenOwnerId',
         'cenStatus'  => 'CenStatus',
     ];
 
@@ -35,11 +35,11 @@ class associatedCen extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->cenOwnerId) {
-            $res['CenOwnerId'] = $this->cenOwnerId;
-        }
         if (null !== $this->cenId) {
             $res['CenId'] = $this->cenId;
+        }
+        if (null !== $this->cenOwnerId) {
+            $res['CenOwnerId'] = $this->cenOwnerId;
         }
         if (null !== $this->cenStatus) {
             $res['CenStatus'] = $this->cenStatus;
@@ -56,11 +56,11 @@ class associatedCen extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CenOwnerId'])) {
-            $model->cenOwnerId = $map['CenOwnerId'];
-        }
         if (isset($map['CenId'])) {
             $model->cenId = $map['CenId'];
+        }
+        if (isset($map['CenOwnerId'])) {
+            $model->cenOwnerId = $map['CenOwnerId'];
         }
         if (isset($map['CenStatus'])) {
             $model->cenStatus = $map['CenStatus'];

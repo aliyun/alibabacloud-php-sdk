@@ -16,6 +16,16 @@ class ConvertBandwidthPackageRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -27,23 +37,13 @@ class ConvertBandwidthPackageRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
     protected $_name = [
         'bandwidthPackageId'   => 'BandwidthPackageId',
+        'clientToken'          => 'ClientToken',
+        'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerId'              => 'OwnerId',
-        'clientToken'          => 'ClientToken',
     ];
 
     public function validate()
@@ -56,6 +56,12 @@ class ConvertBandwidthPackageRequest extends Model
         if (null !== $this->bandwidthPackageId) {
             $res['BandwidthPackageId'] = $this->bandwidthPackageId;
         }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -64,12 +70,6 @@ class ConvertBandwidthPackageRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -86,6 +86,12 @@ class ConvertBandwidthPackageRequest extends Model
         if (isset($map['BandwidthPackageId'])) {
             $model->bandwidthPackageId = $map['BandwidthPackageId'];
         }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -94,12 +100,6 @@ class ConvertBandwidthPackageRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

@@ -11,6 +11,11 @@ class DescribeCustomerGatewayRequest extends Model
     /**
      * @var string
      */
+    public $customerGatewayId;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -21,29 +26,24 @@ class DescribeCustomerGatewayRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $customerGatewayId;
     protected $_name = [
+        'customerGatewayId'    => 'CustomerGatewayId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'regionId'             => 'RegionId',
-        'customerGatewayId'    => 'CustomerGatewayId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class DescribeCustomerGatewayRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->customerGatewayId) {
+            $res['CustomerGatewayId'] = $this->customerGatewayId;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->customerGatewayId) {
-            $res['CustomerGatewayId'] = $this->customerGatewayId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class DescribeCustomerGatewayRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomerGatewayId'])) {
+            $model->customerGatewayId = $map['CustomerGatewayId'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['CustomerGatewayId'])) {
-            $model->customerGatewayId = $map['CustomerGatewayId'];
         }
 
         return $model;

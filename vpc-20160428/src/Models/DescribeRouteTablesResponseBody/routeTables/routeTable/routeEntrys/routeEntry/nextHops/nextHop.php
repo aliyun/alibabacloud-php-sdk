@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class nextHop extends Model
 {
     /**
+     * @var int
+     */
+    public $enabled;
+
+    /**
      * @var string
      */
     public $nextHopId;
-
-    /**
-     * @var int
-     */
-    public $weight;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class nextHop extends Model
     /**
      * @var int
      */
-    public $enabled;
+    public $weight;
     protected $_name = [
-        'nextHopId'   => 'NextHopId',
-        'weight'      => 'Weight',
-        'nextHopType' => 'NextHopType',
         'enabled'     => 'Enabled',
+        'nextHopId'   => 'NextHopId',
+        'nextHopType' => 'NextHopType',
+        'weight'      => 'Weight',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class nextHop extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->enabled) {
+            $res['Enabled'] = $this->enabled;
+        }
         if (null !== $this->nextHopId) {
             $res['NextHopId'] = $this->nextHopId;
-        }
-        if (null !== $this->weight) {
-            $res['Weight'] = $this->weight;
         }
         if (null !== $this->nextHopType) {
             $res['NextHopType'] = $this->nextHopType;
         }
-        if (null !== $this->enabled) {
-            $res['Enabled'] = $this->enabled;
+        if (null !== $this->weight) {
+            $res['Weight'] = $this->weight;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class nextHop extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Enabled'])) {
+            $model->enabled = $map['Enabled'];
+        }
         if (isset($map['NextHopId'])) {
             $model->nextHopId = $map['NextHopId'];
-        }
-        if (isset($map['Weight'])) {
-            $model->weight = $map['Weight'];
         }
         if (isset($map['NextHopType'])) {
             $model->nextHopType = $map['NextHopType'];
         }
-        if (isset($map['Enabled'])) {
-            $model->enabled = $map['Enabled'];
+        if (isset($map['Weight'])) {
+            $model->weight = $map['Weight'];
         }
 
         return $model;

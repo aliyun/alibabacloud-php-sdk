@@ -9,34 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeForwardTableEntriesRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $externalIp;
 
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $forwardTableId;
+    public $externalPort;
 
     /**
      * @var string
@@ -46,12 +26,12 @@ class DescribeForwardTableEntriesRequest extends Model
     /**
      * @var string
      */
-    public $externalIp;
+    public $forwardEntryName;
 
     /**
      * @var string
      */
-    public $externalPort;
+    public $forwardTableId;
 
     /**
      * @var string
@@ -71,7 +51,12 @@ class DescribeForwardTableEntriesRequest extends Model
     /**
      * @var string
      */
-    public $forwardEntryName;
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var int
@@ -82,22 +67,37 @@ class DescribeForwardTableEntriesRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
-        'forwardTableId'       => 'ForwardTableId',
-        'forwardEntryId'       => 'ForwardEntryId',
         'externalIp'           => 'ExternalIp',
         'externalPort'         => 'ExternalPort',
+        'forwardEntryId'       => 'ForwardEntryId',
+        'forwardEntryName'     => 'ForwardEntryName',
+        'forwardTableId'       => 'ForwardTableId',
         'internalIp'           => 'InternalIp',
         'internalPort'         => 'InternalPort',
         'ipProtocol'           => 'IpProtocol',
-        'forwardEntryName'     => 'ForwardEntryName',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
+        'regionId'             => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -107,32 +107,20 @@ class DescribeForwardTableEntriesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->forwardTableId) {
-            $res['ForwardTableId'] = $this->forwardTableId;
-        }
-        if (null !== $this->forwardEntryId) {
-            $res['ForwardEntryId'] = $this->forwardEntryId;
-        }
         if (null !== $this->externalIp) {
             $res['ExternalIp'] = $this->externalIp;
         }
         if (null !== $this->externalPort) {
             $res['ExternalPort'] = $this->externalPort;
+        }
+        if (null !== $this->forwardEntryId) {
+            $res['ForwardEntryId'] = $this->forwardEntryId;
+        }
+        if (null !== $this->forwardEntryName) {
+            $res['ForwardEntryName'] = $this->forwardEntryName;
+        }
+        if (null !== $this->forwardTableId) {
+            $res['ForwardTableId'] = $this->forwardTableId;
         }
         if (null !== $this->internalIp) {
             $res['InternalIp'] = $this->internalIp;
@@ -143,14 +131,26 @@ class DescribeForwardTableEntriesRequest extends Model
         if (null !== $this->ipProtocol) {
             $res['IpProtocol'] = $this->ipProtocol;
         }
-        if (null !== $this->forwardEntryName) {
-            $res['ForwardEntryName'] = $this->forwardEntryName;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -164,32 +164,20 @@ class DescribeForwardTableEntriesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ForwardTableId'])) {
-            $model->forwardTableId = $map['ForwardTableId'];
-        }
-        if (isset($map['ForwardEntryId'])) {
-            $model->forwardEntryId = $map['ForwardEntryId'];
-        }
         if (isset($map['ExternalIp'])) {
             $model->externalIp = $map['ExternalIp'];
         }
         if (isset($map['ExternalPort'])) {
             $model->externalPort = $map['ExternalPort'];
+        }
+        if (isset($map['ForwardEntryId'])) {
+            $model->forwardEntryId = $map['ForwardEntryId'];
+        }
+        if (isset($map['ForwardEntryName'])) {
+            $model->forwardEntryName = $map['ForwardEntryName'];
+        }
+        if (isset($map['ForwardTableId'])) {
+            $model->forwardTableId = $map['ForwardTableId'];
         }
         if (isset($map['InternalIp'])) {
             $model->internalIp = $map['InternalIp'];
@@ -200,14 +188,26 @@ class DescribeForwardTableEntriesRequest extends Model
         if (isset($map['IpProtocol'])) {
             $model->ipProtocol = $map['IpProtocol'];
         }
-        if (isset($map['ForwardEntryName'])) {
-            $model->forwardEntryName = $map['ForwardEntryName'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

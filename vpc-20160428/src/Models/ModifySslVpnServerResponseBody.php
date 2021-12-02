@@ -9,14 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifySslVpnServerResponseBody extends Model
 {
     /**
-     * @var bool
+     * @var string
      */
-    public $compress;
+    public $cipher;
 
     /**
      * @var string
      */
-    public $localSubnet;
+    public $clientIpPool;
+
+    /**
+     * @var bool
+     */
+    public $compress;
 
     /**
      * @var int
@@ -24,9 +29,14 @@ class ModifySslVpnServerResponseBody extends Model
     public $connections;
 
     /**
-     * @var string
+     * @var int
      */
-    public $clientIpPool;
+    public $createTime;
+
+    /**
+     * @var bool
+     */
+    public $enableMultiFactorAuth;
 
     /**
      * @var string
@@ -36,7 +46,12 @@ class ModifySslVpnServerResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $internetIp;
+
+    /**
+     * @var string
+     */
+    public $localSubnet;
 
     /**
      * @var int
@@ -44,14 +59,9 @@ class ModifySslVpnServerResponseBody extends Model
     public $maxConnections;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $enableMultiFactorAuth;
-
-    /**
-     * @var int
-     */
-    public $createTime;
+    public $name;
 
     /**
      * @var int
@@ -61,27 +71,7 @@ class ModifySslVpnServerResponseBody extends Model
     /**
      * @var string
      */
-    public $sslVpnServerId;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $internetIp;
-
-    /**
-     * @var string
-     */
     public $proto;
-
-    /**
-     * @var string
-     */
-    public $vpnGatewayId;
 
     /**
      * @var string
@@ -91,25 +81,35 @@ class ModifySslVpnServerResponseBody extends Model
     /**
      * @var string
      */
-    public $cipher;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $sslVpnServerId;
+
+    /**
+     * @var string
+     */
+    public $vpnGatewayId;
     protected $_name = [
-        'compress'              => 'Compress',
-        'localSubnet'           => 'LocalSubnet',
-        'connections'           => 'Connections',
-        'clientIpPool'          => 'ClientIpPool',
-        'IDaaSInstanceId'       => 'IDaaSInstanceId',
-        'requestId'             => 'RequestId',
-        'maxConnections'        => 'MaxConnections',
-        'enableMultiFactorAuth' => 'EnableMultiFactorAuth',
-        'createTime'            => 'CreateTime',
-        'port'                  => 'Port',
-        'sslVpnServerId'        => 'SslVpnServerId',
-        'name'                  => 'Name',
-        'internetIp'            => 'InternetIp',
-        'proto'                 => 'Proto',
-        'vpnGatewayId'          => 'VpnGatewayId',
-        'regionId'              => 'RegionId',
         'cipher'                => 'Cipher',
+        'clientIpPool'          => 'ClientIpPool',
+        'compress'              => 'Compress',
+        'connections'           => 'Connections',
+        'createTime'            => 'CreateTime',
+        'enableMultiFactorAuth' => 'EnableMultiFactorAuth',
+        'IDaaSInstanceId'       => 'IDaaSInstanceId',
+        'internetIp'            => 'InternetIp',
+        'localSubnet'           => 'LocalSubnet',
+        'maxConnections'        => 'MaxConnections',
+        'name'                  => 'Name',
+        'port'                  => 'Port',
+        'proto'                 => 'Proto',
+        'regionId'              => 'RegionId',
+        'requestId'             => 'RequestId',
+        'sslVpnServerId'        => 'SslVpnServerId',
+        'vpnGatewayId'          => 'VpnGatewayId',
     ];
 
     public function validate()
@@ -119,56 +119,56 @@ class ModifySslVpnServerResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->compress) {
-            $res['Compress'] = $this->compress;
-        }
-        if (null !== $this->localSubnet) {
-            $res['LocalSubnet'] = $this->localSubnet;
-        }
-        if (null !== $this->connections) {
-            $res['Connections'] = $this->connections;
+        if (null !== $this->cipher) {
+            $res['Cipher'] = $this->cipher;
         }
         if (null !== $this->clientIpPool) {
             $res['ClientIpPool'] = $this->clientIpPool;
         }
-        if (null !== $this->IDaaSInstanceId) {
-            $res['IDaaSInstanceId'] = $this->IDaaSInstanceId;
+        if (null !== $this->compress) {
+            $res['Compress'] = $this->compress;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->maxConnections) {
-            $res['MaxConnections'] = $this->maxConnections;
-        }
-        if (null !== $this->enableMultiFactorAuth) {
-            $res['EnableMultiFactorAuth'] = $this->enableMultiFactorAuth;
+        if (null !== $this->connections) {
+            $res['Connections'] = $this->connections;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
+        if (null !== $this->enableMultiFactorAuth) {
+            $res['EnableMultiFactorAuth'] = $this->enableMultiFactorAuth;
         }
-        if (null !== $this->sslVpnServerId) {
-            $res['SslVpnServerId'] = $this->sslVpnServerId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->IDaaSInstanceId) {
+            $res['IDaaSInstanceId'] = $this->IDaaSInstanceId;
         }
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
         }
+        if (null !== $this->localSubnet) {
+            $res['LocalSubnet'] = $this->localSubnet;
+        }
+        if (null !== $this->maxConnections) {
+            $res['MaxConnections'] = $this->maxConnections;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
+        }
         if (null !== $this->proto) {
             $res['Proto'] = $this->proto;
-        }
-        if (null !== $this->vpnGatewayId) {
-            $res['VpnGatewayId'] = $this->vpnGatewayId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->cipher) {
-            $res['Cipher'] = $this->cipher;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->sslVpnServerId) {
+            $res['SslVpnServerId'] = $this->sslVpnServerId;
+        }
+        if (null !== $this->vpnGatewayId) {
+            $res['VpnGatewayId'] = $this->vpnGatewayId;
         }
 
         return $res;
@@ -182,56 +182,56 @@ class ModifySslVpnServerResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Compress'])) {
-            $model->compress = $map['Compress'];
-        }
-        if (isset($map['LocalSubnet'])) {
-            $model->localSubnet = $map['LocalSubnet'];
-        }
-        if (isset($map['Connections'])) {
-            $model->connections = $map['Connections'];
+        if (isset($map['Cipher'])) {
+            $model->cipher = $map['Cipher'];
         }
         if (isset($map['ClientIpPool'])) {
             $model->clientIpPool = $map['ClientIpPool'];
         }
-        if (isset($map['IDaaSInstanceId'])) {
-            $model->IDaaSInstanceId = $map['IDaaSInstanceId'];
+        if (isset($map['Compress'])) {
+            $model->compress = $map['Compress'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['MaxConnections'])) {
-            $model->maxConnections = $map['MaxConnections'];
-        }
-        if (isset($map['EnableMultiFactorAuth'])) {
-            $model->enableMultiFactorAuth = $map['EnableMultiFactorAuth'];
+        if (isset($map['Connections'])) {
+            $model->connections = $map['Connections'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
+        if (isset($map['EnableMultiFactorAuth'])) {
+            $model->enableMultiFactorAuth = $map['EnableMultiFactorAuth'];
         }
-        if (isset($map['SslVpnServerId'])) {
-            $model->sslVpnServerId = $map['SslVpnServerId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['IDaaSInstanceId'])) {
+            $model->IDaaSInstanceId = $map['IDaaSInstanceId'];
         }
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];
         }
+        if (isset($map['LocalSubnet'])) {
+            $model->localSubnet = $map['LocalSubnet'];
+        }
+        if (isset($map['MaxConnections'])) {
+            $model->maxConnections = $map['MaxConnections'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
+        }
         if (isset($map['Proto'])) {
             $model->proto = $map['Proto'];
-        }
-        if (isset($map['VpnGatewayId'])) {
-            $model->vpnGatewayId = $map['VpnGatewayId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['Cipher'])) {
-            $model->cipher = $map['Cipher'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SslVpnServerId'])) {
+            $model->sslVpnServerId = $map['SslVpnServerId'];
+        }
+        if (isset($map['VpnGatewayId'])) {
+            $model->vpnGatewayId = $map['VpnGatewayId'];
         }
 
         return $model;

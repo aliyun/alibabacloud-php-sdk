@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribePhysicalConnectionLOAResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var physicalConnectionLOAType
      */
     public $physicalConnectionLOAType;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'                 => 'RequestId',
         'physicalConnectionLOAType' => 'PhysicalConnectionLOAType',
+        'requestId'                 => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribePhysicalConnectionLOAResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->physicalConnectionLOAType) {
             $res['PhysicalConnectionLOAType'] = null !== $this->physicalConnectionLOAType ? $this->physicalConnectionLOAType->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribePhysicalConnectionLOAResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['PhysicalConnectionLOAType'])) {
             $model->physicalConnectionLOAType = physicalConnectionLOAType::fromMap($map['PhysicalConnectionLOAType']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

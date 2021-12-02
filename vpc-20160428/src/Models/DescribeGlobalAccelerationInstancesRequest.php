@@ -9,34 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeGlobalAccelerationInstancesRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var bool
-     */
-    public $includeReservationData;
+    public $bandwidthType;
 
     /**
      * @var string
      */
     public $globalAccelerationInstanceId;
+
+    /**
+     * @var bool
+     */
+    public $includeReservationData;
 
     /**
      * @var string
@@ -51,22 +36,12 @@ class DescribeGlobalAccelerationInstancesRequest extends Model
     /**
      * @var string
      */
-    public $status;
+    public $ownerAccount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $bandwidthType;
-
-    /**
-     * @var string
-     */
-    public $serviceLocation;
-
-    /**
-     * @var string
-     */
-    public $serverId;
+    public $ownerId;
 
     /**
      * @var int
@@ -81,23 +56,48 @@ class DescribeGlobalAccelerationInstancesRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $serverId;
+
+    /**
+     * @var string
+     */
+    public $serviceLocation;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'ownerId'                      => 'OwnerId',
-        'resourceOwnerAccount'         => 'ResourceOwnerAccount',
-        'resourceOwnerId'              => 'ResourceOwnerId',
-        'regionId'                     => 'RegionId',
-        'includeReservationData'       => 'IncludeReservationData',
+        'bandwidthType'                => 'BandwidthType',
         'globalAccelerationInstanceId' => 'GlobalAccelerationInstanceId',
+        'includeReservationData'       => 'IncludeReservationData',
         'ipAddress'                    => 'IpAddress',
         'name'                         => 'Name',
-        'status'                       => 'Status',
-        'bandwidthType'                => 'BandwidthType',
-        'serviceLocation'              => 'ServiceLocation',
-        'serverId'                     => 'ServerId',
+        'ownerAccount'                 => 'OwnerAccount',
+        'ownerId'                      => 'OwnerId',
         'pageNumber'                   => 'PageNumber',
         'pageSize'                     => 'PageSize',
-        'ownerAccount'                 => 'OwnerAccount',
+        'regionId'                     => 'RegionId',
+        'resourceOwnerAccount'         => 'ResourceOwnerAccount',
+        'resourceOwnerId'              => 'ResourceOwnerId',
+        'serverId'                     => 'ServerId',
+        'serviceLocation'              => 'ServiceLocation',
+        'status'                       => 'Status',
     ];
 
     public function validate()
@@ -107,23 +107,14 @@ class DescribeGlobalAccelerationInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->includeReservationData) {
-            $res['IncludeReservationData'] = $this->includeReservationData;
+        if (null !== $this->bandwidthType) {
+            $res['BandwidthType'] = $this->bandwidthType;
         }
         if (null !== $this->globalAccelerationInstanceId) {
             $res['GlobalAccelerationInstanceId'] = $this->globalAccelerationInstanceId;
+        }
+        if (null !== $this->includeReservationData) {
+            $res['IncludeReservationData'] = $this->includeReservationData;
         }
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
@@ -131,17 +122,11 @@ class DescribeGlobalAccelerationInstancesRequest extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->bandwidthType) {
-            $res['BandwidthType'] = $this->bandwidthType;
-        }
-        if (null !== $this->serviceLocation) {
-            $res['ServiceLocation'] = $this->serviceLocation;
-        }
-        if (null !== $this->serverId) {
-            $res['ServerId'] = $this->serverId;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -149,8 +134,23 @@ class DescribeGlobalAccelerationInstancesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->serverId) {
+            $res['ServerId'] = $this->serverId;
+        }
+        if (null !== $this->serviceLocation) {
+            $res['ServiceLocation'] = $this->serviceLocation;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -164,23 +164,14 @@ class DescribeGlobalAccelerationInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['IncludeReservationData'])) {
-            $model->includeReservationData = $map['IncludeReservationData'];
+        if (isset($map['BandwidthType'])) {
+            $model->bandwidthType = $map['BandwidthType'];
         }
         if (isset($map['GlobalAccelerationInstanceId'])) {
             $model->globalAccelerationInstanceId = $map['GlobalAccelerationInstanceId'];
+        }
+        if (isset($map['IncludeReservationData'])) {
+            $model->includeReservationData = $map['IncludeReservationData'];
         }
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
@@ -188,17 +179,11 @@ class DescribeGlobalAccelerationInstancesRequest extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['BandwidthType'])) {
-            $model->bandwidthType = $map['BandwidthType'];
-        }
-        if (isset($map['ServiceLocation'])) {
-            $model->serviceLocation = $map['ServiceLocation'];
-        }
-        if (isset($map['ServerId'])) {
-            $model->serverId = $map['ServerId'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -206,8 +191,23 @@ class DescribeGlobalAccelerationInstancesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['ServerId'])) {
+            $model->serverId = $map['ServerId'];
+        }
+        if (isset($map['ServiceLocation'])) {
+            $model->serviceLocation = $map['ServiceLocation'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

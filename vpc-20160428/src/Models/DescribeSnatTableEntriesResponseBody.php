@@ -12,7 +12,7 @@ class DescribeSnatTableEntriesResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $pageNumber;
 
     /**
      * @var int
@@ -25,20 +25,20 @@ class DescribeSnatTableEntriesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
      * @var snatTableEntries
      */
     public $snatTableEntries;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'totalCount'       => 'TotalCount',
+        'pageNumber'       => 'PageNumber',
         'pageSize'         => 'PageSize',
         'requestId'        => 'RequestId',
-        'pageNumber'       => 'PageNumber',
         'snatTableEntries' => 'SnatTableEntries',
+        'totalCount'       => 'TotalCount',
     ];
 
     public function validate()
@@ -48,8 +48,8 @@ class DescribeSnatTableEntriesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -57,11 +57,11 @@ class DescribeSnatTableEntriesResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
         if (null !== $this->snatTableEntries) {
             $res['SnatTableEntries'] = null !== $this->snatTableEntries ? $this->snatTableEntries->toMap() : null;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -75,8 +75,8 @@ class DescribeSnatTableEntriesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
@@ -84,11 +84,11 @@ class DescribeSnatTableEntriesResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
         if (isset($map['SnatTableEntries'])) {
             $model->snatTableEntries = snatTableEntries::fromMap($map['SnatTableEntries']);
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

@@ -12,7 +12,7 @@ class nextHop extends Model
     /**
      * @var int
      */
-    public $weight;
+    public $enabled;
 
     /**
      * @var string
@@ -20,14 +20,9 @@ class nextHop extends Model
     public $nextHopId;
 
     /**
-     * @var int
-     */
-    public $enabled;
-
-    /**
      * @var string
      */
-    public $nextHopType;
+    public $nextHopRegionId;
 
     /**
      * @var nextHopRelatedInfo
@@ -37,14 +32,19 @@ class nextHop extends Model
     /**
      * @var string
      */
-    public $nextHopRegionId;
+    public $nextHopType;
+
+    /**
+     * @var int
+     */
+    public $weight;
     protected $_name = [
-        'weight'             => 'Weight',
-        'nextHopId'          => 'NextHopId',
         'enabled'            => 'Enabled',
-        'nextHopType'        => 'NextHopType',
-        'nextHopRelatedInfo' => 'NextHopRelatedInfo',
+        'nextHopId'          => 'NextHopId',
         'nextHopRegionId'    => 'NextHopRegionId',
+        'nextHopRelatedInfo' => 'NextHopRelatedInfo',
+        'nextHopType'        => 'NextHopType',
+        'weight'             => 'Weight',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class nextHop extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->weight) {
-            $res['Weight'] = $this->weight;
+        if (null !== $this->enabled) {
+            $res['Enabled'] = $this->enabled;
         }
         if (null !== $this->nextHopId) {
             $res['NextHopId'] = $this->nextHopId;
         }
-        if (null !== $this->enabled) {
-            $res['Enabled'] = $this->enabled;
-        }
-        if (null !== $this->nextHopType) {
-            $res['NextHopType'] = $this->nextHopType;
+        if (null !== $this->nextHopRegionId) {
+            $res['NextHopRegionId'] = $this->nextHopRegionId;
         }
         if (null !== $this->nextHopRelatedInfo) {
             $res['NextHopRelatedInfo'] = null !== $this->nextHopRelatedInfo ? $this->nextHopRelatedInfo->toMap() : null;
         }
-        if (null !== $this->nextHopRegionId) {
-            $res['NextHopRegionId'] = $this->nextHopRegionId;
+        if (null !== $this->nextHopType) {
+            $res['NextHopType'] = $this->nextHopType;
+        }
+        if (null !== $this->weight) {
+            $res['Weight'] = $this->weight;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class nextHop extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Weight'])) {
-            $model->weight = $map['Weight'];
+        if (isset($map['Enabled'])) {
+            $model->enabled = $map['Enabled'];
         }
         if (isset($map['NextHopId'])) {
             $model->nextHopId = $map['NextHopId'];
         }
-        if (isset($map['Enabled'])) {
-            $model->enabled = $map['Enabled'];
-        }
-        if (isset($map['NextHopType'])) {
-            $model->nextHopType = $map['NextHopType'];
+        if (isset($map['NextHopRegionId'])) {
+            $model->nextHopRegionId = $map['NextHopRegionId'];
         }
         if (isset($map['NextHopRelatedInfo'])) {
             $model->nextHopRelatedInfo = nextHopRelatedInfo::fromMap($map['NextHopRelatedInfo']);
         }
-        if (isset($map['NextHopRegionId'])) {
-            $model->nextHopRegionId = $map['NextHopRegionId'];
+        if (isset($map['NextHopType'])) {
+            $model->nextHopType = $map['NextHopType'];
+        }
+        if (isset($map['Weight'])) {
+            $model->weight = $map['Weight'];
         }
 
         return $model;

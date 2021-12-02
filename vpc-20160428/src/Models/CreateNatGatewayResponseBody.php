@@ -5,11 +5,27 @@
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatGatewayResponseBody\forwardTableIds;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatGatewayResponseBody\fullNatTableIds;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatGatewayResponseBody\snatTableIds;
 use AlibabaCloud\Tea\Model;
 
 class CreateNatGatewayResponseBody extends Model
 {
+    /**
+     * @var forwardTableIds
+     */
+    public $forwardTableIds;
+
+    /**
+     * @var fullNatTableIds
+     */
+    public $fullNatTableIds;
+
+    /**
+     * @var string
+     */
+    public $natGatewayId;
+
     /**
      * @var string
      */
@@ -19,21 +35,12 @@ class CreateNatGatewayResponseBody extends Model
      * @var snatTableIds
      */
     public $snatTableIds;
-
-    /**
-     * @var forwardTableIds
-     */
-    public $forwardTableIds;
-
-    /**
-     * @var string
-     */
-    public $natGatewayId;
     protected $_name = [
+        'forwardTableIds' => 'ForwardTableIds',
+        'fullNatTableIds' => 'FullNatTableIds',
+        'natGatewayId'    => 'NatGatewayId',
         'requestId'       => 'RequestId',
         'snatTableIds'    => 'SnatTableIds',
-        'forwardTableIds' => 'ForwardTableIds',
-        'natGatewayId'    => 'NatGatewayId',
     ];
 
     public function validate()
@@ -43,17 +50,20 @@ class CreateNatGatewayResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->forwardTableIds) {
+            $res['ForwardTableIds'] = null !== $this->forwardTableIds ? $this->forwardTableIds->toMap() : null;
+        }
+        if (null !== $this->fullNatTableIds) {
+            $res['FullNatTableIds'] = null !== $this->fullNatTableIds ? $this->fullNatTableIds->toMap() : null;
+        }
+        if (null !== $this->natGatewayId) {
+            $res['NatGatewayId'] = $this->natGatewayId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->snatTableIds) {
             $res['SnatTableIds'] = null !== $this->snatTableIds ? $this->snatTableIds->toMap() : null;
-        }
-        if (null !== $this->forwardTableIds) {
-            $res['ForwardTableIds'] = null !== $this->forwardTableIds ? $this->forwardTableIds->toMap() : null;
-        }
-        if (null !== $this->natGatewayId) {
-            $res['NatGatewayId'] = $this->natGatewayId;
         }
 
         return $res;
@@ -67,17 +77,20 @@ class CreateNatGatewayResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ForwardTableIds'])) {
+            $model->forwardTableIds = forwardTableIds::fromMap($map['ForwardTableIds']);
+        }
+        if (isset($map['FullNatTableIds'])) {
+            $model->fullNatTableIds = fullNatTableIds::fromMap($map['FullNatTableIds']);
+        }
+        if (isset($map['NatGatewayId'])) {
+            $model->natGatewayId = $map['NatGatewayId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['SnatTableIds'])) {
             $model->snatTableIds = snatTableIds::fromMap($map['SnatTableIds']);
-        }
-        if (isset($map['ForwardTableIds'])) {
-            $model->forwardTableIds = forwardTableIds::fromMap($map['ForwardTableIds']);
-        }
-        if (isset($map['NatGatewayId'])) {
-            $model->natGatewayId = $map['NatGatewayId'];
         }
 
         return $model;

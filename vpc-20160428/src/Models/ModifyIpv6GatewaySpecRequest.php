@@ -11,7 +11,7 @@ class ModifyIpv6GatewaySpecRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $clientToken;
 
     /**
      * @var string
@@ -21,17 +21,17 @@ class ModifyIpv6GatewaySpecRequest extends Model
     /**
      * @var string
      */
-    public $spec;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
+    public $ownerAccount;
 
     /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -46,16 +46,16 @@ class ModifyIpv6GatewaySpecRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $spec;
     protected $_name = [
-        'regionId'             => 'RegionId',
-        'ipv6GatewayId'        => 'Ipv6GatewayId',
-        'spec'                 => 'Spec',
         'clientToken'          => 'ClientToken',
+        'ipv6GatewayId'        => 'Ipv6GatewayId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
+        'spec'                 => 'Spec',
     ];
 
     public function validate()
@@ -65,20 +65,20 @@ class ModifyIpv6GatewaySpecRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->ipv6GatewayId) {
             $res['Ipv6GatewayId'] = $this->ipv6GatewayId;
         }
-        if (null !== $this->spec) {
-            $res['Spec'] = $this->spec;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -86,8 +86,8 @@ class ModifyIpv6GatewaySpecRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->spec) {
+            $res['Spec'] = $this->spec;
         }
 
         return $res;
@@ -101,20 +101,20 @@ class ModifyIpv6GatewaySpecRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['Ipv6GatewayId'])) {
             $model->ipv6GatewayId = $map['Ipv6GatewayId'];
         }
-        if (isset($map['Spec'])) {
-            $model->spec = $map['Spec'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -122,8 +122,8 @@ class ModifyIpv6GatewaySpecRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['Spec'])) {
+            $model->spec = $map['Spec'];
         }
 
         return $model;

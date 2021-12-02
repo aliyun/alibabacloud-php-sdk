@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class customerGateway extends Model
 {
     /**
-     * @var string
-     */
-    public $ipAddress;
-
-    /**
      * @var int
      */
     public $asn;
@@ -21,12 +16,7 @@ class customerGateway extends Model
     /**
      * @var string
      */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $customerGatewayId;
+    public $authKey;
 
     /**
      * @var int
@@ -36,13 +26,29 @@ class customerGateway extends Model
     /**
      * @var string
      */
+    public $customerGatewayId;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $ipAddress;
+
+    /**
+     * @var string
+     */
     public $name;
     protected $_name = [
-        'ipAddress'         => 'IpAddress',
         'asn'               => 'Asn',
-        'description'       => 'Description',
-        'customerGatewayId' => 'CustomerGatewayId',
+        'authKey'           => 'AuthKey',
         'createTime'        => 'CreateTime',
+        'customerGatewayId' => 'CustomerGatewayId',
+        'description'       => 'Description',
+        'ipAddress'         => 'IpAddress',
         'name'              => 'Name',
     ];
 
@@ -53,20 +59,23 @@ class customerGateway extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ipAddress) {
-            $res['IpAddress'] = $this->ipAddress;
-        }
         if (null !== $this->asn) {
             $res['Asn'] = $this->asn;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->authKey) {
+            $res['AuthKey'] = $this->authKey;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->customerGatewayId) {
             $res['CustomerGatewayId'] = $this->customerGatewayId;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->ipAddress) {
+            $res['IpAddress'] = $this->ipAddress;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -83,20 +92,23 @@ class customerGateway extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IpAddress'])) {
-            $model->ipAddress = $map['IpAddress'];
-        }
         if (isset($map['Asn'])) {
             $model->asn = $map['Asn'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['AuthKey'])) {
+            $model->authKey = $map['AuthKey'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['CustomerGatewayId'])) {
             $model->customerGatewayId = $map['CustomerGatewayId'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['IpAddress'])) {
+            $model->ipAddress = $map['IpAddress'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

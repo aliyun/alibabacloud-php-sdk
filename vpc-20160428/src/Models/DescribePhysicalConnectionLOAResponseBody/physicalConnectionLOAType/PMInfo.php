@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribePhysicalConnectionLOAResponseBody\physicalConnectionLOAType;
 
-use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribePhysicalConnectionLOAResponseBody\physicalConnectionLOAType\PMInfo\PMInfo;
 use AlibabaCloud\Tea\Model;
 
 class PMInfo extends Model
 {
     /**
-     * @var PMInfo[]
+     * @var \AlibabaCloud\SDK\Vpc\V20160428\Models\DescribePhysicalConnectionLOAResponseBody\physicalConnectionLOAType\PMInfo\PMInfo[]
      */
     public $PMInfo;
     protected $_name = [
@@ -50,7 +49,7 @@ class PMInfo extends Model
                 $model->PMInfo = [];
                 $n             = 0;
                 foreach ($map['PMInfo'] as $item) {
-                    $model->PMInfo[$n++] = null !== $item ? self::fromMap($item) : $item;
+                    $model->PMInfo[$n++] = null !== $item ? \AlibabaCloud\SDK\Vpc\V20160428\Models\DescribePhysicalConnectionLOAResponseBody\physicalConnectionLOAType\PMInfo\PMInfo::fromMap($item) : $item;
                 }
             }
         }

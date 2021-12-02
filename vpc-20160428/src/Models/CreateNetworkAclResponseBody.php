@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkAclResponseBody extends Model
 {
     /**
+     * @var networkAclAttribute
+     */
+    public $networkAclAttribute;
+
+    /**
      * @var string
      */
     public $networkAclId;
@@ -18,15 +23,10 @@ class CreateNetworkAclResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var networkAclAttribute
-     */
-    public $networkAclAttribute;
     protected $_name = [
+        'networkAclAttribute' => 'NetworkAclAttribute',
         'networkAclId'        => 'NetworkAclId',
         'requestId'           => 'RequestId',
-        'networkAclAttribute' => 'NetworkAclAttribute',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class CreateNetworkAclResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->networkAclAttribute) {
+            $res['NetworkAclAttribute'] = null !== $this->networkAclAttribute ? $this->networkAclAttribute->toMap() : null;
+        }
         if (null !== $this->networkAclId) {
             $res['NetworkAclId'] = $this->networkAclId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->networkAclAttribute) {
-            $res['NetworkAclAttribute'] = null !== $this->networkAclAttribute ? $this->networkAclAttribute->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class CreateNetworkAclResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NetworkAclAttribute'])) {
+            $model->networkAclAttribute = networkAclAttribute::fromMap($map['NetworkAclAttribute']);
+        }
         if (isset($map['NetworkAclId'])) {
             $model->networkAclId = $map['NetworkAclId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['NetworkAclAttribute'])) {
-            $model->networkAclAttribute = networkAclAttribute::fromMap($map['NetworkAclAttribute']);
         }
 
         return $model;

@@ -11,21 +11,21 @@ class convertSteps extends Model
     /**
      * @var string
      */
+    public $stepName;
+
+    /**
+     * @var string
+     */
     public $stepStartTime;
 
     /**
      * @var string
      */
     public $stepStatus;
-
-    /**
-     * @var string
-     */
-    public $stepName;
     protected $_name = [
+        'stepName'      => 'StepName',
         'stepStartTime' => 'StepStartTime',
         'stepStatus'    => 'StepStatus',
-        'stepName'      => 'StepName',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class convertSteps extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->stepName) {
+            $res['StepName'] = $this->stepName;
+        }
         if (null !== $this->stepStartTime) {
             $res['StepStartTime'] = $this->stepStartTime;
         }
         if (null !== $this->stepStatus) {
             $res['StepStatus'] = $this->stepStatus;
-        }
-        if (null !== $this->stepName) {
-            $res['StepName'] = $this->stepName;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class convertSteps extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['StepName'])) {
+            $model->stepName = $map['StepName'];
+        }
         if (isset($map['StepStartTime'])) {
             $model->stepStartTime = $map['StepStartTime'];
         }
         if (isset($map['StepStatus'])) {
             $model->stepStatus = $map['StepStatus'];
-        }
-        if (isset($map['StepName'])) {
-            $model->stepName = $map['StepName'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class accessPointFeatureModel extends Model
     /**
      * @var string
      */
-    public $featureValue;
+    public $featureKey;
 
     /**
      * @var string
      */
-    public $featureKey;
+    public $featureValue;
     protected $_name = [
-        'featureValue' => 'FeatureValue',
         'featureKey'   => 'FeatureKey',
+        'featureValue' => 'FeatureValue',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class accessPointFeatureModel extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->featureValue) {
-            $res['FeatureValue'] = $this->featureValue;
-        }
         if (null !== $this->featureKey) {
             $res['FeatureKey'] = $this->featureKey;
+        }
+        if (null !== $this->featureValue) {
+            $res['FeatureValue'] = $this->featureValue;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class accessPointFeatureModel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FeatureValue'])) {
-            $model->featureValue = $map['FeatureValue'];
-        }
         if (isset($map['FeatureKey'])) {
             $model->featureKey = $map['FeatureKey'];
+        }
+        if (isset($map['FeatureValue'])) {
+            $model->featureValue = $map['FeatureValue'];
         }
 
         return $model;

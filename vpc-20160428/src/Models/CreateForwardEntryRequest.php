@@ -9,34 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateForwardEntryRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $forwardTableId;
+    public $clientToken;
 
     /**
      * @var string
@@ -47,6 +22,16 @@ class CreateForwardEntryRequest extends Model
      * @var string
      */
     public $externalPort;
+
+    /**
+     * @var string
+     */
+    public $forwardEntryName;
+
+    /**
+     * @var string
+     */
+    public $forwardTableId;
 
     /**
      * @var string
@@ -66,32 +51,47 @@ class CreateForwardEntryRequest extends Model
     /**
      * @var string
      */
-    public $forwardEntryName;
+    public $ownerAccount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $clientToken;
+    public $ownerId;
 
     /**
      * @var bool
      */
     public $portBreak;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
-        'forwardTableId'       => 'ForwardTableId',
+        'clientToken'          => 'ClientToken',
         'externalIp'           => 'ExternalIp',
         'externalPort'         => 'ExternalPort',
+        'forwardEntryName'     => 'ForwardEntryName',
+        'forwardTableId'       => 'ForwardTableId',
         'internalIp'           => 'InternalIp',
         'internalPort'         => 'InternalPort',
         'ipProtocol'           => 'IpProtocol',
-        'forwardEntryName'     => 'ForwardEntryName',
-        'clientToken'          => 'ClientToken',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
         'portBreak'            => 'PortBreak',
+        'regionId'             => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -101,29 +101,20 @@ class CreateForwardEntryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->forwardTableId) {
-            $res['ForwardTableId'] = $this->forwardTableId;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->externalIp) {
             $res['ExternalIp'] = $this->externalIp;
         }
         if (null !== $this->externalPort) {
             $res['ExternalPort'] = $this->externalPort;
+        }
+        if (null !== $this->forwardEntryName) {
+            $res['ForwardEntryName'] = $this->forwardEntryName;
+        }
+        if (null !== $this->forwardTableId) {
+            $res['ForwardTableId'] = $this->forwardTableId;
         }
         if (null !== $this->internalIp) {
             $res['InternalIp'] = $this->internalIp;
@@ -134,14 +125,23 @@ class CreateForwardEntryRequest extends Model
         if (null !== $this->ipProtocol) {
             $res['IpProtocol'] = $this->ipProtocol;
         }
-        if (null !== $this->forwardEntryName) {
-            $res['ForwardEntryName'] = $this->forwardEntryName;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->portBreak) {
             $res['PortBreak'] = $this->portBreak;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -155,29 +155,20 @@ class CreateForwardEntryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ForwardTableId'])) {
-            $model->forwardTableId = $map['ForwardTableId'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['ExternalIp'])) {
             $model->externalIp = $map['ExternalIp'];
         }
         if (isset($map['ExternalPort'])) {
             $model->externalPort = $map['ExternalPort'];
+        }
+        if (isset($map['ForwardEntryName'])) {
+            $model->forwardEntryName = $map['ForwardEntryName'];
+        }
+        if (isset($map['ForwardTableId'])) {
+            $model->forwardTableId = $map['ForwardTableId'];
         }
         if (isset($map['InternalIp'])) {
             $model->internalIp = $map['InternalIp'];
@@ -188,14 +179,23 @@ class CreateForwardEntryRequest extends Model
         if (isset($map['IpProtocol'])) {
             $model->ipProtocol = $map['IpProtocol'];
         }
-        if (isset($map['ForwardEntryName'])) {
-            $model->forwardEntryName = $map['ForwardEntryName'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PortBreak'])) {
             $model->portBreak = $map['PortBreak'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

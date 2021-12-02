@@ -11,15 +11,15 @@ class routeTable extends Model
     /**
      * @var string
      */
-    public $routeTableType;
+    public $routeTableId;
 
     /**
      * @var string
      */
-    public $routeTableId;
+    public $routeTableType;
     protected $_name = [
-        'routeTableType' => 'RouteTableType',
         'routeTableId'   => 'RouteTableId',
+        'routeTableType' => 'RouteTableType',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class routeTable extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->routeTableType) {
-            $res['RouteTableType'] = $this->routeTableType;
-        }
         if (null !== $this->routeTableId) {
             $res['RouteTableId'] = $this->routeTableId;
+        }
+        if (null !== $this->routeTableType) {
+            $res['RouteTableType'] = $this->routeTableType;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class routeTable extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RouteTableType'])) {
-            $model->routeTableType = $map['RouteTableType'];
-        }
         if (isset($map['RouteTableId'])) {
             $model->routeTableId = $map['RouteTableId'];
+        }
+        if (isset($map['RouteTableType'])) {
+            $model->routeTableType = $map['RouteTableType'];
         }
 
         return $model;

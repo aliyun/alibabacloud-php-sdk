@@ -11,21 +11,21 @@ class CreateCommonBandwidthPackageResponseBody extends Model
     /**
      * @var string
      */
+    public $bandwidthPackageId;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
      * @var string
      */
     public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $bandwidthPackageId;
     protected $_name = [
+        'bandwidthPackageId' => 'BandwidthPackageId',
         'requestId'          => 'RequestId',
         'resourceGroupId'    => 'ResourceGroupId',
-        'bandwidthPackageId' => 'BandwidthPackageId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CreateCommonBandwidthPackageResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bandwidthPackageId) {
+            $res['BandwidthPackageId'] = $this->bandwidthPackageId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->bandwidthPackageId) {
-            $res['BandwidthPackageId'] = $this->bandwidthPackageId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CreateCommonBandwidthPackageResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BandwidthPackageId'])) {
+            $model->bandwidthPackageId = $map['BandwidthPackageId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['BandwidthPackageId'])) {
-            $model->bandwidthPackageId = $map['BandwidthPackageId'];
         }
 
         return $model;

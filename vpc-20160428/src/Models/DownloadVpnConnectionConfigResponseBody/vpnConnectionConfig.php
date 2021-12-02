@@ -11,9 +11,14 @@ use AlibabaCloud\Tea\Model;
 class vpnConnectionConfig extends Model
 {
     /**
-     * @var string
+     * @var ikeConfig
      */
-    public $remote;
+    public $ikeConfig;
+
+    /**
+     * @var ipsecConfig
+     */
+    public $ipsecConfig;
 
     /**
      * @var string
@@ -23,29 +28,24 @@ class vpnConnectionConfig extends Model
     /**
      * @var string
      */
-    public $remoteSubnet;
-
-    /**
-     * @var ipsecConfig
-     */
-    public $ipsecConfig;
-
-    /**
-     * @var ikeConfig
-     */
-    public $ikeConfig;
+    public $localSubnet;
 
     /**
      * @var string
      */
-    public $localSubnet;
+    public $remote;
+
+    /**
+     * @var string
+     */
+    public $remoteSubnet;
     protected $_name = [
-        'remote'       => 'Remote',
-        'local'        => 'Local',
-        'remoteSubnet' => 'RemoteSubnet',
-        'ipsecConfig'  => 'IpsecConfig',
         'ikeConfig'    => 'IkeConfig',
+        'ipsecConfig'  => 'IpsecConfig',
+        'local'        => 'Local',
         'localSubnet'  => 'LocalSubnet',
+        'remote'       => 'Remote',
+        'remoteSubnet' => 'RemoteSubnet',
     ];
 
     public function validate()
@@ -55,23 +55,23 @@ class vpnConnectionConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->remote) {
-            $res['Remote'] = $this->remote;
-        }
-        if (null !== $this->local) {
-            $res['Local'] = $this->local;
-        }
-        if (null !== $this->remoteSubnet) {
-            $res['RemoteSubnet'] = $this->remoteSubnet;
+        if (null !== $this->ikeConfig) {
+            $res['IkeConfig'] = null !== $this->ikeConfig ? $this->ikeConfig->toMap() : null;
         }
         if (null !== $this->ipsecConfig) {
             $res['IpsecConfig'] = null !== $this->ipsecConfig ? $this->ipsecConfig->toMap() : null;
         }
-        if (null !== $this->ikeConfig) {
-            $res['IkeConfig'] = null !== $this->ikeConfig ? $this->ikeConfig->toMap() : null;
+        if (null !== $this->local) {
+            $res['Local'] = $this->local;
         }
         if (null !== $this->localSubnet) {
             $res['LocalSubnet'] = $this->localSubnet;
+        }
+        if (null !== $this->remote) {
+            $res['Remote'] = $this->remote;
+        }
+        if (null !== $this->remoteSubnet) {
+            $res['RemoteSubnet'] = $this->remoteSubnet;
         }
 
         return $res;
@@ -85,23 +85,23 @@ class vpnConnectionConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Remote'])) {
-            $model->remote = $map['Remote'];
-        }
-        if (isset($map['Local'])) {
-            $model->local = $map['Local'];
-        }
-        if (isset($map['RemoteSubnet'])) {
-            $model->remoteSubnet = $map['RemoteSubnet'];
+        if (isset($map['IkeConfig'])) {
+            $model->ikeConfig = ikeConfig::fromMap($map['IkeConfig']);
         }
         if (isset($map['IpsecConfig'])) {
             $model->ipsecConfig = ipsecConfig::fromMap($map['IpsecConfig']);
         }
-        if (isset($map['IkeConfig'])) {
-            $model->ikeConfig = ikeConfig::fromMap($map['IkeConfig']);
+        if (isset($map['Local'])) {
+            $model->local = $map['Local'];
         }
         if (isset($map['LocalSubnet'])) {
             $model->localSubnet = $map['LocalSubnet'];
+        }
+        if (isset($map['Remote'])) {
+            $model->remote = $map['Remote'];
+        }
+        if (isset($map['RemoteSubnet'])) {
+            $model->remoteSubnet = $map['RemoteSubnet'];
         }
 
         return $model;

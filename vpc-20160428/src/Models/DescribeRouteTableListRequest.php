@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
-use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeRouteTableListRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class DescribeRouteTableListRequest extends Model
@@ -12,27 +11,12 @@ class DescribeRouteTableListRequest extends Model
     /**
      * @var string
      */
-    public $routerType;
+    public $ownerAccount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $routerId;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $routeTableId;
-
-    /**
-     * @var string
-     */
-    public $routeTableName;
+    public $ownerId;
 
     /**
      * @var int
@@ -47,12 +31,12 @@ class DescribeRouteTableListRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $regionId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -67,32 +51,41 @@ class DescribeRouteTableListRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $routeTableId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $routeTableName;
 
     /**
-     * @var tag[]
+     * @var string
      */
-    public $tag;
+    public $routerId;
+
+    /**
+     * @var string
+     */
+    public $routerType;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
-        'routerType'           => 'RouterType',
-        'routerId'             => 'RouterId',
-        'vpcId'                => 'VpcId',
-        'routeTableId'         => 'RouteTableId',
-        'routeTableName'       => 'RouteTableName',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
+        'regionId'             => 'RegionId',
         'resourceGroupId'      => 'ResourceGroupId',
-        'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
-        'tag'                  => 'Tag',
+        'routeTableId'         => 'RouteTableId',
+        'routeTableName'       => 'RouteTableName',
+        'routerId'             => 'RouterId',
+        'routerType'           => 'RouterType',
+        'vpcId'                => 'VpcId',
     ];
 
     public function validate()
@@ -102,20 +95,11 @@ class DescribeRouteTableListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->routerType) {
-            $res['RouterType'] = $this->routerType;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->routerId) {
-            $res['RouterId'] = $this->routerId;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->routeTableId) {
-            $res['RouteTableId'] = $this->routeTableId;
-        }
-        if (null !== $this->routeTableName) {
-            $res['RouteTableName'] = $this->routeTableName;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -123,11 +107,11 @@ class DescribeRouteTableListRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -135,20 +119,20 @@ class DescribeRouteTableListRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->routeTableId) {
+            $res['RouteTableId'] = $this->routeTableId;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->routeTableName) {
+            $res['RouteTableName'] = $this->routeTableName;
         }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->routerId) {
+            $res['RouterId'] = $this->routerId;
+        }
+        if (null !== $this->routerType) {
+            $res['RouterType'] = $this->routerType;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -162,20 +146,11 @@ class DescribeRouteTableListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RouterType'])) {
-            $model->routerType = $map['RouterType'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['RouterId'])) {
-            $model->routerId = $map['RouterId'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['RouteTableId'])) {
-            $model->routeTableId = $map['RouteTableId'];
-        }
-        if (isset($map['RouteTableName'])) {
-            $model->routeTableName = $map['RouteTableName'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -183,11 +158,11 @@ class DescribeRouteTableListRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -195,20 +170,20 @@ class DescribeRouteTableListRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['RouteTableId'])) {
+            $model->routeTableId = $map['RouteTableId'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['RouteTableName'])) {
+            $model->routeTableName = $map['RouteTableName'];
         }
-        if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['RouterId'])) {
+            $model->routerId = $map['RouterId'];
+        }
+        if (isset($map['RouterType'])) {
+            $model->routerType = $map['RouterType'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

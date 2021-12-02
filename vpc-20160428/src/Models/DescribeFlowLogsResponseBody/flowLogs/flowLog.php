@@ -11,27 +11,7 @@ class flowLog extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
     public $creationTime;
-
-    /**
-     * @var string
-     */
-    public $flowLogName;
-
-    /**
-     * @var string
-     */
-    public $trafficType;
-
-    /**
-     * @var string
-     */
-    public $resourceType;
 
     /**
      * @var string
@@ -41,7 +21,12 @@ class flowLog extends Model
     /**
      * @var string
      */
-    public $projectName;
+    public $flowLogId;
+
+    /**
+     * @var string
+     */
+    public $flowLogName;
 
     /**
      * @var string
@@ -51,7 +36,7 @@ class flowLog extends Model
     /**
      * @var string
      */
-    public $resourceId;
+    public $projectName;
 
     /**
      * @var string
@@ -61,19 +46,34 @@ class flowLog extends Model
     /**
      * @var string
      */
-    public $flowLogId;
+    public $resourceId;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $trafficType;
     protected $_name = [
-        'status'       => 'Status',
         'creationTime' => 'CreationTime',
-        'flowLogName'  => 'FlowLogName',
-        'trafficType'  => 'TrafficType',
-        'resourceType' => 'ResourceType',
         'description'  => 'Description',
-        'projectName'  => 'ProjectName',
-        'logStoreName' => 'LogStoreName',
-        'resourceId'   => 'ResourceId',
-        'regionId'     => 'RegionId',
         'flowLogId'    => 'FlowLogId',
+        'flowLogName'  => 'FlowLogName',
+        'logStoreName' => 'LogStoreName',
+        'projectName'  => 'ProjectName',
+        'regionId'     => 'RegionId',
+        'resourceId'   => 'ResourceId',
+        'resourceType' => 'ResourceType',
+        'status'       => 'Status',
+        'trafficType'  => 'TrafficType',
     ];
 
     public function validate()
@@ -83,38 +83,38 @@ class flowLog extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->flowLogName) {
-            $res['FlowLogName'] = $this->flowLogName;
-        }
-        if (null !== $this->trafficType) {
-            $res['TrafficType'] = $this->trafficType;
-        }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->projectName) {
-            $res['ProjectName'] = $this->projectName;
+        if (null !== $this->flowLogId) {
+            $res['FlowLogId'] = $this->flowLogId;
+        }
+        if (null !== $this->flowLogName) {
+            $res['FlowLogName'] = $this->flowLogName;
         }
         if (null !== $this->logStoreName) {
             $res['LogStoreName'] = $this->logStoreName;
         }
-        if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->flowLogId) {
-            $res['FlowLogId'] = $this->flowLogId;
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->trafficType) {
+            $res['TrafficType'] = $this->trafficType;
         }
 
         return $res;
@@ -128,38 +128,38 @@ class flowLog extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['FlowLogName'])) {
-            $model->flowLogName = $map['FlowLogName'];
-        }
-        if (isset($map['TrafficType'])) {
-            $model->trafficType = $map['TrafficType'];
-        }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['ProjectName'])) {
-            $model->projectName = $map['ProjectName'];
+        if (isset($map['FlowLogId'])) {
+            $model->flowLogId = $map['FlowLogId'];
+        }
+        if (isset($map['FlowLogName'])) {
+            $model->flowLogName = $map['FlowLogName'];
         }
         if (isset($map['LogStoreName'])) {
             $model->logStoreName = $map['LogStoreName'];
         }
-        if (isset($map['ResourceId'])) {
-            $model->resourceId = $map['ResourceId'];
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['FlowLogId'])) {
-            $model->flowLogId = $map['FlowLogId'];
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['TrafficType'])) {
+            $model->trafficType = $map['TrafficType'];
         }
 
         return $model;

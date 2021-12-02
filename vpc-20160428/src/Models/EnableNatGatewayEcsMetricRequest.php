@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class EnableNatGatewayEcsMetricRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
      * @var bool
      */
     public $dryRun;
@@ -22,10 +17,15 @@ class EnableNatGatewayEcsMetricRequest extends Model
      * @var string
      */
     public $natGatewayId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'     => 'RegionId',
         'dryRun'       => 'DryRun',
         'natGatewayId' => 'NatGatewayId',
+        'regionId'     => 'RegionId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class EnableNatGatewayEcsMetricRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class EnableNatGatewayEcsMetricRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

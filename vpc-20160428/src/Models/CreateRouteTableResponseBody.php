@@ -11,15 +11,21 @@ class CreateRouteTableResponseBody extends Model
     /**
      * @var string
      */
-    public $routeTableId;
+    public $associateType;
 
     /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $routeTableId;
     protected $_name = [
-        'routeTableId' => 'RouteTableId',
-        'requestId'    => 'RequestId',
+        'associateType' => 'AssociateType',
+        'requestId'     => 'RequestId',
+        'routeTableId'  => 'RouteTableId',
     ];
 
     public function validate()
@@ -29,11 +35,14 @@ class CreateRouteTableResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->routeTableId) {
-            $res['RouteTableId'] = $this->routeTableId;
+        if (null !== $this->associateType) {
+            $res['AssociateType'] = $this->associateType;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->routeTableId) {
+            $res['RouteTableId'] = $this->routeTableId;
         }
 
         return $res;
@@ -47,11 +56,14 @@ class CreateRouteTableResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RouteTableId'])) {
-            $model->routeTableId = $map['RouteTableId'];
+        if (isset($map['AssociateType'])) {
+            $model->associateType = $map['AssociateType'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['RouteTableId'])) {
+            $model->routeTableId = $map['RouteTableId'];
         }
 
         return $model;

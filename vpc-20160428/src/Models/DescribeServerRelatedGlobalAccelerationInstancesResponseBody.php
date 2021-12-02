@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeServerRelatedGlobalAccelerationInstancesResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var globalAccelerationInstances
      */
     public $globalAccelerationInstances;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'                   => 'RequestId',
         'globalAccelerationInstances' => 'GlobalAccelerationInstances',
+        'requestId'                   => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeServerRelatedGlobalAccelerationInstancesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->globalAccelerationInstances) {
             $res['GlobalAccelerationInstances'] = null !== $this->globalAccelerationInstances ? $this->globalAccelerationInstances->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeServerRelatedGlobalAccelerationInstancesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['GlobalAccelerationInstances'])) {
             $model->globalAccelerationInstances = globalAccelerationInstances::fromMap($map['GlobalAccelerationInstances']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

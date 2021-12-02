@@ -9,9 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnatTableEntriesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -26,32 +46,12 @@ class DescribeSnatTableEntriesRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $snatTableId;
-
-    /**
-     * @var string
-     */
     public $snatEntryId;
 
     /**
      * @var string
      */
-    public $sourceVSwitchId;
-
-    /**
-     * @var string
-     */
-    public $sourceCIDR;
+    public $snatEntryName;
 
     /**
      * @var string
@@ -61,31 +61,31 @@ class DescribeSnatTableEntriesRequest extends Model
     /**
      * @var string
      */
-    public $snatEntryName;
+    public $snatTableId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageNumber;
+    public $sourceCIDR;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $sourceVSwitchId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
-        'snatTableId'          => 'SnatTableId',
-        'snatEntryId'          => 'SnatEntryId',
-        'sourceVSwitchId'      => 'SourceVSwitchId',
-        'sourceCIDR'           => 'SourceCIDR',
-        'snatIp'               => 'SnatIp',
-        'snatEntryName'        => 'SnatEntryName',
+        'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
+        'regionId'             => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'snatEntryId'          => 'SnatEntryId',
+        'snatEntryName'        => 'SnatEntryName',
+        'snatIp'               => 'SnatIp',
+        'snatTableId'          => 'SnatTableId',
+        'sourceCIDR'           => 'SourceCIDR',
+        'sourceVSwitchId'      => 'SourceVSwitchId',
     ];
 
     public function validate()
@@ -95,8 +95,20 @@ class DescribeSnatTableEntriesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -104,35 +116,23 @@ class DescribeSnatTableEntriesRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->snatTableId) {
-            $res['SnatTableId'] = $this->snatTableId;
-        }
         if (null !== $this->snatEntryId) {
             $res['SnatEntryId'] = $this->snatEntryId;
-        }
-        if (null !== $this->sourceVSwitchId) {
-            $res['SourceVSwitchId'] = $this->sourceVSwitchId;
-        }
-        if (null !== $this->sourceCIDR) {
-            $res['SourceCIDR'] = $this->sourceCIDR;
-        }
-        if (null !== $this->snatIp) {
-            $res['SnatIp'] = $this->snatIp;
         }
         if (null !== $this->snatEntryName) {
             $res['SnatEntryName'] = $this->snatEntryName;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->snatIp) {
+            $res['SnatIp'] = $this->snatIp;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->snatTableId) {
+            $res['SnatTableId'] = $this->snatTableId;
+        }
+        if (null !== $this->sourceCIDR) {
+            $res['SourceCIDR'] = $this->sourceCIDR;
+        }
+        if (null !== $this->sourceVSwitchId) {
+            $res['SourceVSwitchId'] = $this->sourceVSwitchId;
         }
 
         return $res;
@@ -146,8 +146,20 @@ class DescribeSnatTableEntriesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -155,35 +167,23 @@ class DescribeSnatTableEntriesRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['SnatTableId'])) {
-            $model->snatTableId = $map['SnatTableId'];
-        }
         if (isset($map['SnatEntryId'])) {
             $model->snatEntryId = $map['SnatEntryId'];
-        }
-        if (isset($map['SourceVSwitchId'])) {
-            $model->sourceVSwitchId = $map['SourceVSwitchId'];
-        }
-        if (isset($map['SourceCIDR'])) {
-            $model->sourceCIDR = $map['SourceCIDR'];
-        }
-        if (isset($map['SnatIp'])) {
-            $model->snatIp = $map['SnatIp'];
         }
         if (isset($map['SnatEntryName'])) {
             $model->snatEntryName = $map['SnatEntryName'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['SnatIp'])) {
+            $model->snatIp = $map['SnatIp'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['SnatTableId'])) {
+            $model->snatTableId = $map['SnatTableId'];
+        }
+        if (isset($map['SourceCIDR'])) {
+            $model->sourceCIDR = $map['SourceCIDR'];
+        }
+        if (isset($map['SourceVSwitchId'])) {
+            $model->sourceVSwitchId = $map['SourceVSwitchId'];
         }
 
         return $model;

@@ -11,7 +11,47 @@ class ipv6Gateway extends Model
     /**
      * @var string
      */
+    public $businessStatus;
+
+    /**
+     * @var string
+     */
     public $creationTime;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $expiredTime;
+
+    /**
+     * @var string
+     */
+    public $instanceChargeType;
+
+    /**
+     * @var string
+     */
+    public $ipv6GatewayId;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $spec;
 
     /**
      * @var string
@@ -22,58 +62,18 @@ class ipv6Gateway extends Model
      * @var string
      */
     public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $spec;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $ipv6GatewayId;
-
-    /**
-     * @var string
-     */
-    public $expiredTime;
-
-    /**
-     * @var string
-     */
-    public $businessStatus;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $instanceChargeType;
-
-    /**
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
+        'businessStatus'     => 'BusinessStatus',
         'creationTime'       => 'CreationTime',
+        'description'        => 'Description',
+        'expiredTime'        => 'ExpiredTime',
+        'instanceChargeType' => 'InstanceChargeType',
+        'ipv6GatewayId'      => 'Ipv6GatewayId',
+        'name'               => 'Name',
+        'regionId'           => 'RegionId',
+        'spec'               => 'Spec',
         'status'             => 'Status',
         'vpcId'              => 'VpcId',
-        'spec'               => 'Spec',
-        'description'        => 'Description',
-        'ipv6GatewayId'      => 'Ipv6GatewayId',
-        'expiredTime'        => 'ExpiredTime',
-        'businessStatus'     => 'BusinessStatus',
-        'name'               => 'Name',
-        'instanceChargeType' => 'InstanceChargeType',
-        'regionId'           => 'RegionId',
     ];
 
     public function validate()
@@ -83,38 +83,38 @@ class ipv6Gateway extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->businessStatus) {
+            $res['BusinessStatus'] = $this->businessStatus;
+        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->expiredTime) {
+            $res['ExpiredTime'] = $this->expiredTime;
+        }
+        if (null !== $this->instanceChargeType) {
+            $res['InstanceChargeType'] = $this->instanceChargeType;
+        }
+        if (null !== $this->ipv6GatewayId) {
+            $res['Ipv6GatewayId'] = $this->ipv6GatewayId;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->spec) {
+            $res['Spec'] = $this->spec;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->spec) {
-            $res['Spec'] = $this->spec;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->ipv6GatewayId) {
-            $res['Ipv6GatewayId'] = $this->ipv6GatewayId;
-        }
-        if (null !== $this->expiredTime) {
-            $res['ExpiredTime'] = $this->expiredTime;
-        }
-        if (null !== $this->businessStatus) {
-            $res['BusinessStatus'] = $this->businessStatus;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->instanceChargeType) {
-            $res['InstanceChargeType'] = $this->instanceChargeType;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -128,38 +128,38 @@ class ipv6Gateway extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BusinessStatus'])) {
+            $model->businessStatus = $map['BusinessStatus'];
+        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['ExpiredTime'])) {
+            $model->expiredTime = $map['ExpiredTime'];
+        }
+        if (isset($map['InstanceChargeType'])) {
+            $model->instanceChargeType = $map['InstanceChargeType'];
+        }
+        if (isset($map['Ipv6GatewayId'])) {
+            $model->ipv6GatewayId = $map['Ipv6GatewayId'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Spec'])) {
+            $model->spec = $map['Spec'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['Spec'])) {
-            $model->spec = $map['Spec'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['Ipv6GatewayId'])) {
-            $model->ipv6GatewayId = $map['Ipv6GatewayId'];
-        }
-        if (isset($map['ExpiredTime'])) {
-            $model->expiredTime = $map['ExpiredTime'];
-        }
-        if (isset($map['BusinessStatus'])) {
-            $model->businessStatus = $map['BusinessStatus'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['InstanceChargeType'])) {
-            $model->instanceChargeType = $map['InstanceChargeType'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

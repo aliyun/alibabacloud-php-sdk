@@ -12,27 +12,7 @@ class routeEntry extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $ipVersion;
-
-    /**
-     * @var string
-     */
     public $description;
-
-    /**
-     * @var string
-     */
-    public $routeEntryName;
 
     /**
      * @var string
@@ -42,7 +22,7 @@ class routeEntry extends Model
     /**
      * @var string
      */
-    public $routeEntryId;
+    public $ipVersion;
 
     /**
      * @var nextHops
@@ -52,17 +32,37 @@ class routeEntry extends Model
     /**
      * @var string
      */
+    public $routeEntryId;
+
+    /**
+     * @var string
+     */
+    public $routeEntryName;
+
+    /**
+     * @var string
+     */
     public $routeTableId;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
+        'description'          => 'Description',
+        'destinationCidrBlock' => 'DestinationCidrBlock',
+        'ipVersion'            => 'IpVersion',
+        'nextHops'             => 'NextHops',
+        'routeEntryId'         => 'RouteEntryId',
+        'routeEntryName'       => 'RouteEntryName',
+        'routeTableId'         => 'RouteTableId',
         'status'               => 'Status',
         'type'                 => 'Type',
-        'ipVersion'            => 'IpVersion',
-        'description'          => 'Description',
-        'routeEntryName'       => 'RouteEntryName',
-        'destinationCidrBlock' => 'DestinationCidrBlock',
-        'routeEntryId'         => 'RouteEntryId',
-        'nextHops'             => 'NextHops',
-        'routeTableId'         => 'RouteTableId',
     ];
 
     public function validate()
@@ -72,32 +72,32 @@ class routeEntry extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->destinationCidrBlock) {
+            $res['DestinationCidrBlock'] = $this->destinationCidrBlock;
+        }
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
+        }
+        if (null !== $this->nextHops) {
+            $res['NextHops'] = null !== $this->nextHops ? $this->nextHops->toMap() : null;
+        }
+        if (null !== $this->routeEntryId) {
+            $res['RouteEntryId'] = $this->routeEntryId;
+        }
+        if (null !== $this->routeEntryName) {
+            $res['RouteEntryName'] = $this->routeEntryName;
+        }
+        if (null !== $this->routeTableId) {
+            $res['RouteTableId'] = $this->routeTableId;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-        if (null !== $this->ipVersion) {
-            $res['IpVersion'] = $this->ipVersion;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->routeEntryName) {
-            $res['RouteEntryName'] = $this->routeEntryName;
-        }
-        if (null !== $this->destinationCidrBlock) {
-            $res['DestinationCidrBlock'] = $this->destinationCidrBlock;
-        }
-        if (null !== $this->routeEntryId) {
-            $res['RouteEntryId'] = $this->routeEntryId;
-        }
-        if (null !== $this->nextHops) {
-            $res['NextHops'] = null !== $this->nextHops ? $this->nextHops->toMap() : null;
-        }
-        if (null !== $this->routeTableId) {
-            $res['RouteTableId'] = $this->routeTableId;
         }
 
         return $res;
@@ -111,32 +111,32 @@ class routeEntry extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['DestinationCidrBlock'])) {
+            $model->destinationCidrBlock = $map['DestinationCidrBlock'];
+        }
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
+        }
+        if (isset($map['NextHops'])) {
+            $model->nextHops = nextHops::fromMap($map['NextHops']);
+        }
+        if (isset($map['RouteEntryId'])) {
+            $model->routeEntryId = $map['RouteEntryId'];
+        }
+        if (isset($map['RouteEntryName'])) {
+            $model->routeEntryName = $map['RouteEntryName'];
+        }
+        if (isset($map['RouteTableId'])) {
+            $model->routeTableId = $map['RouteTableId'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-        if (isset($map['IpVersion'])) {
-            $model->ipVersion = $map['IpVersion'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['RouteEntryName'])) {
-            $model->routeEntryName = $map['RouteEntryName'];
-        }
-        if (isset($map['DestinationCidrBlock'])) {
-            $model->destinationCidrBlock = $map['DestinationCidrBlock'];
-        }
-        if (isset($map['RouteEntryId'])) {
-            $model->routeEntryId = $map['RouteEntryId'];
-        }
-        if (isset($map['NextHops'])) {
-            $model->nextHops = nextHops::fromMap($map['NextHops']);
-        }
-        if (isset($map['RouteTableId'])) {
-            $model->routeTableId = $map['RouteTableId'];
         }
 
         return $model;

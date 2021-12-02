@@ -14,18 +14,18 @@ class AllocateEipSegmentAddressResponseBody extends Model
     public $eipSegmentInstanceId;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $orderId;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'eipSegmentInstanceId' => 'EipSegmentInstanceId',
-        'requestId'            => 'RequestId',
         'orderId'              => 'OrderId',
+        'requestId'            => 'RequestId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class AllocateEipSegmentAddressResponseBody extends Model
         if (null !== $this->eipSegmentInstanceId) {
             $res['EipSegmentInstanceId'] = $this->eipSegmentInstanceId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class AllocateEipSegmentAddressResponseBody extends Model
         if (isset($map['EipSegmentInstanceId'])) {
             $model->eipSegmentInstanceId = $map['EipSegmentInstanceId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

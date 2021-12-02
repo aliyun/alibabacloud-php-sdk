@@ -9,24 +9,14 @@ use AlibabaCloud\Tea\Model;
 class RenewInstanceRequest extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $regionId;
+    public $duration;
 
     /**
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $pricingCycle;
-
-    /**
-     * @var int
-     */
-    public $duration;
 
     /**
      * @var string
@@ -41,6 +31,16 @@ class RenewInstanceRequest extends Model
     /**
      * @var string
      */
+    public $pricingCycle;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -48,12 +48,12 @@ class RenewInstanceRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'regionId'             => 'RegionId',
-        'instanceId'           => 'InstanceId',
-        'pricingCycle'         => 'PricingCycle',
         'duration'             => 'Duration',
+        'instanceId'           => 'InstanceId',
         'instanceType'         => 'InstanceType',
         'ownerId'              => 'OwnerId',
+        'pricingCycle'         => 'PricingCycle',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
     ];
@@ -65,23 +65,23 @@ class RenewInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->pricingCycle) {
-            $res['PricingCycle'] = $this->pricingCycle;
-        }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pricingCycle) {
+            $res['PricingCycle'] = $this->pricingCycle;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -101,23 +101,23 @@ class RenewInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['PricingCycle'])) {
-            $model->pricingCycle = $map['PricingCycle'];
-        }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PricingCycle'])) {
+            $model->pricingCycle = $map['PricingCycle'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateVpnConnectionResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var int
      */
     public $createTime;
@@ -21,17 +16,22 @@ class CreateVpnConnectionResponseBody extends Model
     /**
      * @var string
      */
-    public $vpnConnectionId;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $requestId;
+
+    /**
+     * @var string
+     */
+    public $vpnConnectionId;
     protected $_name = [
-        'requestId'       => 'RequestId',
         'createTime'      => 'CreateTime',
-        'vpnConnectionId' => 'VpnConnectionId',
         'name'            => 'Name',
+        'requestId'       => 'RequestId',
+        'vpnConnectionId' => 'VpnConnectionId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class CreateVpnConnectionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->vpnConnectionId) {
-            $res['VpnConnectionId'] = $this->vpnConnectionId;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->vpnConnectionId) {
+            $res['VpnConnectionId'] = $this->vpnConnectionId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class CreateVpnConnectionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['VpnConnectionId'])) {
-            $model->vpnConnectionId = $map['VpnConnectionId'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['VpnConnectionId'])) {
+            $model->vpnConnectionId = $map['VpnConnectionId'];
         }
 
         return $model;

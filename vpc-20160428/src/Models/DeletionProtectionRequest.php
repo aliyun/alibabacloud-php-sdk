@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DeletionProtectionRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
      * @var bool
      */
     public $protectionEnable;
@@ -16,12 +31,7 @@ class DeletionProtectionRequest extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
+    public $regionId;
 
     /**
      * @var string
@@ -34,28 +44,18 @@ class DeletionProtectionRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $type;
     protected $_name = [
-        'protectionEnable'     => 'ProtectionEnable',
-        'type'                 => 'Type',
+        'clientToken'          => 'ClientToken',
         'instanceId'           => 'InstanceId',
+        'ownerId'              => 'OwnerId',
+        'protectionEnable'     => 'ProtectionEnable',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerId'              => 'OwnerId',
-        'clientToken'          => 'ClientToken',
-        'regionId'             => 'RegionId',
+        'type'                 => 'Type',
     ];
 
     public function validate()
@@ -65,14 +65,20 @@ class DeletionProtectionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->protectionEnable) {
-            $res['ProtectionEnable'] = $this->protectionEnable;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->protectionEnable) {
+            $res['ProtectionEnable'] = $this->protectionEnable;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -80,14 +86,8 @@ class DeletionProtectionRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -101,14 +101,20 @@ class DeletionProtectionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ProtectionEnable'])) {
-            $model->protectionEnable = $map['ProtectionEnable'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ProtectionEnable'])) {
+            $model->protectionEnable = $map['ProtectionEnable'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -116,14 +122,8 @@ class DeletionProtectionRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;
