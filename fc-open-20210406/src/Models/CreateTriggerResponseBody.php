@@ -21,6 +21,13 @@ class CreateTriggerResponseBody extends Model
     public $description;
 
     /**
+     * @description 域名名称，使用域名名称拼接上函数计算域名，可以采用HTTP协议调用到触发器对应版本的函数。例如{domainName}.cn-shanghai.fc.aliyuncs.com
+     *
+     * @var string
+     */
+    public $domainName;
+
+    /**
      * @description 调用函数使用的RAM角色的ARN
      *
      * @var string
@@ -76,6 +83,7 @@ class CreateTriggerResponseBody extends Model
     protected $_name = [
         'createdTime'      => 'createdTime',
         'description'      => 'description',
+        'domainName'       => 'domainName',
         'invocationRole'   => 'invocationRole',
         'lastModifiedTime' => 'lastModifiedTime',
         'qualifier'        => 'qualifier',
@@ -98,6 +106,9 @@ class CreateTriggerResponseBody extends Model
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+        if (null !== $this->domainName) {
+            $res['domainName'] = $this->domainName;
         }
         if (null !== $this->invocationRole) {
             $res['invocationRole'] = $this->invocationRole;
@@ -140,6 +151,9 @@ class CreateTriggerResponseBody extends Model
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+        if (isset($map['domainName'])) {
+            $model->domainName = $map['domainName'];
         }
         if (isset($map['invocationRole'])) {
             $model->invocationRole = $map['invocationRole'];

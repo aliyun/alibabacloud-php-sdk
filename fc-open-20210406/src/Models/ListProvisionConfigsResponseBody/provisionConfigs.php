@@ -18,6 +18,13 @@ class provisionConfigs extends Model
     public $current;
 
     /**
+     * @description 预留实例创建失败时的错误信息
+     *
+     * @var string
+     */
+    public $currentError;
+
+    /**
      * @description 资源描述
      *
      * @var string
@@ -46,6 +53,7 @@ class provisionConfigs extends Model
     public $targetTrackingPolicies;
     protected $_name = [
         'current'                => 'current',
+        'currentError'           => 'currentError',
         'resource'               => 'resource',
         'scheduledActions'       => 'scheduledActions',
         'target'                 => 'target',
@@ -61,6 +69,9 @@ class provisionConfigs extends Model
         $res = [];
         if (null !== $this->current) {
             $res['current'] = $this->current;
+        }
+        if (null !== $this->currentError) {
+            $res['currentError'] = $this->currentError;
         }
         if (null !== $this->resource) {
             $res['resource'] = $this->resource;
@@ -100,6 +111,9 @@ class provisionConfigs extends Model
         $model = new self();
         if (isset($map['current'])) {
             $model->current = $map['current'];
+        }
+        if (isset($map['currentError'])) {
+            $model->currentError = $map['currentError'];
         }
         if (isset($map['resource'])) {
             $model->resource = $map['resource'];

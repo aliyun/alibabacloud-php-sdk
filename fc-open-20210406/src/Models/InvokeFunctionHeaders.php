@@ -11,8 +11,6 @@ class InvokeFunctionHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description 用户 uid
-     *
      * @var string
      */
     public $xFcAccountId;

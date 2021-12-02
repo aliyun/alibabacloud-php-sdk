@@ -42,6 +42,20 @@ class GetFunctionResponseBody extends Model
     public $customContainerConfig;
 
     /**
+     * @description 函数自定义DNS配置
+     *
+     * @var CustomDNS
+     */
+    public $customDNS;
+
+    /**
+     * @description Custom Runtime函数详细配置
+     *
+     * @var CustomRuntimeConfig
+     */
+    public $customRuntimeConfig;
+
+    /**
      * @description 函数描述
      *
      * @var string
@@ -143,6 +157,8 @@ class GetFunctionResponseBody extends Model
         'codeSize'                => 'codeSize',
         'createdTime'             => 'createdTime',
         'customContainerConfig'   => 'customContainerConfig',
+        'customDNS'               => 'customDNS',
+        'customRuntimeConfig'     => 'customRuntimeConfig',
         'description'             => 'description',
         'environmentVariables'    => 'environmentVariables',
         'functionId'              => 'functionId',
@@ -181,6 +197,12 @@ class GetFunctionResponseBody extends Model
         }
         if (null !== $this->customContainerConfig) {
             $res['customContainerConfig'] = null !== $this->customContainerConfig ? $this->customContainerConfig->toMap() : null;
+        }
+        if (null !== $this->customDNS) {
+            $res['customDNS'] = null !== $this->customDNS ? $this->customDNS->toMap() : null;
+        }
+        if (null !== $this->customRuntimeConfig) {
+            $res['customRuntimeConfig'] = null !== $this->customRuntimeConfig ? $this->customRuntimeConfig->toMap() : null;
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
@@ -253,6 +275,12 @@ class GetFunctionResponseBody extends Model
         }
         if (isset($map['customContainerConfig'])) {
             $model->customContainerConfig = CustomContainerConfigInfo::fromMap($map['customContainerConfig']);
+        }
+        if (isset($map['customDNS'])) {
+            $model->customDNS = CustomDNS::fromMap($map['customDNS']);
+        }
+        if (isset($map['customRuntimeConfig'])) {
+            $model->customRuntimeConfig = CustomRuntimeConfig::fromMap($map['customRuntimeConfig']);
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];

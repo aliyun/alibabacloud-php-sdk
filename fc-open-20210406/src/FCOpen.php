@@ -75,6 +75,9 @@ use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListFunctionAsyncInvokeConfigsReque
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListFunctionAsyncInvokeConfigsResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListFunctionsRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListFunctionsResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListInstancesHeaders;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListInstancesRequest;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListLayersRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListLayersResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListLayerVersionsRequest;
@@ -133,6 +136,7 @@ use AlibabaCloud\SDK\FCOpen\V20210406\Models\UpdateTriggerResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class FCOpen extends OpenApiClient
@@ -234,8 +238,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateAlias',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/aliases',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateAliasResponse::fromMap($this->doROARequest('CreateAlias', '2021-04-06', 'HTTPS', 'POST', 'AK', '/2021-04-06/services/' . $serviceName . '/aliases', 'json', $req, $runtime));
+        return CreateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -278,8 +293,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateCustomDomain',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/custom-domains',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateCustomDomainResponse::fromMap($this->doROARequest('CreateCustomDomain', '2021-04-06', 'HTTPS', 'POST', 'AK', '/2021-04-06/custom-domains', 'json', $req, $runtime));
+        return CreateCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -317,6 +343,12 @@ class FCOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->customContainerConfig)) {
             @$body['customContainerConfig'] = $request->customContainerConfig;
+        }
+        if (!Utils::isUnset($request->customDNS)) {
+            @$body['customDNS'] = $request->customDNS;
+        }
+        if (!Utils::isUnset($request->customRuntimeConfig)) {
+            @$body['customRuntimeConfig'] = $request->customRuntimeConfig;
         }
         if (!Utils::isUnset($request->description)) {
             @$body['description'] = $request->description;
@@ -362,14 +394,25 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['x-fc-code-checksum'] = $headers->xFcCodeChecksum;
+            @$realHeaders['x-fc-code-checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateFunction',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateFunctionResponse::fromMap($this->doROARequest('CreateFunction', '2021-04-06', 'HTTPS', 'POST', 'AK', '/2021-04-06/services/' . $serviceName . '/functions', 'json', $req, $runtime));
+        return CreateFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -412,8 +455,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateLayerVersion',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/layers/' . $layerName . '/versions',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateLayerVersionResponse::fromMap($this->doROARequest('CreateLayerVersion', '2021-04-06', 'HTTPS', 'POST', 'AK', '/2021-04-06/layers/' . $layerName . '/versions', 'json', $req, $runtime));
+        return CreateLayerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -468,8 +522,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateService',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateServiceResponse::fromMap($this->doROARequest('CreateService', '2021-04-06', 'HTTPS', 'POST', 'AK', '/2021-04-06/services', 'json', $req, $runtime));
+        return CreateServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -527,8 +592,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateTrigger',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/triggers',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateTriggerResponse::fromMap($this->doROARequest('CreateTrigger', '2021-04-06', 'HTTPS', 'POST', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/triggers', 'json', $req, $runtime));
+        return CreateTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -565,8 +641,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateVpcBinding',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/bindings',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return CreateVpcBindingResponse::fromMap($this->doROARequest('CreateVpcBinding', '2021-04-06', 'HTTPS', 'POST', 'AK', '/2021-04-06/services/' . $serviceName . '/bindings', 'none', $req, $runtime));
+        return CreateVpcBindingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -600,13 +687,24 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->ifMatch)) {
-            @$realHeaders['If-Match'] = $headers->ifMatch;
+            @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteAlias',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/aliases/' . $aliasName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteAliasResponse::fromMap($this->doROARequest('DeleteAlias', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/services/' . $serviceName . '/aliases/' . $aliasName . '', 'none', $req, $runtime));
+        return DeleteAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -635,8 +733,19 @@ class FCOpen extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteCustomDomain',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/custom-domains/' . $domainName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteCustomDomainResponse::fromMap($this->doROARequest('DeleteCustomDomain', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/custom-domains/' . $domainName . '', 'none', $req, $runtime));
+        return DeleteCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -670,13 +779,24 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->ifMatch)) {
-            @$realHeaders['If-Match'] = $headers->ifMatch;
+            @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteFunction',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteFunctionResponse::fromMap($this->doROARequest('DeleteFunction', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '', 'none', $req, $runtime));
+        return DeleteFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -716,8 +836,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteFunctionAsyncInvokeConfig',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/async-invoke-config',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteFunctionAsyncInvokeConfigResponse::fromMap($this->doROARequest('DeleteFunctionAsyncInvokeConfig', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/async-invoke-config', 'none', $req, $runtime));
+        return DeleteFunctionAsyncInvokeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -758,14 +889,25 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->ifMatch)) {
-            @$realHeaders['If-Match'] = $headers->ifMatch;
+            @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteFunctionOnDemandConfig',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/on-demand-config',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteFunctionOnDemandConfigResponse::fromMap($this->doROARequest('DeleteFunctionOnDemandConfig', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/on-demand-config', 'none', $req, $runtime));
+        return DeleteFunctionOnDemandConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -797,8 +939,19 @@ class FCOpen extends OpenApiClient
         $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteLayerVersion',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/layers/' . $layerName . '/versions/' . $version . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteLayerVersionResponse::fromMap($this->doROARequest('DeleteLayerVersion', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/layers/' . $layerName . '/versions/' . $version . '', 'none', $req, $runtime));
+        return DeleteLayerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -829,13 +982,24 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->ifMatch)) {
-            @$realHeaders['If-Match'] = $headers->ifMatch;
+            @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteService',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteServiceResponse::fromMap($this->doROARequest('DeleteService', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/services/' . $serviceName . '', 'none', $req, $runtime));
+        return DeleteServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -867,8 +1031,19 @@ class FCOpen extends OpenApiClient
         $req         = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteServiceVersion',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/versions/' . $versionId . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteServiceVersionResponse::fromMap($this->doROARequest('DeleteServiceVersion', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/services/' . $serviceName . '/versions/' . $versionId . '', 'none', $req, $runtime));
+        return DeleteServiceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -905,13 +1080,24 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->ifMatch)) {
-            @$realHeaders['If-Match'] = $headers->ifMatch;
+            @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteTrigger',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/triggers/' . $triggerName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteTriggerResponse::fromMap($this->doROARequest('DeleteTrigger', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/triggers/' . $triggerName . '', 'none', $req, $runtime));
+        return DeleteTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -943,8 +1129,19 @@ class FCOpen extends OpenApiClient
         $req         = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteVpcBinding',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/bindings/' . $vpcId . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteVpcBindingResponse::fromMap($this->doROARequest('DeleteVpcBinding', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/services/' . $serviceName . '/bindings/' . $vpcId . '', 'none', $req, $runtime));
+        return DeleteVpcBindingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -987,8 +1184,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeregisterEventSource',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/event-sources/' . $sourceArn . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeregisterEventSourceResponse::fromMap($this->doROARequest('DeregisterEventSource', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/event-sources/' . $sourceArn . '', 'none', $req, $runtime));
+        return DeregisterEventSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1013,8 +1221,19 @@ class FCOpen extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetAccountSettings',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/account-settings',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetAccountSettingsResponse::fromMap($this->doROARequest('GetAccountSettings', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/account-settings', 'json', $req, $runtime));
+        return GetAccountSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1046,8 +1265,19 @@ class FCOpen extends OpenApiClient
         $req         = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetAlias',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/aliases/' . $aliasName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetAliasResponse::fromMap($this->doROARequest('GetAlias', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/aliases/' . $aliasName . '', 'json', $req, $runtime));
+        return GetAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1076,8 +1306,19 @@ class FCOpen extends OpenApiClient
         $req        = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetCustomDomain',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/custom-domains/' . $domainName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetCustomDomainResponse::fromMap($this->doROARequest('GetCustomDomain', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/custom-domains/' . $domainName . '', 'json', $req, $runtime));
+        return GetCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1117,8 +1358,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetFunction',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetFunctionResponse::fromMap($this->doROARequest('GetFunction', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '', 'json', $req, $runtime));
+        return GetFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1158,8 +1410,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetFunctionAsyncInvokeConfig',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/async-invoke-config',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetFunctionAsyncInvokeConfigResponse::fromMap($this->doROARequest('GetFunctionAsyncInvokeConfig', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/async-invoke-config', 'json', $req, $runtime));
+        return GetFunctionAsyncInvokeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1199,8 +1462,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetFunctionCode',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/code',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetFunctionCodeResponse::fromMap($this->doROARequest('GetFunctionCode', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/code', 'json', $req, $runtime));
+        return GetFunctionCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1240,8 +1514,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetFunctionOnDemandConfig',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/on-demand-config',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetFunctionOnDemandConfigResponse::fromMap($this->doROARequest('GetFunctionOnDemandConfig', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/on-demand-config', 'json', $req, $runtime));
+        return GetFunctionOnDemandConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1273,8 +1558,19 @@ class FCOpen extends OpenApiClient
         $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetLayerVersion',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/layers/' . $layerName . '/versions/' . $version . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetLayerVersionResponse::fromMap($this->doROARequest('GetLayerVersion', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/layers/' . $layerName . '/versions/' . $version . '', 'json', $req, $runtime));
+        return GetLayerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1303,8 +1599,19 @@ class FCOpen extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetLayerVersionByArn',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/layerarn/' . $arn . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetLayerVersionByArnResponse::fromMap($this->doROARequest('GetLayerVersionByArn', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/layerarn/' . $arn . '', 'json', $req, $runtime));
+        return GetLayerVersionByArnResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1349,8 +1656,19 @@ class FCOpen extends OpenApiClient
             'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'GetProvisionConfig',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/provision-config',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetProvisionConfigResponse::fromMap($this->doROARequest('GetProvisionConfig', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/provision-config', 'json', $req, $runtime));
+        return GetProvisionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1384,8 +1702,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetResourceTags',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/tag',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetResourceTagsResponse::fromMap($this->doROARequest('GetResourceTags', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/tag', 'json', $req, $runtime));
+        return GetResourceTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1422,8 +1751,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetService',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetServiceResponse::fromMap($this->doROARequest('GetService', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '', 'json', $req, $runtime));
+        return GetServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1466,8 +1806,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetStatefulAsyncInvocation',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/stateful-async-invocations/' . $invocationId . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetStatefulAsyncInvocationResponse::fromMap($this->doROARequest('GetStatefulAsyncInvocation', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/stateful-async-invocations/' . $invocationId . '', 'json', $req, $runtime));
+        return GetStatefulAsyncInvocationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1502,8 +1853,19 @@ class FCOpen extends OpenApiClient
         $req          = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetTrigger',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/triggers/' . $triggerName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetTriggerResponse::fromMap($this->doROARequest('GetTrigger', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/triggers/' . $triggerName . '', 'json', $req, $runtime));
+        return GetTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1544,24 +1906,35 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = $headers->xFcAccountId;
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['x-fc-invocation-type'] = $headers->xFcInvocationType;
+            @$realHeaders['x-fc-invocation-type'] = Utils::toJSONString($headers->xFcInvocationType);
         }
         if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['x-fc-log-type'] = $headers->xFcLogType;
+            @$realHeaders['x-fc-log-type'] = Utils::toJSONString($headers->xFcLogType);
         }
         if (!Utils::isUnset($headers->xFcStatefulAsyncInvocationId)) {
-            @$realHeaders['x-fc-stateful-async-invocation-id'] = $headers->xFcStatefulAsyncInvocationId;
+            @$realHeaders['x-fc-stateful-async-invocation-id'] = Utils::toJSONString($headers->xFcStatefulAsyncInvocationId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
             'body'    => $request->body,
         ]);
+        $params = new Params([
+            'action'      => 'InvokeFunction',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/invocations',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'byte',
+        ]);
 
-        return InvokeFunctionResponse::fromMap($this->doROARequest('InvokeFunction', '2021-04-06', 'HTTPS', 'POST', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/invocations', 'byte', $req, $runtime));
+        return InvokeFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1607,8 +1980,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListAliases',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/aliases',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListAliasesResponse::fromMap($this->doROARequest('ListAliases', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/aliases', 'json', $req, $runtime));
+        return ListAliasesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1651,8 +2035,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListCustomDomains',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/custom-domains',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListCustomDomainsResponse::fromMap($this->doROARequest('ListCustomDomains', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/custom-domains', 'json', $req, $runtime));
+        return ListCustomDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1692,8 +2087,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListEventSources',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/event-sources',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListEventSourcesResponse::fromMap($this->doROARequest('ListEventSources', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/event-sources', 'json', $req, $runtime));
+        return ListEventSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1736,8 +2142,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListFunctionAsyncInvokeConfigs',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/async-invoke-configs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListFunctionAsyncInvokeConfigsResponse::fromMap($this->doROARequest('ListFunctionAsyncInvokeConfigs', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/async-invoke-configs', 'json', $req, $runtime));
+        return ListFunctionAsyncInvokeConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1786,8 +2203,84 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListFunctions',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListFunctionsResponse::fromMap($this->doROARequest('ListFunctions', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/functions', 'json', $req, $runtime));
+        return ListFunctionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string               $serviceName
+     * @param string               $functionName
+     * @param ListInstancesRequest $request
+     *
+     * @return ListInstancesResponse
+     */
+    public function listInstances($serviceName, $functionName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListInstancesHeaders([]);
+
+        return $this->listInstancesWithOptions($serviceName, $functionName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string               $serviceName
+     * @param string               $functionName
+     * @param ListInstancesRequest $request
+     * @param ListInstancesHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListInstancesResponse
+     */
+    public function listInstancesWithOptions($serviceName, $functionName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
+        $functionName = OpenApiUtilClient::getEncodeParam($functionName);
+        $query        = [];
+        if (!Utils::isUnset($request->limit)) {
+            @$query['limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->qualifier)) {
+            @$query['qualifier'] = $request->qualifier;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInstances',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/instances',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1827,8 +2320,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListLayerVersions',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/layers/' . $layerName . '/versions',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListLayerVersionsResponse::fromMap($this->doROARequest('ListLayerVersions', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/layers/' . $layerName . '/versions', 'json', $req, $runtime));
+        return ListLayerVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1871,8 +2375,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListLayers',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/layers',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListLayersResponse::fromMap($this->doROARequest('ListLayers', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/layers', 'json', $req, $runtime));
+        return ListLayersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1915,8 +2430,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListOnDemandConfigs',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/on-demand-configs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListOnDemandConfigsResponse::fromMap($this->doROARequest('ListOnDemandConfigs', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/on-demand-configs', 'json', $req, $runtime));
+        return ListOnDemandConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1959,8 +2485,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListProvisionConfigs',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/provision-configs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListProvisionConfigsResponse::fromMap($this->doROARequest('ListProvisionConfigs', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/provision-configs', 'json', $req, $runtime));
+        return ListProvisionConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1997,8 +2534,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListReservedCapacities',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/reserved-capacities',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListReservedCapacitiesResponse::fromMap($this->doROARequest('ListReservedCapacities', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/reserved-capacities', 'json', $req, $runtime));
+        return ListReservedCapacitiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2044,8 +2592,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListServiceVersions',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/versions',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListServiceVersionsResponse::fromMap($this->doROARequest('ListServiceVersions', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/versions', 'json', $req, $runtime));
+        return ListServiceVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2088,8 +2647,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListServices',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListServicesResponse::fromMap($this->doROARequest('ListServices', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services', 'json', $req, $runtime));
+        return ListServicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2153,8 +2723,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListStatefulAsyncInvocations',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/stateful-async-invocations',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListStatefulAsyncInvocationsResponse::fromMap($this->doROARequest('ListStatefulAsyncInvocations', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/stateful-async-invocations', 'json', $req, $runtime));
+        return ListStatefulAsyncInvocationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2191,8 +2772,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListTaggedResources',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/tags',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListTaggedResourcesResponse::fromMap($this->doROARequest('ListTaggedResources', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/tags', 'json', $req, $runtime));
+        return ListTaggedResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2241,8 +2833,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListTriggers',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/triggers',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListTriggersResponse::fromMap($this->doROARequest('ListTriggers', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/triggers', 'json', $req, $runtime));
+        return ListTriggersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2271,8 +2874,19 @@ class FCOpen extends OpenApiClient
         $req         = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'ListVpcBindings',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/bindings',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListVpcBindingsResponse::fromMap($this->doROARequest('ListVpcBindings', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/bindings', 'json', $req, $runtime));
+        return ListVpcBindingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2307,8 +2921,19 @@ class FCOpen extends OpenApiClient
         $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'PermanentDeleteLayerVersion',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/adminlayers/' . $userID . '/' . $layerName . '/versions/' . $version . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return PermanentDeleteLayerVersionResponse::fromMap($this->doROARequest('PermanentDeleteLayerVersion', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/adminlayers/' . $userID . '/' . $layerName . '/versions/' . $version . '', 'none', $req, $runtime));
+        return PermanentDeleteLayerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2340,8 +2965,19 @@ class FCOpen extends OpenApiClient
         $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'PublishLayerAsPublic',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/layers/' . $layerName . '/versions/' . $version . '',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return PublishLayerAsPublicResponse::fromMap($this->doROARequest('PublishLayerAsPublic', '2021-04-06', 'HTTPS', 'POST', 'AK', '/2021-04-06/layers/' . $layerName . '/versions/' . $version . '', 'none', $req, $runtime));
+        return PublishLayerAsPublicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2379,14 +3015,25 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->ifMatch)) {
-            @$realHeaders['If-Match'] = $headers->ifMatch;
+            @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'PublishServiceVersion',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/versions',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return PublishServiceVersionResponse::fromMap($this->doROARequest('PublishServiceVersion', '2021-04-06', 'HTTPS', 'POST', 'AK', '/2021-04-06/services/' . $serviceName . '/versions', 'json', $req, $runtime));
+        return PublishServiceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2440,8 +3087,19 @@ class FCOpen extends OpenApiClient
             'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'PutFunctionAsyncInvokeConfig',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/async-invoke-config',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return PutFunctionAsyncInvokeConfigResponse::fromMap($this->doROARequest('PutFunctionAsyncInvokeConfig', '2021-04-06', 'HTTPS', 'PUT', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/async-invoke-config', 'json', $req, $runtime));
+        return PutFunctionAsyncInvokeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2486,15 +3144,26 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->ifMatch)) {
-            @$realHeaders['If-Match'] = $headers->ifMatch;
+            @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'PutFunctionOnDemandConfig',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/on-demand-config',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return PutFunctionOnDemandConfigResponse::fromMap($this->doROARequest('PutFunctionOnDemandConfig', '2021-04-06', 'HTTPS', 'PUT', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/on-demand-config', 'json', $req, $runtime));
+        return PutFunctionOnDemandConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2545,8 +3214,19 @@ class FCOpen extends OpenApiClient
             'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'PutProvisionConfig',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/provision-config',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return PutProvisionConfigResponse::fromMap($this->doROARequest('PutProvisionConfig', '2021-04-06', 'HTTPS', 'PUT', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/provision-config', 'json', $req, $runtime));
+        return PutProvisionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2591,8 +3271,19 @@ class FCOpen extends OpenApiClient
             'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'RegisterEventSource',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/event-sources',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return RegisterEventSourceResponse::fromMap($this->doROARequest('RegisterEventSource', '2021-04-06', 'HTTPS', 'POST', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/event-sources', 'json', $req, $runtime));
+        return RegisterEventSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2635,8 +3326,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'StopStatefulAsyncInvocation',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/stateful-async-invocations/' . $invocationId . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return StopStatefulAsyncInvocationResponse::fromMap($this->doROARequest('StopStatefulAsyncInvocation', '2021-04-06', 'HTTPS', 'PUT', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/stateful-async-invocations/' . $invocationId . '', 'none', $req, $runtime));
+        return StopStatefulAsyncInvocationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2673,8 +3375,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'TagResource',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/tag',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return TagResourceResponse::fromMap($this->doROARequest('TagResource', '2021-04-06', 'HTTPS', 'POST', 'AK', '/2021-04-06/tag', 'none', $req, $runtime));
+        return TagResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2714,8 +3427,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UntagResource',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/tag',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return UntagResourceResponse::fromMap($this->doROARequest('UntagResource', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/tag', 'none', $req, $runtime));
+        return UntagResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2762,14 +3486,25 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->ifMatch)) {
-            @$realHeaders['If-Match'] = $headers->ifMatch;
+            @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateAlias',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/aliases/' . $aliasName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateAliasResponse::fromMap($this->doROARequest('UpdateAlias', '2021-04-06', 'HTTPS', 'PUT', 'AK', '/2021-04-06/services/' . $serviceName . '/aliases/' . $aliasName . '', 'json', $req, $runtime));
+        return UpdateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2812,8 +3547,19 @@ class FCOpen extends OpenApiClient
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateCustomDomain',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/custom-domains/' . $domainName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateCustomDomainResponse::fromMap($this->doROARequest('UpdateCustomDomain', '2021-04-06', 'HTTPS', 'PUT', 'AK', '/2021-04-06/custom-domains/' . $domainName . '', 'json', $req, $runtime));
+        return UpdateCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2858,6 +3604,12 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->customContainerConfig)) {
             @$body['customContainerConfig'] = $request->customContainerConfig;
         }
+        if (!Utils::isUnset($request->customDNS)) {
+            @$body['customDNS'] = $request->customDNS;
+        }
+        if (!Utils::isUnset($request->customRuntimeConfig)) {
+            @$body['customRuntimeConfig'] = $request->customRuntimeConfig;
+        }
         if (!Utils::isUnset($request->description)) {
             @$body['description'] = $request->description;
         }
@@ -2896,20 +3648,31 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->ifMatch)) {
-            @$realHeaders['If-Match'] = $headers->ifMatch;
+            @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = $headers->xFcAccountId;
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['x-fc-code-checksum'] = $headers->xFcCodeChecksum;
+            @$realHeaders['x-fc-code-checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateFunction',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateFunctionResponse::fromMap($this->doROARequest('UpdateFunction', '2021-04-06', 'HTTPS', 'PUT', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '', 'json', $req, $runtime));
+        return UpdateFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2965,17 +3728,28 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->ifMatch)) {
-            @$realHeaders['If-Match'] = $headers->ifMatch;
+            @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = $headers->xFcAccountId;
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateService',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateServiceResponse::fromMap($this->doROARequest('UpdateService', '2021-04-06', 'HTTPS', 'PUT', 'AK', '/2021-04-06/services/' . $serviceName . '', 'json', $req, $runtime));
+        return UpdateServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3028,16 +3802,27 @@ class FCOpen extends OpenApiClient
             $realHeaders = $headers->commonHeaders;
         }
         if (!Utils::isUnset($headers->ifMatch)) {
-            @$realHeaders['If-Match'] = $headers->ifMatch;
+            @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
         if (!Utils::isUnset($headers->xFcAccountId)) {
-            @$realHeaders['X-Fc-Account-Id'] = $headers->xFcAccountId;
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateTrigger',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/triggers/' . $triggerName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateTriggerResponse::fromMap($this->doROARequest('UpdateTrigger', '2021-04-06', 'HTTPS', 'PUT', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/triggers/' . $triggerName . '', 'json', $req, $runtime));
+        return UpdateTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 }
