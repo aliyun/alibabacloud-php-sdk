@@ -14,6 +14,11 @@ class software extends Model
     public $displayName;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var bool
      */
     public $onlyDisplay;
@@ -26,17 +31,12 @@ class software extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
     public $version;
     protected $_name = [
         'displayName' => 'DisplayName',
+        'name'        => 'Name',
         'onlyDisplay' => 'OnlyDisplay',
         'startTpe'    => 'StartTpe',
-        'name'        => 'Name',
         'version'     => 'Version',
     ];
 
@@ -50,14 +50,14 @@ class software extends Model
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->onlyDisplay) {
             $res['OnlyDisplay'] = $this->onlyDisplay;
         }
         if (null !== $this->startTpe) {
             $res['StartTpe'] = $this->startTpe;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
@@ -77,14 +77,14 @@ class software extends Model
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['OnlyDisplay'])) {
             $model->onlyDisplay = $map['OnlyDisplay'];
         }
         if (isset($map['StartTpe'])) {
             $model->startTpe = $map['StartTpe'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];

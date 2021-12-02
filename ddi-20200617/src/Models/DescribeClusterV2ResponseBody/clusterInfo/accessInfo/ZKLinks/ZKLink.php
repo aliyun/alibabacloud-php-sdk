@@ -11,15 +11,15 @@ class ZKLink extends Model
     /**
      * @var string
      */
-    public $port;
+    public $link;
 
     /**
      * @var string
      */
-    public $link;
+    public $port;
     protected $_name = [
-        'port' => 'Port',
         'link' => 'Link',
+        'port' => 'Port',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class ZKLink extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
-        }
         if (null !== $this->link) {
             $res['Link'] = $this->link;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class ZKLink extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
-        }
         if (isset($map['Link'])) {
             $model->link = $map['Link'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
 
         return $model;

@@ -11,21 +11,21 @@ class orderTaskInfo extends Model
     /**
      * @var int
      */
-    public $targetCount;
-
-    /**
-     * @var int
-     */
     public $currentCount;
 
     /**
      * @var string
      */
     public $orderIdList;
+
+    /**
+     * @var int
+     */
+    public $targetCount;
     protected $_name = [
-        'targetCount'  => 'TargetCount',
         'currentCount' => 'CurrentCount',
         'orderIdList'  => 'OrderIdList',
+        'targetCount'  => 'TargetCount',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class orderTaskInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->targetCount) {
-            $res['TargetCount'] = $this->targetCount;
-        }
         if (null !== $this->currentCount) {
             $res['CurrentCount'] = $this->currentCount;
         }
         if (null !== $this->orderIdList) {
             $res['OrderIdList'] = $this->orderIdList;
+        }
+        if (null !== $this->targetCount) {
+            $res['TargetCount'] = $this->targetCount;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class orderTaskInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TargetCount'])) {
-            $model->targetCount = $map['TargetCount'];
-        }
         if (isset($map['CurrentCount'])) {
             $model->currentCount = $map['CurrentCount'];
         }
         if (isset($map['OrderIdList'])) {
             $model->orderIdList = $map['OrderIdList'];
+        }
+        if (isset($map['TargetCount'])) {
+            $model->targetCount = $map['TargetCount'];
         }
 
         return $model;

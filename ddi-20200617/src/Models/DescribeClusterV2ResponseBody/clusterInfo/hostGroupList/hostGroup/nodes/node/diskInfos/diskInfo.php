@@ -11,12 +11,17 @@ class diskInfo extends Model
     /**
      * @var string
      */
-    public $type;
+    public $device;
 
     /**
      * @var string
      */
     public $diskId;
+
+    /**
+     * @var string
+     */
+    public $diskName;
 
     /**
      * @var int
@@ -26,18 +31,13 @@ class diskInfo extends Model
     /**
      * @var string
      */
-    public $device;
-
-    /**
-     * @var string
-     */
-    public $diskName;
+    public $type;
     protected $_name = [
-        'type'     => 'Type',
-        'diskId'   => 'DiskId',
-        'size'     => 'Size',
         'device'   => 'Device',
+        'diskId'   => 'DiskId',
         'diskName' => 'DiskName',
+        'size'     => 'Size',
+        'type'     => 'Type',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class diskInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->device) {
+            $res['Device'] = $this->device;
         }
         if (null !== $this->diskId) {
             $res['DiskId'] = $this->diskId;
         }
+        if (null !== $this->diskName) {
+            $res['DiskName'] = $this->diskName;
+        }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
-        if (null !== $this->device) {
-            $res['Device'] = $this->device;
-        }
-        if (null !== $this->diskName) {
-            $res['DiskName'] = $this->diskName;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class diskInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['Device'])) {
+            $model->device = $map['Device'];
         }
         if (isset($map['DiskId'])) {
             $model->diskId = $map['DiskId'];
         }
+        if (isset($map['DiskName'])) {
+            $model->diskName = $map['DiskName'];
+        }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
-        if (isset($map['Device'])) {
-            $model->device = $map['Device'];
-        }
-        if (isset($map['DiskName'])) {
-            $model->diskName = $map['DiskName'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

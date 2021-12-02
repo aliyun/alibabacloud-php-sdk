@@ -11,21 +11,21 @@ class gatewayClusterInfo extends Model
     /**
      * @var string
      */
+    public $clusterId;
+
+    /**
+     * @var string
+     */
     public $clusterName;
 
     /**
      * @var string
      */
     public $status;
-
-    /**
-     * @var string
-     */
-    public $clusterId;
     protected $_name = [
+        'clusterId'   => 'ClusterId',
         'clusterName' => 'ClusterName',
         'status'      => 'Status',
-        'clusterId'   => 'ClusterId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class gatewayClusterInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
-        }
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class gatewayClusterInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
-        }
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
         }
 
         return $model;

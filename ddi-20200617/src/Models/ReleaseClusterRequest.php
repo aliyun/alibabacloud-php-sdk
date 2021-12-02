@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ReleaseClusterRequest extends Model
 {
     /**
-     * @var int
+     * @var bool
      */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
+    public $forceRelease;
 
     /**
      * @var string
@@ -24,14 +19,19 @@ class ReleaseClusterRequest extends Model
     public $id;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $forceRelease;
+    public $regionId;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'resourceOwnerId' => 'ResourceOwnerId',
-        'regionId'        => 'RegionId',
-        'id'              => 'Id',
         'forceRelease'    => 'ForceRelease',
+        'id'              => 'Id',
+        'regionId'        => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class ReleaseClusterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->forceRelease) {
+            $res['ForceRelease'] = $this->forceRelease;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->forceRelease) {
-            $res['ForceRelease'] = $this->forceRelease;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class ReleaseClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['ForceRelease'])) {
+            $model->forceRelease = $map['ForceRelease'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['ForceRelease'])) {
-            $model->forceRelease = $map['ForceRelease'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

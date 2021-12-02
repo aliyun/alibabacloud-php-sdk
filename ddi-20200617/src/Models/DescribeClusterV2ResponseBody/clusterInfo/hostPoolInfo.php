@@ -11,15 +11,15 @@ class hostPoolInfo extends Model
     /**
      * @var string
      */
-    public $hpName;
+    public $hpBizId;
 
     /**
      * @var string
      */
-    public $hpBizId;
+    public $hpName;
     protected $_name = [
-        'hpName'  => 'HpName',
         'hpBizId' => 'HpBizId',
+        'hpName'  => 'HpName',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class hostPoolInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->hpName) {
-            $res['HpName'] = $this->hpName;
-        }
         if (null !== $this->hpBizId) {
             $res['HpBizId'] = $this->hpBizId;
+        }
+        if (null !== $this->hpName) {
+            $res['HpName'] = $this->hpName;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class hostPoolInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HpName'])) {
-            $model->hpName = $map['HpName'];
-        }
         if (isset($map['HpBizId'])) {
             $model->hpBizId = $map['HpBizId'];
+        }
+        if (isset($map['HpName'])) {
+            $model->hpName = $map['HpName'];
         }
 
         return $model;
