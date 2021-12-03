@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class dataList extends Model
 {
     /**
-     * @var string
-     */
-    public $gameId;
-
-    /**
      * @var int
      */
     public $ccu;
@@ -21,10 +16,15 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $gameId;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
-        'gameId'   => 'GameId',
         'ccu'      => 'Ccu',
+        'gameId'   => 'GameId',
         'regionId' => 'RegionId',
     ];
 
@@ -35,11 +35,11 @@ class dataList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->gameId) {
-            $res['GameId'] = $this->gameId;
-        }
         if (null !== $this->ccu) {
             $res['Ccu'] = $this->ccu;
+        }
+        if (null !== $this->gameId) {
+            $res['GameId'] = $this->gameId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -56,11 +56,11 @@ class dataList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GameId'])) {
-            $model->gameId = $map['GameId'];
-        }
         if (isset($map['Ccu'])) {
             $model->ccu = $map['Ccu'];
+        }
+        if (isset($map['GameId'])) {
+            $model->gameId = $map['GameId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

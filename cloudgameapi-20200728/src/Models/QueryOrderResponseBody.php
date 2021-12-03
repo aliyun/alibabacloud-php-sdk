@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class QueryOrderResponseBody extends Model
 {
     /**
+     * @var data
+     */
+    public $data;
+
+    /**
      * @var string
      */
-    public $requestId;
+    public $deliveryStatus;
 
     /**
      * @var string
@@ -22,17 +27,12 @@ class QueryOrderResponseBody extends Model
     /**
      * @var string
      */
-    public $deliveryStatus;
-
-    /**
-     * @var data
-     */
-    public $data;
+    public $requestId;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'refundStatus'   => 'RefundStatus',
-        'deliveryStatus' => 'DeliveryStatus',
         'data'           => 'Data',
+        'deliveryStatus' => 'DeliveryStatus',
+        'refundStatus'   => 'RefundStatus',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class QueryOrderResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->refundStatus) {
-            $res['RefundStatus'] = $this->refundStatus;
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->deliveryStatus) {
             $res['DeliveryStatus'] = $this->deliveryStatus;
         }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        if (null !== $this->refundStatus) {
+            $res['RefundStatus'] = $this->refundStatus;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class QueryOrderResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['RefundStatus'])) {
-            $model->refundStatus = $map['RefundStatus'];
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['DeliveryStatus'])) {
             $model->deliveryStatus = $map['DeliveryStatus'];
         }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+        if (isset($map['RefundStatus'])) {
+            $model->refundStatus = $map['RefundStatus'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

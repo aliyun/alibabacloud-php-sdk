@@ -11,22 +11,17 @@ class StopGameSessionRequest extends Model
     /**
      * @var string
      */
-    public $gameId;
-
-    /**
-     * @var string
-     */
     public $accessKey;
 
     /**
      * @var string
      */
-    public $userId;
+    public $bizParam;
 
     /**
      * @var string
      */
-    public $bizParam;
+    public $gameId;
 
     /**
      * @var string
@@ -37,13 +32,18 @@ class StopGameSessionRequest extends Model
      * @var string
      */
     public $reason;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
-        'gameId'      => 'GameId',
         'accessKey'   => 'AccessKey',
-        'userId'      => 'UserId',
         'bizParam'    => 'BizParam',
+        'gameId'      => 'GameId',
         'gameSession' => 'GameSession',
         'reason'      => 'Reason',
+        'userId'      => 'UserId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class StopGameSessionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->gameId) {
-            $res['GameId'] = $this->gameId;
-        }
         if (null !== $this->accessKey) {
             $res['AccessKey'] = $this->accessKey;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->bizParam) {
             $res['BizParam'] = $this->bizParam;
+        }
+        if (null !== $this->gameId) {
+            $res['GameId'] = $this->gameId;
         }
         if (null !== $this->gameSession) {
             $res['GameSession'] = $this->gameSession;
         }
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class StopGameSessionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GameId'])) {
-            $model->gameId = $map['GameId'];
-        }
         if (isset($map['AccessKey'])) {
             $model->accessKey = $map['AccessKey'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['BizParam'])) {
             $model->bizParam = $map['BizParam'];
+        }
+        if (isset($map['GameId'])) {
+            $model->gameId = $map['GameId'];
         }
         if (isset($map['GameSession'])) {
             $model->gameSession = $map['GameSession'];
         }
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

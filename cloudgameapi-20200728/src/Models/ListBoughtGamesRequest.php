@@ -11,12 +11,12 @@ class ListBoughtGamesRequest extends Model
     /**
      * @var string
      */
-    public $accountId;
+    public $accountDomain;
 
     /**
      * @var string
      */
-    public $accountDomain;
+    public $accountId;
 
     /**
      * @var int
@@ -28,8 +28,8 @@ class ListBoughtGamesRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'accountId'     => 'AccountId',
         'accountDomain' => 'AccountDomain',
+        'accountId'     => 'AccountId',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
     ];
@@ -41,11 +41,11 @@ class ListBoughtGamesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accountId) {
-            $res['AccountId'] = $this->accountId;
-        }
         if (null !== $this->accountDomain) {
             $res['AccountDomain'] = $this->accountDomain;
+        }
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -65,11 +65,11 @@ class ListBoughtGamesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccountId'])) {
-            $model->accountId = $map['AccountId'];
-        }
         if (isset($map['AccountDomain'])) {
             $model->accountDomain = $map['AccountDomain'];
+        }
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

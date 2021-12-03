@@ -11,7 +11,7 @@ class CreateTokenRequest extends Model
     /**
      * @var string
      */
-    public $session;
+    public $clientToken;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class CreateTokenRequest extends Model
     /**
      * @var string
      */
-    public $clientToken;
+    public $session;
     protected $_name = [
-        'session'      => 'Session',
-        'currentToken' => 'CurrentToken',
         'clientToken'  => 'ClientToken',
+        'currentToken' => 'CurrentToken',
+        'session'      => 'Session',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class CreateTokenRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->session) {
-            $res['Session'] = $this->session;
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->currentToken) {
             $res['CurrentToken'] = $this->currentToken;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
+        if (null !== $this->session) {
+            $res['Session'] = $this->session;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class CreateTokenRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Session'])) {
-            $model->session = $map['Session'];
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['CurrentToken'])) {
             $model->currentToken = $map['CurrentToken'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
+        if (isset($map['Session'])) {
+            $model->session = $map['Session'];
         }
 
         return $model;

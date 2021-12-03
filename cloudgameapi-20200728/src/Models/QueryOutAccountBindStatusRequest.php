@@ -11,21 +11,21 @@ class QueryOutAccountBindStatusRequest extends Model
     /**
      * @var string
      */
+    public $accountDomain;
+
+    /**
+     * @var string
+     */
     public $accountId;
 
     /**
      * @var string
      */
     public $gameId;
-
-    /**
-     * @var string
-     */
-    public $accountDomain;
     protected $_name = [
+        'accountDomain' => 'AccountDomain',
         'accountId'     => 'AccountId',
         'gameId'        => 'GameId',
-        'accountDomain' => 'AccountDomain',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class QueryOutAccountBindStatusRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountDomain) {
+            $res['AccountDomain'] = $this->accountDomain;
+        }
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
         if (null !== $this->gameId) {
             $res['GameId'] = $this->gameId;
-        }
-        if (null !== $this->accountDomain) {
-            $res['AccountDomain'] = $this->accountDomain;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class QueryOutAccountBindStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountDomain'])) {
+            $model->accountDomain = $map['AccountDomain'];
+        }
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
         if (isset($map['GameId'])) {
             $model->gameId = $map['GameId'];
-        }
-        if (isset($map['AccountDomain'])) {
-            $model->accountDomain = $map['AccountDomain'];
         }
 
         return $model;

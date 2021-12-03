@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class saleProps extends Model
 {
     /**
+     * @var int
+     */
+    public $propertyId;
+
+    /**
+     * @var string
+     */
+    public $propertyName;
+
+    /**
      * @var string
      */
     public $value;
@@ -17,21 +27,11 @@ class saleProps extends Model
      * @var int
      */
     public $valueId;
-
-    /**
-     * @var string
-     */
-    public $propertyName;
-
-    /**
-     * @var int
-     */
-    public $propertyId;
     protected $_name = [
+        'propertyId'   => 'PropertyId',
+        'propertyName' => 'PropertyName',
         'value'        => 'Value',
         'valueId'      => 'ValueId',
-        'propertyName' => 'PropertyName',
-        'propertyId'   => 'PropertyId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class saleProps extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->propertyId) {
+            $res['PropertyId'] = $this->propertyId;
+        }
+        if (null !== $this->propertyName) {
+            $res['PropertyName'] = $this->propertyName;
+        }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
         if (null !== $this->valueId) {
             $res['ValueId'] = $this->valueId;
-        }
-        if (null !== $this->propertyName) {
-            $res['PropertyName'] = $this->propertyName;
-        }
-        if (null !== $this->propertyId) {
-            $res['PropertyId'] = $this->propertyId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class saleProps extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PropertyId'])) {
+            $model->propertyId = $map['PropertyId'];
+        }
+        if (isset($map['PropertyName'])) {
+            $model->propertyName = $map['PropertyName'];
+        }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
         if (isset($map['ValueId'])) {
             $model->valueId = $map['ValueId'];
-        }
-        if (isset($map['PropertyName'])) {
-            $model->propertyName = $map['PropertyName'];
-        }
-        if (isset($map['PropertyId'])) {
-            $model->propertyId = $map['PropertyId'];
         }
 
         return $model;

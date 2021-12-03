@@ -11,15 +11,15 @@ class GetStopGameTokenRequest extends Model
     /**
      * @var string
      */
-    public $gameId;
+    public $accessKey;
 
     /**
      * @var string
      */
-    public $accessKey;
+    public $gameId;
     protected $_name = [
-        'gameId'    => 'GameId',
         'accessKey' => 'AccessKey',
+        'gameId'    => 'GameId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetStopGameTokenRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->gameId) {
-            $res['GameId'] = $this->gameId;
-        }
         if (null !== $this->accessKey) {
             $res['AccessKey'] = $this->accessKey;
+        }
+        if (null !== $this->gameId) {
+            $res['GameId'] = $this->gameId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetStopGameTokenRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GameId'])) {
-            $model->gameId = $map['GameId'];
-        }
         if (isset($map['AccessKey'])) {
             $model->accessKey = $map['AccessKey'];
+        }
+        if (isset($map['GameId'])) {
+            $model->gameId = $map['GameId'];
         }
 
         return $model;

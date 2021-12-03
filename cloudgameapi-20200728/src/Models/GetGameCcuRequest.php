@@ -11,21 +11,21 @@ class GetGameCcuRequest extends Model
     /**
      * @var string
      */
+    public $accessKey;
+
+    /**
+     * @var string
+     */
     public $gameId;
 
     /**
      * @var string
      */
     public $regionName;
-
-    /**
-     * @var string
-     */
-    public $accessKey;
     protected $_name = [
+        'accessKey'  => 'AccessKey',
         'gameId'     => 'GameId',
         'regionName' => 'RegionName',
-        'accessKey'  => 'AccessKey',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetGameCcuRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessKey) {
+            $res['AccessKey'] = $this->accessKey;
+        }
         if (null !== $this->gameId) {
             $res['GameId'] = $this->gameId;
         }
         if (null !== $this->regionName) {
             $res['RegionName'] = $this->regionName;
-        }
-        if (null !== $this->accessKey) {
-            $res['AccessKey'] = $this->accessKey;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetGameCcuRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessKey'])) {
+            $model->accessKey = $map['AccessKey'];
+        }
         if (isset($map['GameId'])) {
             $model->gameId = $map['GameId'];
         }
         if (isset($map['RegionName'])) {
             $model->regionName = $map['RegionName'];
-        }
-        if (isset($map['AccessKey'])) {
-            $model->accessKey = $map['AccessKey'];
         }
 
         return $model;

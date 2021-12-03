@@ -11,7 +11,7 @@ class GetOutAccountBindDetailRequest extends Model
     /**
      * @var string
      */
-    public $outAccountType;
+    public $accountDomain;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class GetOutAccountBindDetailRequest extends Model
     /**
      * @var string
      */
-    public $accountDomain;
+    public $outAccountType;
     protected $_name = [
-        'outAccountType' => 'OutAccountType',
-        'accountId'      => 'AccountId',
         'accountDomain'  => 'AccountDomain',
+        'accountId'      => 'AccountId',
+        'outAccountType' => 'OutAccountType',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetOutAccountBindDetailRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->outAccountType) {
-            $res['OutAccountType'] = $this->outAccountType;
+        if (null !== $this->accountDomain) {
+            $res['AccountDomain'] = $this->accountDomain;
         }
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
-        if (null !== $this->accountDomain) {
-            $res['AccountDomain'] = $this->accountDomain;
+        if (null !== $this->outAccountType) {
+            $res['OutAccountType'] = $this->outAccountType;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetOutAccountBindDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OutAccountType'])) {
-            $model->outAccountType = $map['OutAccountType'];
+        if (isset($map['AccountDomain'])) {
+            $model->accountDomain = $map['AccountDomain'];
         }
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
-        if (isset($map['AccountDomain'])) {
-            $model->accountDomain = $map['AccountDomain'];
+        if (isset($map['OutAccountType'])) {
+            $model->outAccountType = $map['OutAccountType'];
         }
 
         return $model;

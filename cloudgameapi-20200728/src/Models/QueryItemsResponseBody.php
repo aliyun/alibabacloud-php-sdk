@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class QueryItemsResponseBody extends Model
 {
     /**
-     * @var string
+     * @var data
      */
-    public $requestId;
+    public $data;
 
     /**
      * @var int
@@ -20,18 +20,18 @@ class QueryItemsResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @var data
+     * @var string
      */
-    public $data;
+    public $requestId;
 
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'httpStatusCode' => 'HttpStatusCode',
         'data'           => 'Data',
+        'httpStatusCode' => 'HttpStatusCode',
+        'requestId'      => 'RequestId',
         'success'        => 'Success',
     ];
 
@@ -42,14 +42,14 @@ class QueryItemsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -66,14 +66,14 @@ class QueryItemsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

@@ -12,22 +12,7 @@ class skus extends Model
     /**
      * @var int
      */
-    public $status;
-
-    /**
-     * @var int
-     */
     public $createTime;
-
-    /**
-     * @var string
-     */
-    public $skuId;
-
-    /**
-     * @var saleProps[]
-     */
-    public $saleProps;
 
     /**
      * @var string
@@ -37,7 +22,7 @@ class skus extends Model
     /**
      * @var int
      */
-    public $salePrice;
+    public $modifyTime;
 
     /**
      * @var int
@@ -47,16 +32,31 @@ class skus extends Model
     /**
      * @var int
      */
-    public $modifyTime;
+    public $salePrice;
+
+    /**
+     * @var saleProps[]
+     */
+    public $saleProps;
+
+    /**
+     * @var string
+     */
+    public $skuId;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
-        'status'      => 'Status',
         'createTime'  => 'CreateTime',
-        'skuId'       => 'SkuId',
-        'saleProps'   => 'SaleProps',
         'itemId'      => 'ItemId',
-        'salePrice'   => 'SalePrice',
-        'originPrice' => 'OriginPrice',
         'modifyTime'  => 'ModifyTime',
+        'originPrice' => 'OriginPrice',
+        'salePrice'   => 'SalePrice',
+        'saleProps'   => 'SaleProps',
+        'skuId'       => 'SkuId',
+        'status'      => 'Status',
     ];
 
     public function validate()
@@ -66,14 +66,20 @@ class skus extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->skuId) {
-            $res['SkuId'] = $this->skuId;
+        if (null !== $this->itemId) {
+            $res['ItemId'] = $this->itemId;
+        }
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
+        }
+        if (null !== $this->originPrice) {
+            $res['OriginPrice'] = $this->originPrice;
+        }
+        if (null !== $this->salePrice) {
+            $res['SalePrice'] = $this->salePrice;
         }
         if (null !== $this->saleProps) {
             $res['SaleProps'] = [];
@@ -84,17 +90,11 @@ class skus extends Model
                 }
             }
         }
-        if (null !== $this->itemId) {
-            $res['ItemId'] = $this->itemId;
+        if (null !== $this->skuId) {
+            $res['SkuId'] = $this->skuId;
         }
-        if (null !== $this->salePrice) {
-            $res['SalePrice'] = $this->salePrice;
-        }
-        if (null !== $this->originPrice) {
-            $res['OriginPrice'] = $this->originPrice;
-        }
-        if (null !== $this->modifyTime) {
-            $res['ModifyTime'] = $this->modifyTime;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -108,14 +108,20 @@ class skus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['SkuId'])) {
-            $model->skuId = $map['SkuId'];
+        if (isset($map['ItemId'])) {
+            $model->itemId = $map['ItemId'];
+        }
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
+        }
+        if (isset($map['OriginPrice'])) {
+            $model->originPrice = $map['OriginPrice'];
+        }
+        if (isset($map['SalePrice'])) {
+            $model->salePrice = $map['SalePrice'];
         }
         if (isset($map['SaleProps'])) {
             if (!empty($map['SaleProps'])) {
@@ -126,17 +132,11 @@ class skus extends Model
                 }
             }
         }
-        if (isset($map['ItemId'])) {
-            $model->itemId = $map['ItemId'];
+        if (isset($map['SkuId'])) {
+            $model->skuId = $map['SkuId'];
         }
-        if (isset($map['SalePrice'])) {
-            $model->salePrice = $map['SalePrice'];
-        }
-        if (isset($map['OriginPrice'])) {
-            $model->originPrice = $map['OriginPrice'];
-        }
-        if (isset($map['ModifyTime'])) {
-            $model->modifyTime = $map['ModifyTime'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

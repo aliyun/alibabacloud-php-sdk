@@ -11,21 +11,21 @@ class DeliveryOrderRequest extends Model
     /**
      * @var string
      */
+    public $accountDomain;
+
+    /**
+     * @var string
+     */
     public $buyerAccountId;
 
     /**
      * @var string
      */
     public $orderId;
-
-    /**
-     * @var string
-     */
-    public $accountDomain;
     protected $_name = [
+        'accountDomain'  => 'AccountDomain',
         'buyerAccountId' => 'BuyerAccountId',
         'orderId'        => 'OrderId',
-        'accountDomain'  => 'AccountDomain',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeliveryOrderRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountDomain) {
+            $res['AccountDomain'] = $this->accountDomain;
+        }
         if (null !== $this->buyerAccountId) {
             $res['BuyerAccountId'] = $this->buyerAccountId;
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
-        }
-        if (null !== $this->accountDomain) {
-            $res['AccountDomain'] = $this->accountDomain;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DeliveryOrderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountDomain'])) {
+            $model->accountDomain = $map['AccountDomain'];
+        }
         if (isset($map['BuyerAccountId'])) {
             $model->buyerAccountId = $map['BuyerAccountId'];
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
-        }
-        if (isset($map['AccountDomain'])) {
-            $model->accountDomain = $map['AccountDomain'];
         }
 
         return $model;

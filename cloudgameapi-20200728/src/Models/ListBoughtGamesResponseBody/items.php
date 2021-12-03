@@ -14,11 +14,6 @@ class items extends Model
     public $endTime;
 
     /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
      * @var string
      */
     public $gameId;
@@ -27,11 +22,16 @@ class items extends Model
      * @var string
      */
     public $gameName;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
         'endTime'   => 'EndTime',
-        'startTime' => 'StartTime',
         'gameId'    => 'GameId',
         'gameName'  => 'GameName',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class items extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->gameId) {
             $res['GameId'] = $this->gameId;
         }
         if (null !== $this->gameName) {
             $res['GameName'] = $this->gameName;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class items extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['GameId'])) {
             $model->gameId = $map['GameId'];
         }
         if (isset($map['GameName'])) {
             $model->gameName = $map['GameName'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

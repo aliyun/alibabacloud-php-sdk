@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class QueryTenantRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $param;
-
-    /**
      * @var int
      */
     public $pageNo;
@@ -22,10 +17,15 @@ class QueryTenantRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $param;
     protected $_name = [
-        'param'    => 'Param',
         'pageNo'   => 'PageNo',
         'pageSize' => 'PageSize',
+        'param'    => 'Param',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class QueryTenantRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->param) {
-            $res['Param'] = $this->param;
-        }
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->param) {
+            $res['Param'] = $this->param;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class QueryTenantRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Param'])) {
-            $model->param = $map['Param'];
-        }
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Param'])) {
+            $model->param = $map['Param'];
         }
 
         return $model;

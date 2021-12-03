@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetStopGameTokenResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $expireTime;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -17,15 +22,10 @@ class GetStopGameTokenResponseBody extends Model
      * @var string
      */
     public $token;
-
-    /**
-     * @var int
-     */
-    public $expireTime;
     protected $_name = [
+        'expireTime' => 'ExpireTime',
         'requestId'  => 'RequestId',
         'token'      => 'Token',
-        'expireTime' => 'ExpireTime',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetStopGameTokenResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->token) {
             $res['Token'] = $this->token;
-        }
-        if (null !== $this->expireTime) {
-            $res['ExpireTime'] = $this->expireTime;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetStopGameTokenResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Token'])) {
             $model->token = $map['Token'];
-        }
-        if (isset($map['ExpireTime'])) {
-            $model->expireTime = $map['ExpireTime'];
         }
 
         return $model;

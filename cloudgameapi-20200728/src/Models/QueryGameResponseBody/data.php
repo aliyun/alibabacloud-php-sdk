@@ -9,24 +9,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
-     */
-    public $version;
-
-    /**
      * @var int
      */
-    public $projectId;
+    public $gameId;
 
     /**
      * @var string
      */
     public $gmtCreate;
-
-    /**
-     * @var int
-     */
-    public $gameId;
 
     /**
      * @var string
@@ -36,14 +26,24 @@ class data extends Model
     /**
      * @var int
      */
+    public $projectId;
+
+    /**
+     * @var int
+     */
     public $tenantId;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'version'   => 'Version',
-        'projectId' => 'ProjectId',
-        'gmtCreate' => 'GmtCreate',
         'gameId'    => 'GameId',
+        'gmtCreate' => 'GmtCreate',
         'name'      => 'Name',
+        'projectId' => 'ProjectId',
         'tenantId'  => 'TenantId',
+        'version'   => 'Version',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
-        if (null !== $this->projectId) {
-            $res['ProjectId'] = $this->projectId;
+        if (null !== $this->gameId) {
+            $res['GameId'] = $this->gameId;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-        if (null !== $this->gameId) {
-            $res['GameId'] = $this->gameId;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
-        if (isset($map['ProjectId'])) {
-            $model->projectId = $map['ProjectId'];
+        if (isset($map['GameId'])) {
+            $model->gameId = $map['GameId'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-        if (isset($map['GameId'])) {
-            $model->gameId = $map['GameId'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;
