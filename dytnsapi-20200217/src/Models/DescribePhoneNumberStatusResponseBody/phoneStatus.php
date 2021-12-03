@@ -11,7 +11,7 @@ class phoneStatus extends Model
     /**
      * @var string
      */
-    public $status;
+    public $carrier;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class phoneStatus extends Model
     /**
      * @var string
      */
-    public $carrier;
+    public $status;
     protected $_name = [
-        'status'   => 'Status',
-        'serialId' => 'SerialId',
         'carrier'  => 'Carrier',
+        'serialId' => 'SerialId',
+        'status'   => 'Status',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class phoneStatus extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->carrier) {
+            $res['Carrier'] = $this->carrier;
         }
         if (null !== $this->serialId) {
             $res['SerialId'] = $this->serialId;
         }
-        if (null !== $this->carrier) {
-            $res['Carrier'] = $this->carrier;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class phoneStatus extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['Carrier'])) {
+            $model->carrier = $map['Carrier'];
         }
         if (isset($map['SerialId'])) {
             $model->serialId = $map['SerialId'];
         }
-        if (isset($map['Carrier'])) {
-            $model->carrier = $map['Carrier'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

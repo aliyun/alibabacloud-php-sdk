@@ -6,12 +6,27 @@ namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeEmptyNumberDetectRequest extends Model
+class DescribePhoneNumberAnalysisRequest extends Model
 {
     /**
      * @var string
      */
-    public $encryptType;
+    public $authCode;
+
+    /**
+     * @var string
+     */
+    public $inputNumber;
+
+    /**
+     * @var string
+     */
+    public $mask;
+
+    /**
+     * @var int
+     */
+    public $numberType;
 
     /**
      * @var int
@@ -19,9 +34,9 @@ class DescribeEmptyNumberDetectRequest extends Model
     public $ownerId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $phone;
+    public $rate;
 
     /**
      * @var string
@@ -33,9 +48,12 @@ class DescribeEmptyNumberDetectRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
-        'encryptType'          => 'EncryptType',
+        'authCode'             => 'AuthCode',
+        'inputNumber'          => 'InputNumber',
+        'mask'                 => 'Mask',
+        'numberType'           => 'NumberType',
         'ownerId'              => 'OwnerId',
-        'phone'                => 'Phone',
+        'rate'                 => 'Rate',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
     ];
@@ -47,14 +65,23 @@ class DescribeEmptyNumberDetectRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->encryptType) {
-            $res['EncryptType'] = $this->encryptType;
+        if (null !== $this->authCode) {
+            $res['AuthCode'] = $this->authCode;
+        }
+        if (null !== $this->inputNumber) {
+            $res['InputNumber'] = $this->inputNumber;
+        }
+        if (null !== $this->mask) {
+            $res['Mask'] = $this->mask;
+        }
+        if (null !== $this->numberType) {
+            $res['NumberType'] = $this->numberType;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->phone) {
-            $res['Phone'] = $this->phone;
+        if (null !== $this->rate) {
+            $res['Rate'] = $this->rate;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -69,19 +96,28 @@ class DescribeEmptyNumberDetectRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeEmptyNumberDetectRequest
+     * @return DescribePhoneNumberAnalysisRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EncryptType'])) {
-            $model->encryptType = $map['EncryptType'];
+        if (isset($map['AuthCode'])) {
+            $model->authCode = $map['AuthCode'];
+        }
+        if (isset($map['InputNumber'])) {
+            $model->inputNumber = $map['InputNumber'];
+        }
+        if (isset($map['Mask'])) {
+            $model->mask = $map['Mask'];
+        }
+        if (isset($map['NumberType'])) {
+            $model->numberType = $map['NumberType'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['Phone'])) {
-            $model->phone = $map['Phone'];
+        if (isset($map['Rate'])) {
+            $model->rate = $map['Rate'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

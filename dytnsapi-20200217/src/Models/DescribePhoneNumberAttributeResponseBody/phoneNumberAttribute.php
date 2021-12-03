@@ -19,6 +19,11 @@ class phoneNumberAttribute extends Model
     public $carrier;
 
     /**
+     * @var string
+     */
+    public $city;
+
+    /**
      * @var bool
      */
     public $isNumberPortability;
@@ -31,18 +36,13 @@ class phoneNumberAttribute extends Model
     /**
      * @var string
      */
-    public $city;
-
-    /**
-     * @var string
-     */
     public $province;
     protected $_name = [
         'basicCarrier'        => 'BasicCarrier',
         'carrier'             => 'Carrier',
+        'city'                => 'City',
         'isNumberPortability' => 'IsNumberPortability',
         'numberSegment'       => 'NumberSegment',
-        'city'                => 'City',
         'province'            => 'Province',
     ];
 
@@ -59,14 +59,14 @@ class phoneNumberAttribute extends Model
         if (null !== $this->carrier) {
             $res['Carrier'] = $this->carrier;
         }
+        if (null !== $this->city) {
+            $res['City'] = $this->city;
+        }
         if (null !== $this->isNumberPortability) {
             $res['IsNumberPortability'] = $this->isNumberPortability;
         }
         if (null !== $this->numberSegment) {
             $res['NumberSegment'] = $this->numberSegment;
-        }
-        if (null !== $this->city) {
-            $res['City'] = $this->city;
         }
         if (null !== $this->province) {
             $res['Province'] = $this->province;
@@ -89,14 +89,14 @@ class phoneNumberAttribute extends Model
         if (isset($map['Carrier'])) {
             $model->carrier = $map['Carrier'];
         }
+        if (isset($map['City'])) {
+            $model->city = $map['City'];
+        }
         if (isset($map['IsNumberPortability'])) {
             $model->isNumberPortability = $map['IsNumberPortability'];
         }
         if (isset($map['NumberSegment'])) {
             $model->numberSegment = $map['NumberSegment'];
-        }
-        if (isset($map['City'])) {
-            $model->city = $map['City'];
         }
         if (isset($map['Province'])) {
             $model->province = $map['Province'];

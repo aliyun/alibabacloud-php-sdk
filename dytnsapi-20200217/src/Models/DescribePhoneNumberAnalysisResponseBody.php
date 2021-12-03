@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models;
 
-use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribeEmptyNumberDetectResponseBody\data;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAnalysisResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class DescribeEmptyNumberDetectResponseBody extends Model
+class DescribePhoneNumberAnalysisResponseBody extends Model
 {
     /**
      * @var string
@@ -67,7 +67,7 @@ class DescribeEmptyNumberDetectResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeEmptyNumberDetectResponseBody
+     * @return DescribePhoneNumberAnalysisResponseBody
      */
     public static function fromMap($map = [])
     {

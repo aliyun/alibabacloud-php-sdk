@@ -5,8 +5,11 @@
 namespace AlibabaCloud\SDK\Dytnsapi\V20200217;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribeEmptyNumberDetectRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribeEmptyNumberDetectResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAnalysisRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAnalysisResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAttributeRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAttributeResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberResaleRequest;
@@ -16,6 +19,7 @@ use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberStatusResponse
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Dytnsapi extends OpenApiClient
@@ -52,31 +56,98 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param DescribePhoneNumberStatusRequest $request
+     * @param DescribeEmptyNumberDetectRequest $request
      * @param RuntimeOptions                   $runtime
      *
-     * @return DescribePhoneNumberStatusResponse
+     * @return DescribeEmptyNumberDetectResponse
      */
-    public function describePhoneNumberStatusWithOptions($request, $runtime)
+    public function describeEmptyNumberDetectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['EncryptType']          = $request->encryptType;
+        $query['OwnerId']              = $request->ownerId;
+        $query['Phone']                = $request->phone;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEmptyNumberDetect',
+            'version'     => '2020-02-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePhoneNumberStatusResponse::fromMap($this->doRPCRequest('DescribePhoneNumberStatus', '2020-02-17', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeEmptyNumberDetectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribePhoneNumberStatusRequest $request
+     * @param DescribeEmptyNumberDetectRequest $request
      *
-     * @return DescribePhoneNumberStatusResponse
+     * @return DescribeEmptyNumberDetectResponse
      */
-    public function describePhoneNumberStatus($request)
+    public function describeEmptyNumberDetect($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describePhoneNumberStatusWithOptions($request, $runtime);
+        return $this->describeEmptyNumberDetectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePhoneNumberAnalysisRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribePhoneNumberAnalysisResponse
+     */
+    public function describePhoneNumberAnalysisWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                         = [];
+        $query['AuthCode']             = $request->authCode;
+        $query['InputNumber']          = $request->inputNumber;
+        $query['Mask']                 = $request->mask;
+        $query['NumberType']           = $request->numberType;
+        $query['OwnerId']              = $request->ownerId;
+        $query['Rate']                 = $request->rate;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePhoneNumberAnalysis',
+            'version'     => '2020-02-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePhoneNumberAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePhoneNumberAnalysisRequest $request
+     *
+     * @return DescribePhoneNumberAnalysisResponse
+     */
+    public function describePhoneNumberAnalysis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePhoneNumberAnalysisWithOptions($request, $runtime);
     }
 
     /**
@@ -88,11 +159,28 @@ class Dytnsapi extends OpenApiClient
     public function describePhoneNumberAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerId']              = $request->ownerId;
+        $query['PhoneNumber']          = $request->phoneNumber;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePhoneNumberAttribute',
+            'version'     => '2020-02-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePhoneNumberAttributeResponse::fromMap($this->doRPCRequest('DescribePhoneNumberAttribute', '2020-02-17', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePhoneNumberAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -116,11 +204,29 @@ class Dytnsapi extends OpenApiClient
     public function describePhoneNumberResaleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerId']              = $request->ownerId;
+        $query['PhoneNumber']          = $request->phoneNumber;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Since']                = $request->since;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePhoneNumberResale',
+            'version'     => '2020-02-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePhoneNumberResaleResponse::fromMap($this->doRPCRequest('DescribePhoneNumberResale', '2020-02-17', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePhoneNumberResaleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -136,30 +242,47 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeEmptyNumberDetectRequest $request
+     * @param DescribePhoneNumberStatusRequest $request
      * @param RuntimeOptions                   $runtime
      *
-     * @return DescribeEmptyNumberDetectResponse
+     * @return DescribePhoneNumberStatusResponse
      */
-    public function describeEmptyNumberDetectWithOptions($request, $runtime)
+    public function describePhoneNumberStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerId']              = $request->ownerId;
+        $query['PhoneNumber']          = $request->phoneNumber;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePhoneNumberStatus',
+            'version'     => '2020-02-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeEmptyNumberDetectResponse::fromMap($this->doRPCRequest('DescribeEmptyNumberDetect', '2020-02-17', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePhoneNumberStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeEmptyNumberDetectRequest $request
+     * @param DescribePhoneNumberStatusRequest $request
      *
-     * @return DescribeEmptyNumberDetectResponse
+     * @return DescribePhoneNumberStatusResponse
      */
-    public function describeEmptyNumberDetect($request)
+    public function describePhoneNumberStatus($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeEmptyNumberDetectWithOptions($request, $runtime);
+        return $this->describePhoneNumberStatusWithOptions($request, $runtime);
     }
 }
