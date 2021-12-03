@@ -51,7 +51,7 @@ class openJMeterScene extends Model
      *
      * @var string
      */
-    public $enviromentId;
+    public $environmentId;
 
     /**
      * @description 文件列表
@@ -149,7 +149,7 @@ class openJMeterScene extends Model
         'constantThroughputTimerType' => 'ConstantThroughputTimerType',
         'dnsCacheConfig'              => 'DnsCacheConfig',
         'duration'                    => 'Duration',
-        'enviromentId'                => 'EnviromentId',
+        'environmentId'               => 'EnvironmentId',
         'fileList'                    => 'FileList',
         'isVpcTest'                   => 'IsVpcTest',
         'JMeterProperties'            => 'JMeterProperties',
@@ -187,8 +187,8 @@ class openJMeterScene extends Model
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
-        if (null !== $this->enviromentId) {
-            $res['EnviromentId'] = $this->enviromentId;
+        if (null !== $this->environmentId) {
+            $res['EnvironmentId'] = $this->environmentId;
         }
         if (null !== $this->fileList) {
             $res['FileList'] = [];
@@ -268,8 +268,8 @@ class openJMeterScene extends Model
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
-        if (isset($map['EnviromentId'])) {
-            $model->enviromentId = $map['EnviromentId'];
+        if (isset($map['EnvironmentId'])) {
+            $model->environmentId = $map['EnvironmentId'];
         }
         if (isset($map['FileList'])) {
             if (!empty($map['FileList'])) {
