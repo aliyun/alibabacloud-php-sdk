@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description 企业服务群的ID
-     *
-     * @var string
-     */
-    public $openGroupId;
-
-    /**
      * @description 企业服务群的群名
      *
      * @var string
      */
     public $groupName;
+
+    /**
+     * @description 企业服务群的ID
+     *
+     * @var string
+     */
+    public $openGroupId;
     protected $_name = [
-        'openGroupId' => 'OpenGroupId',
         'groupName'   => 'GroupName',
+        'openGroupId' => 'OpenGroupId',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->openGroupId) {
-            $res['OpenGroupId'] = $this->openGroupId;
-        }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->openGroupId) {
+            $res['OpenGroupId'] = $this->openGroupId;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OpenGroupId'])) {
-            $model->openGroupId = $map['OpenGroupId'];
-        }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['OpenGroupId'])) {
+            $model->openGroupId = $map['OpenGroupId'];
         }
 
         return $model;

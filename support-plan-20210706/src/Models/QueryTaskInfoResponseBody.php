@@ -6,37 +6,45 @@ namespace AlibabaCloud\SDK\Supportplan\V20210706\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteEnterpriseDingtalkGroupCustomerMemberResponseBody extends Model
+class QueryTaskInfoResponseBody extends Model
 {
     /**
-     * @description 接口请求结果返回码
+     * @description code
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description 错误信息, 当success=false的时候, 可以取到message
+     * @description data
+     *
+     * @var string
+     */
+    public $data;
+
+    /**
+     * @description msg
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description 接口请求的唯一ID, 每次调用requestID唯一
+     * @description requestId
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 调用接口返回是否成功, true代表调用正常
+     * @description success
      *
      * @var bool
      */
     public $success;
     protected $_name = [
         'code'      => 'Code',
+        'data'      => 'Data',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
@@ -51,6 +59,9 @@ class DeleteEnterpriseDingtalkGroupCustomerMemberResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -68,13 +79,16 @@ class DeleteEnterpriseDingtalkGroupCustomerMemberResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteEnterpriseDingtalkGroupCustomerMemberResponseBody
+     * @return QueryTaskInfoResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

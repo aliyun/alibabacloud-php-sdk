@@ -11,15 +11,15 @@ class GetEnterpriseDingtalkGroupCustomerMemberRequest extends Model
     /**
      * @var string
      */
-    public $openGroupId;
+    public $mobile;
 
     /**
      * @var string
      */
-    public $mobile;
+    public $openGroupId;
     protected $_name = [
-        'openGroupId' => 'OpenGroupId',
         'mobile'      => 'Mobile',
+        'openGroupId' => 'OpenGroupId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetEnterpriseDingtalkGroupCustomerMemberRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->openGroupId) {
-            $res['OpenGroupId'] = $this->openGroupId;
-        }
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
+        }
+        if (null !== $this->openGroupId) {
+            $res['OpenGroupId'] = $this->openGroupId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetEnterpriseDingtalkGroupCustomerMemberRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OpenGroupId'])) {
-            $model->openGroupId = $map['OpenGroupId'];
-        }
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];
+        }
+        if (isset($map['OpenGroupId'])) {
+            $model->openGroupId = $map['OpenGroupId'];
         }
 
         return $model;

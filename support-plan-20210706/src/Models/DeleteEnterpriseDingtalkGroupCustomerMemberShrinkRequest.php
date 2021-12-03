@@ -11,15 +11,15 @@ class DeleteEnterpriseDingtalkGroupCustomerMemberShrinkRequest extends Model
     /**
      * @var string
      */
-    public $openGroupId;
+    public $mobilesShrink;
 
     /**
      * @var string
      */
-    public $mobilesShrink;
+    public $openGroupId;
     protected $_name = [
-        'openGroupId'   => 'OpenGroupId',
         'mobilesShrink' => 'Mobiles',
+        'openGroupId'   => 'OpenGroupId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteEnterpriseDingtalkGroupCustomerMemberShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->openGroupId) {
-            $res['OpenGroupId'] = $this->openGroupId;
-        }
         if (null !== $this->mobilesShrink) {
             $res['Mobiles'] = $this->mobilesShrink;
+        }
+        if (null !== $this->openGroupId) {
+            $res['OpenGroupId'] = $this->openGroupId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteEnterpriseDingtalkGroupCustomerMemberShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OpenGroupId'])) {
-            $model->openGroupId = $map['OpenGroupId'];
-        }
         if (isset($map['Mobiles'])) {
             $model->mobilesShrink = $map['Mobiles'];
+        }
+        if (isset($map['OpenGroupId'])) {
+            $model->openGroupId = $map['OpenGroupId'];
         }
 
         return $model;
