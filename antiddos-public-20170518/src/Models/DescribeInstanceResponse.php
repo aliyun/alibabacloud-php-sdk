@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Antiddospublic\V20170518\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeFlowgraphResponse extends Model
+class DescribeInstanceResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class DescribeFlowgraphResponse extends Model
     public $headers;
 
     /**
-     * @var DescribeFlowgraphResponseBody
+     * @var DescribeInstanceResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class DescribeFlowgraphResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeFlowgraphResponse
+     * @return DescribeInstanceResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class DescribeFlowgraphResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeFlowgraphResponseBody::fromMap($map['body']);
+            $model->body = DescribeInstanceResponseBody::fromMap($map['body']);
         }
 
         return $model;

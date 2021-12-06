@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDdosEventListResponseBody extends Model
 {
     /**
-     * @var ddosEventList[]
+     * @var ddosEventList
      */
     public $ddosEventList;
 
@@ -37,13 +37,7 @@ class DescribeDdosEventListResponseBody extends Model
     {
         $res = [];
         if (null !== $this->ddosEventList) {
-            $res['DdosEventList'] = [];
-            if (null !== $this->ddosEventList && \is_array($this->ddosEventList)) {
-                $n = 0;
-                foreach ($this->ddosEventList as $item) {
-                    $res['DdosEventList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['DdosEventList'] = null !== $this->ddosEventList ? $this->ddosEventList->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -64,13 +58,7 @@ class DescribeDdosEventListResponseBody extends Model
     {
         $model = new self();
         if (isset($map['DdosEventList'])) {
-            if (!empty($map['DdosEventList'])) {
-                $model->ddosEventList = [];
-                $n                    = 0;
-                foreach ($map['DdosEventList'] as $item) {
-                    $model->ddosEventList[$n++] = null !== $item ? ddosEventList::fromMap($item) : $item;
-                }
-            }
+            $model->ddosEventList = ddosEventList::fromMap($map['DdosEventList']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

@@ -4,58 +4,17 @@
 
 namespace AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeDdosThresholdResponseBody;
 
+use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeDdosThresholdResponseBody\thresholds\threshold;
 use AlibabaCloud\Tea\Model;
 
 class thresholds extends Model
 {
     /**
-     * @var string
+     * @var threshold[]
      */
-    public $ddosType;
-
-    /**
-     * @var bool
-     */
-    public $isAuto;
-
-    /**
-     * @var int
-     */
-    public $maxBps;
-
-    /**
-     * @var int
-     */
-    public $elasticBps;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var int
-     */
-    public $bps;
-
-    /**
-     * @var int
-     */
-    public $pps;
-
-    /**
-     * @var int
-     */
-    public $maxPps;
+    public $threshold;
     protected $_name = [
-        'ddosType'   => 'DdosType',
-        'isAuto'     => 'IsAuto',
-        'maxBps'     => 'MaxBps',
-        'elasticBps' => 'ElasticBps',
-        'instanceId' => 'InstanceId',
-        'bps'        => 'Bps',
-        'pps'        => 'Pps',
-        'maxPps'     => 'MaxPps',
+        'threshold' => 'Threshold',
     ];
 
     public function validate()
@@ -65,29 +24,14 @@ class thresholds extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ddosType) {
-            $res['DdosType'] = $this->ddosType;
-        }
-        if (null !== $this->isAuto) {
-            $res['IsAuto'] = $this->isAuto;
-        }
-        if (null !== $this->maxBps) {
-            $res['MaxBps'] = $this->maxBps;
-        }
-        if (null !== $this->elasticBps) {
-            $res['ElasticBps'] = $this->elasticBps;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->bps) {
-            $res['Bps'] = $this->bps;
-        }
-        if (null !== $this->pps) {
-            $res['Pps'] = $this->pps;
-        }
-        if (null !== $this->maxPps) {
-            $res['MaxPps'] = $this->maxPps;
+        if (null !== $this->threshold) {
+            $res['Threshold'] = [];
+            if (null !== $this->threshold && \is_array($this->threshold)) {
+                $n = 0;
+                foreach ($this->threshold as $item) {
+                    $res['Threshold'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -101,29 +45,14 @@ class thresholds extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DdosType'])) {
-            $model->ddosType = $map['DdosType'];
-        }
-        if (isset($map['IsAuto'])) {
-            $model->isAuto = $map['IsAuto'];
-        }
-        if (isset($map['MaxBps'])) {
-            $model->maxBps = $map['MaxBps'];
-        }
-        if (isset($map['ElasticBps'])) {
-            $model->elasticBps = $map['ElasticBps'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Bps'])) {
-            $model->bps = $map['Bps'];
-        }
-        if (isset($map['Pps'])) {
-            $model->pps = $map['Pps'];
-        }
-        if (isset($map['MaxPps'])) {
-            $model->maxPps = $map['MaxPps'];
+        if (isset($map['Threshold'])) {
+            if (!empty($map['Threshold'])) {
+                $model->threshold = [];
+                $n                = 0;
+                foreach ($map['Threshold'] as $item) {
+                    $model->threshold[$n++] = null !== $item ? threshold::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

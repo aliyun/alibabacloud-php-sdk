@@ -15,7 +15,7 @@ class DescribeDdosThresholdResponseBody extends Model
     public $requestId;
 
     /**
-     * @var thresholds[]
+     * @var thresholds
      */
     public $thresholds;
     protected $_name = [
@@ -34,13 +34,7 @@ class DescribeDdosThresholdResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->thresholds) {
-            $res['Thresholds'] = [];
-            if (null !== $this->thresholds && \is_array($this->thresholds)) {
-                $n = 0;
-                foreach ($this->thresholds as $item) {
-                    $res['Thresholds'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Thresholds'] = null !== $this->thresholds ? $this->thresholds->toMap() : null;
         }
 
         return $res;
@@ -58,13 +52,7 @@ class DescribeDdosThresholdResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Thresholds'])) {
-            if (!empty($map['Thresholds'])) {
-                $model->thresholds = [];
-                $n                 = 0;
-                foreach ($map['Thresholds'] as $item) {
-                    $model->thresholds[$n++] = null !== $item ? thresholds::fromMap($item) : $item;
-                }
-            }
+            $model->thresholds = thresholds::fromMap($map['Thresholds']);
         }
 
         return $model;

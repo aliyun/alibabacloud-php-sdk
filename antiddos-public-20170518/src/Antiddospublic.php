@@ -7,12 +7,8 @@ namespace AlibabaCloud\SDK\Antiddospublic\V20170518;
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeBgpPackByIpRequest;
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeBgpPackByIpResponse;
-use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeBgpPackElasticThresholdRequest;
-use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeBgpPackElasticThresholdResponse;
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeCapRequest;
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeCapResponse;
-use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeCreditInfoRequest;
-use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeCreditInfoResponse;
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeDdosCountRequest;
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeDdosCountResponse;
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeDdosCreditRequest;
@@ -21,16 +17,9 @@ use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeDdosEventListReques
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeDdosEventListResponse;
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeDdosThresholdRequest;
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeDdosThresholdResponse;
-use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeFlexibleProtectionFlowRequest;
-use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeFlexibleProtectionFlowResponse;
-use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeFlowgraphRequest;
-use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeFlowgraphResponse;
-use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeRegionDdosThresholdRequest;
-use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeRegionDdosThresholdResponse;
-use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeRegionsRequest;
+use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeInstanceRequest;
+use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeInstanceResponse;
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeRegionsResponse;
-use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeTrafficInfoRequest;
-use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeTrafficInfoResponse;
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\ModifyDdosStatusRequest;
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\ModifyDdosStatusResponse;
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\ModifyDefenseThresholdRequest;
@@ -102,34 +91,6 @@ class Antiddospublic extends OpenApiClient
     }
 
     /**
-     * @param DescribeBgpPackElasticThresholdRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeBgpPackElasticThresholdResponse
-     */
-    public function describeBgpPackElasticThresholdWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeBgpPackElasticThresholdResponse::fromMap($this->doRPCRequest('DescribeBgpPackElasticThreshold', '2017-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeBgpPackElasticThresholdRequest $request
-     *
-     * @return DescribeBgpPackElasticThresholdResponse
-     */
-    public function describeBgpPackElasticThreshold($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeBgpPackElasticThresholdWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeCapRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -155,34 +116,6 @@ class Antiddospublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCapWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeCreditInfoRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeCreditInfoResponse
-     */
-    public function describeCreditInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeCreditInfoResponse::fromMap($this->doRPCRequest('DescribeCreditInfo', '2017-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeCreditInfoRequest $request
-     *
-     * @return DescribeCreditInfoResponse
-     */
-    public function describeCreditInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeCreditInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -298,143 +231,53 @@ class Antiddospublic extends OpenApiClient
     }
 
     /**
-     * @param DescribeFlexibleProtectionFlowRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @param DescribeInstanceRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return DescribeFlexibleProtectionFlowResponse
+     * @return DescribeInstanceResponse
      */
-    public function describeFlexibleProtectionFlowWithOptions($request, $runtime)
+    public function describeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
 
-        return DescribeFlexibleProtectionFlowResponse::fromMap($this->doRPCRequest('DescribeFlexibleProtectionFlow', '2017-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstanceResponse::fromMap($this->doRPCRequest('DescribeInstance', '2017-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeFlexibleProtectionFlowRequest $request
+     * @param DescribeInstanceRequest $request
      *
-     * @return DescribeFlexibleProtectionFlowResponse
+     * @return DescribeInstanceResponse
      */
-    public function describeFlexibleProtectionFlow($request)
+    public function describeInstance($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeFlexibleProtectionFlowWithOptions($request, $runtime);
+        return $this->describeInstanceWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeFlowgraphRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeFlowgraphResponse
-     */
-    public function describeFlowgraphWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeFlowgraphResponse::fromMap($this->doRPCRequest('DescribeFlowgraph', '2017-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeFlowgraphRequest $request
-     *
-     * @return DescribeFlowgraphResponse
-     */
-    public function describeFlowgraph($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeFlowgraphWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRegionDdosThresholdRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeRegionDdosThresholdResponse
-     */
-    public function describeRegionDdosThresholdWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeRegionDdosThresholdResponse::fromMap($this->doRPCRequest('DescribeRegionDdosThreshold', '2017-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRegionDdosThresholdRequest $request
-     *
-     * @return DescribeRegionDdosThresholdResponse
-     */
-    public function describeRegionDdosThreshold($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRegionDdosThresholdWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param RuntimeOptions $runtime
      *
      * @return DescribeRegionsResponse
      */
-    public function describeRegionsWithOptions($request, $runtime)
+    public function describeRegionsWithOptions($runtime)
     {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
+        $req = new OpenApiRequest([]);
 
         return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2017-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     *
      * @return DescribeRegionsResponse
      */
-    public function describeRegions($request)
+    public function describeRegions()
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeRegionsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeTrafficInfoRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeTrafficInfoResponse
-     */
-    public function describeTrafficInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeTrafficInfoResponse::fromMap($this->doRPCRequest('DescribeTrafficInfo', '2017-05-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeTrafficInfoRequest $request
-     *
-     * @return DescribeTrafficInfoResponse
-     */
-    public function describeTrafficInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeTrafficInfoWithOptions($request, $runtime);
+        return $this->describeRegionsWithOptions($runtime);
     }
 
     /**

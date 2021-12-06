@@ -11,20 +11,20 @@ class ddosCount extends Model
     /**
      * @var int
      */
-    public $defenseCount;
+    public $blackholeCount;
 
     /**
      * @var int
      */
-    public $blackholeCount;
+    public $defenseCount;
 
     /**
      * @var int
      */
     public $instacenCount;
     protected $_name = [
-        'defenseCount'   => 'DefenseCount',
         'blackholeCount' => 'BlackholeCount',
+        'defenseCount'   => 'DefenseCount',
         'instacenCount'  => 'InstacenCount',
     ];
 
@@ -35,11 +35,11 @@ class ddosCount extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->defenseCount) {
-            $res['DefenseCount'] = $this->defenseCount;
-        }
         if (null !== $this->blackholeCount) {
             $res['BlackholeCount'] = $this->blackholeCount;
+        }
+        if (null !== $this->defenseCount) {
+            $res['DefenseCount'] = $this->defenseCount;
         }
         if (null !== $this->instacenCount) {
             $res['InstacenCount'] = $this->instacenCount;
@@ -56,11 +56,11 @@ class ddosCount extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DefenseCount'])) {
-            $model->defenseCount = $map['DefenseCount'];
-        }
         if (isset($map['BlackholeCount'])) {
             $model->blackholeCount = $map['BlackholeCount'];
+        }
+        if (isset($map['DefenseCount'])) {
+            $model->defenseCount = $map['DefenseCount'];
         }
         if (isset($map['InstacenCount'])) {
             $model->instacenCount = $map['InstacenCount'];

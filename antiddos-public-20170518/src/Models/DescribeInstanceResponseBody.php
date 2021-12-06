@@ -4,14 +4,15 @@
 
 namespace AlibabaCloud\SDK\Antiddospublic\V20170518\Models;
 
+use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeInstanceResponseBody\instanceList;
 use AlibabaCloud\Tea\Model;
 
-class DescribeBgpPackElasticThresholdResponseBody extends Model
+class DescribeInstanceResponseBody extends Model
 {
     /**
-     * @var int
+     * @var instanceList
      */
-    public $maxThreshold;
+    public $instanceList;
 
     /**
      * @var string
@@ -19,13 +20,13 @@ class DescribeBgpPackElasticThresholdResponseBody extends Model
     public $requestId;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $openable;
+    public $total;
     protected $_name = [
-        'maxThreshold' => 'MaxThreshold',
+        'instanceList' => 'InstanceList',
         'requestId'    => 'RequestId',
-        'openable'     => 'Openable',
+        'total'        => 'Total',
     ];
 
     public function validate()
@@ -35,14 +36,14 @@ class DescribeBgpPackElasticThresholdResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->maxThreshold) {
-            $res['MaxThreshold'] = $this->maxThreshold;
+        if (null !== $this->instanceList) {
+            $res['InstanceList'] = null !== $this->instanceList ? $this->instanceList->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->openable) {
-            $res['Openable'] = $this->openable;
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -51,19 +52,19 @@ class DescribeBgpPackElasticThresholdResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeBgpPackElasticThresholdResponseBody
+     * @return DescribeInstanceResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MaxThreshold'])) {
-            $model->maxThreshold = $map['MaxThreshold'];
+        if (isset($map['InstanceList'])) {
+            $model->instanceList = instanceList::fromMap($map['InstanceList']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Openable'])) {
-            $model->openable = $map['Openable'];
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;

@@ -4,46 +4,17 @@
 
 namespace AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeDdosEventListResponseBody;
 
+use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeDdosEventListResponseBody\ddosEventList\ddosEvent;
 use AlibabaCloud\Tea\Model;
 
 class ddosEventList extends Model
 {
     /**
-     * @var string
+     * @var ddosEvent[]
      */
-    public $ddosType;
-
-    /**
-     * @var int
-     */
-    public $endTime;
-
-    /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
-     * @var int
-     */
-    public $delayTime;
-
-    /**
-     * @var string
-     */
-    public $ddosStatus;
-
-    /**
-     * @var int
-     */
-    public $unBlackholeTime;
+    public $ddosEvent;
     protected $_name = [
-        'ddosType'        => 'DdosType',
-        'endTime'         => 'EndTime',
-        'startTime'       => 'StartTime',
-        'delayTime'       => 'DelayTime',
-        'ddosStatus'      => 'DdosStatus',
-        'unBlackholeTime' => 'UnBlackholeTime',
+        'ddosEvent' => 'DdosEvent',
     ];
 
     public function validate()
@@ -53,23 +24,14 @@ class ddosEventList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ddosType) {
-            $res['DdosType'] = $this->ddosType;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->delayTime) {
-            $res['DelayTime'] = $this->delayTime;
-        }
-        if (null !== $this->ddosStatus) {
-            $res['DdosStatus'] = $this->ddosStatus;
-        }
-        if (null !== $this->unBlackholeTime) {
-            $res['UnBlackholeTime'] = $this->unBlackholeTime;
+        if (null !== $this->ddosEvent) {
+            $res['DdosEvent'] = [];
+            if (null !== $this->ddosEvent && \is_array($this->ddosEvent)) {
+                $n = 0;
+                foreach ($this->ddosEvent as $item) {
+                    $res['DdosEvent'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -83,23 +45,14 @@ class ddosEventList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DdosType'])) {
-            $model->ddosType = $map['DdosType'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['DelayTime'])) {
-            $model->delayTime = $map['DelayTime'];
-        }
-        if (isset($map['DdosStatus'])) {
-            $model->ddosStatus = $map['DdosStatus'];
-        }
-        if (isset($map['UnBlackholeTime'])) {
-            $model->unBlackholeTime = $map['UnBlackholeTime'];
+        if (isset($map['DdosEvent'])) {
+            if (!empty($map['DdosEvent'])) {
+                $model->ddosEvent = [];
+                $n                = 0;
+                foreach ($map['DdosEvent'] as $item) {
+                    $model->ddosEvent[$n++] = null !== $item ? ddosEvent::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

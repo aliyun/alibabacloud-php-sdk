@@ -11,21 +11,21 @@ class ddosCredit extends Model
     /**
      * @var int
      */
+    public $blackholeTime;
+
+    /**
+     * @var int
+     */
     public $score;
 
     /**
      * @var string
      */
     public $scoreLevel;
-
-    /**
-     * @var int
-     */
-    public $blackholeTime;
     protected $_name = [
+        'blackholeTime' => 'BlackholeTime',
         'score'         => 'Score',
         'scoreLevel'    => 'ScoreLevel',
-        'blackholeTime' => 'BlackholeTime',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ddosCredit extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->blackholeTime) {
+            $res['BlackholeTime'] = $this->blackholeTime;
+        }
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
         if (null !== $this->scoreLevel) {
             $res['ScoreLevel'] = $this->scoreLevel;
-        }
-        if (null !== $this->blackholeTime) {
-            $res['BlackholeTime'] = $this->blackholeTime;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ddosCredit extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BlackholeTime'])) {
+            $model->blackholeTime = $map['BlackholeTime'];
+        }
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }
         if (isset($map['ScoreLevel'])) {
             $model->scoreLevel = $map['ScoreLevel'];
-        }
-        if (isset($map['BlackholeTime'])) {
-            $model->blackholeTime = $map['BlackholeTime'];
         }
 
         return $model;

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Antiddospublic\V20170518\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDdosEventListRequest extends Model
+class DescribeInstanceRequest extends Model
 {
     /**
      * @var int
@@ -21,7 +21,22 @@ class DescribeDdosEventListRequest extends Model
     /**
      * @var string
      */
+    public $ddosStatus;
+
+    /**
+     * @var string
+     */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $instanceIp;
+
+    /**
+     * @var string
+     */
+    public $instanceName;
 
     /**
      * @var string
@@ -35,7 +50,10 @@ class DescribeDdosEventListRequest extends Model
     protected $_name = [
         'currentPage'  => 'CurrentPage',
         'ddosRegionId' => 'DdosRegionId',
+        'ddosStatus'   => 'DdosStatus',
         'instanceId'   => 'InstanceId',
+        'instanceIp'   => 'InstanceIp',
+        'instanceName' => 'InstanceName',
         'instanceType' => 'InstanceType',
         'pageSize'     => 'PageSize',
     ];
@@ -53,8 +71,17 @@ class DescribeDdosEventListRequest extends Model
         if (null !== $this->ddosRegionId) {
             $res['DdosRegionId'] = $this->ddosRegionId;
         }
+        if (null !== $this->ddosStatus) {
+            $res['DdosStatus'] = $this->ddosStatus;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceIp) {
+            $res['InstanceIp'] = $this->instanceIp;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
@@ -69,7 +96,7 @@ class DescribeDdosEventListRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDdosEventListRequest
+     * @return DescribeInstanceRequest
      */
     public static function fromMap($map = [])
     {
@@ -80,8 +107,17 @@ class DescribeDdosEventListRequest extends Model
         if (isset($map['DdosRegionId'])) {
             $model->ddosRegionId = $map['DdosRegionId'];
         }
+        if (isset($map['DdosStatus'])) {
+            $model->ddosStatus = $map['DdosStatus'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceIp'])) {
+            $model->instanceIp = $map['InstanceIp'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];

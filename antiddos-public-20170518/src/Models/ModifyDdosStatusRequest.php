@@ -11,33 +11,21 @@ class ModifyDdosStatusRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var string
-     */
     public $ddosRegionId;
 
     /**
      * @var string
      */
-    public $instanceType;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $instanceType;
     protected $_name = [
-        'sourceIp'     => 'SourceIp',
-        'lang'         => 'Lang',
         'ddosRegionId' => 'DdosRegionId',
-        'instanceType' => 'InstanceType',
         'instanceId'   => 'InstanceId',
+        'instanceType' => 'InstanceType',
     ];
 
     public function validate()
@@ -47,20 +35,14 @@ class ModifyDdosStatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
-        }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->ddosRegionId) {
             $res['DdosRegionId'] = $this->ddosRegionId;
         }
-        if (null !== $this->instanceType) {
-            $res['InstanceType'] = $this->instanceType;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
 
         return $res;
@@ -74,20 +56,14 @@ class ModifyDdosStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
-        }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['DdosRegionId'])) {
             $model->ddosRegionId = $map['DdosRegionId'];
         }
-        if (isset($map['InstanceType'])) {
-            $model->instanceType = $map['InstanceType'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
 
         return $model;
