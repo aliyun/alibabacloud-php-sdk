@@ -37,6 +37,10 @@ use AlibabaCloud\SDK\DBFS\V20200418\Models\GetServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\GetServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ListConstantsRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ListConstantsResponse;
+use AlibabaCloud\SDK\DBFS\V20200418\Models\ListDbfsAttachableEcsInstancesRequest;
+use AlibabaCloud\SDK\DBFS\V20200418\Models\ListDbfsAttachableEcsInstancesResponse;
+use AlibabaCloud\SDK\DBFS\V20200418\Models\ListDbfsAttachedEcsInstancesRequest;
+use AlibabaCloud\SDK\DBFS\V20200418\Models\ListDbfsAttachedEcsInstancesResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ListDbfsRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ListDbfsResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ListSnapshotRequest;
@@ -612,6 +616,62 @@ class DBFS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDbfsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDbfsAttachableEcsInstancesRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListDbfsAttachableEcsInstancesResponse
+     */
+    public function listDbfsAttachableEcsInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDbfsAttachableEcsInstancesResponse::fromMap($this->doRPCRequest('ListDbfsAttachableEcsInstances', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDbfsAttachableEcsInstancesRequest $request
+     *
+     * @return ListDbfsAttachableEcsInstancesResponse
+     */
+    public function listDbfsAttachableEcsInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDbfsAttachableEcsInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDbfsAttachedEcsInstancesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListDbfsAttachedEcsInstancesResponse
+     */
+    public function listDbfsAttachedEcsInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+
+        return ListDbfsAttachedEcsInstancesResponse::fromMap($this->doRPCRequest('ListDbfsAttachedEcsInstances', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+    }
+
+    /**
+     * @param ListDbfsAttachedEcsInstancesRequest $request
+     *
+     * @return ListDbfsAttachedEcsInstancesResponse
+     */
+    public function listDbfsAttachedEcsInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDbfsAttachedEcsInstancesWithOptions($request, $runtime);
     }
 
     /**
