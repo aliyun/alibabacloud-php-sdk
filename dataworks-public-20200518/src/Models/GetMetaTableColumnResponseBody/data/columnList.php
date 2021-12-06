@@ -52,6 +52,11 @@ class columnList extends Model
      * @var int
      */
     public $position;
+
+    /**
+     * @var int
+     */
+    public $relationCount;
     protected $_name = [
         'caption'           => 'Caption',
         'columnGuid'        => 'ColumnGuid',
@@ -62,6 +67,7 @@ class columnList extends Model
         'isPartitionColumn' => 'IsPartitionColumn',
         'isPrimaryKey'      => 'IsPrimaryKey',
         'position'          => 'Position',
+        'relationCount'     => 'RelationCount',
     ];
 
     public function validate()
@@ -97,6 +103,9 @@ class columnList extends Model
         }
         if (null !== $this->position) {
             $res['Position'] = $this->position;
+        }
+        if (null !== $this->relationCount) {
+            $res['RelationCount'] = $this->relationCount;
         }
 
         return $res;
@@ -136,6 +145,9 @@ class columnList extends Model
         }
         if (isset($map['Position'])) {
             $model->position = $map['Position'];
+        }
+        if (isset($map['RelationCount'])) {
+            $model->relationCount = $map['RelationCount'];
         }
 
         return $model;
