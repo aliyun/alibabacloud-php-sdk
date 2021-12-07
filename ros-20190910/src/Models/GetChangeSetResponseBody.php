@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetChangeSetResponseBody\log;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetChangeSetResponseBody\parameters;
 use AlibabaCloud\Tea\Model;
 
@@ -48,6 +49,11 @@ class GetChangeSetResponseBody extends Model
      * @var string
      */
     public $executionStatus;
+
+    /**
+     * @var log
+     */
+    public $log;
 
     /**
      * @var parameters[]
@@ -102,6 +108,7 @@ class GetChangeSetResponseBody extends Model
         'description'      => 'Description',
         'disableRollback'  => 'DisableRollback',
         'executionStatus'  => 'ExecutionStatus',
+        'log'              => 'Log',
         'parameters'       => 'Parameters',
         'regionId'         => 'RegionId',
         'requestId'        => 'RequestId',
@@ -143,6 +150,9 @@ class GetChangeSetResponseBody extends Model
         }
         if (null !== $this->executionStatus) {
             $res['ExecutionStatus'] = $this->executionStatus;
+        }
+        if (null !== $this->log) {
+            $res['Log'] = null !== $this->log ? $this->log->toMap() : null;
         }
         if (null !== $this->parameters) {
             $res['Parameters'] = [];
@@ -214,6 +224,9 @@ class GetChangeSetResponseBody extends Model
         }
         if (isset($map['ExecutionStatus'])) {
             $model->executionStatus = $map['ExecutionStatus'];
+        }
+        if (isset($map['Log'])) {
+            $model->log = log::fromMap($map['Log']);
         }
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackResponseBody;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackResponseBody\stack\log;
 use AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackResponseBody\stack\parameters;
 use AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackResponseBody\stack\resources;
 use AlibabaCloud\Tea\Model;
@@ -19,6 +20,11 @@ class stack extends Model
      * @var bool
      */
     public $disableRollback;
+
+    /**
+     * @var log
+     */
+    public $log;
 
     /**
      * @var parameters[]
@@ -57,6 +63,7 @@ class stack extends Model
     protected $_name = [
         'description'         => 'Description',
         'disableRollback'     => 'DisableRollback',
+        'log'                 => 'Log',
         'parameters'          => 'Parameters',
         'regionId'            => 'RegionId',
         'resources'           => 'Resources',
@@ -78,6 +85,9 @@ class stack extends Model
         }
         if (null !== $this->disableRollback) {
             $res['DisableRollback'] = $this->disableRollback;
+        }
+        if (null !== $this->log) {
+            $res['Log'] = null !== $this->log ? $this->log->toMap() : null;
         }
         if (null !== $this->parameters) {
             $res['Parameters'] = [];
@@ -129,6 +139,9 @@ class stack extends Model
         }
         if (isset($map['DisableRollback'])) {
             $model->disableRollback = $map['DisableRollback'];
+        }
+        if (isset($map['Log'])) {
+            $model->log = log::fromMap($map['Log']);
         }
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {

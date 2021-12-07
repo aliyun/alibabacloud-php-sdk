@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackResponseBody\log;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackResponseBody\parameters;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackResponseBody\resourceProgress;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackResponseBody\tags;
@@ -35,6 +36,11 @@ class GetStackResponseBody extends Model
      * @var string
      */
     public $driftDetectionTime;
+
+    /**
+     * @var log
+     */
+    public $log;
 
     /**
      * @var string[]
@@ -141,6 +147,7 @@ class GetStackResponseBody extends Model
         'description'         => 'Description',
         'disableRollback'     => 'DisableRollback',
         'driftDetectionTime'  => 'DriftDetectionTime',
+        'log'                 => 'Log',
         'notificationURLs'    => 'NotificationURLs',
         'outputs'             => 'Outputs',
         'parameters'          => 'Parameters',
@@ -184,6 +191,9 @@ class GetStackResponseBody extends Model
         }
         if (null !== $this->driftDetectionTime) {
             $res['DriftDetectionTime'] = $this->driftDetectionTime;
+        }
+        if (null !== $this->log) {
+            $res['Log'] = null !== $this->log ? $this->log->toMap() : null;
         }
         if (null !== $this->notificationURLs) {
             $res['NotificationURLs'] = $this->notificationURLs;
@@ -283,6 +293,9 @@ class GetStackResponseBody extends Model
         }
         if (isset($map['DriftDetectionTime'])) {
             $model->driftDetectionTime = $map['DriftDetectionTime'];
+        }
+        if (isset($map['Log'])) {
+            $model->log = log::fromMap($map['Log']);
         }
         if (isset($map['NotificationURLs'])) {
             if (!empty($map['NotificationURLs'])) {
