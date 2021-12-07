@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Drds\V20190123;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Drds\V20190123\Models\ChangeAccountPasswordRequest;
 use AlibabaCloud\SDK\Drds\V20190123\Models\ChangeAccountPasswordResponse;
 use AlibabaCloud\SDK\Drds\V20190123\Models\ChangeInstanceAzoneRequest;
@@ -276,6 +277,7 @@ use AlibabaCloud\SDK\Drds\V20190123\Models\ValidateShardTaskResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Drds extends OpenApiClient
@@ -363,11 +365,27 @@ class Drds extends OpenApiClient
     public function changeAccountPasswordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['AccountName']    = $request->accountName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['Password']       = $request->password;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeAccountPassword',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ChangeAccountPasswordResponse::fromMap($this->doRPCRequest('ChangeAccountPassword', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ChangeAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -391,11 +409,28 @@ class Drds extends OpenApiClient
     public function changeInstanceAzoneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['DrdsRegionId']   = $request->drdsRegionId;
+        $query['OriginAzoneId']  = $request->originAzoneId;
+        $query['TargetAzoneId']  = $request->targetAzoneId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeInstanceAzone',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ChangeInstanceAzoneResponse::fromMap($this->doRPCRequest('ChangeInstanceAzone', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ChangeInstanceAzoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -419,11 +454,30 @@ class Drds extends OpenApiClient
     public function changeInstanceNetworkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                           = [];
+        $query['ClassicExpiredDays']     = $request->classicExpiredDays;
+        $query['DrdsInstanceId']         = $request->drdsInstanceId;
+        $query['RetainClassic']          = $request->retainClassic;
+        $query['SrcInstanceNetworkType'] = $request->srcInstanceNetworkType;
+        $query['VpcId']                  = $request->vpcId;
+        $query['VswitchId']              = $request->vswitchId;
+        $req                             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeInstanceNetwork',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ChangeInstanceNetworkResponse::fromMap($this->doRPCRequest('ChangeInstanceNetwork', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ChangeInstanceNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -447,11 +501,26 @@ class Drds extends OpenApiClient
     public function checkDrdsDbNameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckDrdsDbName',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CheckDrdsDbNameResponse::fromMap($this->doRPCRequest('CheckDrdsDbName', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CheckDrdsDbNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -475,11 +544,26 @@ class Drds extends OpenApiClient
     public function checkExpandStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckExpandStatus',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CheckExpandStatusResponse::fromMap($this->doRPCRequest('CheckExpandStatus', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CheckExpandStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -503,11 +587,28 @@ class Drds extends OpenApiClient
     public function checkRdsSuperAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['AccountName']    = $request->accountName;
+        $query['DbInstanceId']   = $request->dbInstanceId;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['Password']       = $request->password;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckRdsSuperAccount',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CheckRdsSuperAccountResponse::fromMap($this->doRPCRequest('CheckRdsSuperAccount', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CheckRdsSuperAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -531,11 +632,26 @@ class Drds extends OpenApiClient
     public function checkSqlAuditEnableStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckSqlAuditEnableStatus',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CheckSqlAuditEnableStatusResponse::fromMap($this->doRPCRequest('CheckSqlAuditEnableStatus', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CheckSqlAuditEnableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -559,11 +675,27 @@ class Drds extends OpenApiClient
     public function configureDrdsDbInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbInstance']     = $request->dbInstance;
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ConfigureDrdsDbInstances',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ConfigureDrdsDbInstancesResponse::fromMap($this->doRPCRequest('ConfigureDrdsDbInstances', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ConfigureDrdsDbInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -587,11 +719,35 @@ class Drds extends OpenApiClient
     public function createDrdsDBWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AccountName']          = $request->accountName;
+        $query['DbInstType']           = $request->dbInstType;
+        $query['DbInstanceIsCreating'] = $request->dbInstanceIsCreating;
+        $query['DbName']               = $request->dbName;
+        $query['DrdsInstanceId']       = $request->drdsInstanceId;
+        $query['Encode']               = $request->encode;
+        $query['InstDbName']           = $request->instDbName;
+        $query['Password']             = $request->password;
+        $query['RdsInstance']          = $request->rdsInstance;
+        $query['RdsSuperAccount']      = $request->rdsSuperAccount;
+        $query['Type']                 = $request->type;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDrdsDB',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDrdsDBResponse::fromMap($this->doRPCRequest('CreateDrdsDB', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDrdsDBResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -615,11 +771,35 @@ class Drds extends OpenApiClient
     public function createDrdsDBPreCheckWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AccountName']          = $request->accountName;
+        $query['DbInstType']           = $request->dbInstType;
+        $query['DbInstanceIsCreating'] = $request->dbInstanceIsCreating;
+        $query['DbName']               = $request->dbName;
+        $query['DrdsInstanceId']       = $request->drdsInstanceId;
+        $query['Encode']               = $request->encode;
+        $query['InstDbName']           = $request->instDbName;
+        $query['Password']             = $request->password;
+        $query['RdsInstance']          = $request->rdsInstance;
+        $query['RdsSuperAccount']      = $request->rdsSuperAccount;
+        $query['Type']                 = $request->type;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDrdsDBPreCheck',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDrdsDBPreCheckResponse::fromMap($this->doRPCRequest('CreateDrdsDBPreCheck', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDrdsDBPreCheckResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -643,11 +823,33 @@ class Drds extends OpenApiClient
     public function createDrdsDBPreviewWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AccountName']          = $request->accountName;
+        $query['DbInstType']           = $request->dbInstType;
+        $query['DbInstanceIsCreating'] = $request->dbInstanceIsCreating;
+        $query['DbName']               = $request->dbName;
+        $query['DrdsInstanceId']       = $request->drdsInstanceId;
+        $query['InstDbName']           = $request->instDbName;
+        $query['OrderId']              = $request->orderId;
+        $query['RdsInstance']          = $request->rdsInstance;
+        $query['Type']                 = $request->type;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDrdsDBPreview',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDrdsDBPreviewResponse::fromMap($this->doRPCRequest('CreateDrdsDBPreview', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDrdsDBPreviewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -671,11 +873,42 @@ class Drds extends OpenApiClient
     public function createDrdsInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ClientToken']     = $request->clientToken;
+        $query['Description']     = $request->description;
+        $query['Duration']        = $request->duration;
+        $query['InstanceSeries']  = $request->instanceSeries;
+        $query['IsAutoRenew']     = $request->isAutoRenew;
+        $query['MasterInstId']    = $request->masterInstId;
+        $query['MySQLVersion']    = $request->mySQLVersion;
+        $query['PayType']         = $request->payType;
+        $query['PricingCycle']    = $request->pricingCycle;
+        $query['Quantity']        = $request->quantity;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['Specification']   = $request->specification;
+        $query['Type']            = $request->type;
+        $query['VpcId']           = $request->vpcId;
+        $query['VswitchId']       = $request->vswitchId;
+        $query['ZoneId']          = $request->zoneId;
+        $query['isHa']            = $request->isHa;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDrdsInstance',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDrdsInstanceResponse::fromMap($this->doRPCRequest('CreateDrdsInstance', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDrdsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -699,11 +932,29 @@ class Drds extends OpenApiClient
     public function createEvaluatePreCheckTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['AvgQpsGrowthScale'] = $request->avgQpsGrowthScale;
+        $query['DataGrowthScale']   = $request->dataGrowthScale;
+        $query['DbInfo']            = $request->dbInfo;
+        $query['EvaluateHours']     = $request->evaluateHours;
+        $query['TaskName']          = $request->taskName;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEvaluatePreCheckTask',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateEvaluatePreCheckTaskResponse::fromMap($this->doRPCRequest('CreateEvaluatePreCheckTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateEvaluatePreCheckTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -727,11 +978,28 @@ class Drds extends OpenApiClient
     public function createInstanceAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['AccountName']    = $request->accountName;
+        $query['DbPrivilege']    = $request->dbPrivilege;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['Password']       = $request->password;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateInstanceAccount',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateInstanceAccountResponse::fromMap($this->doRPCRequest('CreateInstanceAccount', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateInstanceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -755,11 +1023,26 @@ class Drds extends OpenApiClient
     public function createInstanceInternetAddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateInstanceInternetAddress',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateInstanceInternetAddressResponse::fromMap($this->doRPCRequest('CreateInstanceInternetAddress', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateInstanceInternetAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -783,11 +1066,26 @@ class Drds extends OpenApiClient
     public function createOrderForRdsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['Params']   = $request->params;
+        $query['RegionId'] = $request->regionId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOrderForRds',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateOrderForRdsResponse::fromMap($this->doRPCRequest('CreateOrderForRds', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateOrderForRdsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -811,11 +1109,30 @@ class Drds extends OpenApiClient
     public function createShardTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['DbName']          = $request->dbName;
+        $query['DrdsInstanceId']  = $request->drdsInstanceId;
+        $query['RegionId']        = $request->regionId;
+        $query['SourceTableName'] = $request->sourceTableName;
+        $query['TargetTableName'] = $request->targetTableName;
+        $query['TaskType']        = $request->taskType;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateShardTask',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateShardTaskResponse::fromMap($this->doRPCRequest('CreateShardTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateShardTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -839,11 +1156,25 @@ class Drds extends OpenApiClient
     public function describeBackMenuWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackMenu',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBackMenuResponse::fromMap($this->doRPCRequest('DescribeBackMenu', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBackMenuResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -867,11 +1198,27 @@ class Drds extends OpenApiClient
     public function describeBackupDbsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['BackupId']             = $request->backupId;
+        $query['DrdsInstanceId']       = $request->drdsInstanceId;
+        $query['PreferredRestoreTime'] = $request->preferredRestoreTime;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackupDbs',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBackupDbsResponse::fromMap($this->doRPCRequest('DescribeBackupDbs', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBackupDbsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -895,11 +1242,25 @@ class Drds extends OpenApiClient
     public function describeBackupLocalWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackupLocal',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBackupLocalResponse::fromMap($this->doRPCRequest('DescribeBackupLocal', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBackupLocalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -923,11 +1284,25 @@ class Drds extends OpenApiClient
     public function describeBackupPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackupPolicy',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBackupPolicyResponse::fromMap($this->doRPCRequest('DescribeBackupPolicy', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -951,11 +1326,27 @@ class Drds extends OpenApiClient
     public function describeBackupSetsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['EndTime']        = $request->endTime;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackupSets',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBackupSetsResponse::fromMap($this->doRPCRequest('DescribeBackupSets', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBackupSetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -979,11 +1370,25 @@ class Drds extends OpenApiClient
     public function describeBackupTimesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackupTimes',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBackupTimesResponse::fromMap($this->doRPCRequest('DescribeBackupTimes', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBackupTimesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1007,11 +1412,30 @@ class Drds extends OpenApiClient
     public function describeBroadcastTablesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['CurrentPage']    = $request->currentPage;
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['PageSize']       = $request->pageSize;
+        $query['Query']          = $request->query;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBroadcastTables',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBroadcastTablesResponse::fromMap($this->doRPCRequest('DescribeBroadcastTables', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBroadcastTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1035,11 +1459,25 @@ class Drds extends OpenApiClient
     public function describeDataImportTaskReportWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query           = [];
+        $query['TaskId'] = $request->taskId;
+        $req             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDataImportTaskReport',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDataImportTaskReportResponse::fromMap($this->doRPCRequest('DescribeDataImportTaskReport', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDataImportTaskReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1063,11 +1501,29 @@ class Drds extends OpenApiClient
     public function describeDbInstanceDbsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['AccountName']    = $request->accountName;
+        $query['DbInstType']     = $request->dbInstType;
+        $query['DbInstanceId']   = $request->dbInstanceId;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['Password']       = $request->password;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDbInstanceDbs',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDbInstanceDbsResponse::fromMap($this->doRPCRequest('DescribeDbInstanceDbs', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDbInstanceDbsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1091,11 +1547,29 @@ class Drds extends OpenApiClient
     public function describeDbInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbInstType']     = $request->dbInstType;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['PageNumber']     = $request->pageNumber;
+        $query['PageSize']       = $request->pageSize;
+        $query['Search']         = $request->search;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDbInstances',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDbInstancesResponse::fromMap($this->doRPCRequest('DescribeDbInstances', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDbInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1119,11 +1593,26 @@ class Drds extends OpenApiClient
     public function describeDrdsDBWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDrdsDB',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDrdsDBResponse::fromMap($this->doRPCRequest('DescribeDrdsDB', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDrdsDBResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1147,11 +1636,27 @@ class Drds extends OpenApiClient
     public function describeDrdsDBClusterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbInstanceId']   = $request->dbInstanceId;
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDrdsDBCluster',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDrdsDBClusterResponse::fromMap($this->doRPCRequest('DescribeDrdsDBCluster', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDrdsDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1175,11 +1680,27 @@ class Drds extends OpenApiClient
     public function describeDrdsDBIpWhiteListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['GroupName']      = $request->groupName;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDrdsDBIpWhiteList',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDrdsDBIpWhiteListResponse::fromMap($this->doRPCRequest('DescribeDrdsDBIpWhiteList', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDrdsDBIpWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1203,11 +1724,28 @@ class Drds extends OpenApiClient
     public function describeDrdsDBsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['PageNumber']     = $request->pageNumber;
+        $query['PageSize']       = $request->pageSize;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDrdsDBs',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDrdsDBsResponse::fromMap($this->doRPCRequest('DescribeDrdsDBs', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDrdsDBsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1231,11 +1769,27 @@ class Drds extends OpenApiClient
     public function describeDrdsDbInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbInstanceId']   = $request->dbInstanceId;
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDrdsDbInstance',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDrdsDbInstanceResponse::fromMap($this->doRPCRequest('DescribeDrdsDbInstance', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDrdsDbInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1259,11 +1813,28 @@ class Drds extends OpenApiClient
     public function describeDrdsDbInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['PageNumber']     = $request->pageNumber;
+        $query['PageSize']       = $request->pageSize;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDrdsDbInstances',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDrdsDbInstancesResponse::fromMap($this->doRPCRequest('DescribeDrdsDbInstances', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDrdsDbInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1287,11 +1858,26 @@ class Drds extends OpenApiClient
     public function describeDrdsDbRdsNameListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDrdsDbRdsNameList',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDrdsDbRdsNameListResponse::fromMap($this->doRPCRequest('DescribeDrdsDbRdsNameList', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDrdsDbRdsNameListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1315,11 +1901,27 @@ class Drds extends OpenApiClient
     public function describeDrdsDbSpecAndPriceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DBName']         = $request->DBName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDrdsDbSpecAndPrice',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDrdsDbSpecAndPriceResponse::fromMap($this->doRPCRequest('DescribeDrdsDbSpecAndPrice', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDrdsDbSpecAndPriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1343,11 +1945,27 @@ class Drds extends OpenApiClient
     public function describeDrdsDbTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['TaskType']       = $request->taskType;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDrdsDbTasks',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDrdsDbTasksResponse::fromMap($this->doRPCRequest('DescribeDrdsDbTasks', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDrdsDbTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1371,11 +1989,26 @@ class Drds extends OpenApiClient
     public function describeDrdsInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDrdsInstance',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDrdsInstanceResponse::fromMap($this->doRPCRequest('DescribeDrdsInstance', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDrdsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1399,11 +2032,30 @@ class Drds extends OpenApiClient
     public function describeDrdsInstanceDbMonitorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['EndTime']        = $request->endTime;
+        $query['Key']            = $request->key;
+        $query['RegionId']       = $request->regionId;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDrdsInstanceDbMonitor',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDrdsInstanceDbMonitorResponse::fromMap($this->doRPCRequest('DescribeDrdsInstanceDbMonitor', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDrdsInstanceDbMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1427,11 +2079,25 @@ class Drds extends OpenApiClient
     public function describeDrdsInstanceLevelTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDrdsInstanceLevelTasks',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDrdsInstanceLevelTasksResponse::fromMap($this->doRPCRequest('DescribeDrdsInstanceLevelTasks', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDrdsInstanceLevelTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1455,11 +2121,30 @@ class Drds extends OpenApiClient
     public function describeDrdsInstanceMonitorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['EndTime']        = $request->endTime;
+        $query['Key']            = $request->key;
+        $query['PeriodMultiple'] = $request->periodMultiple;
+        $query['RegionId']       = $request->regionId;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDrdsInstanceMonitor',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDrdsInstanceMonitorResponse::fromMap($this->doRPCRequest('DescribeDrdsInstanceMonitor', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDrdsInstanceMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1483,11 +2168,26 @@ class Drds extends OpenApiClient
     public function describeDrdsInstanceVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDrdsInstanceVersion',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDrdsInstanceVersionResponse::fromMap($this->doRPCRequest('DescribeDrdsInstanceVersion', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDrdsInstanceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1511,11 +2211,34 @@ class Drds extends OpenApiClient
     public function describeDrdsInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Description']     = $request->description;
+        $query['Expired']         = $request->expired;
+        $query['Mix']             = $request->mix;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['ProductVersion']  = $request->productVersion;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['Tag']             = $request->tag;
+        $query['Type']            = $request->type;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDrdsInstances',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDrdsInstancesResponse::fromMap($this->doRPCRequest('DescribeDrdsInstances', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDrdsInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1539,11 +2262,28 @@ class Drds extends OpenApiClient
     public function describeDrdsParamsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['ParamLevel']     = $request->paramLevel;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDrdsParams',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDrdsParamsResponse::fromMap($this->doRPCRequest('DescribeDrdsParams', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDrdsParamsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1567,11 +2307,25 @@ class Drds extends OpenApiClient
     public function describeDrdsRdsInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDrdsRdsInstances',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDrdsRdsInstancesResponse::fromMap($this->doRPCRequest('DescribeDrdsRdsInstances', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDrdsRdsInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1595,11 +2349,29 @@ class Drds extends OpenApiClient
     public function describeDrdsShardingDbsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DbNamePattern']  = $request->dbNamePattern;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['PageNumber']     = $request->pageNumber;
+        $query['PageSize']       = $request->pageSize;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDrdsShardingDbs',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDrdsShardingDbsResponse::fromMap($this->doRPCRequest('DescribeDrdsShardingDbs', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDrdsShardingDbsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1623,11 +2395,31 @@ class Drds extends OpenApiClient
     public function describeDrdsSlowSqlsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['EndTime']        = $request->endTime;
+        $query['ExeTime']        = $request->exeTime;
+        $query['PageNumber']     = $request->pageNumber;
+        $query['PageSize']       = $request->pageSize;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDrdsSlowSqls',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDrdsSlowSqlsResponse::fromMap($this->doRPCRequest('DescribeDrdsSlowSqls', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDrdsSlowSqlsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1651,11 +2443,25 @@ class Drds extends OpenApiClient
     public function describeDrdsSqlAuditStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDrdsSqlAuditStatus',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDrdsSqlAuditStatusResponse::fromMap($this->doRPCRequest('DescribeDrdsSqlAuditStatus', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDrdsSqlAuditStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1679,11 +2485,27 @@ class Drds extends OpenApiClient
     public function describeDrdsTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['TaskType']       = $request->taskType;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDrdsTasks',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDrdsTasksResponse::fromMap($this->doRPCRequest('DescribeDrdsTasks', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDrdsTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1707,11 +2529,26 @@ class Drds extends OpenApiClient
     public function describeExpandLogicTableInfoListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeExpandLogicTableInfoList',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeExpandLogicTableInfoListResponse::fromMap($this->doRPCRequest('DescribeExpandLogicTableInfoList', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeExpandLogicTableInfoListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1735,11 +2572,26 @@ class Drds extends OpenApiClient
     public function describeHiStoreInstanceInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['DrdsInstanceId']    = $request->drdsInstanceId;
+        $query['HistoreInstanceId'] = $request->historeInstanceId;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHiStoreInstanceInfo',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeHiStoreInstanceInfoResponse::fromMap($this->doRPCRequest('DescribeHiStoreInstanceInfo', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeHiStoreInstanceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1763,11 +2615,26 @@ class Drds extends OpenApiClient
     public function describeHotDbListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHotDbList',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeHotDbListResponse::fromMap($this->doRPCRequest('DescribeHotDbList', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeHotDbListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1791,11 +2658,26 @@ class Drds extends OpenApiClient
     public function describeInstDbLogInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstDbLogInfo',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstDbLogInfoResponse::fromMap($this->doRPCRequest('DescribeInstDbLogInfo', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstDbLogInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1819,11 +2701,26 @@ class Drds extends OpenApiClient
     public function describeInstDbSlsInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstDbSlsInfo',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstDbSlsInfoResponse::fromMap($this->doRPCRequest('DescribeInstDbSlsInfo', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstDbSlsInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1847,11 +2744,25 @@ class Drds extends OpenApiClient
     public function describeInstanceAccountsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceAccounts',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceAccountsResponse::fromMap($this->doRPCRequest('DescribeInstanceAccounts', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstanceAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1875,11 +2786,25 @@ class Drds extends OpenApiClient
     public function describeInstanceMenuSwitchWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceMenuSwitch',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceMenuSwitchResponse::fromMap($this->doRPCRequest('DescribeInstanceMenuSwitch', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstanceMenuSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1903,11 +2828,25 @@ class Drds extends OpenApiClient
     public function describeInstanceSwitchAzoneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceSwitchAzone',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceSwitchAzoneResponse::fromMap($this->doRPCRequest('DescribeInstanceSwitchAzone', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstanceSwitchAzoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1931,11 +2870,25 @@ class Drds extends OpenApiClient
     public function describeInstanceSwitchNetworkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceSwitchNetwork',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceSwitchNetworkResponse::fromMap($this->doRPCRequest('DescribeInstanceSwitchNetwork', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstanceSwitchNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1959,11 +2912,27 @@ class Drds extends OpenApiClient
     public function describePreCheckResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['RegionId']       = $request->regionId;
+        $query['TaskId']         = $request->taskId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePreCheckResult',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePreCheckResultResponse::fromMap($this->doRPCRequest('DescribePreCheckResult', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePreCheckResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1987,11 +2956,30 @@ class Drds extends OpenApiClient
     public function describeRDSPerformanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbInstType']     = $request->dbInstType;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['EndTime']        = $request->endTime;
+        $query['Keys']           = $request->keys;
+        $query['RdsInstanceId']  = $request->rdsInstanceId;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRDSPerformance',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRDSPerformanceResponse::fromMap($this->doRPCRequest('DescribeRDSPerformance', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRDSPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2015,11 +3003,27 @@ class Drds extends OpenApiClient
     public function describeRdsCommodityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['CommodityCode']  = $request->commodityCode;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['OrderType']      = $request->orderType;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRdsCommodity',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRdsCommodityResponse::fromMap($this->doRPCRequest('DescribeRdsCommodity', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRdsCommodityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2043,11 +3047,26 @@ class Drds extends OpenApiClient
     public function describeRdsDrdsDBWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['RdsInstanceId']  = $request->rdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRdsDrdsDB',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRdsDrdsDBResponse::fromMap($this->doRPCRequest('DescribeRdsDrdsDB', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRdsDrdsDBResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2071,11 +3090,27 @@ class Drds extends OpenApiClient
     public function describeRdsPerformanceSummaryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['RdsInstanceId']  = $request->rdsInstanceId;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRdsPerformanceSummary',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRdsPerformanceSummaryResponse::fromMap($this->doRPCRequest('DescribeRdsPerformanceSummary', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRdsPerformanceSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2099,11 +3134,26 @@ class Drds extends OpenApiClient
     public function describeRdsPriceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['Params']   = $request->params;
+        $query['RegionId'] = $request->regionId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRdsPrice',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRdsPriceResponse::fromMap($this->doRPCRequest('DescribeRdsPrice', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRdsPriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2127,11 +3177,27 @@ class Drds extends OpenApiClient
     public function describeRdsReadOnlyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbInstType']     = $request->dbInstType;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['RdsInstanceId']  = $request->rdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRdsReadOnly',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRdsReadOnlyResponse::fromMap($this->doRPCRequest('DescribeRdsReadOnly', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRdsReadOnlyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2155,11 +3221,27 @@ class Drds extends OpenApiClient
     public function describeRdsSuperAccountInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbInstType']     = $request->dbInstType;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['RdsInstance']    = $request->rdsInstance;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRdsSuperAccountInstances',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRdsSuperAccountInstancesResponse::fromMap($this->doRPCRequest('DescribeRdsSuperAccountInstances', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRdsSuperAccountInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2183,11 +3265,26 @@ class Drds extends OpenApiClient
     public function describeRdsVpcForZoneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['RegionId'] = $request->regionId;
+        $query['ZoneId']   = $request->zoneId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRdsVpcForZone',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRdsVpcForZoneResponse::fromMap($this->doRPCRequest('DescribeRdsVpcForZone', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRdsVpcForZoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2211,11 +3308,27 @@ class Drds extends OpenApiClient
     public function describeRecycleBinStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRecycleBinStatus',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRecycleBinStatusResponse::fromMap($this->doRPCRequest('DescribeRecycleBinStatus', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRecycleBinStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2239,11 +3352,27 @@ class Drds extends OpenApiClient
     public function describeRecycleBinTablesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRecycleBinTables',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRecycleBinTablesResponse::fromMap($this->doRPCRequest('DescribeRecycleBinTables', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRecycleBinTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2267,11 +3396,30 @@ class Drds extends OpenApiClient
     public function describeRestoreOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['BackupDbNames']       = $request->backupDbNames;
+        $query['BackupId']            = $request->backupId;
+        $query['BackupLevel']         = $request->backupLevel;
+        $query['BackupMode']          = $request->backupMode;
+        $query['DrdsInstanceId']      = $request->drdsInstanceId;
+        $query['PreferredBackupTime'] = $request->preferredBackupTime;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRestoreOrder',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRestoreOrderResponse::fromMap($this->doRPCRequest('DescribeRestoreOrder', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRestoreOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2295,11 +3443,29 @@ class Drds extends OpenApiClient
     public function describeShardTaskInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['DbName']          = $request->dbName;
+        $query['DrdsInstanceId']  = $request->drdsInstanceId;
+        $query['RegionId']        = $request->regionId;
+        $query['SourceTableName'] = $request->sourceTableName;
+        $query['TargetTableName'] = $request->targetTableName;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeShardTaskInfo',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeShardTaskInfoResponse::fromMap($this->doRPCRequest('DescribeShardTaskInfo', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeShardTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2323,11 +3489,31 @@ class Drds extends OpenApiClient
     public function describeShardTaskListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['CurrentPage']    = $request->currentPage;
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['PageSize']       = $request->pageSize;
+        $query['Query']          = $request->query;
+        $query['RegionId']       = $request->regionId;
+        $query['TaskType']       = $request->taskType;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeShardTaskList',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeShardTaskListResponse::fromMap($this->doRPCRequest('DescribeShardTaskList', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeShardTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2351,11 +3537,25 @@ class Drds extends OpenApiClient
     public function describeSqlFlashbakTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSqlFlashbakTask',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSqlFlashbakTaskResponse::fromMap($this->doRPCRequest('DescribeSqlFlashbakTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSqlFlashbakTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2379,11 +3579,27 @@ class Drds extends OpenApiClient
     public function describeSrcRdsListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['DbName']           = $request->dbName;
+        $query['DrdsInstanceId']   = $request->drdsInstanceId;
+        $query['PartitionMapping'] = $request->partitionMapping;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSrcRdsList',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSrcRdsListResponse::fromMap($this->doRPCRequest('DescribeSrcRdsList', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSrcRdsListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2407,11 +3623,28 @@ class Drds extends OpenApiClient
     public function describeTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['RegionId']       = $request->regionId;
+        $query['TableName']      = $request->tableName;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTable',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeTableResponse::fromMap($this->doRPCRequest('DescribeTable', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2435,11 +3668,31 @@ class Drds extends OpenApiClient
     public function describeTableListByTypeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['CurrentPage']    = $request->currentPage;
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['PageSize']       = $request->pageSize;
+        $query['Query']          = $request->query;
+        $query['RegionId']       = $request->regionId;
+        $query['TableType']      = $request->tableType;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTableListByType',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeTableListByTypeResponse::fromMap($this->doRPCRequest('DescribeTableListByType', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeTableListByTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2463,11 +3716,30 @@ class Drds extends OpenApiClient
     public function describeTablesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['CurrentPage']    = $request->currentPage;
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['PageSize']       = $request->pageSize;
+        $query['Query']          = $request->query;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTables',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeTablesResponse::fromMap($this->doRPCRequest('DescribeTables', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2491,11 +3763,26 @@ class Drds extends OpenApiClient
     public function disableSqlAuditWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableSqlAudit',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableSqlAuditResponse::fromMap($this->doRPCRequest('DisableSqlAudit', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableSqlAuditResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2519,11 +3806,26 @@ class Drds extends OpenApiClient
     public function enableInstanceIpv6AddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableInstanceIpv6Address',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableInstanceIpv6AddressResponse::fromMap($this->doRPCRequest('EnableInstanceIpv6Address', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableInstanceIpv6AddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2547,11 +3849,29 @@ class Drds extends OpenApiClient
     public function enableSqlAuditWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['DbName']               = $request->dbName;
+        $query['DrdsInstanceId']       = $request->drdsInstanceId;
+        $query['IsRecall']             = $request->isRecall;
+        $query['RecallEndTimestamp']   = $request->recallEndTimestamp;
+        $query['RecallStartTimestamp'] = $request->recallStartTimestamp;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableSqlAudit',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableSqlAuditResponse::fromMap($this->doRPCRequest('EnableSqlAudit', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableSqlAuditResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2575,11 +3895,26 @@ class Drds extends OpenApiClient
     public function enableSqlFlashbackMatchSwitchWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableSqlFlashbackMatchSwitch',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableSqlFlashbackMatchSwitchResponse::fromMap($this->doRPCRequest('EnableSqlFlashbackMatchSwitch', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableSqlFlashbackMatchSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2603,11 +3938,28 @@ class Drds extends OpenApiClient
     public function flashbackRecycleBinTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['RegionId']       = $request->regionId;
+        $query['TableName']      = $request->tableName;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'FlashbackRecycleBinTable',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return FlashbackRecycleBinTableResponse::fromMap($this->doRPCRequest('FlashbackRecycleBinTable', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return FlashbackRecycleBinTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2631,11 +3983,26 @@ class Drds extends OpenApiClient
     public function getDrdsDbRdsRelationInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDrdsDbRdsRelationInfo',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetDrdsDbRdsRelationInfoResponse::fromMap($this->doRPCRequest('GetDrdsDbRdsRelationInfo', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDrdsDbRdsRelationInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2659,11 +4026,29 @@ class Drds extends OpenApiClient
     public function listTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['NextToken']    = $request->nextToken;
+        $query['RegionId']     = $request->regionId;
+        $query['ResourceId']   = $request->resourceId;
+        $query['ResourceType'] = $request->resourceType;
+        $query['Tag']          = $request->tag;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTagResourcesResponse::fromMap($this->doRPCRequest('ListTagResources', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2687,11 +4072,26 @@ class Drds extends OpenApiClient
     public function listUserReportsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['ReportId']       = $request->reportId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUserReports',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListUserReportsResponse::fromMap($this->doRPCRequest('ListUserReports', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListUserReportsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2715,11 +4115,26 @@ class Drds extends OpenApiClient
     public function listVersionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['DrdsVer']        = $request->drdsVer;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVersions',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListVersionsResponse::fromMap($this->doRPCRequest('ListVersions', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2743,11 +4158,29 @@ class Drds extends OpenApiClient
     public function managePrivateRdsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DBInstanceId']   = $request->DBInstanceId;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['Params']         = $request->params;
+        $query['RdsAction']      = $request->rdsAction;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ManagePrivateRds',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ManagePrivateRdsResponse::fromMap($this->doRPCRequest('ManagePrivateRds', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ManagePrivateRdsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2771,11 +4204,27 @@ class Drds extends OpenApiClient
     public function modifyAccountDescriptionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['AccountName']    = $request->accountName;
+        $query['Description']    = $request->description;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAccountDescription',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyAccountDescriptionResponse::fromMap($this->doRPCRequest('ModifyAccountDescription', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2799,11 +4248,28 @@ class Drds extends OpenApiClient
     public function modifyAccountPrivilegeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['AccountName']    = $request->accountName;
+        $query['DbPrivilege']    = $request->dbPrivilege;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAccountPrivilege',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyAccountPrivilegeResponse::fromMap($this->doRPCRequest('ModifyAccountPrivilege', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyAccountPrivilegeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2827,11 +4293,26 @@ class Drds extends OpenApiClient
     public function modifyDrdsInstanceDescriptionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['Description']    = $request->description;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDrdsInstanceDescription',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyDrdsInstanceDescriptionResponse::fromMap($this->doRPCRequest('ModifyDrdsInstanceDescription', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDrdsInstanceDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2855,11 +4336,30 @@ class Drds extends OpenApiClient
     public function modifyDrdsIpWhiteListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['GroupAttribute'] = $request->groupAttribute;
+        $query['GroupName']      = $request->groupName;
+        $query['IpWhiteList']    = $request->ipWhiteList;
+        $query['Mode']           = $request->mode;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDrdsIpWhiteList',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyDrdsIpWhiteListResponse::fromMap($this->doRPCRequest('ModifyDrdsIpWhiteList', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDrdsIpWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2883,11 +4383,27 @@ class Drds extends OpenApiClient
     public function modifyEventTaskStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['EventId']    = $request->eventId;
+        $query['Region']     = $request->region;
+        $query['SwitchTime'] = $request->switchTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyEventTaskStatus',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyEventTaskStatusResponse::fromMap($this->doRPCRequest('ModifyEventTaskStatus', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyEventTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2911,11 +4427,29 @@ class Drds extends OpenApiClient
     public function modifyPolarDbReadWeightWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbInstanceId']   = $request->dbInstanceId;
+        $query['DbName']         = $request->dbName;
+        $query['DbNodeIds']      = $request->dbNodeIds;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['Weights']        = $request->weights;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyPolarDbReadWeight',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyPolarDbReadWeightResponse::fromMap($this->doRPCRequest('ModifyPolarDbReadWeight', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyPolarDbReadWeightResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2939,11 +4473,28 @@ class Drds extends OpenApiClient
     public function modifyRdsReadWeightWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['InstanceNames']  = $request->instanceNames;
+        $query['Weights']        = $request->weights;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyRdsReadWeight',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyRdsReadWeightResponse::fromMap($this->doRPCRequest('ModifyRdsReadWeight', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyRdsReadWeightResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2967,11 +4518,28 @@ class Drds extends OpenApiClient
     public function preCheckSqlFlashbackTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['EndTime']        = $request->endTime;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'PreCheckSqlFlashbackTask',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return PreCheckSqlFlashbackTaskResponse::fromMap($this->doRPCRequest('PreCheckSqlFlashbackTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PreCheckSqlFlashbackTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2995,11 +4563,30 @@ class Drds extends OpenApiClient
     public function putRestorePreCheckWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['BackupDbNames']       = $request->backupDbNames;
+        $query['BackupId']            = $request->backupId;
+        $query['BackupLevel']         = $request->backupLevel;
+        $query['BackupMode']          = $request->backupMode;
+        $query['DrdsInstanceId']      = $request->drdsInstanceId;
+        $query['PreferredBackupTime'] = $request->preferredBackupTime;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'PutRestorePreCheck',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return PutRestorePreCheckResponse::fromMap($this->doRPCRequest('PutRestorePreCheck', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutRestorePreCheckResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3023,11 +4610,28 @@ class Drds extends OpenApiClient
     public function putStartBackupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['BackupDbNames']  = $request->backupDbNames;
+        $query['BackupLevel']    = $request->backupLevel;
+        $query['BackupMode']     = $request->backupMode;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'PutStartBackup',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return PutStartBackupResponse::fromMap($this->doRPCRequest('PutStartBackup', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutStartBackupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3051,11 +4655,30 @@ class Drds extends OpenApiClient
     public function rearrangeDbToInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['ChooseRds']      = $request->chooseRds;
+        $query['ChooseSubDb']    = $request->chooseSubDb;
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['InstanceList']   = $request->instanceList;
+        $query['OrderId']        = $request->orderId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RearrangeDbToInstance',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RearrangeDbToInstanceResponse::fromMap($this->doRPCRequest('RearrangeDbToInstance', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RearrangeDbToInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3079,11 +4702,26 @@ class Drds extends OpenApiClient
     public function refreshDrdsAtomUrlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshDrdsAtomUrl',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RefreshDrdsAtomUrlResponse::fromMap($this->doRPCRequest('RefreshDrdsAtomUrl', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RefreshDrdsAtomUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3107,11 +4745,26 @@ class Drds extends OpenApiClient
     public function releaseInstanceInternetAddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleaseInstanceInternetAddress',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ReleaseInstanceInternetAddressResponse::fromMap($this->doRPCRequest('ReleaseInstanceInternetAddress', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReleaseInstanceInternetAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3135,11 +4788,26 @@ class Drds extends OpenApiClient
     public function removeBackupsSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['BackupId']       = $request->backupId;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveBackupsSet',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveBackupsSetResponse::fromMap($this->doRPCRequest('RemoveBackupsSet', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveBackupsSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3163,11 +4831,26 @@ class Drds extends OpenApiClient
     public function removeDrdsDbWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveDrdsDb',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveDrdsDbResponse::fromMap($this->doRPCRequest('RemoveDrdsDb', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveDrdsDbResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3191,11 +4874,26 @@ class Drds extends OpenApiClient
     public function removeDrdsDbFailedRecordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveDrdsDbFailedRecord',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveDrdsDbFailedRecordResponse::fromMap($this->doRPCRequest('RemoveDrdsDbFailedRecord', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveDrdsDbFailedRecordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3219,11 +4917,25 @@ class Drds extends OpenApiClient
     public function removeDrdsInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveDrdsInstance',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveDrdsInstanceResponse::fromMap($this->doRPCRequest('RemoveDrdsInstance', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveDrdsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3247,11 +4959,29 @@ class Drds extends OpenApiClient
     public function removeDrdsMysqlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbInstanceId']   = $request->dbInstanceId;
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['Force']          = $request->force;
+        $query['RoDbInstanceId'] = $request->roDbInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveDrdsMysql',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveDrdsMysqlResponse::fromMap($this->doRPCRequest('RemoveDrdsMysql', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveDrdsMysqlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3275,11 +5005,26 @@ class Drds extends OpenApiClient
     public function removeInstanceAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['AccountName']    = $request->accountName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveInstanceAccount',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveInstanceAccountResponse::fromMap($this->doRPCRequest('RemoveInstanceAccount', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveInstanceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3303,11 +5048,28 @@ class Drds extends OpenApiClient
     public function removeRecycleBinTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['RegionId']       = $request->regionId;
+        $query['TableName']      = $request->tableName;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveRecycleBinTable',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveRecycleBinTableResponse::fromMap($this->doRPCRequest('RemoveRecycleBinTable', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveRecycleBinTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3331,11 +5093,25 @@ class Drds extends OpenApiClient
     public function restartDrdsInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RestartDrdsInstance',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RestartDrdsInstanceResponse::fromMap($this->doRPCRequest('RestartDrdsInstance', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RestartDrdsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3359,11 +5135,26 @@ class Drds extends OpenApiClient
     public function rollbackInstanceVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RollbackInstanceVersion',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RollbackInstanceVersionResponse::fromMap($this->doRPCRequest('RollbackInstanceVersion', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RollbackInstanceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3387,11 +5178,28 @@ class Drds extends OpenApiClient
     public function setBackupLocalWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                             = [];
+        $query['DrdsInstanceId']           = $request->drdsInstanceId;
+        $query['HighSpaceUsageProtection'] = $request->highSpaceUsageProtection;
+        $query['LocalLogRetentionHours']   = $request->localLogRetentionHours;
+        $query['LocalLogRetentionSpace']   = $request->localLogRetentionSpace;
+        $req                               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetBackupLocal',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetBackupLocalResponse::fromMap($this->doRPCRequest('SetBackupLocal', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetBackupLocalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3415,11 +5223,34 @@ class Drds extends OpenApiClient
     public function setBackupPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                              = [];
+        $query['BackupDbNames']             = $request->backupDbNames;
+        $query['BackupLevel']               = $request->backupLevel;
+        $query['BackupLog']                 = $request->backupLog;
+        $query['BackupMode']                = $request->backupMode;
+        $query['DataBackupRetentionPeriod'] = $request->dataBackupRetentionPeriod;
+        $query['DrdsInstanceId']            = $request->drdsInstanceId;
+        $query['LogBackupRetentionPeriod']  = $request->logBackupRetentionPeriod;
+        $query['PreferredBackupEndTime']    = $request->preferredBackupEndTime;
+        $query['PreferredBackupPeriod']     = $request->preferredBackupPeriod;
+        $query['PreferredBackupStartTime']  = $request->preferredBackupStartTime;
+        $req                                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetBackupPolicy',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetBackupPolicyResponse::fromMap($this->doRPCRequest('SetBackupPolicy', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3443,11 +5274,29 @@ class Drds extends OpenApiClient
     public function setupBroadcastTablesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['Active']         = $request->active;
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['RegionId']       = $request->regionId;
+        $query['TableName']      = $request->tableName;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetupBroadcastTables',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetupBroadcastTablesResponse::fromMap($this->doRPCRequest('SetupBroadcastTables', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetupBroadcastTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3471,11 +5320,28 @@ class Drds extends OpenApiClient
     public function setupDrdsParamsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['Data']           = $request->data;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['ParamLevel']     = $request->paramLevel;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetupDrdsParams',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetupDrdsParamsResponse::fromMap($this->doRPCRequest('SetupDrdsParams', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetupDrdsParamsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3499,11 +5365,28 @@ class Drds extends OpenApiClient
     public function setupRecycleBinStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['RegionId']       = $request->regionId;
+        $query['StatusAction']   = $request->statusAction;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetupRecycleBinStatus',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetupRecycleBinStatusResponse::fromMap($this->doRPCRequest('SetupRecycleBinStatus', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetupRecycleBinStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3527,11 +5410,29 @@ class Drds extends OpenApiClient
     public function setupTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['AllowFullTableScan'] = $request->allowFullTableScan;
+        $query['DbName']             = $request->dbName;
+        $query['DrdsInstanceId']     = $request->drdsInstanceId;
+        $query['RegionId']           = $request->regionId;
+        $query['TableName']          = $request->tableName;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetupTable',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetupTableResponse::fromMap($this->doRPCRequest('SetupTable', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetupTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3555,11 +5456,29 @@ class Drds extends OpenApiClient
     public function setupTableAsyncWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['AllowFullTableScan'] = $request->allowFullTableScan;
+        $query['DbName']             = $request->dbName;
+        $query['DrdsInstanceId']     = $request->drdsInstanceId;
+        $query['RegionId']           = $request->regionId;
+        $query['TableName']          = $request->tableName;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetupTableAsync',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetupTableAsyncResponse::fromMap($this->doRPCRequest('SetupTableAsync', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetupTableAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3583,11 +5502,26 @@ class Drds extends OpenApiClient
     public function sqlCompatibilityCancelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['TaskId']         = $request->taskId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SqlCompatibilityCancel',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SqlCompatibilityCancelResponse::fromMap($this->doRPCRequest('SqlCompatibilityCancel', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SqlCompatibilityCancelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3611,11 +5545,27 @@ class Drds extends OpenApiClient
     public function sqlCompatibilityStartWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['DrdsInstanceId']  = $request->drdsInstanceId;
+        $query['PerformanceTest'] = $request->performanceTest;
+        $query['TargetVersion']   = $request->targetVersion;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SqlCompatibilityStart',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SqlCompatibilityStartResponse::fromMap($this->doRPCRequest('SqlCompatibilityStart', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SqlCompatibilityStartResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3639,11 +5589,30 @@ class Drds extends OpenApiClient
     public function startRestoreWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['BackupDbNames']       = $request->backupDbNames;
+        $query['BackupId']            = $request->backupId;
+        $query['BackupLevel']         = $request->backupLevel;
+        $query['BackupMode']          = $request->backupMode;
+        $query['DrdsInstanceId']      = $request->drdsInstanceId;
+        $query['PreferredBackupTime'] = $request->preferredBackupTime;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'StartRestore',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StartRestoreResponse::fromMap($this->doRPCRequest('StartRestore', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartRestoreResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3667,11 +5636,29 @@ class Drds extends OpenApiClient
     public function submitCleanTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['ExpandType']     = $request->expandType;
+        $query['JobId']          = $request->jobId;
+        $query['ParentJobId']    = $request->parentJobId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitCleanTask',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitCleanTaskResponse::fromMap($this->doRPCRequest('SubmitCleanTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitCleanTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3695,11 +5682,28 @@ class Drds extends OpenApiClient
     public function submitHotExpandPreCheckTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbInstType']     = $request->dbInstType;
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['TableList']      = $request->tableList;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitHotExpandPreCheckTask',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitHotExpandPreCheckTaskResponse::fromMap($this->doRPCRequest('SubmitHotExpandPreCheckTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitHotExpandPreCheckTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3723,11 +5727,32 @@ class Drds extends OpenApiClient
     public function submitHotExpandTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['DbName']               = $request->dbName;
+        $query['DrdsInstanceId']       = $request->drdsInstanceId;
+        $query['ExtendedMapping']      = $request->extendedMapping;
+        $query['InstanceDbMapping']    = $request->instanceDbMapping;
+        $query['Mapping']              = $request->mapping;
+        $query['SupperAccountMapping'] = $request->supperAccountMapping;
+        $query['TaskDesc']             = $request->taskDesc;
+        $query['TaskName']             = $request->taskName;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitHotExpandTask',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitHotExpandTaskResponse::fromMap($this->doRPCRequest('SubmitHotExpandTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitHotExpandTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3751,11 +5776,27 @@ class Drds extends OpenApiClient
     public function submitSmoothExpandPreCheckWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbInstType']     = $request->dbInstType;
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitSmoothExpandPreCheck',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitSmoothExpandPreCheckResponse::fromMap($this->doRPCRequest('SubmitSmoothExpandPreCheck', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitSmoothExpandPreCheckResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3779,11 +5820,26 @@ class Drds extends OpenApiClient
     public function submitSmoothExpandPreCheckTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitSmoothExpandPreCheckTask',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitSmoothExpandPreCheckTaskResponse::fromMap($this->doRPCRequest('SubmitSmoothExpandPreCheckTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitSmoothExpandPreCheckTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3807,11 +5863,34 @@ class Drds extends OpenApiClient
     public function submitSqlFlashbackTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['DbName']            = $request->dbName;
+        $query['DrdsInstanceId']    = $request->drdsInstanceId;
+        $query['EndTime']           = $request->endTime;
+        $query['RecallRestoreType'] = $request->recallRestoreType;
+        $query['RecallType']        = $request->recallType;
+        $query['SqlPk']             = $request->sqlPk;
+        $query['SqlType']           = $request->sqlType;
+        $query['StartTime']         = $request->startTime;
+        $query['TableName']         = $request->tableName;
+        $query['TraceId']           = $request->traceId;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitSqlFlashbackTask',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitSqlFlashbackTaskResponse::fromMap($this->doRPCRequest('SubmitSqlFlashbackTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitSqlFlashbackTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3835,11 +5914,27 @@ class Drds extends OpenApiClient
     public function switchGlobalBroadcastTypeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SwitchGlobalBroadcastType',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SwitchGlobalBroadcastTypeResponse::fromMap($this->doRPCRequest('SwitchGlobalBroadcastType', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SwitchGlobalBroadcastTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3863,11 +5958,28 @@ class Drds extends OpenApiClient
     public function tagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['RegionId']     = $request->regionId;
+        $query['ResourceId']   = $request->resourceId;
+        $query['ResourceType'] = $request->resourceType;
+        $query['Tag']          = $request->tag;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return TagResourcesResponse::fromMap($this->doRPCRequest('TagResources', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3891,11 +6003,29 @@ class Drds extends OpenApiClient
     public function untagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['All']          = $request->all;
+        $query['RegionId']     = $request->regionId;
+        $query['ResourceId']   = $request->resourceId;
+        $query['ResourceType'] = $request->resourceType;
+        $query['TagKey']       = $request->tagKey;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UntagResourcesResponse::fromMap($this->doRPCRequest('UntagResources', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3919,11 +6049,28 @@ class Drds extends OpenApiClient
     public function updateInstanceNetworkWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                           = [];
+        $query['ClassicExpiredDays']     = $request->classicExpiredDays;
+        $query['DrdsInstanceId']         = $request->drdsInstanceId;
+        $query['RetainClassic']          = $request->retainClassic;
+        $query['SrcInstanceNetworkType'] = $request->srcInstanceNetworkType;
+        $req                             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateInstanceNetwork',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateInstanceNetworkResponse::fromMap($this->doRPCRequest('UpdateInstanceNetwork', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateInstanceNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3947,11 +6094,30 @@ class Drds extends OpenApiClient
     public function updatePrivateRdsClassWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['AutoUseCoupon']  = $request->autoUseCoupon;
+        $query['DBInstanceId']   = $request->DBInstanceId;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['PrePayDuration'] = $request->prePayDuration;
+        $query['RdsClass']       = $request->rdsClass;
+        $query['Storage']        = $request->storage;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePrivateRdsClass',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdatePrivateRdsClassResponse::fromMap($this->doRPCRequest('UpdatePrivateRdsClass', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdatePrivateRdsClassResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3975,11 +6141,27 @@ class Drds extends OpenApiClient
     public function updateResourceGroupAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['DrdsInstanceId']     = $request->drdsInstanceId;
+        $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        $query['RegionId']           = $request->regionId;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateResourceGroupAttribute',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateResourceGroupAttributeResponse::fromMap($this->doRPCRequest('UpdateResourceGroupAttribute', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateResourceGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4003,11 +6185,27 @@ class Drds extends OpenApiClient
     public function upgradeHiStoreInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['DrdsInstanceId']    = $request->drdsInstanceId;
+        $query['HistoreInstanceId'] = $request->historeInstanceId;
+        $query['RegionId']          = $request->regionId;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradeHiStoreInstance',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpgradeHiStoreInstanceResponse::fromMap($this->doRPCRequest('UpgradeHiStoreInstance', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpgradeHiStoreInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4031,11 +6229,27 @@ class Drds extends OpenApiClient
     public function upgradeInstanceVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['RegionId']       = $request->regionId;
+        $query['Rpm']            = $request->rpm;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradeInstanceVersion',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpgradeInstanceVersionResponse::fromMap($this->doRPCRequest('UpgradeInstanceVersion', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpgradeInstanceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4059,11 +6273,30 @@ class Drds extends OpenApiClient
     public function validateShardTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['DbName']          = $request->dbName;
+        $query['DrdsInstanceId']  = $request->drdsInstanceId;
+        $query['RegionId']        = $request->regionId;
+        $query['SourceTableName'] = $request->sourceTableName;
+        $query['TargetTableName'] = $request->targetTableName;
+        $query['TaskType']        = $request->taskType;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ValidateShardTask',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ValidateShardTaskResponse::fromMap($this->doRPCRequest('ValidateShardTask', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ValidateShardTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4087,11 +6320,27 @@ class Drds extends OpenApiClient
     public function describeRdsInstInfosWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $query['Search']     = $request->search;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'describeRdsInstInfos',
+            'version'     => '2019-01-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRdsInstInfosResponse::fromMap($this->doRPCRequest('describeRdsInstInfos', '2019-01-23', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRdsInstInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
