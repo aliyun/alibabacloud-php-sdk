@@ -38,6 +38,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeActiveOperationMaintainCo
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeActiveOperationMaintainConfResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeActiveOperationTaskCountRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeActiveOperationTaskCountResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeActiveOperationTasksRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeBackupPolicyRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeBackupPolicyResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeBackupSetListRequest;
@@ -120,6 +122,7 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpgradeDBInstanceKernelVersionRes
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Polardbx extends OpenApiClient
@@ -211,11 +214,32 @@ class Polardbx extends OpenApiClient
     public function allocateInstancePublicConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                           = [];
+        $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
+        $query['DBInstanceName']         = $request->DBInstanceName;
+        $query['OwnerAccount']           = $request->ownerAccount;
+        $query['OwnerId']                = $request->ownerId;
+        $query['Port']                   = $request->port;
+        $query['RegionId']               = $request->regionId;
+        $query['ResourceOwnerAccount']   = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']        = $request->resourceOwnerId;
+        $req                             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AllocateInstancePublicConnection',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AllocateInstancePublicConnectionResponse::fromMap($this->doRPCRequest('AllocateInstancePublicConnection', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AllocateInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -241,10 +265,21 @@ class Polardbx extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelActiveOperationTasks',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CancelActiveOperationTasksResponse::fromMap($this->doRPCRequest('CancelActiveOperationTasks', '2020-02-02', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return CancelActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -268,11 +303,27 @@ class Polardbx extends OpenApiClient
     public function cancelPolarxOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['RegionId']       = $request->regionId;
+        $query['ScaleOutToken']  = $request->scaleOutToken;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelPolarxOrder',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CancelPolarxOrderResponse::fromMap($this->doRPCRequest('CancelPolarxOrder', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CancelPolarxOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -296,11 +347,27 @@ class Polardbx extends OpenApiClient
     public function checkCloudResourceAuthorizedWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['RegionId']       = $request->regionId;
+        $query['RoleArn']        = $request->roleArn;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckCloudResourceAuthorized',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CheckCloudResourceAuthorizedResponse::fromMap($this->doRPCRequest('CheckCloudResourceAuthorized', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CheckCloudResourceAuthorizedResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -324,11 +391,33 @@ class Polardbx extends OpenApiClient
     public function createAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                            = [];
+        $query['AccountDescription']      = $request->accountDescription;
+        $query['AccountName']             = $request->accountName;
+        $query['AccountPassword']         = $request->accountPassword;
+        $query['AccountPrivilege']        = $request->accountPrivilege;
+        $query['DBInstanceName']          = $request->DBInstanceName;
+        $query['DBName']                  = $request->DBName;
+        $query['RegionId']                = $request->regionId;
+        $query['SecurityAccountName']     = $request->securityAccountName;
+        $query['SecurityAccountPassword'] = $request->securityAccountPassword;
+        $req                              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAccount',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateAccountResponse::fromMap($this->doRPCRequest('CreateAccount', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -352,11 +441,27 @@ class Polardbx extends OpenApiClient
     public function createBackupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['BackupType']     = $request->backupType;
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBackup',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateBackupResponse::fromMap($this->doRPCRequest('CreateBackup', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateBackupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -380,11 +485,33 @@ class Polardbx extends OpenApiClient
     public function createDBWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                            = [];
+        $query['AccountName']             = $request->accountName;
+        $query['AccountPrivilege']        = $request->accountPrivilege;
+        $query['Charset']                 = $request->charset;
+        $query['DBInstanceName']          = $request->DBInstanceName;
+        $query['DbDescription']           = $request->dbDescription;
+        $query['DbName']                  = $request->dbName;
+        $query['RegionId']                = $request->regionId;
+        $query['SecurityAccountName']     = $request->securityAccountName;
+        $query['SecurityAccountPassword'] = $request->securityAccountPassword;
+        $req                              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDB',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDBResponse::fromMap($this->doRPCRequest('CreateDB', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDBResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -408,11 +535,40 @@ class Polardbx extends OpenApiClient
     public function createDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                          = [];
+        $query['AutoRenew']             = $request->autoRenew;
+        $query['ClientToken']           = $request->clientToken;
+        $query['DBNodeClass']           = $request->DBNodeClass;
+        $query['DBNodeCount']           = $request->DBNodeCount;
+        $query['EngineVersion']         = $request->engineVersion;
+        $query['IsReadDBInstance']      = $request->isReadDBInstance;
+        $query['NetworkType']           = $request->networkType;
+        $query['PayType']               = $request->payType;
+        $query['Period']                = $request->period;
+        $query['PrimaryDBInstanceName'] = $request->primaryDBInstanceName;
+        $query['RegionId']              = $request->regionId;
+        $query['ResourceGroupId']       = $request->resourceGroupId;
+        $query['UsedTime']              = $request->usedTime;
+        $query['VPCId']                 = $request->VPCId;
+        $query['VSwitchId']             = $request->vSwitchId;
+        $query['ZoneId']                = $request->zoneId;
+        $req                            = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDBInstance',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDBInstanceResponse::fromMap($this->doRPCRequest('CreateDBInstance', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -436,11 +592,27 @@ class Polardbx extends OpenApiClient
     public function createPolarxOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['NodeCount']      = $request->nodeCount;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePolarxOrder',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreatePolarxOrderResponse::fromMap($this->doRPCRequest('CreatePolarxOrder', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreatePolarxOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -464,11 +636,29 @@ class Polardbx extends OpenApiClient
     public function createSuperAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['AccountDescription'] = $request->accountDescription;
+        $query['AccountName']        = $request->accountName;
+        $query['AccountPassword']    = $request->accountPassword;
+        $query['DBInstanceName']     = $request->DBInstanceName;
+        $query['RegionId']           = $request->regionId;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSuperAccount',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateSuperAccountResponse::fromMap($this->doRPCRequest('CreateSuperAccount', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSuperAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -492,11 +682,29 @@ class Polardbx extends OpenApiClient
     public function deleteAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                            = [];
+        $query['AccountName']             = $request->accountName;
+        $query['DBInstanceName']          = $request->DBInstanceName;
+        $query['RegionId']                = $request->regionId;
+        $query['SecurityAccountName']     = $request->securityAccountName;
+        $query['SecurityAccountPassword'] = $request->securityAccountPassword;
+        $req                              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAccount',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAccountResponse::fromMap($this->doRPCRequest('DeleteAccount', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -520,11 +728,27 @@ class Polardbx extends OpenApiClient
     public function deleteDBWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['DbName']         = $request->dbName;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDB',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDBResponse::fromMap($this->doRPCRequest('DeleteDB', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDBResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -548,11 +772,26 @@ class Polardbx extends OpenApiClient
     public function deleteDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDBInstance',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDBInstanceResponse::fromMap($this->doRPCRequest('DeleteDBInstance', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -576,11 +815,28 @@ class Polardbx extends OpenApiClient
     public function describeAccountListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['AccountName']    = $request->accountName;
+        $query['AccountType']    = $request->accountType;
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAccountList',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAccountListResponse::fromMap($this->doRPCRequest('DescribeAccountList', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAccountListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -604,11 +860,25 @@ class Polardbx extends OpenApiClient
     public function describeActiveOperationMaintainConfWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['RegionId'] = $request->regionId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeActiveOperationMaintainConf',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeActiveOperationMaintainConfResponse::fromMap($this->doRPCRequest('DescribeActiveOperationMaintainConf', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeActiveOperationMaintainConfResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -634,10 +904,21 @@ class Polardbx extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeActiveOperationTaskCount',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeActiveOperationTaskCountResponse::fromMap($this->doRPCRequest('DescribeActiveOperationTaskCount', '2020-02-02', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeActiveOperationTaskCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -653,6 +934,46 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * @param DescribeActiveOperationTasksRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeActiveOperationTasksResponse
+     */
+    public function describeActiveOperationTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeActiveOperationTasks',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeActiveOperationTasksRequest $request
+     *
+     * @return DescribeActiveOperationTasksResponse
+     */
+    public function describeActiveOperationTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeActiveOperationTasksWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeBackupPolicyRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -661,11 +982,26 @@ class Polardbx extends OpenApiClient
     public function describeBackupPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackupPolicy',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBackupPolicyResponse::fromMap($this->doRPCRequest('DescribeBackupPolicy', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -691,10 +1027,21 @@ class Polardbx extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackupSetList',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBackupSetListResponse::fromMap($this->doRPCRequest('DescribeBackupSetList', '2020-02-02', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeBackupSetListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -718,11 +1065,30 @@ class Polardbx extends OpenApiClient
     public function describeBinaryLogListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['EndTime']        = $request->endTime;
+        $query['PageNumber']     = $request->pageNumber;
+        $query['PageSize']       = $request->pageSize;
+        $query['RegionId']       = $request->regionId;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBinaryLogList',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeBinaryLogListResponse::fromMap($this->doRPCRequest('DescribeBinaryLogList', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeBinaryLogListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -746,11 +1112,26 @@ class Polardbx extends OpenApiClient
     public function describeCharacterSetWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCharacterSet',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCharacterSetResponse::fromMap($this->doRPCRequest('DescribeCharacterSet', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCharacterSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -774,11 +1155,26 @@ class Polardbx extends OpenApiClient
     public function describeDBInstanceAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBInstanceAttribute',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDBInstanceAttributeResponse::fromMap($this->doRPCRequest('DescribeDBInstanceAttribute', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDBInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -802,11 +1198,27 @@ class Polardbx extends OpenApiClient
     public function describeDBInstanceConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['ConfigName']     = $request->configName;
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBInstanceConfig',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDBInstanceConfigResponse::fromMap($this->doRPCRequest('DescribeDBInstanceConfig', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDBInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -830,11 +1242,26 @@ class Polardbx extends OpenApiClient
     public function describeDBInstanceSSLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBInstanceSSL',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDBInstanceSSLResponse::fromMap($this->doRPCRequest('DescribeDBInstanceSSL', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDBInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -858,11 +1285,26 @@ class Polardbx extends OpenApiClient
     public function describeDBInstanceTDEWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBInstanceTDE',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDBInstanceTDEResponse::fromMap($this->doRPCRequest('DescribeDBInstanceTDE', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDBInstanceTDEResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -886,11 +1328,26 @@ class Polardbx extends OpenApiClient
     public function describeDBInstanceTopologyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBInstanceTopology',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDBInstanceTopologyResponse::fromMap($this->doRPCRequest('DescribeDBInstanceTopology', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDBInstanceTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -914,11 +1371,27 @@ class Polardbx extends OpenApiClient
     public function describeDBInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $query['RegionId']   = $request->regionId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBInstances',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDBInstancesResponse::fromMap($this->doRPCRequest('DescribeDBInstances', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -942,11 +1415,32 @@ class Polardbx extends OpenApiClient
     public function describeDBNodePerformanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['CharacterType']  = $request->characterType;
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['DBNodeIds']      = $request->DBNodeIds;
+        $query['DBNodeRole']     = $request->DBNodeRole;
+        $query['EndTime']        = $request->endTime;
+        $query['Key']            = $request->key;
+        $query['RegionId']       = $request->regionId;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBNodePerformance',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDBNodePerformanceResponse::fromMap($this->doRPCRequest('DescribeDBNodePerformance', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDBNodePerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -970,11 +1464,27 @@ class Polardbx extends OpenApiClient
     public function describeDbListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['DBName']         = $request->DBName;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDbList',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDbListResponse::fromMap($this->doRPCRequest('DescribeDbList', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDbListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -998,11 +1508,27 @@ class Polardbx extends OpenApiClient
     public function describeDistributeTableListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['DbName']         = $request->dbName;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDistributeTableList',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDistributeTableListResponse::fromMap($this->doRPCRequest('DescribeDistributeTableList', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDistributeTableListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1028,10 +1554,21 @@ class Polardbx extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEvents',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeEventsResponse::fromMap($this->doRPCRequest('DescribeEvents', '2020-02-02', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1055,11 +1592,27 @@ class Polardbx extends OpenApiClient
     public function describeParameterTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['DBInstanceId'] = $request->DBInstanceId;
+        $query['ParamLevel']   = $request->paramLevel;
+        $query['RegionId']     = $request->regionId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeParameterTemplates',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeParameterTemplatesResponse::fromMap($this->doRPCRequest('DescribeParameterTemplates', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeParameterTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1083,11 +1636,27 @@ class Polardbx extends OpenApiClient
     public function describeParametersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['DBInstanceId'] = $request->DBInstanceId;
+        $query['ParamLevel']   = $request->paramLevel;
+        $query['RegionId']     = $request->regionId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeParameters',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeParametersResponse::fromMap($this->doRPCRequest('DescribeParameters', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeParametersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1111,11 +1680,27 @@ class Polardbx extends OpenApiClient
     public function describePolarxDataNodesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $query['RegionId']   = $request->regionId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePolarxDataNodes',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePolarxDataNodesResponse::fromMap($this->doRPCRequest('DescribePolarxDataNodes', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePolarxDataNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1139,11 +1724,28 @@ class Polardbx extends OpenApiClient
     public function describePolarxDbInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DbName']         = $request->dbName;
+        $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        $query['PageNumber']     = $request->pageNumber;
+        $query['PageSize']       = $request->pageSize;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePolarxDbInstances',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePolarxDbInstancesResponse::fromMap($this->doRPCRequest('DescribePolarxDbInstances', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePolarxDbInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1165,9 +1767,20 @@ class Polardbx extends OpenApiClient
      */
     public function describeRegionsWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeRegions',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1189,11 +1802,29 @@ class Polardbx extends OpenApiClient
     public function describeScaleOutMigrateTaskListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['DBInstanceName']       = $request->DBInstanceName;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeScaleOutMigrateTaskList',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScaleOutMigrateTaskListResponse::fromMap($this->doRPCRequest('DescribeScaleOutMigrateTaskList', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeScaleOutMigrateTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1217,11 +1848,26 @@ class Polardbx extends OpenApiClient
     public function describeSecurityIpsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSecurityIps',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSecurityIpsResponse::fromMap($this->doRPCRequest('DescribeSecurityIps', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1245,11 +1891,34 @@ class Polardbx extends OpenApiClient
     public function describeTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['DBInstanceId']         = $request->DBInstanceId;
+        $query['EndTime']              = $request->endTime;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageNumber']           = $request->pageNumber;
+        $query['PageSize']             = $request->pageSize;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['StartTime']            = $request->startTime;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTasks',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeTasksResponse::fromMap($this->doRPCRequest('DescribeTasks', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1273,11 +1942,26 @@ class Polardbx extends OpenApiClient
     public function describeUserEncryptionKeyListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserEncryptionKeyList',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeUserEncryptionKeyListResponse::fromMap($this->doRPCRequest('DescribeUserEncryptionKeyList', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeUserEncryptionKeyListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1301,11 +1985,27 @@ class Polardbx extends OpenApiClient
     public function getPolarxCommodityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['OrderType']      = $request->orderType;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPolarxCommodity',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetPolarxCommodityResponse::fromMap($this->doRPCRequest('GetPolarxCommodity', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetPolarxCommodityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1329,11 +2029,28 @@ class Polardbx extends OpenApiClient
     public function modifyAccountDescriptionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['AccountDescription'] = $request->accountDescription;
+        $query['AccountName']        = $request->accountName;
+        $query['DBInstanceName']     = $request->DBInstanceName;
+        $query['RegionId']           = $request->regionId;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAccountDescription',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyAccountDescriptionResponse::fromMap($this->doRPCRequest('ModifyAccountDescription', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1359,10 +2076,21 @@ class Polardbx extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyActiveOperationMaintainConf',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyActiveOperationMaintainConfResponse::fromMap($this->doRPCRequest('ModifyActiveOperationMaintainConf', '2020-02-02', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ModifyActiveOperationMaintainConfResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1386,11 +2114,28 @@ class Polardbx extends OpenApiClient
     public function modifyActiveOperationTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['Ids']            = $request->ids;
+        $query['ImmediateStart'] = $request->immediateStart;
+        $query['RegionId']       = $request->regionId;
+        $query['SwitchTime']     = $request->switchTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyActiveOperationTasks',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyActiveOperationTasksResponse::fromMap($this->doRPCRequest('ModifyActiveOperationTasks', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1414,11 +2159,28 @@ class Polardbx extends OpenApiClient
     public function modifyDBInstanceClassWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                          = [];
+        $query['ClientToken']           = $request->clientToken;
+        $query['DBInstanceName']        = $request->DBInstanceName;
+        $query['RegionId']              = $request->regionId;
+        $query['TargetDBInstanceClass'] = $request->targetDBInstanceClass;
+        $req                            = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBInstanceClass',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyDBInstanceClassResponse::fromMap($this->doRPCRequest('ModifyDBInstanceClass', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDBInstanceClassResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1442,11 +2204,28 @@ class Polardbx extends OpenApiClient
     public function modifyDBInstanceConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['ConfigName']     = $request->configName;
+        $query['ConfigValue']    = $request->configValue;
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBInstanceConfig',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyDBInstanceConfigResponse::fromMap($this->doRPCRequest('ModifyDBInstanceConfig', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDBInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1470,11 +2249,27 @@ class Polardbx extends OpenApiClient
     public function modifyDBInstanceDescriptionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                          = [];
+        $query['DBInstanceDescription'] = $request->DBInstanceDescription;
+        $query['DBInstanceName']        = $request->DBInstanceName;
+        $query['RegionId']              = $request->regionId;
+        $req                            = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBInstanceDescription',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyDBInstanceDescriptionResponse::fromMap($this->doRPCRequest('ModifyDBInstanceDescription', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDBInstanceDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1498,11 +2293,28 @@ class Polardbx extends OpenApiClient
     public function modifyDatabaseDescriptionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['DbDescription']  = $request->dbDescription;
+        $query['DbName']         = $request->dbName;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDatabaseDescription',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyDatabaseDescriptionResponse::fromMap($this->doRPCRequest('ModifyDatabaseDescription', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDatabaseDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1526,11 +2338,29 @@ class Polardbx extends OpenApiClient
     public function modifyParameterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['ClientToken']  = $request->clientToken;
+        $query['DBInstanceId'] = $request->DBInstanceId;
+        $query['ParamLevel']   = $request->paramLevel;
+        $query['Parameters']   = $request->parameters;
+        $query['RegionId']     = $request->regionId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyParameter',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyParameterResponse::fromMap($this->doRPCRequest('ModifyParameter', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyParameterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1554,11 +2384,29 @@ class Polardbx extends OpenApiClient
     public function modifySecurityIpsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['GroupName']      = $request->groupName;
+        $query['ModifyMode']     = $request->modifyMode;
+        $query['RegionId']       = $request->regionId;
+        $query['SecurityIPList'] = $request->securityIPList;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifySecurityIps',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifySecurityIpsResponse::fromMap($this->doRPCRequest('ModifySecurityIps', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifySecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1582,11 +2430,31 @@ class Polardbx extends OpenApiClient
     public function releaseInstancePublicConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                            = [];
+        $query['CurrentConnectionString'] = $request->currentConnectionString;
+        $query['DBInstanceName']          = $request->DBInstanceName;
+        $query['OwnerAccount']            = $request->ownerAccount;
+        $query['OwnerId']                 = $request->ownerId;
+        $query['RegionId']                = $request->regionId;
+        $query['ResourceOwnerAccount']    = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']         = $request->resourceOwnerId;
+        $req                              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleaseInstancePublicConnection',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ReleaseInstancePublicConnectionResponse::fromMap($this->doRPCRequest('ReleaseInstancePublicConnection', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReleaseInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1610,11 +2478,26 @@ class Polardbx extends OpenApiClient
     public function restartDBInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RestartDBInstance',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RestartDBInstanceResponse::fromMap($this->doRPCRequest('RestartDBInstance', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RestartDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1638,11 +2521,36 @@ class Polardbx extends OpenApiClient
     public function updateBackupPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                               = [];
+        $query['BackupPeriod']               = $request->backupPeriod;
+        $query['BackupPlanBegin']            = $request->backupPlanBegin;
+        $query['BackupSetRetention']         = $request->backupSetRetention;
+        $query['BackupType']                 = $request->backupType;
+        $query['BackupWay']                  = $request->backupWay;
+        $query['DBInstanceName']             = $request->DBInstanceName;
+        $query['ForceCleanOnHighSpaceUsage'] = $request->forceCleanOnHighSpaceUsage;
+        $query['IsEnabled']                  = $request->isEnabled;
+        $query['LocalLogRetention']          = $request->localLogRetention;
+        $query['LogLocalRetentionSpace']     = $request->logLocalRetentionSpace;
+        $query['RegionId']                   = $request->regionId;
+        $query['RemoveLogRetention']         = $request->removeLogRetention;
+        $req                                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateBackupPolicy',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateBackupPolicyResponse::fromMap($this->doRPCRequest('UpdateBackupPolicy', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1666,11 +2574,28 @@ class Polardbx extends OpenApiClient
     public function updateDBInstanceSSLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['CertCommonName'] = $request->certCommonName;
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['EnableSSL']      = $request->enableSSL;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDBInstanceSSL',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDBInstanceSSLResponse::fromMap($this->doRPCRequest('UpdateDBInstanceSSL', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDBInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1694,11 +2619,29 @@ class Polardbx extends OpenApiClient
     public function updateDBInstanceTDEWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['EncryptionKey']  = $request->encryptionKey;
+        $query['RegionId']       = $request->regionId;
+        $query['RoleArn']        = $request->roleArn;
+        $query['TDEStatus']      = $request->TDEStatus;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDBInstanceTDE',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDBInstanceTDEResponse::fromMap($this->doRPCRequest('UpdateDBInstanceTDE', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDBInstanceTDEResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1722,11 +2665,28 @@ class Polardbx extends OpenApiClient
     public function updatePolarDBXInstanceNodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['ClientToken']         = $request->clientToken;
+        $query['DBInstanceName']      = $request->DBInstanceName;
+        $query['DbInstanceNodeCount'] = $request->dbInstanceNodeCount;
+        $query['RegionId']            = $request->regionId;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePolarDBXInstanceNode',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdatePolarDBXInstanceNodeResponse::fromMap($this->doRPCRequest('UpdatePolarDBXInstanceNode', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdatePolarDBXInstanceNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1750,11 +2710,26 @@ class Polardbx extends OpenApiClient
     public function upgradeDBInstanceKernelVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DBInstanceName'] = $request->DBInstanceName;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradeDBInstanceKernelVersion',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpgradeDBInstanceKernelVersionResponse::fromMap($this->doRPCRequest('UpgradeDBInstanceKernelVersion', '2020-02-02', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpgradeDBInstanceKernelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
