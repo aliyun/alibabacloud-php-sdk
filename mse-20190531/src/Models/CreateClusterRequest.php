@@ -44,6 +44,13 @@ class CreateClusterRequest extends Model
     public $instanceCount;
 
     /**
+     * @description 用于区分基础/专业版本
+     *
+     * @var string
+     */
+    public $mseVersion;
+
+    /**
      * @var string
      */
     public $netType;
@@ -90,6 +97,7 @@ class CreateClusterRequest extends Model
         'diskCapacity'            => 'DiskCapacity',
         'diskType'                => 'DiskType',
         'instanceCount'           => 'InstanceCount',
+        'mseVersion'              => 'MseVersion',
         'netType'                 => 'NetType',
         'privateSlbSpecification' => 'PrivateSlbSpecification',
         'pubNetworkFlow'          => 'PubNetworkFlow',
@@ -127,6 +135,9 @@ class CreateClusterRequest extends Model
         }
         if (null !== $this->instanceCount) {
             $res['InstanceCount'] = $this->instanceCount;
+        }
+        if (null !== $this->mseVersion) {
+            $res['MseVersion'] = $this->mseVersion;
         }
         if (null !== $this->netType) {
             $res['NetType'] = $this->netType;
@@ -184,6 +195,9 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['InstanceCount'])) {
             $model->instanceCount = $map['InstanceCount'];
+        }
+        if (isset($map['MseVersion'])) {
+            $model->mseVersion = $map['MseVersion'];
         }
         if (isset($map['NetType'])) {
             $model->netType = $map['NetType'];

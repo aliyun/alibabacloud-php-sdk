@@ -158,6 +158,7 @@ use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Mse extends OpenApiClient
@@ -202,11 +203,35 @@ class Mse extends OpenApiClient
     public function addMockRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ConsumerAppIds']  = $request->consumerAppIds;
+        $query['DubboMockItems']  = $request->dubboMockItems;
+        $query['Enable']          = $request->enable;
+        $query['ExtraJson']       = $request->extraJson;
+        $query['MockType']        = $request->mockType;
+        $query['Name']            = $request->name;
+        $query['ProviderAppId']   = $request->providerAppId;
+        $query['ProviderAppName'] = $request->providerAppName;
+        $query['Region']          = $request->region;
+        $query['ScMockItems']     = $request->scMockItems;
+        $query['Source']          = $request->source;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddMockRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddMockRuleResponse::fromMap($this->doRPCRequest('AddMockRule', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddMockRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -230,11 +255,32 @@ class Mse extends OpenApiClient
     public function addServiceSourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Address']         = $request->address;
+        $query['GatewayId']       = $request->gatewayId;
+        $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        $query['Info1']           = $request->info1;
+        $query['Info2']           = $request->info2;
+        $query['Name']            = $request->name;
+        $query['Source']          = $request->source;
+        $query['Type']            = $request->type;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddServiceSource',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddServiceSourceResponse::fromMap($this->doRPCRequest('AddServiceSource', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddServiceSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -258,11 +304,29 @@ class Mse extends OpenApiClient
     public function cloneNacosConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['Ids']               = $request->ids;
+        $query['InstanceId']        = $request->instanceId;
+        $query['OriginNamespaceId'] = $request->originNamespaceId;
+        $query['Policy']            = $request->policy;
+        $query['TargetNamespaceId'] = $request->targetNamespaceId;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CloneNacosConfig',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CloneNacosConfigResponse::fromMap($this->doRPCRequest('CloneNacosConfig', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CloneNacosConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -294,11 +358,33 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($tmpReq->contactGroupIds)) {
             $request->contactGroupIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->contactGroupIds, 'ContactGroupIds', 'json');
         }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Aggregates']      = $request->aggregates;
+        $query['AlarmAliasName']  = $request->alarmAliasName;
+        $query['AlarmItem']       = $request->alarmItem;
+        $query['AlertWay']        = $request->alertWayShrink;
+        $query['ContactGroupIds'] = $request->contactGroupIdsShrink;
+        $query['InstanceId']      = $request->instanceId;
+        $query['NValue']          = $request->NValue;
+        $query['Operator']        = $request->operator;
+        $query['Value']           = $request->value;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAlarmRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateAlarmRuleResponse::fromMap($this->doRPCRequest('CreateAlarmRule', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -322,11 +408,29 @@ class Mse extends OpenApiClient
     public function createApplicationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['AppName']   = $request->appName;
+        $query['ExtraInfo'] = $request->extraInfo;
+        $query['Language']  = $request->language;
+        $query['Region']    = $request->region;
+        $query['Source']    = $request->source;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateApplication',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateApplicationResponse::fromMap($this->doRPCRequest('CreateApplication', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -350,11 +454,40 @@ class Mse extends OpenApiClient
     public function createClusterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                            = [];
+        $query['ClusterSpecification']    = $request->clusterSpecification;
+        $query['ClusterType']             = $request->clusterType;
+        $query['ClusterVersion']          = $request->clusterVersion;
+        $query['ConnectionType']          = $request->connectionType;
+        $query['DiskCapacity']            = $request->diskCapacity;
+        $query['DiskType']                = $request->diskType;
+        $query['InstanceCount']           = $request->instanceCount;
+        $query['MseVersion']              = $request->mseVersion;
+        $query['NetType']                 = $request->netType;
+        $query['PrivateSlbSpecification'] = $request->privateSlbSpecification;
+        $query['PubNetworkFlow']          = $request->pubNetworkFlow;
+        $query['PubSlbSpecification']     = $request->pubSlbSpecification;
+        $query['Region']                  = $request->region;
+        $query['RequestPars']             = $request->requestPars;
+        $query['VSwitchId']               = $request->vSwitchId;
+        $query['VpcId']                   = $request->vpcId;
+        $req                              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCluster',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateClusterResponse::fromMap($this->doRPCRequest('CreateCluster', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -378,11 +511,29 @@ class Mse extends OpenApiClient
     public function createEngineNamespaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['ClusterId']    = $request->clusterId;
+        $query['Desc']         = $request->desc;
+        $query['InstanceId']   = $request->instanceId;
+        $query['Name']         = $request->name;
+        $query['ServiceCount'] = $request->serviceCount;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEngineNamespace',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateEngineNamespaceResponse::fromMap($this->doRPCRequest('CreateEngineNamespace', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateEngineNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -406,11 +557,30 @@ class Mse extends OpenApiClient
     public function createGovernanceKubernetesClusterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['ClusterId']      = $request->clusterId;
+        $query['ClusterName']    = $request->clusterName;
+        $query['K8sVersion']     = $request->k8sVersion;
+        $query['NameSpaceInfos'] = $request->nameSpaceInfos;
+        $query['PilotStartTime'] = $request->pilotStartTime;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGovernanceKubernetesCluster',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateGovernanceKubernetesClusterResponse::fromMap($this->doRPCRequest('CreateGovernanceKubernetesCluster', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateGovernanceKubernetesClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -434,11 +604,34 @@ class Mse extends OpenApiClient
     public function createNacosConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AppName']     = $request->appName;
+        $query['BetaIps']     = $request->betaIps;
+        $query['Content']     = $request->content;
+        $query['DataId']      = $request->dataId;
+        $query['Desc']        = $request->desc;
+        $query['Group']       = $request->group;
+        $query['InstanceId']  = $request->instanceId;
+        $query['NamespaceId'] = $request->namespaceId;
+        $query['Tags']        = $request->tags;
+        $query['Type']        = $request->type;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateNacosConfig',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateNacosConfigResponse::fromMap($this->doRPCRequest('CreateNacosConfig', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateNacosConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -462,11 +655,27 @@ class Mse extends OpenApiClient
     public function createZnodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ClusterId'] = $request->clusterId;
+        $query['Data']      = $request->data;
+        $query['Path']      = $request->path;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateZnode',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateZnodeResponse::fromMap($this->doRPCRequest('CreateZnode', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateZnodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -490,11 +699,26 @@ class Mse extends OpenApiClient
     public function deleteAlarmRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AlarmRuleId'] = $request->alarmRuleId;
+        $query['RequestPars'] = $request->requestPars;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAlarmRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAlarmRuleResponse::fromMap($this->doRPCRequest('DeleteAlarmRule', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -518,11 +742,25 @@ class Mse extends OpenApiClient
     public function deleteClusterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['InstanceId'] = $request->instanceId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCluster',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteClusterResponse::fromMap($this->doRPCRequest('DeleteCluster', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -546,11 +784,27 @@ class Mse extends OpenApiClient
     public function deleteEngineNamespaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['ClusterId']  = $request->clusterId;
+        $query['Id']         = $request->id;
+        $query['InstanceId'] = $request->instanceId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEngineNamespace',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteEngineNamespaceResponse::fromMap($this->doRPCRequest('DeleteEngineNamespace', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteEngineNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -574,11 +828,29 @@ class Mse extends OpenApiClient
     public function deleteNacosConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['Beta']        = $request->beta;
+        $query['DataId']      = $request->dataId;
+        $query['Group']       = $request->group;
+        $query['InstanceId']  = $request->instanceId;
+        $query['NamespaceId'] = $request->namespaceId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteNacosConfig',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteNacosConfigResponse::fromMap($this->doRPCRequest('DeleteNacosConfig', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteNacosConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -602,11 +874,27 @@ class Mse extends OpenApiClient
     public function deleteNacosConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['Ids']         = $request->ids;
+        $query['InstanceId']  = $request->instanceId;
+        $query['NamespaceId'] = $request->namespaceId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteNacosConfigs',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteNacosConfigsResponse::fromMap($this->doRPCRequest('DeleteNacosConfigs', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteNacosConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -630,11 +918,28 @@ class Mse extends OpenApiClient
     public function deleteNacosServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['GroupName']   = $request->groupName;
+        $query['InstanceId']  = $request->instanceId;
+        $query['NamespaceId'] = $request->namespaceId;
+        $query['ServiceName'] = $request->serviceName;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteNacosService',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteNacosServiceResponse::fromMap($this->doRPCRequest('DeleteNacosService', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteNacosServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -658,11 +963,27 @@ class Mse extends OpenApiClient
     public function deleteZnodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ClusterId']   = $request->clusterId;
+        $query['Path']        = $request->path;
+        $query['RequestPars'] = $request->requestPars;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteZnode',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteZnodeResponse::fromMap($this->doRPCRequest('DeleteZnode', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteZnodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -686,11 +1007,30 @@ class Mse extends OpenApiClient
     public function exportNacosConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AppName']     = $request->appName;
+        $query['DataId']      = $request->dataId;
+        $query['Group']       = $request->group;
+        $query['Ids']         = $request->ids;
+        $query['InstanceId']  = $request->instanceId;
+        $query['NamespaceId'] = $request->namespaceId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportNacosConfig',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ExportNacosConfigResponse::fromMap($this->doRPCRequest('ExportNacosConfig', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ExportNacosConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -714,11 +1054,27 @@ class Mse extends OpenApiClient
     public function getEngineNamepaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['ClusterId']  = $request->clusterId;
+        $query['Id']         = $request->id;
+        $query['InstanceId'] = $request->instanceId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEngineNamepace',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetEngineNamepaceResponse::fromMap($this->doRPCRequest('GetEngineNamepace', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetEngineNamepaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -744,10 +1100,21 @@ class Mse extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetGateway',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetGatewayResponse::fromMap($this->doRPCRequest('GetGateway', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -771,11 +1138,25 @@ class Mse extends OpenApiClient
     public function getGatewayOptionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['GatewayId'] = $request->gatewayId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetGatewayOption',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetGatewayOptionResponse::fromMap($this->doRPCRequest('GetGatewayOption', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetGatewayOptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -799,11 +1180,26 @@ class Mse extends OpenApiClient
     public function getGovernanceKubernetesClusterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ClusterId'] = $request->clusterId;
+        $query['RegionId']  = $request->regionId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetGovernanceKubernetesCluster',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetGovernanceKubernetesClusterResponse::fromMap($this->doRPCRequest('GetGovernanceKubernetesCluster', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetGovernanceKubernetesClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -827,11 +1223,28 @@ class Mse extends OpenApiClient
     public function getGovernanceKubernetesClusterListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ClusterId']   = $request->clusterId;
+        $query['ClusterName'] = $request->clusterName;
+        $query['PageNumber']  = $request->pageNumber;
+        $query['PageSize']    = $request->pageSize;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetGovernanceKubernetesClusterList',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetGovernanceKubernetesClusterListResponse::fromMap($this->doRPCRequest('GetGovernanceKubernetesClusterList', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetGovernanceKubernetesClusterListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -855,11 +1268,25 @@ class Mse extends OpenApiClient
     public function getImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['VersionCode'] = $request->versionCode;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetImage',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetImageResponse::fromMap($this->doRPCRequest('GetImage', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -883,11 +1310,27 @@ class Mse extends OpenApiClient
     public function getImportFileUrlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ContentType'] = $request->contentType;
+        $query['InstanceId']  = $request->instanceId;
+        $query['NamespaceId'] = $request->namespaceId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetImportFileUrl',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetImportFileUrlResponse::fromMap($this->doRPCRequest('GetImportFileUrl', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetImportFileUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -909,9 +1352,20 @@ class Mse extends OpenApiClient
      */
     public function getMseFeatureSwitchWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetMseFeatureSwitch',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetMseFeatureSwitchResponse::fromMap($this->doRPCRequest('GetMseFeatureSwitch', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetMseFeatureSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -933,11 +1387,29 @@ class Mse extends OpenApiClient
     public function getNacosConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['Beta']        = $request->beta;
+        $query['DataId']      = $request->dataId;
+        $query['Group']       = $request->group;
+        $query['InstanceId']  = $request->instanceId;
+        $query['NamespaceId'] = $request->namespaceId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetNacosConfig',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetNacosConfigResponse::fromMap($this->doRPCRequest('GetNacosConfig', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetNacosConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -961,11 +1433,29 @@ class Mse extends OpenApiClient
     public function getNacosHistoryConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['DataId']      = $request->dataId;
+        $query['Group']       = $request->group;
+        $query['InstanceId']  = $request->instanceId;
+        $query['NamespaceId'] = $request->namespaceId;
+        $query['Nid']         = $request->nid;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetNacosHistoryConfig',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetNacosHistoryConfigResponse::fromMap($this->doRPCRequest('GetNacosHistoryConfig', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetNacosHistoryConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -989,11 +1479,26 @@ class Mse extends OpenApiClient
     public function getOverviewWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query           = [];
+        $query['Period'] = $request->period;
+        $query['Region'] = $request->region;
+        $req             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOverview',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetOverviewResponse::fromMap($this->doRPCRequest('GetOverview', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1017,11 +1522,28 @@ class Mse extends OpenApiClient
     public function importNacosConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['FileUrl']     = $request->fileUrl;
+        $query['InstanceId']  = $request->instanceId;
+        $query['NamespaceId'] = $request->namespaceId;
+        $query['Policy']      = $request->policy;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ImportNacosConfig',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ImportNacosConfigResponse::fromMap($this->doRPCRequest('ImportNacosConfig', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ImportNacosConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1047,10 +1569,21 @@ class Mse extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAlarmContactGroups',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAlarmContactGroupsResponse::fromMap($this->doRPCRequest('ListAlarmContactGroups', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListAlarmContactGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1076,10 +1609,21 @@ class Mse extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAlarmHistories',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAlarmHistoriesResponse::fromMap($this->doRPCRequest('ListAlarmHistories', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListAlarmHistoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1105,10 +1649,21 @@ class Mse extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAlarmItems',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAlarmItemsResponse::fromMap($this->doRPCRequest('ListAlarmItems', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListAlarmItemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1134,10 +1689,21 @@ class Mse extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAlarmRules',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAlarmRulesResponse::fromMap($this->doRPCRequest('ListAlarmRules', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListAlarmRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1163,10 +1729,21 @@ class Mse extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAnsInstances',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAnsInstancesResponse::fromMap($this->doRPCRequest('ListAnsInstances', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListAnsInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1192,10 +1769,21 @@ class Mse extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAnsServiceClusters',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAnsServiceClustersResponse::fromMap($this->doRPCRequest('ListAnsServiceClusters', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListAnsServiceClustersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1221,10 +1809,21 @@ class Mse extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAnsServices',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAnsServicesResponse::fromMap($this->doRPCRequest('ListAnsServices', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListAnsServicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1246,9 +1845,20 @@ class Mse extends OpenApiClient
      */
     public function listClusterConnectionTypesWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListClusterConnectionTypes',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListClusterConnectionTypesResponse::fromMap($this->doRPCRequest('ListClusterConnectionTypes', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListClusterConnectionTypesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1270,11 +1880,25 @@ class Mse extends OpenApiClient
     public function listClusterTypesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['RegionId'] = $request->regionId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClusterTypes',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListClusterTypesResponse::fromMap($this->doRPCRequest('ListClusterTypes', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListClusterTypesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1298,11 +1922,25 @@ class Mse extends OpenApiClient
     public function listClusterVersionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ClusterType'] = $request->clusterType;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClusterVersions',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListClusterVersionsResponse::fromMap($this->doRPCRequest('ListClusterVersions', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListClusterVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1328,10 +1966,21 @@ class Mse extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClusters',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListClustersResponse::fromMap($this->doRPCRequest('ListClusters', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListClustersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1357,10 +2006,21 @@ class Mse extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEngineNamespaces',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListEngineNamespacesResponse::fromMap($this->doRPCRequest('ListEngineNamespaces', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListEngineNamespacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1386,10 +2046,21 @@ class Mse extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEurekaInstances',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListEurekaInstancesResponse::fromMap($this->doRPCRequest('ListEurekaInstances', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListEurekaInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1415,10 +2086,21 @@ class Mse extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEurekaServices',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListEurekaServicesResponse::fromMap($this->doRPCRequest('ListEurekaServices', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListEurekaServicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1447,11 +2129,29 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($tmpReq->filterParams)) {
             $request->filterParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->filterParams), 'FilterParams', 'json');
         }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['DescSort']     = $request->descSort;
+        $query['FilterParams'] = $request->filterParamsShrink;
+        $query['OrderItem']    = $request->orderItem;
+        $query['PageNumber']   = $request->pageNumber;
+        $query['PageSize']     = $request->pageSize;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGateway',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListGatewayResponse::fromMap($this->doRPCRequest('ListGateway', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1475,11 +2175,29 @@ class Mse extends OpenApiClient
     public function listListenersByConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['DataId']      = $request->dataId;
+        $query['Group']       = $request->group;
+        $query['InstanceId']  = $request->instanceId;
+        $query['NamespaceId'] = $request->namespaceId;
+        $query['RequestPars'] = $request->requestPars;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListListenersByConfig',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListListenersByConfigResponse::fromMap($this->doRPCRequest('ListListenersByConfig', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListListenersByConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1503,11 +2221,28 @@ class Mse extends OpenApiClient
     public function listListenersByIpWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['InstanceId']  = $request->instanceId;
+        $query['Ip']          = $request->ip;
+        $query['NamespaceId'] = $request->namespaceId;
+        $query['RequestPars'] = $request->requestPars;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListListenersByIp',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListListenersByIpResponse::fromMap($this->doRPCRequest('ListListenersByIp', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListListenersByIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1531,11 +2266,34 @@ class Mse extends OpenApiClient
     public function listNacosConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['AppName']     = $request->appName;
+        $query['DataId']      = $request->dataId;
+        $query['Group']       = $request->group;
+        $query['InstanceId']  = $request->instanceId;
+        $query['NamespaceId'] = $request->namespaceId;
+        $query['PageNum']     = $request->pageNum;
+        $query['PageSize']    = $request->pageSize;
+        $query['RegionId']    = $request->regionId;
+        $query['RequestPars'] = $request->requestPars;
+        $query['Tags']        = $request->tags;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListNacosConfigs',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListNacosConfigsResponse::fromMap($this->doRPCRequest('ListNacosConfigs', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListNacosConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1559,11 +2317,32 @@ class Mse extends OpenApiClient
     public function listNacosHistoryConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['DataId']      = $request->dataId;
+        $query['Group']       = $request->group;
+        $query['InstanceId']  = $request->instanceId;
+        $query['NamespaceId'] = $request->namespaceId;
+        $query['PageNum']     = $request->pageNum;
+        $query['PageSize']    = $request->pageSize;
+        $query['RegionId']    = $request->regionId;
+        $query['RequestPars'] = $request->requestPars;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListNacosHistoryConfigs',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListNacosHistoryConfigsResponse::fromMap($this->doRPCRequest('ListNacosHistoryConfigs', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListNacosHistoryConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1589,10 +2368,21 @@ class Mse extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListZnodeChildren',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListZnodeChildrenResponse::fromMap($this->doRPCRequest('ListZnodeChildren', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListZnodeChildrenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1616,11 +2406,27 @@ class Mse extends OpenApiClient
     public function modifyGovernanceKubernetesClusterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['ClusterId']      = $request->clusterId;
+        $query['NamespaceInfos'] = $request->namespaceInfos;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyGovernanceKubernetesCluster',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyGovernanceKubernetesClusterResponse::fromMap($this->doRPCRequest('ModifyGovernanceKubernetesCluster', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyGovernanceKubernetesClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1642,9 +2448,20 @@ class Mse extends OpenApiClient
      */
     public function queryBusinessLocationsWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'QueryBusinessLocations',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return QueryBusinessLocationsResponse::fromMap($this->doRPCRequest('QueryBusinessLocations', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return QueryBusinessLocationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1666,11 +2483,26 @@ class Mse extends OpenApiClient
     public function queryClusterDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['InstanceId'] = $request->instanceId;
+        $query['OrderId']    = $request->orderId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryClusterDetail',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryClusterDetailResponse::fromMap($this->doRPCRequest('QueryClusterDetail', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryClusterDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1694,11 +2526,25 @@ class Mse extends OpenApiClient
     public function queryClusterDiskSpecificationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ClusterType'] = $request->clusterType;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryClusterDiskSpecification',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryClusterDiskSpecificationResponse::fromMap($this->doRPCRequest('QueryClusterDiskSpecification', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryClusterDiskSpecificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1720,9 +2566,20 @@ class Mse extends OpenApiClient
      */
     public function queryClusterSpecificationWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'QueryClusterSpecification',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return QueryClusterSpecificationResponse::fromMap($this->doRPCRequest('QueryClusterSpecification', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryClusterSpecificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1746,10 +2603,21 @@ class Mse extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryConfig',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryConfigResponse::fromMap($this->doRPCRequest('QueryConfig', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return QueryConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1771,9 +2639,20 @@ class Mse extends OpenApiClient
      */
     public function queryGatewayRegionWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'QueryGatewayRegion',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return QueryGatewayRegionResponse::fromMap($this->doRPCRequest('QueryGatewayRegion', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return QueryGatewayRegionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1793,9 +2672,20 @@ class Mse extends OpenApiClient
      */
     public function queryGatewayTypeWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'QueryGatewayType',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return QueryGatewayTypeResponse::fromMap($this->doRPCRequest('QueryGatewayType', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return QueryGatewayTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1819,10 +2709,21 @@ class Mse extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMonitor',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMonitorResponse::fromMap($this->doRPCRequest('QueryMonitor', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return QueryMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1844,9 +2745,20 @@ class Mse extends OpenApiClient
      */
     public function querySlbSpecWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'QuerySlbSpec',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return QuerySlbSpecResponse::fromMap($this->doRPCRequest('QuerySlbSpec', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return QuerySlbSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1870,10 +2782,21 @@ class Mse extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryZnodeDetail',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryZnodeDetailResponse::fromMap($this->doRPCRequest('QueryZnodeDetail', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return QueryZnodeDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1897,11 +2820,28 @@ class Mse extends OpenApiClient
     public function restartClusterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ClusterId']   = $request->clusterId;
+        $query['InstanceId']  = $request->instanceId;
+        $query['PodNameList'] = $request->podNameList;
+        $query['RequestPars'] = $request->requestPars;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RestartCluster',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RestartClusterResponse::fromMap($this->doRPCRequest('RestartCluster', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RestartClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1925,11 +2865,26 @@ class Mse extends OpenApiClient
     public function retryClusterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['InstanceId']  = $request->instanceId;
+        $query['RequestPars'] = $request->requestPars;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RetryCluster',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RetryClusterResponse::fromMap($this->doRPCRequest('RetryCluster', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RetryClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1953,11 +2908,29 @@ class Mse extends OpenApiClient
     public function scalingClusterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['ClusterSpecification'] = $request->clusterSpecification;
+        $query['Cpu']                  = $request->cpu;
+        $query['InstanceCount']        = $request->instanceCount;
+        $query['InstanceId']           = $request->instanceId;
+        $query['MemoryCapacity']       = $request->memoryCapacity;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ScalingCluster',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ScalingClusterResponse::fromMap($this->doRPCRequest('ScalingCluster', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ScalingClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1981,11 +2954,26 @@ class Mse extends OpenApiClient
     public function updateAclWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['AclEntryList'] = $request->aclEntryList;
+        $query['InstanceId']   = $request->instanceId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAcl',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateAclResponse::fromMap($this->doRPCRequest('UpdateAcl', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateAclResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2009,11 +2997,27 @@ class Mse extends OpenApiClient
     public function updateClusterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['ClusterAliasName'] = $request->clusterAliasName;
+        $query['InstanceId']       = $request->instanceId;
+        $query['RequestPars']      = $request->requestPars;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCluster',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateClusterResponse::fromMap($this->doRPCRequest('UpdateCluster', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2037,11 +3041,40 @@ class Mse extends OpenApiClient
     public function updateConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                             = [];
+        $query['AutopurgePurgeInterval']   = $request->autopurgePurgeInterval;
+        $query['AutopurgeSnapRetainCount'] = $request->autopurgeSnapRetainCount;
+        $query['ClusterId']                = $request->clusterId;
+        $query['ConfigAuthEnabled']        = $request->configAuthEnabled;
+        $query['ConfigSecretEnabled']      = $request->configSecretEnabled;
+        $query['ConfigType']               = $request->configType;
+        $query['InitLimit']                = $request->initLimit;
+        $query['InstanceId']               = $request->instanceId;
+        $query['JuteMaxbuffer']            = $request->juteMaxbuffer;
+        $query['MCPEnabled']               = $request->MCPEnabled;
+        $query['MaxClientCnxns']           = $request->maxClientCnxns;
+        $query['PassWord']                 = $request->passWord;
+        $query['RequestPars']              = $request->requestPars;
+        $query['SyncLimit']                = $request->syncLimit;
+        $query['TickTime']                 = $request->tickTime;
+        $query['UserName']                 = $request->userName;
+        $req                               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateConfig',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateConfigResponse::fromMap($this->doRPCRequest('UpdateConfig', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2065,11 +3098,30 @@ class Mse extends OpenApiClient
     public function updateEngineNamespaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['ClusterId']    = $request->clusterId;
+        $query['Desc']         = $request->desc;
+        $query['Id']           = $request->id;
+        $query['InstanceId']   = $request->instanceId;
+        $query['Name']         = $request->name;
+        $query['ServiceCount'] = $request->serviceCount;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEngineNamespace',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateEngineNamespaceResponse::fromMap($this->doRPCRequest('UpdateEngineNamespace', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateEngineNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2095,10 +3147,21 @@ class Mse extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGatewayName',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateGatewayNameResponse::fromMap($this->doRPCRequest('UpdateGatewayName', '2019-05-31', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return UpdateGatewayNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2127,11 +3190,26 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($tmpReq->gatewayOption)) {
             $request->gatewayOptionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->gatewayOption), 'GatewayOption', 'json');
         }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['GatewayId']     = $request->gatewayId;
+        $query['GatewayOption'] = $request->gatewayOptionShrink;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGatewayOption',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateGatewayOptionResponse::fromMap($this->doRPCRequest('UpdateGatewayOption', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateGatewayOptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2155,11 +3233,27 @@ class Mse extends OpenApiClient
     public function updateGatewayRouteHTTPRewriteWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['GatewayId']       = $request->gatewayId;
+        $query['HttpRewriteJSON'] = $request->httpRewriteJSON;
+        $query['Id']              = $request->id;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGatewayRouteHTTPRewrite',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateGatewayRouteHTTPRewriteResponse::fromMap($this->doRPCRequest('UpdateGatewayRouteHTTPRewrite', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateGatewayRouteHTTPRewriteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2183,11 +3277,26 @@ class Mse extends OpenApiClient
     public function updateImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ClusterId']   = $request->clusterId;
+        $query['VersionCode'] = $request->versionCode;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateImage',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateImageResponse::fromMap($this->doRPCRequest('UpdateImage', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2211,11 +3320,36 @@ class Mse extends OpenApiClient
     public function updateNacosConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['AppName']          = $request->appName;
+        $query['BetaIps']          = $request->betaIps;
+        $query['Content']          = $request->content;
+        $query['DataId']           = $request->dataId;
+        $query['Desc']             = $request->desc;
+        $query['EncryptedDataKey'] = $request->encryptedDataKey;
+        $query['Group']            = $request->group;
+        $query['InstanceId']       = $request->instanceId;
+        $query['Md5']              = $request->md5;
+        $query['NamespaceId']      = $request->namespaceId;
+        $query['Tags']             = $request->tags;
+        $query['Type']             = $request->type;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateNacosConfig',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateNacosConfigResponse::fromMap($this->doRPCRequest('UpdateNacosConfig', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateNacosConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2239,11 +3373,34 @@ class Mse extends OpenApiClient
     public function updateNacosInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ClusterName'] = $request->clusterName;
+        $query['Enabled']     = $request->enabled;
+        $query['Ephemeral']   = $request->ephemeral;
+        $query['GroupName']   = $request->groupName;
+        $query['InstanceId']  = $request->instanceId;
+        $query['Ip']          = $request->ip;
+        $query['NamespaceId'] = $request->namespaceId;
+        $query['Port']        = $request->port;
+        $query['ServiceName'] = $request->serviceName;
+        $query['Weight']      = $request->weight;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateNacosInstance',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateNacosInstanceResponse::fromMap($this->doRPCRequest('UpdateNacosInstance', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateNacosInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2267,11 +3424,28 @@ class Mse extends OpenApiClient
     public function updateZnodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ClusterId']   = $request->clusterId;
+        $query['Data']        = $request->data;
+        $query['Path']        = $request->path;
+        $query['RequestPars'] = $request->requestPars;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateZnode',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateZnodeResponse::fromMap($this->doRPCRequest('UpdateZnode', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateZnodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2295,11 +3469,27 @@ class Mse extends OpenApiClient
     public function upgradeClusterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['InstanceId']     = $request->instanceId;
+        $query['RequestPars']    = $request->requestPars;
+        $query['UpgradeVersion'] = $request->upgradeVersion;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradeCluster',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpgradeClusterResponse::fromMap($this->doRPCRequest('UpgradeCluster', '2019-05-31', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpgradeClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
