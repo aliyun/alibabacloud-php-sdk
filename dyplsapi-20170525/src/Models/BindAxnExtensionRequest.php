@@ -9,44 +9,29 @@ use AlibabaCloud\Tea\Model;
 class BindAxnExtensionRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $ASRModelId;
+
+    /**
+     * @var bool
+     */
+    public $ASRStatus;
+
+    /**
      * @var int
      */
-    public $ownerId;
+    public $callDisplayType;
 
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
+    public $callRestrict;
 
     /**
      * @var string
      */
-    public $poolKey;
-
-    /**
-     * @var string
-     */
-    public $phoneNoA;
-
-    /**
-     * @var string
-     */
-    public $extension;
-
-    /**
-     * @var string
-     */
-    public $phoneNoB;
-
-    /**
-     * @var string
-     */
-    public $phoneNoX;
+    public $expectCity;
 
     /**
      * @var string
@@ -56,7 +41,7 @@ class BindAxnExtensionRequest extends Model
     /**
      * @var string
      */
-    public $expectCity;
+    public $extension;
 
     /**
      * @var bool
@@ -76,46 +61,61 @@ class BindAxnExtensionRequest extends Model
     /**
      * @var int
      */
-    public $callDisplayType;
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $phoneNoA;
+
+    /**
+     * @var string
+     */
+    public $phoneNoB;
+
+    /**
+     * @var string
+     */
+    public $phoneNoX;
+
+    /**
+     * @var string
+     */
+    public $poolKey;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var string
      */
     public $ringConfig;
-
-    /**
-     * @var bool
-     */
-    public $ASRStatus;
-
-    /**
-     * @var string
-     */
-    public $ASRModelId;
-
-    /**
-     * @var string
-     */
-    public $callRestrict;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'poolKey'              => 'PoolKey',
-        'phoneNoA'             => 'PhoneNoA',
-        'extension'            => 'Extension',
-        'phoneNoB'             => 'PhoneNoB',
-        'phoneNoX'             => 'PhoneNoX',
-        'expiration'           => 'Expiration',
+        'ASRModelId'           => 'ASRModelId',
+        'ASRStatus'            => 'ASRStatus',
+        'callDisplayType'      => 'CallDisplayType',
+        'callRestrict'         => 'CallRestrict',
         'expectCity'           => 'ExpectCity',
+        'expiration'           => 'Expiration',
+        'extension'            => 'Extension',
         'isRecordingEnabled'   => 'IsRecordingEnabled',
         'outId'                => 'OutId',
         'outOrderId'           => 'OutOrderId',
-        'callDisplayType'      => 'CallDisplayType',
+        'ownerId'              => 'OwnerId',
+        'phoneNoA'             => 'PhoneNoA',
+        'phoneNoB'             => 'PhoneNoB',
+        'phoneNoX'             => 'PhoneNoX',
+        'poolKey'              => 'PoolKey',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
         'ringConfig'           => 'RingConfig',
-        'ASRStatus'            => 'ASRStatus',
-        'ASRModelId'           => 'ASRModelId',
-        'callRestrict'         => 'CallRestrict',
     ];
 
     public function validate()
@@ -125,35 +125,26 @@ class BindAxnExtensionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->ASRModelId) {
+            $res['ASRModelId'] = $this->ASRModelId;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        if (null !== $this->ASRStatus) {
+            $res['ASRStatus'] = $this->ASRStatus;
         }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->callDisplayType) {
+            $res['CallDisplayType'] = $this->callDisplayType;
         }
-        if (null !== $this->poolKey) {
-            $res['PoolKey'] = $this->poolKey;
+        if (null !== $this->callRestrict) {
+            $res['CallRestrict'] = $this->callRestrict;
         }
-        if (null !== $this->phoneNoA) {
-            $res['PhoneNoA'] = $this->phoneNoA;
-        }
-        if (null !== $this->extension) {
-            $res['Extension'] = $this->extension;
-        }
-        if (null !== $this->phoneNoB) {
-            $res['PhoneNoB'] = $this->phoneNoB;
-        }
-        if (null !== $this->phoneNoX) {
-            $res['PhoneNoX'] = $this->phoneNoX;
+        if (null !== $this->expectCity) {
+            $res['ExpectCity'] = $this->expectCity;
         }
         if (null !== $this->expiration) {
             $res['Expiration'] = $this->expiration;
         }
-        if (null !== $this->expectCity) {
-            $res['ExpectCity'] = $this->expectCity;
+        if (null !== $this->extension) {
+            $res['Extension'] = $this->extension;
         }
         if (null !== $this->isRecordingEnabled) {
             $res['IsRecordingEnabled'] = $this->isRecordingEnabled;
@@ -164,20 +155,29 @@ class BindAxnExtensionRequest extends Model
         if (null !== $this->outOrderId) {
             $res['OutOrderId'] = $this->outOrderId;
         }
-        if (null !== $this->callDisplayType) {
-            $res['CallDisplayType'] = $this->callDisplayType;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->phoneNoA) {
+            $res['PhoneNoA'] = $this->phoneNoA;
+        }
+        if (null !== $this->phoneNoB) {
+            $res['PhoneNoB'] = $this->phoneNoB;
+        }
+        if (null !== $this->phoneNoX) {
+            $res['PhoneNoX'] = $this->phoneNoX;
+        }
+        if (null !== $this->poolKey) {
+            $res['PoolKey'] = $this->poolKey;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->ringConfig) {
             $res['RingConfig'] = $this->ringConfig;
-        }
-        if (null !== $this->ASRStatus) {
-            $res['ASRStatus'] = $this->ASRStatus;
-        }
-        if (null !== $this->ASRModelId) {
-            $res['ASRModelId'] = $this->ASRModelId;
-        }
-        if (null !== $this->callRestrict) {
-            $res['CallRestrict'] = $this->callRestrict;
         }
 
         return $res;
@@ -191,35 +191,26 @@ class BindAxnExtensionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['ASRModelId'])) {
+            $model->ASRModelId = $map['ASRModelId'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        if (isset($map['ASRStatus'])) {
+            $model->ASRStatus = $map['ASRStatus'];
         }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['CallDisplayType'])) {
+            $model->callDisplayType = $map['CallDisplayType'];
         }
-        if (isset($map['PoolKey'])) {
-            $model->poolKey = $map['PoolKey'];
+        if (isset($map['CallRestrict'])) {
+            $model->callRestrict = $map['CallRestrict'];
         }
-        if (isset($map['PhoneNoA'])) {
-            $model->phoneNoA = $map['PhoneNoA'];
-        }
-        if (isset($map['Extension'])) {
-            $model->extension = $map['Extension'];
-        }
-        if (isset($map['PhoneNoB'])) {
-            $model->phoneNoB = $map['PhoneNoB'];
-        }
-        if (isset($map['PhoneNoX'])) {
-            $model->phoneNoX = $map['PhoneNoX'];
+        if (isset($map['ExpectCity'])) {
+            $model->expectCity = $map['ExpectCity'];
         }
         if (isset($map['Expiration'])) {
             $model->expiration = $map['Expiration'];
         }
-        if (isset($map['ExpectCity'])) {
-            $model->expectCity = $map['ExpectCity'];
+        if (isset($map['Extension'])) {
+            $model->extension = $map['Extension'];
         }
         if (isset($map['IsRecordingEnabled'])) {
             $model->isRecordingEnabled = $map['IsRecordingEnabled'];
@@ -230,20 +221,29 @@ class BindAxnExtensionRequest extends Model
         if (isset($map['OutOrderId'])) {
             $model->outOrderId = $map['OutOrderId'];
         }
-        if (isset($map['CallDisplayType'])) {
-            $model->callDisplayType = $map['CallDisplayType'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PhoneNoA'])) {
+            $model->phoneNoA = $map['PhoneNoA'];
+        }
+        if (isset($map['PhoneNoB'])) {
+            $model->phoneNoB = $map['PhoneNoB'];
+        }
+        if (isset($map['PhoneNoX'])) {
+            $model->phoneNoX = $map['PhoneNoX'];
+        }
+        if (isset($map['PoolKey'])) {
+            $model->poolKey = $map['PoolKey'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['RingConfig'])) {
             $model->ringConfig = $map['RingConfig'];
-        }
-        if (isset($map['ASRStatus'])) {
-            $model->ASRStatus = $map['ASRStatus'];
-        }
-        if (isset($map['ASRModelId'])) {
-            $model->ASRModelId = $map['ASRModelId'];
-        }
-        if (isset($map['CallRestrict'])) {
-            $model->callRestrict = $map['CallRestrict'];
         }
 
         return $model;

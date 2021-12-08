@@ -16,16 +16,6 @@ class UnbindSubscriptionRequest extends Model
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
     public $poolKey;
 
     /**
@@ -36,20 +26,30 @@ class UnbindSubscriptionRequest extends Model
     /**
      * @var string
      */
-    public $subsId;
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var string
      */
     public $secretNo;
+
+    /**
+     * @var string
+     */
+    public $subsId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
         'poolKey'              => 'PoolKey',
         'productType'          => 'ProductType',
-        'subsId'               => 'SubsId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
         'secretNo'             => 'SecretNo',
+        'subsId'               => 'SubsId',
     ];
 
     public function validate()
@@ -62,23 +62,23 @@ class UnbindSubscriptionRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
         if (null !== $this->poolKey) {
             $res['PoolKey'] = $this->poolKey;
         }
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
-        if (null !== $this->subsId) {
-            $res['SubsId'] = $this->subsId;
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->secretNo) {
             $res['SecretNo'] = $this->secretNo;
+        }
+        if (null !== $this->subsId) {
+            $res['SubsId'] = $this->subsId;
         }
 
         return $res;
@@ -95,23 +95,23 @@ class UnbindSubscriptionRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
         if (isset($map['PoolKey'])) {
             $model->poolKey = $map['PoolKey'];
         }
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }
-        if (isset($map['SubsId'])) {
-            $model->subsId = $map['SubsId'];
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['SecretNo'])) {
             $model->secretNo = $map['SecretNo'];
+        }
+        if (isset($map['SubsId'])) {
+            $model->subsId = $map['SubsId'];
         }
 
         return $model;

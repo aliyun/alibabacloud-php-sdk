@@ -16,22 +16,22 @@ class QueryRecordFileDownloadUrlResponseBody extends Model
     /**
      * @var string
      */
+    public $downloadUrl;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $downloadUrl;
     protected $_name = [
         'code'        => 'Code',
+        'downloadUrl' => 'DownloadUrl',
         'message'     => 'Message',
         'requestId'   => 'RequestId',
-        'downloadUrl' => 'DownloadUrl',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class QueryRecordFileDownloadUrlResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->downloadUrl) {
+            $res['DownloadUrl'] = $this->downloadUrl;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->downloadUrl) {
-            $res['DownloadUrl'] = $this->downloadUrl;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class QueryRecordFileDownloadUrlResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['DownloadUrl'])) {
+            $model->downloadUrl = $map['DownloadUrl'];
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['DownloadUrl'])) {
-            $model->downloadUrl = $map['DownloadUrl'];
         }
 
         return $model;

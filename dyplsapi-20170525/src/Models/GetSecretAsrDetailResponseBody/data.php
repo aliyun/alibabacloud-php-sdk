@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $requestId;
+    public $bizDuration;
 
     /**
      * @var string
@@ -35,28 +35,28 @@ class data extends Model
     public $msg;
 
     /**
-     * @var int
-     */
-    public $bizDuration;
-
-    /**
      * @var string
      */
-    public $type;
+    public $requestId;
 
     /**
      * @var sentences[]
      */
     public $sentences;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'bizDuration' => 'BizDuration',
         'businessId'  => 'BusinessId',
         'businessKey' => 'BusinessKey',
         'code'        => 'Code',
         'msg'         => 'Msg',
-        'bizDuration' => 'BizDuration',
-        'type'        => 'Type',
+        'requestId'   => 'RequestId',
         'sentences'   => 'Sentences',
+        'type'        => 'Type',
     ];
 
     public function validate()
@@ -66,8 +66,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->bizDuration) {
+            $res['BizDuration'] = $this->bizDuration;
         }
         if (null !== $this->businessId) {
             $res['BusinessId'] = $this->businessId;
@@ -81,11 +81,8 @@ class data extends Model
         if (null !== $this->msg) {
             $res['Msg'] = $this->msg;
         }
-        if (null !== $this->bizDuration) {
-            $res['BizDuration'] = $this->bizDuration;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->sentences) {
             $res['Sentences'] = [];
@@ -95,6 +92,9 @@ class data extends Model
                     $res['Sentences'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -108,8 +108,8 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['BizDuration'])) {
+            $model->bizDuration = $map['BizDuration'];
         }
         if (isset($map['BusinessId'])) {
             $model->businessId = $map['BusinessId'];
@@ -123,11 +123,8 @@ class data extends Model
         if (isset($map['Msg'])) {
             $model->msg = $map['Msg'];
         }
-        if (isset($map['BizDuration'])) {
-            $model->bizDuration = $map['BizDuration'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Sentences'])) {
             if (!empty($map['Sentences'])) {
@@ -137,6 +134,9 @@ class data extends Model
                     $model->sentences[$n++] = null !== $item ? sentences::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

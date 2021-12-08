@@ -16,6 +16,16 @@ class UpdateDefaultBRequest extends Model
     /**
      * @var string
      */
+    public $phoneNo;
+
+    /**
+     * @var string
+     */
+    public $poolKey;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -26,30 +36,20 @@ class UpdateDefaultBRequest extends Model
     /**
      * @var string
      */
-    public $poolKey;
+    public $secretNo;
 
     /**
      * @var int
      */
     public $subsId;
-
-    /**
-     * @var string
-     */
-    public $secretNo;
-
-    /**
-     * @var string
-     */
-    public $phoneNo;
     protected $_name = [
         'ownerId'              => 'OwnerId',
+        'phoneNo'              => 'PhoneNo',
+        'poolKey'              => 'PoolKey',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'poolKey'              => 'PoolKey',
-        'subsId'               => 'SubsId',
         'secretNo'             => 'SecretNo',
-        'phoneNo'              => 'PhoneNo',
+        'subsId'               => 'SubsId',
     ];
 
     public function validate()
@@ -62,23 +62,23 @@ class UpdateDefaultBRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->phoneNo) {
+            $res['PhoneNo'] = $this->phoneNo;
+        }
+        if (null !== $this->poolKey) {
+            $res['PoolKey'] = $this->poolKey;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->poolKey) {
-            $res['PoolKey'] = $this->poolKey;
-        }
-        if (null !== $this->subsId) {
-            $res['SubsId'] = $this->subsId;
-        }
         if (null !== $this->secretNo) {
             $res['SecretNo'] = $this->secretNo;
         }
-        if (null !== $this->phoneNo) {
-            $res['PhoneNo'] = $this->phoneNo;
+        if (null !== $this->subsId) {
+            $res['SubsId'] = $this->subsId;
         }
 
         return $res;
@@ -95,23 +95,23 @@ class UpdateDefaultBRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['PhoneNo'])) {
+            $model->phoneNo = $map['PhoneNo'];
+        }
+        if (isset($map['PoolKey'])) {
+            $model->poolKey = $map['PoolKey'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['PoolKey'])) {
-            $model->poolKey = $map['PoolKey'];
-        }
-        if (isset($map['SubsId'])) {
-            $model->subsId = $map['SubsId'];
-        }
         if (isset($map['SecretNo'])) {
             $model->secretNo = $map['SecretNo'];
         }
-        if (isset($map['PhoneNo'])) {
-            $model->phoneNo = $map['PhoneNo'];
+        if (isset($map['SubsId'])) {
+            $model->subsId = $map['SubsId'];
         }
 
         return $model;

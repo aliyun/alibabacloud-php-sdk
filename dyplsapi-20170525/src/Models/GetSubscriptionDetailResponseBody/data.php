@@ -11,22 +11,17 @@ class data extends Model
     /**
      * @var string
      */
+    public $city;
+
+    /**
+     * @var string
+     */
     public $phoneNo;
 
     /**
      * @var string
      */
-    public $city;
-
-    /**
-     * @var int
-     */
-    public $switchStatus;
-
-    /**
-     * @var int
-     */
-    public $subsId;
+    public $province;
 
     /**
      * @var string
@@ -34,22 +29,27 @@ class data extends Model
     public $secretNo;
 
     /**
-     * @var string
+     * @var int
      */
-    public $vendor;
+    public $subsId;
+
+    /**
+     * @var int
+     */
+    public $switchStatus;
 
     /**
      * @var string
      */
-    public $province;
+    public $vendor;
     protected $_name = [
-        'phoneNo'      => 'PhoneNo',
         'city'         => 'City',
-        'switchStatus' => 'SwitchStatus',
-        'subsId'       => 'SubsId',
-        'secretNo'     => 'SecretNo',
-        'vendor'       => 'Vendor',
+        'phoneNo'      => 'PhoneNo',
         'province'     => 'Province',
+        'secretNo'     => 'SecretNo',
+        'subsId'       => 'SubsId',
+        'switchStatus' => 'SwitchStatus',
+        'vendor'       => 'Vendor',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->phoneNo) {
-            $res['PhoneNo'] = $this->phoneNo;
-        }
         if (null !== $this->city) {
             $res['City'] = $this->city;
         }
-        if (null !== $this->switchStatus) {
-            $res['SwitchStatus'] = $this->switchStatus;
+        if (null !== $this->phoneNo) {
+            $res['PhoneNo'] = $this->phoneNo;
         }
-        if (null !== $this->subsId) {
-            $res['SubsId'] = $this->subsId;
+        if (null !== $this->province) {
+            $res['Province'] = $this->province;
         }
         if (null !== $this->secretNo) {
             $res['SecretNo'] = $this->secretNo;
         }
+        if (null !== $this->subsId) {
+            $res['SubsId'] = $this->subsId;
+        }
+        if (null !== $this->switchStatus) {
+            $res['SwitchStatus'] = $this->switchStatus;
+        }
         if (null !== $this->vendor) {
             $res['Vendor'] = $this->vendor;
-        }
-        if (null !== $this->province) {
-            $res['Province'] = $this->province;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PhoneNo'])) {
-            $model->phoneNo = $map['PhoneNo'];
-        }
         if (isset($map['City'])) {
             $model->city = $map['City'];
         }
-        if (isset($map['SwitchStatus'])) {
-            $model->switchStatus = $map['SwitchStatus'];
+        if (isset($map['PhoneNo'])) {
+            $model->phoneNo = $map['PhoneNo'];
         }
-        if (isset($map['SubsId'])) {
-            $model->subsId = $map['SubsId'];
+        if (isset($map['Province'])) {
+            $model->province = $map['Province'];
         }
         if (isset($map['SecretNo'])) {
             $model->secretNo = $map['SecretNo'];
         }
+        if (isset($map['SubsId'])) {
+            $model->subsId = $map['SubsId'];
+        }
+        if (isset($map['SwitchStatus'])) {
+            $model->switchStatus = $map['SwitchStatus'];
+        }
         if (isset($map['Vendor'])) {
             $model->vendor = $map['Vendor'];
-        }
-        if (isset($map['Province'])) {
-            $model->province = $map['Province'];
         }
 
         return $model;

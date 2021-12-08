@@ -16,12 +16,7 @@ class QuerySubsIdRequest extends Model
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
+    public $phoneNoX;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class QuerySubsIdRequest extends Model
     /**
      * @var string
      */
-    public $phoneNoX;
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
+        'phoneNoX'             => 'PhoneNoX',
+        'poolKey'              => 'PoolKey',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'poolKey'              => 'PoolKey',
-        'phoneNoX'             => 'PhoneNoX',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class QuerySubsIdRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->phoneNoX) {
+            $res['PhoneNoX'] = $this->phoneNoX;
+        }
+        if (null !== $this->poolKey) {
+            $res['PoolKey'] = $this->poolKey;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->poolKey) {
-            $res['PoolKey'] = $this->poolKey;
-        }
-        if (null !== $this->phoneNoX) {
-            $res['PhoneNoX'] = $this->phoneNoX;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class QuerySubsIdRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['PhoneNoX'])) {
+            $model->phoneNoX = $map['PhoneNoX'];
+        }
+        if (isset($map['PoolKey'])) {
+            $model->poolKey = $map['PoolKey'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['PoolKey'])) {
-            $model->poolKey = $map['PoolKey'];
-        }
-        if (isset($map['PhoneNoX'])) {
-            $model->phoneNoX = $map['PhoneNoX'];
         }
 
         return $model;

@@ -9,9 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ConfirmSendSmsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $callId;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $poolKey;
 
     /**
      * @var string
@@ -26,24 +36,14 @@ class ConfirmSendSmsRequest extends Model
     /**
      * @var string
      */
-    public $poolKey;
-
-    /**
-     * @var string
-     */
     public $secretNo;
-
-    /**
-     * @var string
-     */
-    public $callId;
     protected $_name = [
+        'callId'               => 'CallId',
         'ownerId'              => 'OwnerId',
+        'poolKey'              => 'PoolKey',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'poolKey'              => 'PoolKey',
         'secretNo'             => 'SecretNo',
-        'callId'               => 'CallId',
     ];
 
     public function validate()
@@ -53,8 +53,14 @@ class ConfirmSendSmsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->callId) {
+            $res['CallId'] = $this->callId;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->poolKey) {
+            $res['PoolKey'] = $this->poolKey;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -62,14 +68,8 @@ class ConfirmSendSmsRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->poolKey) {
-            $res['PoolKey'] = $this->poolKey;
-        }
         if (null !== $this->secretNo) {
             $res['SecretNo'] = $this->secretNo;
-        }
-        if (null !== $this->callId) {
-            $res['CallId'] = $this->callId;
         }
 
         return $res;
@@ -83,8 +83,14 @@ class ConfirmSendSmsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CallId'])) {
+            $model->callId = $map['CallId'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PoolKey'])) {
+            $model->poolKey = $map['PoolKey'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -92,14 +98,8 @@ class ConfirmSendSmsRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['PoolKey'])) {
-            $model->poolKey = $map['PoolKey'];
-        }
         if (isset($map['SecretNo'])) {
             $model->secretNo = $map['SecretNo'];
-        }
-        if (isset($map['CallId'])) {
-            $model->callId = $map['CallId'];
         }
 
         return $model;

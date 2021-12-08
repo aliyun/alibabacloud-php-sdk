@@ -9,54 +9,19 @@ use AlibabaCloud\Tea\Model;
 class UpdateSubscriptionRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $ASRModelId;
+
+    /**
+     * @var bool
+     */
+    public $ASRStatus;
+
+    /**
      * @var int
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $poolKey;
-
-    /**
-     * @var string
-     */
-    public $productType;
-
-    /**
-     * @var string
-     */
-    public $subsId;
-
-    /**
-     * @var string
-     */
-    public $phoneNoX;
-
-    /**
-     * @var string
-     */
-    public $phoneNoA;
-
-    /**
-     * @var string
-     */
-    public $phoneNoB;
-
-    /**
-     * @var string
-     */
-    public $groupId;
+    public $callDisplayType;
 
     /**
      * @var string
@@ -69,14 +34,9 @@ class UpdateSubscriptionRequest extends Model
     public $expiration;
 
     /**
-     * @var int
-     */
-    public $callDisplayType;
-
-    /**
      * @var string
      */
-    public $outId;
+    public $groupId;
 
     /**
      * @var bool
@@ -91,37 +51,77 @@ class UpdateSubscriptionRequest extends Model
     /**
      * @var string
      */
-    public $ringConfig;
+    public $outId;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $ASRStatus;
+    public $ownerId;
 
     /**
      * @var string
      */
-    public $ASRModelId;
+    public $phoneNoA;
+
+    /**
+     * @var string
+     */
+    public $phoneNoB;
+
+    /**
+     * @var string
+     */
+    public $phoneNoX;
+
+    /**
+     * @var string
+     */
+    public $poolKey;
+
+    /**
+     * @var string
+     */
+    public $productType;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $ringConfig;
+
+    /**
+     * @var string
+     */
+    public $subsId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'poolKey'              => 'PoolKey',
-        'productType'          => 'ProductType',
-        'subsId'               => 'SubsId',
-        'phoneNoX'             => 'PhoneNoX',
-        'phoneNoA'             => 'PhoneNoA',
-        'phoneNoB'             => 'PhoneNoB',
-        'groupId'              => 'GroupId',
+        'ASRModelId'           => 'ASRModelId',
+        'ASRStatus'            => 'ASRStatus',
+        'callDisplayType'      => 'CallDisplayType',
         'callRestrict'         => 'CallRestrict',
         'expiration'           => 'Expiration',
-        'callDisplayType'      => 'CallDisplayType',
-        'outId'                => 'OutId',
+        'groupId'              => 'GroupId',
         'isRecordingEnabled'   => 'IsRecordingEnabled',
         'operateType'          => 'OperateType',
+        'outId'                => 'OutId',
+        'ownerId'              => 'OwnerId',
+        'phoneNoA'             => 'PhoneNoA',
+        'phoneNoB'             => 'PhoneNoB',
+        'phoneNoX'             => 'PhoneNoX',
+        'poolKey'              => 'PoolKey',
+        'productType'          => 'ProductType',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
         'ringConfig'           => 'RingConfig',
-        'ASRStatus'            => 'ASRStatus',
-        'ASRModelId'           => 'ASRModelId',
+        'subsId'               => 'SubsId',
     ];
 
     public function validate()
@@ -131,35 +131,14 @@ class UpdateSubscriptionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->ASRModelId) {
+            $res['ASRModelId'] = $this->ASRModelId;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        if (null !== $this->ASRStatus) {
+            $res['ASRStatus'] = $this->ASRStatus;
         }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->poolKey) {
-            $res['PoolKey'] = $this->poolKey;
-        }
-        if (null !== $this->productType) {
-            $res['ProductType'] = $this->productType;
-        }
-        if (null !== $this->subsId) {
-            $res['SubsId'] = $this->subsId;
-        }
-        if (null !== $this->phoneNoX) {
-            $res['PhoneNoX'] = $this->phoneNoX;
-        }
-        if (null !== $this->phoneNoA) {
-            $res['PhoneNoA'] = $this->phoneNoA;
-        }
-        if (null !== $this->phoneNoB) {
-            $res['PhoneNoB'] = $this->phoneNoB;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
+        if (null !== $this->callDisplayType) {
+            $res['CallDisplayType'] = $this->callDisplayType;
         }
         if (null !== $this->callRestrict) {
             $res['CallRestrict'] = $this->callRestrict;
@@ -167,11 +146,8 @@ class UpdateSubscriptionRequest extends Model
         if (null !== $this->expiration) {
             $res['Expiration'] = $this->expiration;
         }
-        if (null !== $this->callDisplayType) {
-            $res['CallDisplayType'] = $this->callDisplayType;
-        }
-        if (null !== $this->outId) {
-            $res['OutId'] = $this->outId;
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->isRecordingEnabled) {
             $res['IsRecordingEnabled'] = $this->isRecordingEnabled;
@@ -179,14 +155,38 @@ class UpdateSubscriptionRequest extends Model
         if (null !== $this->operateType) {
             $res['OperateType'] = $this->operateType;
         }
+        if (null !== $this->outId) {
+            $res['OutId'] = $this->outId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->phoneNoA) {
+            $res['PhoneNoA'] = $this->phoneNoA;
+        }
+        if (null !== $this->phoneNoB) {
+            $res['PhoneNoB'] = $this->phoneNoB;
+        }
+        if (null !== $this->phoneNoX) {
+            $res['PhoneNoX'] = $this->phoneNoX;
+        }
+        if (null !== $this->poolKey) {
+            $res['PoolKey'] = $this->poolKey;
+        }
+        if (null !== $this->productType) {
+            $res['ProductType'] = $this->productType;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->ringConfig) {
             $res['RingConfig'] = $this->ringConfig;
         }
-        if (null !== $this->ASRStatus) {
-            $res['ASRStatus'] = $this->ASRStatus;
-        }
-        if (null !== $this->ASRModelId) {
-            $res['ASRModelId'] = $this->ASRModelId;
+        if (null !== $this->subsId) {
+            $res['SubsId'] = $this->subsId;
         }
 
         return $res;
@@ -200,35 +200,14 @@ class UpdateSubscriptionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['ASRModelId'])) {
+            $model->ASRModelId = $map['ASRModelId'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        if (isset($map['ASRStatus'])) {
+            $model->ASRStatus = $map['ASRStatus'];
         }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['PoolKey'])) {
-            $model->poolKey = $map['PoolKey'];
-        }
-        if (isset($map['ProductType'])) {
-            $model->productType = $map['ProductType'];
-        }
-        if (isset($map['SubsId'])) {
-            $model->subsId = $map['SubsId'];
-        }
-        if (isset($map['PhoneNoX'])) {
-            $model->phoneNoX = $map['PhoneNoX'];
-        }
-        if (isset($map['PhoneNoA'])) {
-            $model->phoneNoA = $map['PhoneNoA'];
-        }
-        if (isset($map['PhoneNoB'])) {
-            $model->phoneNoB = $map['PhoneNoB'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
+        if (isset($map['CallDisplayType'])) {
+            $model->callDisplayType = $map['CallDisplayType'];
         }
         if (isset($map['CallRestrict'])) {
             $model->callRestrict = $map['CallRestrict'];
@@ -236,11 +215,8 @@ class UpdateSubscriptionRequest extends Model
         if (isset($map['Expiration'])) {
             $model->expiration = $map['Expiration'];
         }
-        if (isset($map['CallDisplayType'])) {
-            $model->callDisplayType = $map['CallDisplayType'];
-        }
-        if (isset($map['OutId'])) {
-            $model->outId = $map['OutId'];
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
         }
         if (isset($map['IsRecordingEnabled'])) {
             $model->isRecordingEnabled = $map['IsRecordingEnabled'];
@@ -248,14 +224,38 @@ class UpdateSubscriptionRequest extends Model
         if (isset($map['OperateType'])) {
             $model->operateType = $map['OperateType'];
         }
+        if (isset($map['OutId'])) {
+            $model->outId = $map['OutId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PhoneNoA'])) {
+            $model->phoneNoA = $map['PhoneNoA'];
+        }
+        if (isset($map['PhoneNoB'])) {
+            $model->phoneNoB = $map['PhoneNoB'];
+        }
+        if (isset($map['PhoneNoX'])) {
+            $model->phoneNoX = $map['PhoneNoX'];
+        }
+        if (isset($map['PoolKey'])) {
+            $model->poolKey = $map['PoolKey'];
+        }
+        if (isset($map['ProductType'])) {
+            $model->productType = $map['ProductType'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['RingConfig'])) {
             $model->ringConfig = $map['RingConfig'];
         }
-        if (isset($map['ASRStatus'])) {
-            $model->ASRStatus = $map['ASRStatus'];
-        }
-        if (isset($map['ASRModelId'])) {
-            $model->ASRModelId = $map['ASRModelId'];
+        if (isset($map['SubsId'])) {
+            $model->subsId = $map['SubsId'];
         }
 
         return $model;

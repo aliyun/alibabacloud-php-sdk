@@ -11,15 +11,15 @@ class data extends Model
     /**
      * @var string
      */
-    public $ringPublicUrl;
+    public $phonePublicUrl;
 
     /**
      * @var string
      */
-    public $phonePublicUrl;
+    public $ringPublicUrl;
     protected $_name = [
-        'ringPublicUrl'  => 'RingPublicUrl',
         'phonePublicUrl' => 'PhonePublicUrl',
+        'ringPublicUrl'  => 'RingPublicUrl',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ringPublicUrl) {
-            $res['RingPublicUrl'] = $this->ringPublicUrl;
-        }
         if (null !== $this->phonePublicUrl) {
             $res['PhonePublicUrl'] = $this->phonePublicUrl;
+        }
+        if (null !== $this->ringPublicUrl) {
+            $res['RingPublicUrl'] = $this->ringPublicUrl;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RingPublicUrl'])) {
-            $model->ringPublicUrl = $map['RingPublicUrl'];
-        }
         if (isset($map['PhonePublicUrl'])) {
             $model->phonePublicUrl = $map['PhonePublicUrl'];
+        }
+        if (isset($map['RingPublicUrl'])) {
+            $model->ringPublicUrl = $map['RingPublicUrl'];
         }
 
         return $model;

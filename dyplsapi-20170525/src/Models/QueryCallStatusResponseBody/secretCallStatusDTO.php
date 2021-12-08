@@ -14,12 +14,18 @@ class secretCallStatusDTO extends Model
     public $calledNo;
 
     /**
+     * @var string
+     */
+    public $extension;
+
+    /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'calledNo' => 'CalledNo',
-        'status'   => 'Status',
+        'calledNo'  => 'CalledNo',
+        'extension' => 'Extension',
+        'status'    => 'Status',
     ];
 
     public function validate()
@@ -31,6 +37,9 @@ class secretCallStatusDTO extends Model
         $res = [];
         if (null !== $this->calledNo) {
             $res['CalledNo'] = $this->calledNo;
+        }
+        if (null !== $this->extension) {
+            $res['Extension'] = $this->extension;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -49,6 +58,9 @@ class secretCallStatusDTO extends Model
         $model = new self();
         if (isset($map['CalledNo'])) {
             $model->calledNo = $map['CalledNo'];
+        }
+        if (isset($map['Extension'])) {
+            $model->extension = $map['Extension'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

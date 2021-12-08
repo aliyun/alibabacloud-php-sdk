@@ -9,9 +9,19 @@ use AlibabaCloud\Tea\Model;
 class QueryPhoneNoAByTrackNoRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $cabinetNo;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $phoneNoX;
 
     /**
      * @var string
@@ -27,23 +37,13 @@ class QueryPhoneNoAByTrackNoRequest extends Model
      * @var string
      */
     public $trackNo;
-
-    /**
-     * @var string
-     */
-    public $cabinetNo;
-
-    /**
-     * @var string
-     */
-    public $phoneNoX;
     protected $_name = [
+        'cabinetNo'            => 'CabinetNo',
         'ownerId'              => 'OwnerId',
+        'phoneNoX'             => 'PhoneNoX',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'trackNo'              => 'trackNo',
-        'cabinetNo'            => 'CabinetNo',
-        'phoneNoX'             => 'PhoneNoX',
     ];
 
     public function validate()
@@ -53,8 +53,14 @@ class QueryPhoneNoAByTrackNoRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cabinetNo) {
+            $res['CabinetNo'] = $this->cabinetNo;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->phoneNoX) {
+            $res['PhoneNoX'] = $this->phoneNoX;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -64,12 +70,6 @@ class QueryPhoneNoAByTrackNoRequest extends Model
         }
         if (null !== $this->trackNo) {
             $res['trackNo'] = $this->trackNo;
-        }
-        if (null !== $this->cabinetNo) {
-            $res['CabinetNo'] = $this->cabinetNo;
-        }
-        if (null !== $this->phoneNoX) {
-            $res['PhoneNoX'] = $this->phoneNoX;
         }
 
         return $res;
@@ -83,8 +83,14 @@ class QueryPhoneNoAByTrackNoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CabinetNo'])) {
+            $model->cabinetNo = $map['CabinetNo'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PhoneNoX'])) {
+            $model->phoneNoX = $map['PhoneNoX'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -94,12 +100,6 @@ class QueryPhoneNoAByTrackNoRequest extends Model
         }
         if (isset($map['trackNo'])) {
             $model->trackNo = $map['trackNo'];
-        }
-        if (isset($map['CabinetNo'])) {
-            $model->cabinetNo = $map['CabinetNo'];
-        }
-        if (isset($map['PhoneNoX'])) {
-            $model->phoneNoX = $map['PhoneNoX'];
         }
 
         return $model;

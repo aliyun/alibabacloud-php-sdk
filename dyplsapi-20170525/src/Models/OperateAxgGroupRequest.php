@@ -11,7 +11,27 @@ class OperateAxgGroupRequest extends Model
     /**
      * @var int
      */
+    public $groupId;
+
+    /**
+     * @var string
+     */
+    public $numbers;
+
+    /**
+     * @var string
+     */
+    public $operateType;
+
+    /**
+     * @var int
+     */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $poolKey;
 
     /**
      * @var string
@@ -22,34 +42,14 @@ class OperateAxgGroupRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $poolKey;
-
-    /**
-     * @var int
-     */
-    public $groupId;
-
-    /**
-     * @var string
-     */
-    public $operateType;
-
-    /**
-     * @var string
-     */
-    public $numbers;
     protected $_name = [
+        'groupId'              => 'GroupId',
+        'numbers'              => 'Numbers',
+        'operateType'          => 'OperateType',
         'ownerId'              => 'OwnerId',
+        'poolKey'              => 'PoolKey',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'poolKey'              => 'PoolKey',
-        'groupId'              => 'GroupId',
-        'operateType'          => 'OperateType',
-        'numbers'              => 'Numbers',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class OperateAxgGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->groupId) {
+            $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->numbers) {
+            $res['Numbers'] = $this->numbers;
+        }
+        if (null !== $this->operateType) {
+            $res['OperateType'] = $this->operateType;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->poolKey) {
+            $res['PoolKey'] = $this->poolKey;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->poolKey) {
-            $res['PoolKey'] = $this->poolKey;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
-        }
-        if (null !== $this->operateType) {
-            $res['OperateType'] = $this->operateType;
-        }
-        if (null !== $this->numbers) {
-            $res['Numbers'] = $this->numbers;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class OperateAxgGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GroupId'])) {
+            $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['Numbers'])) {
+            $model->numbers = $map['Numbers'];
+        }
+        if (isset($map['OperateType'])) {
+            $model->operateType = $map['OperateType'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PoolKey'])) {
+            $model->poolKey = $map['PoolKey'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['PoolKey'])) {
-            $model->poolKey = $map['PoolKey'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
-        }
-        if (isset($map['OperateType'])) {
-            $model->operateType = $map['OperateType'];
-        }
-        if (isset($map['Numbers'])) {
-            $model->numbers = $map['Numbers'];
         }
 
         return $model;

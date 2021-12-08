@@ -11,6 +11,11 @@ class UnbindSubscriptionResponseBody extends Model
     /**
      * @var string
      */
+    public $chargeId;
+
+    /**
+     * @var string
+     */
     public $code;
 
     /**
@@ -22,16 +27,11 @@ class UnbindSubscriptionResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $chargeId;
     protected $_name = [
+        'chargeId'  => 'ChargeId',
         'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'chargeId'  => 'ChargeId',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class UnbindSubscriptionResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->chargeId) {
+            $res['ChargeId'] = $this->chargeId;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -49,9 +52,6 @@ class UnbindSubscriptionResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->chargeId) {
-            $res['ChargeId'] = $this->chargeId;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class UnbindSubscriptionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChargeId'])) {
+            $model->chargeId = $map['ChargeId'];
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
@@ -73,9 +76,6 @@ class UnbindSubscriptionResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['ChargeId'])) {
-            $model->chargeId = $map['ChargeId'];
         }
 
         return $model;

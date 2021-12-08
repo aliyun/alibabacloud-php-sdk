@@ -16,12 +16,7 @@ class QuerySubscriptionDetailRequest extends Model
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
+    public $phoneNoX;
 
     /**
      * @var string
@@ -36,20 +31,25 @@ class QuerySubscriptionDetailRequest extends Model
     /**
      * @var string
      */
-    public $subsId;
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var string
      */
-    public $phoneNoX;
+    public $subsId;
     protected $_name = [
         'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'phoneNoX'             => 'PhoneNoX',
         'poolKey'              => 'PoolKey',
         'productType'          => 'ProductType',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
         'subsId'               => 'SubsId',
-        'phoneNoX'             => 'PhoneNoX',
     ];
 
     public function validate()
@@ -62,11 +62,8 @@ class QuerySubscriptionDetailRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->phoneNoX) {
+            $res['PhoneNoX'] = $this->phoneNoX;
         }
         if (null !== $this->poolKey) {
             $res['PoolKey'] = $this->poolKey;
@@ -74,11 +71,14 @@ class QuerySubscriptionDetailRequest extends Model
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
         if (null !== $this->subsId) {
             $res['SubsId'] = $this->subsId;
-        }
-        if (null !== $this->phoneNoX) {
-            $res['PhoneNoX'] = $this->phoneNoX;
         }
 
         return $res;
@@ -95,11 +95,8 @@ class QuerySubscriptionDetailRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['PhoneNoX'])) {
+            $model->phoneNoX = $map['PhoneNoX'];
         }
         if (isset($map['PoolKey'])) {
             $model->poolKey = $map['PoolKey'];
@@ -107,11 +104,14 @@ class QuerySubscriptionDetailRequest extends Model
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
         if (isset($map['SubsId'])) {
             $model->subsId = $map['SubsId'];
-        }
-        if (isset($map['PhoneNoX'])) {
-            $model->phoneNoX = $map['PhoneNoX'];
         }
 
         return $model;

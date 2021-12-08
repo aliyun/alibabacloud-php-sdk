@@ -20,19 +20,19 @@ class QueryPhoneNoAByTrackNoResponseBody extends Model
     public $message;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var module[]
      */
     public $module;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'code'      => 'Code',
         'message'   => 'Message',
-        'requestId' => 'RequestId',
         'module'    => 'Module',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -48,9 +48,6 @@ class QueryPhoneNoAByTrackNoResponseBody extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->module) {
             $res['Module'] = [];
             if (null !== $this->module && \is_array($this->module)) {
@@ -59,6 +56,9 @@ class QueryPhoneNoAByTrackNoResponseBody extends Model
                     $res['Module'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -78,9 +78,6 @@ class QueryPhoneNoAByTrackNoResponseBody extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Module'])) {
             if (!empty($map['Module'])) {
                 $model->module = [];
@@ -89,6 +86,9 @@ class QueryPhoneNoAByTrackNoResponseBody extends Model
                     $model->module[$n++] = null !== $item ? module::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

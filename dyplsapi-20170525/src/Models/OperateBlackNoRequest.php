@@ -9,9 +9,24 @@ use AlibabaCloud\Tea\Model;
 class OperateBlackNoRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $blackNo;
+
+    /**
+     * @var string
+     */
+    public $operateType;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $poolKey;
 
     /**
      * @var string
@@ -26,29 +41,14 @@ class OperateBlackNoRequest extends Model
     /**
      * @var string
      */
-    public $poolKey;
-
-    /**
-     * @var string
-     */
-    public $blackNo;
-
-    /**
-     * @var string
-     */
-    public $operateType;
-
-    /**
-     * @var string
-     */
     public $tips;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'poolKey'              => 'PoolKey',
         'blackNo'              => 'BlackNo',
         'operateType'          => 'OperateType',
+        'ownerId'              => 'OwnerId',
+        'poolKey'              => 'PoolKey',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
         'tips'                 => 'Tips',
     ];
 
@@ -59,23 +59,23 @@ class OperateBlackNoRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->blackNo) {
+            $res['BlackNo'] = $this->blackNo;
+        }
+        if (null !== $this->operateType) {
+            $res['OperateType'] = $this->operateType;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->poolKey) {
+            $res['PoolKey'] = $this->poolKey;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->poolKey) {
-            $res['PoolKey'] = $this->poolKey;
-        }
-        if (null !== $this->blackNo) {
-            $res['BlackNo'] = $this->blackNo;
-        }
-        if (null !== $this->operateType) {
-            $res['OperateType'] = $this->operateType;
         }
         if (null !== $this->tips) {
             $res['Tips'] = $this->tips;
@@ -92,23 +92,23 @@ class OperateBlackNoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BlackNo'])) {
+            $model->blackNo = $map['BlackNo'];
+        }
+        if (isset($map['OperateType'])) {
+            $model->operateType = $map['OperateType'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PoolKey'])) {
+            $model->poolKey = $map['PoolKey'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['PoolKey'])) {
-            $model->poolKey = $map['PoolKey'];
-        }
-        if (isset($map['BlackNo'])) {
-            $model->blackNo = $map['BlackNo'];
-        }
-        if (isset($map['OperateType'])) {
-            $model->operateType = $map['OperateType'];
         }
         if (isset($map['Tips'])) {
             $model->tips = $map['Tips'];

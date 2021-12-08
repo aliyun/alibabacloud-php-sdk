@@ -9,9 +9,24 @@ use AlibabaCloud\Tea\Model;
 class secretBindDetailDTO extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $status;
+    public $ASRModelId;
+
+    /**
+     * @var bool
+     */
+    public $ASRStatus;
+
+    /**
+     * @var string
+     */
+    public $callRestrict;
+
+    /**
+     * @var string
+     */
+    public $expireDate;
 
     /**
      * @var string
@@ -21,7 +36,7 @@ class secretBindDetailDTO extends Model
     /**
      * @var string
      */
-    public $phoneNoB;
+    public $gmtCreate;
 
     /**
      * @var int
@@ -34,24 +49,14 @@ class secretBindDetailDTO extends Model
     public $needRecord;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $ASRStatus;
+    public $phoneNoA;
 
     /**
      * @var string
      */
-    public $gmtCreate;
-
-    /**
-     * @var string
-     */
-    public $expireDate;
-
-    /**
-     * @var string
-     */
-    public $subsId;
+    public $phoneNoB;
 
     /**
      * @var string
@@ -59,33 +64,28 @@ class secretBindDetailDTO extends Model
     public $phoneNoX;
 
     /**
-     * @var string
+     * @var int
      */
-    public $callRestrict;
+    public $status;
 
     /**
      * @var string
      */
-    public $ASRModelId;
-
-    /**
-     * @var string
-     */
-    public $phoneNoA;
+    public $subsId;
     protected $_name = [
-        'status'       => 'Status',
+        'ASRModelId'   => 'ASRModelId',
+        'ASRStatus'    => 'ASRStatus',
+        'callRestrict' => 'CallRestrict',
+        'expireDate'   => 'ExpireDate',
         'extension'    => 'Extension',
-        'phoneNoB'     => 'PhoneNoB',
+        'gmtCreate'    => 'GmtCreate',
         'groupId'      => 'GroupId',
         'needRecord'   => 'NeedRecord',
-        'ASRStatus'    => 'ASRStatus',
-        'gmtCreate'    => 'GmtCreate',
-        'expireDate'   => 'ExpireDate',
-        'subsId'       => 'SubsId',
-        'phoneNoX'     => 'PhoneNoX',
-        'callRestrict' => 'CallRestrict',
-        'ASRModelId'   => 'ASRModelId',
         'phoneNoA'     => 'PhoneNoA',
+        'phoneNoB'     => 'PhoneNoB',
+        'phoneNoX'     => 'PhoneNoX',
+        'status'       => 'Status',
+        'subsId'       => 'SubsId',
     ];
 
     public function validate()
@@ -95,14 +95,23 @@ class secretBindDetailDTO extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->ASRModelId) {
+            $res['ASRModelId'] = $this->ASRModelId;
+        }
+        if (null !== $this->ASRStatus) {
+            $res['ASRStatus'] = $this->ASRStatus;
+        }
+        if (null !== $this->callRestrict) {
+            $res['CallRestrict'] = $this->callRestrict;
+        }
+        if (null !== $this->expireDate) {
+            $res['ExpireDate'] = $this->expireDate;
         }
         if (null !== $this->extension) {
             $res['Extension'] = $this->extension;
         }
-        if (null !== $this->phoneNoB) {
-            $res['PhoneNoB'] = $this->phoneNoB;
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -110,29 +119,20 @@ class secretBindDetailDTO extends Model
         if (null !== $this->needRecord) {
             $res['NeedRecord'] = $this->needRecord;
         }
-        if (null !== $this->ASRStatus) {
-            $res['ASRStatus'] = $this->ASRStatus;
+        if (null !== $this->phoneNoA) {
+            $res['PhoneNoA'] = $this->phoneNoA;
         }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->expireDate) {
-            $res['ExpireDate'] = $this->expireDate;
-        }
-        if (null !== $this->subsId) {
-            $res['SubsId'] = $this->subsId;
+        if (null !== $this->phoneNoB) {
+            $res['PhoneNoB'] = $this->phoneNoB;
         }
         if (null !== $this->phoneNoX) {
             $res['PhoneNoX'] = $this->phoneNoX;
         }
-        if (null !== $this->callRestrict) {
-            $res['CallRestrict'] = $this->callRestrict;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
-        if (null !== $this->ASRModelId) {
-            $res['ASRModelId'] = $this->ASRModelId;
-        }
-        if (null !== $this->phoneNoA) {
-            $res['PhoneNoA'] = $this->phoneNoA;
+        if (null !== $this->subsId) {
+            $res['SubsId'] = $this->subsId;
         }
 
         return $res;
@@ -146,14 +146,23 @@ class secretBindDetailDTO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['ASRModelId'])) {
+            $model->ASRModelId = $map['ASRModelId'];
+        }
+        if (isset($map['ASRStatus'])) {
+            $model->ASRStatus = $map['ASRStatus'];
+        }
+        if (isset($map['CallRestrict'])) {
+            $model->callRestrict = $map['CallRestrict'];
+        }
+        if (isset($map['ExpireDate'])) {
+            $model->expireDate = $map['ExpireDate'];
         }
         if (isset($map['Extension'])) {
             $model->extension = $map['Extension'];
         }
-        if (isset($map['PhoneNoB'])) {
-            $model->phoneNoB = $map['PhoneNoB'];
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
@@ -161,29 +170,20 @@ class secretBindDetailDTO extends Model
         if (isset($map['NeedRecord'])) {
             $model->needRecord = $map['NeedRecord'];
         }
-        if (isset($map['ASRStatus'])) {
-            $model->ASRStatus = $map['ASRStatus'];
+        if (isset($map['PhoneNoA'])) {
+            $model->phoneNoA = $map['PhoneNoA'];
         }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
-        if (isset($map['ExpireDate'])) {
-            $model->expireDate = $map['ExpireDate'];
-        }
-        if (isset($map['SubsId'])) {
-            $model->subsId = $map['SubsId'];
+        if (isset($map['PhoneNoB'])) {
+            $model->phoneNoB = $map['PhoneNoB'];
         }
         if (isset($map['PhoneNoX'])) {
             $model->phoneNoX = $map['PhoneNoX'];
         }
-        if (isset($map['CallRestrict'])) {
-            $model->callRestrict = $map['CallRestrict'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
-        if (isset($map['ASRModelId'])) {
-            $model->ASRModelId = $map['ASRModelId'];
-        }
-        if (isset($map['PhoneNoA'])) {
-            $model->phoneNoA = $map['PhoneNoA'];
+        if (isset($map['SubsId'])) {
+            $model->subsId = $map['SubsId'];
         }
 
         return $model;

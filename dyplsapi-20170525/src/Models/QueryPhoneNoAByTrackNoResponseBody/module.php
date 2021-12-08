@@ -16,16 +16,16 @@ class module extends Model
     /**
      * @var string
      */
-    public $phoneNoX;
+    public $phoneNoA;
 
     /**
      * @var string
      */
-    public $phoneNoA;
+    public $phoneNoX;
     protected $_name = [
         'extension' => 'Extension',
-        'phoneNoX'  => 'PhoneNoX',
         'phoneNoA'  => 'PhoneNoA',
+        'phoneNoX'  => 'PhoneNoX',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class module extends Model
         if (null !== $this->extension) {
             $res['Extension'] = $this->extension;
         }
-        if (null !== $this->phoneNoX) {
-            $res['PhoneNoX'] = $this->phoneNoX;
-        }
         if (null !== $this->phoneNoA) {
             $res['PhoneNoA'] = $this->phoneNoA;
+        }
+        if (null !== $this->phoneNoX) {
+            $res['PhoneNoX'] = $this->phoneNoX;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class module extends Model
         if (isset($map['Extension'])) {
             $model->extension = $map['Extension'];
         }
-        if (isset($map['PhoneNoX'])) {
-            $model->phoneNoX = $map['PhoneNoX'];
-        }
         if (isset($map['PhoneNoA'])) {
             $model->phoneNoA = $map['PhoneNoA'];
+        }
+        if (isset($map['PhoneNoX'])) {
+            $model->phoneNoX = $map['PhoneNoX'];
         }
 
         return $model;

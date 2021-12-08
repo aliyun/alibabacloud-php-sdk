@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QuerySecretNoRemainRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $city;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -24,26 +29,21 @@ class QuerySecretNoRemainRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var int
-     */
-    public $specId;
-
-    /**
-     * @var string
-     */
-    public $city;
-
-    /**
      * @var string
      */
     public $secretNo;
+
+    /**
+     * @var int
+     */
+    public $specId;
     protected $_name = [
+        'city'                 => 'City',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'specId'               => 'SpecId',
-        'city'                 => 'City',
         'secretNo'             => 'SecretNo',
+        'specId'               => 'SpecId',
     ];
 
     public function validate()
@@ -53,6 +53,9 @@ class QuerySecretNoRemainRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->city) {
+            $res['City'] = $this->city;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -62,14 +65,11 @@ class QuerySecretNoRemainRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->specId) {
-            $res['SpecId'] = $this->specId;
-        }
-        if (null !== $this->city) {
-            $res['City'] = $this->city;
-        }
         if (null !== $this->secretNo) {
             $res['SecretNo'] = $this->secretNo;
+        }
+        if (null !== $this->specId) {
+            $res['SpecId'] = $this->specId;
         }
 
         return $res;
@@ -83,6 +83,9 @@ class QuerySecretNoRemainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['City'])) {
+            $model->city = $map['City'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -92,14 +95,11 @@ class QuerySecretNoRemainRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['SpecId'])) {
-            $model->specId = $map['SpecId'];
-        }
-        if (isset($map['City'])) {
-            $model->city = $map['City'];
-        }
         if (isset($map['SecretNo'])) {
             $model->secretNo = $map['SecretNo'];
+        }
+        if (isset($map['SpecId'])) {
+            $model->specId = $map['SpecId'];
         }
 
         return $model;

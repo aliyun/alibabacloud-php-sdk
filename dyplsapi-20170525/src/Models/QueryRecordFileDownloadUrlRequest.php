@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class QueryRecordFileDownloadUrlRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $callId;
 
     /**
      * @var string
      */
-    public $resourceOwnerAccount;
+    public $callTime;
 
     /**
      * @var int
      */
-    public $resourceOwnerId;
+    public $ownerId;
 
     /**
      * @var string
@@ -36,20 +36,20 @@ class QueryRecordFileDownloadUrlRequest extends Model
     /**
      * @var string
      */
-    public $callId;
+    public $resourceOwnerAccount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $callTime;
+    public $resourceOwnerId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'poolKey'              => 'PoolKey',
-        'productType'          => 'ProductType',
         'callId'               => 'CallId',
         'callTime'             => 'CallTime',
+        'ownerId'              => 'OwnerId',
+        'poolKey'              => 'PoolKey',
+        'productType'          => 'ProductType',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -59,14 +59,14 @@ class QueryRecordFileDownloadUrlRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->callId) {
+            $res['CallId'] = $this->callId;
+        }
+        if (null !== $this->callTime) {
+            $res['CallTime'] = $this->callTime;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->poolKey) {
             $res['PoolKey'] = $this->poolKey;
@@ -74,11 +74,11 @@ class QueryRecordFileDownloadUrlRequest extends Model
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
-        if (null !== $this->callId) {
-            $res['CallId'] = $this->callId;
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-        if (null !== $this->callTime) {
-            $res['CallTime'] = $this->callTime;
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -92,14 +92,14 @@ class QueryRecordFileDownloadUrlRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CallId'])) {
+            $model->callId = $map['CallId'];
+        }
+        if (isset($map['CallTime'])) {
+            $model->callTime = $map['CallTime'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['PoolKey'])) {
             $model->poolKey = $map['PoolKey'];
@@ -107,11 +107,11 @@ class QueryRecordFileDownloadUrlRequest extends Model
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }
-        if (isset($map['CallId'])) {
-            $model->callId = $map['CallId'];
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-        if (isset($map['CallTime'])) {
-            $model->callTime = $map['CallTime'];
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

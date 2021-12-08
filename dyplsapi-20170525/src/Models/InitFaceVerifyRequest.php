@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class InitFaceVerifyRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $metaInfo;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,16 +27,11 @@ class InitFaceVerifyRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $metaInfo;
     protected $_name = [
+        'metaInfo'             => 'MetaInfo',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'metaInfo'             => 'MetaInfo',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class InitFaceVerifyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->metaInfo) {
+            $res['MetaInfo'] = $this->metaInfo;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -49,9 +52,6 @@ class InitFaceVerifyRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->metaInfo) {
-            $res['MetaInfo'] = $this->metaInfo;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class InitFaceVerifyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MetaInfo'])) {
+            $model->metaInfo = $map['MetaInfo'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -73,9 +76,6 @@ class InitFaceVerifyRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['MetaInfo'])) {
-            $model->metaInfo = $map['MetaInfo'];
         }
 
         return $model;
