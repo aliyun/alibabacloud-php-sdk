@@ -32,12 +32,18 @@ class DryRunSwaggerRequest extends Model
      * @var bool
      */
     public $overwrite;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
         'data'            => 'Data',
         'dataFormat'      => 'DataFormat',
         'globalCondition' => 'GlobalCondition',
         'groupId'         => 'GroupId',
         'overwrite'       => 'Overwrite',
+        'securityToken'   => 'SecurityToken',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class DryRunSwaggerRequest extends Model
         }
         if (null !== $this->overwrite) {
             $res['Overwrite'] = $this->overwrite;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class DryRunSwaggerRequest extends Model
         }
         if (isset($map['Overwrite'])) {
             $model->overwrite = $map['Overwrite'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

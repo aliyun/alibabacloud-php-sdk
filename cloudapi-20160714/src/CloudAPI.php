@@ -112,8 +112,6 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiSignaturesRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiSignaturesResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApisResponse;
-use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiStageRequest;
-use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiStageResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiTrafficControlsRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiTrafficControlsResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiTrafficDataRequest;
@@ -270,6 +268,7 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\UntagResourcesResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class CloudAPI extends OpenApiClient
@@ -340,11 +339,28 @@ class CloudAPI extends OpenApiClient
     public function abolishApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiId']         = $request->apiId;
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AbolishApi',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AbolishApiResponse::fromMap($this->doRPCRequest('AbolishApi', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AbolishApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -368,11 +384,28 @@ class CloudAPI extends OpenApiClient
     public function addIpControlPolicyItemWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AppId']         = $request->appId;
+        $query['CidrIp']        = $request->cidrIp;
+        $query['IpControlId']   = $request->ipControlId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddIpControlPolicyItem',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddIpControlPolicyItemResponse::fromMap($this->doRPCRequest('AddIpControlPolicyItem', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddIpControlPolicyItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -396,11 +429,29 @@ class CloudAPI extends OpenApiClient
     public function addTrafficSpecialControlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['SecurityToken']    = $request->securityToken;
+        $query['SpecialKey']       = $request->specialKey;
+        $query['SpecialType']      = $request->specialType;
+        $query['TrafficControlId'] = $request->trafficControlId;
+        $query['TrafficValue']     = $request->trafficValue;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddTrafficSpecialControl',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddTrafficSpecialControlResponse::fromMap($this->doRPCRequest('AddTrafficSpecialControl', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddTrafficSpecialControlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -424,11 +475,30 @@ class CloudAPI extends OpenApiClient
     public function attachPluginWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiId']         = $request->apiId;
+        $query['ApiIds']        = $request->apiIds;
+        $query['GroupId']       = $request->groupId;
+        $query['PluginId']      = $request->pluginId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachPlugin',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AttachPluginResponse::fromMap($this->doRPCRequest('AttachPlugin', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AttachPluginResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -452,11 +522,26 @@ class CloudAPI extends OpenApiClient
     public function batchAbolishApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['Api']           = $request->api;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchAbolishApis',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchAbolishApisResponse::fromMap($this->doRPCRequest('BatchAbolishApis', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchAbolishApisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -480,11 +565,28 @@ class CloudAPI extends OpenApiClient
     public function batchDeployApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['Api']           = $request->api;
+        $query['Description']   = $request->description;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchDeployApis',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchDeployApisResponse::fromMap($this->doRPCRequest('BatchDeployApis', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchDeployApisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -508,11 +610,49 @@ class CloudAPI extends OpenApiClient
     public function createApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AllowSignatureMethod'] = $request->allowSignatureMethod;
+        $query['ApiName']              = $request->apiName;
+        $query['AppCodeAuthType']      = $request->appCodeAuthType;
+        $query['AuthType']             = $request->authType;
+        $query['ConstantParameters']   = $request->constantParameters;
+        $query['Description']          = $request->description;
+        $query['DisableInternet']      = $request->disableInternet;
+        $query['ErrorCodeSamples']     = $request->errorCodeSamples;
+        $query['FailResultSample']     = $request->failResultSample;
+        $query['ForceNonceCheck']      = $request->forceNonceCheck;
+        $query['GroupId']              = $request->groupId;
+        $query['OpenIdConnectConfig']  = $request->openIdConnectConfig;
+        $query['RequestConfig']        = $request->requestConfig;
+        $query['RequestParameters']    = $request->requestParameters;
+        $query['ResultBodyModel']      = $request->resultBodyModel;
+        $query['ResultDescriptions']   = $request->resultDescriptions;
+        $query['ResultSample']         = $request->resultSample;
+        $query['ResultType']           = $request->resultType;
+        $query['SecurityToken']        = $request->securityToken;
+        $query['ServiceConfig']        = $request->serviceConfig;
+        $query['ServiceParameters']    = $request->serviceParameters;
+        $query['ServiceParametersMap'] = $request->serviceParametersMap;
+        $query['SystemParameters']     = $request->systemParameters;
+        $query['Visibility']           = $request->visibility;
+        $query['WebSocketApiType']     = $request->webSocketApiType;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateApi',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateApiResponse::fromMap($this->doRPCRequest('CreateApi', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -536,11 +676,30 @@ class CloudAPI extends OpenApiClient
     public function createApiGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['BasePath']      = $request->basePath;
+        $query['Description']   = $request->description;
+        $query['GroupName']     = $request->groupName;
+        $query['InstanceId']    = $request->instanceId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['Tag']           = $request->tag;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateApiGroup',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateApiGroupResponse::fromMap($this->doRPCRequest('CreateApiGroup', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateApiGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -564,11 +723,31 @@ class CloudAPI extends OpenApiClient
     public function createApiStageVariableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['GroupId']         = $request->groupId;
+        $query['SecurityToken']   = $request->securityToken;
+        $query['StageId']         = $request->stageId;
+        $query['StageRouteModel'] = $request->stageRouteModel;
+        $query['SupportRoute']    = $request->supportRoute;
+        $query['VariableName']    = $request->variableName;
+        $query['VariableValue']   = $request->variableValue;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateApiStageVariable',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateApiStageVariableResponse::fromMap($this->doRPCRequest('CreateApiStageVariable', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateApiStageVariableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -592,11 +771,29 @@ class CloudAPI extends OpenApiClient
     public function createAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AppName']       = $request->appName;
+        $query['Description']   = $request->description;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['Source']        = $request->source;
+        $query['Tag']           = $request->tag;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateApp',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateAppResponse::fromMap($this->doRPCRequest('CreateApp', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -620,11 +817,33 @@ class CloudAPI extends OpenApiClient
     public function createInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['AutoPay']      = $request->autoPay;
+        $query['ChargeType']   = $request->chargeType;
+        $query['Duration']     = $request->duration;
+        $query['HttpsPolicy']  = $request->httpsPolicy;
+        $query['InstanceName'] = $request->instanceName;
+        $query['InstanceSpec'] = $request->instanceSpec;
+        $query['PricingCycle'] = $request->pricingCycle;
+        $query['Token']        = $request->token;
+        $query['ZoneId']       = $request->zoneId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateInstance',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateInstanceResponse::fromMap($this->doRPCRequest('CreateInstance', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -648,11 +867,26 @@ class CloudAPI extends OpenApiClient
     public function createIntranetDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateIntranetDomain',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateIntranetDomainResponse::fromMap($this->doRPCRequest('CreateIntranetDomain', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateIntranetDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -676,11 +910,29 @@ class CloudAPI extends OpenApiClient
     public function createIpControlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['Description']      = $request->description;
+        $query['IpControlName']    = $request->ipControlName;
+        $query['IpControlPolicys'] = $request->ipControlPolicys;
+        $query['IpControlType']    = $request->ipControlType;
+        $query['SecurityToken']    = $request->securityToken;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateIpControl',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateIpControlResponse::fromMap($this->doRPCRequest('CreateIpControl', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateIpControlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -704,11 +956,28 @@ class CloudAPI extends OpenApiClient
     public function createLogConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['LogType']       = $request->logType;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['SlsLogStore']   = $request->slsLogStore;
+        $query['SlsProject']    = $request->slsProject;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateLogConfig',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateLogConfigResponse::fromMap($this->doRPCRequest('CreateLogConfig', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -732,11 +1001,28 @@ class CloudAPI extends OpenApiClient
     public function createModelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['Description'] = $request->description;
+        $query['GroupId']     = $request->groupId;
+        $query['ModelName']   = $request->modelName;
+        $query['Schema']      = $request->schema;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateModel',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateModelResponse::fromMap($this->doRPCRequest('CreateModel', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateModelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -760,11 +1046,28 @@ class CloudAPI extends OpenApiClient
     public function createMonitorGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['Auth']              = $request->auth;
+        $query['GroupId']           = $request->groupId;
+        $query['RawMonitorGroupId'] = $request->rawMonitorGroupId;
+        $query['SecurityToken']     = $request->securityToken;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMonitorGroup',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateMonitorGroupResponse::fromMap($this->doRPCRequest('CreateMonitorGroup', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateMonitorGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -788,11 +1091,30 @@ class CloudAPI extends OpenApiClient
     public function createPluginWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['Description']   = $request->description;
+        $query['PluginData']    = $request->pluginData;
+        $query['PluginName']    = $request->pluginName;
+        $query['PluginType']    = $request->pluginType;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['Tag']           = $request->tag;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePlugin',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreatePluginResponse::fromMap($this->doRPCRequest('CreatePlugin', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreatePluginResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -816,11 +1138,28 @@ class CloudAPI extends OpenApiClient
     public function createSignatureWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['SecurityToken']   = $request->securityToken;
+        $query['SignatureKey']    = $request->signatureKey;
+        $query['SignatureName']   = $request->signatureName;
+        $query['SignatureSecret'] = $request->signatureSecret;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSignature',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateSignatureResponse::fromMap($this->doRPCRequest('CreateSignature', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSignatureResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -844,11 +1183,31 @@ class CloudAPI extends OpenApiClient
     public function createTrafficControlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['ApiDefault']         = $request->apiDefault;
+        $query['AppDefault']         = $request->appDefault;
+        $query['Description']        = $request->description;
+        $query['SecurityToken']      = $request->securityToken;
+        $query['TrafficControlName'] = $request->trafficControlName;
+        $query['TrafficControlUnit'] = $request->trafficControlUnit;
+        $query['UserDefault']        = $request->userDefault;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTrafficControl',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateTrafficControlResponse::fromMap($this->doRPCRequest('CreateTrafficControl', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateTrafficControlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -872,11 +1231,26 @@ class CloudAPI extends OpenApiClient
     public function deleteAllTrafficSpecialControlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['SecurityToken']    = $request->securityToken;
+        $query['TrafficControlId'] = $request->trafficControlId;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAllTrafficSpecialControl',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAllTrafficSpecialControlResponse::fromMap($this->doRPCRequest('DeleteAllTrafficSpecialControl', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAllTrafficSpecialControlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -900,11 +1274,27 @@ class CloudAPI extends OpenApiClient
     public function deleteApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiId']         = $request->apiId;
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteApi',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteApiResponse::fromMap($this->doRPCRequest('DeleteApi', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -928,11 +1318,27 @@ class CloudAPI extends OpenApiClient
     public function deleteApiGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['Tag']           = $request->tag;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteApiGroup',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteApiGroupResponse::fromMap($this->doRPCRequest('DeleteApiGroup', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteApiGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -956,11 +1362,28 @@ class CloudAPI extends OpenApiClient
     public function deleteApiStageVariableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageId']       = $request->stageId;
+        $query['VariableName']  = $request->variableName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteApiStageVariable',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteApiStageVariableResponse::fromMap($this->doRPCRequest('DeleteApiStageVariable', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteApiStageVariableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -984,11 +1407,27 @@ class CloudAPI extends OpenApiClient
     public function deleteAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AppId']         = $request->appId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['Tag']           = $request->tag;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteApp',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAppResponse::fromMap($this->doRPCRequest('DeleteApp', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1012,11 +1451,27 @@ class CloudAPI extends OpenApiClient
     public function deleteDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDomain',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDomainResponse::fromMap($this->doRPCRequest('DeleteDomain', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1040,11 +1495,28 @@ class CloudAPI extends OpenApiClient
     public function deleteDomainCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['CertificateId'] = $request->certificateId;
+        $query['DomainName']    = $request->domainName;
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDomainCertificate',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDomainCertificateResponse::fromMap($this->doRPCRequest('DeleteDomainCertificate', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDomainCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1068,11 +1540,26 @@ class CloudAPI extends OpenApiClient
     public function deleteInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['InstanceId'] = $request->instanceId;
+        $query['Tag']        = $request->tag;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteInstance',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteInstanceResponse::fromMap($this->doRPCRequest('DeleteInstance', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1096,11 +1583,26 @@ class CloudAPI extends OpenApiClient
     public function deleteIpControlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['IpControlId']   = $request->ipControlId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteIpControl',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteIpControlResponse::fromMap($this->doRPCRequest('DeleteIpControl', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteIpControlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1124,11 +1626,26 @@ class CloudAPI extends OpenApiClient
     public function deleteLogConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['LogType']       = $request->logType;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteLogConfig',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteLogConfigResponse::fromMap($this->doRPCRequest('DeleteLogConfig', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1152,11 +1669,26 @@ class CloudAPI extends OpenApiClient
     public function deleteModelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['GroupId']   = $request->groupId;
+        $query['ModelName'] = $request->modelName;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteModel',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteModelResponse::fromMap($this->doRPCRequest('DeleteModel', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteModelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1180,11 +1712,27 @@ class CloudAPI extends OpenApiClient
     public function deletePluginWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['PluginId']      = $request->pluginId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['Tag']           = $request->tag;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePlugin',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeletePluginResponse::fromMap($this->doRPCRequest('DeletePlugin', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeletePluginResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1208,11 +1756,26 @@ class CloudAPI extends OpenApiClient
     public function deleteSignatureWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['SecurityToken'] = $request->securityToken;
+        $query['SignatureId']   = $request->signatureId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSignature',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteSignatureResponse::fromMap($this->doRPCRequest('DeleteSignature', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteSignatureResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1236,11 +1799,26 @@ class CloudAPI extends OpenApiClient
     public function deleteTrafficControlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['SecurityToken']    = $request->securityToken;
+        $query['TrafficControlId'] = $request->trafficControlId;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTrafficControl',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteTrafficControlResponse::fromMap($this->doRPCRequest('DeleteTrafficControl', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteTrafficControlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1264,11 +1842,28 @@ class CloudAPI extends OpenApiClient
     public function deleteTrafficSpecialControlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['SecurityToken']    = $request->securityToken;
+        $query['SpecialKey']       = $request->specialKey;
+        $query['SpecialType']      = $request->specialType;
+        $query['TrafficControlId'] = $request->trafficControlId;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTrafficSpecialControl',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteTrafficSpecialControlResponse::fromMap($this->doRPCRequest('DeleteTrafficSpecialControl', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteTrafficSpecialControlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1292,11 +1887,29 @@ class CloudAPI extends OpenApiClient
     public function deployApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiId']         = $request->apiId;
+        $query['Description']   = $request->description;
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeployApi',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeployApiResponse::fromMap($this->doRPCRequest('DeployApi', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeployApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1320,11 +1933,26 @@ class CloudAPI extends OpenApiClient
     public function describeAbolishApiTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['OperationUid']  = $request->operationUid;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAbolishApiTask',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAbolishApiTaskResponse::fromMap($this->doRPCRequest('DescribeAbolishApiTask', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAbolishApiTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1348,11 +1976,27 @@ class CloudAPI extends OpenApiClient
     public function describeApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiId']         = $request->apiId;
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApi',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeApiResponse::fromMap($this->doRPCRequest('DescribeApi', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1376,11 +2020,28 @@ class CloudAPI extends OpenApiClient
     public function describeApiDocWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiId']         = $request->apiId;
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApiDoc',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeApiDocResponse::fromMap($this->doRPCRequest('DescribeApiDoc', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeApiDocResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1404,11 +2065,27 @@ class CloudAPI extends OpenApiClient
     public function describeApiGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['Tag']           = $request->tag;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApiGroup',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeApiGroupResponse::fromMap($this->doRPCRequest('DescribeApiGroup', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeApiGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1432,11 +2109,26 @@ class CloudAPI extends OpenApiClient
     public function describeApiGroupVpcWhitelistWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApiGroupVpcWhitelist',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeApiGroupVpcWhitelistResponse::fromMap($this->doRPCRequest('DescribeApiGroupVpcWhitelist', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeApiGroupVpcWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1460,11 +2152,33 @@ class CloudAPI extends OpenApiClient
     public function describeApiGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['EnableTagAuth'] = $request->enableTagAuth;
+        $query['GroupId']       = $request->groupId;
+        $query['GroupName']     = $request->groupName;
+        $query['InstanceId']    = $request->instanceId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['Sort']          = $request->sort;
+        $query['Tag']           = $request->tag;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApiGroups',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeApiGroupsResponse::fromMap($this->doRPCRequest('DescribeApiGroups', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeApiGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1488,11 +2202,31 @@ class CloudAPI extends OpenApiClient
     public function describeApiHistoriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiId']         = $request->apiId;
+        $query['ApiName']       = $request->apiName;
+        $query['GroupId']       = $request->groupId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApiHistories',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeApiHistoriesResponse::fromMap($this->doRPCRequest('DescribeApiHistories', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeApiHistoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1516,11 +2250,29 @@ class CloudAPI extends OpenApiClient
     public function describeApiHistoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['ApiId']          = $request->apiId;
+        $query['GroupId']        = $request->groupId;
+        $query['HistoryVersion'] = $request->historyVersion;
+        $query['SecurityToken']  = $request->securityToken;
+        $query['StageName']      = $request->stageName;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApiHistory',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeApiHistoryResponse::fromMap($this->doRPCRequest('DescribeApiHistory', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeApiHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1544,11 +2296,30 @@ class CloudAPI extends OpenApiClient
     public function describeApiIpControlsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiIds']        = $request->apiIds;
+        $query['GroupId']       = $request->groupId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApiIpControls',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeApiIpControlsResponse::fromMap($this->doRPCRequest('DescribeApiIpControls', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeApiIpControlsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1572,11 +2343,30 @@ class CloudAPI extends OpenApiClient
     public function describeApiLatencyDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiId']         = $request->apiId;
+        $query['EndTime']       = $request->endTime;
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $query['StartTime']     = $request->startTime;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApiLatencyData',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeApiLatencyDataResponse::fromMap($this->doRPCRequest('DescribeApiLatencyData', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeApiLatencyDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1600,11 +2390,27 @@ class CloudAPI extends OpenApiClient
     public function describeApiMarketAttributesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiId']         = $request->apiId;
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApiMarketAttributes',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeApiMarketAttributesResponse::fromMap($this->doRPCRequest('DescribeApiMarketAttributes', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeApiMarketAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1628,11 +2434,30 @@ class CloudAPI extends OpenApiClient
     public function describeApiQpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiId']         = $request->apiId;
+        $query['EndTime']       = $request->endTime;
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $query['StartTime']     = $request->startTime;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApiQpsData',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeApiQpsDataResponse::fromMap($this->doRPCRequest('DescribeApiQpsData', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeApiQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1656,11 +2481,30 @@ class CloudAPI extends OpenApiClient
     public function describeApiSignaturesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiIds']        = $request->apiIds;
+        $query['GroupId']       = $request->groupId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApiSignatures',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeApiSignaturesResponse::fromMap($this->doRPCRequest('DescribeApiSignatures', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeApiSignaturesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1676,34 +2520,6 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @param DescribeApiStageRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeApiStageResponse
-     */
-    public function describeApiStageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeApiStageResponse::fromMap($this->doRPCRequest('DescribeApiStage', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeApiStageRequest $request
-     *
-     * @return DescribeApiStageResponse
-     */
-    public function describeApiStage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeApiStageWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeApiTrafficControlsRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -1712,11 +2528,30 @@ class CloudAPI extends OpenApiClient
     public function describeApiTrafficControlsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiIds']        = $request->apiIds;
+        $query['GroupId']       = $request->groupId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApiTrafficControls',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeApiTrafficControlsResponse::fromMap($this->doRPCRequest('DescribeApiTrafficControls', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeApiTrafficControlsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1740,11 +2575,30 @@ class CloudAPI extends OpenApiClient
     public function describeApiTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiId']         = $request->apiId;
+        $query['EndTime']       = $request->endTime;
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $query['StartTime']     = $request->startTime;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApiTrafficData',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeApiTrafficDataResponse::fromMap($this->doRPCRequest('DescribeApiTrafficData', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeApiTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1768,11 +2622,34 @@ class CloudAPI extends OpenApiClient
     public function describeApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiId']         = $request->apiId;
+        $query['ApiName']       = $request->apiName;
+        $query['CatalogId']     = $request->catalogId;
+        $query['EnableTagAuth'] = $request->enableTagAuth;
+        $query['GroupId']       = $request->groupId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['Tag']           = $request->tag;
+        $query['Visibility']    = $request->visibility;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApis',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeApisResponse::fromMap($this->doRPCRequest('DescribeApis', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeApisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1796,11 +2673,32 @@ class CloudAPI extends OpenApiClient
     public function describeApisByAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiName']       = $request->apiName;
+        $query['ApiUid']        = $request->apiUid;
+        $query['AppId']         = $request->appId;
+        $query['Method']        = $request->method;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['Path']          = $request->path;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApisByApp',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeApisByAppResponse::fromMap($this->doRPCRequest('DescribeApisByApp', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeApisByAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1824,11 +2722,28 @@ class CloudAPI extends OpenApiClient
     public function describeApisByIpControlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['IpControlId']   = $request->ipControlId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApisByIpControl',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeApisByIpControlResponse::fromMap($this->doRPCRequest('DescribeApisByIpControl', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeApisByIpControlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1852,11 +2767,28 @@ class CloudAPI extends OpenApiClient
     public function describeApisBySignatureWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['SignatureId']   = $request->signatureId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApisBySignature',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeApisBySignatureResponse::fromMap($this->doRPCRequest('DescribeApisBySignature', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeApisBySignatureResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1880,11 +2812,28 @@ class CloudAPI extends OpenApiClient
     public function describeApisByTrafficControlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['PageNumber']       = $request->pageNumber;
+        $query['PageSize']         = $request->pageSize;
+        $query['SecurityToken']    = $request->securityToken;
+        $query['TrafficControlId'] = $request->trafficControlId;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApisByTrafficControl',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeApisByTrafficControlResponse::fromMap($this->doRPCRequest('DescribeApisByTrafficControl', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeApisByTrafficControlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1908,11 +2857,26 @@ class CloudAPI extends OpenApiClient
     public function describeAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AppId']         = $request->appId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApp',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAppResponse::fromMap($this->doRPCRequest('DescribeApp', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1936,11 +2900,34 @@ class CloudAPI extends OpenApiClient
     public function describeAppAttributesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AppCode']       = $request->appCode;
+        $query['AppId']         = $request->appId;
+        $query['AppKey']        = $request->appKey;
+        $query['AppName']       = $request->appName;
+        $query['EnableTagAuth'] = $request->enableTagAuth;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['Sort']          = $request->sort;
+        $query['Tag']           = $request->tag;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAppAttributes',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAppAttributesResponse::fromMap($this->doRPCRequest('DescribeAppAttributes', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAppAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1964,11 +2951,27 @@ class CloudAPI extends OpenApiClient
     public function describeAppSecurityWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AppId']         = $request->appId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['Tag']           = $request->tag;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAppSecurity',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAppSecurityResponse::fromMap($this->doRPCRequest('DescribeAppSecurity', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAppSecurityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1992,11 +2995,29 @@ class CloudAPI extends OpenApiClient
     public function describeAppsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AppId']         = $request->appId;
+        $query['AppOwner']      = $request->appOwner;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApps',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAppsResponse::fromMap($this->doRPCRequest('DescribeApps', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAppsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2020,11 +3041,28 @@ class CloudAPI extends OpenApiClient
     public function describeAuthorizedApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AppId']         = $request->appId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAuthorizedApis',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAuthorizedApisResponse::fromMap($this->doRPCRequest('DescribeAuthorizedApis', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAuthorizedApisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2048,11 +3086,33 @@ class CloudAPI extends OpenApiClient
     public function describeAuthorizedAppsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiId']         = $request->apiId;
+        $query['AppId']         = $request->appId;
+        $query['AppName']       = $request->appName;
+        $query['AppOwnerId']    = $request->appOwnerId;
+        $query['GroupId']       = $request->groupId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAuthorizedApps',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeAuthorizedAppsResponse::fromMap($this->doRPCRequest('DescribeAuthorizedApps', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeAuthorizedAppsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2076,11 +3136,26 @@ class CloudAPI extends OpenApiClient
     public function describeDeployApiTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['OperationUid']  = $request->operationUid;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDeployApiTask',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDeployApiTaskResponse::fromMap($this->doRPCRequest('DescribeDeployApiTask', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDeployApiTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2104,11 +3179,28 @@ class CloudAPI extends OpenApiClient
     public function describeDeployedApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiId']         = $request->apiId;
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDeployedApi',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDeployedApiResponse::fromMap($this->doRPCRequest('DescribeDeployedApi', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDeployedApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2132,11 +3224,33 @@ class CloudAPI extends OpenApiClient
     public function describeDeployedApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiId']         = $request->apiId;
+        $query['ApiName']       = $request->apiName;
+        $query['EnableTagAuth'] = $request->enableTagAuth;
+        $query['GroupId']       = $request->groupId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $query['Tag']           = $request->tag;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDeployedApis',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDeployedApisResponse::fromMap($this->doRPCRequest('DescribeDeployedApis', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDeployedApisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2160,11 +3274,27 @@ class CloudAPI extends OpenApiClient
     public function describeDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomain',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainResponse::fromMap($this->doRPCRequest('DescribeDomain', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2188,11 +3318,31 @@ class CloudAPI extends OpenApiClient
     public function describeHistoryApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiId']         = $request->apiId;
+        $query['ApiName']       = $request->apiName;
+        $query['GroupId']       = $request->groupId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHistoryApis',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeHistoryApisResponse::fromMap($this->doRPCRequest('DescribeHistoryApis', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeHistoryApisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2216,11 +3366,29 @@ class CloudAPI extends OpenApiClient
     public function describeIpControlPolicyItemsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['IpControlId']   = $request->ipControlId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['PolicyItemId']  = $request->policyItemId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIpControlPolicyItems',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeIpControlPolicyItemsResponse::fromMap($this->doRPCRequest('DescribeIpControlPolicyItems', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeIpControlPolicyItemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2244,11 +3412,30 @@ class CloudAPI extends OpenApiClient
     public function describeIpControlsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['IpControlId']   = $request->ipControlId;
+        $query['IpControlName'] = $request->ipControlName;
+        $query['IpControlType'] = $request->ipControlType;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeIpControls',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeIpControlsResponse::fromMap($this->doRPCRequest('DescribeIpControls', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeIpControlsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2272,11 +3459,26 @@ class CloudAPI extends OpenApiClient
     public function describeLogConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['LogType']       = $request->logType;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLogConfig',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeLogConfigResponse::fromMap($this->doRPCRequest('DescribeLogConfig', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2300,11 +3502,26 @@ class CloudAPI extends OpenApiClient
     public function describeMarketRemainsQuotaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMarketRemainsQuota',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMarketRemainsQuotaResponse::fromMap($this->doRPCRequest('DescribeMarketRemainsQuota', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMarketRemainsQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2328,11 +3545,29 @@ class CloudAPI extends OpenApiClient
     public function describeModelsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['GroupId']    = $request->groupId;
+        $query['ModelId']    = $request->modelId;
+        $query['ModelName']  = $request->modelName;
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeModels',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeModelsResponse::fromMap($this->doRPCRequest('DescribeModels', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeModelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2356,11 +3591,26 @@ class CloudAPI extends OpenApiClient
     public function describePluginSchemasWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['Language']      = $request->language;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePluginSchemas',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePluginSchemasResponse::fromMap($this->doRPCRequest('DescribePluginSchemas', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePluginSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2384,11 +3634,27 @@ class CloudAPI extends OpenApiClient
     public function describePluginTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['Language']      = $request->language;
+        $query['PluginName']    = $request->pluginName;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePluginTemplates',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePluginTemplatesResponse::fromMap($this->doRPCRequest('DescribePluginTemplates', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePluginTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2412,11 +3678,31 @@ class CloudAPI extends OpenApiClient
     public function describePluginsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['PluginId']      = $request->pluginId;
+        $query['PluginName']    = $request->pluginName;
+        $query['PluginType']    = $request->pluginType;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['Tag']           = $request->tag;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePlugins',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePluginsResponse::fromMap($this->doRPCRequest('DescribePlugins', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePluginsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2440,11 +3726,28 @@ class CloudAPI extends OpenApiClient
     public function describePluginsByApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiId']         = $request->apiId;
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePluginsByApi',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePluginsByApiResponse::fromMap($this->doRPCRequest('DescribePluginsByApi', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePluginsByApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2468,11 +3771,26 @@ class CloudAPI extends OpenApiClient
     public function describePurchasedApiGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePurchasedApiGroup',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePurchasedApiGroupResponse::fromMap($this->doRPCRequest('DescribePurchasedApiGroup', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePurchasedApiGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2496,11 +3814,27 @@ class CloudAPI extends OpenApiClient
     public function describePurchasedApiGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePurchasedApiGroups',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePurchasedApiGroupsResponse::fromMap($this->doRPCRequest('DescribePurchasedApiGroups', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePurchasedApiGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2524,11 +3858,32 @@ class CloudAPI extends OpenApiClient
     public function describePurchasedApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiId']         = $request->apiId;
+        $query['ApiName']       = $request->apiName;
+        $query['GroupId']       = $request->groupId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $query['Visibility']    = $request->visibility;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePurchasedApis',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribePurchasedApisResponse::fromMap($this->doRPCRequest('DescribePurchasedApis', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribePurchasedApisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2552,11 +3907,26 @@ class CloudAPI extends OpenApiClient
     public function describeRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['Language']      = $request->language;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRegions',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2580,11 +3950,29 @@ class CloudAPI extends OpenApiClient
     public function describeSignaturesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['SignatureId']   = $request->signatureId;
+        $query['SignatureName'] = $request->signatureName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSignatures',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSignaturesResponse::fromMap($this->doRPCRequest('DescribeSignatures', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSignaturesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2608,11 +3996,28 @@ class CloudAPI extends OpenApiClient
     public function describeSignaturesByApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiId']         = $request->apiId;
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSignaturesByApi',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSignaturesByApiResponse::fromMap($this->doRPCRequest('DescribeSignaturesByApi', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSignaturesByApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2636,11 +4041,25 @@ class CloudAPI extends OpenApiClient
     public function describeSystemParametersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSystemParameters',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeSystemParametersResponse::fromMap($this->doRPCRequest('DescribeSystemParameters', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeSystemParametersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2664,11 +4083,32 @@ class CloudAPI extends OpenApiClient
     public function describeTrafficControlsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['ApiId']              = $request->apiId;
+        $query['GroupId']            = $request->groupId;
+        $query['PageNumber']         = $request->pageNumber;
+        $query['PageSize']           = $request->pageSize;
+        $query['SecurityToken']      = $request->securityToken;
+        $query['StageName']          = $request->stageName;
+        $query['TrafficControlId']   = $request->trafficControlId;
+        $query['TrafficControlName'] = $request->trafficControlName;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTrafficControls',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeTrafficControlsResponse::fromMap($this->doRPCRequest('DescribeTrafficControls', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeTrafficControlsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2692,11 +4132,28 @@ class CloudAPI extends OpenApiClient
     public function describeTrafficControlsByApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiId']         = $request->apiId;
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTrafficControlsByApi',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeTrafficControlsByApiResponse::fromMap($this->doRPCRequest('DescribeTrafficControlsByApi', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeTrafficControlsByApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2720,11 +4177,26 @@ class CloudAPI extends OpenApiClient
     public function describeUpdateVpcInfoTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['OperationUid']  = $request->operationUid;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUpdateVpcInfoTask',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeUpdateVpcInfoTaskResponse::fromMap($this->doRPCRequest('DescribeUpdateVpcInfoTask', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeUpdateVpcInfoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2748,11 +4220,29 @@ class CloudAPI extends OpenApiClient
     public function describeVpcAccessesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['Name']          = $request->name;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['VpcAccessId']   = $request->vpcAccessId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVpcAccesses',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeVpcAccessesResponse::fromMap($this->doRPCRequest('DescribeVpcAccesses', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeVpcAccessesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2776,11 +4266,26 @@ class CloudAPI extends OpenApiClient
     public function describeZonesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['Language']      = $request->language;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeZones',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeZonesResponse::fromMap($this->doRPCRequest('DescribeZones', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2809,11 +4314,29 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($tmpReq->globalCondition)) {
             $request->globalConditionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->globalCondition, 'GlobalCondition', 'json');
         }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['DataFormat']      = $request->dataFormat;
+        $query['GlobalCondition'] = $request->globalConditionShrink;
+        $query['GroupId']         = $request->groupId;
+        $query['Overwrite']       = $request->overwrite;
+        $query['SecurityToken']   = $request->securityToken;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DryRunSwagger',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DryRunSwaggerResponse::fromMap($this->doRPCRequest('DryRunSwagger', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DryRunSwaggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2842,11 +4365,30 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($tmpReq->globalCondition)) {
             $request->globalConditionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->globalCondition, 'GlobalCondition', 'json');
         }
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['DataFormat']      = $request->dataFormat;
+        $query['DryRun']          = $request->dryRun;
+        $query['GlobalCondition'] = $request->globalConditionShrink;
+        $query['GroupId']         = $request->groupId;
+        $query['Overwrite']       = $request->overwrite;
+        $query['SecurityToken']   = $request->securityToken;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ImportSwagger',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ImportSwaggerResponse::fromMap($this->doRPCRequest('ImportSwagger', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ImportSwaggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2870,11 +4412,28 @@ class CloudAPI extends OpenApiClient
     public function listTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['NextToken']    = $request->nextToken;
+        $query['ResourceId']   = $request->resourceId;
+        $query['ResourceType'] = $request->resourceType;
+        $query['Tag']          = $request->tag;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTagResourcesResponse::fromMap($this->doRPCRequest('ListTagResources', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2898,11 +4457,50 @@ class CloudAPI extends OpenApiClient
     public function modifyApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AllowSignatureMethod'] = $request->allowSignatureMethod;
+        $query['ApiId']                = $request->apiId;
+        $query['ApiName']              = $request->apiName;
+        $query['AppCodeAuthType']      = $request->appCodeAuthType;
+        $query['AuthType']             = $request->authType;
+        $query['ConstantParameters']   = $request->constantParameters;
+        $query['Description']          = $request->description;
+        $query['DisableInternet']      = $request->disableInternet;
+        $query['ErrorCodeSamples']     = $request->errorCodeSamples;
+        $query['FailResultSample']     = $request->failResultSample;
+        $query['ForceNonceCheck']      = $request->forceNonceCheck;
+        $query['GroupId']              = $request->groupId;
+        $query['OpenIdConnectConfig']  = $request->openIdConnectConfig;
+        $query['RequestConfig']        = $request->requestConfig;
+        $query['RequestParameters']    = $request->requestParameters;
+        $query['ResultBodyModel']      = $request->resultBodyModel;
+        $query['ResultDescriptions']   = $request->resultDescriptions;
+        $query['ResultSample']         = $request->resultSample;
+        $query['ResultType']           = $request->resultType;
+        $query['SecurityToken']        = $request->securityToken;
+        $query['ServiceConfig']        = $request->serviceConfig;
+        $query['ServiceParameters']    = $request->serviceParameters;
+        $query['ServiceParametersMap'] = $request->serviceParametersMap;
+        $query['SystemParameters']     = $request->systemParameters;
+        $query['Visibility']           = $request->visibility;
+        $query['WebSocketApiType']     = $request->webSocketApiType;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyApi',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyApiResponse::fromMap($this->doRPCRequest('ModifyApi', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2926,11 +4524,37 @@ class CloudAPI extends OpenApiClient
     public function modifyApiGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['BasePath']           = $request->basePath;
+        $query['CompatibleFlags']    = $request->compatibleFlags;
+        $query['CustomTraceConfig']  = $request->customTraceConfig;
+        $query['CustomerConfigs']    = $request->customerConfigs;
+        $query['DefaultDomain']      = $request->defaultDomain;
+        $query['Description']        = $request->description;
+        $query['GroupId']            = $request->groupId;
+        $query['GroupName']          = $request->groupName;
+        $query['PassthroughHeaders'] = $request->passthroughHeaders;
+        $query['RpcPattern']         = $request->rpcPattern;
+        $query['SecurityToken']      = $request->securityToken;
+        $query['Tag']                = $request->tag;
+        $query['UserLogConfig']      = $request->userLogConfig;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyApiGroup',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyApiGroupResponse::fromMap($this->doRPCRequest('ModifyApiGroup', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyApiGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2954,11 +4578,27 @@ class CloudAPI extends OpenApiClient
     public function modifyApiGroupVpcWhitelistWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['VpcIds']        = $request->vpcIds;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyApiGroupVpcWhitelist',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyApiGroupVpcWhitelistResponse::fromMap($this->doRPCRequest('ModifyApiGroupVpcWhitelist', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyApiGroupVpcWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2982,11 +4622,29 @@ class CloudAPI extends OpenApiClient
     public function modifyAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AppId']         = $request->appId;
+        $query['AppName']       = $request->appName;
+        $query['Description']   = $request->description;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['Tag']           = $request->tag;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyApp',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyAppResponse::fromMap($this->doRPCRequest('ModifyApp', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3010,11 +4668,28 @@ class CloudAPI extends OpenApiClient
     public function modifyInstanceSpecWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['AutoPay']      = $request->autoPay;
+        $query['InstanceId']   = $request->instanceId;
+        $query['InstanceSpec'] = $request->instanceSpec;
+        $query['Token']        = $request->token;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceSpec',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyInstanceSpecResponse::fromMap($this->doRPCRequest('ModifyInstanceSpec', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3038,11 +4713,28 @@ class CloudAPI extends OpenApiClient
     public function modifyIpControlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['Description']   = $request->description;
+        $query['IpControlId']   = $request->ipControlId;
+        $query['IpControlName'] = $request->ipControlName;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyIpControl',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyIpControlResponse::fromMap($this->doRPCRequest('ModifyIpControl', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyIpControlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3066,11 +4758,29 @@ class CloudAPI extends OpenApiClient
     public function modifyIpControlPolicyItemWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AppId']         = $request->appId;
+        $query['CidrIp']        = $request->cidrIp;
+        $query['IpControlId']   = $request->ipControlId;
+        $query['PolicyItemId']  = $request->policyItemId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyIpControlPolicyItem',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyIpControlPolicyItemResponse::fromMap($this->doRPCRequest('ModifyIpControlPolicyItem', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyIpControlPolicyItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3094,11 +4804,28 @@ class CloudAPI extends OpenApiClient
     public function modifyLogConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['LogType']       = $request->logType;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['SlsLogStore']   = $request->slsLogStore;
+        $query['SlsProject']    = $request->slsProject;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyLogConfig',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyLogConfigResponse::fromMap($this->doRPCRequest('ModifyLogConfig', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3122,11 +4849,29 @@ class CloudAPI extends OpenApiClient
     public function modifyModelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['Description']  = $request->description;
+        $query['GroupId']      = $request->groupId;
+        $query['ModelName']    = $request->modelName;
+        $query['NewModelName'] = $request->newModelName;
+        $query['Schema']       = $request->schema;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyModel',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyModelResponse::fromMap($this->doRPCRequest('ModifyModel', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyModelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3150,11 +4895,30 @@ class CloudAPI extends OpenApiClient
     public function modifyPluginWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['Description']   = $request->description;
+        $query['PluginData']    = $request->pluginData;
+        $query['PluginId']      = $request->pluginId;
+        $query['PluginName']    = $request->pluginName;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['Tag']           = $request->tag;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyPlugin',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyPluginResponse::fromMap($this->doRPCRequest('ModifyPlugin', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyPluginResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3178,11 +4942,29 @@ class CloudAPI extends OpenApiClient
     public function modifySignatureWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['SecurityToken']   = $request->securityToken;
+        $query['SignatureId']     = $request->signatureId;
+        $query['SignatureKey']    = $request->signatureKey;
+        $query['SignatureName']   = $request->signatureName;
+        $query['SignatureSecret'] = $request->signatureSecret;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifySignature',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifySignatureResponse::fromMap($this->doRPCRequest('ModifySignature', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifySignatureResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3206,11 +4988,32 @@ class CloudAPI extends OpenApiClient
     public function modifyTrafficControlWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['ApiDefault']         = $request->apiDefault;
+        $query['AppDefault']         = $request->appDefault;
+        $query['Description']        = $request->description;
+        $query['SecurityToken']      = $request->securityToken;
+        $query['TrafficControlId']   = $request->trafficControlId;
+        $query['TrafficControlName'] = $request->trafficControlName;
+        $query['TrafficControlUnit'] = $request->trafficControlUnit;
+        $query['UserDefault']        = $request->userDefault;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyTrafficControl',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyTrafficControlResponse::fromMap($this->doRPCRequest('ModifyTrafficControl', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyTrafficControlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3232,9 +5035,20 @@ class CloudAPI extends OpenApiClient
      */
     public function openApiGatewayServiceWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'OpenApiGatewayService',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return OpenApiGatewayServiceResponse::fromMap($this->doRPCRequest('OpenApiGatewayService', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OpenApiGatewayServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3256,11 +5070,27 @@ class CloudAPI extends OpenApiClient
     public function reactivateDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ReactivateDomain',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ReactivateDomainResponse::fromMap($this->doRPCRequest('ReactivateDomain', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReactivateDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3284,11 +5114,30 @@ class CloudAPI extends OpenApiClient
     public function removeApisAuthoritiesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiIds']        = $request->apiIds;
+        $query['AppId']         = $request->appId;
+        $query['Description']   = $request->description;
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveApisAuthorities',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveApisAuthoritiesResponse::fromMap($this->doRPCRequest('RemoveApisAuthorities', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveApisAuthoritiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3312,11 +5161,29 @@ class CloudAPI extends OpenApiClient
     public function removeAppsAuthoritiesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiId']         = $request->apiId;
+        $query['AppIds']        = $request->appIds;
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveAppsAuthorities',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveAppsAuthoritiesResponse::fromMap($this->doRPCRequest('RemoveAppsAuthorities', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveAppsAuthoritiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3340,11 +5207,29 @@ class CloudAPI extends OpenApiClient
     public function removeIpControlApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiIds']        = $request->apiIds;
+        $query['GroupId']       = $request->groupId;
+        $query['IpControlId']   = $request->ipControlId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveIpControlApis',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveIpControlApisResponse::fromMap($this->doRPCRequest('RemoveIpControlApis', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveIpControlApisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3368,11 +5253,27 @@ class CloudAPI extends OpenApiClient
     public function removeIpControlPolicyItemWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['IpControlId']   = $request->ipControlId;
+        $query['PolicyItemIds'] = $request->policyItemIds;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveIpControlPolicyItem',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveIpControlPolicyItemResponse::fromMap($this->doRPCRequest('RemoveIpControlPolicyItem', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveIpControlPolicyItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3396,11 +5297,29 @@ class CloudAPI extends OpenApiClient
     public function removeSignatureApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiIds']        = $request->apiIds;
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['SignatureId']   = $request->signatureId;
+        $query['StageName']     = $request->stageName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveSignatureApis',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveSignatureApisResponse::fromMap($this->doRPCRequest('RemoveSignatureApis', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveSignatureApisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3424,11 +5343,29 @@ class CloudAPI extends OpenApiClient
     public function removeTrafficControlApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['ApiIds']           = $request->apiIds;
+        $query['GroupId']          = $request->groupId;
+        $query['SecurityToken']    = $request->securityToken;
+        $query['StageName']        = $request->stageName;
+        $query['TrafficControlId'] = $request->trafficControlId;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveTrafficControlApis',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveTrafficControlApisResponse::fromMap($this->doRPCRequest('RemoveTrafficControlApis', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveTrafficControlApisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3452,11 +5389,29 @@ class CloudAPI extends OpenApiClient
     public function removeVpcAccessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['InstanceId']    = $request->instanceId;
+        $query['NeedBatchWork'] = $request->needBatchWork;
+        $query['Port']          = $request->port;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['VpcId']         = $request->vpcId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveVpcAccess',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveVpcAccessResponse::fromMap($this->doRPCRequest('RemoveVpcAccess', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveVpcAccessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3480,11 +5435,29 @@ class CloudAPI extends OpenApiClient
     public function removeVpcAccessAndAbolishApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['InstanceId']    = $request->instanceId;
+        $query['NeedBatchWork'] = $request->needBatchWork;
+        $query['Port']          = $request->port;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['VpcId']         = $request->vpcId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveVpcAccessAndAbolishApis',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveVpcAccessAndAbolishApisResponse::fromMap($this->doRPCRequest('RemoveVpcAccessAndAbolishApis', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveVpcAccessAndAbolishApisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3508,11 +5481,26 @@ class CloudAPI extends OpenApiClient
     public function resetAppCodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AppCode']       = $request->appCode;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ResetAppCode',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ResetAppCodeResponse::fromMap($this->doRPCRequest('ResetAppCode', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ResetAppCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3536,11 +5524,26 @@ class CloudAPI extends OpenApiClient
     public function resetAppSecretWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AppKey']        = $request->appKey;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ResetAppSecret',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ResetAppSecretResponse::fromMap($this->doRPCRequest('ResetAppSecret', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ResetAppSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3564,11 +5567,27 @@ class CloudAPI extends OpenApiClient
     public function sdkGenerateByAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AppId']         = $request->appId;
+        $query['Language']      = $request->language;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SdkGenerateByApp',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SdkGenerateByAppResponse::fromMap($this->doRPCRequest('SdkGenerateByApp', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SdkGenerateByAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3592,11 +5611,27 @@ class CloudAPI extends OpenApiClient
     public function sdkGenerateByGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['GroupId']       = $request->groupId;
+        $query['Language']      = $request->language;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SdkGenerateByGroup',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SdkGenerateByGroupResponse::fromMap($this->doRPCRequest('SdkGenerateByGroup', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SdkGenerateByGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3620,11 +5655,31 @@ class CloudAPI extends OpenApiClient
     public function setApisAuthoritiesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiIds']        = $request->apiIds;
+        $query['AppId']         = $request->appId;
+        $query['AuthValidTime'] = $request->authValidTime;
+        $query['Description']   = $request->description;
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetApisAuthorities',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetApisAuthoritiesResponse::fromMap($this->doRPCRequest('SetApisAuthorities', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetApisAuthoritiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3648,11 +5703,31 @@ class CloudAPI extends OpenApiClient
     public function setAppsAuthoritiesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiId']         = $request->apiId;
+        $query['AppIds']        = $request->appIds;
+        $query['AuthValidTime'] = $request->authValidTime;
+        $query['Description']   = $request->description;
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetAppsAuthorities',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetAppsAuthoritiesResponse::fromMap($this->doRPCRequest('SetAppsAuthorities', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetAppsAuthoritiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3676,11 +5751,29 @@ class CloudAPI extends OpenApiClient
     public function setDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['BindStageName']    = $request->bindStageName;
+        $query['CustomDomainType'] = $request->customDomainType;
+        $query['DomainName']       = $request->domainName;
+        $query['GroupId']          = $request->groupId;
+        $query['IsForce']          = $request->isForce;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDomain',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDomainResponse::fromMap($this->doRPCRequest('SetDomain', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3704,11 +5797,31 @@ class CloudAPI extends OpenApiClient
     public function setDomainCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                          = [];
+        $query['CaCertificateBody']     = $request->caCertificateBody;
+        $query['CertificateBody']       = $request->certificateBody;
+        $query['CertificateName']       = $request->certificateName;
+        $query['CertificatePrivateKey'] = $request->certificatePrivateKey;
+        $query['DomainName']            = $request->domainName;
+        $query['GroupId']               = $request->groupId;
+        $query['SecurityToken']         = $request->securityToken;
+        $req                            = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDomainCertificate',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDomainCertificateResponse::fromMap($this->doRPCRequest('SetDomainCertificate', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDomainCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3732,11 +5845,28 @@ class CloudAPI extends OpenApiClient
     public function setDomainWebSocketStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ActionValue']   = $request->actionValue;
+        $query['DomainName']    = $request->domainName;
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDomainWebSocketStatus',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDomainWebSocketStatusResponse::fromMap($this->doRPCRequest('SetDomainWebSocketStatus', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDomainWebSocketStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3760,11 +5890,29 @@ class CloudAPI extends OpenApiClient
     public function setIpControlApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiIds']        = $request->apiIds;
+        $query['GroupId']       = $request->groupId;
+        $query['IpControlId']   = $request->ipControlId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StageName']     = $request->stageName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetIpControlApis',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetIpControlApisResponse::fromMap($this->doRPCRequest('SetIpControlApis', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetIpControlApisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3788,11 +5936,29 @@ class CloudAPI extends OpenApiClient
     public function setSignatureApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ApiIds']        = $request->apiIds;
+        $query['GroupId']       = $request->groupId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['SignatureId']   = $request->signatureId;
+        $query['StageName']     = $request->stageName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetSignatureApis',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetSignatureApisResponse::fromMap($this->doRPCRequest('SetSignatureApis', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetSignatureApisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3816,11 +5982,29 @@ class CloudAPI extends OpenApiClient
     public function setTrafficControlApisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['ApiIds']           = $request->apiIds;
+        $query['GroupId']          = $request->groupId;
+        $query['SecurityToken']    = $request->securityToken;
+        $query['StageName']        = $request->stageName;
+        $query['TrafficControlId'] = $request->trafficControlId;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetTrafficControlApis',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetTrafficControlApisResponse::fromMap($this->doRPCRequest('SetTrafficControlApis', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetTrafficControlApisResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3844,11 +6028,30 @@ class CloudAPI extends OpenApiClient
     public function setVpcAccessWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['Description']   = $request->description;
+        $query['InstanceId']    = $request->instanceId;
+        $query['Name']          = $request->name;
+        $query['Port']          = $request->port;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['VpcId']         = $request->vpcId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetVpcAccess',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetVpcAccessResponse::fromMap($this->doRPCRequest('SetVpcAccess', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetVpcAccessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3872,11 +6075,28 @@ class CloudAPI extends OpenApiClient
     public function setWildcardDomainPatternsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                           = [];
+        $query['DomainName']             = $request->domainName;
+        $query['GroupId']                = $request->groupId;
+        $query['SecurityToken']          = $request->securityToken;
+        $query['WildcardDomainPatterns'] = $request->wildcardDomainPatterns;
+        $req                             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetWildcardDomainPatterns',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetWildcardDomainPatternsResponse::fromMap($this->doRPCRequest('SetWildcardDomainPatterns', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetWildcardDomainPatternsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3900,11 +6120,30 @@ class CloudAPI extends OpenApiClient
     public function switchApiWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['ApiId']          = $request->apiId;
+        $query['Description']    = $request->description;
+        $query['GroupId']        = $request->groupId;
+        $query['HistoryVersion'] = $request->historyVersion;
+        $query['SecurityToken']  = $request->securityToken;
+        $query['StageName']      = $request->stageName;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SwitchApi',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SwitchApiResponse::fromMap($this->doRPCRequest('SwitchApi', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SwitchApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3928,11 +6167,28 @@ class CloudAPI extends OpenApiClient
     public function tagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ResourceId']    = $request->resourceId;
+        $query['ResourceType']  = $request->resourceType;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['Tag']           = $request->tag;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return TagResourcesResponse::fromMap($this->doRPCRequest('TagResources', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3956,11 +6212,29 @@ class CloudAPI extends OpenApiClient
     public function untagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['All']           = $request->all;
+        $query['ResourceId']    = $request->resourceId;
+        $query['ResourceType']  = $request->resourceType;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['TagKey']        = $request->tagKey;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UntagResourcesResponse::fromMap($this->doRPCRequest('UntagResources', '2016-07-14', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

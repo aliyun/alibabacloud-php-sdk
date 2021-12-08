@@ -9,21 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcAccessesRequest extends Model
 {
     /**
-     * @var bool
-     */
-    public $accurateQuery;
-
-    /**
+     * @description VPC授权名称
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 当前页码
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description 每页展示条目
+     *
      * @var int
      */
     public $pageSize;
@@ -32,12 +33,19 @@ class DescribeVpcAccessesRequest extends Model
      * @var string
      */
     public $securityToken;
+
+    /**
+     * @description Vpc授权ID
+     *
+     * @var string
+     */
+    public $vpcAccessId;
     protected $_name = [
-        'accurateQuery' => 'AccurateQuery',
         'name'          => 'Name',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
         'securityToken' => 'SecurityToken',
+        'vpcAccessId'   => 'VpcAccessId',
     ];
 
     public function validate()
@@ -47,9 +55,6 @@ class DescribeVpcAccessesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accurateQuery) {
-            $res['AccurateQuery'] = $this->accurateQuery;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -61,6 +66,9 @@ class DescribeVpcAccessesRequest extends Model
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->vpcAccessId) {
+            $res['VpcAccessId'] = $this->vpcAccessId;
         }
 
         return $res;
@@ -74,9 +82,6 @@ class DescribeVpcAccessesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccurateQuery'])) {
-            $model->accurateQuery = $map['AccurateQuery'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -88,6 +93,9 @@ class DescribeVpcAccessesRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['VpcAccessId'])) {
+            $model->vpcAccessId = $map['VpcAccessId'];
         }
 
         return $model;
