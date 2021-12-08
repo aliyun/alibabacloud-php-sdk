@@ -16,6 +16,7 @@ use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberResaleRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberResaleResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberStatusRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberStatusResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\PvrCallbackFCUResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -284,5 +285,38 @@ class Dytnsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePhoneNumberStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return PvrCallbackFCUResponse
+     */
+    public function pvrCallbackFCUWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'PvrCallbackFCU',
+            'version'     => '2020-02-17',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return PvrCallbackFCUResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return PvrCallbackFCUResponse
+     */
+    public function pvrCallbackFCU()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pvrCallbackFCUWithOptions($runtime);
     }
 }
