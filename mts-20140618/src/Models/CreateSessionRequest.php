@@ -11,17 +11,12 @@ class CreateSessionRequest extends Model
     /**
      * @var string
      */
-    public $ownerId;
+    public $endUserId;
 
     /**
      * @var string
      */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
+    public $mediaId;
 
     /**
      * @var string
@@ -31,25 +26,30 @@ class CreateSessionRequest extends Model
     /**
      * @var string
      */
-    public $endUserId;
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerId;
 
     /**
      * @var int
      */
     public $sessionTime;
-
-    /**
-     * @var string
-     */
-    public $mediaId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'ownerAccount'         => 'OwnerAccount',
         'endUserId'            => 'EndUserId',
-        'sessionTime'          => 'SessionTime',
         'mediaId'              => 'MediaId',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'sessionTime'          => 'SessionTime',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class CreateSessionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->endUserId) {
+            $res['EndUserId'] = $this->endUserId;
         }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        if (null !== $this->mediaId) {
+            $res['MediaId'] = $this->mediaId;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->endUserId) {
-            $res['EndUserId'] = $this->endUserId;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->sessionTime) {
             $res['SessionTime'] = $this->sessionTime;
-        }
-        if (null !== $this->mediaId) {
-            $res['MediaId'] = $this->mediaId;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class CreateSessionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['EndUserId'])) {
+            $model->endUserId = $map['EndUserId'];
         }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        if (isset($map['MediaId'])) {
+            $model->mediaId = $map['MediaId'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['EndUserId'])) {
-            $model->endUserId = $map['EndUserId'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['SessionTime'])) {
             $model->sessionTime = $map['SessionTime'];
-        }
-        if (isset($map['MediaId'])) {
-            $model->mediaId = $map['MediaId'];
         }
 
         return $model;

@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class QueryMediaInfoJobListResponseBody extends Model
 {
     /**
+     * @var mediaInfoJobList
+     */
+    public $mediaInfoJobList;
+
+    /**
      * @var nonExistMediaInfoJobIds
      */
     public $nonExistMediaInfoJobIds;
@@ -19,15 +24,10 @@ class QueryMediaInfoJobListResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var mediaInfoJobList
-     */
-    public $mediaInfoJobList;
     protected $_name = [
+        'mediaInfoJobList'        => 'MediaInfoJobList',
         'nonExistMediaInfoJobIds' => 'NonExistMediaInfoJobIds',
         'requestId'               => 'RequestId',
-        'mediaInfoJobList'        => 'MediaInfoJobList',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class QueryMediaInfoJobListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->mediaInfoJobList) {
+            $res['MediaInfoJobList'] = null !== $this->mediaInfoJobList ? $this->mediaInfoJobList->toMap() : null;
+        }
         if (null !== $this->nonExistMediaInfoJobIds) {
             $res['NonExistMediaInfoJobIds'] = null !== $this->nonExistMediaInfoJobIds ? $this->nonExistMediaInfoJobIds->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->mediaInfoJobList) {
-            $res['MediaInfoJobList'] = null !== $this->mediaInfoJobList ? $this->mediaInfoJobList->toMap() : null;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class QueryMediaInfoJobListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MediaInfoJobList'])) {
+            $model->mediaInfoJobList = mediaInfoJobList::fromMap($map['MediaInfoJobList']);
+        }
         if (isset($map['NonExistMediaInfoJobIds'])) {
             $model->nonExistMediaInfoJobIds = nonExistMediaInfoJobIds::fromMap($map['NonExistMediaInfoJobIds']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['MediaInfoJobList'])) {
-            $model->mediaInfoJobList = mediaInfoJobList::fromMap($map['MediaInfoJobList']);
         }
 
         return $model;

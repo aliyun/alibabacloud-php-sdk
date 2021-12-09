@@ -14,37 +14,17 @@ class job extends Model
     /**
      * @var string
      */
-    public $creationTime;
-
-    /**
-     * @var int
-     */
-    public $percent;
-
-    /**
-     * @var string
-     */
-    public $finishTime;
-
-    /**
-     * @var string
-     */
-    public $state;
-
-    /**
-     * @var string
-     */
-    public $jobId;
-
-    /**
-     * @var string
-     */
     public $code;
 
     /**
      * @var string
      */
-    public $message;
+    public $creationTime;
+
+    /**
+     * @var editingConfig
+     */
+    public $editingConfig;
 
     /**
      * @var editingInputs
@@ -54,29 +34,49 @@ class job extends Model
     /**
      * @var string
      */
-    public $pipelineId;
+    public $finishTime;
 
     /**
-     * @var editingConfig
+     * @var string
      */
-    public $editingConfig;
+    public $jobId;
 
     /**
      * @var MNSMessageResult
      */
     public $MNSMessageResult;
+
+    /**
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @var int
+     */
+    public $percent;
+
+    /**
+     * @var string
+     */
+    public $pipelineId;
+
+    /**
+     * @var string
+     */
+    public $state;
     protected $_name = [
-        'creationTime'     => 'CreationTime',
-        'percent'          => 'Percent',
-        'finishTime'       => 'FinishTime',
-        'state'            => 'State',
-        'jobId'            => 'JobId',
         'code'             => 'Code',
-        'message'          => 'Message',
-        'editingInputs'    => 'EditingInputs',
-        'pipelineId'       => 'PipelineId',
+        'creationTime'     => 'CreationTime',
         'editingConfig'    => 'EditingConfig',
+        'editingInputs'    => 'EditingInputs',
+        'finishTime'       => 'FinishTime',
+        'jobId'            => 'JobId',
         'MNSMessageResult' => 'MNSMessageResult',
+        'message'          => 'Message',
+        'percent'          => 'Percent',
+        'pipelineId'       => 'PipelineId',
+        'state'            => 'State',
     ];
 
     public function validate()
@@ -86,38 +86,38 @@ class job extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->percent) {
-            $res['Percent'] = $this->percent;
-        }
-        if (null !== $this->finishTime) {
-            $res['FinishTime'] = $this->finishTime;
-        }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->editingInputs) {
-            $res['EditingInputs'] = null !== $this->editingInputs ? $this->editingInputs->toMap() : null;
-        }
-        if (null !== $this->pipelineId) {
-            $res['PipelineId'] = $this->pipelineId;
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
         if (null !== $this->editingConfig) {
             $res['EditingConfig'] = null !== $this->editingConfig ? $this->editingConfig->toMap() : null;
         }
+        if (null !== $this->editingInputs) {
+            $res['EditingInputs'] = null !== $this->editingInputs ? $this->editingInputs->toMap() : null;
+        }
+        if (null !== $this->finishTime) {
+            $res['FinishTime'] = $this->finishTime;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
         if (null !== $this->MNSMessageResult) {
             $res['MNSMessageResult'] = null !== $this->MNSMessageResult ? $this->MNSMessageResult->toMap() : null;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->percent) {
+            $res['Percent'] = $this->percent;
+        }
+        if (null !== $this->pipelineId) {
+            $res['PipelineId'] = $this->pipelineId;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
 
         return $res;
@@ -131,38 +131,38 @@ class job extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['Percent'])) {
-            $model->percent = $map['Percent'];
-        }
-        if (isset($map['FinishTime'])) {
-            $model->finishTime = $map['FinishTime'];
-        }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['EditingInputs'])) {
-            $model->editingInputs = editingInputs::fromMap($map['EditingInputs']);
-        }
-        if (isset($map['PipelineId'])) {
-            $model->pipelineId = $map['PipelineId'];
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
         if (isset($map['EditingConfig'])) {
             $model->editingConfig = editingConfig::fromMap($map['EditingConfig']);
         }
+        if (isset($map['EditingInputs'])) {
+            $model->editingInputs = editingInputs::fromMap($map['EditingInputs']);
+        }
+        if (isset($map['FinishTime'])) {
+            $model->finishTime = $map['FinishTime'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
         if (isset($map['MNSMessageResult'])) {
             $model->MNSMessageResult = MNSMessageResult::fromMap($map['MNSMessageResult']);
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['Percent'])) {
+            $model->percent = $map['Percent'];
+        }
+        if (isset($map['PipelineId'])) {
+            $model->pipelineId = $map['PipelineId'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
 
         return $model;

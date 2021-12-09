@@ -11,7 +11,7 @@ class ocr extends Model
     /**
      * @var string
      */
-    public $time;
+    public $imageId;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class ocr extends Model
     /**
      * @var string
      */
-    public $imageId;
+    public $time;
     protected $_name = [
-        'time'     => 'Time',
+        'imageId'  => 'ImageId',
         'imageUrl' => 'ImageUrl',
         'ocrText'  => 'OcrText',
-        'imageId'  => 'ImageId',
+        'time'     => 'Time',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class ocr extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
@@ -50,8 +50,8 @@ class ocr extends Model
         if (null !== $this->ocrText) {
             $res['OcrText'] = $this->ocrText;
         }
-        if (null !== $this->imageId) {
-            $res['ImageId'] = $this->imageId;
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class ocr extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
@@ -74,8 +74,8 @@ class ocr extends Model
         if (isset($map['OcrText'])) {
             $model->ocrText = $map['OcrText'];
         }
-        if (isset($map['ImageId'])) {
-            $model->imageId = $map['ImageId'];
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
         }
 
         return $model;

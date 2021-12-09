@@ -11,7 +11,7 @@ class encryption extends Model
     /**
      * @var string
      */
-    public $type;
+    public $id;
 
     /**
      * @var string
@@ -26,24 +26,24 @@ class encryption extends Model
     /**
      * @var string
      */
-    public $id;
-
-    /**
-     * @var string
-     */
     public $keyUri;
 
     /**
      * @var string
      */
     public $skipCnt;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'    => 'Type',
+        'id'      => 'Id',
         'key'     => 'Key',
         'keyType' => 'KeyType',
-        'id'      => 'Id',
         'keyUri'  => 'KeyUri',
         'skipCnt' => 'SkipCnt',
+        'type'    => 'Type',
     ];
 
     public function validate()
@@ -53,8 +53,8 @@ class encryption extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->key) {
             $res['Key'] = $this->key;
@@ -62,14 +62,14 @@ class encryption extends Model
         if (null !== $this->keyType) {
             $res['KeyType'] = $this->keyType;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
         if (null !== $this->keyUri) {
             $res['KeyUri'] = $this->keyUri;
         }
         if (null !== $this->skipCnt) {
             $res['SkipCnt'] = $this->skipCnt;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -83,8 +83,8 @@ class encryption extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
@@ -92,14 +92,14 @@ class encryption extends Model
         if (isset($map['KeyType'])) {
             $model->keyType = $map['KeyType'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
         if (isset($map['KeyUri'])) {
             $model->keyUri = $map['KeyUri'];
         }
         if (isset($map['SkipCnt'])) {
             $model->skipCnt = $map['SkipCnt'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

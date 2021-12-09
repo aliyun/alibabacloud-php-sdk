@@ -11,15 +11,15 @@ class inputConfig extends Model
     /**
      * @var string
      */
-    public $isNormalSar;
+    public $deinterlaceMethod;
 
     /**
      * @var string
      */
-    public $deinterlaceMethod;
+    public $isNormalSar;
     protected $_name = [
-        'isNormalSar'       => 'IsNormalSar',
         'deinterlaceMethod' => 'DeinterlaceMethod',
+        'isNormalSar'       => 'IsNormalSar',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class inputConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->isNormalSar) {
-            $res['IsNormalSar'] = $this->isNormalSar;
-        }
         if (null !== $this->deinterlaceMethod) {
             $res['DeinterlaceMethod'] = $this->deinterlaceMethod;
+        }
+        if (null !== $this->isNormalSar) {
+            $res['IsNormalSar'] = $this->isNormalSar;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class inputConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IsNormalSar'])) {
-            $model->isNormalSar = $map['IsNormalSar'];
-        }
         if (isset($map['DeinterlaceMethod'])) {
             $model->deinterlaceMethod = $map['DeinterlaceMethod'];
+        }
+        if (isset($map['IsNormalSar'])) {
+            $model->isNormalSar = $map['IsNormalSar'];
         }
 
         return $model;

@@ -17,16 +17,16 @@ class ListMediaResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $nextPageToken;
 
     /**
      * @var string
      */
-    public $nextPageToken;
+    public $requestId;
     protected $_name = [
         'mediaList'     => 'MediaList',
-        'requestId'     => 'RequestId',
         'nextPageToken' => 'NextPageToken',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class ListMediaResponseBody extends Model
         if (null !== $this->mediaList) {
             $res['MediaList'] = null !== $this->mediaList ? $this->mediaList->toMap() : null;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->nextPageToken) {
             $res['NextPageToken'] = $this->nextPageToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class ListMediaResponseBody extends Model
         if (isset($map['MediaList'])) {
             $model->mediaList = mediaList::fromMap($map['MediaList']);
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['NextPageToken'])) {
             $model->nextPageToken = $map['NextPageToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

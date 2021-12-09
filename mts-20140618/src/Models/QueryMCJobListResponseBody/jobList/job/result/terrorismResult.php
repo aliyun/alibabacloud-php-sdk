@@ -14,19 +14,19 @@ use AlibabaCloud\Tea\Model;
 class terrorismResult extends Model
 {
     /**
-     * @var terrorismOcrs
-     */
-    public $terrorismOcrs;
-
-    /**
      * @var terrorismAudios
      */
     public $terrorismAudios;
 
     /**
-     * @var terrorismVideos
+     * @var terrorismImages
      */
-    public $terrorismVideos;
+    public $terrorismImages;
+
+    /**
+     * @var terrorismOcrs
+     */
+    public $terrorismOcrs;
 
     /**
      * @var terrorismTexts
@@ -34,15 +34,15 @@ class terrorismResult extends Model
     public $terrorismTexts;
 
     /**
-     * @var terrorismImages
+     * @var terrorismVideos
      */
-    public $terrorismImages;
+    public $terrorismVideos;
     protected $_name = [
-        'terrorismOcrs'   => 'TerrorismOcrs',
         'terrorismAudios' => 'TerrorismAudios',
-        'terrorismVideos' => 'TerrorismVideos',
-        'terrorismTexts'  => 'TerrorismTexts',
         'terrorismImages' => 'TerrorismImages',
+        'terrorismOcrs'   => 'TerrorismOcrs',
+        'terrorismTexts'  => 'TerrorismTexts',
+        'terrorismVideos' => 'TerrorismVideos',
     ];
 
     public function validate()
@@ -52,20 +52,20 @@ class terrorismResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->terrorismOcrs) {
-            $res['TerrorismOcrs'] = null !== $this->terrorismOcrs ? $this->terrorismOcrs->toMap() : null;
-        }
         if (null !== $this->terrorismAudios) {
             $res['TerrorismAudios'] = null !== $this->terrorismAudios ? $this->terrorismAudios->toMap() : null;
         }
-        if (null !== $this->terrorismVideos) {
-            $res['TerrorismVideos'] = null !== $this->terrorismVideos ? $this->terrorismVideos->toMap() : null;
+        if (null !== $this->terrorismImages) {
+            $res['TerrorismImages'] = null !== $this->terrorismImages ? $this->terrorismImages->toMap() : null;
+        }
+        if (null !== $this->terrorismOcrs) {
+            $res['TerrorismOcrs'] = null !== $this->terrorismOcrs ? $this->terrorismOcrs->toMap() : null;
         }
         if (null !== $this->terrorismTexts) {
             $res['TerrorismTexts'] = null !== $this->terrorismTexts ? $this->terrorismTexts->toMap() : null;
         }
-        if (null !== $this->terrorismImages) {
-            $res['TerrorismImages'] = null !== $this->terrorismImages ? $this->terrorismImages->toMap() : null;
+        if (null !== $this->terrorismVideos) {
+            $res['TerrorismVideos'] = null !== $this->terrorismVideos ? $this->terrorismVideos->toMap() : null;
         }
 
         return $res;
@@ -79,20 +79,20 @@ class terrorismResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TerrorismOcrs'])) {
-            $model->terrorismOcrs = terrorismOcrs::fromMap($map['TerrorismOcrs']);
-        }
         if (isset($map['TerrorismAudios'])) {
             $model->terrorismAudios = terrorismAudios::fromMap($map['TerrorismAudios']);
         }
-        if (isset($map['TerrorismVideos'])) {
-            $model->terrorismVideos = terrorismVideos::fromMap($map['TerrorismVideos']);
+        if (isset($map['TerrorismImages'])) {
+            $model->terrorismImages = terrorismImages::fromMap($map['TerrorismImages']);
+        }
+        if (isset($map['TerrorismOcrs'])) {
+            $model->terrorismOcrs = terrorismOcrs::fromMap($map['TerrorismOcrs']);
         }
         if (isset($map['TerrorismTexts'])) {
             $model->terrorismTexts = terrorismTexts::fromMap($map['TerrorismTexts']);
         }
-        if (isset($map['TerrorismImages'])) {
-            $model->terrorismImages = terrorismImages::fromMap($map['TerrorismImages']);
+        if (isset($map['TerrorismVideos'])) {
+            $model->terrorismVideos = terrorismVideos::fromMap($map['TerrorismVideos']);
         }
 
         return $model;

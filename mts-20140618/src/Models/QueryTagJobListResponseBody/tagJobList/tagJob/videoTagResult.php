@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class videoTagResult extends Model
 {
     /**
+     * @var string
+     */
+    public $details;
+
+    /**
      * @var tagAnResults
      */
     public $tagAnResults;
@@ -19,15 +24,10 @@ class videoTagResult extends Model
      * @var tagFrResults
      */
     public $tagFrResults;
-
-    /**
-     * @var string
-     */
-    public $details;
     protected $_name = [
+        'details'      => 'Details',
         'tagAnResults' => 'TagAnResults',
         'tagFrResults' => 'TagFrResults',
-        'details'      => 'Details',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class videoTagResult extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->details) {
+            $res['Details'] = $this->details;
+        }
         if (null !== $this->tagAnResults) {
             $res['TagAnResults'] = null !== $this->tagAnResults ? $this->tagAnResults->toMap() : null;
         }
         if (null !== $this->tagFrResults) {
             $res['TagFrResults'] = null !== $this->tagFrResults ? $this->tagFrResults->toMap() : null;
-        }
-        if (null !== $this->details) {
-            $res['Details'] = $this->details;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class videoTagResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Details'])) {
+            $model->details = $map['Details'];
+        }
         if (isset($map['TagAnResults'])) {
             $model->tagAnResults = tagAnResults::fromMap($map['TagAnResults']);
         }
         if (isset($map['TagFrResults'])) {
             $model->tagFrResults = tagFrResults::fromMap($map['TagFrResults']);
-        }
-        if (isset($map['Details'])) {
-            $model->details = $map['Details'];
         }
 
         return $model;

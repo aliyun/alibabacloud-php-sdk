@@ -11,15 +11,15 @@ class face extends Model
     /**
      * @var string
      */
-    public $imageUrl;
+    public $faceId;
 
     /**
      * @var string
      */
-    public $faceId;
+    public $imageUrl;
     protected $_name = [
-        'imageUrl' => 'ImageUrl',
         'faceId'   => 'FaceId',
+        'imageUrl' => 'ImageUrl',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class face extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->imageUrl) {
-            $res['ImageUrl'] = $this->imageUrl;
-        }
         if (null !== $this->faceId) {
             $res['FaceId'] = $this->faceId;
+        }
+        if (null !== $this->imageUrl) {
+            $res['ImageUrl'] = $this->imageUrl;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class face extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ImageUrl'])) {
-            $model->imageUrl = $map['ImageUrl'];
-        }
         if (isset($map['FaceId'])) {
             $model->faceId = $map['FaceId'];
+        }
+        if (isset($map['ImageUrl'])) {
+            $model->imageUrl = $map['ImageUrl'];
         }
 
         return $model;

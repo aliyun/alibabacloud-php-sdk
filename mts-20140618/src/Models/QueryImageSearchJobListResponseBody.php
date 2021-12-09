@@ -16,18 +16,18 @@ class QueryImageSearchJobListResponseBody extends Model
     public $imageSearchJobList;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var nonExistIds
      */
     public $nonExistIds;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'imageSearchJobList' => 'ImageSearchJobList',
-        'requestId'          => 'RequestId',
         'nonExistIds'        => 'NonExistIds',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -40,11 +40,11 @@ class QueryImageSearchJobListResponseBody extends Model
         if (null !== $this->imageSearchJobList) {
             $res['ImageSearchJobList'] = null !== $this->imageSearchJobList ? $this->imageSearchJobList->toMap() : null;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->nonExistIds) {
             $res['NonExistIds'] = null !== $this->nonExistIds ? $this->nonExistIds->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -61,11 +61,11 @@ class QueryImageSearchJobListResponseBody extends Model
         if (isset($map['ImageSearchJobList'])) {
             $model->imageSearchJobList = imageSearchJobList::fromMap($map['ImageSearchJobList']);
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['NonExistIds'])) {
             $model->nonExistIds = nonExistIds::fromMap($map['NonExistIds']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

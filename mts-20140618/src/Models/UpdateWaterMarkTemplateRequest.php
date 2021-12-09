@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class UpdateWaterMarkTemplateRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $config;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -27,29 +42,14 @@ class UpdateWaterMarkTemplateRequest extends Model
      * @var string
      */
     public $waterMarkTemplateId;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $config;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     protected $_name = [
+        'config'               => 'Config',
+        'name'                 => 'Name',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'waterMarkTemplateId'  => 'WaterMarkTemplateId',
-        'name'                 => 'Name',
-        'config'               => 'Config',
-        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
@@ -59,6 +59,15 @@ class UpdateWaterMarkTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->config) {
+            $res['Config'] = $this->config;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -70,15 +79,6 @@ class UpdateWaterMarkTemplateRequest extends Model
         }
         if (null !== $this->waterMarkTemplateId) {
             $res['WaterMarkTemplateId'] = $this->waterMarkTemplateId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->config) {
-            $res['Config'] = $this->config;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -92,6 +92,15 @@ class UpdateWaterMarkTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Config'])) {
+            $model->config = $map['Config'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -103,15 +112,6 @@ class UpdateWaterMarkTemplateRequest extends Model
         }
         if (isset($map['WaterMarkTemplateId'])) {
             $model->waterMarkTemplateId = $map['WaterMarkTemplateId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Config'])) {
-            $model->config = $map['Config'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

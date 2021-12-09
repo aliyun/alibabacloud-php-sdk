@@ -11,16 +11,6 @@ class crop extends Model
     /**
      * @var string
      */
-    public $top;
-
-    /**
-     * @var string
-     */
-    public $width;
-
-    /**
-     * @var string
-     */
     public $height;
 
     /**
@@ -32,12 +22,22 @@ class crop extends Model
      * @var string
      */
     public $mode;
+
+    /**
+     * @var string
+     */
+    public $top;
+
+    /**
+     * @var string
+     */
+    public $width;
     protected $_name = [
-        'top'    => 'Top',
-        'width'  => 'Width',
         'height' => 'Height',
         'left'   => 'Left',
         'mode'   => 'Mode',
+        'top'    => 'Top',
+        'width'  => 'Width',
     ];
 
     public function validate()
@@ -47,12 +47,6 @@ class crop extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->top) {
-            $res['Top'] = $this->top;
-        }
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
-        }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
@@ -61,6 +55,12 @@ class crop extends Model
         }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->top) {
+            $res['Top'] = $this->top;
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -74,12 +74,6 @@ class crop extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Top'])) {
-            $model->top = $map['Top'];
-        }
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
-        }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
@@ -88,6 +82,12 @@ class crop extends Model
         }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
+        }
+        if (isset($map['Top'])) {
+            $model->top = $map['Top'];
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

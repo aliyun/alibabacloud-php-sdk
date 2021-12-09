@@ -16,17 +16,7 @@ class timelineConfigVideo extends Model
     /**
      * @var string
      */
-    public $width;
-
-    /**
-     * @var string
-     */
-    public $renderRatio;
-
-    /**
-     * @var string
-     */
-    public $isGpuData;
+    public $fps;
 
     /**
      * @var string
@@ -36,26 +26,36 @@ class timelineConfigVideo extends Model
     /**
      * @var string
      */
+    public $isGpuData;
+
+    /**
+     * @var string
+     */
     public $isOneTrackData;
 
     /**
      * @var string
      */
-    public $fps;
+    public $reclosePrec;
 
     /**
      * @var string
      */
-    public $reclosePrec;
+    public $renderRatio;
+
+    /**
+     * @var string
+     */
+    public $width;
     protected $_name = [
         'bgColor'        => 'BgColor',
-        'width'          => 'Width',
-        'renderRatio'    => 'RenderRatio',
-        'isGpuData'      => 'IsGpuData',
-        'height'         => 'Height',
-        'isOneTrackData' => 'IsOneTrackData',
         'fps'            => 'Fps',
+        'height'         => 'Height',
+        'isGpuData'      => 'IsGpuData',
+        'isOneTrackData' => 'IsOneTrackData',
         'reclosePrec'    => 'ReclosePrec',
+        'renderRatio'    => 'RenderRatio',
+        'width'          => 'Width',
     ];
 
     public function validate()
@@ -68,26 +68,26 @@ class timelineConfigVideo extends Model
         if (null !== $this->bgColor) {
             $res['BgColor'] = $this->bgColor;
         }
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
-        }
-        if (null !== $this->renderRatio) {
-            $res['RenderRatio'] = $this->renderRatio;
-        }
-        if (null !== $this->isGpuData) {
-            $res['IsGpuData'] = $this->isGpuData;
+        if (null !== $this->fps) {
+            $res['Fps'] = $this->fps;
         }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
+        if (null !== $this->isGpuData) {
+            $res['IsGpuData'] = $this->isGpuData;
+        }
         if (null !== $this->isOneTrackData) {
             $res['IsOneTrackData'] = $this->isOneTrackData;
         }
-        if (null !== $this->fps) {
-            $res['Fps'] = $this->fps;
-        }
         if (null !== $this->reclosePrec) {
             $res['ReclosePrec'] = $this->reclosePrec;
+        }
+        if (null !== $this->renderRatio) {
+            $res['RenderRatio'] = $this->renderRatio;
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -104,26 +104,26 @@ class timelineConfigVideo extends Model
         if (isset($map['BgColor'])) {
             $model->bgColor = $map['BgColor'];
         }
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
-        }
-        if (isset($map['RenderRatio'])) {
-            $model->renderRatio = $map['RenderRatio'];
-        }
-        if (isset($map['IsGpuData'])) {
-            $model->isGpuData = $map['IsGpuData'];
+        if (isset($map['Fps'])) {
+            $model->fps = $map['Fps'];
         }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
+        if (isset($map['IsGpuData'])) {
+            $model->isGpuData = $map['IsGpuData'];
+        }
         if (isset($map['IsOneTrackData'])) {
             $model->isOneTrackData = $map['IsOneTrackData'];
         }
-        if (isset($map['Fps'])) {
-            $model->fps = $map['Fps'];
-        }
         if (isset($map['ReclosePrec'])) {
             $model->reclosePrec = $map['ReclosePrec'];
+        }
+        if (isset($map['RenderRatio'])) {
+            $model->renderRatio = $map['RenderRatio'];
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

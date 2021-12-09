@@ -11,7 +11,17 @@ class fpResultLogInfo extends Model
     /**
      * @var int
      */
-    public $logStartTime;
+    public $createTime;
+
+    /**
+     * @var int
+     */
+    public $logEndTime;
+
+    /**
+     * @var string
+     */
+    public $logName;
 
     /**
      * @var string
@@ -21,29 +31,19 @@ class fpResultLogInfo extends Model
     /**
      * @var int
      */
-    public $createTime;
-
-    /**
-     * @var int
-     */
     public $logSize;
 
     /**
-     * @var string
-     */
-    public $logName;
-
-    /**
      * @var int
      */
-    public $logEndTime;
+    public $logStartTime;
     protected $_name = [
-        'logStartTime' => 'LogStartTime',
-        'logPath'      => 'LogPath',
         'createTime'   => 'CreateTime',
-        'logSize'      => 'LogSize',
-        'logName'      => 'LogName',
         'logEndTime'   => 'LogEndTime',
+        'logName'      => 'LogName',
+        'logPath'      => 'LogPath',
+        'logSize'      => 'LogSize',
+        'logStartTime' => 'LogStartTime',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class fpResultLogInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->logStartTime) {
-            $res['LogStartTime'] = $this->logStartTime;
-        }
-        if (null !== $this->logPath) {
-            $res['LogPath'] = $this->logPath;
-        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
-        if (null !== $this->logSize) {
-            $res['LogSize'] = $this->logSize;
+        if (null !== $this->logEndTime) {
+            $res['LogEndTime'] = $this->logEndTime;
         }
         if (null !== $this->logName) {
             $res['LogName'] = $this->logName;
         }
-        if (null !== $this->logEndTime) {
-            $res['LogEndTime'] = $this->logEndTime;
+        if (null !== $this->logPath) {
+            $res['LogPath'] = $this->logPath;
+        }
+        if (null !== $this->logSize) {
+            $res['LogSize'] = $this->logSize;
+        }
+        if (null !== $this->logStartTime) {
+            $res['LogStartTime'] = $this->logStartTime;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class fpResultLogInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LogStartTime'])) {
-            $model->logStartTime = $map['LogStartTime'];
-        }
-        if (isset($map['LogPath'])) {
-            $model->logPath = $map['LogPath'];
-        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
-        if (isset($map['LogSize'])) {
-            $model->logSize = $map['LogSize'];
+        if (isset($map['LogEndTime'])) {
+            $model->logEndTime = $map['LogEndTime'];
         }
         if (isset($map['LogName'])) {
             $model->logName = $map['LogName'];
         }
-        if (isset($map['LogEndTime'])) {
-            $model->logEndTime = $map['LogEndTime'];
+        if (isset($map['LogPath'])) {
+            $model->logPath = $map['LogPath'];
+        }
+        if (isset($map['LogSize'])) {
+            $model->logSize = $map['LogSize'];
+        }
+        if (isset($map['LogStartTime'])) {
+            $model->logStartTime = $map['LogStartTime'];
         }
 
         return $model;

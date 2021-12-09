@@ -11,12 +11,12 @@ class descCensorResult extends Model
     /**
      * @var string
      */
-    public $suggestion;
+    public $label;
 
     /**
      * @var string
      */
-    public $label;
+    public $rate;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class descCensorResult extends Model
     /**
      * @var string
      */
-    public $rate;
+    public $suggestion;
     protected $_name = [
-        'suggestion' => 'Suggestion',
         'label'      => 'Label',
-        'scene'      => 'Scene',
         'rate'       => 'Rate',
+        'scene'      => 'Scene',
+        'suggestion' => 'Suggestion',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class descCensorResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->suggestion) {
-            $res['Suggestion'] = $this->suggestion;
-        }
         if (null !== $this->label) {
             $res['Label'] = $this->label;
+        }
+        if (null !== $this->rate) {
+            $res['Rate'] = $this->rate;
         }
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
         }
-        if (null !== $this->rate) {
-            $res['Rate'] = $this->rate;
+        if (null !== $this->suggestion) {
+            $res['Suggestion'] = $this->suggestion;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class descCensorResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Suggestion'])) {
-            $model->suggestion = $map['Suggestion'];
-        }
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
+        }
+        if (isset($map['Rate'])) {
+            $model->rate = $map['Rate'];
         }
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];
         }
-        if (isset($map['Rate'])) {
-            $model->rate = $map['Rate'];
+        if (isset($map['Suggestion'])) {
+            $model->suggestion = $map['Suggestion'];
         }
 
         return $model;

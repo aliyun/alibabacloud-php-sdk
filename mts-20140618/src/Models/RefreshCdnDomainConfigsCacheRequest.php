@@ -11,17 +11,7 @@ class RefreshCdnDomainConfigsCacheRequest extends Model
     /**
      * @var string
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
+    public $domains;
 
     /**
      * @var string
@@ -31,13 +21,23 @@ class RefreshCdnDomainConfigsCacheRequest extends Model
     /**
      * @var string
      */
-    public $domains;
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'ownerAccount'         => 'OwnerAccount',
         'domains'              => 'Domains',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class RefreshCdnDomainConfigsCacheRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        if (null !== $this->domains) {
+            $res['Domains'] = $this->domains;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->domains) {
-            $res['Domains'] = $this->domains;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class RefreshCdnDomainConfigsCacheRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        if (isset($map['Domains'])) {
+            $model->domains = $map['Domains'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['Domains'])) {
-            $model->domains = $map['Domains'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

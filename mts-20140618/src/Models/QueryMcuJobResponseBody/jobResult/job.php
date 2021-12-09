@@ -16,34 +16,9 @@ use AlibabaCloud\Tea\Model;
 class job extends Model
 {
     /**
-     * @var tagResult
+     * @var asrResult
      */
-    public $tagResult;
-
-    /**
-     * @var string
-     */
-    public $jobId;
-
-    /**
-     * @var ocrResult
-     */
-    public $ocrResult;
-
-    /**
-     * @var string
-     */
-    public $template;
-
-    /**
-     * @var string
-     */
-    public $userData;
-
-    /**
-     * @var subTaskInfo
-     */
-    public $subTaskInfo;
+    public $asrResult;
 
     /**
      * @var categoryResult
@@ -56,31 +31,56 @@ class job extends Model
     public $faceResult;
 
     /**
-     * @var string
-     */
-    public $templateId;
-
-    /**
      * @var input
      */
     public $input;
 
     /**
-     * @var asrResult
+     * @var string
      */
-    public $asrResult;
+    public $jobId;
+
+    /**
+     * @var ocrResult
+     */
+    public $ocrResult;
+
+    /**
+     * @var subTaskInfo
+     */
+    public $subTaskInfo;
+
+    /**
+     * @var tagResult
+     */
+    public $tagResult;
+
+    /**
+     * @var string
+     */
+    public $template;
+
+    /**
+     * @var string
+     */
+    public $templateId;
+
+    /**
+     * @var string
+     */
+    public $userData;
     protected $_name = [
-        'tagResult'      => 'TagResult',
-        'jobId'          => 'JobId',
-        'ocrResult'      => 'OcrResult',
-        'template'       => 'Template',
-        'userData'       => 'UserData',
-        'subTaskInfo'    => 'SubTaskInfo',
+        'asrResult'      => 'AsrResult',
         'categoryResult' => 'CategoryResult',
         'faceResult'     => 'FaceResult',
-        'templateId'     => 'TemplateId',
         'input'          => 'Input',
-        'asrResult'      => 'AsrResult',
+        'jobId'          => 'JobId',
+        'ocrResult'      => 'OcrResult',
+        'subTaskInfo'    => 'SubTaskInfo',
+        'tagResult'      => 'TagResult',
+        'template'       => 'Template',
+        'templateId'     => 'TemplateId',
+        'userData'       => 'UserData',
     ];
 
     public function validate()
@@ -90,23 +90,8 @@ class job extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tagResult) {
-            $res['TagResult'] = null !== $this->tagResult ? $this->tagResult->toMap() : null;
-        }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
-        if (null !== $this->ocrResult) {
-            $res['OcrResult'] = null !== $this->ocrResult ? $this->ocrResult->toMap() : null;
-        }
-        if (null !== $this->template) {
-            $res['Template'] = $this->template;
-        }
-        if (null !== $this->userData) {
-            $res['UserData'] = $this->userData;
-        }
-        if (null !== $this->subTaskInfo) {
-            $res['SubTaskInfo'] = null !== $this->subTaskInfo ? $this->subTaskInfo->toMap() : null;
+        if (null !== $this->asrResult) {
+            $res['AsrResult'] = null !== $this->asrResult ? $this->asrResult->toMap() : null;
         }
         if (null !== $this->categoryResult) {
             $res['CategoryResult'] = null !== $this->categoryResult ? $this->categoryResult->toMap() : null;
@@ -114,14 +99,29 @@ class job extends Model
         if (null !== $this->faceResult) {
             $res['FaceResult'] = null !== $this->faceResult ? $this->faceResult->toMap() : null;
         }
-        if (null !== $this->templateId) {
-            $res['TemplateId'] = $this->templateId;
-        }
         if (null !== $this->input) {
             $res['Input'] = null !== $this->input ? $this->input->toMap() : null;
         }
-        if (null !== $this->asrResult) {
-            $res['AsrResult'] = null !== $this->asrResult ? $this->asrResult->toMap() : null;
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->ocrResult) {
+            $res['OcrResult'] = null !== $this->ocrResult ? $this->ocrResult->toMap() : null;
+        }
+        if (null !== $this->subTaskInfo) {
+            $res['SubTaskInfo'] = null !== $this->subTaskInfo ? $this->subTaskInfo->toMap() : null;
+        }
+        if (null !== $this->tagResult) {
+            $res['TagResult'] = null !== $this->tagResult ? $this->tagResult->toMap() : null;
+        }
+        if (null !== $this->template) {
+            $res['Template'] = $this->template;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -135,23 +135,8 @@ class job extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TagResult'])) {
-            $model->tagResult = tagResult::fromMap($map['TagResult']);
-        }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
-        if (isset($map['OcrResult'])) {
-            $model->ocrResult = ocrResult::fromMap($map['OcrResult']);
-        }
-        if (isset($map['Template'])) {
-            $model->template = $map['Template'];
-        }
-        if (isset($map['UserData'])) {
-            $model->userData = $map['UserData'];
-        }
-        if (isset($map['SubTaskInfo'])) {
-            $model->subTaskInfo = subTaskInfo::fromMap($map['SubTaskInfo']);
+        if (isset($map['AsrResult'])) {
+            $model->asrResult = asrResult::fromMap($map['AsrResult']);
         }
         if (isset($map['CategoryResult'])) {
             $model->categoryResult = categoryResult::fromMap($map['CategoryResult']);
@@ -159,14 +144,29 @@ class job extends Model
         if (isset($map['FaceResult'])) {
             $model->faceResult = faceResult::fromMap($map['FaceResult']);
         }
-        if (isset($map['TemplateId'])) {
-            $model->templateId = $map['TemplateId'];
-        }
         if (isset($map['Input'])) {
             $model->input = input::fromMap($map['Input']);
         }
-        if (isset($map['AsrResult'])) {
-            $model->asrResult = asrResult::fromMap($map['AsrResult']);
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
+        if (isset($map['OcrResult'])) {
+            $model->ocrResult = ocrResult::fromMap($map['OcrResult']);
+        }
+        if (isset($map['SubTaskInfo'])) {
+            $model->subTaskInfo = subTaskInfo::fromMap($map['SubTaskInfo']);
+        }
+        if (isset($map['TagResult'])) {
+            $model->tagResult = tagResult::fromMap($map['TagResult']);
+        }
+        if (isset($map['Template'])) {
+            $model->template = $map['Template'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         return $model;

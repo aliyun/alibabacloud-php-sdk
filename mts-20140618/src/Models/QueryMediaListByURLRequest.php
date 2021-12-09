@@ -9,24 +9,14 @@ use AlibabaCloud\Tea\Model;
 class QueryMediaListByURLRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
      * @var string
      */
     public $fileURLs;
+
+    /**
+     * @var bool
+     */
+    public $includeMediaInfo;
 
     /**
      * @var bool
@@ -41,27 +31,37 @@ class QueryMediaListByURLRequest extends Model
     /**
      * @var bool
      */
-    public $includeMediaInfo;
-
-    /**
-     * @var bool
-     */
     public $includeSummaryList;
 
     /**
      * @var string
      */
     public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
+        'fileURLs'             => 'FileURLs',
+        'includeMediaInfo'     => 'IncludeMediaInfo',
+        'includePlayList'      => 'IncludePlayList',
+        'includeSnapshotList'  => 'IncludeSnapshotList',
+        'includeSummaryList'   => 'IncludeSummaryList',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'fileURLs'             => 'FileURLs',
-        'includePlayList'      => 'IncludePlayList',
-        'includeSnapshotList'  => 'IncludeSnapshotList',
-        'includeMediaInfo'     => 'IncludeMediaInfo',
-        'includeSummaryList'   => 'IncludeSummaryList',
-        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
@@ -71,6 +71,24 @@ class QueryMediaListByURLRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fileURLs) {
+            $res['FileURLs'] = $this->fileURLs;
+        }
+        if (null !== $this->includeMediaInfo) {
+            $res['IncludeMediaInfo'] = $this->includeMediaInfo;
+        }
+        if (null !== $this->includePlayList) {
+            $res['IncludePlayList'] = $this->includePlayList;
+        }
+        if (null !== $this->includeSnapshotList) {
+            $res['IncludeSnapshotList'] = $this->includeSnapshotList;
+        }
+        if (null !== $this->includeSummaryList) {
+            $res['IncludeSummaryList'] = $this->includeSummaryList;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -79,24 +97,6 @@ class QueryMediaListByURLRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->fileURLs) {
-            $res['FileURLs'] = $this->fileURLs;
-        }
-        if (null !== $this->includePlayList) {
-            $res['IncludePlayList'] = $this->includePlayList;
-        }
-        if (null !== $this->includeSnapshotList) {
-            $res['IncludeSnapshotList'] = $this->includeSnapshotList;
-        }
-        if (null !== $this->includeMediaInfo) {
-            $res['IncludeMediaInfo'] = $this->includeMediaInfo;
-        }
-        if (null !== $this->includeSummaryList) {
-            $res['IncludeSummaryList'] = $this->includeSummaryList;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -110,6 +110,24 @@ class QueryMediaListByURLRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FileURLs'])) {
+            $model->fileURLs = $map['FileURLs'];
+        }
+        if (isset($map['IncludeMediaInfo'])) {
+            $model->includeMediaInfo = $map['IncludeMediaInfo'];
+        }
+        if (isset($map['IncludePlayList'])) {
+            $model->includePlayList = $map['IncludePlayList'];
+        }
+        if (isset($map['IncludeSnapshotList'])) {
+            $model->includeSnapshotList = $map['IncludeSnapshotList'];
+        }
+        if (isset($map['IncludeSummaryList'])) {
+            $model->includeSummaryList = $map['IncludeSummaryList'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -118,24 +136,6 @@ class QueryMediaListByURLRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['FileURLs'])) {
-            $model->fileURLs = $map['FileURLs'];
-        }
-        if (isset($map['IncludePlayList'])) {
-            $model->includePlayList = $map['IncludePlayList'];
-        }
-        if (isset($map['IncludeSnapshotList'])) {
-            $model->includeSnapshotList = $map['IncludeSnapshotList'];
-        }
-        if (isset($map['IncludeMediaInfo'])) {
-            $model->includeMediaInfo = $map['IncludeMediaInfo'];
-        }
-        if (isset($map['IncludeSummaryList'])) {
-            $model->includeSummaryList = $map['IncludeSummaryList'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

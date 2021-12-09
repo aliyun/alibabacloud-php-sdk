@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class propertiesControl extends Model
 {
     /**
-     * @var string
-     */
-    public $deinterlace;
-
-    /**
      * @var crop
      */
     public $crop;
+
+    /**
+     * @var string
+     */
+    public $deinterlace;
     protected $_name = [
-        'deinterlace' => 'Deinterlace',
         'crop'        => 'Crop',
+        'deinterlace' => 'Deinterlace',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class propertiesControl extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->deinterlace) {
-            $res['Deinterlace'] = $this->deinterlace;
-        }
         if (null !== $this->crop) {
             $res['Crop'] = null !== $this->crop ? $this->crop->toMap() : null;
+        }
+        if (null !== $this->deinterlace) {
+            $res['Deinterlace'] = $this->deinterlace;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class propertiesControl extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Deinterlace'])) {
-            $model->deinterlace = $map['Deinterlace'];
-        }
         if (isset($map['Crop'])) {
             $model->crop = crop::fromMap($map['Crop']);
+        }
+        if (isset($map['Deinterlace'])) {
+            $model->deinterlace = $map['Deinterlace'];
         }
 
         return $model;

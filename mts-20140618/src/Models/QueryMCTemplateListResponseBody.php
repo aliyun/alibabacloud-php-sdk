@@ -16,18 +16,18 @@ class QueryMCTemplateListResponseBody extends Model
     public $nonExistTids;
 
     /**
-     * @var templateList
-     */
-    public $templateList;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var templateList
+     */
+    public $templateList;
     protected $_name = [
         'nonExistTids' => 'NonExistTids',
-        'templateList' => 'TemplateList',
         'requestId'    => 'RequestId',
+        'templateList' => 'TemplateList',
     ];
 
     public function validate()
@@ -40,11 +40,11 @@ class QueryMCTemplateListResponseBody extends Model
         if (null !== $this->nonExistTids) {
             $res['NonExistTids'] = null !== $this->nonExistTids ? $this->nonExistTids->toMap() : null;
         }
-        if (null !== $this->templateList) {
-            $res['TemplateList'] = null !== $this->templateList ? $this->templateList->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->templateList) {
+            $res['TemplateList'] = null !== $this->templateList ? $this->templateList->toMap() : null;
         }
 
         return $res;
@@ -61,11 +61,11 @@ class QueryMCTemplateListResponseBody extends Model
         if (isset($map['NonExistTids'])) {
             $model->nonExistTids = nonExistTids::fromMap($map['NonExistTids']);
         }
-        if (isset($map['TemplateList'])) {
-            $model->templateList = templateList::fromMap($map['TemplateList']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TemplateList'])) {
+            $model->templateList = templateList::fromMap($map['TemplateList']);
         }
 
         return $model;

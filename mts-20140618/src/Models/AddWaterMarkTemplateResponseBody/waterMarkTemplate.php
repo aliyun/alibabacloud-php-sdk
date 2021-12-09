@@ -13,7 +13,27 @@ class waterMarkTemplate extends Model
     /**
      * @var string
      */
-    public $type;
+    public $dx;
+
+    /**
+     * @var string
+     */
+    public $dy;
+
+    /**
+     * @var string
+     */
+    public $height;
+
+    /**
+     * @var string
+     */
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var ratioRefer
@@ -31,21 +51,6 @@ class waterMarkTemplate extends Model
     public $state;
 
     /**
-     * @var string
-     */
-    public $dx;
-
-    /**
-     * @var string
-     */
-    public $width;
-
-    /**
-     * @var string
-     */
-    public $height;
-
-    /**
      * @var timeline
      */
     public $timeline;
@@ -53,29 +58,24 @@ class waterMarkTemplate extends Model
     /**
      * @var string
      */
-    public $name;
+    public $type;
 
     /**
      * @var string
      */
-    public $dy;
-
-    /**
-     * @var string
-     */
-    public $id;
+    public $width;
     protected $_name = [
-        'type'       => 'Type',
+        'dx'         => 'Dx',
+        'dy'         => 'Dy',
+        'height'     => 'Height',
+        'id'         => 'Id',
+        'name'       => 'Name',
         'ratioRefer' => 'RatioRefer',
         'referPos'   => 'ReferPos',
         'state'      => 'State',
-        'dx'         => 'Dx',
-        'width'      => 'Width',
-        'height'     => 'Height',
         'timeline'   => 'Timeline',
-        'name'       => 'Name',
-        'dy'         => 'Dy',
-        'id'         => 'Id',
+        'type'       => 'Type',
+        'width'      => 'Width',
     ];
 
     public function validate()
@@ -85,8 +85,20 @@ class waterMarkTemplate extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->dx) {
+            $res['Dx'] = $this->dx;
+        }
+        if (null !== $this->dy) {
+            $res['Dy'] = $this->dy;
+        }
+        if (null !== $this->height) {
+            $res['Height'] = $this->height;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->ratioRefer) {
             $res['RatioRefer'] = null !== $this->ratioRefer ? $this->ratioRefer->toMap() : null;
@@ -97,26 +109,14 @@ class waterMarkTemplate extends Model
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
-        if (null !== $this->dx) {
-            $res['Dx'] = $this->dx;
-        }
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
-        }
-        if (null !== $this->height) {
-            $res['Height'] = $this->height;
-        }
         if (null !== $this->timeline) {
             $res['Timeline'] = null !== $this->timeline ? $this->timeline->toMap() : null;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
-        if (null !== $this->dy) {
-            $res['Dy'] = $this->dy;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -130,8 +130,20 @@ class waterMarkTemplate extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['Dx'])) {
+            $model->dx = $map['Dx'];
+        }
+        if (isset($map['Dy'])) {
+            $model->dy = $map['Dy'];
+        }
+        if (isset($map['Height'])) {
+            $model->height = $map['Height'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['RatioRefer'])) {
             $model->ratioRefer = ratioRefer::fromMap($map['RatioRefer']);
@@ -142,26 +154,14 @@ class waterMarkTemplate extends Model
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
-        if (isset($map['Dx'])) {
-            $model->dx = $map['Dx'];
-        }
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
-        }
-        if (isset($map['Height'])) {
-            $model->height = $map['Height'];
-        }
         if (isset($map['Timeline'])) {
             $model->timeline = timeline::fromMap($map['Timeline']);
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
-        if (isset($map['Dy'])) {
-            $model->dy = $map['Dy'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

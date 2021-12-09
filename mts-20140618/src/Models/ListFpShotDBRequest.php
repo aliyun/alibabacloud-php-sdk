@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListFpShotDBRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $fpDBIds;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,22 +32,12 @@ class ListFpShotDBRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $fpDBIds;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     protected $_name = [
+        'fpDBIds'              => 'FpDBIds',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'fpDBIds'              => 'FpDBIds',
-        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class ListFpShotDBRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fpDBIds) {
+            $res['FpDBIds'] = $this->fpDBIds;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -55,12 +61,6 @@ class ListFpShotDBRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->fpDBIds) {
-            $res['FpDBIds'] = $this->fpDBIds;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class ListFpShotDBRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FpDBIds'])) {
+            $model->fpDBIds = $map['FpDBIds'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -82,12 +88,6 @@ class ListFpShotDBRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['FpDBIds'])) {
-            $model->fpDBIds = $map['FpDBIds'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

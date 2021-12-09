@@ -16,16 +16,16 @@ class timelineConfigAudio extends Model
     /**
      * @var string
      */
-    public $samplerate;
+    public $channels;
 
     /**
      * @var string
      */
-    public $channels;
+    public $samplerate;
     protected $_name = [
         'channelLayout' => 'ChannelLayout',
-        'samplerate'    => 'Samplerate',
         'channels'      => 'Channels',
+        'samplerate'    => 'Samplerate',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class timelineConfigAudio extends Model
         if (null !== $this->channelLayout) {
             $res['ChannelLayout'] = $this->channelLayout;
         }
-        if (null !== $this->samplerate) {
-            $res['Samplerate'] = $this->samplerate;
-        }
         if (null !== $this->channels) {
             $res['Channels'] = $this->channels;
+        }
+        if (null !== $this->samplerate) {
+            $res['Samplerate'] = $this->samplerate;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class timelineConfigAudio extends Model
         if (isset($map['ChannelLayout'])) {
             $model->channelLayout = $map['ChannelLayout'];
         }
-        if (isset($map['Samplerate'])) {
-            $model->samplerate = $map['Samplerate'];
-        }
         if (isset($map['Channels'])) {
             $model->channels = $map['Channels'];
+        }
+        if (isset($map['Samplerate'])) {
+            $model->samplerate = $map['Samplerate'];
         }
 
         return $model;

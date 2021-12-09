@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpShotJobListResponseBody\f
 
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpShotJobListResponseBody\fpShotJobList\fpShotJob\fpShotResult\audioFpShots;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpShotJobListResponseBody\fpShotJobList\fpShotJob\fpShotResult\fpShots;
+use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpShotJobListResponseBody\fpShotJobList\fpShotJob\fpShotResult\textFpShots;
 use AlibabaCloud\Tea\Model;
 
 class fpShotResult extends Model
@@ -19,9 +20,15 @@ class fpShotResult extends Model
      * @var fpShots
      */
     public $fpShots;
+
+    /**
+     * @var textFpShots
+     */
+    public $textFpShots;
     protected $_name = [
         'audioFpShots' => 'AudioFpShots',
         'fpShots'      => 'FpShots',
+        'textFpShots'  => 'TextFpShots',
     ];
 
     public function validate()
@@ -36,6 +43,9 @@ class fpShotResult extends Model
         }
         if (null !== $this->fpShots) {
             $res['FpShots'] = null !== $this->fpShots ? $this->fpShots->toMap() : null;
+        }
+        if (null !== $this->textFpShots) {
+            $res['TextFpShots'] = null !== $this->textFpShots ? $this->textFpShots->toMap() : null;
         }
 
         return $res;
@@ -54,6 +64,9 @@ class fpShotResult extends Model
         }
         if (isset($map['FpShots'])) {
             $model->fpShots = fpShots::fromMap($map['FpShots']);
+        }
+        if (isset($map['TextFpShots'])) {
+            $model->textFpShots = textFpShots::fromMap($map['TextFpShots']);
         }
 
         return $model;

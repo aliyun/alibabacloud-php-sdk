@@ -11,17 +11,12 @@ class fpDBDeleteJob extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var string
+     */
     public $creationTime;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $finishTime;
 
     /**
      * @var string
@@ -31,12 +26,17 @@ class fpDBDeleteJob extends Model
     /**
      * @var string
      */
-    public $userData;
+    public $finishTime;
 
     /**
      * @var string
      */
-    public $code;
+    public $fpDBId;
+
+    /**
+     * @var string
+     */
+    public $id;
 
     /**
      * @var string
@@ -51,23 +51,23 @@ class fpDBDeleteJob extends Model
     /**
      * @var string
      */
-    public $fpDBId;
+    public $status;
 
     /**
      * @var string
      */
-    public $id;
+    public $userData;
     protected $_name = [
-        'creationTime' => 'CreationTime',
-        'status'       => 'Status',
-        'finishTime'   => 'FinishTime',
-        'delType'      => 'DelType',
-        'userData'     => 'UserData',
         'code'         => 'Code',
-        'message'      => 'Message',
-        'pipelineId'   => 'PipelineId',
+        'creationTime' => 'CreationTime',
+        'delType'      => 'DelType',
+        'finishTime'   => 'FinishTime',
         'fpDBId'       => 'FpDBId',
         'id'           => 'Id',
+        'message'      => 'Message',
+        'pipelineId'   => 'PipelineId',
+        'status'       => 'Status',
+        'userData'     => 'UserData',
     ];
 
     public function validate()
@@ -77,23 +77,23 @@ class fpDBDeleteJob extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->finishTime) {
-            $res['FinishTime'] = $this->finishTime;
         }
         if (null !== $this->delType) {
             $res['DelType'] = $this->delType;
         }
-        if (null !== $this->userData) {
-            $res['UserData'] = $this->userData;
+        if (null !== $this->finishTime) {
+            $res['FinishTime'] = $this->finishTime;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->fpDBId) {
+            $res['FpDBId'] = $this->fpDBId;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -101,11 +101,11 @@ class fpDBDeleteJob extends Model
         if (null !== $this->pipelineId) {
             $res['PipelineId'] = $this->pipelineId;
         }
-        if (null !== $this->fpDBId) {
-            $res['FpDBId'] = $this->fpDBId;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -119,23 +119,23 @@ class fpDBDeleteJob extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['FinishTime'])) {
-            $model->finishTime = $map['FinishTime'];
         }
         if (isset($map['DelType'])) {
             $model->delType = $map['DelType'];
         }
-        if (isset($map['UserData'])) {
-            $model->userData = $map['UserData'];
+        if (isset($map['FinishTime'])) {
+            $model->finishTime = $map['FinishTime'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['FpDBId'])) {
+            $model->fpDBId = $map['FpDBId'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -143,11 +143,11 @@ class fpDBDeleteJob extends Model
         if (isset($map['PipelineId'])) {
             $model->pipelineId = $map['PipelineId'];
         }
-        if (isset($map['FpDBId'])) {
-            $model->fpDBId = $map['FpDBId'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         return $model;

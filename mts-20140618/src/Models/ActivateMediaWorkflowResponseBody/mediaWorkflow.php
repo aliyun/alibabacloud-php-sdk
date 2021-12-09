@@ -21,12 +21,12 @@ class mediaWorkflow extends Model
     /**
      * @var string
      */
-    public $state;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $state;
 
     /**
      * @var string
@@ -35,8 +35,8 @@ class mediaWorkflow extends Model
     protected $_name = [
         'creationTime'    => 'CreationTime',
         'mediaWorkflowId' => 'MediaWorkflowId',
-        'state'           => 'State',
         'name'            => 'Name',
+        'state'           => 'State',
         'topology'        => 'Topology',
     ];
 
@@ -53,11 +53,11 @@ class mediaWorkflow extends Model
         if (null !== $this->mediaWorkflowId) {
             $res['MediaWorkflowId'] = $this->mediaWorkflowId;
         }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
         if (null !== $this->topology) {
             $res['Topology'] = $this->topology;
@@ -80,11 +80,11 @@ class mediaWorkflow extends Model
         if (isset($map['MediaWorkflowId'])) {
             $model->mediaWorkflowId = $map['MediaWorkflowId'];
         }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
         if (isset($map['Topology'])) {
             $model->topology = $map['Topology'];

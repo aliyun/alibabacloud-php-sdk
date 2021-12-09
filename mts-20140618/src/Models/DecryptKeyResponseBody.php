@@ -11,21 +11,21 @@ class DecryptKeyResponseBody extends Model
     /**
      * @var string
      */
+    public $plaintext;
+
+    /**
+     * @var string
+     */
     public $rand;
 
     /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $plaintext;
     protected $_name = [
+        'plaintext' => 'Plaintext',
         'rand'      => 'Rand',
         'requestId' => 'RequestId',
-        'plaintext' => 'Plaintext',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DecryptKeyResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->plaintext) {
+            $res['Plaintext'] = $this->plaintext;
+        }
         if (null !== $this->rand) {
             $res['Rand'] = $this->rand;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->plaintext) {
-            $res['Plaintext'] = $this->plaintext;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DecryptKeyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Plaintext'])) {
+            $model->plaintext = $map['Plaintext'];
+        }
         if (isset($map['Rand'])) {
             $model->rand = $map['Rand'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Plaintext'])) {
-            $model->plaintext = $map['Plaintext'];
         }
 
         return $model;

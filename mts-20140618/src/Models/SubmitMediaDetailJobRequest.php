@@ -9,9 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SubmitMediaDetailJobRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $input;
+
+    /**
+     * @var string
+     */
+    public $mediaDetailConfig;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $pipelineId;
 
     /**
      * @var string
@@ -26,36 +46,16 @@ class SubmitMediaDetailJobRequest extends Model
     /**
      * @var string
      */
-    public $input;
-
-    /**
-     * @var string
-     */
-    public $pipelineId;
-
-    /**
-     * @var string
-     */
-    public $mediaDetailConfig;
-
-    /**
-     * @var string
-     */
     public $userData;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     protected $_name = [
+        'input'                => 'Input',
+        'mediaDetailConfig'    => 'MediaDetailConfig',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'pipelineId'           => 'PipelineId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'input'                => 'Input',
-        'pipelineId'           => 'PipelineId',
-        'mediaDetailConfig'    => 'MediaDetailConfig',
         'userData'             => 'UserData',
-        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
@@ -65,8 +65,20 @@ class SubmitMediaDetailJobRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->input) {
+            $res['Input'] = $this->input;
+        }
+        if (null !== $this->mediaDetailConfig) {
+            $res['MediaDetailConfig'] = $this->mediaDetailConfig;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pipelineId) {
+            $res['PipelineId'] = $this->pipelineId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -74,20 +86,8 @@ class SubmitMediaDetailJobRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->input) {
-            $res['Input'] = $this->input;
-        }
-        if (null !== $this->pipelineId) {
-            $res['PipelineId'] = $this->pipelineId;
-        }
-        if (null !== $this->mediaDetailConfig) {
-            $res['MediaDetailConfig'] = $this->mediaDetailConfig;
-        }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -101,8 +101,20 @@ class SubmitMediaDetailJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Input'])) {
+            $model->input = $map['Input'];
+        }
+        if (isset($map['MediaDetailConfig'])) {
+            $model->mediaDetailConfig = $map['MediaDetailConfig'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PipelineId'])) {
+            $model->pipelineId = $map['PipelineId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -110,20 +122,8 @@ class SubmitMediaDetailJobRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['Input'])) {
-            $model->input = $map['Input'];
-        }
-        if (isset($map['PipelineId'])) {
-            $model->pipelineId = $map['PipelineId'];
-        }
-        if (isset($map['MediaDetailConfig'])) {
-            $model->mediaDetailConfig = $map['MediaDetailConfig'];
-        }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

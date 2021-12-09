@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class QueryFacerecogJobListResponseBody extends Model
 {
     /**
-     * @var string
+     * @var facerecogJobList
      */
-    public $requestId;
+    public $facerecogJobList;
 
     /**
      * @var nonExistIds
@@ -21,13 +21,13 @@ class QueryFacerecogJobListResponseBody extends Model
     public $nonExistIds;
 
     /**
-     * @var facerecogJobList
+     * @var string
      */
-    public $facerecogJobList;
+    public $requestId;
     protected $_name = [
-        'requestId'        => 'RequestId',
-        'nonExistIds'      => 'NonExistIds',
         'facerecogJobList' => 'FacerecogJobList',
+        'nonExistIds'      => 'NonExistIds',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class QueryFacerecogJobListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->facerecogJobList) {
+            $res['FacerecogJobList'] = null !== $this->facerecogJobList ? $this->facerecogJobList->toMap() : null;
         }
         if (null !== $this->nonExistIds) {
             $res['NonExistIds'] = null !== $this->nonExistIds ? $this->nonExistIds->toMap() : null;
         }
-        if (null !== $this->facerecogJobList) {
-            $res['FacerecogJobList'] = null !== $this->facerecogJobList ? $this->facerecogJobList->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class QueryFacerecogJobListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['FacerecogJobList'])) {
+            $model->facerecogJobList = facerecogJobList::fromMap($map['FacerecogJobList']);
         }
         if (isset($map['NonExistIds'])) {
             $model->nonExistIds = nonExistIds::fromMap($map['NonExistIds']);
         }
-        if (isset($map['FacerecogJobList'])) {
-            $model->facerecogJobList = facerecogJobList::fromMap($map['FacerecogJobList']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

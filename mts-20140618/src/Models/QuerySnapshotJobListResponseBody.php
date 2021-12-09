@@ -11,14 +11,9 @@ use AlibabaCloud\Tea\Model;
 class QuerySnapshotJobListResponseBody extends Model
 {
     /**
-     * @var snapshotJobList
-     */
-    public $snapshotJobList;
-
-    /**
      * @var string
      */
-    public $requestId;
+    public $nextPageToken;
 
     /**
      * @var nonExistSnapshotJobIds
@@ -28,12 +23,17 @@ class QuerySnapshotJobListResponseBody extends Model
     /**
      * @var string
      */
-    public $nextPageToken;
+    public $requestId;
+
+    /**
+     * @var snapshotJobList
+     */
+    public $snapshotJobList;
     protected $_name = [
-        'snapshotJobList'        => 'SnapshotJobList',
-        'requestId'              => 'RequestId',
-        'nonExistSnapshotJobIds' => 'NonExistSnapshotJobIds',
         'nextPageToken'          => 'NextPageToken',
+        'nonExistSnapshotJobIds' => 'NonExistSnapshotJobIds',
+        'requestId'              => 'RequestId',
+        'snapshotJobList'        => 'SnapshotJobList',
     ];
 
     public function validate()
@@ -43,17 +43,17 @@ class QuerySnapshotJobListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->snapshotJobList) {
-            $res['SnapshotJobList'] = null !== $this->snapshotJobList ? $this->snapshotJobList->toMap() : null;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->nextPageToken) {
+            $res['NextPageToken'] = $this->nextPageToken;
         }
         if (null !== $this->nonExistSnapshotJobIds) {
             $res['NonExistSnapshotJobIds'] = null !== $this->nonExistSnapshotJobIds ? $this->nonExistSnapshotJobIds->toMap() : null;
         }
-        if (null !== $this->nextPageToken) {
-            $res['NextPageToken'] = $this->nextPageToken;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->snapshotJobList) {
+            $res['SnapshotJobList'] = null !== $this->snapshotJobList ? $this->snapshotJobList->toMap() : null;
         }
 
         return $res;
@@ -67,17 +67,17 @@ class QuerySnapshotJobListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SnapshotJobList'])) {
-            $model->snapshotJobList = snapshotJobList::fromMap($map['SnapshotJobList']);
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['NextPageToken'])) {
+            $model->nextPageToken = $map['NextPageToken'];
         }
         if (isset($map['NonExistSnapshotJobIds'])) {
             $model->nonExistSnapshotJobIds = nonExistSnapshotJobIds::fromMap($map['NonExistSnapshotJobIds']);
         }
-        if (isset($map['NextPageToken'])) {
-            $model->nextPageToken = $map['NextPageToken'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SnapshotJobList'])) {
+            $model->snapshotJobList = snapshotJobList::fromMap($map['SnapshotJobList']);
         }
 
         return $model;

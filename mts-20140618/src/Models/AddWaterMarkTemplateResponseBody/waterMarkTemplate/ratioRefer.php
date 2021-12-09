@@ -16,7 +16,7 @@ class ratioRefer extends Model
     /**
      * @var string
      */
-    public $width;
+    public $dy;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class ratioRefer extends Model
     /**
      * @var string
      */
-    public $dy;
+    public $width;
     protected $_name = [
         'dx'     => 'Dx',
-        'width'  => 'Width',
-        'height' => 'Height',
         'dy'     => 'Dy',
+        'height' => 'Height',
+        'width'  => 'Width',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class ratioRefer extends Model
         if (null !== $this->dx) {
             $res['Dx'] = $this->dx;
         }
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
+        if (null !== $this->dy) {
+            $res['Dy'] = $this->dy;
         }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
-        if (null !== $this->dy) {
-            $res['Dy'] = $this->dy;
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class ratioRefer extends Model
         if (isset($map['Dx'])) {
             $model->dx = $map['Dx'];
         }
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
+        if (isset($map['Dy'])) {
+            $model->dy = $map['Dy'];
         }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
-        if (isset($map['Dy'])) {
-            $model->dy = $map['Dy'];
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

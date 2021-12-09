@@ -17,12 +17,12 @@ class clip extends Model
     /**
      * @var string
      */
-    public $out;
+    public $in;
 
     /**
      * @var string
      */
-    public $in;
+    public $out;
 
     /**
      * @var string
@@ -30,8 +30,8 @@ class clip extends Model
     public $clipID;
     protected $_name = [
         'clipsConfig' => 'ClipsConfig',
-        'out'         => 'Out',
         'in'          => 'In',
+        'out'         => 'Out',
         'clipID'      => 'clipID',
     ];
 
@@ -45,11 +45,11 @@ class clip extends Model
         if (null !== $this->clipsConfig) {
             $res['ClipsConfig'] = null !== $this->clipsConfig ? $this->clipsConfig->toMap() : null;
         }
-        if (null !== $this->out) {
-            $res['Out'] = $this->out;
-        }
         if (null !== $this->in) {
             $res['In'] = $this->in;
+        }
+        if (null !== $this->out) {
+            $res['Out'] = $this->out;
         }
         if (null !== $this->clipID) {
             $res['clipID'] = $this->clipID;
@@ -69,11 +69,11 @@ class clip extends Model
         if (isset($map['ClipsConfig'])) {
             $model->clipsConfig = clipsConfig::fromMap($map['ClipsConfig']);
         }
-        if (isset($map['Out'])) {
-            $model->out = $map['Out'];
-        }
         if (isset($map['In'])) {
             $model->in = $map['In'];
+        }
+        if (isset($map['Out'])) {
+            $model->out = $map['Out'];
         }
         if (isset($map['clipID'])) {
             $model->clipID = $map['clipID'];

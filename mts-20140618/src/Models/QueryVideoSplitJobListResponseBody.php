@@ -11,11 +11,6 @@ use AlibabaCloud\Tea\Model;
 class QueryVideoSplitJobListResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var jobList
      */
     public $jobList;
@@ -24,10 +19,15 @@ class QueryVideoSplitJobListResponseBody extends Model
      * @var nonExistIds
      */
     public $nonExistIds;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'jobList'     => 'JobList',
         'nonExistIds' => 'NonExistIds',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class QueryVideoSplitJobListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->jobList) {
             $res['JobList'] = null !== $this->jobList ? $this->jobList->toMap() : null;
         }
         if (null !== $this->nonExistIds) {
             $res['NonExistIds'] = null !== $this->nonExistIds ? $this->nonExistIds->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class QueryVideoSplitJobListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['JobList'])) {
             $model->jobList = jobList::fromMap($map['JobList']);
         }
         if (isset($map['NonExistIds'])) {
             $model->nonExistIds = nonExistIds::fromMap($map['NonExistIds']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -11,20 +11,20 @@ class sensitive extends Model
     /**
      * @var string
      */
-    public $score;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $score;
 
     /**
      * @var string
      */
     public $target;
     protected $_name = [
-        'score'  => 'Score',
         'name'   => 'Name',
+        'score'  => 'Score',
         'target' => 'Target',
     ];
 
@@ -35,11 +35,11 @@ class sensitive extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->score) {
-            $res['Score'] = $this->score;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->score) {
+            $res['Score'] = $this->score;
         }
         if (null !== $this->target) {
             $res['Target'] = $this->target;
@@ -56,11 +56,11 @@ class sensitive extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Score'])) {
-            $model->score = $map['Score'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Score'])) {
+            $model->score = $map['Score'];
         }
         if (isset($map['Target'])) {
             $model->target = $map['Target'];

@@ -14,16 +14,6 @@ use AlibabaCloud\Tea\Model;
 class pornResult extends Model
 {
     /**
-     * @var pornTexts
-     */
-    public $pornTexts;
-
-    /**
-     * @var pornVideos
-     */
-    public $pornVideos;
-
-    /**
      * @var pornAudios
      */
     public $pornAudios;
@@ -37,12 +27,22 @@ class pornResult extends Model
      * @var pornOcrs
      */
     public $pornOcrs;
+
+    /**
+     * @var pornTexts
+     */
+    public $pornTexts;
+
+    /**
+     * @var pornVideos
+     */
+    public $pornVideos;
     protected $_name = [
-        'pornTexts'  => 'PornTexts',
-        'pornVideos' => 'PornVideos',
         'pornAudios' => 'PornAudios',
         'pornImages' => 'PornImages',
         'pornOcrs'   => 'PornOcrs',
+        'pornTexts'  => 'PornTexts',
+        'pornVideos' => 'PornVideos',
     ];
 
     public function validate()
@@ -52,12 +52,6 @@ class pornResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pornTexts) {
-            $res['PornTexts'] = null !== $this->pornTexts ? $this->pornTexts->toMap() : null;
-        }
-        if (null !== $this->pornVideos) {
-            $res['PornVideos'] = null !== $this->pornVideos ? $this->pornVideos->toMap() : null;
-        }
         if (null !== $this->pornAudios) {
             $res['PornAudios'] = null !== $this->pornAudios ? $this->pornAudios->toMap() : null;
         }
@@ -66,6 +60,12 @@ class pornResult extends Model
         }
         if (null !== $this->pornOcrs) {
             $res['PornOcrs'] = null !== $this->pornOcrs ? $this->pornOcrs->toMap() : null;
+        }
+        if (null !== $this->pornTexts) {
+            $res['PornTexts'] = null !== $this->pornTexts ? $this->pornTexts->toMap() : null;
+        }
+        if (null !== $this->pornVideos) {
+            $res['PornVideos'] = null !== $this->pornVideos ? $this->pornVideos->toMap() : null;
         }
 
         return $res;
@@ -79,12 +79,6 @@ class pornResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PornTexts'])) {
-            $model->pornTexts = pornTexts::fromMap($map['PornTexts']);
-        }
-        if (isset($map['PornVideos'])) {
-            $model->pornVideos = pornVideos::fromMap($map['PornVideos']);
-        }
         if (isset($map['PornAudios'])) {
             $model->pornAudios = pornAudios::fromMap($map['PornAudios']);
         }
@@ -93,6 +87,12 @@ class pornResult extends Model
         }
         if (isset($map['PornOcrs'])) {
             $model->pornOcrs = pornOcrs::fromMap($map['PornOcrs']);
+        }
+        if (isset($map['PornTexts'])) {
+            $model->pornTexts = pornTexts::fromMap($map['PornTexts']);
+        }
+        if (isset($map['PornVideos'])) {
+            $model->pornVideos = pornVideos::fromMap($map['PornVideos']);
         }
 
         return $model;

@@ -16,18 +16,18 @@ class fpShotSlice extends Model
     public $duplication;
 
     /**
-     * @var string
-     */
-    public $similarity;
-
-    /**
      * @var input
      */
     public $input;
+
+    /**
+     * @var string
+     */
+    public $similarity;
     protected $_name = [
         'duplication' => 'Duplication',
-        'similarity'  => 'Similarity',
         'input'       => 'Input',
+        'similarity'  => 'Similarity',
     ];
 
     public function validate()
@@ -40,11 +40,11 @@ class fpShotSlice extends Model
         if (null !== $this->duplication) {
             $res['Duplication'] = null !== $this->duplication ? $this->duplication->toMap() : null;
         }
-        if (null !== $this->similarity) {
-            $res['Similarity'] = $this->similarity;
-        }
         if (null !== $this->input) {
             $res['Input'] = null !== $this->input ? $this->input->toMap() : null;
+        }
+        if (null !== $this->similarity) {
+            $res['Similarity'] = $this->similarity;
         }
 
         return $res;
@@ -61,11 +61,11 @@ class fpShotSlice extends Model
         if (isset($map['Duplication'])) {
             $model->duplication = duplication::fromMap($map['Duplication']);
         }
-        if (isset($map['Similarity'])) {
-            $model->similarity = $map['Similarity'];
-        }
         if (isset($map['Input'])) {
             $model->input = input::fromMap($map['Input']);
+        }
+        if (isset($map['Similarity'])) {
+            $model->similarity = $map['Similarity'];
         }
 
         return $model;

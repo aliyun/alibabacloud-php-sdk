@@ -11,6 +11,16 @@ class DeleteCategoryRequest extends Model
     /**
      * @var int
      */
+    public $cateId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
     public $ownerId;
 
     /**
@@ -22,22 +32,12 @@ class DeleteCategoryRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var int
-     */
-    public $cateId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     protected $_name = [
+        'cateId'               => 'CateId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'cateId'               => 'CateId',
-        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class DeleteCategoryRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cateId) {
+            $res['CateId'] = $this->cateId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -55,12 +61,6 @@ class DeleteCategoryRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->cateId) {
-            $res['CateId'] = $this->cateId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class DeleteCategoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CateId'])) {
+            $model->cateId = $map['CateId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -82,12 +88,6 @@ class DeleteCategoryRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['CateId'])) {
-            $model->cateId = $map['CateId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

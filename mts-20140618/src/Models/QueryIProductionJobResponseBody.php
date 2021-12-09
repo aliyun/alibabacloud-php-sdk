@@ -21,17 +21,12 @@ class QueryIProductionJobResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $jobId;
 
     /**
      * @var string
      */
-    public $userData;
-
-    /**
-     * @var string
-     */
-    public $state;
+    public $jobParams;
 
     /**
      * @var string
@@ -46,28 +41,33 @@ class QueryIProductionJobResponseBody extends Model
     /**
      * @var string
      */
-    public $jobParams;
-
-    /**
-     * @var string
-     */
-    public $jobId;
+    public $requestId;
 
     /**
      * @var string
      */
     public $result;
+
+    /**
+     * @var string
+     */
+    public $state;
+
+    /**
+     * @var string
+     */
+    public $userData;
     protected $_name = [
         'functionName' => 'FunctionName',
         'input'        => 'Input',
-        'requestId'    => 'RequestId',
-        'userData'     => 'UserData',
-        'state'        => 'State',
+        'jobId'        => 'JobId',
+        'jobParams'    => 'JobParams',
         'output'       => 'Output',
         'pipelineId'   => 'PipelineId',
-        'jobParams'    => 'JobParams',
-        'jobId'        => 'JobId',
+        'requestId'    => 'RequestId',
         'result'       => 'Result',
+        'state'        => 'State',
+        'userData'     => 'UserData',
     ];
 
     public function validate()
@@ -83,14 +83,11 @@ class QueryIProductionJobResponseBody extends Model
         if (null !== $this->input) {
             $res['Input'] = $this->input;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
-        if (null !== $this->userData) {
-            $res['UserData'] = $this->userData;
-        }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
+        if (null !== $this->jobParams) {
+            $res['JobParams'] = $this->jobParams;
         }
         if (null !== $this->output) {
             $res['Output'] = $this->output;
@@ -98,14 +95,17 @@ class QueryIProductionJobResponseBody extends Model
         if (null !== $this->pipelineId) {
             $res['PipelineId'] = $this->pipelineId;
         }
-        if (null !== $this->jobParams) {
-            $res['JobParams'] = $this->jobParams;
-        }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->result) {
             $res['Result'] = $this->result;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -125,14 +125,11 @@ class QueryIProductionJobResponseBody extends Model
         if (isset($map['Input'])) {
             $model->input = $map['Input'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
-        if (isset($map['UserData'])) {
-            $model->userData = $map['UserData'];
-        }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
+        if (isset($map['JobParams'])) {
+            $model->jobParams = $map['JobParams'];
         }
         if (isset($map['Output'])) {
             $model->output = $map['Output'];
@@ -140,14 +137,17 @@ class QueryIProductionJobResponseBody extends Model
         if (isset($map['PipelineId'])) {
             $model->pipelineId = $map['PipelineId'];
         }
-        if (isset($map['JobParams'])) {
-            $model->jobParams = $map['JobParams'];
-        }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         return $model;

@@ -14,12 +14,12 @@ class snapshotConfig extends Model
     /**
      * @var string
      */
-    public $time;
+    public $frameType;
 
     /**
-     * @var tileOut
+     * @var string
      */
-    public $tileOut;
+    public $height;
 
     /**
      * @var string
@@ -29,17 +29,7 @@ class snapshotConfig extends Model
     /**
      * @var string
      */
-    public $frameType;
-
-    /**
-     * @var string
-     */
-    public $width;
-
-    /**
-     * @var string
-     */
-    public $height;
+    public $num;
 
     /**
      * @var outputFile
@@ -47,24 +37,34 @@ class snapshotConfig extends Model
     public $outputFile;
 
     /**
-     * @var string
+     * @var tileOut
      */
-    public $num;
+    public $tileOut;
 
     /**
      * @var tileOutputFile
      */
     public $tileOutputFile;
+
+    /**
+     * @var string
+     */
+    public $time;
+
+    /**
+     * @var string
+     */
+    public $width;
     protected $_name = [
-        'time'           => 'Time',
-        'tileOut'        => 'TileOut',
-        'interval'       => 'Interval',
         'frameType'      => 'FrameType',
-        'width'          => 'Width',
         'height'         => 'Height',
-        'outputFile'     => 'OutputFile',
+        'interval'       => 'Interval',
         'num'            => 'Num',
+        'outputFile'     => 'OutputFile',
+        'tileOut'        => 'TileOut',
         'tileOutputFile' => 'TileOutputFile',
+        'time'           => 'Time',
+        'width'          => 'Width',
     ];
 
     public function validate()
@@ -74,32 +74,32 @@ class snapshotConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
-        }
-        if (null !== $this->tileOut) {
-            $res['TileOut'] = null !== $this->tileOut ? $this->tileOut->toMap() : null;
-        }
-        if (null !== $this->interval) {
-            $res['Interval'] = $this->interval;
-        }
         if (null !== $this->frameType) {
             $res['FrameType'] = $this->frameType;
-        }
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
         }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
-        if (null !== $this->outputFile) {
-            $res['OutputFile'] = null !== $this->outputFile ? $this->outputFile->toMap() : null;
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
         }
         if (null !== $this->num) {
             $res['Num'] = $this->num;
         }
+        if (null !== $this->outputFile) {
+            $res['OutputFile'] = null !== $this->outputFile ? $this->outputFile->toMap() : null;
+        }
+        if (null !== $this->tileOut) {
+            $res['TileOut'] = null !== $this->tileOut ? $this->tileOut->toMap() : null;
+        }
         if (null !== $this->tileOutputFile) {
             $res['TileOutputFile'] = null !== $this->tileOutputFile ? $this->tileOutputFile->toMap() : null;
+        }
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -113,32 +113,32 @@ class snapshotConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
-        }
-        if (isset($map['TileOut'])) {
-            $model->tileOut = tileOut::fromMap($map['TileOut']);
-        }
-        if (isset($map['Interval'])) {
-            $model->interval = $map['Interval'];
-        }
         if (isset($map['FrameType'])) {
             $model->frameType = $map['FrameType'];
-        }
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
         }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
-        if (isset($map['OutputFile'])) {
-            $model->outputFile = outputFile::fromMap($map['OutputFile']);
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
         }
         if (isset($map['Num'])) {
             $model->num = $map['Num'];
         }
+        if (isset($map['OutputFile'])) {
+            $model->outputFile = outputFile::fromMap($map['OutputFile']);
+        }
+        if (isset($map['TileOut'])) {
+            $model->tileOut = tileOut::fromMap($map['TileOut']);
+        }
         if (isset($map['TileOutputFile'])) {
             $model->tileOutputFile = tileOutputFile::fromMap($map['TileOutputFile']);
+        }
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

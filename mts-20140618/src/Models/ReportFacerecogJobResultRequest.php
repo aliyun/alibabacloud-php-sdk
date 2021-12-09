@@ -9,6 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ReportFacerecogJobResultRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $details;
+
+    /**
+     * @var string
+     */
+    public $facerecog;
+
+    /**
+     * @var string
+     */
+    public $jobId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,34 +42,14 @@ class ReportFacerecogJobResultRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $jobId;
-
-    /**
-     * @var string
-     */
-    public $facerecog;
-
-    /**
-     * @var string
-     */
-    public $details;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     protected $_name = [
+        'details'              => 'Details',
+        'facerecog'            => 'Facerecog',
+        'jobId'                => 'JobId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'jobId'                => 'JobId',
-        'facerecog'            => 'Facerecog',
-        'details'              => 'Details',
-        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
@@ -59,6 +59,18 @@ class ReportFacerecogJobResultRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->details) {
+            $res['Details'] = $this->details;
+        }
+        if (null !== $this->facerecog) {
+            $res['Facerecog'] = $this->facerecog;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -67,18 +79,6 @@ class ReportFacerecogJobResultRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
-        if (null !== $this->facerecog) {
-            $res['Facerecog'] = $this->facerecog;
-        }
-        if (null !== $this->details) {
-            $res['Details'] = $this->details;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -92,6 +92,18 @@ class ReportFacerecogJobResultRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Details'])) {
+            $model->details = $map['Details'];
+        }
+        if (isset($map['Facerecog'])) {
+            $model->facerecog = $map['Facerecog'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -100,18 +112,6 @@ class ReportFacerecogJobResultRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
-        if (isset($map['Facerecog'])) {
-            $model->facerecog = $map['Facerecog'];
-        }
-        if (isset($map['Details'])) {
-            $model->details = $map['Details'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

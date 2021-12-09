@@ -13,9 +13,39 @@ use AlibabaCloud\Tea\Model;
 class analysisJob extends Model
 {
     /**
+     * @var analysisConfig
+     */
+    public $analysisConfig;
+
+    /**
+     * @var string
+     */
+    public $code;
+
+    /**
      * @var string
      */
     public $creationTime;
+
+    /**
+     * @var string
+     */
+    public $id;
+
+    /**
+     * @var inputFile
+     */
+    public $inputFile;
+
+    /**
+     * @var MNSMessageResult
+     */
+    public $MNSMessageResult;
+
+    /**
+     * @var string
+     */
+    public $message;
 
     /**
      * @var int
@@ -25,17 +55,7 @@ class analysisJob extends Model
     /**
      * @var string
      */
-    public $state;
-
-    /**
-     * @var analysisConfig
-     */
-    public $analysisConfig;
-
-    /**
-     * @var string
-     */
-    public $message;
+    public $pipelineId;
 
     /**
      * @var string
@@ -43,9 +63,9 @@ class analysisJob extends Model
     public $priority;
 
     /**
-     * @var MNSMessageResult
+     * @var string
      */
-    public $MNSMessageResult;
+    public $state;
 
     /**
      * @var templateList
@@ -56,40 +76,20 @@ class analysisJob extends Model
      * @var string
      */
     public $userData;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @var inputFile
-     */
-    public $inputFile;
-
-    /**
-     * @var string
-     */
-    public $pipelineId;
-
-    /**
-     * @var string
-     */
-    public $id;
     protected $_name = [
-        'creationTime'     => 'CreationTime',
-        'percent'          => 'Percent',
-        'state'            => 'State',
         'analysisConfig'   => 'AnalysisConfig',
-        'message'          => 'Message',
-        'priority'         => 'Priority',
+        'code'             => 'Code',
+        'creationTime'     => 'CreationTime',
+        'id'               => 'Id',
+        'inputFile'        => 'InputFile',
         'MNSMessageResult' => 'MNSMessageResult',
+        'message'          => 'Message',
+        'percent'          => 'Percent',
+        'pipelineId'       => 'PipelineId',
+        'priority'         => 'Priority',
+        'state'            => 'State',
         'templateList'     => 'TemplateList',
         'userData'         => 'UserData',
-        'code'             => 'Code',
-        'inputFile'        => 'InputFile',
-        'pipelineId'       => 'PipelineId',
-        'id'               => 'Id',
     ];
 
     public function validate()
@@ -99,44 +99,44 @@ class analysisJob extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->analysisConfig) {
+            $res['AnalysisConfig'] = null !== $this->analysisConfig ? $this->analysisConfig->toMap() : null;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->percent) {
-            $res['Percent'] = $this->percent;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
+        if (null !== $this->inputFile) {
+            $res['InputFile'] = null !== $this->inputFile ? $this->inputFile->toMap() : null;
         }
-        if (null !== $this->analysisConfig) {
-            $res['AnalysisConfig'] = null !== $this->analysisConfig ? $this->analysisConfig->toMap() : null;
+        if (null !== $this->MNSMessageResult) {
+            $res['MNSMessageResult'] = null !== $this->MNSMessageResult ? $this->MNSMessageResult->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+        if (null !== $this->percent) {
+            $res['Percent'] = $this->percent;
+        }
+        if (null !== $this->pipelineId) {
+            $res['PipelineId'] = $this->pipelineId;
+        }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
-        if (null !== $this->MNSMessageResult) {
-            $res['MNSMessageResult'] = null !== $this->MNSMessageResult ? $this->MNSMessageResult->toMap() : null;
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
         if (null !== $this->templateList) {
             $res['TemplateList'] = null !== $this->templateList ? $this->templateList->toMap() : null;
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->inputFile) {
-            $res['InputFile'] = null !== $this->inputFile ? $this->inputFile->toMap() : null;
-        }
-        if (null !== $this->pipelineId) {
-            $res['PipelineId'] = $this->pipelineId;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -150,44 +150,44 @@ class analysisJob extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AnalysisConfig'])) {
+            $model->analysisConfig = analysisConfig::fromMap($map['AnalysisConfig']);
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['Percent'])) {
-            $model->percent = $map['Percent'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
+        if (isset($map['InputFile'])) {
+            $model->inputFile = inputFile::fromMap($map['InputFile']);
         }
-        if (isset($map['AnalysisConfig'])) {
-            $model->analysisConfig = analysisConfig::fromMap($map['AnalysisConfig']);
+        if (isset($map['MNSMessageResult'])) {
+            $model->MNSMessageResult = MNSMessageResult::fromMap($map['MNSMessageResult']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+        if (isset($map['Percent'])) {
+            $model->percent = $map['Percent'];
+        }
+        if (isset($map['PipelineId'])) {
+            $model->pipelineId = $map['PipelineId'];
+        }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
-        if (isset($map['MNSMessageResult'])) {
-            $model->MNSMessageResult = MNSMessageResult::fromMap($map['MNSMessageResult']);
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
         if (isset($map['TemplateList'])) {
             $model->templateList = templateList::fromMap($map['TemplateList']);
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['InputFile'])) {
-            $model->inputFile = inputFile::fromMap($map['InputFile']);
-        }
-        if (isset($map['PipelineId'])) {
-            $model->pipelineId = $map['PipelineId'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
 
         return $model;

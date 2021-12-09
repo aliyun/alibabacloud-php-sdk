@@ -11,6 +11,11 @@ class notifyConfig extends Model
     /**
      * @var string
      */
+    public $mqTag;
+
+    /**
+     * @var string
+     */
     public $mqTopic;
 
     /**
@@ -21,16 +26,11 @@ class notifyConfig extends Model
     /**
      * @var string
      */
-    public $mqTag;
-
-    /**
-     * @var string
-     */
     public $topic;
     protected $_name = [
+        'mqTag'     => 'MqTag',
         'mqTopic'   => 'MqTopic',
         'queueName' => 'QueueName',
-        'mqTag'     => 'MqTag',
         'topic'     => 'Topic',
     ];
 
@@ -41,14 +41,14 @@ class notifyConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->mqTag) {
+            $res['MqTag'] = $this->mqTag;
+        }
         if (null !== $this->mqTopic) {
             $res['MqTopic'] = $this->mqTopic;
         }
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
-        }
-        if (null !== $this->mqTag) {
-            $res['MqTag'] = $this->mqTag;
         }
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
@@ -65,14 +65,14 @@ class notifyConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MqTag'])) {
+            $model->mqTag = $map['MqTag'];
+        }
         if (isset($map['MqTopic'])) {
             $model->mqTopic = $map['MqTopic'];
         }
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];
-        }
-        if (isset($map['MqTag'])) {
-            $model->mqTag = $map['MqTag'];
         }
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];

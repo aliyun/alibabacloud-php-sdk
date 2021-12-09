@@ -11,7 +11,7 @@ class opening extends Model
     /**
      * @var string
      */
-    public $openUrl;
+    public $height;
 
     /**
      * @var string
@@ -26,12 +26,12 @@ class opening extends Model
     /**
      * @var string
      */
-    public $height;
+    public $openUrl;
     protected $_name = [
-        'openUrl' => 'openUrl',
+        'height'  => 'Height',
         'start'   => 'Start',
         'width'   => 'Width',
-        'height'  => 'Height',
+        'openUrl' => 'openUrl',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class opening extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->openUrl) {
-            $res['openUrl'] = $this->openUrl;
+        if (null !== $this->height) {
+            $res['Height'] = $this->height;
         }
         if (null !== $this->start) {
             $res['Start'] = $this->start;
@@ -50,8 +50,8 @@ class opening extends Model
         if (null !== $this->width) {
             $res['Width'] = $this->width;
         }
-        if (null !== $this->height) {
-            $res['Height'] = $this->height;
+        if (null !== $this->openUrl) {
+            $res['openUrl'] = $this->openUrl;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class opening extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['openUrl'])) {
-            $model->openUrl = $map['openUrl'];
+        if (isset($map['Height'])) {
+            $model->height = $map['Height'];
         }
         if (isset($map['Start'])) {
             $model->start = $map['Start'];
@@ -74,8 +74,8 @@ class opening extends Model
         if (isset($map['Width'])) {
             $model->width = $map['Width'];
         }
-        if (isset($map['Height'])) {
-            $model->height = $map['Height'];
+        if (isset($map['openUrl'])) {
+            $model->openUrl = $map['openUrl'];
         }
 
         return $model;

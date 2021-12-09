@@ -11,7 +11,17 @@ class asrText extends Model
     /**
      * @var string
      */
+    public $channelId;
+
+    /**
+     * @var string
+     */
     public $endTime;
+
+    /**
+     * @var string
+     */
+    public $speechRate;
 
     /**
      * @var int
@@ -21,23 +31,13 @@ class asrText extends Model
     /**
      * @var string
      */
-    public $channelId;
-
-    /**
-     * @var string
-     */
     public $text;
-
-    /**
-     * @var string
-     */
-    public $speechRate;
     protected $_name = [
-        'endTime'    => 'EndTime',
-        'startTime'  => 'StartTime',
         'channelId'  => 'ChannelId',
-        'text'       => 'Text',
+        'endTime'    => 'EndTime',
         'speechRate' => 'SpeechRate',
+        'startTime'  => 'StartTime',
+        'text'       => 'Text',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class asrText extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->channelId) {
+            $res['ChannelId'] = $this->channelId;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->speechRate) {
+            $res['SpeechRate'] = $this->speechRate;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-        if (null !== $this->channelId) {
-            $res['ChannelId'] = $this->channelId;
-        }
         if (null !== $this->text) {
             $res['Text'] = $this->text;
-        }
-        if (null !== $this->speechRate) {
-            $res['SpeechRate'] = $this->speechRate;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class asrText extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChannelId'])) {
+            $model->channelId = $map['ChannelId'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['SpeechRate'])) {
+            $model->speechRate = $map['SpeechRate'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-        if (isset($map['ChannelId'])) {
-            $model->channelId = $map['ChannelId'];
-        }
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
-        }
-        if (isset($map['SpeechRate'])) {
-            $model->speechRate = $map['SpeechRate'];
         }
 
         return $model;

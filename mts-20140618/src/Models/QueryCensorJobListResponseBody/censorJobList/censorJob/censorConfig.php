@@ -12,12 +12,12 @@ class censorConfig extends Model
     /**
      * @var string
      */
-    public $interval;
+    public $bizType;
 
     /**
      * @var string
      */
-    public $saveType;
+    public $interval;
 
     /**
      * @var outputFile
@@ -27,18 +27,18 @@ class censorConfig extends Model
     /**
      * @var string
      */
-    public $scenes;
+    public $saveType;
 
     /**
      * @var string
      */
-    public $bizType;
+    public $scenes;
     protected $_name = [
-        'interval'   => 'Interval',
-        'saveType'   => 'SaveType',
-        'outputFile' => 'OutputFile',
-        'scenes'     => 'Scenes',
         'bizType'    => 'BizType',
+        'interval'   => 'Interval',
+        'outputFile' => 'OutputFile',
+        'saveType'   => 'SaveType',
+        'scenes'     => 'Scenes',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class censorConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
+        }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
-        }
-        if (null !== $this->saveType) {
-            $res['SaveType'] = $this->saveType;
         }
         if (null !== $this->outputFile) {
             $res['OutputFile'] = null !== $this->outputFile ? $this->outputFile->toMap() : null;
         }
+        if (null !== $this->saveType) {
+            $res['SaveType'] = $this->saveType;
+        }
         if (null !== $this->scenes) {
             $res['Scenes'] = $this->scenes;
-        }
-        if (null !== $this->bizType) {
-            $res['BizType'] = $this->bizType;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class censorConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
+        }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
-        }
-        if (isset($map['SaveType'])) {
-            $model->saveType = $map['SaveType'];
         }
         if (isset($map['OutputFile'])) {
             $model->outputFile = outputFile::fromMap($map['OutputFile']);
         }
+        if (isset($map['SaveType'])) {
+            $model->saveType = $map['SaveType'];
+        }
         if (isset($map['Scenes'])) {
             $model->scenes = $map['Scenes'];
-        }
-        if (isset($map['BizType'])) {
-            $model->bizType = $map['BizType'];
         }
 
         return $model;

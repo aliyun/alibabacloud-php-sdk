@@ -11,20 +11,20 @@ class SubmitIProductionJobResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $jobId;
 
     /**
      * @var string
      */
-    public $jobId;
+    public $requestId;
 
     /**
      * @var string
      */
     public $result;
     protected $_name = [
-        'requestId' => 'RequestId',
         'jobId'     => 'JobId',
+        'requestId' => 'RequestId',
         'result'    => 'Result',
     ];
 
@@ -35,11 +35,11 @@ class SubmitIProductionJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->result) {
             $res['Result'] = $this->result;
@@ -56,11 +56,11 @@ class SubmitIProductionJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Result'])) {
             $model->result = $map['Result'];

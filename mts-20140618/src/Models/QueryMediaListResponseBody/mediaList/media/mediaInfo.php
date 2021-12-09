@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class mediaInfo extends Model
 {
     /**
-     * @var streams
-     */
-    public $streams;
-
-    /**
      * @var format
      */
     public $format;
+
+    /**
+     * @var streams
+     */
+    public $streams;
     protected $_name = [
-        'streams' => 'Streams',
         'format'  => 'Format',
+        'streams' => 'Streams',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class mediaInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->streams) {
-            $res['Streams'] = null !== $this->streams ? $this->streams->toMap() : null;
-        }
         if (null !== $this->format) {
             $res['Format'] = null !== $this->format ? $this->format->toMap() : null;
+        }
+        if (null !== $this->streams) {
+            $res['Streams'] = null !== $this->streams ? $this->streams->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class mediaInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Streams'])) {
-            $model->streams = streams::fromMap($map['Streams']);
-        }
         if (isset($map['Format'])) {
             $model->format = format::fromMap($map['Format']);
+        }
+        if (isset($map['Streams'])) {
+            $model->streams = streams::fromMap($map['Streams']);
         }
 
         return $model;

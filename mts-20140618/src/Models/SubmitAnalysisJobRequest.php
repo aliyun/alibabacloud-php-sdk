@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SubmitAnalysisJobRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
+    public $analysisConfig;
 
     /**
      * @var string
@@ -31,12 +21,12 @@ class SubmitAnalysisJobRequest extends Model
     /**
      * @var string
      */
-    public $analysisConfig;
+    public $ownerAccount;
 
     /**
-     * @var string
+     * @var int
      */
-    public $userData;
+    public $ownerId;
 
     /**
      * @var string
@@ -51,17 +41,27 @@ class SubmitAnalysisJobRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $userData;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'input'                => 'Input',
         'analysisConfig'       => 'AnalysisConfig',
-        'userData'             => 'UserData',
+        'input'                => 'Input',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
         'pipelineId'           => 'PipelineId',
         'priority'             => 'Priority',
-        'ownerAccount'         => 'OwnerAccount',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'userData'             => 'UserData',
     ];
 
     public function validate()
@@ -71,23 +71,17 @@ class SubmitAnalysisJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        if (null !== $this->analysisConfig) {
+            $res['AnalysisConfig'] = $this->analysisConfig;
         }
         if (null !== $this->input) {
             $res['Input'] = $this->input;
         }
-        if (null !== $this->analysisConfig) {
-            $res['AnalysisConfig'] = $this->analysisConfig;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
-        if (null !== $this->userData) {
-            $res['UserData'] = $this->userData;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pipelineId) {
             $res['PipelineId'] = $this->pipelineId;
@@ -95,8 +89,14 @@ class SubmitAnalysisJobRequest extends Model
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -110,23 +110,17 @@ class SubmitAnalysisJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        if (isset($map['AnalysisConfig'])) {
+            $model->analysisConfig = $map['AnalysisConfig'];
         }
         if (isset($map['Input'])) {
             $model->input = $map['Input'];
         }
-        if (isset($map['AnalysisConfig'])) {
-            $model->analysisConfig = $map['AnalysisConfig'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
-        if (isset($map['UserData'])) {
-            $model->userData = $map['UserData'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PipelineId'])) {
             $model->pipelineId = $map['PipelineId'];
@@ -134,8 +128,14 @@ class SubmitAnalysisJobRequest extends Model
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         return $model;

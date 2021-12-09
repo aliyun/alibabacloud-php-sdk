@@ -12,7 +12,12 @@ class pipeline extends Model
     /**
      * @var string
      */
-    public $state;
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var notifyConfig
@@ -27,18 +32,13 @@ class pipeline extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $id;
+    public $state;
     protected $_name = [
-        'state'        => 'State',
+        'id'           => 'Id',
+        'name'         => 'Name',
         'notifyConfig' => 'NotifyConfig',
         'priority'     => 'Priority',
-        'name'         => 'Name',
-        'id'           => 'Id',
+        'state'        => 'State',
     ];
 
     public function validate()
@@ -48,8 +48,11 @@ class pipeline extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->notifyConfig) {
             $res['NotifyConfig'] = null !== $this->notifyConfig ? $this->notifyConfig->toMap() : null;
@@ -57,11 +60,8 @@ class pipeline extends Model
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
 
         return $res;
@@ -75,8 +75,11 @@ class pipeline extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['NotifyConfig'])) {
             $model->notifyConfig = notifyConfig::fromMap($map['NotifyConfig']);
@@ -84,11 +87,8 @@ class pipeline extends Model
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
 
         return $model;

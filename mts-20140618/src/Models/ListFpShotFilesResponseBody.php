@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListFpShotFilesResponseBody extends Model
 {
     /**
-     * @var string
+     * @var fpShotFileList
      */
-    public $requestId;
+    public $fpShotFileList;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class ListFpShotFilesResponseBody extends Model
     public $nextPageToken;
 
     /**
-     * @var fpShotFileList
+     * @var string
      */
-    public $fpShotFileList;
+    public $requestId;
     protected $_name = [
-        'requestId'      => 'RequestId',
-        'nextPageToken'  => 'NextPageToken',
         'fpShotFileList' => 'FpShotFileList',
+        'nextPageToken'  => 'NextPageToken',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class ListFpShotFilesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->fpShotFileList) {
+            $res['FpShotFileList'] = null !== $this->fpShotFileList ? $this->fpShotFileList->toMap() : null;
         }
         if (null !== $this->nextPageToken) {
             $res['NextPageToken'] = $this->nextPageToken;
         }
-        if (null !== $this->fpShotFileList) {
-            $res['FpShotFileList'] = null !== $this->fpShotFileList ? $this->fpShotFileList->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class ListFpShotFilesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['FpShotFileList'])) {
+            $model->fpShotFileList = fpShotFileList::fromMap($map['FpShotFileList']);
         }
         if (isset($map['NextPageToken'])) {
             $model->nextPageToken = $map['NextPageToken'];
         }
-        if (isset($map['FpShotFileList'])) {
-            $model->fpShotFileList = fpShotFileList::fromMap($map['FpShotFileList']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -11,6 +11,31 @@ class UpdateMediaRequest extends Model
     /**
      * @var int
      */
+    public $cateId;
+
+    /**
+     * @var string
+     */
+    public $coverURL;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $mediaId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
     public $ownerId;
 
     /**
@@ -26,48 +51,23 @@ class UpdateMediaRequest extends Model
     /**
      * @var string
      */
-    public $mediaId;
-
-    /**
-     * @var string
-     */
-    public $title;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $coverURL;
-
-    /**
-     * @var int
-     */
-    public $cateId;
-
-    /**
-     * @var string
-     */
     public $tags;
 
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $title;
     protected $_name = [
+        'cateId'               => 'CateId',
+        'coverURL'             => 'CoverURL',
+        'description'          => 'Description',
+        'mediaId'              => 'MediaId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'mediaId'              => 'MediaId',
-        'title'                => 'Title',
-        'description'          => 'Description',
-        'coverURL'             => 'CoverURL',
-        'cateId'               => 'CateId',
         'tags'                 => 'Tags',
-        'ownerAccount'         => 'OwnerAccount',
+        'title'                => 'Title',
     ];
 
     public function validate()
@@ -77,6 +77,21 @@ class UpdateMediaRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cateId) {
+            $res['CateId'] = $this->cateId;
+        }
+        if (null !== $this->coverURL) {
+            $res['CoverURL'] = $this->coverURL;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->mediaId) {
+            $res['MediaId'] = $this->mediaId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -86,26 +101,11 @@ class UpdateMediaRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->mediaId) {
-            $res['MediaId'] = $this->mediaId;
-        }
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->coverURL) {
-            $res['CoverURL'] = $this->coverURL;
-        }
-        if (null !== $this->cateId) {
-            $res['CateId'] = $this->cateId;
-        }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
         }
 
         return $res;
@@ -119,6 +119,21 @@ class UpdateMediaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CateId'])) {
+            $model->cateId = $map['CateId'];
+        }
+        if (isset($map['CoverURL'])) {
+            $model->coverURL = $map['CoverURL'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['MediaId'])) {
+            $model->mediaId = $map['MediaId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -128,26 +143,11 @@ class UpdateMediaRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['MediaId'])) {
-            $model->mediaId = $map['MediaId'];
-        }
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['CoverURL'])) {
-            $model->coverURL = $map['CoverURL'];
-        }
-        if (isset($map['CateId'])) {
-            $model->cateId = $map['CateId'];
-        }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
         }
 
         return $model;

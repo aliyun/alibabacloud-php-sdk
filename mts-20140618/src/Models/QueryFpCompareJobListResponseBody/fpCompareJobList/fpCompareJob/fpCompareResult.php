@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class fpCompareResult extends Model
 {
     /**
+     * @var masterMediaInfo
+     */
+    public $masterMediaInfo;
+
+    /**
      * @var mediaMatchSegments
      */
     public $mediaMatchSegments;
@@ -20,15 +25,10 @@ class fpCompareResult extends Model
      * @var queryMediaInfo
      */
     public $queryMediaInfo;
-
-    /**
-     * @var masterMediaInfo
-     */
-    public $masterMediaInfo;
     protected $_name = [
+        'masterMediaInfo'    => 'MasterMediaInfo',
         'mediaMatchSegments' => 'MediaMatchSegments',
         'queryMediaInfo'     => 'QueryMediaInfo',
-        'masterMediaInfo'    => 'MasterMediaInfo',
     ];
 
     public function validate()
@@ -38,14 +38,14 @@ class fpCompareResult extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->masterMediaInfo) {
+            $res['MasterMediaInfo'] = null !== $this->masterMediaInfo ? $this->masterMediaInfo->toMap() : null;
+        }
         if (null !== $this->mediaMatchSegments) {
             $res['MediaMatchSegments'] = null !== $this->mediaMatchSegments ? $this->mediaMatchSegments->toMap() : null;
         }
         if (null !== $this->queryMediaInfo) {
             $res['QueryMediaInfo'] = null !== $this->queryMediaInfo ? $this->queryMediaInfo->toMap() : null;
-        }
-        if (null !== $this->masterMediaInfo) {
-            $res['MasterMediaInfo'] = null !== $this->masterMediaInfo ? $this->masterMediaInfo->toMap() : null;
         }
 
         return $res;
@@ -59,14 +59,14 @@ class fpCompareResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MasterMediaInfo'])) {
+            $model->masterMediaInfo = masterMediaInfo::fromMap($map['MasterMediaInfo']);
+        }
         if (isset($map['MediaMatchSegments'])) {
             $model->mediaMatchSegments = mediaMatchSegments::fromMap($map['MediaMatchSegments']);
         }
         if (isset($map['QueryMediaInfo'])) {
             $model->queryMediaInfo = queryMediaInfo::fromMap($map['QueryMediaInfo']);
-        }
-        if (isset($map['MasterMediaInfo'])) {
-            $model->masterMediaInfo = masterMediaInfo::fromMap($map['MasterMediaInfo']);
         }
 
         return $model;

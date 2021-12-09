@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Mts\V20140618;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ActivateMediaWorkflowRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ActivateMediaWorkflowResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\AddAsrPipelineRequest;
@@ -47,6 +48,8 @@ use AlibabaCloud\SDK\Mts\V20140618\Models\CheckResourceRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\CheckResourceResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\CreateFpShotDBRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\CreateFpShotDBResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\CreateInferenceServerRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\CreateInferenceServerResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\CreateMcuTemplateRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\CreateMcuTemplateResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\CreateSessionRequest;
@@ -79,10 +82,18 @@ use AlibabaCloud\SDK\Mts\V20140618\Models\DeleteWaterMarkTemplateRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\DeleteWaterMarkTemplateResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\DescribeMtsUserResourcePackageRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\DescribeMtsUserResourcePackageResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\DetectImageSyncRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\DetectImageSyncResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\GetJobInfoRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\GetJobInfoResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\GetLicenseRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\GetLicenseResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\GetPackageRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\GetPackageResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\ImAuditRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\ImAuditResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\ImportFpShotJobRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\ImportFpShotJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListAllCategoryRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListAllCategoryResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListAllMediaBucketRequest;
@@ -99,8 +110,12 @@ use AlibabaCloud\SDK\Mts\V20140618\Models\ListFpShotDBRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListFpShotDBResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListFpShotFilesRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListFpShotFilesResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\ListFpShotImportJobRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\ListFpShotImportJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListFpShotNotaryRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListFpShotNotaryResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\ListInferenceJobRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\ListInferenceJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\ListMediaRequest;
@@ -155,6 +170,10 @@ use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpShotJobListRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryFpShotJobListResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryImageSearchJobListRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryImageSearchJobListResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\QueryInferenceJobRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\QueryInferenceJobResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\QueryInferenceServerRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\QueryInferenceServerResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryInnerJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryInnerJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryIProductionJobListRequest;
@@ -195,6 +214,8 @@ use AlibabaCloud\SDK\Mts\V20140618\Models\QueryPornJobListRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryPornJobListResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryPornPipelineListRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QueryPornPipelineListResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\QuerySmarttagJobListRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\QuerySmarttagJobListResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QuerySmarttagJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QuerySmarttagJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\QuerySmarttagTemplateListRequest;
@@ -293,6 +314,8 @@ use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitImageQualityJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitImageQualityJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitImageSearchJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitImageSearchJobResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitInferenceJobRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitInferenceJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitInnerJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitInnerJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitIProductionJobRequest;
@@ -311,6 +334,9 @@ use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitMediaFpDeleteJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitMediaFpDeleteJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitMediaInfoJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitMediaInfoJobResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitOssFileCopyJobRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitOssFileCopyJobResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitOssFileCopyJobShrinkRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitPornJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitPornJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitSmarttagJobRequest;
@@ -323,6 +349,9 @@ use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitTagJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitTagJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitTerrorismJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitTerrorismJobResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitURLUploadJobRequest;
+use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitURLUploadJobResponse;
+use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitURLUploadJobShrinkRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitVideoGifJobRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitVideoGifJobResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\SubmitVideoPoseJobRequest;
@@ -377,9 +406,11 @@ use AlibabaCloud\SDK\Mts\V20140618\Models\UpdateTerrorismPipelineRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\UpdateTerrorismPipelineResponse;
 use AlibabaCloud\SDK\Mts\V20140618\Models\UpdateWaterMarkTemplateRequest;
 use AlibabaCloud\SDK\Mts\V20140618\Models\UpdateWaterMarkTemplateResponse;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Mts extends OpenApiClient
@@ -389,9 +420,9 @@ class Mts extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap  = [
-            'ap-northeast-2-pop'          => 'mts.ap-northeast-1.aliyuncs.com',
-            'ap-southeast-2'              => 'mts.ap-northeast-1.aliyuncs.com',
-            'ap-southeast-3'              => 'mts.ap-northeast-1.aliyuncs.com',
+            'ap-northeast-2-pop'          => 'mts.aliyuncs.com',
+            'ap-southeast-2'              => 'mts.aliyuncs.com',
+            'ap-southeast-3'              => 'mts.aliyuncs.com',
             'cn-beijing-finance-1'        => 'mts.aliyuncs.com',
             'cn-beijing-finance-pop'      => 'mts.aliyuncs.com',
             'cn-beijing-gov-1'            => 'mts.aliyuncs.com',
@@ -408,8 +439,8 @@ class Mts extends OpenApiClient
             'cn-hangzhou-internal-test-3' => 'mts.aliyuncs.com',
             'cn-hangzhou-test-306'        => 'mts.aliyuncs.com',
             'cn-hongkong-finance-pop'     => 'mts.aliyuncs.com',
+            'cn-huhehaote-nebula-1'       => 'mts.aliyuncs.com',
             'cn-north-2-gov-1'            => 'mts.aliyuncs.com',
-            'cn-qingdao'                  => 'mts.aliyuncs.com',
             'cn-qingdao-nebula'           => 'mts.aliyuncs.com',
             'cn-shanghai-et15-b01'        => 'mts.aliyuncs.com',
             'cn-shanghai-et2-b01'         => 'mts.aliyuncs.com',
@@ -421,14 +452,16 @@ class Mts extends OpenApiClient
             'cn-shenzhen-st4-d01'         => 'mts.aliyuncs.com',
             'cn-shenzhen-su18-b01'        => 'mts.aliyuncs.com',
             'cn-wuhan'                    => 'mts.aliyuncs.com',
+            'cn-wulanchabu'               => 'mts.aliyuncs.com',
             'cn-yushanfang'               => 'mts.aliyuncs.com',
+            'cn-zhangbei'                 => 'mts.aliyuncs.com',
             'cn-zhangbei-na61-b01'        => 'mts.aliyuncs.com',
             'cn-zhangjiakou-na62-a01'     => 'mts.aliyuncs.com',
             'cn-zhengzhou-nebula-1'       => 'mts.aliyuncs.com',
-            'eu-west-1-oxs'               => 'mts.ap-northeast-1.aliyuncs.com',
-            'me-east-1'                   => 'mts.ap-northeast-1.aliyuncs.com',
-            'rus-west-1-pop'              => 'mts.ap-northeast-1.aliyuncs.com',
-            'us-east-1'                   => 'mts.ap-northeast-1.aliyuncs.com',
+            'eu-west-1-oxs'               => 'mts.aliyuncs.com',
+            'me-east-1'                   => 'mts.aliyuncs.com',
+            'rus-west-1-pop'              => 'mts.aliyuncs.com',
+            'us-east-1'                   => 'mts.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('mts', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -466,11 +499,29 @@ class Mts extends OpenApiClient
     public function activateMediaWorkflowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['MediaWorkflowId']      = $request->mediaWorkflowId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ActivateMediaWorkflow',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ActivateMediaWorkflowResponse::fromMap($this->doRPCRequest('ActivateMediaWorkflow', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ActivateMediaWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -494,11 +545,31 @@ class Mts extends OpenApiClient
     public function addAsrPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Name']                 = $request->name;
+        $query['NotifyConfig']         = $request->notifyConfig;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['Priority']             = $request->priority;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddAsrPipeline',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddAsrPipelineResponse::fromMap($this->doRPCRequest('AddAsrPipeline', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddAsrPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -522,11 +593,30 @@ class Mts extends OpenApiClient
     public function addCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CateName']             = $request->cateName;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ParentId']             = $request->parentId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddCategory',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddCategoryResponse::fromMap($this->doRPCRequest('AddCategory', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -550,11 +640,31 @@ class Mts extends OpenApiClient
     public function addCensorPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Name']                 = $request->name;
+        $query['NotifyConfig']         = $request->notifyConfig;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['Priority']             = $request->priority;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddCensorPipeline',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddCensorPipelineResponse::fromMap($this->doRPCRequest('AddCensorPipeline', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddCensorPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -578,11 +688,32 @@ class Mts extends OpenApiClient
     public function addCoverPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Name']                 = $request->name;
+        $query['NotifyConfig']         = $request->notifyConfig;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['Priority']             = $request->priority;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Role']                 = $request->role;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddCoverPipeline',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddCoverPipelineResponse::fromMap($this->doRPCRequest('AddCoverPipeline', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddCoverPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -606,11 +737,39 @@ class Mts extends OpenApiClient
     public function addMCTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Abuse']                = $request->abuse;
+        $query['Ad']                   = $request->ad;
+        $query['Contraband']           = $request->contraband;
+        $query['Live']                 = $request->live;
+        $query['Logo']                 = $request->logo;
+        $query['Name']                 = $request->name;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['Politics']             = $request->politics;
+        $query['Porn']                 = $request->porn;
+        $query['Qrcode']               = $request->qrcode;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Terrorism']            = $request->terrorism;
+        $query['spam']                 = $request->spam;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddMCTemplate',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddMCTemplateResponse::fromMap($this->doRPCRequest('AddMCTemplate', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddMCTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -634,11 +793,38 @@ class Mts extends OpenApiClient
     public function addMediaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                          = [];
+        $query['CateId']                = $request->cateId;
+        $query['CoverURL']              = $request->coverURL;
+        $query['Description']           = $request->description;
+        $query['FileURL']               = $request->fileURL;
+        $query['InputUnbind']           = $request->inputUnbind;
+        $query['MediaWorkflowId']       = $request->mediaWorkflowId;
+        $query['MediaWorkflowUserData'] = $request->mediaWorkflowUserData;
+        $query['OverrideParams']        = $request->overrideParams;
+        $query['OwnerAccount']          = $request->ownerAccount;
+        $query['OwnerId']               = $request->ownerId;
+        $query['ResourceOwnerAccount']  = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']       = $request->resourceOwnerId;
+        $query['Tags']                  = $request->tags;
+        $query['Title']                 = $request->title;
+        $req                            = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddMedia',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddMediaResponse::fromMap($this->doRPCRequest('AddMedia', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddMediaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -662,11 +848,30 @@ class Mts extends OpenApiClient
     public function addMediaTagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['MediaId']              = $request->mediaId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Tag']                  = $request->tag;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddMediaTag',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddMediaTagResponse::fromMap($this->doRPCRequest('AddMediaTag', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddMediaTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -690,11 +895,31 @@ class Mts extends OpenApiClient
     public function addMediaWorkflowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Name']                 = $request->name;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Topology']             = $request->topology;
+        $query['TriggerMode']          = $request->triggerMode;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddMediaWorkflow',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddMediaWorkflowResponse::fromMap($this->doRPCRequest('AddMediaWorkflow', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddMediaWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -718,11 +943,33 @@ class Mts extends OpenApiClient
     public function addPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Name']                 = $request->name;
+        $query['NotifyConfig']         = $request->notifyConfig;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Role']                 = $request->role;
+        $query['Speed']                = $request->speed;
+        $query['SpeedLevel']           = $request->speedLevel;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddPipeline',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddPipelineResponse::fromMap($this->doRPCRequest('AddPipeline', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -746,11 +993,31 @@ class Mts extends OpenApiClient
     public function addPornPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Name']                 = $request->name;
+        $query['NotifyConfig']         = $request->notifyConfig;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['Priority']             = $request->priority;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddPornPipeline',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddPornPipelineResponse::fromMap($this->doRPCRequest('AddPornPipeline', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddPornPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -774,11 +1041,38 @@ class Mts extends OpenApiClient
     public function addSmarttagTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AnalyseTypes']         = $request->analyseTypes;
+        $query['FaceCategoryIds']      = $request->faceCategoryIds;
+        $query['Industry']             = $request->industry;
+        $query['IsDefault']            = $request->isDefault;
+        $query['KeywordConfig']        = $request->keywordConfig;
+        $query['KnowledgeConfig']      = $request->knowledgeConfig;
+        $query['LabelType']            = $request->labelType;
+        $query['LabelVersion']         = $request->labelVersion;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Scene']                = $request->scene;
+        $query['TemplateName']         = $request->templateName;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddSmarttagTemplate',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddSmarttagTemplateResponse::fromMap($this->doRPCRequest('AddSmarttagTemplate', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddSmarttagTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -802,11 +1096,34 @@ class Mts extends OpenApiClient
     public function addTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Audio']                = $request->audio;
+        $query['Container']            = $request->container;
+        $query['MuxConfig']            = $request->muxConfig;
+        $query['Name']                 = $request->name;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TransConfig']          = $request->transConfig;
+        $query['Video']                = $request->video;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddTemplate',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddTemplateResponse::fromMap($this->doRPCRequest('AddTemplate', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -830,11 +1147,31 @@ class Mts extends OpenApiClient
     public function addTerrorismPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Name']                 = $request->name;
+        $query['NotifyConfig']         = $request->notifyConfig;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['Priority']             = $request->priority;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddTerrorismPipeline',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddTerrorismPipelineResponse::fromMap($this->doRPCRequest('AddTerrorismPipeline', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddTerrorismPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -858,11 +1195,30 @@ class Mts extends OpenApiClient
     public function addWaterMarkTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Config']               = $request->config;
+        $query['Name']                 = $request->name;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddWaterMarkTemplate',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddWaterMarkTemplateResponse::fromMap($this->doRPCRequest('AddWaterMarkTemplate', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddWaterMarkTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -886,11 +1242,30 @@ class Mts extends OpenApiClient
     public function bindInputBucketWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Bucket']               = $request->bucket;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['RoleArn']              = $request->roleArn;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'BindInputBucket',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return BindInputBucketResponse::fromMap($this->doRPCRequest('BindInputBucket', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BindInputBucketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -914,11 +1289,30 @@ class Mts extends OpenApiClient
     public function bindOutputBucketWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Bucket']               = $request->bucket;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['RoleArn']              = $request->roleArn;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'BindOutputBucket',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return BindOutputBucketResponse::fromMap($this->doRPCRequest('BindOutputBucket', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BindOutputBucketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -942,11 +1336,29 @@ class Mts extends OpenApiClient
     public function cancelJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobId']                = $request->jobId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CancelJobResponse::fromMap($this->doRPCRequest('CancelJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CancelJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -970,11 +1382,28 @@ class Mts extends OpenApiClient
     public function categoryTreeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CategoryTree',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CategoryTreeResponse::fromMap($this->doRPCRequest('CategoryTree', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CategoryTreeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -998,11 +1427,38 @@ class Mts extends OpenApiClient
     public function checkResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['Bid']            = $request->bid;
+        $query['Country']        = $request->country;
+        $query['GmtWakeup']      = $request->gmtWakeup;
+        $query['Hid']            = $request->hid;
+        $query['Interrupt']      = $request->interrupt;
+        $query['Invoker']        = $request->invoker;
+        $query['Level']          = $request->level;
+        $query['Message']        = $request->message;
+        $query['Pk']             = $request->pk;
+        $query['Prompt']         = $request->prompt;
+        $query['Success']        = $request->success;
+        $query['TaskExtraData']  = $request->taskExtraData;
+        $query['TaskIdentifier'] = $request->taskIdentifier;
+        $query['Url']            = $request->url;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckResource',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CheckResourceResponse::fromMap($this->doRPCRequest('CheckResource', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CheckResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1026,11 +1482,32 @@ class Mts extends OpenApiClient
     public function createFpShotDBWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Config']               = $request->config;
+        $query['Description']          = $request->description;
+        $query['ModelId']              = $request->modelId;
+        $query['Name']                 = $request->name;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFpShotDB',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateFpShotDBResponse::fromMap($this->doRPCRequest('CreateFpShotDB', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateFpShotDBResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1046,6 +1523,53 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * @param CreateInferenceServerRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateInferenceServerResponse
+     */
+    public function createInferenceServerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                 = [];
+        $query['FunctionName'] = $request->functionName;
+        $query['ModelPath']    = $request->modelPath;
+        $query['ModelType']    = $request->modelType;
+        $query['PipelineId']   = $request->pipelineId;
+        $query['TestId']       = $request->testId;
+        $query['UserData']     = $request->userData;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateInferenceServer',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateInferenceServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateInferenceServerRequest $request
+     *
+     * @return CreateInferenceServerResponse
+     */
+    public function createInferenceServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createInferenceServerWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateMcuTemplateRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1054,11 +1578,29 @@ class Mts extends OpenApiClient
     public function createMcuTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Template']             = $request->template;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMcuTemplate',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateMcuTemplateResponse::fromMap($this->doRPCRequest('CreateMcuTemplate', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateMcuTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1082,11 +1624,31 @@ class Mts extends OpenApiClient
     public function createSessionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['EndUserId']            = $request->endUserId;
+        $query['MediaId']              = $request->mediaId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['SessionTime']          = $request->sessionTime;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSession',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateSessionResponse::fromMap($this->doRPCRequest('CreateSession', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSessionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1110,11 +1672,29 @@ class Mts extends OpenApiClient
     public function deactivateMediaWorkflowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['MediaWorkflowId']      = $request->mediaWorkflowId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeactivateMediaWorkflow',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeactivateMediaWorkflowResponse::fromMap($this->doRPCRequest('DeactivateMediaWorkflow', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeactivateMediaWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1138,11 +1718,30 @@ class Mts extends OpenApiClient
     public function decryptKeyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CiphertextBlob']       = $request->ciphertextBlob;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['Rand']                 = $request->rand;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DecryptKey',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DecryptKeyResponse::fromMap($this->doRPCRequest('DecryptKey', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DecryptKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1166,11 +1765,29 @@ class Mts extends OpenApiClient
     public function deleteCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CateId']               = $request->cateId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCategory',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteCategoryResponse::fromMap($this->doRPCRequest('DeleteCategory', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1194,11 +1811,29 @@ class Mts extends OpenApiClient
     public function deleteMCTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TemplateId']           = $request->templateId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMCTemplate',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteMCTemplateResponse::fromMap($this->doRPCRequest('DeleteMCTemplate', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteMCTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1222,11 +1857,29 @@ class Mts extends OpenApiClient
     public function deleteMcuJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobIds']               = $request->jobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMcuJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteMcuJobResponse::fromMap($this->doRPCRequest('DeleteMcuJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteMcuJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1250,11 +1903,29 @@ class Mts extends OpenApiClient
     public function deleteMcuTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TemplateId']           = $request->templateId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMcuTemplate',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteMcuTemplateResponse::fromMap($this->doRPCRequest('DeleteMcuTemplate', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteMcuTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1278,11 +1949,29 @@ class Mts extends OpenApiClient
     public function deleteMediaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['MediaIds']             = $request->mediaIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMedia',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteMediaResponse::fromMap($this->doRPCRequest('DeleteMedia', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteMediaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1306,11 +1995,30 @@ class Mts extends OpenApiClient
     public function deleteMediaTagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['MediaId']              = $request->mediaId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Tag']                  = $request->tag;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMediaTag',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteMediaTagResponse::fromMap($this->doRPCRequest('DeleteMediaTag', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteMediaTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1334,11 +2042,29 @@ class Mts extends OpenApiClient
     public function deleteMediaWorkflowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['MediaWorkflowId']      = $request->mediaWorkflowId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMediaWorkflow',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteMediaWorkflowResponse::fromMap($this->doRPCRequest('DeleteMediaWorkflow', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteMediaWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1362,11 +2088,29 @@ class Mts extends OpenApiClient
     public function deletePipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePipeline',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeletePipelineResponse::fromMap($this->doRPCRequest('DeletePipeline', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeletePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1390,11 +2134,29 @@ class Mts extends OpenApiClient
     public function deleteSmarttagTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TemplateId']           = $request->templateId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSmarttagTemplate',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteSmarttagTemplateResponse::fromMap($this->doRPCRequest('DeleteSmarttagTemplate', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteSmarttagTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1418,11 +2180,29 @@ class Mts extends OpenApiClient
     public function deleteTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TemplateId']           = $request->templateId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTemplate',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteTemplateResponse::fromMap($this->doRPCRequest('DeleteTemplate', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1446,11 +2226,29 @@ class Mts extends OpenApiClient
     public function deleteWaterMarkTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['WaterMarkTemplateId']  = $request->waterMarkTemplateId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteWaterMarkTemplate',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteWaterMarkTemplateResponse::fromMap($this->doRPCRequest('DeleteWaterMarkTemplate', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteWaterMarkTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1474,11 +2272,26 @@ class Mts extends OpenApiClient
     public function describeMtsUserResourcePackageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMtsUserResourcePackage',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeMtsUserResourcePackageResponse::fromMap($this->doRPCRequest('DescribeMtsUserResourcePackage', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeMtsUserResourcePackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1494,6 +2307,88 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * @param DetectImageSyncRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DetectImageSyncResponse
+     */
+    public function detectImageSyncWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query          = [];
+        $query['Image'] = $request->image;
+        $req            = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectImageSync',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetectImageSyncResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DetectImageSyncRequest $request
+     *
+     * @return DetectImageSyncResponse
+     */
+    public function detectImageSync($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectImageSyncWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetJobInfoRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetJobInfoResponse
+     */
+    public function getJobInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetJobInfo',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetJobInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetJobInfoRequest $request
+     *
+     * @return GetJobInfoResponse
+     */
+    public function getJobInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getJobInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetLicenseRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -1502,11 +2397,33 @@ class Mts extends OpenApiClient
     public function getLicenseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Data']                 = $request->data;
+        $query['Header']               = $request->header;
+        $query['LicenseUrl']           = $request->licenseUrl;
+        $query['MediaId']              = $request->mediaId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Type']                 = $request->type;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLicense',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetLicenseResponse::fromMap($this->doRPCRequest('GetLicense', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1530,11 +2447,29 @@ class Mts extends OpenApiClient
     public function getPackageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Data']                 = $request->data;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPackage',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetPackageResponse::fromMap($this->doRPCRequest('GetPackage', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetPackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1550,6 +2485,104 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * @param ImAuditRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return ImAuditResponse
+     */
+    public function imAuditWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                         = [];
+        $query['BizType']              = $request->bizType;
+        $query['Contents']             = $request->contents;
+        $query['Images']               = $request->images;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Scenes']               = $request->scenes;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ImAudit',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ImAuditResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ImAuditRequest $request
+     *
+     * @return ImAuditResponse
+     */
+    public function imAudit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->imAuditWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ImportFpShotJobRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ImportFpShotJobResponse
+     */
+    public function importFpShotJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                         = [];
+        $query['FpDBId']               = $request->fpDBId;
+        $query['FpImportConfig']       = $request->fpImportConfig;
+        $query['Input']                = $request->input;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ImportFpShotJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ImportFpShotJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ImportFpShotJobRequest $request
+     *
+     * @return ImportFpShotJobResponse
+     */
+    public function importFpShotJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importFpShotJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListAllCategoryRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1558,11 +2591,28 @@ class Mts extends OpenApiClient
     public function listAllCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAllCategory',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAllCategoryResponse::fromMap($this->doRPCRequest('ListAllCategory', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAllCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1586,11 +2636,30 @@ class Mts extends OpenApiClient
     public function listAllMediaBucketWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['MaximumPageSize']      = $request->maximumPageSize;
+        $query['NextPageToken']        = $request->nextPageToken;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAllMediaBucket',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAllMediaBucketResponse::fromMap($this->doRPCRequest('ListAllMediaBucket', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAllMediaBucketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1614,11 +2683,31 @@ class Mts extends OpenApiClient
     public function listAsrPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageNumber']           = $request->pageNumber;
+        $query['PageSize']             = $request->pageSize;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['State']                = $request->state;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAsrPipeline',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAsrPipelineResponse::fromMap($this->doRPCRequest('ListAsrPipeline', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAsrPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1642,11 +2731,31 @@ class Mts extends OpenApiClient
     public function listCensorPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageNumber']           = $request->pageNumber;
+        $query['PageSize']             = $request->pageSize;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['State']                = $request->state;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCensorPipeline',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListCensorPipelineResponse::fromMap($this->doRPCRequest('ListCensorPipeline', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListCensorPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1670,11 +2779,31 @@ class Mts extends OpenApiClient
     public function listCoverPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageNumber']           = $request->pageNumber;
+        $query['PageSize']             = $request->pageSize;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['State']                = $request->state;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCoverPipeline',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListCoverPipelineResponse::fromMap($this->doRPCRequest('ListCoverPipeline', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListCoverPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1698,11 +2827,30 @@ class Mts extends OpenApiClient
     public function listCustomPersonsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CategoryId']           = $request->categoryId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PersonId']             = $request->personId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCustomPersons',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListCustomPersonsResponse::fromMap($this->doRPCRequest('ListCustomPersons', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListCustomPersonsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1726,11 +2874,29 @@ class Mts extends OpenApiClient
     public function listFpShotDBWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['FpDBIds']              = $request->fpDBIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFpShotDB',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFpShotDBResponse::fromMap($this->doRPCRequest('ListFpShotDB', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFpShotDBResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1754,11 +2920,31 @@ class Mts extends OpenApiClient
     public function listFpShotFilesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['FpDBId']               = $request->fpDBId;
+        $query['NextPageToken']        = $request->nextPageToken;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageSize']             = $request->pageSize;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFpShotFiles',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFpShotFilesResponse::fromMap($this->doRPCRequest('ListFpShotFiles', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFpShotFilesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1774,6 +2960,52 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * @param ListFpShotImportJobRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListFpShotImportJobResponse
+     */
+    public function listFpShotImportJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                         = [];
+        $query['JobIds']               = $request->jobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFpShotImportJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListFpShotImportJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListFpShotImportJobRequest $request
+     *
+     * @return ListFpShotImportJobResponse
+     */
+    public function listFpShotImportJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFpShotImportJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListFpShotNotaryRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1782,11 +3014,33 @@ class Mts extends OpenApiClient
     public function listFpShotNotaryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                            = [];
+        $query['EndOfCreatedTimeRange']   = $request->endOfCreatedTimeRange;
+        $query['FpDBId']                  = $request->fpDBId;
+        $query['MaximumPageSize']         = $request->maximumPageSize;
+        $query['NextPageToken']           = $request->nextPageToken;
+        $query['OwnerAccount']            = $request->ownerAccount;
+        $query['OwnerId']                 = $request->ownerId;
+        $query['ResourceOwnerAccount']    = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']         = $request->resourceOwnerId;
+        $query['StartOfCreatedTimeRange'] = $request->startOfCreatedTimeRange;
+        $req                              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFpShotNotary',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFpShotNotaryResponse::fromMap($this->doRPCRequest('ListFpShotNotary', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListFpShotNotaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1802,6 +3056,50 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * @param ListInferenceJobRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListInferenceJobResponse
+     */
+    public function listInferenceJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                = [];
+        $query['MaxPageSize'] = $request->maxPageSize;
+        $query['PageNumber']  = $request->pageNumber;
+        $query['ServerName']  = $request->serverName;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInferenceJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListInferenceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListInferenceJobRequest $request
+     *
+     * @return ListInferenceJobResponse
+     */
+    public function listInferenceJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInferenceJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListJobRequest $request
      * @param RuntimeOptions $runtime
      *
@@ -1810,11 +3108,34 @@ class Mts extends OpenApiClient
     public function listJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                               = [];
+        $query['EndOfJobCreatedTimeRange']   = $request->endOfJobCreatedTimeRange;
+        $query['MaximumPageSize']            = $request->maximumPageSize;
+        $query['NextPageToken']              = $request->nextPageToken;
+        $query['OwnerAccount']               = $request->ownerAccount;
+        $query['OwnerId']                    = $request->ownerId;
+        $query['PipelineId']                 = $request->pipelineId;
+        $query['ResourceOwnerAccount']       = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']            = $request->resourceOwnerId;
+        $query['StartOfJobCreatedTimeRange'] = $request->startOfJobCreatedTimeRange;
+        $query['State']                      = $request->state;
+        $req                                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListJobResponse::fromMap($this->doRPCRequest('ListJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1838,11 +3159,32 @@ class Mts extends OpenApiClient
     public function listMediaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['From']                 = $request->from;
+        $query['MaximumPageSize']      = $request->maximumPageSize;
+        $query['NextPageToken']        = $request->nextPageToken;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['To']                   = $request->to;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMedia',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListMediaResponse::fromMap($this->doRPCRequest('ListMedia', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListMediaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1866,11 +3208,33 @@ class Mts extends OpenApiClient
     public function listMediaWorkflowExecutionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['InputFileURL']         = $request->inputFileURL;
+        $query['MaximumPageSize']      = $request->maximumPageSize;
+        $query['MediaWorkflowId']      = $request->mediaWorkflowId;
+        $query['MediaWorkflowName']    = $request->mediaWorkflowName;
+        $query['NextPageToken']        = $request->nextPageToken;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMediaWorkflowExecutions',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListMediaWorkflowExecutionsResponse::fromMap($this->doRPCRequest('ListMediaWorkflowExecutions', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListMediaWorkflowExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1894,11 +3258,31 @@ class Mts extends OpenApiClient
     public function listPornPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageNumber']           = $request->pageNumber;
+        $query['PageSize']             = $request->pageSize;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['State']                = $request->state;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPornPipeline',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListPornPipelineResponse::fromMap($this->doRPCRequest('ListPornPipeline', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListPornPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1922,11 +3306,31 @@ class Mts extends OpenApiClient
     public function listTerrorismPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageNumber']           = $request->pageNumber;
+        $query['PageSize']             = $request->pageSize;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['State']                = $request->state;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTerrorismPipeline',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTerrorismPipelineResponse::fromMap($this->doRPCRequest('ListTerrorismPipeline', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTerrorismPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1950,11 +3354,35 @@ class Mts extends OpenApiClient
     public function logicalDeleteResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['Bid']            = $request->bid;
+        $query['Country']        = $request->country;
+        $query['GmtWakeup']      = $request->gmtWakeup;
+        $query['Hid']            = $request->hid;
+        $query['Interrupt']      = $request->interrupt;
+        $query['Invoker']        = $request->invoker;
+        $query['Message']        = $request->message;
+        $query['Pk']             = $request->pk;
+        $query['Success']        = $request->success;
+        $query['TaskExtraData']  = $request->taskExtraData;
+        $query['TaskIdentifier'] = $request->taskIdentifier;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'LogicalDeleteResource',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return LogicalDeleteResourceResponse::fromMap($this->doRPCRequest('LogicalDeleteResource', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return LogicalDeleteResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1978,11 +3406,35 @@ class Mts extends OpenApiClient
     public function physicalDeleteResourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['Bid']            = $request->bid;
+        $query['Country']        = $request->country;
+        $query['GmtWakeup']      = $request->gmtWakeup;
+        $query['Hid']            = $request->hid;
+        $query['Interrupt']      = $request->interrupt;
+        $query['Invoker']        = $request->invoker;
+        $query['Message']        = $request->message;
+        $query['Pk']             = $request->pk;
+        $query['Success']        = $request->success;
+        $query['TaskExtraData']  = $request->taskExtraData;
+        $query['TaskIdentifier'] = $request->taskIdentifier;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'PhysicalDeleteResource',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return PhysicalDeleteResourceResponse::fromMap($this->doRPCRequest('PhysicalDeleteResource', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PhysicalDeleteResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1998,34 +3450,6 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param PlayerAuthRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return PlayerAuthResponse
-     */
-    public function playerAuthWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return PlayerAuthResponse::fromMap($this->doRPCRequest('PlayerAuth', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param PlayerAuthRequest $request
-     *
-     * @return PlayerAuthResponse
-     */
-    public function playerAuth($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->playerAuthWithOptions($request, $runtime);
-    }
-
-    /**
      * @param PlayInfoRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -2034,11 +3458,36 @@ class Mts extends OpenApiClient
     public function playInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AuthInfo']             = $request->authInfo;
+        $query['AuthTimeout']          = $request->authTimeout;
+        $query['Formats']              = $request->formats;
+        $query['HlsUriToken']          = $request->hlsUriToken;
+        $query['MediaId']              = $request->mediaId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PlayDomain']           = $request->playDomain;
+        $query['Rand']                 = $request->rand;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Terminal']             = $request->terminal;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'PlayInfo',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return PlayInfoResponse::fromMap($this->doRPCRequest('PlayInfo', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PlayInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2054,6 +3503,51 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * @param PlayerAuthRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return PlayerAuthResponse
+     */
+    public function playerAuthWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'PlayerAuth',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return PlayerAuthResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PlayerAuthRequest $request
+     *
+     * @return PlayerAuthResponse
+     */
+    public function playerAuth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->playerAuthWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryAnalysisJobListRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -2062,11 +3556,29 @@ class Mts extends OpenApiClient
     public function queryAnalysisJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AnalysisJobIds']       = $request->analysisJobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAnalysisJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryAnalysisJobListResponse::fromMap($this->doRPCRequest('QueryAnalysisJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryAnalysisJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2090,11 +3602,29 @@ class Mts extends OpenApiClient
     public function queryAnnotationJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AnnotationJobIds']     = $request->annotationJobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAnnotationJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryAnnotationJobListResponse::fromMap($this->doRPCRequest('QueryAnnotationJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryAnnotationJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2118,11 +3648,29 @@ class Mts extends OpenApiClient
     public function queryAsrJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobIds']               = $request->jobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAsrJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryAsrJobListResponse::fromMap($this->doRPCRequest('QueryAsrJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryAsrJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2146,11 +3694,29 @@ class Mts extends OpenApiClient
     public function queryAsrPipelineListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineIds']          = $request->pipelineIds;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAsrPipelineList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryAsrPipelineListResponse::fromMap($this->doRPCRequest('QueryAsrPipelineList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryAsrPipelineListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2174,11 +3740,28 @@ class Mts extends OpenApiClient
     public function queryAuthConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAuthConfig',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryAuthConfigResponse::fromMap($this->doRPCRequest('QueryAuthConfig', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryAuthConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2202,11 +3785,29 @@ class Mts extends OpenApiClient
     public function queryCensorJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobIds']               = $request->jobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCensorJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryCensorJobListResponse::fromMap($this->doRPCRequest('QueryCensorJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryCensorJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2230,11 +3831,29 @@ class Mts extends OpenApiClient
     public function queryCensorPipelineListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineIds']          = $request->pipelineIds;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCensorPipelineList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryCensorPipelineListResponse::fromMap($this->doRPCRequest('QueryCensorPipelineList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryCensorPipelineListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2258,11 +3877,29 @@ class Mts extends OpenApiClient
     public function queryComplexJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobIds']               = $request->jobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryComplexJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryComplexJobListResponse::fromMap($this->doRPCRequest('QueryComplexJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryComplexJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2286,11 +3923,35 @@ class Mts extends OpenApiClient
     public function queryCoverJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                               = [];
+        $query['CoverJobIds']                = $request->coverJobIds;
+        $query['EndOfJobCreatedTimeRange']   = $request->endOfJobCreatedTimeRange;
+        $query['MaximumPageSize']            = $request->maximumPageSize;
+        $query['NextPageToken']              = $request->nextPageToken;
+        $query['OwnerAccount']               = $request->ownerAccount;
+        $query['OwnerId']                    = $request->ownerId;
+        $query['PipelineId']                 = $request->pipelineId;
+        $query['ResourceOwnerAccount']       = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']            = $request->resourceOwnerId;
+        $query['StartOfJobCreatedTimeRange'] = $request->startOfJobCreatedTimeRange;
+        $query['State']                      = $request->state;
+        $req                                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCoverJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryCoverJobListResponse::fromMap($this->doRPCRequest('QueryCoverJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryCoverJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2314,11 +3975,29 @@ class Mts extends OpenApiClient
     public function queryCoverPipelineListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineIds']          = $request->pipelineIds;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCoverPipelineList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryCoverPipelineListResponse::fromMap($this->doRPCRequest('QueryCoverPipelineList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryCoverPipelineListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2342,11 +4021,29 @@ class Mts extends OpenApiClient
     public function queryEditingJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobIds']               = $request->jobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryEditingJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryEditingJobListResponse::fromMap($this->doRPCRequest('QueryEditingJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryEditingJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2370,11 +4067,29 @@ class Mts extends OpenApiClient
     public function queryFacerecogJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['FacerecogJobIds']      = $request->facerecogJobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryFacerecogJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryFacerecogJobListResponse::fromMap($this->doRPCRequest('QueryFacerecogJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryFacerecogJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2398,11 +4113,29 @@ class Mts extends OpenApiClient
     public function queryFpCompareJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobIds']               = $request->jobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryFpCompareJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryFpCompareJobListResponse::fromMap($this->doRPCRequest('QueryFpCompareJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryFpCompareJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2426,11 +4159,29 @@ class Mts extends OpenApiClient
     public function queryFpDBDeleteJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobIds']               = $request->jobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryFpDBDeleteJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryFpDBDeleteJobListResponse::fromMap($this->doRPCRequest('QueryFpDBDeleteJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryFpDBDeleteJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2454,11 +4205,29 @@ class Mts extends OpenApiClient
     public function queryFpFileDeleteJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobIds']               = $request->jobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryFpFileDeleteJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryFpFileDeleteJobListResponse::fromMap($this->doRPCRequest('QueryFpFileDeleteJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryFpFileDeleteJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2482,11 +4251,32 @@ class Mts extends OpenApiClient
     public function queryFpImportResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['EndTime']              = $request->endTime;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageIndex']            = $request->pageIndex;
+        $query['PageSize']             = $request->pageSize;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['StartTime']            = $request->startTime;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryFpImportResult',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryFpImportResultResponse::fromMap($this->doRPCRequest('QueryFpImportResult', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryFpImportResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2510,11 +4300,37 @@ class Mts extends OpenApiClient
     public function queryFpShotJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                               = [];
+        $query['EndOfJobCreatedTimeRange']   = $request->endOfJobCreatedTimeRange;
+        $query['JobIds']                     = $request->jobIds;
+        $query['MaximumPageSize']            = $request->maximumPageSize;
+        $query['NextPageToken']              = $request->nextPageToken;
+        $query['OwnerAccount']               = $request->ownerAccount;
+        $query['OwnerId']                    = $request->ownerId;
+        $query['PipelineId']                 = $request->pipelineId;
+        $query['PrimaryKeyList']             = $request->primaryKeyList;
+        $query['ResourceOwnerAccount']       = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']            = $request->resourceOwnerId;
+        $query['StartOfJobCreatedTimeRange'] = $request->startOfJobCreatedTimeRange;
+        $query['State']                      = $request->state;
+        $query['UserData']                   = $request->userData;
+        $req                                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryFpShotJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryFpShotJobListResponse::fromMap($this->doRPCRequest('QueryFpShotJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryFpShotJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2530,62 +4346,6 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryImageSearchJobListRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return QueryImageSearchJobListResponse
-     */
-    public function queryImageSearchJobListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryImageSearchJobListResponse::fromMap($this->doRPCRequest('QueryImageSearchJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryImageSearchJobListRequest $request
-     *
-     * @return QueryImageSearchJobListResponse
-     */
-    public function queryImageSearchJobList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryImageSearchJobListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QueryInnerJobRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return QueryInnerJobResponse
-     */
-    public function queryInnerJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryInnerJobResponse::fromMap($this->doRPCRequest('QueryInnerJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryInnerJobRequest $request
-     *
-     * @return QueryInnerJobResponse
-     */
-    public function queryInnerJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryInnerJobWithOptions($request, $runtime);
-    }
-
-    /**
      * @param QueryIProductionJobRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -2594,11 +4354,29 @@ class Mts extends OpenApiClient
     public function queryIProductionJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobId']                = $request->jobId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryIProductionJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryIProductionJobResponse::fromMap($this->doRPCRequest('QueryIProductionJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryIProductionJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2622,11 +4400,29 @@ class Mts extends OpenApiClient
     public function queryIProductionJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['IProductionJobIds']    = $request->IProductionJobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryIProductionJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryIProductionJobListResponse::fromMap($this->doRPCRequest('QueryIProductionJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryIProductionJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2642,6 +4438,184 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * @param QueryImageSearchJobListRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryImageSearchJobListResponse
+     */
+    public function queryImageSearchJobListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                         = [];
+        $query['JobIds']               = $request->jobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryImageSearchJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryImageSearchJobListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryImageSearchJobListRequest $request
+     *
+     * @return QueryImageSearchJobListResponse
+     */
+    public function queryImageSearchJobList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryImageSearchJobListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryInferenceJobRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryInferenceJobResponse
+     */
+    public function queryInferenceJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query          = [];
+        $query['JobId'] = $request->jobId;
+        $req            = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryInferenceJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryInferenceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryInferenceJobRequest $request
+     *
+     * @return QueryInferenceJobResponse
+     */
+    public function queryInferenceJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryInferenceJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryInferenceServerRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryInferenceServerResponse
+     */
+    public function queryInferenceServerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                = [];
+        $query['CreateTime']  = $request->createTime;
+        $query['MaxPageSize'] = $request->maxPageSize;
+        $query['ModelType']   = $request->modelType;
+        $query['PageNumber']  = $request->pageNumber;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryInferenceServer',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryInferenceServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryInferenceServerRequest $request
+     *
+     * @return QueryInferenceServerResponse
+     */
+    public function queryInferenceServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryInferenceServerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryInnerJobRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return QueryInnerJobResponse
+     */
+    public function queryInnerJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                         = [];
+        $query['JobId']                = $request->jobId;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryInnerJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryInnerJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryInnerJobRequest $request
+     *
+     * @return QueryInnerJobResponse
+     */
+    public function queryInnerJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryInnerJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryJobListRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -2650,11 +4624,29 @@ class Mts extends OpenApiClient
     public function queryJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobIds']               = $request->jobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryJobListResponse::fromMap($this->doRPCRequest('QueryJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2678,11 +4670,35 @@ class Mts extends OpenApiClient
     public function queryMCJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                               = [];
+        $query['EndOfJobCreatedTimeRange']   = $request->endOfJobCreatedTimeRange;
+        $query['JobIds']                     = $request->jobIds;
+        $query['MaximumPageSize']            = $request->maximumPageSize;
+        $query['NextPageToken']              = $request->nextPageToken;
+        $query['OwnerAccount']               = $request->ownerAccount;
+        $query['OwnerId']                    = $request->ownerId;
+        $query['PipelineId']                 = $request->pipelineId;
+        $query['ResourceOwnerAccount']       = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']            = $request->resourceOwnerId;
+        $query['StartOfJobCreatedTimeRange'] = $request->startOfJobCreatedTimeRange;
+        $query['State']                      = $request->state;
+        $req                                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMCJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMCJobListResponse::fromMap($this->doRPCRequest('QueryMCJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryMCJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2706,11 +4722,29 @@ class Mts extends OpenApiClient
     public function queryMCTemplateListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TemplateIds']          = $request->templateIds;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMCTemplateList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMCTemplateListResponse::fromMap($this->doRPCRequest('QueryMCTemplateList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryMCTemplateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2734,11 +4768,29 @@ class Mts extends OpenApiClient
     public function queryMcuJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobIds']               = $request->jobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMcuJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMcuJobResponse::fromMap($this->doRPCRequest('QueryMcuJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryMcuJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2762,11 +4814,29 @@ class Mts extends OpenApiClient
     public function queryMcuTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TemplateId']           = $request->templateId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMcuTemplate',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMcuTemplateResponse::fromMap($this->doRPCRequest('QueryMcuTemplate', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryMcuTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2790,11 +4860,31 @@ class Mts extends OpenApiClient
     public function queryMediaCensorJobDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobId']                = $request->jobId;
+        $query['MaximumPageSize']      = $request->maximumPageSize;
+        $query['NextPageToken']        = $request->nextPageToken;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMediaCensorJobDetail',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMediaCensorJobDetailResponse::fromMap($this->doRPCRequest('QueryMediaCensorJobDetail', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryMediaCensorJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2818,11 +4908,35 @@ class Mts extends OpenApiClient
     public function queryMediaCensorJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                               = [];
+        $query['EndOfJobCreatedTimeRange']   = $request->endOfJobCreatedTimeRange;
+        $query['JobId']                      = $request->jobId;
+        $query['MaximumPageSize']            = $request->maximumPageSize;
+        $query['NextPageToken']              = $request->nextPageToken;
+        $query['OwnerAccount']               = $request->ownerAccount;
+        $query['OwnerId']                    = $request->ownerId;
+        $query['PipelineId']                 = $request->pipelineId;
+        $query['ResourceOwnerAccount']       = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']            = $request->resourceOwnerId;
+        $query['StartOfJobCreatedTimeRange'] = $request->startOfJobCreatedTimeRange;
+        $query['State']                      = $request->state;
+        $req                                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMediaCensorJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMediaCensorJobListResponse::fromMap($this->doRPCRequest('QueryMediaCensorJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryMediaCensorJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2846,11 +4960,29 @@ class Mts extends OpenApiClient
     public function queryMediaDetailJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobIds']               = $request->jobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMediaDetailJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMediaDetailJobListResponse::fromMap($this->doRPCRequest('QueryMediaDetailJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryMediaDetailJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2874,11 +5006,29 @@ class Mts extends OpenApiClient
     public function queryMediaFpDeleteJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobIds']               = $request->jobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMediaFpDeleteJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMediaFpDeleteJobListResponse::fromMap($this->doRPCRequest('QueryMediaFpDeleteJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryMediaFpDeleteJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2902,11 +5052,29 @@ class Mts extends OpenApiClient
     public function queryMediaInfoJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['MediaInfoJobIds']      = $request->mediaInfoJobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMediaInfoJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMediaInfoJobListResponse::fromMap($this->doRPCRequest('QueryMediaInfoJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryMediaInfoJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2930,11 +5098,33 @@ class Mts extends OpenApiClient
     public function queryMediaListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['IncludeMediaInfo']     = $request->includeMediaInfo;
+        $query['IncludePlayList']      = $request->includePlayList;
+        $query['IncludeSnapshotList']  = $request->includeSnapshotList;
+        $query['IncludeSummaryList']   = $request->includeSummaryList;
+        $query['MediaIds']             = $request->mediaIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMediaList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMediaListResponse::fromMap($this->doRPCRequest('QueryMediaList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryMediaListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2958,11 +5148,33 @@ class Mts extends OpenApiClient
     public function queryMediaListByURLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['FileURLs']             = $request->fileURLs;
+        $query['IncludeMediaInfo']     = $request->includeMediaInfo;
+        $query['IncludePlayList']      = $request->includePlayList;
+        $query['IncludeSnapshotList']  = $request->includeSnapshotList;
+        $query['IncludeSummaryList']   = $request->includeSummaryList;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMediaListByURL',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMediaListByURLResponse::fromMap($this->doRPCRequest('QueryMediaListByURL', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryMediaListByURLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2986,11 +5198,29 @@ class Mts extends OpenApiClient
     public function queryMediaWorkflowExecutionListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['RunIds']               = $request->runIds;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMediaWorkflowExecutionList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMediaWorkflowExecutionListResponse::fromMap($this->doRPCRequest('QueryMediaWorkflowExecutionList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryMediaWorkflowExecutionListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3014,11 +5244,29 @@ class Mts extends OpenApiClient
     public function queryMediaWorkflowListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['MediaWorkflowIds']     = $request->mediaWorkflowIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMediaWorkflowList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryMediaWorkflowListResponse::fromMap($this->doRPCRequest('QueryMediaWorkflowList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryMediaWorkflowListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3042,11 +5290,29 @@ class Mts extends OpenApiClient
     public function queryPipelineListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineIds']          = $request->pipelineIds;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryPipelineList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryPipelineListResponse::fromMap($this->doRPCRequest('QueryPipelineList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryPipelineListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3070,11 +5336,29 @@ class Mts extends OpenApiClient
     public function queryPornJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobIds']               = $request->jobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryPornJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryPornJobListResponse::fromMap($this->doRPCRequest('QueryPornJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryPornJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3098,11 +5382,29 @@ class Mts extends OpenApiClient
     public function queryPornPipelineListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineIds']          = $request->pipelineIds;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryPornPipelineList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryPornPipelineListResponse::fromMap($this->doRPCRequest('QueryPornPipelineList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryPornPipelineListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3126,11 +5428,30 @@ class Mts extends OpenApiClient
     public function querySmarttagJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobId']                = $request->jobId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['Params']               = $request->params;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySmarttagJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QuerySmarttagJobResponse::fromMap($this->doRPCRequest('QuerySmarttagJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QuerySmarttagJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3146,6 +5467,57 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * @param QuerySmarttagJobListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QuerySmarttagJobListResponse
+     */
+    public function querySmarttagJobListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                               = [];
+        $query['EndOfJobCreatedTimeRange']   = $request->endOfJobCreatedTimeRange;
+        $query['JobIds']                     = $request->jobIds;
+        $query['MaximumPageSize']            = $request->maximumPageSize;
+        $query['NextPageToken']              = $request->nextPageToken;
+        $query['OwnerAccount']               = $request->ownerAccount;
+        $query['OwnerId']                    = $request->ownerId;
+        $query['PipelineId']                 = $request->pipelineId;
+        $query['ResourceOwnerAccount']       = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']            = $request->resourceOwnerId;
+        $query['StartOfJobCreatedTimeRange'] = $request->startOfJobCreatedTimeRange;
+        $req                                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySmarttagJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySmarttagJobListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySmarttagJobListRequest $request
+     *
+     * @return QuerySmarttagJobListResponse
+     */
+    public function querySmarttagJobList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySmarttagJobListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QuerySmarttagTemplateListRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -3154,11 +5526,29 @@ class Mts extends OpenApiClient
     public function querySmarttagTemplateListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TemplateId']           = $request->templateId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySmarttagTemplateList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QuerySmarttagTemplateListResponse::fromMap($this->doRPCRequest('QuerySmarttagTemplateList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QuerySmarttagTemplateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3182,11 +5572,35 @@ class Mts extends OpenApiClient
     public function querySnapshotJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                               = [];
+        $query['EndOfJobCreatedTimeRange']   = $request->endOfJobCreatedTimeRange;
+        $query['MaximumPageSize']            = $request->maximumPageSize;
+        $query['NextPageToken']              = $request->nextPageToken;
+        $query['OwnerAccount']               = $request->ownerAccount;
+        $query['OwnerId']                    = $request->ownerId;
+        $query['PipelineId']                 = $request->pipelineId;
+        $query['ResourceOwnerAccount']       = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']            = $request->resourceOwnerId;
+        $query['SnapshotJobIds']             = $request->snapshotJobIds;
+        $query['StartOfJobCreatedTimeRange'] = $request->startOfJobCreatedTimeRange;
+        $query['State']                      = $request->state;
+        $req                                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySnapshotJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QuerySnapshotJobListResponse::fromMap($this->doRPCRequest('QuerySnapshotJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QuerySnapshotJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3210,11 +5624,29 @@ class Mts extends OpenApiClient
     public function querySubtitleJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobIds']               = $request->jobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySubtitleJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QuerySubtitleJobListResponse::fromMap($this->doRPCRequest('QuerySubtitleJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QuerySubtitleJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3238,11 +5670,29 @@ class Mts extends OpenApiClient
     public function queryTagJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TagJobIds']            = $request->tagJobIds;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryTagJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryTagJobListResponse::fromMap($this->doRPCRequest('QueryTagJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryTagJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3266,11 +5716,29 @@ class Mts extends OpenApiClient
     public function queryTemplateListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TemplateIds']          = $request->templateIds;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryTemplateList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryTemplateListResponse::fromMap($this->doRPCRequest('QueryTemplateList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryTemplateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3294,11 +5762,29 @@ class Mts extends OpenApiClient
     public function queryTerrorismJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobIds']               = $request->jobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryTerrorismJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryTerrorismJobListResponse::fromMap($this->doRPCRequest('QueryTerrorismJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryTerrorismJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3322,11 +5808,29 @@ class Mts extends OpenApiClient
     public function queryTerrorismPipelineListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineIds']          = $request->pipelineIds;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryTerrorismPipelineList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryTerrorismPipelineListResponse::fromMap($this->doRPCRequest('QueryTerrorismPipelineList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryTerrorismPipelineListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3350,11 +5854,29 @@ class Mts extends OpenApiClient
     public function queryVideoGifJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobIds']               = $request->jobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryVideoGifJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryVideoGifJobListResponse::fromMap($this->doRPCRequest('QueryVideoGifJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryVideoGifJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3378,11 +5900,29 @@ class Mts extends OpenApiClient
     public function queryVideoPoseJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobIds']               = $request->jobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryVideoPoseJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryVideoPoseJobListResponse::fromMap($this->doRPCRequest('QueryVideoPoseJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryVideoPoseJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3406,11 +5946,26 @@ class Mts extends OpenApiClient
     public function queryVideoQualityJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query           = [];
+        $query['JobId']  = $request->jobId;
+        $query['UserId'] = $request->userId;
+        $req             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryVideoQualityJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryVideoQualityJobResponse::fromMap($this->doRPCRequest('QueryVideoQualityJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryVideoQualityJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3434,11 +5989,29 @@ class Mts extends OpenApiClient
     public function queryVideoSplitJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobIds']               = $request->jobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryVideoSplitJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryVideoSplitJobListResponse::fromMap($this->doRPCRequest('QueryVideoSplitJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryVideoSplitJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3462,11 +6035,29 @@ class Mts extends OpenApiClient
     public function queryVideoSummaryJobListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobIds']               = $request->jobIds;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryVideoSummaryJobList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryVideoSummaryJobListResponse::fromMap($this->doRPCRequest('QueryVideoSummaryJobList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryVideoSummaryJobListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3490,11 +6081,29 @@ class Mts extends OpenApiClient
     public function queryWaterMarkTemplateListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['WaterMarkTemplateIds'] = $request->waterMarkTemplateIds;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryWaterMarkTemplateList',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryWaterMarkTemplateListResponse::fromMap($this->doRPCRequest('QueryWaterMarkTemplateList', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryWaterMarkTemplateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3518,11 +6127,29 @@ class Mts extends OpenApiClient
     public function refreshCdnDomainConfigsCacheWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Domains']              = $request->domains;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshCdnDomainConfigsCache',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RefreshCdnDomainConfigsCacheResponse::fromMap($this->doRPCRequest('RefreshCdnDomainConfigsCache', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RefreshCdnDomainConfigsCacheResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3546,11 +6173,31 @@ class Mts extends OpenApiClient
     public function registerCustomFaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CategoryId']           = $request->categoryId;
+        $query['ImageUrl']             = $request->imageUrl;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PersonId']             = $request->personId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RegisterCustomFace',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RegisterCustomFaceResponse::fromMap($this->doRPCRequest('RegisterCustomFace', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RegisterCustomFaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3574,11 +6221,32 @@ class Mts extends OpenApiClient
     public function registerMediaDetailPersonWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Category']             = $request->category;
+        $query['Images']               = $request->images;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PersonLib']            = $request->personLib;
+        $query['PersonName']           = $request->personName;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RegisterMediaDetailPerson',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RegisterMediaDetailPersonResponse::fromMap($this->doRPCRequest('RegisterMediaDetailPerson', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RegisterMediaDetailPersonResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3602,11 +6270,31 @@ class Mts extends OpenApiClient
     public function registerMediaDetailScenarioWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Description']          = $request->description;
+        $query['JobId']                = $request->jobId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Scenario']             = $request->scenario;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RegisterMediaDetailScenario',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RegisterMediaDetailScenarioResponse::fromMap($this->doRPCRequest('RegisterMediaDetailScenario', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RegisterMediaDetailScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3630,11 +6318,31 @@ class Mts extends OpenApiClient
     public function reportAnnotationJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Annotation']           = $request->annotation;
+        $query['Details']              = $request->details;
+        $query['JobId']                = $request->jobId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ReportAnnotationJobResult',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ReportAnnotationJobResultResponse::fromMap($this->doRPCRequest('ReportAnnotationJobResult', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReportAnnotationJobResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3658,11 +6366,31 @@ class Mts extends OpenApiClient
     public function reportCensorJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Detail']               = $request->detail;
+        $query['JobId']                = $request->jobId;
+        $query['Label']                = $request->label;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ReportCensorJobResult',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ReportCensorJobResultResponse::fromMap($this->doRPCRequest('ReportCensorJobResult', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReportCensorJobResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3686,11 +6414,30 @@ class Mts extends OpenApiClient
     public function reportCoverJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobId']                = $request->jobId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Result']               = $request->result;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ReportCoverJobResult',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ReportCoverJobResultResponse::fromMap($this->doRPCRequest('ReportCoverJobResult', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReportCoverJobResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3714,11 +6461,31 @@ class Mts extends OpenApiClient
     public function reportFacerecogJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Details']              = $request->details;
+        $query['Facerecog']            = $request->facerecog;
+        $query['JobId']                = $request->jobId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ReportFacerecogJobResult',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ReportFacerecogJobResultResponse::fromMap($this->doRPCRequest('ReportFacerecogJobResult', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReportFacerecogJobResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3742,11 +6509,31 @@ class Mts extends OpenApiClient
     public function reportFpShotJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Details']              = $request->details;
+        $query['JobId']                = $request->jobId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Result']               = $request->result;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ReportFpShotJobResult',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ReportFpShotJobResultResponse::fromMap($this->doRPCRequest('ReportFpShotJobResult', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReportFpShotJobResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3770,11 +6557,31 @@ class Mts extends OpenApiClient
     public function reportMediaDetailJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobId']                = $request->jobId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Results']              = $request->results;
+        $query['Tag']                  = $request->tag;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ReportMediaDetailJobResult',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ReportMediaDetailJobResultResponse::fromMap($this->doRPCRequest('ReportMediaDetailJobResult', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReportMediaDetailJobResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3798,11 +6605,31 @@ class Mts extends OpenApiClient
     public function reportPornJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Detail']               = $request->detail;
+        $query['JobId']                = $request->jobId;
+        $query['Label']                = $request->label;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ReportPornJobResult',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ReportPornJobResultResponse::fromMap($this->doRPCRequest('ReportPornJobResult', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReportPornJobResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3826,11 +6653,31 @@ class Mts extends OpenApiClient
     public function reportTagJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobId']                = $request->jobId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Result']               = $request->result;
+        $query['Tag']                  = $request->tag;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ReportTagJobResult',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ReportTagJobResultResponse::fromMap($this->doRPCRequest('ReportTagJobResult', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReportTagJobResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3854,11 +6701,31 @@ class Mts extends OpenApiClient
     public function reportTerrorismJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Detail']               = $request->detail;
+        $query['JobId']                = $request->jobId;
+        $query['Label']                = $request->label;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ReportTerrorismJobResult',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ReportTerrorismJobResultResponse::fromMap($this->doRPCRequest('ReportTerrorismJobResult', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReportTerrorismJobResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3882,11 +6749,31 @@ class Mts extends OpenApiClient
     public function reportVideoSplitJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Details']              = $request->details;
+        $query['JobId']                = $request->jobId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Result']               = $request->result;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ReportVideoSplitJobResult',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ReportVideoSplitJobResultResponse::fromMap($this->doRPCRequest('ReportVideoSplitJobResult', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReportVideoSplitJobResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3910,11 +6797,38 @@ class Mts extends OpenApiClient
     public function searchMediaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CateId']               = $request->cateId;
+        $query['Description']          = $request->description;
+        $query['From']                 = $request->from;
+        $query['KeyWord']              = $request->keyWord;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageNumber']           = $request->pageNumber;
+        $query['PageSize']             = $request->pageSize;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['SortBy']               = $request->sortBy;
+        $query['Tag']                  = $request->tag;
+        $query['Title']                = $request->title;
+        $query['To']                   = $request->to;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchMedia',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SearchMediaResponse::fromMap($this->doRPCRequest('SearchMedia', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SearchMediaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3938,11 +6852,31 @@ class Mts extends OpenApiClient
     public function searchMediaWorkflowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageNumber']           = $request->pageNumber;
+        $query['PageSize']             = $request->pageSize;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['StateList']            = $request->stateList;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchMediaWorkflow',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SearchMediaWorkflowResponse::fromMap($this->doRPCRequest('SearchMediaWorkflow', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SearchMediaWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3966,11 +6900,31 @@ class Mts extends OpenApiClient
     public function searchPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageNumber']           = $request->pageNumber;
+        $query['PageSize']             = $request->pageSize;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['State']                = $request->state;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchPipeline',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SearchPipelineResponse::fromMap($this->doRPCRequest('SearchPipeline', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SearchPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3994,11 +6948,31 @@ class Mts extends OpenApiClient
     public function searchTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageNumber']           = $request->pageNumber;
+        $query['PageSize']             = $request->pageSize;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['State']                = $request->state;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchTemplate',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SearchTemplateResponse::fromMap($this->doRPCRequest('SearchTemplate', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SearchTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4022,11 +6996,31 @@ class Mts extends OpenApiClient
     public function searchWaterMarkTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageNumber']           = $request->pageNumber;
+        $query['PageSize']             = $request->pageSize;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['State']                = $request->state;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchWaterMarkTemplate',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SearchWaterMarkTemplateResponse::fromMap($this->doRPCRequest('SearchWaterMarkTemplate', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SearchWaterMarkTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4050,11 +7044,30 @@ class Mts extends OpenApiClient
     public function setAuthConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Key1']                 = $request->key1;
+        $query['Key2']                 = $request->key2;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetAuthConfig',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetAuthConfigResponse::fromMap($this->doRPCRequest('SetAuthConfig', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetAuthConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4078,11 +7091,29 @@ class Mts extends OpenApiClient
     public function stopIProductionJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['JobId']                = $request->jobId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'StopIProductionJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StopIProductionJobResponse::fromMap($this->doRPCRequest('StopIProductionJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopIProductionJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4106,11 +7137,33 @@ class Mts extends OpenApiClient
     public function submitAnalysisJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AnalysisConfig']       = $request->analysisConfig;
+        $query['Input']                = $request->input;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['Priority']             = $request->priority;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitAnalysisJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitAnalysisJobResponse::fromMap($this->doRPCRequest('SubmitAnalysisJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitAnalysisJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4134,11 +7187,32 @@ class Mts extends OpenApiClient
     public function submitAnnotationJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AnnotationConfig']     = $request->annotationConfig;
+        $query['Input']                = $request->input;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitAnnotationJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitAnnotationJobResponse::fromMap($this->doRPCRequest('SubmitAnnotationJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitAnnotationJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4162,11 +7236,32 @@ class Mts extends OpenApiClient
     public function submitAsrJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AsrConfig']            = $request->asrConfig;
+        $query['Input']                = $request->input;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitAsrJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitAsrJobResponse::fromMap($this->doRPCRequest('SubmitAsrJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitAsrJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4190,11 +7285,32 @@ class Mts extends OpenApiClient
     public function submitBeautifyJobsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Async']                = $request->async;
+        $query['BeautifyConfig']       = $request->beautifyConfig;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitBeautifyJobs',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitBeautifyJobsResponse::fromMap($this->doRPCRequest('SubmitBeautifyJobs', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitBeautifyJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4218,11 +7334,35 @@ class Mts extends OpenApiClient
     public function submitComplexJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['ComplexConfigs']       = $request->complexConfigs;
+        $query['Inputs']               = $request->inputs;
+        $query['OutputBucket']         = $request->outputBucket;
+        $query['OutputLocation']       = $request->outputLocation;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TranscodeOutput']      = $request->transcodeOutput;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitComplexJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitComplexJobResponse::fromMap($this->doRPCRequest('SubmitComplexJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitComplexJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4246,11 +7386,32 @@ class Mts extends OpenApiClient
     public function submitCoverJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CoverConfig']          = $request->coverConfig;
+        $query['Input']                = $request->input;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitCoverJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitCoverJobResponse::fromMap($this->doRPCRequest('SubmitCoverJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitCoverJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4274,11 +7435,36 @@ class Mts extends OpenApiClient
     public function submitEditingJobsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                             = [];
+        $query['EditingInputs']            = $request->editingInputs;
+        $query['EditingJobOssFileRoleArn'] = $request->editingJobOssFileRoleArn;
+        $query['EditingJobOssFileUid']     = $request->editingJobOssFileUid;
+        $query['EditingJobOutputs']        = $request->editingJobOutputs;
+        $query['EditingJobURL']            = $request->editingJobURL;
+        $query['OutputBucket']             = $request->outputBucket;
+        $query['OutputLocation']           = $request->outputLocation;
+        $query['OwnerAccount']             = $request->ownerAccount;
+        $query['OwnerId']                  = $request->ownerId;
+        $query['PipelineId']               = $request->pipelineId;
+        $query['ResourceOwnerAccount']     = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']          = $request->resourceOwnerId;
+        $req                               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitEditingJobs',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitEditingJobsResponse::fromMap($this->doRPCRequest('SubmitEditingJobs', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitEditingJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4302,11 +7488,32 @@ class Mts extends OpenApiClient
     public function submitFacerecogJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['FacerecogConfig']      = $request->facerecogConfig;
+        $query['Input']                = $request->input;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitFacerecogJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitFacerecogJobResponse::fromMap($this->doRPCRequest('SubmitFacerecogJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitFacerecogJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4330,11 +7537,34 @@ class Mts extends OpenApiClient
     public function submitFpCompareJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['FpDBId']               = $request->fpDBId;
+        $query['MasterMedia']          = $request->masterMedia;
+        $query['MatchedFrameStorage']  = $request->matchedFrameStorage;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['QueryMedia']           = $request->queryMedia;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitFpCompareJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitFpCompareJobResponse::fromMap($this->doRPCRequest('SubmitFpCompareJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitFpCompareJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4358,11 +7588,32 @@ class Mts extends OpenApiClient
     public function submitFpDBDeleteJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['DelType']              = $request->delType;
+        $query['FpDBId']               = $request->fpDBId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitFpDBDeleteJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitFpDBDeleteJobResponse::fromMap($this->doRPCRequest('SubmitFpDBDeleteJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitFpDBDeleteJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4386,11 +7637,32 @@ class Mts extends OpenApiClient
     public function submitFpFileDeleteJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['FileIds']              = $request->fileIds;
+        $query['FpDBId']               = $request->fpDBId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitFpFileDeleteJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitFpFileDeleteJobResponse::fromMap($this->doRPCRequest('SubmitFpFileDeleteJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitFpFileDeleteJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4414,11 +7686,32 @@ class Mts extends OpenApiClient
     public function submitFpShotJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['FpShotConfig']         = $request->fpShotConfig;
+        $query['Input']                = $request->input;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitFpShotJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitFpShotJobResponse::fromMap($this->doRPCRequest('SubmitFpShotJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitFpShotJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4434,6 +7727,60 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * @param SubmitIProductionJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SubmitIProductionJobResponse
+     */
+    public function submitIProductionJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                         = [];
+        $query['FunctionName']         = $request->functionName;
+        $query['Input']                = $request->input;
+        $query['JobParams']            = $request->jobParams;
+        $query['ModelId']              = $request->modelId;
+        $query['NotifyUrl']            = $request->notifyUrl;
+        $query['Output']               = $request->output;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['ScheduleParams']       = $request->scheduleParams;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitIProductionJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitIProductionJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitIProductionJobRequest $request
+     *
+     * @return SubmitIProductionJobResponse
+     */
+    public function submitIProductionJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitIProductionJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SubmitImageQualityJobRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -4442,11 +7789,31 @@ class Mts extends OpenApiClient
     public function submitImageQualityJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Input']                = $request->input;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitImageQualityJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitImageQualityJobResponse::fromMap($this->doRPCRequest('SubmitImageQualityJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitImageQualityJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4470,11 +7837,34 @@ class Mts extends OpenApiClient
     public function submitImageSearchJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Config']               = $request->config;
+        $query['FpDBId']               = $request->fpDBId;
+        $query['InputImage']           = $request->inputImage;
+        $query['InputVideo']           = $request->inputVideo;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitImageSearchJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitImageSearchJobResponse::fromMap($this->doRPCRequest('SubmitImageSearchJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitImageSearchJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4490,6 +7880,50 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * @param SubmitInferenceJobRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SubmitInferenceJobResponse
+     */
+    public function submitInferenceJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['Input']      = $request->input;
+        $query['ModelType']  = $request->modelType;
+        $query['ServerName'] = $request->serverName;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitInferenceJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitInferenceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitInferenceJobRequest $request
+     *
+     * @return SubmitInferenceJobResponse
+     */
+    public function submitInferenceJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitInferenceJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SubmitInnerJobRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -4498,11 +7932,32 @@ class Mts extends OpenApiClient
     public function submitInnerJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Config']               = $request->config;
+        $query['Images']               = $request->images;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Uid']                  = $request->uid;
+        $query['Video']                = $request->video;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitInnerJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitInnerJobResponse::fromMap($this->doRPCRequest('SubmitInnerJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitInnerJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4518,34 +7973,6 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param SubmitIProductionJobRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return SubmitIProductionJobResponse
-     */
-    public function submitIProductionJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SubmitIProductionJobResponse::fromMap($this->doRPCRequest('SubmitIProductionJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SubmitIProductionJobRequest $request
-     *
-     * @return SubmitIProductionJobResponse
-     */
-    public function submitIProductionJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->submitIProductionJobWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SubmitJobsRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -4554,11 +7981,33 @@ class Mts extends OpenApiClient
     public function submitJobsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Input']                = $request->input;
+        $query['OutputBucket']         = $request->outputBucket;
+        $query['OutputLocation']       = $request->outputLocation;
+        $query['Outputs']              = $request->outputs;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitJobs',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitJobsResponse::fromMap($this->doRPCRequest('SubmitJobs', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4582,11 +8031,34 @@ class Mts extends OpenApiClient
     public function submitMCJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CensorConfig']         = $request->censorConfig;
+        $query['Images']               = $request->images;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Texts']                = $request->texts;
+        $query['UserData']             = $request->userData;
+        $query['Video']                = $request->video;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitMCJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitMCJobResponse::fromMap($this->doRPCRequest('SubmitMCJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitMCJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4610,11 +8082,33 @@ class Mts extends OpenApiClient
     public function submitMcuJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Input']                = $request->input;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Template']             = $request->template;
+        $query['TemplateId']           = $request->templateId;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitMcuJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitMcuJobResponse::fromMap($this->doRPCRequest('SubmitMcuJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitMcuJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4638,11 +8132,37 @@ class Mts extends OpenApiClient
     public function submitMediaCensorJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Barrages']             = $request->barrages;
+        $query['CoverImages']          = $request->coverImages;
+        $query['Description']          = $request->description;
+        $query['ExternalUrl']          = $request->externalUrl;
+        $query['Input']                = $request->input;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Title']                = $request->title;
+        $query['UserData']             = $request->userData;
+        $query['VideoCensorConfig']    = $request->videoCensorConfig;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitMediaCensorJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitMediaCensorJobResponse::fromMap($this->doRPCRequest('SubmitMediaCensorJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitMediaCensorJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4666,11 +8186,32 @@ class Mts extends OpenApiClient
     public function submitMediaDetailJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Input']                = $request->input;
+        $query['MediaDetailConfig']    = $request->mediaDetailConfig;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitMediaDetailJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitMediaDetailJobResponse::fromMap($this->doRPCRequest('SubmitMediaDetailJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitMediaDetailJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4694,11 +8235,32 @@ class Mts extends OpenApiClient
     public function submitMediaFpDeleteJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['FpDBId']               = $request->fpDBId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['PrimaryKey']           = $request->primaryKey;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitMediaFpDeleteJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitMediaFpDeleteJobResponse::fromMap($this->doRPCRequest('SubmitMediaFpDeleteJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitMediaFpDeleteJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4722,11 +8284,32 @@ class Mts extends OpenApiClient
     public function submitMediaInfoJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Async']                = $request->async;
+        $query['Input']                = $request->input;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitMediaInfoJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitMediaInfoJobResponse::fromMap($this->doRPCRequest('SubmitMediaInfoJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitMediaInfoJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4742,6 +8325,60 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * @param SubmitOssFileCopyJobRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SubmitOssFileCopyJobResponse
+     */
+    public function submitOssFileCopyJobWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SubmitOssFileCopyJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->sourceStorage)) {
+            $request->sourceStorageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->sourceStorage), 'SourceStorage', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->targetStorage)) {
+            $request->targetStorageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->targetStorage), 'TargetStorage', 'json');
+        }
+        $query                  = [];
+        $query['Notify']        = $request->notify;
+        $query['Region']        = $request->region;
+        $query['SourceStorage'] = $request->sourceStorageShrink;
+        $query['TargetStorage'] = $request->targetStorageShrink;
+        $query['UserData']      = $request->userData;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitOssFileCopyJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitOssFileCopyJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitOssFileCopyJobRequest $request
+     *
+     * @return SubmitOssFileCopyJobResponse
+     */
+    public function submitOssFileCopyJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitOssFileCopyJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SubmitPornJobRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -4750,11 +8387,32 @@ class Mts extends OpenApiClient
     public function submitPornJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Input']                = $request->input;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['PornConfig']           = $request->pornConfig;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitPornJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitPornJobResponse::fromMap($this->doRPCRequest('SubmitPornJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitPornJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4778,11 +8436,38 @@ class Mts extends OpenApiClient
     public function submitSmarttagJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Content']              = $request->content;
+        $query['ContentAddr']          = $request->contentAddr;
+        $query['ContentType']          = $request->contentType;
+        $query['Input']                = $request->input;
+        $query['NotifyUrl']            = $request->notifyUrl;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['Params']               = $request->params;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TemplateId']           = $request->templateId;
+        $query['Title']                = $request->title;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitSmarttagJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitSmarttagJobResponse::fromMap($this->doRPCRequest('SubmitSmarttagJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitSmarttagJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4806,11 +8491,32 @@ class Mts extends OpenApiClient
     public function submitSnapshotJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Input']                = $request->input;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['SnapshotConfig']       = $request->snapshotConfig;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitSnapshotJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitSnapshotJobResponse::fromMap($this->doRPCRequest('SubmitSnapshotJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitSnapshotJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4834,11 +8540,32 @@ class Mts extends OpenApiClient
     public function submitSubtitleJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['InputConfig']          = $request->inputConfig;
+        $query['OutputConfig']         = $request->outputConfig;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitSubtitleJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitSubtitleJobResponse::fromMap($this->doRPCRequest('SubmitSubtitleJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitSubtitleJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4862,11 +8589,32 @@ class Mts extends OpenApiClient
     public function submitTagJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Input']                = $request->input;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TagConfig']            = $request->tagConfig;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitTagJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitTagJobResponse::fromMap($this->doRPCRequest('SubmitTagJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitTagJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4890,11 +8638,32 @@ class Mts extends OpenApiClient
     public function submitTerrorismJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Input']                = $request->input;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TerrorismConfig']      = $request->terrorismConfig;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitTerrorismJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitTerrorismJobResponse::fromMap($this->doRPCRequest('SubmitTerrorismJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitTerrorismJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4910,6 +8679,57 @@ class Mts extends OpenApiClient
     }
 
     /**
+     * @param SubmitURLUploadJobRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SubmitURLUploadJobResponse
+     */
+    public function submitURLUploadJobWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SubmitURLUploadJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->targetStorage)) {
+            $request->targetStorageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->targetStorage), 'TargetStorage', 'json');
+        }
+        $query                  = [];
+        $query['Notify']        = $request->notify;
+        $query['Region']        = $request->region;
+        $query['SourceFileURL'] = $request->sourceFileURL;
+        $query['TargetStorage'] = $request->targetStorageShrink;
+        $query['UserData']      = $request->userData;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitURLUploadJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitURLUploadJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitURLUploadJobRequest $request
+     *
+     * @return SubmitURLUploadJobResponse
+     */
+    public function submitURLUploadJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitURLUploadJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SubmitVideoGifJobRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -4918,11 +8738,32 @@ class Mts extends OpenApiClient
     public function submitVideoGifJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Input']                = $request->input;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['UserData']             = $request->userData;
+        $query['VideoGifConfig']       = $request->videoGifConfig;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitVideoGifJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitVideoGifJobResponse::fromMap($this->doRPCRequest('SubmitVideoGifJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitVideoGifJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4946,11 +8787,32 @@ class Mts extends OpenApiClient
     public function submitVideoPoseJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Input']                = $request->input;
+        $query['OutputConfig']         = $request->outputConfig;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['UserData']             = $request->userData;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitVideoPoseJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitVideoPoseJobResponse::fromMap($this->doRPCRequest('SubmitVideoPoseJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitVideoPoseJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4974,11 +8836,34 @@ class Mts extends OpenApiClient
     public function submitVideoQualityJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['Input']          = $request->input;
+        $query['JobParams']      = $request->jobParams;
+        $query['ModelId']        = $request->modelId;
+        $query['NotifyUrl']      = $request->notifyUrl;
+        $query['Output']         = $request->output;
+        $query['PipelineId']     = $request->pipelineId;
+        $query['ScheduleParams'] = $request->scheduleParams;
+        $query['SourceType']     = $request->sourceType;
+        $query['UserData']       = $request->userData;
+        $query['UserId']         = $request->userId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitVideoQualityJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitVideoQualityJobResponse::fromMap($this->doRPCRequest('SubmitVideoQualityJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitVideoQualityJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5002,11 +8887,32 @@ class Mts extends OpenApiClient
     public function submitVideoSplitJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Input']                = $request->input;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['UserData']             = $request->userData;
+        $query['VideoSplitConfig']     = $request->videoSplitConfig;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitVideoSplitJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitVideoSplitJobResponse::fromMap($this->doRPCRequest('SubmitVideoSplitJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitVideoSplitJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5030,11 +8936,32 @@ class Mts extends OpenApiClient
     public function submitVideoSummaryJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Input']                = $request->input;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['UserData']             = $request->userData;
+        $query['VideoSummaryConfig']   = $request->videoSummaryConfig;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitVideoSummaryJob',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitVideoSummaryJobResponse::fromMap($this->doRPCRequest('SubmitVideoSummaryJob', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitVideoSummaryJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5058,11 +8985,34 @@ class Mts extends OpenApiClient
     public function tagCustomPersonWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CategoryDescription']  = $request->categoryDescription;
+        $query['CategoryId']           = $request->categoryId;
+        $query['CategoryName']         = $request->categoryName;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PersonDescription']    = $request->personDescription;
+        $query['PersonId']             = $request->personId;
+        $query['PersonName']           = $request->personName;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'TagCustomPerson',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return TagCustomPersonResponse::fromMap($this->doRPCRequest('TagCustomPerson', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TagCustomPersonResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5086,11 +9036,30 @@ class Mts extends OpenApiClient
     public function unbindInputBucketWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Bucket']               = $request->bucket;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['RoleArn']              = $request->roleArn;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindInputBucket',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UnbindInputBucketResponse::fromMap($this->doRPCRequest('UnbindInputBucket', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnbindInputBucketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5114,11 +9083,29 @@ class Mts extends OpenApiClient
     public function unbindOutputBucketWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Bucket']               = $request->bucket;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindOutputBucket',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UnbindOutputBucketResponse::fromMap($this->doRPCRequest('UnbindOutputBucket', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnbindOutputBucketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5142,11 +9129,31 @@ class Mts extends OpenApiClient
     public function unregisterCustomFaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CategoryId']           = $request->categoryId;
+        $query['FaceId']               = $request->faceId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PersonId']             = $request->personId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UnregisterCustomFace',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UnregisterCustomFaceResponse::fromMap($this->doRPCRequest('UnregisterCustomFace', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UnregisterCustomFaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5170,11 +9177,33 @@ class Mts extends OpenApiClient
     public function updateAsrPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Name']                 = $request->name;
+        $query['NotifyConfig']         = $request->notifyConfig;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['Priority']             = $request->priority;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['State']                = $request->state;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAsrPipeline',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateAsrPipelineResponse::fromMap($this->doRPCRequest('UpdateAsrPipeline', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateAsrPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5198,11 +9227,30 @@ class Mts extends OpenApiClient
     public function updateCategoryNameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CateId']               = $request->cateId;
+        $query['CateName']             = $request->cateName;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCategoryName',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateCategoryNameResponse::fromMap($this->doRPCRequest('UpdateCategoryName', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateCategoryNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5226,11 +9274,33 @@ class Mts extends OpenApiClient
     public function updateCensorPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Name']                 = $request->name;
+        $query['NotifyConfig']         = $request->notifyConfig;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['Priority']             = $request->priority;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['State']                = $request->state;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCensorPipeline',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateCensorPipelineResponse::fromMap($this->doRPCRequest('UpdateCensorPipeline', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateCensorPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5254,11 +9324,34 @@ class Mts extends OpenApiClient
     public function updateCoverPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Name']                 = $request->name;
+        $query['NotifyConfig']         = $request->notifyConfig;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['Priority']             = $request->priority;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Role']                 = $request->role;
+        $query['State']                = $request->state;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCoverPipeline',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateCoverPipelineResponse::fromMap($this->doRPCRequest('UpdateCoverPipeline', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateCoverPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5282,11 +9375,40 @@ class Mts extends OpenApiClient
     public function updateMCTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Abuse']                = $request->abuse;
+        $query['Ad']                   = $request->ad;
+        $query['Contraband']           = $request->contraband;
+        $query['Live']                 = $request->live;
+        $query['Logo']                 = $request->logo;
+        $query['Name']                 = $request->name;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['Politics']             = $request->politics;
+        $query['Porn']                 = $request->porn;
+        $query['Qrcode']               = $request->qrcode;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TemplateId']           = $request->templateId;
+        $query['Terrorism']            = $request->terrorism;
+        $query['spam']                 = $request->spam;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMCTemplate',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateMCTemplateResponse::fromMap($this->doRPCRequest('UpdateMCTemplate', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateMCTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5310,11 +9432,30 @@ class Mts extends OpenApiClient
     public function updateMcuTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Template']             = $request->template;
+        $query['TemplateId']           = $request->templateId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMcuTemplate',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateMcuTemplateResponse::fromMap($this->doRPCRequest('UpdateMcuTemplate', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateMcuTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5338,11 +9479,34 @@ class Mts extends OpenApiClient
     public function updateMediaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CateId']               = $request->cateId;
+        $query['CoverURL']             = $request->coverURL;
+        $query['Description']          = $request->description;
+        $query['MediaId']              = $request->mediaId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Tags']                 = $request->tags;
+        $query['Title']                = $request->title;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMedia',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateMediaResponse::fromMap($this->doRPCRequest('UpdateMedia', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateMediaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5366,11 +9530,30 @@ class Mts extends OpenApiClient
     public function updateMediaCategoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CateId']               = $request->cateId;
+        $query['MediaId']              = $request->mediaId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMediaCategory',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateMediaCategoryResponse::fromMap($this->doRPCRequest('UpdateMediaCategory', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateMediaCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5394,11 +9577,30 @@ class Mts extends OpenApiClient
     public function updateMediaCoverWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CoverURL']             = $request->coverURL;
+        $query['MediaId']              = $request->mediaId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMediaCover',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateMediaCoverResponse::fromMap($this->doRPCRequest('UpdateMediaCover', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateMediaCoverResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5422,11 +9624,30 @@ class Mts extends OpenApiClient
     public function updateMediaPublishStateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['MediaId']              = $request->mediaId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['Publish']              = $request->publish;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMediaPublishState',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateMediaPublishStateResponse::fromMap($this->doRPCRequest('UpdateMediaPublishState', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateMediaPublishStateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5450,11 +9671,30 @@ class Mts extends OpenApiClient
     public function updateMediaWorkflowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['MediaWorkflowId']      = $request->mediaWorkflowId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Topology']             = $request->topology;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMediaWorkflow',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateMediaWorkflowResponse::fromMap($this->doRPCRequest('UpdateMediaWorkflow', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateMediaWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5478,11 +9718,30 @@ class Mts extends OpenApiClient
     public function updateMediaWorkflowTriggerModeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['MediaWorkflowId']      = $request->mediaWorkflowId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TriggerMode']          = $request->triggerMode;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMediaWorkflowTriggerMode',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateMediaWorkflowTriggerModeResponse::fromMap($this->doRPCRequest('UpdateMediaWorkflowTriggerMode', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateMediaWorkflowTriggerModeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5506,11 +9765,33 @@ class Mts extends OpenApiClient
     public function updatePipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Name']                 = $request->name;
+        $query['NotifyConfig']         = $request->notifyConfig;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Role']                 = $request->role;
+        $query['State']                = $request->state;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePipeline',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdatePipelineResponse::fromMap($this->doRPCRequest('UpdatePipeline', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdatePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5534,11 +9815,33 @@ class Mts extends OpenApiClient
     public function updatePornPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Name']                 = $request->name;
+        $query['NotifyConfig']         = $request->notifyConfig;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['Priority']             = $request->priority;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['State']                = $request->state;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePornPipeline',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdatePornPipelineResponse::fromMap($this->doRPCRequest('UpdatePornPipeline', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdatePornPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5562,11 +9865,39 @@ class Mts extends OpenApiClient
     public function updateSmarttagTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AnalyseTypes']         = $request->analyseTypes;
+        $query['FaceCategoryIds']      = $request->faceCategoryIds;
+        $query['Industry']             = $request->industry;
+        $query['IsDefault']            = $request->isDefault;
+        $query['KeywordConfig']        = $request->keywordConfig;
+        $query['KnowledgeConfig']      = $request->knowledgeConfig;
+        $query['LabelType']            = $request->labelType;
+        $query['LabelVersion']         = $request->labelVersion;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Scene']                = $request->scene;
+        $query['TemplateId']           = $request->templateId;
+        $query['TemplateName']         = $request->templateName;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSmarttagTemplate',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateSmarttagTemplateResponse::fromMap($this->doRPCRequest('UpdateSmarttagTemplate', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateSmarttagTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5590,11 +9921,35 @@ class Mts extends OpenApiClient
     public function updateTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Audio']                = $request->audio;
+        $query['Container']            = $request->container;
+        $query['MuxConfig']            = $request->muxConfig;
+        $query['Name']                 = $request->name;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['TemplateId']           = $request->templateId;
+        $query['TransConfig']          = $request->transConfig;
+        $query['Video']                = $request->video;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTemplate',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateTemplateResponse::fromMap($this->doRPCRequest('UpdateTemplate', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5618,11 +9973,33 @@ class Mts extends OpenApiClient
     public function updateTerrorismPipelineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Name']                 = $request->name;
+        $query['NotifyConfig']         = $request->notifyConfig;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PipelineId']           = $request->pipelineId;
+        $query['Priority']             = $request->priority;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['State']                = $request->state;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTerrorismPipeline',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateTerrorismPipelineResponse::fromMap($this->doRPCRequest('UpdateTerrorismPipeline', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateTerrorismPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5646,11 +10023,31 @@ class Mts extends OpenApiClient
     public function updateWaterMarkTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Config']               = $request->config;
+        $query['Name']                 = $request->name;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['WaterMarkTemplateId']  = $request->waterMarkTemplateId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateWaterMarkTemplate',
+            'version'     => '2014-06-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateWaterMarkTemplateResponse::fromMap($this->doRPCRequest('UpdateWaterMarkTemplate', '2014-06-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateWaterMarkTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

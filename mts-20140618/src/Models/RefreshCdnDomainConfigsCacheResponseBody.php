@@ -11,11 +11,6 @@ use AlibabaCloud\Tea\Model;
 class RefreshCdnDomainConfigsCacheResponseBody extends Model
 {
     /**
-     * @var sucessDomains
-     */
-    public $sucessDomains;
-
-    /**
      * @var failedDomains
      */
     public $failedDomains;
@@ -24,10 +19,15 @@ class RefreshCdnDomainConfigsCacheResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var sucessDomains
+     */
+    public $sucessDomains;
     protected $_name = [
-        'sucessDomains' => 'SucessDomains',
         'failedDomains' => 'FailedDomains',
         'requestId'     => 'RequestId',
+        'sucessDomains' => 'SucessDomains',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class RefreshCdnDomainConfigsCacheResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->sucessDomains) {
-            $res['SucessDomains'] = null !== $this->sucessDomains ? $this->sucessDomains->toMap() : null;
-        }
         if (null !== $this->failedDomains) {
             $res['FailedDomains'] = null !== $this->failedDomains ? $this->failedDomains->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->sucessDomains) {
+            $res['SucessDomains'] = null !== $this->sucessDomains ? $this->sucessDomains->toMap() : null;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class RefreshCdnDomainConfigsCacheResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SucessDomains'])) {
-            $model->sucessDomains = sucessDomains::fromMap($map['SucessDomains']);
-        }
         if (isset($map['FailedDomains'])) {
             $model->failedDomains = failedDomains::fromMap($map['FailedDomains']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SucessDomains'])) {
+            $model->sucessDomains = sucessDomains::fromMap($map['SucessDomains']);
         }
 
         return $model;

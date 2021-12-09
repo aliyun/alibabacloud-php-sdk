@@ -11,15 +11,15 @@ class duplication extends Model
     /**
      * @var string
      */
-    public $start;
+    public $duration;
 
     /**
      * @var string
      */
-    public $duration;
+    public $start;
     protected $_name = [
-        'start'    => 'Start',
         'duration' => 'Duration',
+        'start'    => 'Start',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class duplication extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->start) {
-            $res['Start'] = $this->start;
-        }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->start) {
+            $res['Start'] = $this->start;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class duplication extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Start'])) {
-            $model->start = $map['Start'];
-        }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
+        }
+        if (isset($map['Start'])) {
+            $model->start = $map['Start'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class MNSMessageResult extends Model
     /**
      * @var string
      */
-    public $messageId;
+    public $errorCode;
 
     /**
      * @var string
@@ -21,11 +21,11 @@ class MNSMessageResult extends Model
     /**
      * @var string
      */
-    public $errorCode;
+    public $messageId;
     protected $_name = [
-        'messageId'    => 'MessageId',
-        'errorMessage' => 'ErrorMessage',
         'errorCode'    => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
+        'messageId'    => 'MessageId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class MNSMessageResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->messageId) {
-            $res['MessageId'] = $this->messageId;
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
+        if (null !== $this->messageId) {
+            $res['MessageId'] = $this->messageId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class MNSMessageResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MessageId'])) {
-            $model->messageId = $map['MessageId'];
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
+        if (isset($map['MessageId'])) {
+            $model->messageId = $map['MessageId'];
         }
 
         return $model;

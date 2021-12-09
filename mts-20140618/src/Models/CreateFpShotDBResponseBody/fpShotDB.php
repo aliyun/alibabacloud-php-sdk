@@ -11,17 +11,12 @@ class fpShotDB extends Model
     /**
      * @var string
      */
+    public $config;
+
+    /**
+     * @var string
+     */
     public $description;
-
-    /**
-     * @var string
-     */
-    public $state;
-
-    /**
-     * @var string
-     */
-    public $name;
 
     /**
      * @var string
@@ -36,14 +31,19 @@ class fpShotDB extends Model
     /**
      * @var string
      */
-    public $config;
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $state;
     protected $_name = [
+        'config'      => 'Config',
         'description' => 'Description',
-        'state'       => 'State',
-        'name'        => 'Name',
         'fpDBId'      => 'FpDBId',
         'modelId'     => 'ModelId',
-        'config'      => 'Config',
+        'name'        => 'Name',
+        'state'       => 'State',
     ];
 
     public function validate()
@@ -53,14 +53,11 @@ class fpShotDB extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->config) {
+            $res['Config'] = $this->config;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
-        }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
         if (null !== $this->fpDBId) {
             $res['FpDBId'] = $this->fpDBId;
@@ -68,8 +65,11 @@ class fpShotDB extends Model
         if (null !== $this->modelId) {
             $res['ModelId'] = $this->modelId;
         }
-        if (null !== $this->config) {
-            $res['Config'] = $this->config;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
 
         return $res;
@@ -83,14 +83,11 @@ class fpShotDB extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Config'])) {
+            $model->config = $map['Config'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
-        }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
         if (isset($map['FpDBId'])) {
             $model->fpDBId = $map['FpDBId'];
@@ -98,8 +95,11 @@ class fpShotDB extends Model
         if (isset($map['ModelId'])) {
             $model->modelId = $map['ModelId'];
         }
-        if (isset($map['Config'])) {
-            $model->config = $map['Config'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
 
         return $model;

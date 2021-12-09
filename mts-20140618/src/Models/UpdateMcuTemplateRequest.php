@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateMcuTemplateRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -26,24 +31,19 @@ class UpdateMcuTemplateRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $template;
 
     /**
      * @var string
      */
     public $templateId;
-
-    /**
-     * @var string
-     */
-    public $template;
     protected $_name = [
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'templateId'           => 'TemplateId',
         'template'             => 'Template',
+        'templateId'           => 'TemplateId',
     ];
 
     public function validate()
@@ -53,6 +53,9 @@ class UpdateMcuTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -62,14 +65,11 @@ class UpdateMcuTemplateRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->template) {
+            $res['Template'] = $this->template;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
-        }
-        if (null !== $this->template) {
-            $res['Template'] = $this->template;
         }
 
         return $res;
@@ -83,6 +83,9 @@ class UpdateMcuTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -92,14 +95,11 @@ class UpdateMcuTemplateRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['Template'])) {
+            $model->template = $map['Template'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
-        }
-        if (isset($map['Template'])) {
-            $model->template = $map['Template'];
         }
 
         return $model;

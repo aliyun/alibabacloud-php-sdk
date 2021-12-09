@@ -11,11 +11,6 @@ use AlibabaCloud\Tea\Model;
 class PlayInfoResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var notFoundCDNDomain
      */
     public $notFoundCDNDomain;
@@ -24,10 +19,15 @@ class PlayInfoResponseBody extends Model
      * @var playInfoList
      */
     public $playInfoList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'         => 'RequestId',
         'notFoundCDNDomain' => 'NotFoundCDNDomain',
         'playInfoList'      => 'PlayInfoList',
+        'requestId'         => 'RequestId',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class PlayInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->notFoundCDNDomain) {
             $res['NotFoundCDNDomain'] = null !== $this->notFoundCDNDomain ? $this->notFoundCDNDomain->toMap() : null;
         }
         if (null !== $this->playInfoList) {
             $res['PlayInfoList'] = null !== $this->playInfoList ? $this->playInfoList->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class PlayInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['NotFoundCDNDomain'])) {
             $model->notFoundCDNDomain = notFoundCDNDomain::fromMap($map['NotFoundCDNDomain']);
         }
         if (isset($map['PlayInfoList'])) {
             $model->playInfoList = playInfoList::fromMap($map['PlayInfoList']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

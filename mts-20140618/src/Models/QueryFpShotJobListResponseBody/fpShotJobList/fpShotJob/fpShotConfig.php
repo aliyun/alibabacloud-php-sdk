@@ -11,12 +11,7 @@ class fpShotConfig extends Model
     /**
      * @var string
      */
-    public $primaryKey;
-
-    /**
-     * @var string
-     */
-    public $saveType;
+    public $fpDBId;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class fpShotConfig extends Model
     /**
      * @var string
      */
-    public $fpDBId;
+    public $primaryKey;
+
+    /**
+     * @var string
+     */
+    public $saveType;
     protected $_name = [
+        'fpDBId'     => 'FpDBId',
+        'notary'     => 'Notary',
         'primaryKey' => 'PrimaryKey',
         'saveType'   => 'SaveType',
-        'notary'     => 'Notary',
-        'fpDBId'     => 'FpDBId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class fpShotConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fpDBId) {
+            $res['FpDBId'] = $this->fpDBId;
+        }
+        if (null !== $this->notary) {
+            $res['Notary'] = $this->notary;
+        }
         if (null !== $this->primaryKey) {
             $res['PrimaryKey'] = $this->primaryKey;
         }
         if (null !== $this->saveType) {
             $res['SaveType'] = $this->saveType;
-        }
-        if (null !== $this->notary) {
-            $res['Notary'] = $this->notary;
-        }
-        if (null !== $this->fpDBId) {
-            $res['FpDBId'] = $this->fpDBId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class fpShotConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FpDBId'])) {
+            $model->fpDBId = $map['FpDBId'];
+        }
+        if (isset($map['Notary'])) {
+            $model->notary = $map['Notary'];
+        }
         if (isset($map['PrimaryKey'])) {
             $model->primaryKey = $map['PrimaryKey'];
         }
         if (isset($map['SaveType'])) {
             $model->saveType = $map['SaveType'];
-        }
-        if (isset($map['Notary'])) {
-            $model->notary = $map['Notary'];
-        }
-        if (isset($map['FpDBId'])) {
-            $model->fpDBId = $map['FpDBId'];
         }
 
         return $model;

@@ -20,19 +20,19 @@ class QuerySmarttagJobResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
-     */
-    public $userData;
-
-    /**
      * @var results
      */
     public $results;
+
+    /**
+     * @var string
+     */
+    public $userData;
     protected $_name = [
         'jobStatus' => 'JobStatus',
         'requestId' => 'RequestId',
-        'userData'  => 'UserData',
         'results'   => 'Results',
+        'userData'  => 'UserData',
     ];
 
     public function validate()
@@ -48,11 +48,11 @@ class QuerySmarttagJobResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->userData) {
-            $res['UserData'] = $this->userData;
-        }
         if (null !== $this->results) {
             $res['Results'] = null !== $this->results ? $this->results->toMap() : null;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -72,11 +72,11 @@ class QuerySmarttagJobResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['UserData'])) {
-            $model->userData = $map['UserData'];
-        }
         if (isset($map['Results'])) {
             $model->results = results::fromMap($map['Results']);
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         return $model;

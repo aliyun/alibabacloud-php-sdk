@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UpdateMediaWorkflowRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $mediaWorkflowId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -26,24 +36,14 @@ class UpdateMediaWorkflowRequest extends Model
     /**
      * @var string
      */
-    public $mediaWorkflowId;
-
-    /**
-     * @var string
-     */
     public $topology;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     protected $_name = [
+        'mediaWorkflowId'      => 'MediaWorkflowId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'mediaWorkflowId'      => 'MediaWorkflowId',
         'topology'             => 'Topology',
-        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
@@ -53,6 +53,12 @@ class UpdateMediaWorkflowRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->mediaWorkflowId) {
+            $res['MediaWorkflowId'] = $this->mediaWorkflowId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -62,14 +68,8 @@ class UpdateMediaWorkflowRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->mediaWorkflowId) {
-            $res['MediaWorkflowId'] = $this->mediaWorkflowId;
-        }
         if (null !== $this->topology) {
             $res['Topology'] = $this->topology;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -83,6 +83,12 @@ class UpdateMediaWorkflowRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MediaWorkflowId'])) {
+            $model->mediaWorkflowId = $map['MediaWorkflowId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -92,14 +98,8 @@ class UpdateMediaWorkflowRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['MediaWorkflowId'])) {
-            $model->mediaWorkflowId = $map['MediaWorkflowId'];
-        }
         if (isset($map['Topology'])) {
             $model->topology = $map['Topology'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

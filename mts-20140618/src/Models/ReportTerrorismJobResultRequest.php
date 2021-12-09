@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ReportTerrorismJobResultRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
+    public $detail;
 
     /**
      * @var string
@@ -36,20 +26,30 @@ class ReportTerrorismJobResultRequest extends Model
     /**
      * @var string
      */
-    public $detail;
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
+        'detail'               => 'Detail',
+        'jobId'                => 'JobId',
+        'label'                => 'Label',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'jobId'                => 'JobId',
-        'label'                => 'Label',
-        'detail'               => 'Detail',
-        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
@@ -59,6 +59,18 @@ class ReportTerrorismJobResultRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->detail) {
+            $res['Detail'] = $this->detail;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -67,18 +79,6 @@ class ReportTerrorismJobResultRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
-        if (null !== $this->label) {
-            $res['Label'] = $this->label;
-        }
-        if (null !== $this->detail) {
-            $res['Detail'] = $this->detail;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -92,6 +92,18 @@ class ReportTerrorismJobResultRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Detail'])) {
+            $model->detail = $map['Detail'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
+        if (isset($map['Label'])) {
+            $model->label = $map['Label'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -100,18 +112,6 @@ class ReportTerrorismJobResultRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
-        if (isset($map['Label'])) {
-            $model->label = $map['Label'];
-        }
-        if (isset($map['Detail'])) {
-            $model->detail = $map['Detail'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

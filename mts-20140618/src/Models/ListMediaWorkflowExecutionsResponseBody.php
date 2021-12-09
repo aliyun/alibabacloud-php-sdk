@@ -17,16 +17,16 @@ class ListMediaWorkflowExecutionsResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $nextPageToken;
 
     /**
      * @var string
      */
-    public $nextPageToken;
+    public $requestId;
     protected $_name = [
         'mediaWorkflowExecutionList' => 'MediaWorkflowExecutionList',
-        'requestId'                  => 'RequestId',
         'nextPageToken'              => 'NextPageToken',
+        'requestId'                  => 'RequestId',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class ListMediaWorkflowExecutionsResponseBody extends Model
         if (null !== $this->mediaWorkflowExecutionList) {
             $res['MediaWorkflowExecutionList'] = null !== $this->mediaWorkflowExecutionList ? $this->mediaWorkflowExecutionList->toMap() : null;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->nextPageToken) {
             $res['NextPageToken'] = $this->nextPageToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -60,11 +60,11 @@ class ListMediaWorkflowExecutionsResponseBody extends Model
         if (isset($map['MediaWorkflowExecutionList'])) {
             $model->mediaWorkflowExecutionList = mediaWorkflowExecutionList::fromMap($map['MediaWorkflowExecutionList']);
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['NextPageToken'])) {
             $model->nextPageToken = $map['NextPageToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

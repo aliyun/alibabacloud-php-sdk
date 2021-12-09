@@ -16,22 +16,22 @@ class imageCensorResult extends Model
     /**
      * @var string
      */
-    public $result;
-
-    /**
-     * @var string
-     */
     public $imageLocation;
 
     /**
      * @var string
      */
     public $imageObject;
+
+    /**
+     * @var string
+     */
+    public $result;
     protected $_name = [
         'imageBucket'   => 'ImageBucket',
-        'result'        => 'Result',
         'imageLocation' => 'ImageLocation',
         'imageObject'   => 'ImageObject',
+        'result'        => 'Result',
     ];
 
     public function validate()
@@ -44,14 +44,14 @@ class imageCensorResult extends Model
         if (null !== $this->imageBucket) {
             $res['ImageBucket'] = $this->imageBucket;
         }
-        if (null !== $this->result) {
-            $res['Result'] = $this->result;
-        }
         if (null !== $this->imageLocation) {
             $res['ImageLocation'] = $this->imageLocation;
         }
         if (null !== $this->imageObject) {
             $res['ImageObject'] = $this->imageObject;
+        }
+        if (null !== $this->result) {
+            $res['Result'] = $this->result;
         }
 
         return $res;
@@ -68,14 +68,14 @@ class imageCensorResult extends Model
         if (isset($map['ImageBucket'])) {
             $model->imageBucket = $map['ImageBucket'];
         }
-        if (isset($map['Result'])) {
-            $model->result = $map['Result'];
-        }
         if (isset($map['ImageLocation'])) {
             $model->imageLocation = $map['ImageLocation'];
         }
         if (isset($map['ImageObject'])) {
             $model->imageObject = $map['ImageObject'];
+        }
+        if (isset($map['Result'])) {
+            $model->result = $map['Result'];
         }
 
         return $model;

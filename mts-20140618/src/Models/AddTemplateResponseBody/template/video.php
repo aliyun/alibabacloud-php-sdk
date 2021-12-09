@@ -12,17 +12,7 @@ class video extends Model
     /**
      * @var string
      */
-    public $bufsize;
-
-    /**
-     * @var string
-     */
-    public $longShortMode;
-
-    /**
-     * @var string
-     */
-    public $degrain;
+    public $bitrate;
 
     /**
      * @var bitrateBnd
@@ -32,12 +22,7 @@ class video extends Model
     /**
      * @var string
      */
-    public $pixFmt;
-
-    /**
-     * @var string
-     */
-    public $pad;
+    public $bufsize;
 
     /**
      * @var string
@@ -47,12 +32,7 @@ class video extends Model
     /**
      * @var string
      */
-    public $height;
-
-    /**
-     * @var string
-     */
-    public $qscale;
+    public $crf;
 
     /**
      * @var string
@@ -62,42 +42,7 @@ class video extends Model
     /**
      * @var string
      */
-    public $bitrate;
-
-    /**
-     * @var string
-     */
-    public $maxrate;
-
-    /**
-     * @var string
-     */
-    public $maxFps;
-
-    /**
-     * @var string
-     */
-    public $profile;
-
-    /**
-     * @var string
-     */
-    public $crf;
-
-    /**
-     * @var string
-     */
-    public $remove;
-
-    /**
-     * @var string
-     */
-    public $gop;
-
-    /**
-     * @var string
-     */
-    public $width;
+    public $degrain;
 
     /**
      * @var string
@@ -107,7 +52,62 @@ class video extends Model
     /**
      * @var string
      */
+    public $gop;
+
+    /**
+     * @var string
+     */
+    public $height;
+
+    /**
+     * @var string
+     */
+    public $longShortMode;
+
+    /**
+     * @var string
+     */
+    public $maxFps;
+
+    /**
+     * @var string
+     */
+    public $maxrate;
+
+    /**
+     * @var string
+     */
+    public $pad;
+
+    /**
+     * @var string
+     */
+    public $pixFmt;
+
+    /**
+     * @var string
+     */
     public $preset;
+
+    /**
+     * @var string
+     */
+    public $profile;
+
+    /**
+     * @var string
+     */
+    public $qscale;
+
+    /**
+     * @var string
+     */
+    public $remove;
+
+    /**
+     * @var string
+     */
+    public $resoPriority;
 
     /**
      * @var string
@@ -117,30 +117,30 @@ class video extends Model
     /**
      * @var string
      */
-    public $resoPriority;
+    public $width;
     protected $_name = [
-        'bufsize'       => 'Bufsize',
-        'longShortMode' => 'LongShortMode',
-        'degrain'       => 'Degrain',
-        'bitrateBnd'    => 'BitrateBnd',
-        'pixFmt'        => 'PixFmt',
-        'pad'           => 'Pad',
-        'codec'         => 'Codec',
-        'height'        => 'Height',
-        'qscale'        => 'Qscale',
-        'crop'          => 'Crop',
         'bitrate'       => 'Bitrate',
-        'maxrate'       => 'Maxrate',
-        'maxFps'        => 'MaxFps',
-        'profile'       => 'Profile',
+        'bitrateBnd'    => 'BitrateBnd',
+        'bufsize'       => 'Bufsize',
+        'codec'         => 'Codec',
         'crf'           => 'Crf',
-        'remove'        => 'Remove',
-        'gop'           => 'Gop',
-        'width'         => 'Width',
+        'crop'          => 'Crop',
+        'degrain'       => 'Degrain',
         'fps'           => 'Fps',
+        'gop'           => 'Gop',
+        'height'        => 'Height',
+        'longShortMode' => 'LongShortMode',
+        'maxFps'        => 'MaxFps',
+        'maxrate'       => 'Maxrate',
+        'pad'           => 'Pad',
+        'pixFmt'        => 'PixFmt',
         'preset'        => 'Preset',
-        'scanMode'      => 'ScanMode',
+        'profile'       => 'Profile',
+        'qscale'        => 'Qscale',
+        'remove'        => 'Remove',
         'resoPriority'  => 'ResoPriority',
+        'scanMode'      => 'ScanMode',
+        'width'         => 'Width',
     ];
 
     public function validate()
@@ -150,71 +150,71 @@ class video extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->bufsize) {
-            $res['Bufsize'] = $this->bufsize;
-        }
-        if (null !== $this->longShortMode) {
-            $res['LongShortMode'] = $this->longShortMode;
-        }
-        if (null !== $this->degrain) {
-            $res['Degrain'] = $this->degrain;
+        if (null !== $this->bitrate) {
+            $res['Bitrate'] = $this->bitrate;
         }
         if (null !== $this->bitrateBnd) {
             $res['BitrateBnd'] = null !== $this->bitrateBnd ? $this->bitrateBnd->toMap() : null;
         }
-        if (null !== $this->pixFmt) {
-            $res['PixFmt'] = $this->pixFmt;
-        }
-        if (null !== $this->pad) {
-            $res['Pad'] = $this->pad;
+        if (null !== $this->bufsize) {
+            $res['Bufsize'] = $this->bufsize;
         }
         if (null !== $this->codec) {
             $res['Codec'] = $this->codec;
         }
-        if (null !== $this->height) {
-            $res['Height'] = $this->height;
-        }
-        if (null !== $this->qscale) {
-            $res['Qscale'] = $this->qscale;
+        if (null !== $this->crf) {
+            $res['Crf'] = $this->crf;
         }
         if (null !== $this->crop) {
             $res['Crop'] = $this->crop;
         }
-        if (null !== $this->bitrate) {
-            $res['Bitrate'] = $this->bitrate;
-        }
-        if (null !== $this->maxrate) {
-            $res['Maxrate'] = $this->maxrate;
-        }
-        if (null !== $this->maxFps) {
-            $res['MaxFps'] = $this->maxFps;
-        }
-        if (null !== $this->profile) {
-            $res['Profile'] = $this->profile;
-        }
-        if (null !== $this->crf) {
-            $res['Crf'] = $this->crf;
-        }
-        if (null !== $this->remove) {
-            $res['Remove'] = $this->remove;
-        }
-        if (null !== $this->gop) {
-            $res['Gop'] = $this->gop;
-        }
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
+        if (null !== $this->degrain) {
+            $res['Degrain'] = $this->degrain;
         }
         if (null !== $this->fps) {
             $res['Fps'] = $this->fps;
         }
+        if (null !== $this->gop) {
+            $res['Gop'] = $this->gop;
+        }
+        if (null !== $this->height) {
+            $res['Height'] = $this->height;
+        }
+        if (null !== $this->longShortMode) {
+            $res['LongShortMode'] = $this->longShortMode;
+        }
+        if (null !== $this->maxFps) {
+            $res['MaxFps'] = $this->maxFps;
+        }
+        if (null !== $this->maxrate) {
+            $res['Maxrate'] = $this->maxrate;
+        }
+        if (null !== $this->pad) {
+            $res['Pad'] = $this->pad;
+        }
+        if (null !== $this->pixFmt) {
+            $res['PixFmt'] = $this->pixFmt;
+        }
         if (null !== $this->preset) {
             $res['Preset'] = $this->preset;
+        }
+        if (null !== $this->profile) {
+            $res['Profile'] = $this->profile;
+        }
+        if (null !== $this->qscale) {
+            $res['Qscale'] = $this->qscale;
+        }
+        if (null !== $this->remove) {
+            $res['Remove'] = $this->remove;
+        }
+        if (null !== $this->resoPriority) {
+            $res['ResoPriority'] = $this->resoPriority;
         }
         if (null !== $this->scanMode) {
             $res['ScanMode'] = $this->scanMode;
         }
-        if (null !== $this->resoPriority) {
-            $res['ResoPriority'] = $this->resoPriority;
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -228,71 +228,71 @@ class video extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Bufsize'])) {
-            $model->bufsize = $map['Bufsize'];
-        }
-        if (isset($map['LongShortMode'])) {
-            $model->longShortMode = $map['LongShortMode'];
-        }
-        if (isset($map['Degrain'])) {
-            $model->degrain = $map['Degrain'];
+        if (isset($map['Bitrate'])) {
+            $model->bitrate = $map['Bitrate'];
         }
         if (isset($map['BitrateBnd'])) {
             $model->bitrateBnd = bitrateBnd::fromMap($map['BitrateBnd']);
         }
-        if (isset($map['PixFmt'])) {
-            $model->pixFmt = $map['PixFmt'];
-        }
-        if (isset($map['Pad'])) {
-            $model->pad = $map['Pad'];
+        if (isset($map['Bufsize'])) {
+            $model->bufsize = $map['Bufsize'];
         }
         if (isset($map['Codec'])) {
             $model->codec = $map['Codec'];
         }
-        if (isset($map['Height'])) {
-            $model->height = $map['Height'];
-        }
-        if (isset($map['Qscale'])) {
-            $model->qscale = $map['Qscale'];
+        if (isset($map['Crf'])) {
+            $model->crf = $map['Crf'];
         }
         if (isset($map['Crop'])) {
             $model->crop = $map['Crop'];
         }
-        if (isset($map['Bitrate'])) {
-            $model->bitrate = $map['Bitrate'];
-        }
-        if (isset($map['Maxrate'])) {
-            $model->maxrate = $map['Maxrate'];
-        }
-        if (isset($map['MaxFps'])) {
-            $model->maxFps = $map['MaxFps'];
-        }
-        if (isset($map['Profile'])) {
-            $model->profile = $map['Profile'];
-        }
-        if (isset($map['Crf'])) {
-            $model->crf = $map['Crf'];
-        }
-        if (isset($map['Remove'])) {
-            $model->remove = $map['Remove'];
-        }
-        if (isset($map['Gop'])) {
-            $model->gop = $map['Gop'];
-        }
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
+        if (isset($map['Degrain'])) {
+            $model->degrain = $map['Degrain'];
         }
         if (isset($map['Fps'])) {
             $model->fps = $map['Fps'];
         }
+        if (isset($map['Gop'])) {
+            $model->gop = $map['Gop'];
+        }
+        if (isset($map['Height'])) {
+            $model->height = $map['Height'];
+        }
+        if (isset($map['LongShortMode'])) {
+            $model->longShortMode = $map['LongShortMode'];
+        }
+        if (isset($map['MaxFps'])) {
+            $model->maxFps = $map['MaxFps'];
+        }
+        if (isset($map['Maxrate'])) {
+            $model->maxrate = $map['Maxrate'];
+        }
+        if (isset($map['Pad'])) {
+            $model->pad = $map['Pad'];
+        }
+        if (isset($map['PixFmt'])) {
+            $model->pixFmt = $map['PixFmt'];
+        }
         if (isset($map['Preset'])) {
             $model->preset = $map['Preset'];
+        }
+        if (isset($map['Profile'])) {
+            $model->profile = $map['Profile'];
+        }
+        if (isset($map['Qscale'])) {
+            $model->qscale = $map['Qscale'];
+        }
+        if (isset($map['Remove'])) {
+            $model->remove = $map['Remove'];
+        }
+        if (isset($map['ResoPriority'])) {
+            $model->resoPriority = $map['ResoPriority'];
         }
         if (isset($map['ScanMode'])) {
             $model->scanMode = $map['ScanMode'];
         }
-        if (isset($map['ResoPriority'])) {
-            $model->resoPriority = $map['ResoPriority'];
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class QueryJobListResponseBody extends Model
 {
     /**
+     * @var jobList
+     */
+    public $jobList;
+
+    /**
      * @var nonExistJobIds
      */
     public $nonExistJobIds;
@@ -19,15 +24,10 @@ class QueryJobListResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var jobList
-     */
-    public $jobList;
     protected $_name = [
+        'jobList'        => 'JobList',
         'nonExistJobIds' => 'NonExistJobIds',
         'requestId'      => 'RequestId',
-        'jobList'        => 'JobList',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class QueryJobListResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->jobList) {
+            $res['JobList'] = null !== $this->jobList ? $this->jobList->toMap() : null;
+        }
         if (null !== $this->nonExistJobIds) {
             $res['NonExistJobIds'] = null !== $this->nonExistJobIds ? $this->nonExistJobIds->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->jobList) {
-            $res['JobList'] = null !== $this->jobList ? $this->jobList->toMap() : null;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class QueryJobListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['JobList'])) {
+            $model->jobList = jobList::fromMap($map['JobList']);
+        }
         if (isset($map['NonExistJobIds'])) {
             $model->nonExistJobIds = nonExistJobIds::fromMap($map['NonExistJobIds']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['JobList'])) {
-            $model->jobList = jobList::fromMap($map['JobList']);
         }
 
         return $model;

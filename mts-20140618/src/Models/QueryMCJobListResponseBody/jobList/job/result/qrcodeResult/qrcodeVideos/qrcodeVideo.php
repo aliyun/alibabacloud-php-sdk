@@ -11,12 +11,7 @@ class qrcodeVideo extends Model
     /**
      * @var string
      */
-    public $time;
-
-    /**
-     * @var string
-     */
-    public $suggestion;
+    public $object;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class qrcodeVideo extends Model
     /**
      * @var string
      */
-    public $object;
+    public $suggestion;
+
+    /**
+     * @var string
+     */
+    public $time;
     protected $_name = [
-        'time'       => 'Time',
-        'suggestion' => 'Suggestion',
-        'score'      => 'Score',
         'object'     => 'Object',
+        'score'      => 'Score',
+        'suggestion' => 'Suggestion',
+        'time'       => 'Time',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class qrcodeVideo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
-        }
-        if (null !== $this->suggestion) {
-            $res['Suggestion'] = $this->suggestion;
+        if (null !== $this->object) {
+            $res['Object'] = $this->object;
         }
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
-        if (null !== $this->object) {
-            $res['Object'] = $this->object;
+        if (null !== $this->suggestion) {
+            $res['Suggestion'] = $this->suggestion;
+        }
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class qrcodeVideo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
-        }
-        if (isset($map['Suggestion'])) {
-            $model->suggestion = $map['Suggestion'];
+        if (isset($map['Object'])) {
+            $model->object = $map['Object'];
         }
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }
-        if (isset($map['Object'])) {
-            $model->object = $map['Object'];
+        if (isset($map['Suggestion'])) {
+            $model->suggestion = $map['Suggestion'];
+        }
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
         }
 
         return $model;

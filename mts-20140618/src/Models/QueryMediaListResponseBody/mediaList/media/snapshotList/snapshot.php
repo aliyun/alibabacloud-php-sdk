@@ -12,7 +12,17 @@ class snapshot extends Model
     /**
      * @var string
      */
-    public $type;
+    public $activityName;
+
+    /**
+     * @var string
+     */
+    public $count;
+
+    /**
+     * @var file
+     */
+    public $file;
 
     /**
      * @var string
@@ -22,29 +32,19 @@ class snapshot extends Model
     /**
      * @var string
      */
-    public $activityName;
-
-    /**
-     * @var string
-     */
-    public $count;
-
-    /**
-     * @var string
-     */
     public $mediaWorkflowName;
 
     /**
-     * @var file
+     * @var string
      */
-    public $file;
+    public $type;
     protected $_name = [
-        'type'              => 'Type',
-        'mediaWorkflowId'   => 'MediaWorkflowId',
         'activityName'      => 'ActivityName',
         'count'             => 'Count',
-        'mediaWorkflowName' => 'MediaWorkflowName',
         'file'              => 'File',
+        'mediaWorkflowId'   => 'MediaWorkflowId',
+        'mediaWorkflowName' => 'MediaWorkflowName',
+        'type'              => 'Type',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class snapshot extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->mediaWorkflowId) {
-            $res['MediaWorkflowId'] = $this->mediaWorkflowId;
-        }
         if (null !== $this->activityName) {
             $res['ActivityName'] = $this->activityName;
         }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+        if (null !== $this->file) {
+            $res['File'] = null !== $this->file ? $this->file->toMap() : null;
+        }
+        if (null !== $this->mediaWorkflowId) {
+            $res['MediaWorkflowId'] = $this->mediaWorkflowId;
+        }
         if (null !== $this->mediaWorkflowName) {
             $res['MediaWorkflowName'] = $this->mediaWorkflowName;
         }
-        if (null !== $this->file) {
-            $res['File'] = null !== $this->file ? $this->file->toMap() : null;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class snapshot extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['MediaWorkflowId'])) {
-            $model->mediaWorkflowId = $map['MediaWorkflowId'];
-        }
         if (isset($map['ActivityName'])) {
             $model->activityName = $map['ActivityName'];
         }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+        if (isset($map['File'])) {
+            $model->file = file::fromMap($map['File']);
+        }
+        if (isset($map['MediaWorkflowId'])) {
+            $model->mediaWorkflowId = $map['MediaWorkflowId'];
+        }
         if (isset($map['MediaWorkflowName'])) {
             $model->mediaWorkflowName = $map['MediaWorkflowName'];
         }
-        if (isset($map['File'])) {
-            $model->file = file::fromMap($map['File']);
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

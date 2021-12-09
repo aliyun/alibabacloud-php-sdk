@@ -14,12 +14,12 @@ class coverJob extends Model
     /**
      * @var string
      */
-    public $creationTime;
+    public $code;
 
     /**
-     * @var string
+     * @var coverConfig
      */
-    public $state;
+    public $coverConfig;
 
     /**
      * @var coverImageList
@@ -29,12 +29,17 @@ class coverJob extends Model
     /**
      * @var string
      */
-    public $userData;
+    public $creationTime;
 
     /**
      * @var string
      */
-    public $code;
+    public $id;
+
+    /**
+     * @var input
+     */
+    public $input;
 
     /**
      * @var string
@@ -47,30 +52,25 @@ class coverJob extends Model
     public $pipelineId;
 
     /**
-     * @var input
+     * @var string
      */
-    public $input;
+    public $state;
 
     /**
      * @var string
      */
-    public $id;
-
-    /**
-     * @var coverConfig
-     */
-    public $coverConfig;
+    public $userData;
     protected $_name = [
-        'creationTime'   => 'CreationTime',
-        'state'          => 'State',
-        'coverImageList' => 'CoverImageList',
-        'userData'       => 'UserData',
         'code'           => 'Code',
+        'coverConfig'    => 'CoverConfig',
+        'coverImageList' => 'CoverImageList',
+        'creationTime'   => 'CreationTime',
+        'id'             => 'Id',
+        'input'          => 'Input',
         'message'        => 'Message',
         'pipelineId'     => 'PipelineId',
-        'input'          => 'Input',
-        'id'             => 'Id',
-        'coverConfig'    => 'CoverConfig',
+        'state'          => 'State',
+        'userData'       => 'UserData',
     ];
 
     public function validate()
@@ -80,20 +80,23 @@ class coverJob extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->creationTime) {
-            $res['CreationTime'] = $this->creationTime;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
+        if (null !== $this->coverConfig) {
+            $res['CoverConfig'] = null !== $this->coverConfig ? $this->coverConfig->toMap() : null;
         }
         if (null !== $this->coverImageList) {
             $res['CoverImageList'] = null !== $this->coverImageList ? $this->coverImageList->toMap() : null;
         }
-        if (null !== $this->userData) {
-            $res['UserData'] = $this->userData;
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->input) {
+            $res['Input'] = null !== $this->input ? $this->input->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -101,14 +104,11 @@ class coverJob extends Model
         if (null !== $this->pipelineId) {
             $res['PipelineId'] = $this->pipelineId;
         }
-        if (null !== $this->input) {
-            $res['Input'] = null !== $this->input ? $this->input->toMap() : null;
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->coverConfig) {
-            $res['CoverConfig'] = null !== $this->coverConfig ? $this->coverConfig->toMap() : null;
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -122,20 +122,23 @@ class coverJob extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreationTime'])) {
-            $model->creationTime = $map['CreationTime'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
+        if (isset($map['CoverConfig'])) {
+            $model->coverConfig = coverConfig::fromMap($map['CoverConfig']);
         }
         if (isset($map['CoverImageList'])) {
             $model->coverImageList = coverImageList::fromMap($map['CoverImageList']);
         }
-        if (isset($map['UserData'])) {
-            $model->userData = $map['UserData'];
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['Input'])) {
+            $model->input = input::fromMap($map['Input']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -143,14 +146,11 @@ class coverJob extends Model
         if (isset($map['PipelineId'])) {
             $model->pipelineId = $map['PipelineId'];
         }
-        if (isset($map['Input'])) {
-            $model->input = input::fromMap($map['Input']);
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['CoverConfig'])) {
-            $model->coverConfig = coverConfig::fromMap($map['CoverConfig']);
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         return $model;

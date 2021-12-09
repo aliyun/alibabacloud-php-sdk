@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ReportFpShotJobResultRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $details;
+
+    /**
+     * @var string
+     */
+    public $jobId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -26,30 +41,15 @@ class ReportFpShotJobResultRequest extends Model
     /**
      * @var string
      */
-    public $jobId;
-
-    /**
-     * @var string
-     */
     public $result;
-
-    /**
-     * @var string
-     */
-    public $details;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     protected $_name = [
+        'details'              => 'Details',
+        'jobId'                => 'JobId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'jobId'                => 'JobId',
         'result'               => 'Result',
-        'details'              => 'Details',
-        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
@@ -59,6 +59,15 @@ class ReportFpShotJobResultRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->details) {
+            $res['Details'] = $this->details;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -68,17 +77,8 @@ class ReportFpShotJobResultRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
         if (null !== $this->result) {
             $res['Result'] = $this->result;
-        }
-        if (null !== $this->details) {
-            $res['Details'] = $this->details;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -92,6 +92,15 @@ class ReportFpShotJobResultRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Details'])) {
+            $model->details = $map['Details'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -101,17 +110,8 @@ class ReportFpShotJobResultRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
-        }
-        if (isset($map['Details'])) {
-            $model->details = $map['Details'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

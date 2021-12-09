@@ -12,22 +12,12 @@ class waterMark extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $referPos;
-
-    /**
-     * @var string
-     */
     public $dx;
 
     /**
      * @var string
      */
-    public $width;
+    public $dy;
 
     /**
      * @var string
@@ -42,21 +32,31 @@ class waterMark extends Model
     /**
      * @var string
      */
+    public $referPos;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var string
+     */
     public $waterMarkTemplateId;
 
     /**
      * @var string
      */
-    public $dy;
+    public $width;
     protected $_name = [
-        'type'                => 'Type',
-        'referPos'            => 'ReferPos',
         'dx'                  => 'Dx',
-        'width'               => 'Width',
+        'dy'                  => 'Dy',
         'height'              => 'Height',
         'inputFile'           => 'InputFile',
+        'referPos'            => 'ReferPos',
+        'type'                => 'Type',
         'waterMarkTemplateId' => 'WaterMarkTemplateId',
-        'dy'                  => 'Dy',
+        'width'               => 'Width',
     ];
 
     public function validate()
@@ -66,17 +66,11 @@ class waterMark extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->referPos) {
-            $res['ReferPos'] = $this->referPos;
-        }
         if (null !== $this->dx) {
             $res['Dx'] = $this->dx;
         }
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
+        if (null !== $this->dy) {
+            $res['Dy'] = $this->dy;
         }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
@@ -84,11 +78,17 @@ class waterMark extends Model
         if (null !== $this->inputFile) {
             $res['InputFile'] = null !== $this->inputFile ? $this->inputFile->toMap() : null;
         }
+        if (null !== $this->referPos) {
+            $res['ReferPos'] = $this->referPos;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
         if (null !== $this->waterMarkTemplateId) {
             $res['WaterMarkTemplateId'] = $this->waterMarkTemplateId;
         }
-        if (null !== $this->dy) {
-            $res['Dy'] = $this->dy;
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -102,17 +102,11 @@ class waterMark extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['ReferPos'])) {
-            $model->referPos = $map['ReferPos'];
-        }
         if (isset($map['Dx'])) {
             $model->dx = $map['Dx'];
         }
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
+        if (isset($map['Dy'])) {
+            $model->dy = $map['Dy'];
         }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
@@ -120,11 +114,17 @@ class waterMark extends Model
         if (isset($map['InputFile'])) {
             $model->inputFile = inputFile::fromMap($map['InputFile']);
         }
+        if (isset($map['ReferPos'])) {
+            $model->referPos = $map['ReferPos'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
         if (isset($map['WaterMarkTemplateId'])) {
             $model->waterMarkTemplateId = $map['WaterMarkTemplateId'];
         }
-        if (isset($map['Dy'])) {
-            $model->dy = $map['Dy'];
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

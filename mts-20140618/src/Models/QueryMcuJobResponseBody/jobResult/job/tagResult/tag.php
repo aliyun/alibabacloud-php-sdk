@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @var string
-     */
-    public $time;
-
-    /**
-     * @var string
-     */
-    public $imageUrl;
-
-    /**
      * @var frameTagInfos
      */
     public $frameTagInfos;
@@ -28,11 +18,21 @@ class tag extends Model
      * @var string
      */
     public $imageId;
+
+    /**
+     * @var string
+     */
+    public $imageUrl;
+
+    /**
+     * @var string
+     */
+    public $time;
     protected $_name = [
-        'time'          => 'Time',
-        'imageUrl'      => 'ImageUrl',
         'frameTagInfos' => 'FrameTagInfos',
         'imageId'       => 'ImageId',
+        'imageUrl'      => 'ImageUrl',
+        'time'          => 'Time',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class tag extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
-        }
-        if (null !== $this->imageUrl) {
-            $res['ImageUrl'] = $this->imageUrl;
-        }
         if (null !== $this->frameTagInfos) {
             $res['FrameTagInfos'] = null !== $this->frameTagInfos ? $this->frameTagInfos->toMap() : null;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->imageUrl) {
+            $res['ImageUrl'] = $this->imageUrl;
+        }
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class tag extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
-        }
-        if (isset($map['ImageUrl'])) {
-            $model->imageUrl = $map['ImageUrl'];
-        }
         if (isset($map['FrameTagInfos'])) {
             $model->frameTagInfos = frameTagInfos::fromMap($map['FrameTagInfos']);
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['ImageUrl'])) {
+            $model->imageUrl = $map['ImageUrl'];
+        }
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
         }
 
         return $model;

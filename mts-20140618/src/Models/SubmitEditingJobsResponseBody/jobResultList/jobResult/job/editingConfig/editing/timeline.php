@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class timeline extends Model
 {
     /**
-     * @var trackList
-     */
-    public $trackList;
-
-    /**
      * @var timelineConfig
      */
     public $timelineConfig;
+
+    /**
+     * @var trackList
+     */
+    public $trackList;
     protected $_name = [
-        'trackList'      => 'TrackList',
         'timelineConfig' => 'TimelineConfig',
+        'trackList'      => 'TrackList',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class timeline extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->trackList) {
-            $res['TrackList'] = null !== $this->trackList ? $this->trackList->toMap() : null;
-        }
         if (null !== $this->timelineConfig) {
             $res['TimelineConfig'] = null !== $this->timelineConfig ? $this->timelineConfig->toMap() : null;
+        }
+        if (null !== $this->trackList) {
+            $res['TrackList'] = null !== $this->trackList ? $this->trackList->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class timeline extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TrackList'])) {
-            $model->trackList = trackList::fromMap($map['TrackList']);
-        }
         if (isset($map['TimelineConfig'])) {
             $model->timelineConfig = timelineConfig::fromMap($map['TimelineConfig']);
+        }
+        if (isset($map['TrackList'])) {
+            $model->trackList = trackList::fromMap($map['TrackList']);
         }
 
         return $model;

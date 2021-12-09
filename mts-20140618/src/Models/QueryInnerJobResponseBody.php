@@ -11,6 +11,16 @@ use AlibabaCloud\Tea\Model;
 class QueryInnerJobResponseBody extends Model
 {
     /**
+     * @var image
+     */
+    public $image;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var string
      */
     public $status;
@@ -21,25 +31,15 @@ class QueryInnerJobResponseBody extends Model
     public $suggestion;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var video
      */
     public $video;
-
-    /**
-     * @var image
-     */
-    public $image;
     protected $_name = [
+        'image'      => 'Image',
+        'requestId'  => 'RequestId',
         'status'     => 'Status',
         'suggestion' => 'Suggestion',
-        'requestId'  => 'RequestId',
         'video'      => 'Video',
-        'image'      => 'Image',
     ];
 
     public function validate()
@@ -49,20 +49,20 @@ class QueryInnerJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->image) {
+            $res['Image'] = null !== $this->image ? $this->image->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->suggestion) {
             $res['Suggestion'] = $this->suggestion;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->video) {
             $res['Video'] = null !== $this->video ? $this->video->toMap() : null;
-        }
-        if (null !== $this->image) {
-            $res['Image'] = null !== $this->image ? $this->image->toMap() : null;
         }
 
         return $res;
@@ -76,20 +76,20 @@ class QueryInnerJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Image'])) {
+            $model->image = image::fromMap($map['Image']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['Suggestion'])) {
             $model->suggestion = $map['Suggestion'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Video'])) {
             $model->video = video::fromMap($map['Video']);
-        }
-        if (isset($map['Image'])) {
-            $model->image = image::fromMap($map['Image']);
         }
 
         return $model;

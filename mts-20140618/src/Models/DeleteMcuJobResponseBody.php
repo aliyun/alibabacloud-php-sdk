@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteMcuJobResponseBody extends Model
 {
     /**
+     * @var deletedJobIds
+     */
+    public $deletedJobIds;
+
+    /**
      * @var nonExistJobIds
      */
     public $nonExistJobIds;
@@ -19,15 +24,10 @@ class DeleteMcuJobResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var deletedJobIds
-     */
-    public $deletedJobIds;
     protected $_name = [
+        'deletedJobIds'  => 'DeletedJobIds',
         'nonExistJobIds' => 'NonExistJobIds',
         'requestId'      => 'RequestId',
-        'deletedJobIds'  => 'DeletedJobIds',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class DeleteMcuJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deletedJobIds) {
+            $res['DeletedJobIds'] = null !== $this->deletedJobIds ? $this->deletedJobIds->toMap() : null;
+        }
         if (null !== $this->nonExistJobIds) {
             $res['NonExistJobIds'] = null !== $this->nonExistJobIds ? $this->nonExistJobIds->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->deletedJobIds) {
-            $res['DeletedJobIds'] = null !== $this->deletedJobIds ? $this->deletedJobIds->toMap() : null;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class DeleteMcuJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeletedJobIds'])) {
+            $model->deletedJobIds = deletedJobIds::fromMap($map['DeletedJobIds']);
+        }
         if (isset($map['NonExistJobIds'])) {
             $model->nonExistJobIds = nonExistJobIds::fromMap($map['NonExistJobIds']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['DeletedJobIds'])) {
-            $model->deletedJobIds = deletedJobIds::fromMap($map['DeletedJobIds']);
         }
 
         return $model;

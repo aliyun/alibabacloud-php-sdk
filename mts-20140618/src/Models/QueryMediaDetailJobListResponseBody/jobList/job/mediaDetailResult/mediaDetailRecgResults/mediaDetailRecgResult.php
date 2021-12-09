@@ -15,29 +15,9 @@ use AlibabaCloud\Tea\Model;
 class mediaDetailRecgResult extends Model
 {
     /**
-     * @var string
+     * @var celebrities
      */
-    public $time;
-
-    /**
-     * @var sensitives
-     */
-    public $sensitives;
-
-    /**
-     * @var politicians
-     */
-    public $politicians;
-
-    /**
-     * @var frameTags
-     */
-    public $frameTags;
-
-    /**
-     * @var string
-     */
-    public $imageUrl;
+    public $celebrities;
 
     /**
      * @var customs
@@ -50,24 +30,44 @@ class mediaDetailRecgResult extends Model
     public $frameTagInfos;
 
     /**
-     * @var celebrities
+     * @var frameTags
      */
-    public $celebrities;
+    public $frameTags;
+
+    /**
+     * @var string
+     */
+    public $imageUrl;
 
     /**
      * @var string
      */
     public $ocrText;
+
+    /**
+     * @var politicians
+     */
+    public $politicians;
+
+    /**
+     * @var sensitives
+     */
+    public $sensitives;
+
+    /**
+     * @var string
+     */
+    public $time;
     protected $_name = [
-        'time'          => 'Time',
-        'sensitives'    => 'Sensitives',
-        'politicians'   => 'Politicians',
-        'frameTags'     => 'FrameTags',
-        'imageUrl'      => 'ImageUrl',
+        'celebrities'   => 'Celebrities',
         'customs'       => 'Customs',
         'frameTagInfos' => 'FrameTagInfos',
-        'celebrities'   => 'Celebrities',
+        'frameTags'     => 'FrameTags',
+        'imageUrl'      => 'ImageUrl',
         'ocrText'       => 'OcrText',
+        'politicians'   => 'Politicians',
+        'sensitives'    => 'Sensitives',
+        'time'          => 'Time',
     ];
 
     public function validate()
@@ -77,20 +77,8 @@ class mediaDetailRecgResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
-        }
-        if (null !== $this->sensitives) {
-            $res['Sensitives'] = null !== $this->sensitives ? $this->sensitives->toMap() : null;
-        }
-        if (null !== $this->politicians) {
-            $res['Politicians'] = null !== $this->politicians ? $this->politicians->toMap() : null;
-        }
-        if (null !== $this->frameTags) {
-            $res['FrameTags'] = null !== $this->frameTags ? $this->frameTags->toMap() : null;
-        }
-        if (null !== $this->imageUrl) {
-            $res['ImageUrl'] = $this->imageUrl;
+        if (null !== $this->celebrities) {
+            $res['Celebrities'] = null !== $this->celebrities ? $this->celebrities->toMap() : null;
         }
         if (null !== $this->customs) {
             $res['Customs'] = null !== $this->customs ? $this->customs->toMap() : null;
@@ -98,11 +86,23 @@ class mediaDetailRecgResult extends Model
         if (null !== $this->frameTagInfos) {
             $res['FrameTagInfos'] = null !== $this->frameTagInfos ? $this->frameTagInfos->toMap() : null;
         }
-        if (null !== $this->celebrities) {
-            $res['Celebrities'] = null !== $this->celebrities ? $this->celebrities->toMap() : null;
+        if (null !== $this->frameTags) {
+            $res['FrameTags'] = null !== $this->frameTags ? $this->frameTags->toMap() : null;
+        }
+        if (null !== $this->imageUrl) {
+            $res['ImageUrl'] = $this->imageUrl;
         }
         if (null !== $this->ocrText) {
             $res['OcrText'] = $this->ocrText;
+        }
+        if (null !== $this->politicians) {
+            $res['Politicians'] = null !== $this->politicians ? $this->politicians->toMap() : null;
+        }
+        if (null !== $this->sensitives) {
+            $res['Sensitives'] = null !== $this->sensitives ? $this->sensitives->toMap() : null;
+        }
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
         }
 
         return $res;
@@ -116,20 +116,8 @@ class mediaDetailRecgResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
-        }
-        if (isset($map['Sensitives'])) {
-            $model->sensitives = sensitives::fromMap($map['Sensitives']);
-        }
-        if (isset($map['Politicians'])) {
-            $model->politicians = politicians::fromMap($map['Politicians']);
-        }
-        if (isset($map['FrameTags'])) {
-            $model->frameTags = frameTags::fromMap($map['FrameTags']);
-        }
-        if (isset($map['ImageUrl'])) {
-            $model->imageUrl = $map['ImageUrl'];
+        if (isset($map['Celebrities'])) {
+            $model->celebrities = celebrities::fromMap($map['Celebrities']);
         }
         if (isset($map['Customs'])) {
             $model->customs = customs::fromMap($map['Customs']);
@@ -137,11 +125,23 @@ class mediaDetailRecgResult extends Model
         if (isset($map['FrameTagInfos'])) {
             $model->frameTagInfos = frameTagInfos::fromMap($map['FrameTagInfos']);
         }
-        if (isset($map['Celebrities'])) {
-            $model->celebrities = celebrities::fromMap($map['Celebrities']);
+        if (isset($map['FrameTags'])) {
+            $model->frameTags = frameTags::fromMap($map['FrameTags']);
+        }
+        if (isset($map['ImageUrl'])) {
+            $model->imageUrl = $map['ImageUrl'];
         }
         if (isset($map['OcrText'])) {
             $model->ocrText = $map['OcrText'];
+        }
+        if (isset($map['Politicians'])) {
+            $model->politicians = politicians::fromMap($map['Politicians']);
+        }
+        if (isset($map['Sensitives'])) {
+            $model->sensitives = sensitives::fromMap($map['Sensitives']);
+        }
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
         }
 
         return $model;

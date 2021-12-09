@@ -12,12 +12,7 @@ class QueryVideoQualityJobResponseBody extends Model
     /**
      * @var string
      */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $code;
 
     /**
      * @var job
@@ -27,12 +22,17 @@ class QueryVideoQualityJobResponseBody extends Model
     /**
      * @var string
      */
-    public $code;
+    public $message;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
+        'code'      => 'Code',
+        'job'       => 'Job',
         'message'   => 'Message',
         'requestId' => 'RequestId',
-        'job'       => 'Job',
-        'code'      => 'Code',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class QueryVideoQualityJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->job) {
+            $res['Job'] = null !== $this->job ? $this->job->toMap() : null;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->job) {
-            $res['Job'] = null !== $this->job ? $this->job->toMap() : null;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class QueryVideoQualityJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['Job'])) {
+            $model->job = job::fromMap($map['Job']);
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Job'])) {
-            $model->job = job::fromMap($map['Job']);
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryTemplateListRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -27,17 +32,12 @@ class QueryTemplateListRequest extends Model
      * @var string
      */
     public $templateIds;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     protected $_name = [
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'templateIds'          => 'TemplateIds',
-        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
@@ -47,6 +47,9 @@ class QueryTemplateListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -58,9 +61,6 @@ class QueryTemplateListRequest extends Model
         }
         if (null !== $this->templateIds) {
             $res['TemplateIds'] = $this->templateIds;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -74,6 +74,9 @@ class QueryTemplateListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -85,9 +88,6 @@ class QueryTemplateListRequest extends Model
         }
         if (isset($map['TemplateIds'])) {
             $model->templateIds = $map['TemplateIds'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

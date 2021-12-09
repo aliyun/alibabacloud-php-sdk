@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteMediaRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $mediaIds;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,22 +32,12 @@ class DeleteMediaRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $mediaIds;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     protected $_name = [
+        'mediaIds'             => 'MediaIds',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'mediaIds'             => 'MediaIds',
-        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class DeleteMediaRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->mediaIds) {
+            $res['MediaIds'] = $this->mediaIds;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -55,12 +61,6 @@ class DeleteMediaRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->mediaIds) {
-            $res['MediaIds'] = $this->mediaIds;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class DeleteMediaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MediaIds'])) {
+            $model->mediaIds = $map['MediaIds'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -82,12 +88,6 @@ class DeleteMediaRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['MediaIds'])) {
-            $model->mediaIds = $map['MediaIds'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

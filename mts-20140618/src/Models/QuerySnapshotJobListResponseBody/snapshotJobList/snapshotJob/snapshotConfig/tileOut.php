@@ -11,12 +11,7 @@ class tileOut extends Model
     /**
      * @var string
      */
-    public $padding;
-
-    /**
-     * @var string
-     */
-    public $color;
+    public $cellHeight;
 
     /**
      * @var string
@@ -26,17 +21,12 @@ class tileOut extends Model
     /**
      * @var string
      */
-    public $cellHeight;
-
-    /**
-     * @var string
-     */
     public $cellWidth;
 
     /**
      * @var string
      */
-    public $margin;
+    public $color;
 
     /**
      * @var string
@@ -52,16 +42,26 @@ class tileOut extends Model
      * @var string
      */
     public $lines;
+
+    /**
+     * @var string
+     */
+    public $margin;
+
+    /**
+     * @var string
+     */
+    public $padding;
     protected $_name = [
-        'padding'       => 'Padding',
-        'color'         => 'Color',
-        'cellSelStep'   => 'CellSelStep',
         'cellHeight'    => 'CellHeight',
+        'cellSelStep'   => 'CellSelStep',
         'cellWidth'     => 'CellWidth',
-        'margin'        => 'Margin',
+        'color'         => 'Color',
         'columns'       => 'Columns',
         'isKeepCellPic' => 'IsKeepCellPic',
         'lines'         => 'Lines',
+        'margin'        => 'Margin',
+        'padding'       => 'Padding',
     ];
 
     public function validate()
@@ -71,23 +71,17 @@ class tileOut extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->padding) {
-            $res['Padding'] = $this->padding;
-        }
-        if (null !== $this->color) {
-            $res['Color'] = $this->color;
+        if (null !== $this->cellHeight) {
+            $res['CellHeight'] = $this->cellHeight;
         }
         if (null !== $this->cellSelStep) {
             $res['CellSelStep'] = $this->cellSelStep;
         }
-        if (null !== $this->cellHeight) {
-            $res['CellHeight'] = $this->cellHeight;
-        }
         if (null !== $this->cellWidth) {
             $res['CellWidth'] = $this->cellWidth;
         }
-        if (null !== $this->margin) {
-            $res['Margin'] = $this->margin;
+        if (null !== $this->color) {
+            $res['Color'] = $this->color;
         }
         if (null !== $this->columns) {
             $res['Columns'] = $this->columns;
@@ -97,6 +91,12 @@ class tileOut extends Model
         }
         if (null !== $this->lines) {
             $res['Lines'] = $this->lines;
+        }
+        if (null !== $this->margin) {
+            $res['Margin'] = $this->margin;
+        }
+        if (null !== $this->padding) {
+            $res['Padding'] = $this->padding;
         }
 
         return $res;
@@ -110,23 +110,17 @@ class tileOut extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Padding'])) {
-            $model->padding = $map['Padding'];
-        }
-        if (isset($map['Color'])) {
-            $model->color = $map['Color'];
+        if (isset($map['CellHeight'])) {
+            $model->cellHeight = $map['CellHeight'];
         }
         if (isset($map['CellSelStep'])) {
             $model->cellSelStep = $map['CellSelStep'];
         }
-        if (isset($map['CellHeight'])) {
-            $model->cellHeight = $map['CellHeight'];
-        }
         if (isset($map['CellWidth'])) {
             $model->cellWidth = $map['CellWidth'];
         }
-        if (isset($map['Margin'])) {
-            $model->margin = $map['Margin'];
+        if (isset($map['Color'])) {
+            $model->color = $map['Color'];
         }
         if (isset($map['Columns'])) {
             $model->columns = $map['Columns'];
@@ -136,6 +130,12 @@ class tileOut extends Model
         }
         if (isset($map['Lines'])) {
             $model->lines = $map['Lines'];
+        }
+        if (isset($map['Margin'])) {
+            $model->margin = $map['Margin'];
+        }
+        if (isset($map['Padding'])) {
+            $model->padding = $map['Padding'];
         }
 
         return $model;

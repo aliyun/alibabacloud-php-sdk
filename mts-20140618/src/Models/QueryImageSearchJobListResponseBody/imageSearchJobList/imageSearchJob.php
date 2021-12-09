@@ -14,12 +14,37 @@ class imageSearchJob extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var string
+     */
     public $creationTime;
 
     /**
      * @var string
      */
     public $finishTime;
+
+    /**
+     * @var string
+     */
+    public $id;
+
+    /**
+     * @var inputVideo
+     */
+    public $inputVideo;
+
+    /**
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @var string
+     */
+    public $pipelineId;
 
     /**
      * @var result
@@ -37,46 +62,21 @@ class imageSearchJob extends Model
     public $userData;
 
     /**
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @var string
-     */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $pipelineId;
-
-    /**
      * @var inputImage
      */
     public $inputImage;
-
-    /**
-     * @var string
-     */
-    public $id;
-
-    /**
-     * @var inputVideo
-     */
-    public $inputVideo;
     protected $_name = [
+        'code'         => 'Code',
         'creationTime' => 'CreationTime',
         'finishTime'   => 'FinishTime',
+        'id'           => 'Id',
+        'inputVideo'   => 'InputVideo',
+        'message'      => 'Message',
+        'pipelineId'   => 'PipelineId',
         'result'       => 'Result',
         'state'        => 'State',
         'userData'     => 'UserData',
-        'code'         => 'Code',
-        'message'      => 'Message',
-        'pipelineId'   => 'PipelineId',
         'inputImage'   => 'inputImage',
-        'id'           => 'Id',
-        'inputVideo'   => 'InputVideo',
     ];
 
     public function validate()
@@ -86,11 +86,26 @@ class imageSearchJob extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
         if (null !== $this->finishTime) {
             $res['FinishTime'] = $this->finishTime;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->inputVideo) {
+            $res['InputVideo'] = null !== $this->inputVideo ? $this->inputVideo->toMap() : null;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->pipelineId) {
+            $res['PipelineId'] = $this->pipelineId;
         }
         if (null !== $this->result) {
             $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
@@ -101,23 +116,8 @@ class imageSearchJob extends Model
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-        if (null !== $this->pipelineId) {
-            $res['PipelineId'] = $this->pipelineId;
-        }
         if (null !== $this->inputImage) {
             $res['inputImage'] = null !== $this->inputImage ? $this->inputImage->toMap() : null;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-        if (null !== $this->inputVideo) {
-            $res['InputVideo'] = null !== $this->inputVideo ? $this->inputVideo->toMap() : null;
         }
 
         return $res;
@@ -131,11 +131,26 @@ class imageSearchJob extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
         if (isset($map['FinishTime'])) {
             $model->finishTime = $map['FinishTime'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['InputVideo'])) {
+            $model->inputVideo = inputVideo::fromMap($map['InputVideo']);
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['PipelineId'])) {
+            $model->pipelineId = $map['PipelineId'];
         }
         if (isset($map['Result'])) {
             $model->result = result::fromMap($map['Result']);
@@ -146,23 +161,8 @@ class imageSearchJob extends Model
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-        if (isset($map['PipelineId'])) {
-            $model->pipelineId = $map['PipelineId'];
-        }
         if (isset($map['inputImage'])) {
             $model->inputImage = inputImage::fromMap($map['inputImage']);
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-        if (isset($map['InputVideo'])) {
-            $model->inputVideo = inputVideo::fromMap($map['InputVideo']);
         }
 
         return $model;

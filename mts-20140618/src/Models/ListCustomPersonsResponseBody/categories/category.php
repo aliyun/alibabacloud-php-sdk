@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class category extends Model
 {
     /**
-     * @var persons
+     * @var string
      */
-    public $persons;
+    public $categoryDescription;
 
     /**
      * @var string
@@ -25,14 +25,14 @@ class category extends Model
     public $categoryName;
 
     /**
-     * @var string
+     * @var persons
      */
-    public $categoryDescription;
+    public $persons;
     protected $_name = [
-        'persons'             => 'Persons',
+        'categoryDescription' => 'CategoryDescription',
         'categoryId'          => 'CategoryId',
         'categoryName'        => 'CategoryName',
-        'categoryDescription' => 'CategoryDescription',
+        'persons'             => 'Persons',
     ];
 
     public function validate()
@@ -42,8 +42,8 @@ class category extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->persons) {
-            $res['Persons'] = null !== $this->persons ? $this->persons->toMap() : null;
+        if (null !== $this->categoryDescription) {
+            $res['CategoryDescription'] = $this->categoryDescription;
         }
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
@@ -51,8 +51,8 @@ class category extends Model
         if (null !== $this->categoryName) {
             $res['CategoryName'] = $this->categoryName;
         }
-        if (null !== $this->categoryDescription) {
-            $res['CategoryDescription'] = $this->categoryDescription;
+        if (null !== $this->persons) {
+            $res['Persons'] = null !== $this->persons ? $this->persons->toMap() : null;
         }
 
         return $res;
@@ -66,8 +66,8 @@ class category extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Persons'])) {
-            $model->persons = persons::fromMap($map['Persons']);
+        if (isset($map['CategoryDescription'])) {
+            $model->categoryDescription = $map['CategoryDescription'];
         }
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
@@ -75,8 +75,8 @@ class category extends Model
         if (isset($map['CategoryName'])) {
             $model->categoryName = $map['CategoryName'];
         }
-        if (isset($map['CategoryDescription'])) {
-            $model->categoryDescription = $map['CategoryDescription'];
+        if (isset($map['Persons'])) {
+            $model->persons = persons::fromMap($map['Persons']);
         }
 
         return $model;

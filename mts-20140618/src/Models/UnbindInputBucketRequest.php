@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UnbindInputBucketRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $bucket;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -26,24 +36,14 @@ class UnbindInputBucketRequest extends Model
     /**
      * @var string
      */
-    public $bucket;
-
-    /**
-     * @var string
-     */
     public $roleArn;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     protected $_name = [
+        'bucket'               => 'Bucket',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'bucket'               => 'Bucket',
         'roleArn'              => 'RoleArn',
-        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
@@ -53,6 +53,12 @@ class UnbindInputBucketRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bucket) {
+            $res['Bucket'] = $this->bucket;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -62,14 +68,8 @@ class UnbindInputBucketRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->bucket) {
-            $res['Bucket'] = $this->bucket;
-        }
         if (null !== $this->roleArn) {
             $res['RoleArn'] = $this->roleArn;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -83,6 +83,12 @@ class UnbindInputBucketRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Bucket'])) {
+            $model->bucket = $map['Bucket'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -92,14 +98,8 @@ class UnbindInputBucketRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['Bucket'])) {
-            $model->bucket = $map['Bucket'];
-        }
         if (isset($map['RoleArn'])) {
             $model->roleArn = $map['RoleArn'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

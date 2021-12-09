@@ -12,11 +12,6 @@ use AlibabaCloud\Tea\Model;
 class streams extends Model
 {
     /**
-     * @var videoStreamList
-     */
-    public $videoStreamList;
-
-    /**
      * @var audioStreamList
      */
     public $audioStreamList;
@@ -25,10 +20,15 @@ class streams extends Model
      * @var subtitleStreamList
      */
     public $subtitleStreamList;
+
+    /**
+     * @var videoStreamList
+     */
+    public $videoStreamList;
     protected $_name = [
-        'videoStreamList'    => 'VideoStreamList',
         'audioStreamList'    => 'AudioStreamList',
         'subtitleStreamList' => 'SubtitleStreamList',
+        'videoStreamList'    => 'VideoStreamList',
     ];
 
     public function validate()
@@ -38,14 +38,14 @@ class streams extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoStreamList) {
-            $res['VideoStreamList'] = null !== $this->videoStreamList ? $this->videoStreamList->toMap() : null;
-        }
         if (null !== $this->audioStreamList) {
             $res['AudioStreamList'] = null !== $this->audioStreamList ? $this->audioStreamList->toMap() : null;
         }
         if (null !== $this->subtitleStreamList) {
             $res['SubtitleStreamList'] = null !== $this->subtitleStreamList ? $this->subtitleStreamList->toMap() : null;
+        }
+        if (null !== $this->videoStreamList) {
+            $res['VideoStreamList'] = null !== $this->videoStreamList ? $this->videoStreamList->toMap() : null;
         }
 
         return $res;
@@ -59,14 +59,14 @@ class streams extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoStreamList'])) {
-            $model->videoStreamList = videoStreamList::fromMap($map['VideoStreamList']);
-        }
         if (isset($map['AudioStreamList'])) {
             $model->audioStreamList = audioStreamList::fromMap($map['AudioStreamList']);
         }
         if (isset($map['SubtitleStreamList'])) {
             $model->subtitleStreamList = subtitleStreamList::fromMap($map['SubtitleStreamList']);
+        }
+        if (isset($map['VideoStreamList'])) {
+            $model->videoStreamList = videoStreamList::fromMap($map['VideoStreamList']);
         }
 
         return $model;

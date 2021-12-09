@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class QueryMediaCensorJobDetailResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var mediaCensorJobDetail
      */
     public $mediaCensorJobDetail;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'            => 'RequestId',
         'mediaCensorJobDetail' => 'MediaCensorJobDetail',
+        'requestId'            => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class QueryMediaCensorJobDetailResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->mediaCensorJobDetail) {
             $res['MediaCensorJobDetail'] = null !== $this->mediaCensorJobDetail ? $this->mediaCensorJobDetail->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class QueryMediaCensorJobDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['MediaCensorJobDetail'])) {
             $model->mediaCensorJobDetail = mediaCensorJobDetail::fromMap($map['MediaCensorJobDetail']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

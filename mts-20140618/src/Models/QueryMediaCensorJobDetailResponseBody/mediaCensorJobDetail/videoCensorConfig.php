@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class videoCensorConfig extends Model
 {
     /**
+     * @var string
+     */
+    public $bizType;
+
+    /**
      * @var outputFile
      */
     public $outputFile;
@@ -18,15 +23,10 @@ class videoCensorConfig extends Model
      * @var string
      */
     public $videoCensor;
-
-    /**
-     * @var string
-     */
-    public $bizType;
     protected $_name = [
+        'bizType'     => 'BizType',
         'outputFile'  => 'OutputFile',
         'videoCensor' => 'VideoCensor',
-        'bizType'     => 'BizType',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class videoCensorConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
+        }
         if (null !== $this->outputFile) {
             $res['OutputFile'] = null !== $this->outputFile ? $this->outputFile->toMap() : null;
         }
         if (null !== $this->videoCensor) {
             $res['VideoCensor'] = $this->videoCensor;
-        }
-        if (null !== $this->bizType) {
-            $res['BizType'] = $this->bizType;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class videoCensorConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
+        }
         if (isset($map['OutputFile'])) {
             $model->outputFile = outputFile::fromMap($map['OutputFile']);
         }
         if (isset($map['VideoCensor'])) {
             $model->videoCensor = $map['VideoCensor'];
-        }
-        if (isset($map['BizType'])) {
-            $model->bizType = $map['BizType'];
         }
 
         return $model;

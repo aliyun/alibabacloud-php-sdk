@@ -12,20 +12,20 @@ class PlayerAuthResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $logURL;
 
     /**
      * @var string
      */
-    public $logURL;
+    public $requestId;
 
     /**
      * @var switchList
      */
     public $switchList;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'logURL'     => 'LogURL',
+        'requestId'  => 'RequestId',
         'switchList' => 'SwitchList',
     ];
 
@@ -36,11 +36,11 @@ class PlayerAuthResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->logURL) {
             $res['LogURL'] = $this->logURL;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->switchList) {
             $res['SwitchList'] = null !== $this->switchList ? $this->switchList->toMap() : null;
@@ -57,11 +57,11 @@ class PlayerAuthResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['LogURL'])) {
             $model->logURL = $map['LogURL'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['SwitchList'])) {
             $model->switchList = switchList::fromMap($map['SwitchList']);

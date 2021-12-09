@@ -21,29 +21,29 @@ class mediaWorkflow extends Model
     /**
      * @var string
      */
-    public $state;
-
-    /**
-     * @var string
-     */
-    public $triggerMode;
-
-    /**
-     * @var string
-     */
     public $name;
 
     /**
      * @var string
      */
+    public $state;
+
+    /**
+     * @var string
+     */
     public $topology;
+
+    /**
+     * @var string
+     */
+    public $triggerMode;
     protected $_name = [
         'creationTime'    => 'CreationTime',
         'mediaWorkflowId' => 'MediaWorkflowId',
-        'state'           => 'State',
-        'triggerMode'     => 'TriggerMode',
         'name'            => 'Name',
+        'state'           => 'State',
         'topology'        => 'Topology',
+        'triggerMode'     => 'TriggerMode',
     ];
 
     public function validate()
@@ -59,17 +59,17 @@ class mediaWorkflow extends Model
         if (null !== $this->mediaWorkflowId) {
             $res['MediaWorkflowId'] = $this->mediaWorkflowId;
         }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
-        if (null !== $this->triggerMode) {
-            $res['TriggerMode'] = $this->triggerMode;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
+        }
         if (null !== $this->topology) {
             $res['Topology'] = $this->topology;
+        }
+        if (null !== $this->triggerMode) {
+            $res['TriggerMode'] = $this->triggerMode;
         }
 
         return $res;
@@ -89,17 +89,17 @@ class mediaWorkflow extends Model
         if (isset($map['MediaWorkflowId'])) {
             $model->mediaWorkflowId = $map['MediaWorkflowId'];
         }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
-        if (isset($map['TriggerMode'])) {
-            $model->triggerMode = $map['TriggerMode'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
+        }
         if (isset($map['Topology'])) {
             $model->topology = $map['Topology'];
+        }
+        if (isset($map['TriggerMode'])) {
+            $model->triggerMode = $map['TriggerMode'];
         }
 
         return $model;

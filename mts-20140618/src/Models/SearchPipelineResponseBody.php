@@ -12,12 +12,17 @@ class SearchPipelineResponseBody extends Model
     /**
      * @var int
      */
-    public $totalCount;
+    public $pageNumber;
 
     /**
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var pipelineList
+     */
+    public $pipelineList;
 
     /**
      * @var string
@@ -27,18 +32,13 @@ class SearchPipelineResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
-
-    /**
-     * @var pipelineList
-     */
-    public $pipelineList;
+    public $totalCount;
     protected $_name = [
-        'totalCount'   => 'TotalCount',
-        'pageSize'     => 'PageSize',
-        'requestId'    => 'RequestId',
         'pageNumber'   => 'PageNumber',
+        'pageSize'     => 'PageSize',
         'pipelineList' => 'PipelineList',
+        'requestId'    => 'RequestId',
+        'totalCount'   => 'TotalCount',
     ];
 
     public function validate()
@@ -48,20 +48,20 @@ class SearchPipelineResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+        if (null !== $this->pipelineList) {
+            $res['PipelineList'] = null !== $this->pipelineList ? $this->pipelineList->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pipelineList) {
-            $res['PipelineList'] = null !== $this->pipelineList ? $this->pipelineList->toMap() : null;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -75,20 +75,20 @@ class SearchPipelineResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+        if (isset($map['PipelineList'])) {
+            $model->pipelineList = pipelineList::fromMap($map['PipelineList']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PipelineList'])) {
-            $model->pipelineList = pipelineList::fromMap($map['PipelineList']);
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

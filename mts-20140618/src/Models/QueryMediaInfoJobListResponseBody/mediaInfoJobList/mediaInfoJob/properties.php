@@ -13,12 +13,7 @@ class properties extends Model
     /**
      * @var string
      */
-    public $width;
-
-    /**
-     * @var string
-     */
-    public $height;
+    public $bitrate;
 
     /**
      * @var string
@@ -28,22 +23,12 @@ class properties extends Model
     /**
      * @var string
      */
-    public $fps;
-
-    /**
-     * @var string
-     */
-    public $bitrate;
-
-    /**
-     * @var string
-     */
     public $fileFormat;
 
     /**
-     * @var streams
+     * @var string
      */
-    public $streams;
+    public $fileSize;
 
     /**
      * @var format
@@ -53,17 +38,32 @@ class properties extends Model
     /**
      * @var string
      */
-    public $fileSize;
+    public $fps;
+
+    /**
+     * @var string
+     */
+    public $height;
+
+    /**
+     * @var streams
+     */
+    public $streams;
+
+    /**
+     * @var string
+     */
+    public $width;
     protected $_name = [
-        'width'      => 'Width',
-        'height'     => 'Height',
-        'duration'   => 'Duration',
-        'fps'        => 'Fps',
         'bitrate'    => 'Bitrate',
+        'duration'   => 'Duration',
         'fileFormat' => 'FileFormat',
-        'streams'    => 'Streams',
-        'format'     => 'Format',
         'fileSize'   => 'FileSize',
+        'format'     => 'Format',
+        'fps'        => 'Fps',
+        'height'     => 'Height',
+        'streams'    => 'Streams',
+        'width'      => 'Width',
     ];
 
     public function validate()
@@ -73,32 +73,32 @@ class properties extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
-        }
-        if (null !== $this->height) {
-            $res['Height'] = $this->height;
+        if (null !== $this->bitrate) {
+            $res['Bitrate'] = $this->bitrate;
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
-        if (null !== $this->fps) {
-            $res['Fps'] = $this->fps;
-        }
-        if (null !== $this->bitrate) {
-            $res['Bitrate'] = $this->bitrate;
-        }
         if (null !== $this->fileFormat) {
             $res['FileFormat'] = $this->fileFormat;
         }
-        if (null !== $this->streams) {
-            $res['Streams'] = null !== $this->streams ? $this->streams->toMap() : null;
+        if (null !== $this->fileSize) {
+            $res['FileSize'] = $this->fileSize;
         }
         if (null !== $this->format) {
             $res['Format'] = null !== $this->format ? $this->format->toMap() : null;
         }
-        if (null !== $this->fileSize) {
-            $res['FileSize'] = $this->fileSize;
+        if (null !== $this->fps) {
+            $res['Fps'] = $this->fps;
+        }
+        if (null !== $this->height) {
+            $res['Height'] = $this->height;
+        }
+        if (null !== $this->streams) {
+            $res['Streams'] = null !== $this->streams ? $this->streams->toMap() : null;
+        }
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -112,32 +112,32 @@ class properties extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
-        }
-        if (isset($map['Height'])) {
-            $model->height = $map['Height'];
+        if (isset($map['Bitrate'])) {
+            $model->bitrate = $map['Bitrate'];
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
-        if (isset($map['Fps'])) {
-            $model->fps = $map['Fps'];
-        }
-        if (isset($map['Bitrate'])) {
-            $model->bitrate = $map['Bitrate'];
-        }
         if (isset($map['FileFormat'])) {
             $model->fileFormat = $map['FileFormat'];
         }
-        if (isset($map['Streams'])) {
-            $model->streams = streams::fromMap($map['Streams']);
+        if (isset($map['FileSize'])) {
+            $model->fileSize = $map['FileSize'];
         }
         if (isset($map['Format'])) {
             $model->format = format::fromMap($map['Format']);
         }
-        if (isset($map['FileSize'])) {
-            $model->fileSize = $map['FileSize'];
+        if (isset($map['Fps'])) {
+            $model->fps = $map['Fps'];
+        }
+        if (isset($map['Height'])) {
+            $model->height = $map['Height'];
+        }
+        if (isset($map['Streams'])) {
+            $model->streams = streams::fromMap($map['Streams']);
+        }
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

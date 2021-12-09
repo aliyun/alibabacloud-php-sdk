@@ -11,15 +11,15 @@ class mediaBucket extends Model
     /**
      * @var string
      */
-    public $type;
+    public $bucket;
 
     /**
      * @var string
      */
-    public $bucket;
+    public $type;
     protected $_name = [
-        'type'   => 'Type',
         'bucket' => 'Bucket',
+        'type'   => 'Type',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class mediaBucket extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->bucket) {
             $res['Bucket'] = $this->bucket;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class mediaBucket extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Bucket'])) {
             $model->bucket = $map['Bucket'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

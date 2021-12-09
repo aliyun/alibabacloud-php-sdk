@@ -11,17 +11,12 @@ class fpShotDB extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
     public $description;
 
     /**
      * @var string
      */
-    public $name;
+    public $fpDBId;
 
     /**
      * @var int
@@ -31,13 +26,18 @@ class fpShotDB extends Model
     /**
      * @var string
      */
-    public $fpDBId;
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'      => 'Status',
         'description' => 'Description',
-        'name'        => 'Name',
-        'modelId'     => 'ModelId',
         'fpDBId'      => 'FpDBId',
+        'modelId'     => 'ModelId',
+        'name'        => 'Name',
+        'status'      => 'Status',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class fpShotDB extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->fpDBId) {
+            $res['FpDBId'] = $this->fpDBId;
         }
         if (null !== $this->modelId) {
             $res['ModelId'] = $this->modelId;
         }
-        if (null !== $this->fpDBId) {
-            $res['FpDBId'] = $this->fpDBId;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class fpShotDB extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['FpDBId'])) {
+            $model->fpDBId = $map['FpDBId'];
         }
         if (isset($map['ModelId'])) {
             $model->modelId = $map['ModelId'];
         }
-        if (isset($map['FpDBId'])) {
-            $model->fpDBId = $map['FpDBId'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ReportTagJobResultRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $jobId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -26,30 +36,20 @@ class ReportTagJobResultRequest extends Model
     /**
      * @var string
      */
-    public $jobId;
-
-    /**
-     * @var string
-     */
-    public $tag;
-
-    /**
-     * @var string
-     */
     public $result;
 
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $tag;
     protected $_name = [
+        'jobId'                => 'JobId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'jobId'                => 'JobId',
-        'tag'                  => 'Tag',
         'result'               => 'Result',
-        'ownerAccount'         => 'OwnerAccount',
+        'tag'                  => 'Tag',
     ];
 
     public function validate()
@@ -59,6 +59,12 @@ class ReportTagJobResultRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -68,17 +74,11 @@ class ReportTagJobResultRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = $this->tag;
-        }
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
         }
 
         return $res;
@@ -92,6 +92,12 @@ class ReportTagJobResultRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -101,17 +107,11 @@ class ReportTagJobResultRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
-        if (isset($map['Tag'])) {
-            $model->tag = $map['Tag'];
-        }
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
         }
 
         return $model;

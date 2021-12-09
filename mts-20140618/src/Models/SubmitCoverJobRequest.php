@@ -9,9 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SubmitCoverJobRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $coverConfig;
+
+    /**
+     * @var string
+     */
+    public $input;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $pipelineId;
 
     /**
      * @var string
@@ -26,36 +46,16 @@ class SubmitCoverJobRequest extends Model
     /**
      * @var string
      */
-    public $input;
-
-    /**
-     * @var string
-     */
-    public $coverConfig;
-
-    /**
-     * @var string
-     */
     public $userData;
-
-    /**
-     * @var string
-     */
-    public $pipelineId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     protected $_name = [
+        'coverConfig'          => 'CoverConfig',
+        'input'                => 'Input',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'pipelineId'           => 'PipelineId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'input'                => 'Input',
-        'coverConfig'          => 'CoverConfig',
         'userData'             => 'UserData',
-        'pipelineId'           => 'PipelineId',
-        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
@@ -65,8 +65,20 @@ class SubmitCoverJobRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->coverConfig) {
+            $res['CoverConfig'] = $this->coverConfig;
+        }
+        if (null !== $this->input) {
+            $res['Input'] = $this->input;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pipelineId) {
+            $res['PipelineId'] = $this->pipelineId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -74,20 +86,8 @@ class SubmitCoverJobRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->input) {
-            $res['Input'] = $this->input;
-        }
-        if (null !== $this->coverConfig) {
-            $res['CoverConfig'] = $this->coverConfig;
-        }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
-        }
-        if (null !== $this->pipelineId) {
-            $res['PipelineId'] = $this->pipelineId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -101,8 +101,20 @@ class SubmitCoverJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CoverConfig'])) {
+            $model->coverConfig = $map['CoverConfig'];
+        }
+        if (isset($map['Input'])) {
+            $model->input = $map['Input'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PipelineId'])) {
+            $model->pipelineId = $map['PipelineId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -110,20 +122,8 @@ class SubmitCoverJobRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['Input'])) {
-            $model->input = $map['Input'];
-        }
-        if (isset($map['CoverConfig'])) {
-            $model->coverConfig = $map['CoverConfig'];
-        }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
-        }
-        if (isset($map['PipelineId'])) {
-            $model->pipelineId = $map['PipelineId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

@@ -16,18 +16,18 @@ class QueryFpCompareJobListResponseBody extends Model
     public $fpCompareJobList;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var nonExistIds
      */
     public $nonExistIds;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'fpCompareJobList' => 'FpCompareJobList',
-        'requestId'        => 'RequestId',
         'nonExistIds'      => 'NonExistIds',
+        'requestId'        => 'RequestId',
     ];
 
     public function validate()
@@ -40,11 +40,11 @@ class QueryFpCompareJobListResponseBody extends Model
         if (null !== $this->fpCompareJobList) {
             $res['FpCompareJobList'] = null !== $this->fpCompareJobList ? $this->fpCompareJobList->toMap() : null;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->nonExistIds) {
             $res['NonExistIds'] = null !== $this->nonExistIds ? $this->nonExistIds->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -61,11 +61,11 @@ class QueryFpCompareJobListResponseBody extends Model
         if (isset($map['FpCompareJobList'])) {
             $model->fpCompareJobList = fpCompareJobList::fromMap($map['FpCompareJobList']);
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['NonExistIds'])) {
             $model->nonExistIds = nonExistIds::fromMap($map['NonExistIds']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

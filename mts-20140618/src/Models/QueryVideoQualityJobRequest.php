@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class QueryVideoQualityJobRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $userId;
-
-    /**
      * @var string
      */
     public $jobId;
+
+    /**
+     * @var int
+     */
+    public $userId;
     protected $_name = [
-        'userId' => 'UserId',
         'jobId'  => 'JobId',
+        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class QueryVideoQualityJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class QueryVideoQualityJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

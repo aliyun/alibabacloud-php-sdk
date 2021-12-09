@@ -12,7 +12,7 @@ class fpShotFile extends Model
     /**
      * @var string
      */
-    public $primaryKey;
+    public $fileId;
 
     /**
      * @var inputFile
@@ -22,11 +22,11 @@ class fpShotFile extends Model
     /**
      * @var string
      */
-    public $fileId;
+    public $primaryKey;
     protected $_name = [
-        'primaryKey' => 'PrimaryKey',
-        'inputFile'  => 'InputFile',
         'fileId'     => 'FileId',
+        'inputFile'  => 'InputFile',
+        'primaryKey' => 'PrimaryKey',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class fpShotFile extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->primaryKey) {
-            $res['PrimaryKey'] = $this->primaryKey;
+        if (null !== $this->fileId) {
+            $res['FileId'] = $this->fileId;
         }
         if (null !== $this->inputFile) {
             $res['InputFile'] = null !== $this->inputFile ? $this->inputFile->toMap() : null;
         }
-        if (null !== $this->fileId) {
-            $res['FileId'] = $this->fileId;
+        if (null !== $this->primaryKey) {
+            $res['PrimaryKey'] = $this->primaryKey;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class fpShotFile extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PrimaryKey'])) {
-            $model->primaryKey = $map['PrimaryKey'];
+        if (isset($map['FileId'])) {
+            $model->fileId = $map['FileId'];
         }
         if (isset($map['InputFile'])) {
             $model->inputFile = inputFile::fromMap($map['InputFile']);
         }
-        if (isset($map['FileId'])) {
-            $model->fileId = $map['FileId'];
+        if (isset($map['PrimaryKey'])) {
+            $model->primaryKey = $map['PrimaryKey'];
         }
 
         return $model;

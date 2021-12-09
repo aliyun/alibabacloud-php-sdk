@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateWaterMarkTemplateResponseBody extends Model
 {
     /**
-     * @var waterMarkTemplate
-     */
-    public $waterMarkTemplate;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var waterMarkTemplate
+     */
+    public $waterMarkTemplate;
     protected $_name = [
-        'waterMarkTemplate' => 'WaterMarkTemplate',
         'requestId'         => 'RequestId',
+        'waterMarkTemplate' => 'WaterMarkTemplate',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class UpdateWaterMarkTemplateResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->waterMarkTemplate) {
-            $res['WaterMarkTemplate'] = null !== $this->waterMarkTemplate ? $this->waterMarkTemplate->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->waterMarkTemplate) {
+            $res['WaterMarkTemplate'] = null !== $this->waterMarkTemplate ? $this->waterMarkTemplate->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class UpdateWaterMarkTemplateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['WaterMarkTemplate'])) {
-            $model->waterMarkTemplate = waterMarkTemplate::fromMap($map['WaterMarkTemplate']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['WaterMarkTemplate'])) {
+            $model->waterMarkTemplate = waterMarkTemplate::fromMap($map['WaterMarkTemplate']);
         }
 
         return $model;

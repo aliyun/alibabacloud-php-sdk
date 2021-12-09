@@ -11,22 +11,22 @@ use AlibabaCloud\Tea\Model;
 class mediaDetailResult extends Model
 {
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
      * @var mediaDetailRecgResults
      */
     public $mediaDetailRecgResults;
+
+    /**
+     * @var string
+     */
+    public $status;
 
     /**
      * @var tags
      */
     public $tags;
     protected $_name = [
-        'status'                 => 'Status',
         'mediaDetailRecgResults' => 'MediaDetailRecgResults',
+        'status'                 => 'Status',
         'tags'                   => 'Tags',
     ];
 
@@ -37,11 +37,11 @@ class mediaDetailResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->mediaDetailRecgResults) {
             $res['MediaDetailRecgResults'] = null !== $this->mediaDetailRecgResults ? $this->mediaDetailRecgResults->toMap() : null;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
@@ -58,11 +58,11 @@ class mediaDetailResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['MediaDetailRecgResults'])) {
             $model->mediaDetailRecgResults = mediaDetailRecgResults::fromMap($map['MediaDetailRecgResults']);
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);

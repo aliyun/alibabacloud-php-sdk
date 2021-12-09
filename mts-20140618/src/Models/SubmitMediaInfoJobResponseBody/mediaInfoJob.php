@@ -12,14 +12,24 @@ use AlibabaCloud\Tea\Model;
 class mediaInfoJob extends Model
 {
     /**
+     * @var bool
+     */
+    public $async;
+
+    /**
+     * @var string
+     */
+    public $code;
+
+    /**
      * @var string
      */
     public $creationTime;
 
     /**
-     * @var string
+     * @var input
      */
-    public $state;
+    public $input;
 
     /**
      * @var string
@@ -27,14 +37,9 @@ class mediaInfoJob extends Model
     public $jobId;
 
     /**
-     * @var string
+     * @var MNSMessageResult
      */
-    public $userData;
-
-    /**
-     * @var string
-     */
-    public $code;
+    public $MNSMessageResult;
 
     /**
      * @var string
@@ -47,36 +52,31 @@ class mediaInfoJob extends Model
     public $pipelineId;
 
     /**
-     * @var bool
-     */
-    public $async;
-
-    /**
-     * @var input
-     */
-    public $input;
-
-    /**
-     * @var MNSMessageResult
-     */
-    public $MNSMessageResult;
-
-    /**
      * @var properties
      */
     public $properties;
+
+    /**
+     * @var string
+     */
+    public $state;
+
+    /**
+     * @var string
+     */
+    public $userData;
     protected $_name = [
-        'creationTime'     => 'CreationTime',
-        'state'            => 'State',
-        'jobId'            => 'JobId',
-        'userData'         => 'UserData',
+        'async'            => 'Async',
         'code'             => 'Code',
+        'creationTime'     => 'CreationTime',
+        'input'            => 'Input',
+        'jobId'            => 'JobId',
+        'MNSMessageResult' => 'MNSMessageResult',
         'message'          => 'Message',
         'pipelineId'       => 'PipelineId',
-        'async'            => 'Async',
-        'input'            => 'Input',
-        'MNSMessageResult' => 'MNSMessageResult',
         'properties'       => 'Properties',
+        'state'            => 'State',
+        'userData'         => 'UserData',
     ];
 
     public function validate()
@@ -86,20 +86,23 @@ class mediaInfoJob extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->async) {
+            $res['Async'] = $this->async;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
+        if (null !== $this->input) {
+            $res['Input'] = null !== $this->input ? $this->input->toMap() : null;
         }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
-        if (null !== $this->userData) {
-            $res['UserData'] = $this->userData;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->MNSMessageResult) {
+            $res['MNSMessageResult'] = null !== $this->MNSMessageResult ? $this->MNSMessageResult->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -107,17 +110,14 @@ class mediaInfoJob extends Model
         if (null !== $this->pipelineId) {
             $res['PipelineId'] = $this->pipelineId;
         }
-        if (null !== $this->async) {
-            $res['Async'] = $this->async;
-        }
-        if (null !== $this->input) {
-            $res['Input'] = null !== $this->input ? $this->input->toMap() : null;
-        }
-        if (null !== $this->MNSMessageResult) {
-            $res['MNSMessageResult'] = null !== $this->MNSMessageResult ? $this->MNSMessageResult->toMap() : null;
-        }
         if (null !== $this->properties) {
             $res['Properties'] = null !== $this->properties ? $this->properties->toMap() : null;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -131,20 +131,23 @@ class mediaInfoJob extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Async'])) {
+            $model->async = $map['Async'];
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
+        if (isset($map['Input'])) {
+            $model->input = input::fromMap($map['Input']);
         }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
-        if (isset($map['UserData'])) {
-            $model->userData = $map['UserData'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['MNSMessageResult'])) {
+            $model->MNSMessageResult = MNSMessageResult::fromMap($map['MNSMessageResult']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -152,17 +155,14 @@ class mediaInfoJob extends Model
         if (isset($map['PipelineId'])) {
             $model->pipelineId = $map['PipelineId'];
         }
-        if (isset($map['Async'])) {
-            $model->async = $map['Async'];
-        }
-        if (isset($map['Input'])) {
-            $model->input = input::fromMap($map['Input']);
-        }
-        if (isset($map['MNSMessageResult'])) {
-            $model->MNSMessageResult = MNSMessageResult::fromMap($map['MNSMessageResult']);
-        }
         if (isset($map['Properties'])) {
             $model->properties = properties::fromMap($map['Properties']);
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         return $model;

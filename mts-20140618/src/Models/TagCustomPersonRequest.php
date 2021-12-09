@@ -9,24 +9,9 @@ use AlibabaCloud\Tea\Model;
 class TagCustomPersonRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
+    public $categoryDescription;
 
     /**
      * @var string
@@ -41,7 +26,17 @@ class TagCustomPersonRequest extends Model
     /**
      * @var string
      */
-    public $categoryDescription;
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $personDescription;
 
     /**
      * @var string
@@ -56,18 +51,23 @@ class TagCustomPersonRequest extends Model
     /**
      * @var string
      */
-    public $personDescription;
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
+        'categoryDescription'  => 'CategoryDescription',
         'categoryId'           => 'CategoryId',
         'categoryName'         => 'CategoryName',
-        'categoryDescription'  => 'CategoryDescription',
+        'ownerAccount'         => 'OwnerAccount',
+        'ownerId'              => 'OwnerId',
+        'personDescription'    => 'PersonDescription',
         'personId'             => 'PersonId',
         'personName'           => 'PersonName',
-        'personDescription'    => 'PersonDescription',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -77,17 +77,8 @@ class TagCustomPersonRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->categoryDescription) {
+            $res['CategoryDescription'] = $this->categoryDescription;
         }
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
@@ -95,8 +86,14 @@ class TagCustomPersonRequest extends Model
         if (null !== $this->categoryName) {
             $res['CategoryName'] = $this->categoryName;
         }
-        if (null !== $this->categoryDescription) {
-            $res['CategoryDescription'] = $this->categoryDescription;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->personDescription) {
+            $res['PersonDescription'] = $this->personDescription;
         }
         if (null !== $this->personId) {
             $res['PersonId'] = $this->personId;
@@ -104,8 +101,11 @@ class TagCustomPersonRequest extends Model
         if (null !== $this->personName) {
             $res['PersonName'] = $this->personName;
         }
-        if (null !== $this->personDescription) {
-            $res['PersonDescription'] = $this->personDescription;
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -119,17 +119,8 @@ class TagCustomPersonRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['CategoryDescription'])) {
+            $model->categoryDescription = $map['CategoryDescription'];
         }
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
@@ -137,8 +128,14 @@ class TagCustomPersonRequest extends Model
         if (isset($map['CategoryName'])) {
             $model->categoryName = $map['CategoryName'];
         }
-        if (isset($map['CategoryDescription'])) {
-            $model->categoryDescription = $map['CategoryDescription'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PersonDescription'])) {
+            $model->personDescription = $map['PersonDescription'];
         }
         if (isset($map['PersonId'])) {
             $model->personId = $map['PersonId'];
@@ -146,8 +143,11 @@ class TagCustomPersonRequest extends Model
         if (isset($map['PersonName'])) {
             $model->personName = $map['PersonName'];
         }
-        if (isset($map['PersonDescription'])) {
-            $model->personDescription = $map['PersonDescription'];
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

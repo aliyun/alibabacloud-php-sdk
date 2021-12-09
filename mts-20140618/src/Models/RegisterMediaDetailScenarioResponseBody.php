@@ -11,15 +11,15 @@ class RegisterMediaDetailScenarioResponseBody extends Model
     /**
      * @var string
      */
-    public $scenarioId;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $scenarioId;
     protected $_name = [
-        'scenarioId' => 'ScenarioId',
         'requestId'  => 'RequestId',
+        'scenarioId' => 'ScenarioId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class RegisterMediaDetailScenarioResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->scenarioId) {
-            $res['ScenarioId'] = $this->scenarioId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->scenarioId) {
+            $res['ScenarioId'] = $this->scenarioId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class RegisterMediaDetailScenarioResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ScenarioId'])) {
-            $model->scenarioId = $map['ScenarioId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ScenarioId'])) {
+            $model->scenarioId = $map['ScenarioId'];
         }
 
         return $model;

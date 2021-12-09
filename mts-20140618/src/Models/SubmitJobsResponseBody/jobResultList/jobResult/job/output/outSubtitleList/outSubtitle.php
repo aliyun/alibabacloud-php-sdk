@@ -15,6 +15,11 @@ class outSubtitle extends Model
     public $map;
 
     /**
+     * @var string
+     */
+    public $message;
+
+    /**
      * @var outSubtitleFile
      */
     public $outSubtitleFile;
@@ -23,16 +28,11 @@ class outSubtitle extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var string
-     */
-    public $message;
     protected $_name = [
         'map'             => 'Map',
+        'message'         => 'Message',
         'outSubtitleFile' => 'OutSubtitleFile',
         'success'         => 'Success',
-        'message'         => 'Message',
     ];
 
     public function validate()
@@ -45,14 +45,14 @@ class outSubtitle extends Model
         if (null !== $this->map) {
             $res['Map'] = $this->map;
         }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
         if (null !== $this->outSubtitleFile) {
             $res['OutSubtitleFile'] = null !== $this->outSubtitleFile ? $this->outSubtitleFile->toMap() : null;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
         }
 
         return $res;
@@ -69,14 +69,14 @@ class outSubtitle extends Model
         if (isset($map['Map'])) {
             $model->map = $map['Map'];
         }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
         if (isset($map['OutSubtitleFile'])) {
             $model->outSubtitleFile = outSubtitleFile::fromMap($map['OutSubtitleFile']);
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
         }
 
         return $model;

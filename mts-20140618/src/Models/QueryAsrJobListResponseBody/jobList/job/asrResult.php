@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class asrResult extends Model
 {
     /**
-     * @var string
-     */
-    public $duration;
-
-    /**
      * @var asrTextList
      */
     public $asrTextList;
+
+    /**
+     * @var string
+     */
+    public $duration;
     protected $_name = [
-        'duration'    => 'Duration',
         'asrTextList' => 'AsrTextList',
+        'duration'    => 'Duration',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class asrResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
-        }
         if (null !== $this->asrTextList) {
             $res['AsrTextList'] = null !== $this->asrTextList ? $this->asrTextList->toMap() : null;
+        }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class asrResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
-        }
         if (isset($map['AsrTextList'])) {
             $model->asrTextList = asrTextList::fromMap($map['AsrTextList']);
+        }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
         }
 
         return $model;

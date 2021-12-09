@@ -16,6 +16,16 @@ class abuseAudio extends Model
     /**
      * @var string
      */
+    public $object;
+
+    /**
+     * @var string
+     */
+    public $score;
+
+    /**
+     * @var string
+     */
     public $startTime;
 
     /**
@@ -26,24 +36,14 @@ class abuseAudio extends Model
     /**
      * @var string
      */
-    public $score;
-
-    /**
-     * @var string
-     */
     public $text;
-
-    /**
-     * @var string
-     */
-    public $object;
     protected $_name = [
         'endTime'    => 'EndTime',
+        'object'     => 'Object',
+        'score'      => 'Score',
         'startTime'  => 'StartTime',
         'suggestion' => 'Suggestion',
-        'score'      => 'Score',
         'text'       => 'Text',
-        'object'     => 'Object',
     ];
 
     public function validate()
@@ -56,20 +56,20 @@ class abuseAudio extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+        if (null !== $this->object) {
+            $res['Object'] = $this->object;
+        }
+        if (null !== $this->score) {
+            $res['Score'] = $this->score;
+        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->suggestion) {
             $res['Suggestion'] = $this->suggestion;
         }
-        if (null !== $this->score) {
-            $res['Score'] = $this->score;
-        }
         if (null !== $this->text) {
             $res['Text'] = $this->text;
-        }
-        if (null !== $this->object) {
-            $res['Object'] = $this->object;
         }
 
         return $res;
@@ -86,20 +86,20 @@ class abuseAudio extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['Object'])) {
+            $model->object = $map['Object'];
+        }
+        if (isset($map['Score'])) {
+            $model->score = $map['Score'];
+        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
         if (isset($map['Suggestion'])) {
             $model->suggestion = $map['Suggestion'];
         }
-        if (isset($map['Score'])) {
-            $model->score = $map['Score'];
-        }
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
-        }
-        if (isset($map['Object'])) {
-            $model->object = $map['Object'];
         }
 
         return $model;

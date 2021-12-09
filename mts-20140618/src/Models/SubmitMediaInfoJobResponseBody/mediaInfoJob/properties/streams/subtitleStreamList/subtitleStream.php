@@ -11,17 +11,7 @@ class subtitleStream extends Model
     /**
      * @var string
      */
-    public $timebase;
-
-    /**
-     * @var string
-     */
-    public $index;
-
-    /**
-     * @var string
-     */
-    public $startTime;
+    public $codecLongName;
 
     /**
      * @var string
@@ -31,22 +21,12 @@ class subtitleStream extends Model
     /**
      * @var string
      */
-    public $lang;
-
-    /**
-     * @var string
-     */
-    public $codecLongName;
-
-    /**
-     * @var string
-     */
-    public $duration;
-
-    /**
-     * @var string
-     */
     public $codecTag;
+
+    /**
+     * @var string
+     */
+    public $codecTagString;
 
     /**
      * @var string
@@ -56,18 +36,38 @@ class subtitleStream extends Model
     /**
      * @var string
      */
-    public $codecTagString;
+    public $duration;
+
+    /**
+     * @var string
+     */
+    public $index;
+
+    /**
+     * @var string
+     */
+    public $lang;
+
+    /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $timebase;
     protected $_name = [
-        'timebase'       => 'Timebase',
-        'index'          => 'Index',
-        'startTime'      => 'StartTime',
-        'codecName'      => 'CodecName',
-        'lang'           => 'Lang',
         'codecLongName'  => 'CodecLongName',
-        'duration'       => 'Duration',
+        'codecName'      => 'CodecName',
         'codecTag'       => 'CodecTag',
-        'codecTimeBase'  => 'CodecTimeBase',
         'codecTagString' => 'CodecTagString',
+        'codecTimeBase'  => 'CodecTimeBase',
+        'duration'       => 'Duration',
+        'index'          => 'Index',
+        'lang'           => 'Lang',
+        'startTime'      => 'StartTime',
+        'timebase'       => 'Timebase',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class subtitleStream extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->timebase) {
-            $res['Timebase'] = $this->timebase;
-        }
-        if (null !== $this->index) {
-            $res['Index'] = $this->index;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->codecLongName) {
+            $res['CodecLongName'] = $this->codecLongName;
         }
         if (null !== $this->codecName) {
             $res['CodecName'] = $this->codecName;
         }
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->codecLongName) {
-            $res['CodecLongName'] = $this->codecLongName;
-        }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
-        }
         if (null !== $this->codecTag) {
             $res['CodecTag'] = $this->codecTag;
+        }
+        if (null !== $this->codecTagString) {
+            $res['CodecTagString'] = $this->codecTagString;
         }
         if (null !== $this->codecTimeBase) {
             $res['CodecTimeBase'] = $this->codecTimeBase;
         }
-        if (null !== $this->codecTagString) {
-            $res['CodecTagString'] = $this->codecTagString;
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->index) {
+            $res['Index'] = $this->index;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->timebase) {
+            $res['Timebase'] = $this->timebase;
         }
 
         return $res;
@@ -119,35 +119,35 @@ class subtitleStream extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Timebase'])) {
-            $model->timebase = $map['Timebase'];
-        }
-        if (isset($map['Index'])) {
-            $model->index = $map['Index'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['CodecLongName'])) {
+            $model->codecLongName = $map['CodecLongName'];
         }
         if (isset($map['CodecName'])) {
             $model->codecName = $map['CodecName'];
         }
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['CodecLongName'])) {
-            $model->codecLongName = $map['CodecLongName'];
-        }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
-        }
         if (isset($map['CodecTag'])) {
             $model->codecTag = $map['CodecTag'];
+        }
+        if (isset($map['CodecTagString'])) {
+            $model->codecTagString = $map['CodecTagString'];
         }
         if (isset($map['CodecTimeBase'])) {
             $model->codecTimeBase = $map['CodecTimeBase'];
         }
-        if (isset($map['CodecTagString'])) {
-            $model->codecTagString = $map['CodecTagString'];
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
+        }
+        if (isset($map['Index'])) {
+            $model->index = $map['Index'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Timebase'])) {
+            $model->timebase = $map['Timebase'];
         }
 
         return $model;

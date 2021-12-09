@@ -13,9 +13,34 @@ use AlibabaCloud\Tea\Model;
 class job extends Model
 {
     /**
+     * @var input
+     */
+    public $input;
+
+    /**
+     * @var string
+     */
+    public $jobId;
+
+    /**
+     * @var MNSMessageResult
+     */
+    public $MNSMessageResult;
+
+    /**
      * @var outputConfig
      */
     public $outputConfig;
+
+    /**
+     * @var string
+     */
+    public $pipelineId;
+
+    /**
+     * @var properties
+     */
+    public $properties;
 
     /**
      * @var string
@@ -25,41 +50,16 @@ class job extends Model
     /**
      * @var string
      */
-    public $jobId;
-
-    /**
-     * @var string
-     */
     public $userData;
-
-    /**
-     * @var string
-     */
-    public $pipelineId;
-
-    /**
-     * @var MNSMessageResult
-     */
-    public $MNSMessageResult;
-
-    /**
-     * @var input
-     */
-    public $input;
-
-    /**
-     * @var properties
-     */
-    public $properties;
     protected $_name = [
-        'outputConfig'     => 'OutputConfig',
-        'state'            => 'State',
-        'jobId'            => 'JobId',
-        'userData'         => 'UserData',
-        'pipelineId'       => 'PipelineId',
-        'MNSMessageResult' => 'MNSMessageResult',
         'input'            => 'Input',
+        'jobId'            => 'JobId',
+        'MNSMessageResult' => 'MNSMessageResult',
+        'outputConfig'     => 'OutputConfig',
+        'pipelineId'       => 'PipelineId',
         'properties'       => 'Properties',
+        'state'            => 'State',
+        'userData'         => 'UserData',
     ];
 
     public function validate()
@@ -69,29 +69,29 @@ class job extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->outputConfig) {
-            $res['OutputConfig'] = null !== $this->outputConfig ? $this->outputConfig->toMap() : null;
-        }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
+        if (null !== $this->input) {
+            $res['Input'] = null !== $this->input ? $this->input->toMap() : null;
         }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
-        if (null !== $this->userData) {
-            $res['UserData'] = $this->userData;
+        if (null !== $this->MNSMessageResult) {
+            $res['MNSMessageResult'] = null !== $this->MNSMessageResult ? $this->MNSMessageResult->toMap() : null;
+        }
+        if (null !== $this->outputConfig) {
+            $res['OutputConfig'] = null !== $this->outputConfig ? $this->outputConfig->toMap() : null;
         }
         if (null !== $this->pipelineId) {
             $res['PipelineId'] = $this->pipelineId;
         }
-        if (null !== $this->MNSMessageResult) {
-            $res['MNSMessageResult'] = null !== $this->MNSMessageResult ? $this->MNSMessageResult->toMap() : null;
-        }
-        if (null !== $this->input) {
-            $res['Input'] = null !== $this->input ? $this->input->toMap() : null;
-        }
         if (null !== $this->properties) {
             $res['Properties'] = null !== $this->properties ? $this->properties->toMap() : null;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -105,29 +105,29 @@ class job extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OutputConfig'])) {
-            $model->outputConfig = outputConfig::fromMap($map['OutputConfig']);
-        }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
+        if (isset($map['Input'])) {
+            $model->input = input::fromMap($map['Input']);
         }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
-        if (isset($map['UserData'])) {
-            $model->userData = $map['UserData'];
+        if (isset($map['MNSMessageResult'])) {
+            $model->MNSMessageResult = MNSMessageResult::fromMap($map['MNSMessageResult']);
+        }
+        if (isset($map['OutputConfig'])) {
+            $model->outputConfig = outputConfig::fromMap($map['OutputConfig']);
         }
         if (isset($map['PipelineId'])) {
             $model->pipelineId = $map['PipelineId'];
         }
-        if (isset($map['MNSMessageResult'])) {
-            $model->MNSMessageResult = MNSMessageResult::fromMap($map['MNSMessageResult']);
-        }
-        if (isset($map['Input'])) {
-            $model->input = input::fromMap($map['Input']);
-        }
         if (isset($map['Properties'])) {
             $model->properties = properties::fromMap($map['Properties']);
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         return $model;

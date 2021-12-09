@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryWaterMarkTemplateListRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -27,17 +32,12 @@ class QueryWaterMarkTemplateListRequest extends Model
      * @var string
      */
     public $waterMarkTemplateIds;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     protected $_name = [
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'waterMarkTemplateIds' => 'WaterMarkTemplateIds',
-        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
@@ -47,6 +47,9 @@ class QueryWaterMarkTemplateListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -58,9 +61,6 @@ class QueryWaterMarkTemplateListRequest extends Model
         }
         if (null !== $this->waterMarkTemplateIds) {
             $res['WaterMarkTemplateIds'] = $this->waterMarkTemplateIds;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -74,6 +74,9 @@ class QueryWaterMarkTemplateListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -85,9 +88,6 @@ class QueryWaterMarkTemplateListRequest extends Model
         }
         if (isset($map['WaterMarkTemplateIds'])) {
             $model->waterMarkTemplateIds = $map['WaterMarkTemplateIds'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

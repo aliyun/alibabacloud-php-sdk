@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class RegisterMediaDetailPersonResponseBody extends Model
 {
     /**
-     * @var string
+     * @var failedImages
      */
-    public $requestId;
+    public $failedImages;
 
     /**
      * @var registeredPersonages
@@ -21,13 +21,13 @@ class RegisterMediaDetailPersonResponseBody extends Model
     public $registeredPersonages;
 
     /**
-     * @var failedImages
+     * @var string
      */
-    public $failedImages;
+    public $requestId;
     protected $_name = [
-        'requestId'            => 'RequestId',
-        'registeredPersonages' => 'RegisteredPersonages',
         'failedImages'         => 'FailedImages',
+        'registeredPersonages' => 'RegisteredPersonages',
+        'requestId'            => 'RequestId',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class RegisterMediaDetailPersonResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->failedImages) {
+            $res['FailedImages'] = null !== $this->failedImages ? $this->failedImages->toMap() : null;
         }
         if (null !== $this->registeredPersonages) {
             $res['RegisteredPersonages'] = null !== $this->registeredPersonages ? $this->registeredPersonages->toMap() : null;
         }
-        if (null !== $this->failedImages) {
-            $res['FailedImages'] = null !== $this->failedImages ? $this->failedImages->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class RegisterMediaDetailPersonResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['FailedImages'])) {
+            $model->failedImages = failedImages::fromMap($map['FailedImages']);
         }
         if (isset($map['RegisteredPersonages'])) {
             $model->registeredPersonages = registeredPersonages::fromMap($map['RegisteredPersonages']);
         }
-        if (isset($map['FailedImages'])) {
-            $model->failedImages = failedImages::fromMap($map['FailedImages']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -11,12 +11,22 @@ class queryMediaInfo extends Model
     /**
      * @var string
      */
+    public $audioBitRate;
+
+    /**
+     * @var string
+     */
+    public $audioChannels;
+
+    /**
+     * @var string
+     */
     public $audioSampleRate;
 
     /**
      * @var string
      */
-    public $audioBitRate;
+    public $duration;
 
     /**
      * @var string
@@ -26,7 +36,7 @@ class queryMediaInfo extends Model
     /**
      * @var string
      */
-    public $width;
+    public $fps;
 
     /**
      * @var string
@@ -41,27 +51,17 @@ class queryMediaInfo extends Model
     /**
      * @var string
      */
-    public $fps;
-
-    /**
-     * @var string
-     */
-    public $duration;
-
-    /**
-     * @var string
-     */
-    public $audioChannels;
+    public $width;
     protected $_name = [
-        'audioSampleRate' => 'AudioSampleRate',
         'audioBitRate'    => 'AudioBitRate',
+        'audioChannels'   => 'AudioChannels',
+        'audioSampleRate' => 'AudioSampleRate',
+        'duration'        => 'Duration',
         'fpNum'           => 'FpNum',
-        'width'           => 'Width',
+        'fps'             => 'Fps',
         'height'          => 'Height',
         'totalVideoFrame' => 'TotalVideoFrame',
-        'fps'             => 'Fps',
-        'duration'        => 'Duration',
-        'audioChannels'   => 'AudioChannels',
+        'width'           => 'Width',
     ];
 
     public function validate()
@@ -71,17 +71,23 @@ class queryMediaInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->audioBitRate) {
+            $res['AudioBitRate'] = $this->audioBitRate;
+        }
+        if (null !== $this->audioChannels) {
+            $res['AudioChannels'] = $this->audioChannels;
+        }
         if (null !== $this->audioSampleRate) {
             $res['AudioSampleRate'] = $this->audioSampleRate;
         }
-        if (null !== $this->audioBitRate) {
-            $res['AudioBitRate'] = $this->audioBitRate;
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
         }
         if (null !== $this->fpNum) {
             $res['FpNum'] = $this->fpNum;
         }
-        if (null !== $this->width) {
-            $res['Width'] = $this->width;
+        if (null !== $this->fps) {
+            $res['Fps'] = $this->fps;
         }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
@@ -89,14 +95,8 @@ class queryMediaInfo extends Model
         if (null !== $this->totalVideoFrame) {
             $res['TotalVideoFrame'] = $this->totalVideoFrame;
         }
-        if (null !== $this->fps) {
-            $res['Fps'] = $this->fps;
-        }
-        if (null !== $this->duration) {
-            $res['Duration'] = $this->duration;
-        }
-        if (null !== $this->audioChannels) {
-            $res['AudioChannels'] = $this->audioChannels;
+        if (null !== $this->width) {
+            $res['Width'] = $this->width;
         }
 
         return $res;
@@ -110,17 +110,23 @@ class queryMediaInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AudioBitRate'])) {
+            $model->audioBitRate = $map['AudioBitRate'];
+        }
+        if (isset($map['AudioChannels'])) {
+            $model->audioChannels = $map['AudioChannels'];
+        }
         if (isset($map['AudioSampleRate'])) {
             $model->audioSampleRate = $map['AudioSampleRate'];
         }
-        if (isset($map['AudioBitRate'])) {
-            $model->audioBitRate = $map['AudioBitRate'];
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
         }
         if (isset($map['FpNum'])) {
             $model->fpNum = $map['FpNum'];
         }
-        if (isset($map['Width'])) {
-            $model->width = $map['Width'];
+        if (isset($map['Fps'])) {
+            $model->fps = $map['Fps'];
         }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
@@ -128,14 +134,8 @@ class queryMediaInfo extends Model
         if (isset($map['TotalVideoFrame'])) {
             $model->totalVideoFrame = $map['TotalVideoFrame'];
         }
-        if (isset($map['Fps'])) {
-            $model->fps = $map['Fps'];
-        }
-        if (isset($map['Duration'])) {
-            $model->duration = $map['Duration'];
-        }
-        if (isset($map['AudioChannels'])) {
-            $model->audioChannels = $map['AudioChannels'];
+        if (isset($map['Width'])) {
+            $model->width = $map['Width'];
         }
 
         return $model;

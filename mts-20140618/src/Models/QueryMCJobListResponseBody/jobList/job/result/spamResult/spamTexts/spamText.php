@@ -11,20 +11,20 @@ class spamText extends Model
     /**
      * @var string
      */
-    public $suggestion;
+    public $score;
 
     /**
      * @var string
      */
-    public $score;
+    public $suggestion;
 
     /**
      * @var string
      */
     public $text;
     protected $_name = [
-        'suggestion' => 'Suggestion',
         'score'      => 'Score',
+        'suggestion' => 'Suggestion',
         'text'       => 'Text',
     ];
 
@@ -35,11 +35,11 @@ class spamText extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->suggestion) {
-            $res['Suggestion'] = $this->suggestion;
-        }
         if (null !== $this->score) {
             $res['Score'] = $this->score;
+        }
+        if (null !== $this->suggestion) {
+            $res['Suggestion'] = $this->suggestion;
         }
         if (null !== $this->text) {
             $res['Text'] = $this->text;
@@ -56,11 +56,11 @@ class spamText extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Suggestion'])) {
-            $model->suggestion = $map['Suggestion'];
-        }
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
+        }
+        if (isset($map['Suggestion'])) {
+            $model->suggestion = $map['Suggestion'];
         }
         if (isset($map['Text'])) {
             $model->text = $map['Text'];

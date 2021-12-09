@@ -9,9 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SubmitFacerecogJobRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $facerecogConfig;
+
+    /**
+     * @var string
+     */
+    public $input;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $pipelineId;
 
     /**
      * @var string
@@ -26,36 +46,16 @@ class SubmitFacerecogJobRequest extends Model
     /**
      * @var string
      */
-    public $input;
-
-    /**
-     * @var string
-     */
-    public $facerecogConfig;
-
-    /**
-     * @var string
-     */
     public $userData;
-
-    /**
-     * @var string
-     */
-    public $pipelineId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
     protected $_name = [
+        'facerecogConfig'      => 'FacerecogConfig',
+        'input'                => 'Input',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'pipelineId'           => 'PipelineId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'input'                => 'Input',
-        'facerecogConfig'      => 'FacerecogConfig',
         'userData'             => 'UserData',
-        'pipelineId'           => 'PipelineId',
-        'ownerAccount'         => 'OwnerAccount',
     ];
 
     public function validate()
@@ -65,8 +65,20 @@ class SubmitFacerecogJobRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->facerecogConfig) {
+            $res['FacerecogConfig'] = $this->facerecogConfig;
+        }
+        if (null !== $this->input) {
+            $res['Input'] = $this->input;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pipelineId) {
+            $res['PipelineId'] = $this->pipelineId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -74,20 +86,8 @@ class SubmitFacerecogJobRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->input) {
-            $res['Input'] = $this->input;
-        }
-        if (null !== $this->facerecogConfig) {
-            $res['FacerecogConfig'] = $this->facerecogConfig;
-        }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
-        }
-        if (null !== $this->pipelineId) {
-            $res['PipelineId'] = $this->pipelineId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
         }
 
         return $res;
@@ -101,8 +101,20 @@ class SubmitFacerecogJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FacerecogConfig'])) {
+            $model->facerecogConfig = $map['FacerecogConfig'];
+        }
+        if (isset($map['Input'])) {
+            $model->input = $map['Input'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PipelineId'])) {
+            $model->pipelineId = $map['PipelineId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -110,20 +122,8 @@ class SubmitFacerecogJobRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['Input'])) {
-            $model->input = $map['Input'];
-        }
-        if (isset($map['FacerecogConfig'])) {
-            $model->facerecogConfig = $map['FacerecogConfig'];
-        }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
-        }
-        if (isset($map['PipelineId'])) {
-            $model->pipelineId = $map['PipelineId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
         }
 
         return $model;

@@ -10,9 +10,14 @@ use AlibabaCloud\Tea\Model;
 class track extends Model
 {
     /**
+     * @var clips
+     */
+    public $clips;
+
+    /**
      * @var string
      */
-    public $type;
+    public $id;
 
     /**
      * @var string
@@ -22,17 +27,12 @@ class track extends Model
     /**
      * @var string
      */
-    public $id;
-
-    /**
-     * @var clips
-     */
-    public $clips;
+    public $type;
     protected $_name = [
-        'type'  => 'Type',
-        'order' => 'Order',
-        'id'    => 'Id',
         'clips' => 'Clips',
+        'id'    => 'Id',
+        'order' => 'Order',
+        'type'  => 'Type',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class track extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->order) {
-            $res['Order'] = $this->order;
+        if (null !== $this->clips) {
+            $res['Clips'] = null !== $this->clips ? $this->clips->toMap() : null;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->clips) {
-            $res['Clips'] = null !== $this->clips ? $this->clips->toMap() : null;
+        if (null !== $this->order) {
+            $res['Order'] = $this->order;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class track extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Order'])) {
-            $model->order = $map['Order'];
+        if (isset($map['Clips'])) {
+            $model->clips = clips::fromMap($map['Clips']);
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['Clips'])) {
-            $model->clips = clips::fromMap($map['Clips']);
+        if (isset($map['Order'])) {
+            $model->order = $map['Order'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

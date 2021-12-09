@@ -9,9 +9,44 @@ use AlibabaCloud\Tea\Model;
 class SearchMediaRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $cateId;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $from;
+
+    /**
+     * @var string
+     */
+    public $keyWord;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
@@ -26,27 +61,7 @@ class SearchMediaRequest extends Model
     /**
      * @var string
      */
-    public $from;
-
-    /**
-     * @var string
-     */
-    public $to;
-
-    /**
-     * @var string
-     */
-    public $keyWord;
-
-    /**
-     * @var string
-     */
-    public $title;
-
-    /**
-     * @var string
-     */
-    public $description;
+    public $sortBy;
 
     /**
      * @var string
@@ -56,42 +71,27 @@ class SearchMediaRequest extends Model
     /**
      * @var string
      */
-    public $cateId;
+    public $title;
 
     /**
      * @var string
      */
-    public $sortBy;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
+    public $to;
     protected $_name = [
+        'cateId'               => 'CateId',
+        'description'          => 'Description',
+        'from'                 => 'From',
+        'keyWord'              => 'KeyWord',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'pageNumber'           => 'PageNumber',
+        'pageSize'             => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'from'                 => 'From',
-        'to'                   => 'To',
-        'keyWord'              => 'KeyWord',
-        'title'                => 'Title',
-        'description'          => 'Description',
-        'tag'                  => 'Tag',
-        'cateId'               => 'CateId',
         'sortBy'               => 'SortBy',
-        'pageSize'             => 'PageSize',
-        'pageNumber'           => 'PageNumber',
-        'ownerAccount'         => 'OwnerAccount',
+        'tag'                  => 'Tag',
+        'title'                => 'Title',
+        'to'                   => 'To',
     ];
 
     public function validate()
@@ -101,8 +101,29 @@ class SearchMediaRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cateId) {
+            $res['CateId'] = $this->cateId;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->from) {
+            $res['From'] = $this->from;
+        }
+        if (null !== $this->keyWord) {
+            $res['KeyWord'] = $this->keyWord;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -110,38 +131,17 @@ class SearchMediaRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->from) {
-            $res['From'] = $this->from;
-        }
-        if (null !== $this->to) {
-            $res['To'] = $this->to;
-        }
-        if (null !== $this->keyWord) {
-            $res['KeyWord'] = $this->keyWord;
-        }
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->sortBy) {
+            $res['SortBy'] = $this->sortBy;
         }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
         }
-        if (null !== $this->cateId) {
-            $res['CateId'] = $this->cateId;
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
         }
-        if (null !== $this->sortBy) {
-            $res['SortBy'] = $this->sortBy;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->to) {
+            $res['To'] = $this->to;
         }
 
         return $res;
@@ -155,8 +155,29 @@ class SearchMediaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CateId'])) {
+            $model->cateId = $map['CateId'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['From'])) {
+            $model->from = $map['From'];
+        }
+        if (isset($map['KeyWord'])) {
+            $model->keyWord = $map['KeyWord'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -164,38 +185,17 @@ class SearchMediaRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['From'])) {
-            $model->from = $map['From'];
-        }
-        if (isset($map['To'])) {
-            $model->to = $map['To'];
-        }
-        if (isset($map['KeyWord'])) {
-            $model->keyWord = $map['KeyWord'];
-        }
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['SortBy'])) {
+            $model->sortBy = $map['SortBy'];
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
         }
-        if (isset($map['CateId'])) {
-            $model->cateId = $map['CateId'];
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
         }
-        if (isset($map['SortBy'])) {
-            $model->sortBy = $map['SortBy'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['To'])) {
+            $model->to = $map['To'];
         }
 
         return $model;

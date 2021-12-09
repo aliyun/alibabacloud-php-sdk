@@ -10,16 +10,6 @@ use AlibabaCloud\Tea\Model;
 class person extends Model
 {
     /**
-     * @var string
-     */
-    public $personName;
-
-    /**
-     * @var string
-     */
-    public $personDescription;
-
-    /**
      * @var faces
      */
     public $faces;
@@ -27,12 +17,22 @@ class person extends Model
     /**
      * @var string
      */
+    public $personDescription;
+
+    /**
+     * @var string
+     */
     public $personId;
+
+    /**
+     * @var string
+     */
+    public $personName;
     protected $_name = [
-        'personName'        => 'PersonName',
-        'personDescription' => 'PersonDescription',
         'faces'             => 'Faces',
+        'personDescription' => 'PersonDescription',
         'personId'          => 'PersonId',
+        'personName'        => 'PersonName',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class person extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->personName) {
-            $res['PersonName'] = $this->personName;
+        if (null !== $this->faces) {
+            $res['Faces'] = null !== $this->faces ? $this->faces->toMap() : null;
         }
         if (null !== $this->personDescription) {
             $res['PersonDescription'] = $this->personDescription;
         }
-        if (null !== $this->faces) {
-            $res['Faces'] = null !== $this->faces ? $this->faces->toMap() : null;
-        }
         if (null !== $this->personId) {
             $res['PersonId'] = $this->personId;
+        }
+        if (null !== $this->personName) {
+            $res['PersonName'] = $this->personName;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class person extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PersonName'])) {
-            $model->personName = $map['PersonName'];
+        if (isset($map['Faces'])) {
+            $model->faces = faces::fromMap($map['Faces']);
         }
         if (isset($map['PersonDescription'])) {
             $model->personDescription = $map['PersonDescription'];
         }
-        if (isset($map['Faces'])) {
-            $model->faces = faces::fromMap($map['Faces']);
-        }
         if (isset($map['PersonId'])) {
             $model->personId = $map['PersonId'];
+        }
+        if (isset($map['PersonName'])) {
+            $model->personName = $map['PersonName'];
         }
 
         return $model;

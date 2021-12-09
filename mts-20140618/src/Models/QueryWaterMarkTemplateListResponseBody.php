@@ -11,22 +11,22 @@ use AlibabaCloud\Tea\Model;
 class QueryWaterMarkTemplateListResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var nonExistWids
      */
     public $nonExistWids;
+
+    /**
+     * @var string
+     */
+    public $requestId;
 
     /**
      * @var waterMarkTemplateList
      */
     public $waterMarkTemplateList;
     protected $_name = [
-        'requestId'             => 'RequestId',
         'nonExistWids'          => 'NonExistWids',
+        'requestId'             => 'RequestId',
         'waterMarkTemplateList' => 'WaterMarkTemplateList',
     ];
 
@@ -37,11 +37,11 @@ class QueryWaterMarkTemplateListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->nonExistWids) {
             $res['NonExistWids'] = null !== $this->nonExistWids ? $this->nonExistWids->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->waterMarkTemplateList) {
             $res['WaterMarkTemplateList'] = null !== $this->waterMarkTemplateList ? $this->waterMarkTemplateList->toMap() : null;
@@ -58,11 +58,11 @@ class QueryWaterMarkTemplateListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['NonExistWids'])) {
             $model->nonExistWids = nonExistWids::fromMap($map['NonExistWids']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['WaterMarkTemplateList'])) {
             $model->waterMarkTemplateList = waterMarkTemplateList::fromMap($map['WaterMarkTemplateList']);

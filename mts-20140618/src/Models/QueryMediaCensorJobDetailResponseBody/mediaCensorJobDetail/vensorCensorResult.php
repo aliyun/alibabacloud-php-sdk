@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class vensorCensorResult extends Model
 {
     /**
-     * @var videoTimelines
+     * @var censorResults
      */
-    public $videoTimelines;
+    public $censorResults;
 
     /**
      * @var string
@@ -21,13 +21,13 @@ class vensorCensorResult extends Model
     public $nextPageToken;
 
     /**
-     * @var censorResults
+     * @var videoTimelines
      */
-    public $censorResults;
+    public $videoTimelines;
     protected $_name = [
-        'videoTimelines' => 'VideoTimelines',
-        'nextPageToken'  => 'NextPageToken',
         'censorResults'  => 'CensorResults',
+        'nextPageToken'  => 'NextPageToken',
+        'videoTimelines' => 'VideoTimelines',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class vensorCensorResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoTimelines) {
-            $res['VideoTimelines'] = null !== $this->videoTimelines ? $this->videoTimelines->toMap() : null;
+        if (null !== $this->censorResults) {
+            $res['CensorResults'] = null !== $this->censorResults ? $this->censorResults->toMap() : null;
         }
         if (null !== $this->nextPageToken) {
             $res['NextPageToken'] = $this->nextPageToken;
         }
-        if (null !== $this->censorResults) {
-            $res['CensorResults'] = null !== $this->censorResults ? $this->censorResults->toMap() : null;
+        if (null !== $this->videoTimelines) {
+            $res['VideoTimelines'] = null !== $this->videoTimelines ? $this->videoTimelines->toMap() : null;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class vensorCensorResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoTimelines'])) {
-            $model->videoTimelines = videoTimelines::fromMap($map['VideoTimelines']);
+        if (isset($map['CensorResults'])) {
+            $model->censorResults = censorResults::fromMap($map['CensorResults']);
         }
         if (isset($map['NextPageToken'])) {
             $model->nextPageToken = $map['NextPageToken'];
         }
-        if (isset($map['CensorResults'])) {
-            $model->censorResults = censorResults::fromMap($map['CensorResults']);
+        if (isset($map['VideoTimelines'])) {
+            $model->videoTimelines = videoTimelines::fromMap($map['VideoTimelines']);
         }
 
         return $model;

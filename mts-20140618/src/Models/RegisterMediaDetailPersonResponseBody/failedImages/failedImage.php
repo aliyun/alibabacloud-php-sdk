@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class failedImage extends Model
 {
     /**
+     * @var string
+     */
+    public $code;
+
+    /**
      * @var imageFile
      */
     public $imageFile;
@@ -18,15 +23,10 @@ class failedImage extends Model
      * @var string
      */
     public $success;
-
-    /**
-     * @var string
-     */
-    public $code;
     protected $_name = [
+        'code'      => 'Code',
         'imageFile' => 'ImageFile',
         'success'   => 'Success',
-        'code'      => 'Code',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class failedImage extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->imageFile) {
             $res['ImageFile'] = null !== $this->imageFile ? $this->imageFile->toMap() : null;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class failedImage extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['ImageFile'])) {
             $model->imageFile = imageFile::fromMap($map['ImageFile']);
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

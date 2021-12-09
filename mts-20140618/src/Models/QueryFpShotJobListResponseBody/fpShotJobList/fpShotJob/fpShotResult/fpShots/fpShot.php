@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class fpShot extends Model
 {
     /**
-     * @var string
-     */
-    public $primaryKey;
-
-    /**
      * @var fpShotSlices
      */
     public $fpShotSlices;
@@ -22,10 +17,15 @@ class fpShot extends Model
     /**
      * @var string
      */
+    public $primaryKey;
+
+    /**
+     * @var string
+     */
     public $similarity;
     protected $_name = [
-        'primaryKey'   => 'PrimaryKey',
         'fpShotSlices' => 'FpShotSlices',
+        'primaryKey'   => 'PrimaryKey',
         'similarity'   => 'Similarity',
     ];
 
@@ -36,11 +36,11 @@ class fpShot extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->primaryKey) {
-            $res['PrimaryKey'] = $this->primaryKey;
-        }
         if (null !== $this->fpShotSlices) {
             $res['FpShotSlices'] = null !== $this->fpShotSlices ? $this->fpShotSlices->toMap() : null;
+        }
+        if (null !== $this->primaryKey) {
+            $res['PrimaryKey'] = $this->primaryKey;
         }
         if (null !== $this->similarity) {
             $res['Similarity'] = $this->similarity;
@@ -57,11 +57,11 @@ class fpShot extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PrimaryKey'])) {
-            $model->primaryKey = $map['PrimaryKey'];
-        }
         if (isset($map['FpShotSlices'])) {
             $model->fpShotSlices = fpShotSlices::fromMap($map['FpShotSlices']);
+        }
+        if (isset($map['PrimaryKey'])) {
+            $model->primaryKey = $map['PrimaryKey'];
         }
         if (isset($map['Similarity'])) {
             $model->similarity = $map['Similarity'];

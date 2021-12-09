@@ -11,15 +11,15 @@ class GetLicenseResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $license;
 
     /**
      * @var string
      */
-    public $license;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'license'   => 'License',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetLicenseResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->license) {
             $res['License'] = $this->license;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetLicenseResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['License'])) {
             $model->license = $map['License'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -13,27 +13,22 @@ class facerecogJob extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var string
+     */
     public $creationTime;
 
     /**
-     * @var videoFacerecogResult
-     */
-    public $videoFacerecogResult;
-
-    /**
      * @var string
      */
-    public $state;
+    public $id;
 
     /**
-     * @var string
+     * @var input
      */
-    public $userData;
-
-    /**
-     * @var string
-     */
-    public $code;
+    public $input;
 
     /**
      * @var string
@@ -46,24 +41,29 @@ class facerecogJob extends Model
     public $pipelineId;
 
     /**
-     * @var input
+     * @var string
      */
-    public $input;
+    public $state;
 
     /**
      * @var string
      */
-    public $id;
+    public $userData;
+
+    /**
+     * @var videoFacerecogResult
+     */
+    public $videoFacerecogResult;
     protected $_name = [
-        'creationTime'         => 'CreationTime',
-        'videoFacerecogResult' => 'VideoFacerecogResult',
-        'state'                => 'State',
-        'userData'             => 'UserData',
         'code'                 => 'Code',
+        'creationTime'         => 'CreationTime',
+        'id'                   => 'Id',
+        'input'                => 'Input',
         'message'              => 'Message',
         'pipelineId'           => 'PipelineId',
-        'input'                => 'Input',
-        'id'                   => 'Id',
+        'state'                => 'State',
+        'userData'             => 'UserData',
+        'videoFacerecogResult' => 'VideoFacerecogResult',
     ];
 
     public function validate()
@@ -73,20 +73,17 @@ class facerecogJob extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
-        if (null !== $this->videoFacerecogResult) {
-            $res['VideoFacerecogResult'] = null !== $this->videoFacerecogResult ? $this->videoFacerecogResult->toMap() : null;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
-        if (null !== $this->userData) {
-            $res['UserData'] = $this->userData;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->input) {
+            $res['Input'] = null !== $this->input ? $this->input->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -94,11 +91,14 @@ class facerecogJob extends Model
         if (null !== $this->pipelineId) {
             $res['PipelineId'] = $this->pipelineId;
         }
-        if (null !== $this->input) {
-            $res['Input'] = null !== $this->input ? $this->input->toMap() : null;
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
+        }
+        if (null !== $this->videoFacerecogResult) {
+            $res['VideoFacerecogResult'] = null !== $this->videoFacerecogResult ? $this->videoFacerecogResult->toMap() : null;
         }
 
         return $res;
@@ -112,20 +112,17 @@ class facerecogJob extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
-        if (isset($map['VideoFacerecogResult'])) {
-            $model->videoFacerecogResult = videoFacerecogResult::fromMap($map['VideoFacerecogResult']);
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
-        if (isset($map['UserData'])) {
-            $model->userData = $map['UserData'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['Input'])) {
+            $model->input = input::fromMap($map['Input']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -133,11 +130,14 @@ class facerecogJob extends Model
         if (isset($map['PipelineId'])) {
             $model->pipelineId = $map['PipelineId'];
         }
-        if (isset($map['Input'])) {
-            $model->input = input::fromMap($map['Input']);
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
+        }
+        if (isset($map['VideoFacerecogResult'])) {
+            $model->videoFacerecogResult = videoFacerecogResult::fromMap($map['VideoFacerecogResult']);
         }
 
         return $model;

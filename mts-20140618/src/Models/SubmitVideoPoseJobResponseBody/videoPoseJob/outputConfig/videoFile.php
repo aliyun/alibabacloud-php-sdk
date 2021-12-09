@@ -11,12 +11,7 @@ class videoFile extends Model
     /**
      * @var string
      */
-    public $roleArn;
-
-    /**
-     * @var string
-     */
-    public $object;
+    public $bucket;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class videoFile extends Model
     /**
      * @var string
      */
-    public $bucket;
+    public $object;
+
+    /**
+     * @var string
+     */
+    public $roleArn;
     protected $_name = [
-        'roleArn'  => 'RoleArn',
-        'object'   => 'Object',
-        'location' => 'Location',
         'bucket'   => 'Bucket',
+        'location' => 'Location',
+        'object'   => 'Object',
+        'roleArn'  => 'RoleArn',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class videoFile extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->roleArn) {
-            $res['RoleArn'] = $this->roleArn;
-        }
-        if (null !== $this->object) {
-            $res['Object'] = $this->object;
+        if (null !== $this->bucket) {
+            $res['Bucket'] = $this->bucket;
         }
         if (null !== $this->location) {
             $res['Location'] = $this->location;
         }
-        if (null !== $this->bucket) {
-            $res['Bucket'] = $this->bucket;
+        if (null !== $this->object) {
+            $res['Object'] = $this->object;
+        }
+        if (null !== $this->roleArn) {
+            $res['RoleArn'] = $this->roleArn;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class videoFile extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RoleArn'])) {
-            $model->roleArn = $map['RoleArn'];
-        }
-        if (isset($map['Object'])) {
-            $model->object = $map['Object'];
+        if (isset($map['Bucket'])) {
+            $model->bucket = $map['Bucket'];
         }
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
         }
-        if (isset($map['Bucket'])) {
-            $model->bucket = $map['Bucket'];
+        if (isset($map['Object'])) {
+            $model->object = $map['Object'];
+        }
+        if (isset($map['RoleArn'])) {
+            $model->roleArn = $map['RoleArn'];
         }
 
         return $model;

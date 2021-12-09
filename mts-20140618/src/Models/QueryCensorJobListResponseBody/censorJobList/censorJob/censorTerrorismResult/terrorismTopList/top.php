@@ -16,12 +16,7 @@ class top extends Model
     /**
      * @var string
      */
-    public $score;
-
-    /**
-     * @var string
-     */
-    public $timestamp;
+    public $label;
 
     /**
      * @var string
@@ -31,13 +26,18 @@ class top extends Model
     /**
      * @var string
      */
-    public $label;
+    public $score;
+
+    /**
+     * @var string
+     */
+    public $timestamp;
     protected $_name = [
         'index'     => 'Index',
+        'label'     => 'Label',
+        'object'    => 'Object',
         'score'     => 'Score',
         'timestamp' => 'Timestamp',
-        'object'    => 'Object',
-        'label'     => 'Label',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class top extends Model
         if (null !== $this->index) {
             $res['Index'] = $this->index;
         }
+        if (null !== $this->label) {
+            $res['Label'] = $this->label;
+        }
+        if (null !== $this->object) {
+            $res['Object'] = $this->object;
+        }
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
-        }
-        if (null !== $this->object) {
-            $res['Object'] = $this->object;
-        }
-        if (null !== $this->label) {
-            $res['Label'] = $this->label;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class top extends Model
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
         }
+        if (isset($map['Label'])) {
+            $model->label = $map['Label'];
+        }
+        if (isset($map['Object'])) {
+            $model->object = $map['Object'];
+        }
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
-        }
-        if (isset($map['Object'])) {
-            $model->object = $map['Object'];
-        }
-        if (isset($map['Label'])) {
-            $model->label = $map['Label'];
         }
 
         return $model;

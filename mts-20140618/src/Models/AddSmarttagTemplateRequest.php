@@ -9,6 +9,51 @@ use AlibabaCloud\Tea\Model;
 class AddSmarttagTemplateRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $analyseTypes;
+
+    /**
+     * @var string
+     */
+    public $faceCategoryIds;
+
+    /**
+     * @var string
+     */
+    public $industry;
+
+    /**
+     * @var bool
+     */
+    public $isDefault;
+
+    /**
+     * @var string
+     */
+    public $keywordConfig;
+
+    /**
+     * @var string
+     */
+    public $knowledgeConfig;
+
+    /**
+     * @var string
+     */
+    public $labelType;
+
+    /**
+     * @var string
+     */
+    public $labelVersion;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -26,48 +71,27 @@ class AddSmarttagTemplateRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $templateName;
-
-    /**
-     * @var string
-     */
-    public $industry;
-
-    /**
-     * @var string
-     */
     public $scene;
 
     /**
      * @var string
      */
-    public $analyseTypes;
-
-    /**
-     * @var string
-     */
-    public $faceCategoryIds;
-
-    /**
-     * @var bool
-     */
-    public $isDefault;
+    public $templateName;
     protected $_name = [
+        'analyseTypes'         => 'AnalyseTypes',
+        'faceCategoryIds'      => 'FaceCategoryIds',
+        'industry'             => 'Industry',
+        'isDefault'            => 'IsDefault',
+        'keywordConfig'        => 'KeywordConfig',
+        'knowledgeConfig'      => 'KnowledgeConfig',
+        'labelType'            => 'LabelType',
+        'labelVersion'         => 'LabelVersion',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'templateName'         => 'TemplateName',
-        'industry'             => 'Industry',
         'scene'                => 'Scene',
-        'analyseTypes'         => 'AnalyseTypes',
-        'faceCategoryIds'      => 'FaceCategoryIds',
-        'isDefault'            => 'IsDefault',
+        'templateName'         => 'TemplateName',
     ];
 
     public function validate()
@@ -77,6 +101,33 @@ class AddSmarttagTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->analyseTypes) {
+            $res['AnalyseTypes'] = $this->analyseTypes;
+        }
+        if (null !== $this->faceCategoryIds) {
+            $res['FaceCategoryIds'] = $this->faceCategoryIds;
+        }
+        if (null !== $this->industry) {
+            $res['Industry'] = $this->industry;
+        }
+        if (null !== $this->isDefault) {
+            $res['IsDefault'] = $this->isDefault;
+        }
+        if (null !== $this->keywordConfig) {
+            $res['KeywordConfig'] = $this->keywordConfig;
+        }
+        if (null !== $this->knowledgeConfig) {
+            $res['KnowledgeConfig'] = $this->knowledgeConfig;
+        }
+        if (null !== $this->labelType) {
+            $res['LabelType'] = $this->labelType;
+        }
+        if (null !== $this->labelVersion) {
+            $res['LabelVersion'] = $this->labelVersion;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -86,26 +137,11 @@ class AddSmarttagTemplateRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->templateName) {
-            $res['TemplateName'] = $this->templateName;
-        }
-        if (null !== $this->industry) {
-            $res['Industry'] = $this->industry;
-        }
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
         }
-        if (null !== $this->analyseTypes) {
-            $res['AnalyseTypes'] = $this->analyseTypes;
-        }
-        if (null !== $this->faceCategoryIds) {
-            $res['FaceCategoryIds'] = $this->faceCategoryIds;
-        }
-        if (null !== $this->isDefault) {
-            $res['IsDefault'] = $this->isDefault;
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
         }
 
         return $res;
@@ -119,6 +155,33 @@ class AddSmarttagTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AnalyseTypes'])) {
+            $model->analyseTypes = $map['AnalyseTypes'];
+        }
+        if (isset($map['FaceCategoryIds'])) {
+            $model->faceCategoryIds = $map['FaceCategoryIds'];
+        }
+        if (isset($map['Industry'])) {
+            $model->industry = $map['Industry'];
+        }
+        if (isset($map['IsDefault'])) {
+            $model->isDefault = $map['IsDefault'];
+        }
+        if (isset($map['KeywordConfig'])) {
+            $model->keywordConfig = $map['KeywordConfig'];
+        }
+        if (isset($map['KnowledgeConfig'])) {
+            $model->knowledgeConfig = $map['KnowledgeConfig'];
+        }
+        if (isset($map['LabelType'])) {
+            $model->labelType = $map['LabelType'];
+        }
+        if (isset($map['LabelVersion'])) {
+            $model->labelVersion = $map['LabelVersion'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -128,26 +191,11 @@ class AddSmarttagTemplateRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['TemplateName'])) {
-            $model->templateName = $map['TemplateName'];
-        }
-        if (isset($map['Industry'])) {
-            $model->industry = $map['Industry'];
-        }
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];
         }
-        if (isset($map['AnalyseTypes'])) {
-            $model->analyseTypes = $map['AnalyseTypes'];
-        }
-        if (isset($map['FaceCategoryIds'])) {
-            $model->faceCategoryIds = $map['FaceCategoryIds'];
-        }
-        if (isset($map['IsDefault'])) {
-            $model->isDefault = $map['IsDefault'];
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
         }
 
         return $model;

@@ -11,22 +11,22 @@ use AlibabaCloud\Tea\Model;
 class QueryMediaWorkflowExecutionListResponseBody extends Model
 {
     /**
-     * @var nonExistRunIds
-     */
-    public $nonExistRunIds;
-
-    /**
      * @var mediaWorkflowExecutionList
      */
     public $mediaWorkflowExecutionList;
+
+    /**
+     * @var nonExistRunIds
+     */
+    public $nonExistRunIds;
 
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'nonExistRunIds'             => 'NonExistRunIds',
         'mediaWorkflowExecutionList' => 'MediaWorkflowExecutionList',
+        'nonExistRunIds'             => 'NonExistRunIds',
         'requestId'                  => 'RequestId',
     ];
 
@@ -37,11 +37,11 @@ class QueryMediaWorkflowExecutionListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nonExistRunIds) {
-            $res['NonExistRunIds'] = null !== $this->nonExistRunIds ? $this->nonExistRunIds->toMap() : null;
-        }
         if (null !== $this->mediaWorkflowExecutionList) {
             $res['MediaWorkflowExecutionList'] = null !== $this->mediaWorkflowExecutionList ? $this->mediaWorkflowExecutionList->toMap() : null;
+        }
+        if (null !== $this->nonExistRunIds) {
+            $res['NonExistRunIds'] = null !== $this->nonExistRunIds ? $this->nonExistRunIds->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -58,11 +58,11 @@ class QueryMediaWorkflowExecutionListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NonExistRunIds'])) {
-            $model->nonExistRunIds = nonExistRunIds::fromMap($map['NonExistRunIds']);
-        }
         if (isset($map['MediaWorkflowExecutionList'])) {
             $model->mediaWorkflowExecutionList = mediaWorkflowExecutionList::fromMap($map['MediaWorkflowExecutionList']);
+        }
+        if (isset($map['NonExistRunIds'])) {
+            $model->nonExistRunIds = nonExistRunIds::fromMap($map['NonExistRunIds']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

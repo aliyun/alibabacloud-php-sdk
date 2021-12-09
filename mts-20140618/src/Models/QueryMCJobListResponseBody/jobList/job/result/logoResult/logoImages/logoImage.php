@@ -11,27 +11,27 @@ class logoImage extends Model
     /**
      * @var string
      */
-    public $suggestion;
-
-    /**
-     * @var string
-     */
     public $score;
 
     /**
      * @var string
      */
-    public $url;
+    public $suggestion;
 
     /**
      * @var string
      */
     public $text;
+
+    /**
+     * @var string
+     */
+    public $url;
     protected $_name = [
-        'suggestion' => 'Suggestion',
         'score'      => 'Score',
-        'url'        => 'Url',
+        'suggestion' => 'Suggestion',
         'text'       => 'Text',
+        'url'        => 'Url',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class logoImage extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->suggestion) {
-            $res['Suggestion'] = $this->suggestion;
-        }
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
+        if (null !== $this->suggestion) {
+            $res['Suggestion'] = $this->suggestion;
         }
         if (null !== $this->text) {
             $res['Text'] = $this->text;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class logoImage extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Suggestion'])) {
-            $model->suggestion = $map['Suggestion'];
-        }
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
+        if (isset($map['Suggestion'])) {
+            $model->suggestion = $map['Suggestion'];
         }
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

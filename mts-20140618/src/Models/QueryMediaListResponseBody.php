@@ -11,22 +11,22 @@ use AlibabaCloud\Tea\Model;
 class QueryMediaListResponseBody extends Model
 {
     /**
-     * @var nonExistMediaIds
-     */
-    public $nonExistMediaIds;
-
-    /**
      * @var mediaList
      */
     public $mediaList;
+
+    /**
+     * @var nonExistMediaIds
+     */
+    public $nonExistMediaIds;
 
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'nonExistMediaIds' => 'NonExistMediaIds',
         'mediaList'        => 'MediaList',
+        'nonExistMediaIds' => 'NonExistMediaIds',
         'requestId'        => 'RequestId',
     ];
 
@@ -37,11 +37,11 @@ class QueryMediaListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nonExistMediaIds) {
-            $res['NonExistMediaIds'] = null !== $this->nonExistMediaIds ? $this->nonExistMediaIds->toMap() : null;
-        }
         if (null !== $this->mediaList) {
             $res['MediaList'] = null !== $this->mediaList ? $this->mediaList->toMap() : null;
+        }
+        if (null !== $this->nonExistMediaIds) {
+            $res['NonExistMediaIds'] = null !== $this->nonExistMediaIds ? $this->nonExistMediaIds->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -58,11 +58,11 @@ class QueryMediaListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NonExistMediaIds'])) {
-            $model->nonExistMediaIds = nonExistMediaIds::fromMap($map['NonExistMediaIds']);
-        }
         if (isset($map['MediaList'])) {
             $model->mediaList = mediaList::fromMap($map['MediaList']);
+        }
+        if (isset($map['NonExistMediaIds'])) {
+            $model->nonExistMediaIds = nonExistMediaIds::fromMap($map['NonExistMediaIds']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

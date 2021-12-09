@@ -16,18 +16,18 @@ class QueryAnnotationJobListResponseBody extends Model
     public $annotationJobList;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var nonExistIds
      */
     public $nonExistIds;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'annotationJobList' => 'AnnotationJobList',
-        'requestId'         => 'RequestId',
         'nonExistIds'       => 'NonExistIds',
+        'requestId'         => 'RequestId',
     ];
 
     public function validate()
@@ -40,11 +40,11 @@ class QueryAnnotationJobListResponseBody extends Model
         if (null !== $this->annotationJobList) {
             $res['AnnotationJobList'] = null !== $this->annotationJobList ? $this->annotationJobList->toMap() : null;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->nonExistIds) {
             $res['NonExistIds'] = null !== $this->nonExistIds ? $this->nonExistIds->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -61,11 +61,11 @@ class QueryAnnotationJobListResponseBody extends Model
         if (isset($map['AnnotationJobList'])) {
             $model->annotationJobList = annotationJobList::fromMap($map['AnnotationJobList']);
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['NonExistIds'])) {
             $model->nonExistIds = nonExistIds::fromMap($map['NonExistIds']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

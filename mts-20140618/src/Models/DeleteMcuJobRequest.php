@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteMcuJobRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $jobIds;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -22,22 +32,12 @@ class DeleteMcuJobRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $jobIds;
     protected $_name = [
+        'jobIds'               => 'JobIds',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'jobIds'               => 'JobIds',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class DeleteMcuJobRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->jobIds) {
+            $res['JobIds'] = $this->jobIds;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -55,12 +61,6 @@ class DeleteMcuJobRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->jobIds) {
-            $res['JobIds'] = $this->jobIds;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class DeleteMcuJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['JobIds'])) {
+            $model->jobIds = $map['JobIds'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
@@ -82,12 +88,6 @@ class DeleteMcuJobRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['JobIds'])) {
-            $model->jobIds = $map['JobIds'];
         }
 
         return $model;

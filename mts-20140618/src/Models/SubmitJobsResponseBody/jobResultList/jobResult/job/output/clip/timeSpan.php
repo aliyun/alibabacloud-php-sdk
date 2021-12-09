@@ -11,15 +11,15 @@ class timeSpan extends Model
     /**
      * @var string
      */
-    public $seek;
+    public $duration;
 
     /**
      * @var string
      */
-    public $duration;
+    public $seek;
     protected $_name = [
-        'seek'     => 'Seek',
         'duration' => 'Duration',
+        'seek'     => 'Seek',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class timeSpan extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->seek) {
-            $res['Seek'] = $this->seek;
-        }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->seek) {
+            $res['Seek'] = $this->seek;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class timeSpan extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Seek'])) {
-            $model->seek = $map['Seek'];
-        }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
+        }
+        if (isset($map['Seek'])) {
+            $model->seek = $map['Seek'];
         }
 
         return $model;

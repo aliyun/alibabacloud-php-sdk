@@ -16,16 +16,16 @@ class videoSplit extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $path;
 
     /**
      * @var string
      */
-    public $path;
+    public $startTime;
     protected $_name = [
         'endTime'   => 'EndTime',
-        'startTime' => 'StartTime',
         'path'      => 'Path',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class videoSplit extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->path) {
             $res['Path'] = $this->path;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class videoSplit extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

@@ -11,24 +11,9 @@ use AlibabaCloud\Tea\Model;
 class censorPornResult extends Model
 {
     /**
-     * @var pornCounterList
-     */
-    public $pornCounterList;
-
-    /**
-     * @var string
-     */
-    public $suggestion;
-
-    /**
      * @var string
      */
     public $averageScore;
-
-    /**
-     * @var pornTopList
-     */
-    public $pornTopList;
 
     /**
      * @var string
@@ -39,13 +24,28 @@ class censorPornResult extends Model
      * @var string
      */
     public $maxScore;
+
+    /**
+     * @var pornCounterList
+     */
+    public $pornCounterList;
+
+    /**
+     * @var pornTopList
+     */
+    public $pornTopList;
+
+    /**
+     * @var string
+     */
+    public $suggestion;
     protected $_name = [
-        'pornCounterList' => 'PornCounterList',
-        'suggestion'      => 'Suggestion',
         'averageScore'    => 'AverageScore',
-        'pornTopList'     => 'PornTopList',
         'label'           => 'Label',
         'maxScore'        => 'MaxScore',
+        'pornCounterList' => 'PornCounterList',
+        'pornTopList'     => 'PornTopList',
+        'suggestion'      => 'Suggestion',
     ];
 
     public function validate()
@@ -55,23 +55,23 @@ class censorPornResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pornCounterList) {
-            $res['PornCounterList'] = null !== $this->pornCounterList ? $this->pornCounterList->toMap() : null;
-        }
-        if (null !== $this->suggestion) {
-            $res['Suggestion'] = $this->suggestion;
-        }
         if (null !== $this->averageScore) {
             $res['AverageScore'] = $this->averageScore;
-        }
-        if (null !== $this->pornTopList) {
-            $res['PornTopList'] = null !== $this->pornTopList ? $this->pornTopList->toMap() : null;
         }
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
         if (null !== $this->maxScore) {
             $res['MaxScore'] = $this->maxScore;
+        }
+        if (null !== $this->pornCounterList) {
+            $res['PornCounterList'] = null !== $this->pornCounterList ? $this->pornCounterList->toMap() : null;
+        }
+        if (null !== $this->pornTopList) {
+            $res['PornTopList'] = null !== $this->pornTopList ? $this->pornTopList->toMap() : null;
+        }
+        if (null !== $this->suggestion) {
+            $res['Suggestion'] = $this->suggestion;
         }
 
         return $res;
@@ -85,23 +85,23 @@ class censorPornResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PornCounterList'])) {
-            $model->pornCounterList = pornCounterList::fromMap($map['PornCounterList']);
-        }
-        if (isset($map['Suggestion'])) {
-            $model->suggestion = $map['Suggestion'];
-        }
         if (isset($map['AverageScore'])) {
             $model->averageScore = $map['AverageScore'];
-        }
-        if (isset($map['PornTopList'])) {
-            $model->pornTopList = pornTopList::fromMap($map['PornTopList']);
         }
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
         if (isset($map['MaxScore'])) {
             $model->maxScore = $map['MaxScore'];
+        }
+        if (isset($map['PornCounterList'])) {
+            $model->pornCounterList = pornCounterList::fromMap($map['PornCounterList']);
+        }
+        if (isset($map['PornTopList'])) {
+            $model->pornTopList = pornTopList::fromMap($map['PornTopList']);
+        }
+        if (isset($map['Suggestion'])) {
+            $model->suggestion = $map['Suggestion'];
         }
 
         return $model;

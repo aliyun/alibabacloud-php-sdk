@@ -13,7 +13,32 @@ class job extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var string
+     */
     public $creationTime;
+
+    /**
+     * @var string
+     */
+    public $id;
+
+    /**
+     * @var input
+     */
+    public $input;
+
+    /**
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @var string
+     */
+    public $pipelineId;
 
     /**
      * @var string
@@ -26,44 +51,19 @@ class job extends Model
     public $userData;
 
     /**
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @var string
-     */
-    public $message;
-
-    /**
      * @var videoSplitResult
      */
     public $videoSplitResult;
-
-    /**
-     * @var string
-     */
-    public $pipelineId;
-
-    /**
-     * @var input
-     */
-    public $input;
-
-    /**
-     * @var string
-     */
-    public $id;
     protected $_name = [
+        'code'             => 'Code',
         'creationTime'     => 'CreationTime',
+        'id'               => 'Id',
+        'input'            => 'Input',
+        'message'          => 'Message',
+        'pipelineId'       => 'PipelineId',
         'state'            => 'State',
         'userData'         => 'UserData',
-        'code'             => 'Code',
-        'message'          => 'Message',
         'videoSplitResult' => 'VideoSplitResult',
-        'pipelineId'       => 'PipelineId',
-        'input'            => 'Input',
-        'id'               => 'Id',
     ];
 
     public function validate()
@@ -73,8 +73,23 @@ class job extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->input) {
+            $res['Input'] = null !== $this->input ? $this->input->toMap() : null;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
+        if (null !== $this->pipelineId) {
+            $res['PipelineId'] = $this->pipelineId;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -82,23 +97,8 @@ class job extends Model
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
         if (null !== $this->videoSplitResult) {
             $res['VideoSplitResult'] = null !== $this->videoSplitResult ? $this->videoSplitResult->toMap() : null;
-        }
-        if (null !== $this->pipelineId) {
-            $res['PipelineId'] = $this->pipelineId;
-        }
-        if (null !== $this->input) {
-            $res['Input'] = null !== $this->input ? $this->input->toMap() : null;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
         }
 
         return $res;
@@ -112,8 +112,23 @@ class job extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['Input'])) {
+            $model->input = input::fromMap($map['Input']);
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
+        if (isset($map['PipelineId'])) {
+            $model->pipelineId = $map['PipelineId'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];
@@ -121,23 +136,8 @@ class job extends Model
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
         if (isset($map['VideoSplitResult'])) {
             $model->videoSplitResult = videoSplitResult::fromMap($map['VideoSplitResult']);
-        }
-        if (isset($map['PipelineId'])) {
-            $model->pipelineId = $map['PipelineId'];
-        }
-        if (isset($map['Input'])) {
-            $model->input = input::fromMap($map['Input']);
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
         }
 
         return $model;

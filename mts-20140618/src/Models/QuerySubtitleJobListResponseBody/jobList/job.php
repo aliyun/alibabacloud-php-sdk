@@ -12,6 +12,21 @@ class job extends Model
     /**
      * @var string
      */
+    public $inputConfig;
+
+    /**
+     * @var string
+     */
+    public $jobId;
+
+    /**
+     * @var MNSMessageResult
+     */
+    public $MNSMessageResult;
+
+    /**
+     * @var string
+     */
     public $outputConfig;
 
     /**
@@ -22,29 +37,14 @@ class job extends Model
     /**
      * @var string
      */
-    public $jobId;
-
-    /**
-     * @var string
-     */
     public $userData;
-
-    /**
-     * @var string
-     */
-    public $inputConfig;
-
-    /**
-     * @var MNSMessageResult
-     */
-    public $MNSMessageResult;
     protected $_name = [
+        'inputConfig'      => 'InputConfig',
+        'jobId'            => 'JobId',
+        'MNSMessageResult' => 'MNSMessageResult',
         'outputConfig'     => 'OutputConfig',
         'state'            => 'State',
-        'jobId'            => 'JobId',
         'userData'         => 'UserData',
-        'inputConfig'      => 'InputConfig',
-        'MNSMessageResult' => 'MNSMessageResult',
     ];
 
     public function validate()
@@ -54,23 +54,23 @@ class job extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->inputConfig) {
+            $res['InputConfig'] = $this->inputConfig;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->MNSMessageResult) {
+            $res['MNSMessageResult'] = null !== $this->MNSMessageResult ? $this->MNSMessageResult->toMap() : null;
+        }
         if (null !== $this->outputConfig) {
             $res['OutputConfig'] = $this->outputConfig;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
-        }
-        if (null !== $this->inputConfig) {
-            $res['InputConfig'] = $this->inputConfig;
-        }
-        if (null !== $this->MNSMessageResult) {
-            $res['MNSMessageResult'] = null !== $this->MNSMessageResult ? $this->MNSMessageResult->toMap() : null;
         }
 
         return $res;
@@ -84,23 +84,23 @@ class job extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InputConfig'])) {
+            $model->inputConfig = $map['InputConfig'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
+        if (isset($map['MNSMessageResult'])) {
+            $model->MNSMessageResult = MNSMessageResult::fromMap($map['MNSMessageResult']);
+        }
         if (isset($map['OutputConfig'])) {
             $model->outputConfig = $map['OutputConfig'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
-        }
-        if (isset($map['InputConfig'])) {
-            $model->inputConfig = $map['InputConfig'];
-        }
-        if (isset($map['MNSMessageResult'])) {
-            $model->MNSMessageResult = MNSMessageResult::fromMap($map['MNSMessageResult']);
         }
 
         return $model;

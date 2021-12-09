@@ -18,22 +18,22 @@ class QueryMediaCensorJobListResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $nextPageToken;
 
     /**
      * @var nonExistIds
      */
     public $nonExistIds;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'mediaCensorJobList' => 'MediaCensorJobList',
-        'requestId'          => 'RequestId',
         'nextPageToken'      => 'NextPageToken',
         'nonExistIds'        => 'NonExistIds',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -46,14 +46,14 @@ class QueryMediaCensorJobListResponseBody extends Model
         if (null !== $this->mediaCensorJobList) {
             $res['MediaCensorJobList'] = null !== $this->mediaCensorJobList ? $this->mediaCensorJobList->toMap() : null;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->nextPageToken) {
             $res['NextPageToken'] = $this->nextPageToken;
         }
         if (null !== $this->nonExistIds) {
             $res['NonExistIds'] = null !== $this->nonExistIds ? $this->nonExistIds->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -70,14 +70,14 @@ class QueryMediaCensorJobListResponseBody extends Model
         if (isset($map['MediaCensorJobList'])) {
             $model->mediaCensorJobList = mediaCensorJobList::fromMap($map['MediaCensorJobList']);
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['NextPageToken'])) {
             $model->nextPageToken = $map['NextPageToken'];
         }
         if (isset($map['NonExistIds'])) {
             $model->nonExistIds = nonExistIds::fromMap($map['NonExistIds']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

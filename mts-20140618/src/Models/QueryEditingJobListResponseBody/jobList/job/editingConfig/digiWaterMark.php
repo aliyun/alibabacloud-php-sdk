@@ -12,21 +12,21 @@ class digiWaterMark extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
     public $alpha;
 
     /**
      * @var inputFile
      */
     public $inputFile;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'      => 'Type',
         'alpha'     => 'Alpha',
         'inputFile' => 'InputFile',
+        'type'      => 'Type',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class digiWaterMark extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->alpha) {
             $res['Alpha'] = $this->alpha;
         }
         if (null !== $this->inputFile) {
             $res['InputFile'] = null !== $this->inputFile ? $this->inputFile->toMap() : null;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class digiWaterMark extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Alpha'])) {
             $model->alpha = $map['Alpha'];
         }
         if (isset($map['InputFile'])) {
             $model->inputFile = inputFile::fromMap($map['InputFile']);
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

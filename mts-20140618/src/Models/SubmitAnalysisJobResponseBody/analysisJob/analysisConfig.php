@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class analysisConfig extends Model
 {
     /**
-     * @var qualityControl
-     */
-    public $qualityControl;
-
-    /**
      * @var propertiesControl
      */
     public $propertiesControl;
+
+    /**
+     * @var qualityControl
+     */
+    public $qualityControl;
     protected $_name = [
-        'qualityControl'    => 'QualityControl',
         'propertiesControl' => 'PropertiesControl',
+        'qualityControl'    => 'QualityControl',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class analysisConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->qualityControl) {
-            $res['QualityControl'] = null !== $this->qualityControl ? $this->qualityControl->toMap() : null;
-        }
         if (null !== $this->propertiesControl) {
             $res['PropertiesControl'] = null !== $this->propertiesControl ? $this->propertiesControl->toMap() : null;
+        }
+        if (null !== $this->qualityControl) {
+            $res['QualityControl'] = null !== $this->qualityControl ? $this->qualityControl->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class analysisConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['QualityControl'])) {
-            $model->qualityControl = qualityControl::fromMap($map['QualityControl']);
-        }
         if (isset($map['PropertiesControl'])) {
             $model->propertiesControl = propertiesControl::fromMap($map['PropertiesControl']);
+        }
+        if (isset($map['QualityControl'])) {
+            $model->qualityControl = qualityControl::fromMap($map['QualityControl']);
         }
 
         return $model;

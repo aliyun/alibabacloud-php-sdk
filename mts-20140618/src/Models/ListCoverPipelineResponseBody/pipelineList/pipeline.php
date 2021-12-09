@@ -11,17 +11,12 @@ class pipeline extends Model
     /**
      * @var string
      */
-    public $state;
+    public $extendConfig;
 
     /**
-     * @var int
+     * @var string
      */
-    public $quotaNum;
-
-    /**
-     * @var int
-     */
-    public $userId;
+    public $name;
 
     /**
      * @var string
@@ -31,7 +26,7 @@ class pipeline extends Model
     /**
      * @var string
      */
-    public $extendConfig;
+    public $pipelineId;
 
     /**
      * @var string
@@ -46,27 +41,32 @@ class pipeline extends Model
     /**
      * @var string
      */
-    public $name;
+    public $state;
 
     /**
-     * @var string
+     * @var int
      */
-    public $pipelineId;
+    public $userId;
+
+    /**
+     * @var int
+     */
+    public $quotaNum;
 
     /**
      * @var int
      */
     public $quotaUsed;
     protected $_name = [
-        'state'        => 'State',
-        'quotaNum'     => 'quotaNum',
-        'userId'       => 'UserId',
-        'notifyConfig' => 'NotifyConfig',
         'extendConfig' => 'ExtendConfig',
+        'name'         => 'Name',
+        'notifyConfig' => 'NotifyConfig',
+        'pipelineId'   => 'PipelineId',
         'priority'     => 'Priority',
         'role'         => 'Role',
-        'name'         => 'Name',
-        'pipelineId'   => 'PipelineId',
+        'state'        => 'State',
+        'userId'       => 'UserId',
+        'quotaNum'     => 'quotaNum',
         'quotaUsed'    => 'quotaUsed',
     ];
 
@@ -77,20 +77,17 @@ class pipeline extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
+        if (null !== $this->extendConfig) {
+            $res['ExtendConfig'] = $this->extendConfig;
         }
-        if (null !== $this->quotaNum) {
-            $res['quotaNum'] = $this->quotaNum;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->notifyConfig) {
             $res['NotifyConfig'] = $this->notifyConfig;
         }
-        if (null !== $this->extendConfig) {
-            $res['ExtendConfig'] = $this->extendConfig;
+        if (null !== $this->pipelineId) {
+            $res['PipelineId'] = $this->pipelineId;
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
@@ -98,11 +95,14 @@ class pipeline extends Model
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
-        if (null !== $this->pipelineId) {
-            $res['PipelineId'] = $this->pipelineId;
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->quotaNum) {
+            $res['quotaNum'] = $this->quotaNum;
         }
         if (null !== $this->quotaUsed) {
             $res['quotaUsed'] = $this->quotaUsed;
@@ -119,20 +119,17 @@ class pipeline extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
+        if (isset($map['ExtendConfig'])) {
+            $model->extendConfig = $map['ExtendConfig'];
         }
-        if (isset($map['quotaNum'])) {
-            $model->quotaNum = $map['quotaNum'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['NotifyConfig'])) {
             $model->notifyConfig = $map['NotifyConfig'];
         }
-        if (isset($map['ExtendConfig'])) {
-            $model->extendConfig = $map['ExtendConfig'];
+        if (isset($map['PipelineId'])) {
+            $model->pipelineId = $map['PipelineId'];
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
@@ -140,11 +137,14 @@ class pipeline extends Model
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
-        if (isset($map['PipelineId'])) {
-            $model->pipelineId = $map['PipelineId'];
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
+        }
+        if (isset($map['quotaNum'])) {
+            $model->quotaNum = $map['quotaNum'];
         }
         if (isset($map['quotaUsed'])) {
             $model->quotaUsed = $map['quotaUsed'];

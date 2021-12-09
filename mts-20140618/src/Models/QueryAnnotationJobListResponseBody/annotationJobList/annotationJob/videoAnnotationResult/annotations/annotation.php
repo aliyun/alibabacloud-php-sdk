@@ -11,15 +11,15 @@ class annotation extends Model
     /**
      * @var string
      */
-    public $score;
+    public $label;
 
     /**
      * @var string
      */
-    public $label;
+    public $score;
     protected $_name = [
-        'score' => 'Score',
         'label' => 'Label',
+        'score' => 'Score',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class annotation extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->score) {
-            $res['Score'] = $this->score;
-        }
         if (null !== $this->label) {
             $res['Label'] = $this->label;
+        }
+        if (null !== $this->score) {
+            $res['Score'] = $this->score;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class annotation extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Score'])) {
-            $model->score = $map['Score'];
-        }
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
+        }
+        if (isset($map['Score'])) {
+            $model->score = $map['Score'];
         }
 
         return $model;

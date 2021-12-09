@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class videoTimeline extends Model
 {
     /**
-     * @var string
+     * @var censorResults
      */
-    public $timestamp;
+    public $censorResults;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class videoTimeline extends Model
     public $object;
 
     /**
-     * @var censorResults
+     * @var string
      */
-    public $censorResults;
+    public $timestamp;
     protected $_name = [
-        'timestamp'     => 'Timestamp',
-        'object'        => 'Object',
         'censorResults' => 'CensorResults',
+        'object'        => 'Object',
+        'timestamp'     => 'Timestamp',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class videoTimeline extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->timestamp) {
-            $res['Timestamp'] = $this->timestamp;
+        if (null !== $this->censorResults) {
+            $res['CensorResults'] = null !== $this->censorResults ? $this->censorResults->toMap() : null;
         }
         if (null !== $this->object) {
             $res['Object'] = $this->object;
         }
-        if (null !== $this->censorResults) {
-            $res['CensorResults'] = null !== $this->censorResults ? $this->censorResults->toMap() : null;
+        if (null !== $this->timestamp) {
+            $res['Timestamp'] = $this->timestamp;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class videoTimeline extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Timestamp'])) {
-            $model->timestamp = $map['Timestamp'];
+        if (isset($map['CensorResults'])) {
+            $model->censorResults = censorResults::fromMap($map['CensorResults']);
         }
         if (isset($map['Object'])) {
             $model->object = $map['Object'];
         }
-        if (isset($map['CensorResults'])) {
-            $model->censorResults = censorResults::fromMap($map['CensorResults']);
+        if (isset($map['Timestamp'])) {
+            $model->timestamp = $map['Timestamp'];
         }
 
         return $model;

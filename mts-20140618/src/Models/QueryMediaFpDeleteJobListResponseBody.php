@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class QueryMediaFpDeleteJobListResponseBody extends Model
 {
     /**
-     * @var string
+     * @var mediaFpDeleteJobList
      */
-    public $requestId;
+    public $mediaFpDeleteJobList;
 
     /**
      * @var nonExistIds
@@ -21,13 +21,13 @@ class QueryMediaFpDeleteJobListResponseBody extends Model
     public $nonExistIds;
 
     /**
-     * @var mediaFpDeleteJobList
+     * @var string
      */
-    public $mediaFpDeleteJobList;
+    public $requestId;
     protected $_name = [
-        'requestId'            => 'RequestId',
-        'nonExistIds'          => 'NonExistIds',
         'mediaFpDeleteJobList' => 'MediaFpDeleteJobList',
+        'nonExistIds'          => 'NonExistIds',
+        'requestId'            => 'RequestId',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class QueryMediaFpDeleteJobListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->mediaFpDeleteJobList) {
+            $res['MediaFpDeleteJobList'] = null !== $this->mediaFpDeleteJobList ? $this->mediaFpDeleteJobList->toMap() : null;
         }
         if (null !== $this->nonExistIds) {
             $res['NonExistIds'] = null !== $this->nonExistIds ? $this->nonExistIds->toMap() : null;
         }
-        if (null !== $this->mediaFpDeleteJobList) {
-            $res['MediaFpDeleteJobList'] = null !== $this->mediaFpDeleteJobList ? $this->mediaFpDeleteJobList->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class QueryMediaFpDeleteJobListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['MediaFpDeleteJobList'])) {
+            $model->mediaFpDeleteJobList = mediaFpDeleteJobList::fromMap($map['MediaFpDeleteJobList']);
         }
         if (isset($map['NonExistIds'])) {
             $model->nonExistIds = nonExistIds::fromMap($map['NonExistIds']);
         }
-        if (isset($map['MediaFpDeleteJobList'])) {
-            $model->mediaFpDeleteJobList = mediaFpDeleteJobList::fromMap($map['MediaFpDeleteJobList']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

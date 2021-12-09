@@ -11,21 +11,21 @@ class networkCost extends Model
     /**
      * @var string
      */
-    public $preloadTime;
-
-    /**
-     * @var string
-     */
     public $avgBitrate;
 
     /**
      * @var string
      */
     public $costBandwidth;
+
+    /**
+     * @var string
+     */
+    public $preloadTime;
     protected $_name = [
-        'preloadTime'   => 'PreloadTime',
         'avgBitrate'    => 'AvgBitrate',
         'costBandwidth' => 'CostBandwidth',
+        'preloadTime'   => 'PreloadTime',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class networkCost extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->preloadTime) {
-            $res['PreloadTime'] = $this->preloadTime;
-        }
         if (null !== $this->avgBitrate) {
             $res['AvgBitrate'] = $this->avgBitrate;
         }
         if (null !== $this->costBandwidth) {
             $res['CostBandwidth'] = $this->costBandwidth;
+        }
+        if (null !== $this->preloadTime) {
+            $res['PreloadTime'] = $this->preloadTime;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class networkCost extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PreloadTime'])) {
-            $model->preloadTime = $map['PreloadTime'];
-        }
         if (isset($map['AvgBitrate'])) {
             $model->avgBitrate = $map['AvgBitrate'];
         }
         if (isset($map['CostBandwidth'])) {
             $model->costBandwidth = $map['CostBandwidth'];
+        }
+        if (isset($map['PreloadTime'])) {
+            $model->preloadTime = $map['PreloadTime'];
         }
 
         return $model;

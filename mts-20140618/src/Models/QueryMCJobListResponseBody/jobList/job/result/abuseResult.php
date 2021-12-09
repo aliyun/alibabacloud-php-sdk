@@ -12,22 +12,22 @@ use AlibabaCloud\Tea\Model;
 class abuseResult extends Model
 {
     /**
-     * @var abuseOcrs
-     */
-    public $abuseOcrs;
-
-    /**
      * @var abuseAudios
      */
     public $abuseAudios;
+
+    /**
+     * @var abuseOcrs
+     */
+    public $abuseOcrs;
 
     /**
      * @var abuseTexts
      */
     public $abuseTexts;
     protected $_name = [
-        'abuseOcrs'   => 'AbuseOcrs',
         'abuseAudios' => 'AbuseAudios',
+        'abuseOcrs'   => 'AbuseOcrs',
         'abuseTexts'  => 'AbuseTexts',
     ];
 
@@ -38,11 +38,11 @@ class abuseResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->abuseOcrs) {
-            $res['AbuseOcrs'] = null !== $this->abuseOcrs ? $this->abuseOcrs->toMap() : null;
-        }
         if (null !== $this->abuseAudios) {
             $res['AbuseAudios'] = null !== $this->abuseAudios ? $this->abuseAudios->toMap() : null;
+        }
+        if (null !== $this->abuseOcrs) {
+            $res['AbuseOcrs'] = null !== $this->abuseOcrs ? $this->abuseOcrs->toMap() : null;
         }
         if (null !== $this->abuseTexts) {
             $res['AbuseTexts'] = null !== $this->abuseTexts ? $this->abuseTexts->toMap() : null;
@@ -59,11 +59,11 @@ class abuseResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AbuseOcrs'])) {
-            $model->abuseOcrs = abuseOcrs::fromMap($map['AbuseOcrs']);
-        }
         if (isset($map['AbuseAudios'])) {
             $model->abuseAudios = abuseAudios::fromMap($map['AbuseAudios']);
+        }
+        if (isset($map['AbuseOcrs'])) {
+            $model->abuseOcrs = abuseOcrs::fromMap($map['AbuseOcrs']);
         }
         if (isset($map['AbuseTexts'])) {
             $model->abuseTexts = abuseTexts::fromMap($map['AbuseTexts']);

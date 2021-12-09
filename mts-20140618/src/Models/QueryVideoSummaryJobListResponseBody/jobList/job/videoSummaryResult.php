@@ -11,17 +11,17 @@ use AlibabaCloud\Tea\Model;
 class videoSummaryResult extends Model
 {
     /**
-     * @var videoSummaryList
-     */
-    public $videoSummaryList;
-
-    /**
      * @var outputFile
      */
     public $outputFile;
+
+    /**
+     * @var videoSummaryList
+     */
+    public $videoSummaryList;
     protected $_name = [
-        'videoSummaryList' => 'VideoSummaryList',
         'outputFile'       => 'OutputFile',
+        'videoSummaryList' => 'VideoSummaryList',
     ];
 
     public function validate()
@@ -31,11 +31,11 @@ class videoSummaryResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->videoSummaryList) {
-            $res['VideoSummaryList'] = null !== $this->videoSummaryList ? $this->videoSummaryList->toMap() : null;
-        }
         if (null !== $this->outputFile) {
             $res['OutputFile'] = null !== $this->outputFile ? $this->outputFile->toMap() : null;
+        }
+        if (null !== $this->videoSummaryList) {
+            $res['VideoSummaryList'] = null !== $this->videoSummaryList ? $this->videoSummaryList->toMap() : null;
         }
 
         return $res;
@@ -49,11 +49,11 @@ class videoSummaryResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VideoSummaryList'])) {
-            $model->videoSummaryList = videoSummaryList::fromMap($map['VideoSummaryList']);
-        }
         if (isset($map['OutputFile'])) {
             $model->outputFile = outputFile::fromMap($map['OutputFile']);
+        }
+        if (isset($map['VideoSummaryList'])) {
+            $model->videoSummaryList = videoSummaryList::fromMap($map['VideoSummaryList']);
         }
 
         return $model;

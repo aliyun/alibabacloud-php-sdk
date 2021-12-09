@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class QueryTerrorismPipelineListResponseBody extends Model
 {
     /**
-     * @var string
+     * @var nonExistIds
      */
-    public $requestId;
+    public $nonExistIds;
 
     /**
      * @var pipelineList
@@ -21,13 +21,13 @@ class QueryTerrorismPipelineListResponseBody extends Model
     public $pipelineList;
 
     /**
-     * @var nonExistIds
+     * @var string
      */
-    public $nonExistIds;
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'pipelineList' => 'PipelineList',
         'nonExistIds'  => 'NonExistIds',
+        'pipelineList' => 'PipelineList',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class QueryTerrorismPipelineListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->nonExistIds) {
+            $res['NonExistIds'] = null !== $this->nonExistIds ? $this->nonExistIds->toMap() : null;
         }
         if (null !== $this->pipelineList) {
             $res['PipelineList'] = null !== $this->pipelineList ? $this->pipelineList->toMap() : null;
         }
-        if (null !== $this->nonExistIds) {
-            $res['NonExistIds'] = null !== $this->nonExistIds ? $this->nonExistIds->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class QueryTerrorismPipelineListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['NonExistIds'])) {
+            $model->nonExistIds = nonExistIds::fromMap($map['NonExistIds']);
         }
         if (isset($map['PipelineList'])) {
             $model->pipelineList = pipelineList::fromMap($map['PipelineList']);
         }
-        if (isset($map['NonExistIds'])) {
-            $model->nonExistIds = nonExistIds::fromMap($map['NonExistIds']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

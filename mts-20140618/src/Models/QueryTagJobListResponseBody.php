@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class QueryTagJobListResponseBody extends Model
 {
     /**
-     * @var tagJobList
+     * @var nonExistIds
      */
-    public $tagJobList;
+    public $nonExistIds;
 
     /**
      * @var string
@@ -21,13 +21,13 @@ class QueryTagJobListResponseBody extends Model
     public $requestId;
 
     /**
-     * @var nonExistIds
+     * @var tagJobList
      */
-    public $nonExistIds;
+    public $tagJobList;
     protected $_name = [
-        'tagJobList'  => 'TagJobList',
-        'requestId'   => 'RequestId',
         'nonExistIds' => 'NonExistIds',
+        'requestId'   => 'RequestId',
+        'tagJobList'  => 'TagJobList',
     ];
 
     public function validate()
@@ -37,14 +37,14 @@ class QueryTagJobListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tagJobList) {
-            $res['TagJobList'] = null !== $this->tagJobList ? $this->tagJobList->toMap() : null;
+        if (null !== $this->nonExistIds) {
+            $res['NonExistIds'] = null !== $this->nonExistIds ? $this->nonExistIds->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->nonExistIds) {
-            $res['NonExistIds'] = null !== $this->nonExistIds ? $this->nonExistIds->toMap() : null;
+        if (null !== $this->tagJobList) {
+            $res['TagJobList'] = null !== $this->tagJobList ? $this->tagJobList->toMap() : null;
         }
 
         return $res;
@@ -58,14 +58,14 @@ class QueryTagJobListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TagJobList'])) {
-            $model->tagJobList = tagJobList::fromMap($map['TagJobList']);
+        if (isset($map['NonExistIds'])) {
+            $model->nonExistIds = nonExistIds::fromMap($map['NonExistIds']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['NonExistIds'])) {
-            $model->nonExistIds = nonExistIds::fromMap($map['NonExistIds']);
+        if (isset($map['TagJobList'])) {
+            $model->tagJobList = tagJobList::fromMap($map['TagJobList']);
         }
 
         return $model;

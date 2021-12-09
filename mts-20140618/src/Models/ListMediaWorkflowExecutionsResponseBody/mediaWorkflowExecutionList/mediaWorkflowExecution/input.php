@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class input extends Model
 {
     /**
-     * @var string
-     */
-    public $userData;
-
-    /**
      * @var inputFile
      */
     public $inputFile;
+
+    /**
+     * @var string
+     */
+    public $userData;
     protected $_name = [
-        'userData'  => 'UserData',
         'inputFile' => 'InputFile',
+        'userData'  => 'UserData',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class input extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userData) {
-            $res['UserData'] = $this->userData;
-        }
         if (null !== $this->inputFile) {
             $res['InputFile'] = null !== $this->inputFile ? $this->inputFile->toMap() : null;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class input extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['UserData'])) {
-            $model->userData = $map['UserData'];
-        }
         if (isset($map['InputFile'])) {
             $model->inputFile = inputFile::fromMap($map['InputFile']);
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         return $model;

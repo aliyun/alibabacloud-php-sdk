@@ -17,7 +17,7 @@ class SearchMediaResponseBody extends Model
     /**
      * @var int
      */
-    public $totalNum;
+    public $pageNumber;
 
     /**
      * @var int
@@ -32,13 +32,13 @@ class SearchMediaResponseBody extends Model
     /**
      * @var int
      */
-    public $pageNumber;
+    public $totalNum;
     protected $_name = [
         'mediaList'  => 'MediaList',
-        'totalNum'   => 'TotalNum',
+        'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
-        'pageNumber' => 'PageNumber',
+        'totalNum'   => 'TotalNum',
     ];
 
     public function validate()
@@ -51,8 +51,8 @@ class SearchMediaResponseBody extends Model
         if (null !== $this->mediaList) {
             $res['MediaList'] = null !== $this->mediaList ? $this->mediaList->toMap() : null;
         }
-        if (null !== $this->totalNum) {
-            $res['TotalNum'] = $this->totalNum;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -60,8 +60,8 @@ class SearchMediaResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->totalNum) {
+            $res['TotalNum'] = $this->totalNum;
         }
 
         return $res;
@@ -78,8 +78,8 @@ class SearchMediaResponseBody extends Model
         if (isset($map['MediaList'])) {
             $model->mediaList = mediaList::fromMap($map['MediaList']);
         }
-        if (isset($map['TotalNum'])) {
-            $model->totalNum = $map['TotalNum'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
@@ -87,8 +87,8 @@ class SearchMediaResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['TotalNum'])) {
+            $model->totalNum = $map['TotalNum'];
         }
 
         return $model;

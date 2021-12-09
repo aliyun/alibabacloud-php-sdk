@@ -11,20 +11,20 @@ class frameTagInfo extends Model
     /**
      * @var string
      */
-    public $score;
+    public $category;
 
     /**
      * @var string
      */
-    public $category;
+    public $score;
 
     /**
      * @var string
      */
     public $tag;
     protected $_name = [
-        'score'    => 'Score',
         'category' => 'Category',
+        'score'    => 'Score',
         'tag'      => 'Tag',
     ];
 
@@ -35,11 +35,11 @@ class frameTagInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->score) {
-            $res['Score'] = $this->score;
-        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
+        }
+        if (null !== $this->score) {
+            $res['Score'] = $this->score;
         }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
@@ -56,11 +56,11 @@ class frameTagInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Score'])) {
-            $model->score = $map['Score'];
-        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
+        }
+        if (isset($map['Score'])) {
+            $model->score = $map['Score'];
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];

@@ -11,21 +11,21 @@ class subTask extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
     public $code;
 
     /**
      * @var string
      */
     public $message;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'    => 'Type',
         'code'    => 'Code',
         'message' => 'Message',
+        'type'    => 'Type',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class subTask extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class subTask extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

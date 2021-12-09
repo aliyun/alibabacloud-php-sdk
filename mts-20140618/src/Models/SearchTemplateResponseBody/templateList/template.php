@@ -14,19 +14,19 @@ use AlibabaCloud\Tea\Model;
 class template extends Model
 {
     /**
-     * @var video
+     * @var audio
      */
-    public $video;
+    public $audio;
 
     /**
-     * @var transConfig
+     * @var container
      */
-    public $transConfig;
+    public $container;
 
     /**
      * @var string
      */
-    public $state;
+    public $id;
 
     /**
      * @var muxConfig
@@ -39,28 +39,28 @@ class template extends Model
     public $name;
 
     /**
-     * @var audio
-     */
-    public $audio;
-
-    /**
      * @var string
      */
-    public $id;
+    public $state;
 
     /**
-     * @var container
+     * @var transConfig
      */
-    public $container;
+    public $transConfig;
+
+    /**
+     * @var video
+     */
+    public $video;
     protected $_name = [
-        'video'       => 'Video',
-        'transConfig' => 'TransConfig',
-        'state'       => 'State',
+        'audio'       => 'Audio',
+        'container'   => 'Container',
+        'id'          => 'Id',
         'muxConfig'   => 'MuxConfig',
         'name'        => 'Name',
-        'audio'       => 'Audio',
-        'id'          => 'Id',
-        'container'   => 'Container',
+        'state'       => 'State',
+        'transConfig' => 'TransConfig',
+        'video'       => 'Video',
     ];
 
     public function validate()
@@ -70,14 +70,14 @@ class template extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->video) {
-            $res['Video'] = null !== $this->video ? $this->video->toMap() : null;
+        if (null !== $this->audio) {
+            $res['Audio'] = null !== $this->audio ? $this->audio->toMap() : null;
         }
-        if (null !== $this->transConfig) {
-            $res['TransConfig'] = null !== $this->transConfig ? $this->transConfig->toMap() : null;
+        if (null !== $this->container) {
+            $res['Container'] = null !== $this->container ? $this->container->toMap() : null;
         }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->muxConfig) {
             $res['MuxConfig'] = null !== $this->muxConfig ? $this->muxConfig->toMap() : null;
@@ -85,14 +85,14 @@ class template extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->audio) {
-            $res['Audio'] = null !== $this->audio ? $this->audio->toMap() : null;
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
+        if (null !== $this->transConfig) {
+            $res['TransConfig'] = null !== $this->transConfig ? $this->transConfig->toMap() : null;
         }
-        if (null !== $this->container) {
-            $res['Container'] = null !== $this->container ? $this->container->toMap() : null;
+        if (null !== $this->video) {
+            $res['Video'] = null !== $this->video ? $this->video->toMap() : null;
         }
 
         return $res;
@@ -106,14 +106,14 @@ class template extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Video'])) {
-            $model->video = video::fromMap($map['Video']);
+        if (isset($map['Audio'])) {
+            $model->audio = audio::fromMap($map['Audio']);
         }
-        if (isset($map['TransConfig'])) {
-            $model->transConfig = transConfig::fromMap($map['TransConfig']);
+        if (isset($map['Container'])) {
+            $model->container = container::fromMap($map['Container']);
         }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['MuxConfig'])) {
             $model->muxConfig = muxConfig::fromMap($map['MuxConfig']);
@@ -121,14 +121,14 @@ class template extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Audio'])) {
-            $model->audio = audio::fromMap($map['Audio']);
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
+        if (isset($map['TransConfig'])) {
+            $model->transConfig = transConfig::fromMap($map['TransConfig']);
         }
-        if (isset($map['Container'])) {
-            $model->container = container::fromMap($map['Container']);
+        if (isset($map['Video'])) {
+            $model->video = video::fromMap($map['Video']);
         }
 
         return $model;
