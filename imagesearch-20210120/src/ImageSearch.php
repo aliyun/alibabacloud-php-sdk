@@ -34,7 +34,6 @@ use AlibabaCloud\Tea\Rpc\Rpc\Config;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
-use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class ImageSearch extends OpenApiClient
@@ -82,19 +81,8 @@ class ImageSearch extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
-        $params = new Params([
-            'action'      => 'CommodityTitle',
-            'version'     => '2021-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CommodityTitleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CommodityTitleResponse::fromMap($this->doRPCRequest('CommodityTitle', '2021-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -199,19 +187,8 @@ class ImageSearch extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
-        $params = new Params([
-            'action'      => 'GeneralRecognition',
-            'version'     => '2021-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GeneralRecognitionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GeneralRecognitionResponse::fromMap($this->doRPCRequest('GeneralRecognition', '2021-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -316,19 +293,8 @@ class ImageSearch extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
-        $params = new Params([
-            'action'      => 'ImageAmazon',
-            'version'     => '2021-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ImageAmazonResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ImageAmazonResponse::fromMap($this->doRPCRequest('ImageAmazon', '2021-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -355,19 +321,8 @@ class ImageSearch extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
-        $params = new Params([
-            'action'      => 'ImageCategory',
-            'version'     => '2021-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ImageCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ImageCategoryResponse::fromMap($this->doRPCRequest('ImageCategory', '2021-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -394,19 +349,8 @@ class ImageSearch extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
-        $params = new Params([
-            'action'      => 'ImageDuplication',
-            'version'     => '2021-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ImageDuplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ImageDuplicationResponse::fromMap($this->doRPCRequest('ImageDuplication', '2021-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -433,19 +377,8 @@ class ImageSearch extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
-        $params = new Params([
-            'action'      => 'ImageProperty',
-            'version'     => '2021-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ImagePropertyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ImagePropertyResponse::fromMap($this->doRPCRequest('ImageProperty', '2021-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
@@ -472,19 +405,8 @@ class ImageSearch extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
-        $params = new Params([
-            'action'      => 'ImageSegmentation',
-            'version'     => '2021-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ImageSegmentationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ImageSegmentationResponse::fromMap($this->doRPCRequest('ImageSegmentation', '2021-01-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
     }
 
     /**
