@@ -5,20 +5,17 @@
 namespace AlibabaCloud\SDK\DBFS\V20200418;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\AddTagsBatchRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\AddTagsBatchResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\AttachDbfsRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\AttachDbfsResponse;
-use AlibabaCloud\SDK\DBFS\V20200418\Models\CreateConstantsRequest;
-use AlibabaCloud\SDK\DBFS\V20200418\Models\CreateConstantsResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\CreateDbfsRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\CreateDbfsResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\CreateServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\CreateSnapshotRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\CreateSnapshotResponse;
-use AlibabaCloud\SDK\DBFS\V20200418\Models\DeleteConstantsRequest;
-use AlibabaCloud\SDK\DBFS\V20200418\Models\DeleteConstantsResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\DeleteDbfsRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\DeleteDbfsResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\DeleteSnapshotRequest;
@@ -35,8 +32,6 @@ use AlibabaCloud\SDK\DBFS\V20200418\Models\GetDbfsRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\GetDbfsResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\GetServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\GetServiceLinkedRoleResponse;
-use AlibabaCloud\SDK\DBFS\V20200418\Models\ListConstantsRequest;
-use AlibabaCloud\SDK\DBFS\V20200418\Models\ListConstantsResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ListDbfsAttachableEcsInstancesRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ListDbfsAttachableEcsInstancesResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ListDbfsAttachedEcsInstancesRequest;
@@ -51,8 +46,6 @@ use AlibabaCloud\SDK\DBFS\V20200418\Models\ListTagValuesRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ListTagValuesResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ListTaskRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ListTaskResponse;
-use AlibabaCloud\SDK\DBFS\V20200418\Models\OpreateConstantsRequest;
-use AlibabaCloud\SDK\DBFS\V20200418\Models\OpreateConstantsResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\RenameDbfsRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\RenameDbfsResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ResetDbfsRequest;
@@ -61,13 +54,12 @@ use AlibabaCloud\SDK\DBFS\V20200418\Models\ResizeDbfsRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ResizeDbfsResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\TagDbfsRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\TagDbfsResponse;
-use AlibabaCloud\SDK\DBFS\V20200418\Models\UpdateConstantsRequest;
-use AlibabaCloud\SDK\DBFS\V20200418\Models\UpdateConstantsResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\UpdateTaskRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\UpdateTaskResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class DBFS extends OpenApiClient
@@ -151,11 +143,28 @@ class DBFS extends OpenApiClient
     public function addTagsBatchWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ClientToken'] = $request->clientToken;
+        $query['DbfsList']    = $request->dbfsList;
+        $query['RegionId']    = $request->regionId;
+        $query['Tags']        = $request->tags;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddTagsBatch',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddTagsBatchResponse::fromMap($this->doRPCRequest('AddTagsBatch', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddTagsBatchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -179,11 +188,30 @@ class DBFS extends OpenApiClient
     public function attachDbfsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AttachMode']    = $request->attachMode;
+        $query['AttachPoint']   = $request->attachPoint;
+        $query['ECSInstanceId'] = $request->ECSInstanceId;
+        $query['FsId']          = $request->fsId;
+        $query['RegionId']      = $request->regionId;
+        $query['ServerUrl']     = $request->serverUrl;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachDbfs',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AttachDbfsResponse::fromMap($this->doRPCRequest('AttachDbfs', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AttachDbfsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -199,34 +227,6 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param CreateConstantsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CreateConstantsResponse
-     */
-    public function createConstantsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateConstantsResponse::fromMap($this->doRPCRequest('CreateConstants', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateConstantsRequest $request
-     *
-     * @return CreateConstantsResponse
-     */
-    public function createConstants($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createConstantsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateDbfsRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -235,11 +235,39 @@ class DBFS extends OpenApiClient
     public function createDbfsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['Category']             = $request->category;
+        $query['ClientToken']          = $request->clientToken;
+        $query['DeleteSnapshot']       = $request->deleteSnapshot;
+        $query['EnableRaid']           = $request->enableRaid;
+        $query['Encryption']           = $request->encryption;
+        $query['FsName']               = $request->fsName;
+        $query['InstanceType']         = $request->instanceType;
+        $query['KMSKeyId']             = $request->KMSKeyId;
+        $query['PerformanceLevel']     = $request->performanceLevel;
+        $query['RaidStripeUnitNumber'] = $request->raidStripeUnitNumber;
+        $query['RegionId']             = $request->regionId;
+        $query['SizeG']                = $request->sizeG;
+        $query['SnapshotId']           = $request->snapshotId;
+        $query['UsedScene']            = $request->usedScene;
+        $query['ZoneId']               = $request->zoneId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDbfs',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDbfsResponse::fromMap($this->doRPCRequest('CreateDbfs', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDbfsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -263,11 +291,26 @@ class DBFS extends OpenApiClient
     public function createServiceLinkedRoleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ClientToken'] = $request->clientToken;
+        $query['RegionId']    = $request->regionId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateServiceLinkedRole',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateServiceLinkedRoleResponse::fromMap($this->doRPCRequest('CreateServiceLinkedRole', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -291,11 +334,30 @@ class DBFS extends OpenApiClient
     public function createSnapshotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ClientToken']   = $request->clientToken;
+        $query['Description']   = $request->description;
+        $query['FsId']          = $request->fsId;
+        $query['RegionId']      = $request->regionId;
+        $query['RetentionDays'] = $request->retentionDays;
+        $query['SnapshotName']  = $request->snapshotName;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSnapshot',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateSnapshotResponse::fromMap($this->doRPCRequest('CreateSnapshot', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -311,34 +373,6 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param DeleteConstantsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DeleteConstantsResponse
-     */
-    public function deleteConstantsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteConstantsResponse::fromMap($this->doRPCRequest('DeleteConstants', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteConstantsRequest $request
-     *
-     * @return DeleteConstantsResponse
-     */
-    public function deleteConstants($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteConstantsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteDbfsRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -347,11 +381,26 @@ class DBFS extends OpenApiClient
     public function deleteDbfsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['FsId']     = $request->fsId;
+        $query['RegionId'] = $request->regionId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDbfs',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDbfsResponse::fromMap($this->doRPCRequest('DeleteDbfs', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDbfsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -375,11 +424,27 @@ class DBFS extends OpenApiClient
     public function deleteSnapshotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['Force']      = $request->force;
+        $query['RegionId']   = $request->regionId;
+        $query['SnapshotId'] = $request->snapshotId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSnapshot',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteSnapshotResponse::fromMap($this->doRPCRequest('DeleteSnapshot', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -403,11 +468,27 @@ class DBFS extends OpenApiClient
     public function deleteTagsBatchWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['DbfsList'] = $request->dbfsList;
+        $query['RegionId'] = $request->regionId;
+        $query['Tags']     = $request->tags;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTagsBatch',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteTagsBatchResponse::fromMap($this->doRPCRequest('DeleteTagsBatch', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteTagsBatchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -431,11 +512,27 @@ class DBFS extends OpenApiClient
     public function describeDbfsSpecificationsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Category']        = $request->category;
+        $query['EcsInstanceType'] = $request->ecsInstanceType;
+        $query['RegionId']        = $request->regionId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDbfsSpecifications',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDbfsSpecificationsResponse::fromMap($this->doRPCRequest('DescribeDbfsSpecifications', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDbfsSpecificationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -459,11 +556,25 @@ class DBFS extends OpenApiClient
     public function describeInstanceTypesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['RegionId'] = $request->regionId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceTypes',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceTypesResponse::fromMap($this->doRPCRequest('DescribeInstanceTypes', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstanceTypesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -487,11 +598,27 @@ class DBFS extends OpenApiClient
     public function detachDbfsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ECSInstanceId'] = $request->ECSInstanceId;
+        $query['FsId']          = $request->fsId;
+        $query['RegionId']      = $request->regionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachDbfs',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DetachDbfsResponse::fromMap($this->doRPCRequest('DetachDbfs', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetachDbfsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -515,11 +642,26 @@ class DBFS extends OpenApiClient
     public function getDbfsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['FsId']     = $request->fsId;
+        $query['RegionId'] = $request->regionId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDbfs',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetDbfsResponse::fromMap($this->doRPCRequest('GetDbfs', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDbfsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -543,11 +685,25 @@ class DBFS extends OpenApiClient
     public function getServiceLinkedRoleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['RegionId'] = $request->regionId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetServiceLinkedRole',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetServiceLinkedRoleResponse::fromMap($this->doRPCRequest('GetServiceLinkedRole', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -563,34 +719,6 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ListConstantsRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListConstantsResponse
-     */
-    public function listConstantsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListConstantsResponse::fromMap($this->doRPCRequest('ListConstants', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListConstantsRequest $request
-     *
-     * @return ListConstantsResponse
-     */
-    public function listConstants($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listConstantsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListDbfsRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -599,11 +727,32 @@ class DBFS extends OpenApiClient
     public function listDbfsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['FilterKey']   = $request->filterKey;
+        $query['FilterValue'] = $request->filterValue;
+        $query['PageNumber']  = $request->pageNumber;
+        $query['PageSize']    = $request->pageSize;
+        $query['RegionId']    = $request->regionId;
+        $query['SortKey']     = $request->sortKey;
+        $query['SortType']    = $request->sortType;
+        $query['Tags']        = $request->tags;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDbfs',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDbfsResponse::fromMap($this->doRPCRequest('ListDbfs', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDbfsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -627,11 +776,25 @@ class DBFS extends OpenApiClient
     public function listDbfsAttachableEcsInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['RegionId'] = $request->regionId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDbfsAttachableEcsInstances',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDbfsAttachableEcsInstancesResponse::fromMap($this->doRPCRequest('ListDbfsAttachableEcsInstances', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDbfsAttachableEcsInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -655,11 +818,26 @@ class DBFS extends OpenApiClient
     public function listDbfsAttachedEcsInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['FsId']     = $request->fsId;
+        $query['RegionId'] = $request->regionId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDbfsAttachedEcsInstances',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDbfsAttachedEcsInstancesResponse::fromMap($this->doRPCRequest('ListDbfsAttachedEcsInstances', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDbfsAttachedEcsInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -683,11 +861,36 @@ class DBFS extends OpenApiClient
     public function listSnapshotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['FilterKey']    = $request->filterKey;
+        $query['FilterValue']  = $request->filterValue;
+        $query['FsId']         = $request->fsId;
+        $query['PageNumber']   = $request->pageNumber;
+        $query['PageSize']     = $request->pageSize;
+        $query['RegionId']     = $request->regionId;
+        $query['SnapshotIds']  = $request->snapshotIds;
+        $query['SnapshotName'] = $request->snapshotName;
+        $query['SnapshotType'] = $request->snapshotType;
+        $query['SortKey']      = $request->sortKey;
+        $query['SortType']     = $request->sortType;
+        $query['Status']       = $request->status;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSnapshot',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListSnapshotResponse::fromMap($this->doRPCRequest('ListSnapshot', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -711,11 +914,25 @@ class DBFS extends OpenApiClient
     public function listTagKeysWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['RegionId'] = $request->regionId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagKeys',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTagKeysResponse::fromMap($this->doRPCRequest('ListTagKeys', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -739,11 +956,26 @@ class DBFS extends OpenApiClient
     public function listTagValuesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['RegionId'] = $request->regionId;
+        $query['TagKey']   = $request->tagKey;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagValues',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTagValuesResponse::fromMap($this->doRPCRequest('ListTagValues', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -767,11 +999,31 @@ class DBFS extends OpenApiClient
     public function listTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['FilterKey']   = $request->filterKey;
+        $query['FilterValue'] = $request->filterValue;
+        $query['PageNumber']  = $request->pageNumber;
+        $query['PageSize']    = $request->pageSize;
+        $query['RegionId']    = $request->regionId;
+        $query['SortKey']     = $request->sortKey;
+        $query['SortType']    = $request->sortType;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTask',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListTaskResponse::fromMap($this->doRPCRequest('ListTask', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -787,34 +1039,6 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param OpreateConstantsRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return OpreateConstantsResponse
-     */
-    public function opreateConstantsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return OpreateConstantsResponse::fromMap($this->doRPCRequest('OpreateConstants', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param OpreateConstantsRequest $request
-     *
-     * @return OpreateConstantsResponse
-     */
-    public function opreateConstants($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->opreateConstantsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param RenameDbfsRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -823,11 +1047,27 @@ class DBFS extends OpenApiClient
     public function renameDbfsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['FsId']     = $request->fsId;
+        $query['FsName']   = $request->fsName;
+        $query['RegionId'] = $request->regionId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RenameDbfs',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RenameDbfsResponse::fromMap($this->doRPCRequest('RenameDbfs', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RenameDbfsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -851,11 +1091,27 @@ class DBFS extends OpenApiClient
     public function resetDbfsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['FsId']       = $request->fsId;
+        $query['RegionId']   = $request->regionId;
+        $query['SnapshotId'] = $request->snapshotId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ResetDbfs',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ResetDbfsResponse::fromMap($this->doRPCRequest('ResetDbfs', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ResetDbfsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -879,11 +1135,27 @@ class DBFS extends OpenApiClient
     public function resizeDbfsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['FsId']     = $request->fsId;
+        $query['NewSizeG'] = $request->newSizeG;
+        $query['RegionId'] = $request->regionId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ResizeDbfs',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ResizeDbfsResponse::fromMap($this->doRPCRequest('ResizeDbfs', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ResizeDbfsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -907,11 +1179,27 @@ class DBFS extends OpenApiClient
     public function tagDbfsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['DbfsId']   = $request->dbfsId;
+        $query['RegionId'] = $request->regionId;
+        $query['Tags']     = $request->tags;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'TagDbfs',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return TagDbfsResponse::fromMap($this->doRPCRequest('TagDbfs', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TagDbfsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -927,34 +1215,6 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param UpdateConstantsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return UpdateConstantsResponse
-     */
-    public function updateConstantsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateConstantsResponse::fromMap($this->doRPCRequest('UpdateConstants', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateConstantsRequest $request
-     *
-     * @return UpdateConstantsResponse
-     */
-    public function updateConstants($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateConstantsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param UpdateTaskRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -963,11 +1223,27 @@ class DBFS extends OpenApiClient
     public function updateTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['RegionId']     = $request->regionId;
+        $query['TaskIds']      = $request->taskIds;
+        $query['TaskProgress'] = $request->taskProgress;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTask',
+            'version'     => '2020-04-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateTaskResponse::fromMap($this->doRPCRequest('UpdateTask', '2020-04-18', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
