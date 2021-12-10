@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\CloudGameAPI\V20200728;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\AdaptGameVersionRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\AdaptGameVersionResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\AddGameToProjectRequest;
@@ -98,6 +99,7 @@ use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\UploadGameVersionByDownloadRe
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class CloudGameAPI extends OpenApiClient
@@ -142,11 +144,27 @@ class CloudGameAPI extends OpenApiClient
     public function adaptGameVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['FrameRate']  = $request->frameRate;
+        $query['Resolution'] = $request->resolution;
+        $query['VersionId']  = $request->versionId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AdaptGameVersion',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AdaptGameVersionResponse::fromMap($this->doRPCRequest('AdaptGameVersion', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AdaptGameVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -170,11 +188,26 @@ class CloudGameAPI extends OpenApiClient
     public function addGameToProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['GameId']    = $request->gameId;
+        $query['ProjectId'] = $request->projectId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AddGameToProject',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AddGameToProjectResponse::fromMap($this->doRPCRequest('AddGameToProject', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddGameToProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -201,8 +234,19 @@ class CloudGameAPI extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'BatchDispatchGameSlot',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return BatchDispatchGameSlotResponse::fromMap($this->doRPCRequest('BatchDispatchGameSlot', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchDispatchGameSlotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -226,11 +270,30 @@ class CloudGameAPI extends OpenApiClient
     public function batchStopGameSessionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['GameId']    = $request->gameId;
+        $query['ProjectId'] = $request->projectId;
+        $query['Reason']    = $request->reason;
+        $query['Tags']      = $request->tags;
+        $query['Token']     = $request->token;
+        $query['TrackInfo'] = $request->trackInfo;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchStopGameSessions',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchStopGameSessionsResponse::fromMap($this->doRPCRequest('BatchStopGameSessions', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchStopGameSessionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -254,11 +317,27 @@ class CloudGameAPI extends OpenApiClient
     public function closeOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['AccountDomain']  = $request->accountDomain;
+        $query['BuyerAccountId'] = $request->buyerAccountId;
+        $query['OrderId']        = $request->orderId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CloseOrder',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CloseOrderResponse::fromMap($this->doRPCRequest('CloseOrder', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CloseOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -282,11 +361,27 @@ class CloudGameAPI extends OpenApiClient
     public function createGameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['ClientToken']  = $request->clientToken;
+        $query['GameName']     = $request->gameName;
+        $query['PlatformType'] = $request->platformType;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGame',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateGameResponse::fromMap($this->doRPCRequest('CreateGame', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateGameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -310,11 +405,34 @@ class CloudGameAPI extends OpenApiClient
     public function createGameDeployWorkflowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['DownloadType'] = $request->downloadType;
+        $query['FileType']     = $request->fileType;
+        $query['FrameRate']    = $request->frameRate;
+        $query['GameId']       = $request->gameId;
+        $query['GameVersion']  = $request->gameVersion;
+        $query['Hash']         = $request->hash;
+        $query['Instance']     = $request->instance;
+        $query['ProjectId']    = $request->projectId;
+        $query['Resolution']   = $request->resolution;
+        $query['VersionName']  = $request->versionName;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGameDeployWorkflow',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateGameDeployWorkflowResponse::fromMap($this->doRPCRequest('CreateGameDeployWorkflow', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateGameDeployWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -338,11 +456,32 @@ class CloudGameAPI extends OpenApiClient
     public function createOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['AccountDomain']   = $request->accountDomain;
+        $query['Amount']          = $request->amount;
+        $query['BuyerAccountId']  = $request->buyerAccountId;
+        $query['IdempotentCode']  = $request->idempotentCode;
+        $query['ItemId']          = $request->itemId;
+        $query['OriginPrice']     = $request->originPrice;
+        $query['SettlementPrice'] = $request->settlementPrice;
+        $query['SkuId']           = $request->skuId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOrder',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateOrderResponse::fromMap($this->doRPCRequest('CreateOrder', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -366,11 +505,26 @@ class CloudGameAPI extends OpenApiClient
     public function createProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['ClientToken'] = $request->clientToken;
+        $query['ProjectName'] = $request->projectName;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateProject',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateProjectResponse::fromMap($this->doRPCRequest('CreateProject', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -394,11 +548,27 @@ class CloudGameAPI extends OpenApiClient
     public function createTokenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['ClientToken']  = $request->clientToken;
+        $query['CurrentToken'] = $request->currentToken;
+        $query['Session']      = $request->session;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateToken',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateTokenResponse::fromMap($this->doRPCRequest('CreateToken', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -422,11 +592,25 @@ class CloudGameAPI extends OpenApiClient
     public function deleteGameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query           = [];
+        $query['GameId'] = $request->gameId;
+        $req             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGame',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteGameResponse::fromMap($this->doRPCRequest('DeleteGame', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteGameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -450,11 +634,25 @@ class CloudGameAPI extends OpenApiClient
     public function deleteGameVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['VersionId'] = $request->versionId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGameVersion',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteGameVersionResponse::fromMap($this->doRPCRequest('DeleteGameVersion', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteGameVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -478,11 +676,25 @@ class CloudGameAPI extends OpenApiClient
     public function deleteProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['ProjectId'] = $request->projectId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteProject',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteProjectResponse::fromMap($this->doRPCRequest('DeleteProject', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -506,11 +718,27 @@ class CloudGameAPI extends OpenApiClient
     public function deliveryOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['AccountDomain']  = $request->accountDomain;
+        $query['BuyerAccountId'] = $request->buyerAccountId;
+        $query['OrderId']        = $request->orderId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeliveryOrder',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeliveryOrderResponse::fromMap($this->doRPCRequest('DeliveryOrder', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeliveryOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -537,8 +765,19 @@ class CloudGameAPI extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'DispatchGameSlot',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DispatchGameSlotResponse::fromMap($this->doRPCRequest('DispatchGameSlot', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DispatchGameSlotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -562,11 +801,27 @@ class CloudGameAPI extends OpenApiClient
     public function getGameCcuWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['AccessKey']  = $request->accessKey;
+        $query['GameId']     = $request->gameId;
+        $query['RegionName'] = $request->regionName;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetGameCcu',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetGameCcuResponse::fromMap($this->doRPCRequest('GetGameCcu', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetGameCcuResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -590,11 +845,27 @@ class CloudGameAPI extends OpenApiClient
     public function getGameStockWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['AccessKey'] = $request->accessKey;
+        $query['GameId']    = $request->gameId;
+        $query['UserLevel'] = $request->userLevel;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetGameStock',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetGameStockResponse::fromMap($this->doRPCRequest('GetGameStock', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetGameStockResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -618,11 +889,27 @@ class CloudGameAPI extends OpenApiClient
     public function getGameTrialSurplusDurationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['AccountId'] = $request->accountId;
+        $query['GameId']    = $request->gameId;
+        $query['ProjectId'] = $request->projectId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetGameTrialSurplusDuration',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetGameTrialSurplusDurationResponse::fromMap($this->doRPCRequest('GetGameTrialSurplusDuration', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetGameTrialSurplusDurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -646,11 +933,25 @@ class CloudGameAPI extends OpenApiClient
     public function getGameVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['VersionId'] = $request->versionId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetGameVersion',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetGameVersionResponse::fromMap($this->doRPCRequest('GetGameVersion', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetGameVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -674,11 +975,25 @@ class CloudGameAPI extends OpenApiClient
     public function getGameVersionProgressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query           = [];
+        $query['TaskId'] = $request->taskId;
+        $req             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetGameVersionProgress',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetGameVersionProgressResponse::fromMap($this->doRPCRequest('GetGameVersionProgress', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetGameVersionProgressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -702,11 +1017,25 @@ class CloudGameAPI extends OpenApiClient
     public function getItemWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query           = [];
+        $query['ItemId'] = $request->itemId;
+        $req             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetItem',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetItemResponse::fromMap($this->doRPCRequest('GetItem', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -730,11 +1059,27 @@ class CloudGameAPI extends OpenApiClient
     public function getOutAccountBindDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['AccountDomain']  = $request->accountDomain;
+        $query['AccountId']      = $request->accountId;
+        $query['OutAccountType'] = $request->outAccountType;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOutAccountBindDetail',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetOutAccountBindDetailResponse::fromMap($this->doRPCRequest('GetOutAccountBindDetail', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetOutAccountBindDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -758,11 +1103,25 @@ class CloudGameAPI extends OpenApiClient
     public function getSessionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query          = [];
+        $query['Token'] = $request->token;
+        $req            = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSession',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetSessionResponse::fromMap($this->doRPCRequest('GetSession', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetSessionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -786,11 +1145,26 @@ class CloudGameAPI extends OpenApiClient
     public function getStopGameTokenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['AccessKey'] = $request->accessKey;
+        $query['GameId']    = $request->gameId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetStopGameToken',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetStopGameTokenResponse::fromMap($this->doRPCRequest('GetStopGameToken', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetStopGameTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -814,11 +1188,28 @@ class CloudGameAPI extends OpenApiClient
     public function listBoughtGamesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AccountDomain'] = $request->accountDomain;
+        $query['AccountId']     = $request->accountId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBoughtGames',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListBoughtGamesResponse::fromMap($this->doRPCRequest('ListBoughtGames', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListBoughtGamesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -842,11 +1233,25 @@ class CloudGameAPI extends OpenApiClient
     public function listContainerStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['GameSessionIdList'] = $request->gameSessionIdList;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListContainerStatus',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListContainerStatusResponse::fromMap($this->doRPCRequest('ListContainerStatus', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListContainerStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -870,11 +1275,28 @@ class CloudGameAPI extends OpenApiClient
     public function listDeployableInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $query['ProjectId']  = $request->projectId;
+        $query['VersionId']  = $request->versionId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDeployableInstances',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDeployableInstancesResponse::fromMap($this->doRPCRequest('ListDeployableInstances', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDeployableInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -898,11 +1320,27 @@ class CloudGameAPI extends OpenApiClient
     public function listGameVersionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['GameId']     = $request->gameId;
+        $query['MaxResults'] = $request->maxResults;
+        $query['NextToken']  = $request->nextToken;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGameVersions',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListGameVersionsResponse::fromMap($this->doRPCRequest('ListGameVersions', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListGameVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -926,11 +1364,26 @@ class CloudGameAPI extends OpenApiClient
     public function listGamesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['MaxResults'] = $request->maxResults;
+        $query['NextToken']  = $request->nextToken;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGames',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListGamesResponse::fromMap($this->doRPCRequest('ListGames', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListGamesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -954,11 +1407,29 @@ class CloudGameAPI extends OpenApiClient
     public function listHistoryContainerStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['EndTime']           = $request->endTime;
+        $query['LastGameSessionId'] = $request->lastGameSessionId;
+        $query['PageSize']          = $request->pageSize;
+        $query['ProjectId']         = $request->projectId;
+        $query['StartTime']         = $request->startTime;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListHistoryContainerStatus',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListHistoryContainerStatusResponse::fromMap($this->doRPCRequest('ListHistoryContainerStatus', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListHistoryContainerStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -982,11 +1453,26 @@ class CloudGameAPI extends OpenApiClient
     public function listProjectsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['MaxResults'] = $request->maxResults;
+        $query['NextToken']  = $request->nextToken;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListProjects',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListProjectsResponse::fromMap($this->doRPCRequest('ListProjects', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1010,11 +1496,28 @@ class CloudGameAPI extends OpenApiClient
     public function queryGameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['PageNo']    = $request->pageNo;
+        $query['PageSize']  = $request->pageSize;
+        $query['ProjectId'] = $request->projectId;
+        $query['TenantId']  = $request->tenantId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryGame',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryGameResponse::fromMap($this->doRPCRequest('QueryGame', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryGameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1038,11 +1541,26 @@ class CloudGameAPI extends OpenApiClient
     public function queryItemsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryItems',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryItemsResponse::fromMap($this->doRPCRequest('QueryItems', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryItemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1066,11 +1584,27 @@ class CloudGameAPI extends OpenApiClient
     public function queryOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['AccountDomain']  = $request->accountDomain;
+        $query['BuyerAccountId'] = $request->buyerAccountId;
+        $query['OrderId']        = $request->orderId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryOrder',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryOrderResponse::fromMap($this->doRPCRequest('QueryOrder', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1094,11 +1628,27 @@ class CloudGameAPI extends OpenApiClient
     public function queryOutAccountBindStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AccountDomain'] = $request->accountDomain;
+        $query['AccountId']     = $request->accountId;
+        $query['GameId']        = $request->gameId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryOutAccountBindStatus',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryOutAccountBindStatusResponse::fromMap($this->doRPCRequest('QueryOutAccountBindStatus', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryOutAccountBindStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1122,11 +1672,28 @@ class CloudGameAPI extends OpenApiClient
     public function queryProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['PageNo']    = $request->pageNo;
+        $query['PageSize']  = $request->pageSize;
+        $query['ProjectId'] = $request->projectId;
+        $query['TenantId']  = $request->tenantId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryProject',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryProjectResponse::fromMap($this->doRPCRequest('QueryProject', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1150,11 +1717,27 @@ class CloudGameAPI extends OpenApiClient
     public function queryTenantWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['PageNo']   = $request->pageNo;
+        $query['PageSize'] = $request->pageSize;
+        $query['Param']    = $request->param;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryTenant',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryTenantResponse::fromMap($this->doRPCRequest('QueryTenant', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return QueryTenantResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1178,11 +1761,26 @@ class CloudGameAPI extends OpenApiClient
     public function removeGameFromProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['GameId']    = $request->gameId;
+        $query['ProjectId'] = $request->projectId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveGameFromProject',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveGameFromProjectResponse::fromMap($this->doRPCRequest('RemoveGameFromProject', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveGameFromProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1206,11 +1804,25 @@ class CloudGameAPI extends OpenApiClient
     public function skipTrialPolicyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['GameSessionId'] = $request->gameSessionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SkipTrialPolicy',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SkipTrialPolicyResponse::fromMap($this->doRPCRequest('SkipTrialPolicy', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SkipTrialPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1237,8 +1849,19 @@ class CloudGameAPI extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'StopGameSession',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return StopGameSessionResponse::fromMap($this->doRPCRequest('StopGameSession', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopGameSessionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1262,11 +1885,29 @@ class CloudGameAPI extends OpenApiClient
     public function submitDeploymentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['CloudGameInstanceIds'] = $request->cloudGameInstanceIds;
+        $query['GameId']               = $request->gameId;
+        $query['OperationType']        = $request->operationType;
+        $query['ProjectId']            = $request->projectId;
+        $query['VersionId']            = $request->versionId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitDeployment',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitDeploymentResponse::fromMap($this->doRPCRequest('SubmitDeployment', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1290,11 +1931,43 @@ class CloudGameAPI extends OpenApiClient
     public function submitInternalPurchaseChargeDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                                     = [];
+        $query['ActiveUserRetentionRateOneDay']    = $request->activeUserRetentionRateOneDay;
+        $query['ActiveUserRetentionRateSevenDay']  = $request->activeUserRetentionRateSevenDay;
+        $query['ActiveUserRetentionRateThirtyDay'] = $request->activeUserRetentionRateThirtyDay;
+        $query['Arpu']                             = $request->arpu;
+        $query['ChargeDate']                       = $request->chargeDate;
+        $query['Dau']                              = $request->dau;
+        $query['GameId']                           = $request->gameId;
+        $query['Mau']                              = $request->mau;
+        $query['NewUserRetentionRateOneDay']       = $request->newUserRetentionRateOneDay;
+        $query['NewUserRetentionRateSevenDay']     = $request->newUserRetentionRateSevenDay;
+        $query['NewUserRetentionRateThirtyDay']    = $request->newUserRetentionRateThirtyDay;
+        $query['PaymentConversionRate']            = $request->paymentConversionRate;
+        $query['PlayTimeAverageOneDay']            = $request->playTimeAverageOneDay;
+        $query['PlayTimeAverageThirtyDay']         = $request->playTimeAverageThirtyDay;
+        $query['PlayTimeNinetyPointsOneDay']       = $request->playTimeNinetyPointsOneDay;
+        $query['PlayTimeNinetyPointsThirtyDay']    = $request->playTimeNinetyPointsThirtyDay;
+        $query['PlayTimeRangeOneDay']              = $request->playTimeRangeOneDay;
+        $query['PlayTimeRangeThirtyDay']           = $request->playTimeRangeThirtyDay;
+        $query['UserActivationRate']               = $request->userActivationRate;
+        $req                                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitInternalPurchaseChargeData',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitInternalPurchaseChargeDataResponse::fromMap($this->doRPCRequest('SubmitInternalPurchaseChargeData', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitInternalPurchaseChargeDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1318,11 +1991,25 @@ class CloudGameAPI extends OpenApiClient
     public function submitInternalPurchaseOrdersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['OrderList'] = $request->orderList;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitInternalPurchaseOrders',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitInternalPurchaseOrdersResponse::fromMap($this->doRPCRequest('SubmitInternalPurchaseOrders', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitInternalPurchaseOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1346,11 +2033,29 @@ class CloudGameAPI extends OpenApiClient
     public function submitInternalPurchaseReadyFlagWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['BatchInfoList']   = $request->batchInfoList;
+        $query['ChargeDate']      = $request->chargeDate;
+        $query['GameId']          = $request->gameId;
+        $query['OrderTotalCount'] = $request->orderTotalCount;
+        $query['Status']          = $request->status;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitInternalPurchaseReadyFlag',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SubmitInternalPurchaseReadyFlagResponse::fromMap($this->doRPCRequest('SubmitInternalPurchaseReadyFlag', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SubmitInternalPurchaseReadyFlagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1374,11 +2079,30 @@ class CloudGameAPI extends OpenApiClient
     public function uploadGameVersionByDownloadWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['DownloadType'] = $request->downloadType;
+        $query['FileType']     = $request->fileType;
+        $query['GameId']       = $request->gameId;
+        $query['GameVersion']  = $request->gameVersion;
+        $query['Hash']         = $request->hash;
+        $query['VersionName']  = $request->versionName;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'UploadGameVersionByDownload',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return UploadGameVersionByDownloadResponse::fromMap($this->doRPCRequest('UploadGameVersionByDownload', '2020-07-28', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UploadGameVersionByDownloadResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
