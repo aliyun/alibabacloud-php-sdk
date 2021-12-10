@@ -6,14 +6,9 @@ namespace AlibabaCloud\SDK\FCOpen\V20210406\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteFunctionOnDemandConfigHeaders extends Model
+class ListTriggersHeaders extends Model
 {
     public $commonHeaders;
-
-    /**
-     * @var string
-     */
-    public $ifMatch;
 
     /**
      * @var string
@@ -45,7 +40,6 @@ class DeleteFunctionOnDemandConfigHeaders extends Model
      */
     public $xFcTraceId;
     protected $_name = [
-        'ifMatch'           => 'If-Match',
         'xFcAccountId'      => 'X-Fc-Account-Id',
         'xFcCodeChecksum'   => 'X-Fc-Code-Checksum',
         'xFcDate'           => 'X-Fc-Date',
@@ -63,9 +57,6 @@ class DeleteFunctionOnDemandConfigHeaders extends Model
         $res = [];
         if (null !== $this->commonHeaders) {
             $res['commonHeaders'] = $this->commonHeaders;
-        }
-        if (null !== $this->ifMatch) {
-            $res['If-Match'] = $this->ifMatch;
         }
         if (null !== $this->xFcAccountId) {
             $res['X-Fc-Account-Id'] = $this->xFcAccountId;
@@ -92,16 +83,13 @@ class DeleteFunctionOnDemandConfigHeaders extends Model
     /**
      * @param array $map
      *
-     * @return DeleteFunctionOnDemandConfigHeaders
+     * @return ListTriggersHeaders
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['commonHeaders'])) {
             $model->commonHeaders = $map['commonHeaders'];
-        }
-        if (isset($map['If-Match'])) {
-            $model->ifMatch = $map['If-Match'];
         }
         if (isset($map['X-Fc-Account-Id'])) {
             $model->xFcAccountId = $map['X-Fc-Account-Id'];

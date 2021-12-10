@@ -16,6 +16,16 @@ class InvokeFunctionHeaders extends Model
     public $xFcAccountId;
 
     /**
+     * @var string
+     */
+    public $xFcCodeChecksum;
+
+    /**
+     * @var string
+     */
+    public $xFcDate;
+
+    /**
      * @description 调用方式:Sync或者Async，默认值：Sync
      *
      * @var string
@@ -33,11 +43,19 @@ class InvokeFunctionHeaders extends Model
      * @var string
      */
     public $xFcStatefulAsyncInvocationId;
+
+    /**
+     * @var string
+     */
+    public $xFcTraceId;
     protected $_name = [
         'xFcAccountId'                 => 'X-Fc-Account-Id',
-        'xFcInvocationType'            => 'x-fc-invocation-type',
-        'xFcLogType'                   => 'x-fc-log-type',
-        'xFcStatefulAsyncInvocationId' => 'x-fc-stateful-async-invocation-id',
+        'xFcCodeChecksum'              => 'X-Fc-Code-Checksum',
+        'xFcDate'                      => 'X-Fc-Date',
+        'xFcInvocationType'            => 'X-Fc-Invocation-Type',
+        'xFcLogType'                   => 'X-Fc-Log-Type',
+        'xFcStatefulAsyncInvocationId' => 'X-Fc-Stateful-Async-Invocation-Id',
+        'xFcTraceId'                   => 'X-Fc-Trace-Id',
     ];
 
     public function validate()
@@ -53,14 +71,23 @@ class InvokeFunctionHeaders extends Model
         if (null !== $this->xFcAccountId) {
             $res['X-Fc-Account-Id'] = $this->xFcAccountId;
         }
+        if (null !== $this->xFcCodeChecksum) {
+            $res['X-Fc-Code-Checksum'] = $this->xFcCodeChecksum;
+        }
+        if (null !== $this->xFcDate) {
+            $res['X-Fc-Date'] = $this->xFcDate;
+        }
         if (null !== $this->xFcInvocationType) {
-            $res['x-fc-invocation-type'] = $this->xFcInvocationType;
+            $res['X-Fc-Invocation-Type'] = $this->xFcInvocationType;
         }
         if (null !== $this->xFcLogType) {
-            $res['x-fc-log-type'] = $this->xFcLogType;
+            $res['X-Fc-Log-Type'] = $this->xFcLogType;
         }
         if (null !== $this->xFcStatefulAsyncInvocationId) {
-            $res['x-fc-stateful-async-invocation-id'] = $this->xFcStatefulAsyncInvocationId;
+            $res['X-Fc-Stateful-Async-Invocation-Id'] = $this->xFcStatefulAsyncInvocationId;
+        }
+        if (null !== $this->xFcTraceId) {
+            $res['X-Fc-Trace-Id'] = $this->xFcTraceId;
         }
 
         return $res;
@@ -80,14 +107,23 @@ class InvokeFunctionHeaders extends Model
         if (isset($map['X-Fc-Account-Id'])) {
             $model->xFcAccountId = $map['X-Fc-Account-Id'];
         }
-        if (isset($map['x-fc-invocation-type'])) {
-            $model->xFcInvocationType = $map['x-fc-invocation-type'];
+        if (isset($map['X-Fc-Code-Checksum'])) {
+            $model->xFcCodeChecksum = $map['X-Fc-Code-Checksum'];
         }
-        if (isset($map['x-fc-log-type'])) {
-            $model->xFcLogType = $map['x-fc-log-type'];
+        if (isset($map['X-Fc-Date'])) {
+            $model->xFcDate = $map['X-Fc-Date'];
         }
-        if (isset($map['x-fc-stateful-async-invocation-id'])) {
-            $model->xFcStatefulAsyncInvocationId = $map['x-fc-stateful-async-invocation-id'];
+        if (isset($map['X-Fc-Invocation-Type'])) {
+            $model->xFcInvocationType = $map['X-Fc-Invocation-Type'];
+        }
+        if (isset($map['X-Fc-Log-Type'])) {
+            $model->xFcLogType = $map['X-Fc-Log-Type'];
+        }
+        if (isset($map['X-Fc-Stateful-Async-Invocation-Id'])) {
+            $model->xFcStatefulAsyncInvocationId = $map['X-Fc-Stateful-Async-Invocation-Id'];
+        }
+        if (isset($map['X-Fc-Trace-Id'])) {
+            $model->xFcTraceId = $map['X-Fc-Trace-Id'];
         }
 
         return $model;

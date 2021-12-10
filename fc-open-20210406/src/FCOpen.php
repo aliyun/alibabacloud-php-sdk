@@ -6,24 +6,32 @@ namespace AlibabaCloud\SDK\FCOpen\V20210406;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\CreateAliasHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\CreateAliasRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\CreateAliasResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\CreateCustomDomainHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\CreateCustomDomainRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\CreateCustomDomainResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\CreateFunctionHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\CreateFunctionRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\CreateFunctionResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\CreateLayerVersionHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\CreateLayerVersionRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\CreateLayerVersionResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\CreateServiceHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\CreateServiceRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\CreateServiceResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\CreateTriggerHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\CreateTriggerRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\CreateTriggerResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\CreateVpcBindingHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\CreateVpcBindingRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\CreateVpcBindingResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\DeleteAliasHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\DeleteAliasResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\DeleteCustomDomainHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\DeleteCustomDomainResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\DeleteFunctionAsyncInvokeConfigHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\DeleteFunctionAsyncInvokeConfigRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\DeleteFunctionAsyncInvokeConfigResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\DeleteFunctionHeaders;
@@ -31,97 +39,140 @@ use AlibabaCloud\SDK\FCOpen\V20210406\Models\DeleteFunctionOnDemandConfigHeaders
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\DeleteFunctionOnDemandConfigRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\DeleteFunctionOnDemandConfigResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\DeleteFunctionResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\DeleteLayerVersionHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\DeleteLayerVersionResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\DeleteServiceHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\DeleteServiceResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\DeleteServiceVersionHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\DeleteServiceVersionResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\DeleteTriggerHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\DeleteTriggerResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\DeleteVpcBindingHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\DeleteVpcBindingResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\DeregisterEventSourceHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\DeregisterEventSourceRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\DeregisterEventSourceResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetAccountSettingsHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetAccountSettingsResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetAliasHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetAliasResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetCustomDomainHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetCustomDomainResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetFunctionAsyncInvokeConfigHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetFunctionAsyncInvokeConfigRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetFunctionAsyncInvokeConfigResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetFunctionCodeHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetFunctionCodeRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetFunctionCodeResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetFunctionHeaders;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetFunctionOnDemandConfigHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetFunctionOnDemandConfigRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetFunctionOnDemandConfigResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetFunctionRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetFunctionResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetLayerVersionByArnHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetLayerVersionByArnResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetLayerVersionHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetLayerVersionResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetProvisionConfigHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetProvisionConfigRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetProvisionConfigResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetResourceTagsHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetResourceTagsRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetResourceTagsResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetServiceHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetServiceRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetServiceResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetStatefulAsyncInvocationHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetStatefulAsyncInvocationRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetStatefulAsyncInvocationResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetTriggerHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\GetTriggerResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\InvokeFunctionHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\InvokeFunctionRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\InvokeFunctionResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListAliasesHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListAliasesRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListAliasesResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListCustomDomainsHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListCustomDomainsRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListCustomDomainsResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListEventSourcesHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListEventSourcesRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListEventSourcesResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListFunctionAsyncInvokeConfigsHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListFunctionAsyncInvokeConfigsRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListFunctionAsyncInvokeConfigsResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListFunctionsHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListFunctionsRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListFunctionsResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListInstancesHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListInstancesResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListLayersHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListLayersRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListLayersResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListLayerVersionsHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListLayerVersionsRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListLayerVersionsResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListOnDemandConfigsHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListOnDemandConfigsRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListOnDemandConfigsResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListProvisionConfigsHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListProvisionConfigsRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListProvisionConfigsResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListReservedCapacitiesHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListReservedCapacitiesRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListReservedCapacitiesResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListServicesHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListServicesRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListServicesResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListServiceVersionsHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListServiceVersionsRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListServiceVersionsResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListStatefulAsyncInvocationsHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListStatefulAsyncInvocationsRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListStatefulAsyncInvocationsResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListTaggedResourcesHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListTaggedResourcesRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListTaggedResourcesResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListTriggersHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListTriggersRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListTriggersResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListVpcBindingsHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\ListVpcBindingsResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\PermanentDeleteLayerVersionHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\PermanentDeleteLayerVersionResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\PublishLayerAsPublicHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\PublishLayerAsPublicResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\PublishServiceVersionHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\PublishServiceVersionRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\PublishServiceVersionResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\PutFunctionAsyncInvokeConfigHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\PutFunctionAsyncInvokeConfigRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\PutFunctionAsyncInvokeConfigResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\PutFunctionOnDemandConfigHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\PutFunctionOnDemandConfigRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\PutFunctionOnDemandConfigResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\PutProvisionConfigHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\PutProvisionConfigRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\PutProvisionConfigResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\RegisterEventSourceHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\RegisterEventSourceRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\RegisterEventSourceResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\StopStatefulAsyncInvocationHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\StopStatefulAsyncInvocationRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\StopStatefulAsyncInvocationResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\TagResourceHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\TagResourceRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\TagResourceResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\UntagResourceHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\UntagResourceRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\UntagResourceResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\UpdateAliasHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\UpdateAliasRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\UpdateAliasResponse;
+use AlibabaCloud\SDK\FCOpen\V20210406\Models\UpdateCustomDomainHeaders;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\UpdateCustomDomainRequest;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\UpdateCustomDomainResponse;
 use AlibabaCloud\SDK\FCOpen\V20210406\Models\UpdateFunctionHeaders;
@@ -136,6 +187,7 @@ use AlibabaCloud\SDK\FCOpen\V20210406\Models\UpdateTriggerResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class FCOpen extends OpenApiClient
@@ -203,7 +255,7 @@ class FCOpen extends OpenApiClient
     public function createAlias($serviceName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new CreateAliasHeaders([]);
 
         return $this->createAliasWithOptions($serviceName, $request, $headers, $runtime);
     }
@@ -211,7 +263,7 @@ class FCOpen extends OpenApiClient
     /**
      * @param string             $serviceName
      * @param CreateAliasRequest $request
-     * @param string[]           $headers
+     * @param CreateAliasHeaders $headers
      * @param RuntimeOptions     $runtime
      *
      * @return CreateAliasResponse
@@ -233,12 +285,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->versionId)) {
             @$body['versionId'] = $request->versionId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateAlias',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/aliases',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateAliasResponse::fromMap($this->doROARequest('CreateAlias', '2021-04-06', 'HTTPS', 'POST', 'AK', '/2021-04-06/services/' . $serviceName . '/aliases', 'json', $req, $runtime));
+        return CreateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -249,14 +334,14 @@ class FCOpen extends OpenApiClient
     public function createCustomDomain($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new CreateCustomDomainHeaders([]);
 
         return $this->createCustomDomainWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param CreateCustomDomainRequest $request
-     * @param string[]                  $headers
+     * @param CreateCustomDomainHeaders $headers
      * @param RuntimeOptions            $runtime
      *
      * @return CreateCustomDomainResponse
@@ -277,12 +362,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->routeConfig)) {
             @$body['routeConfig'] = $request->routeConfig;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateCustomDomain',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/custom-domains',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateCustomDomainResponse::fromMap($this->doROARequest('CreateCustomDomain', '2021-04-06', 'HTTPS', 'POST', 'AK', '/2021-04-06/custom-domains', 'json', $req, $runtime));
+        return CreateCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -370,15 +488,41 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
         }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
         if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['x-fc-code-checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateFunction',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateFunctionResponse::fromMap($this->doROARequest('CreateFunction', '2021-04-06', 'HTTPS', 'POST', 'AK', '/2021-04-06/services/' . $serviceName . '/functions', 'json', $req, $runtime));
+        return CreateFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -390,7 +534,7 @@ class FCOpen extends OpenApiClient
     public function createLayerVersion($layerName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new CreateLayerVersionHeaders([]);
 
         return $this->createLayerVersionWithOptions($layerName, $request, $headers, $runtime);
     }
@@ -398,7 +542,7 @@ class FCOpen extends OpenApiClient
     /**
      * @param string                    $layerName
      * @param CreateLayerVersionRequest $request
-     * @param string[]                  $headers
+     * @param CreateLayerVersionHeaders $headers
      * @param RuntimeOptions            $runtime
      *
      * @return CreateLayerVersionResponse
@@ -417,12 +561,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             @$body['description'] = $request->description;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateLayerVersion',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/layers/' . $layerName . '/versions',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateLayerVersionResponse::fromMap($this->doROARequest('CreateLayerVersion', '2021-04-06', 'HTTPS', 'POST', 'AK', '/2021-04-06/layers/' . $layerName . '/versions', 'json', $req, $runtime));
+        return CreateLayerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -433,14 +610,14 @@ class FCOpen extends OpenApiClient
     public function createService($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new CreateServiceHeaders([]);
 
         return $this->createServiceWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param CreateServiceRequest $request
-     * @param string[]             $headers
+     * @param CreateServiceHeaders $headers
      * @param RuntimeOptions       $runtime
      *
      * @return CreateServiceResponse
@@ -473,12 +650,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->vpcConfig)) {
             @$body['vpcConfig'] = $request->vpcConfig;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateService',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateServiceResponse::fromMap($this->doROARequest('CreateService', '2021-04-06', 'HTTPS', 'POST', 'AK', '/2021-04-06/services', 'json', $req, $runtime));
+        return CreateServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -491,7 +701,7 @@ class FCOpen extends OpenApiClient
     public function createTrigger($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new CreateTriggerHeaders([]);
 
         return $this->createTriggerWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
@@ -500,7 +710,7 @@ class FCOpen extends OpenApiClient
      * @param string               $serviceName
      * @param string               $functionName
      * @param CreateTriggerRequest $request
-     * @param string[]             $headers
+     * @param CreateTriggerHeaders $headers
      * @param RuntimeOptions       $runtime
      *
      * @return CreateTriggerResponse
@@ -532,12 +742,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->triggerType)) {
             @$body['triggerType'] = $request->triggerType;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateTrigger',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/triggers',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateTriggerResponse::fromMap($this->doROARequest('CreateTrigger', '2021-04-06', 'HTTPS', 'POST', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/triggers', 'json', $req, $runtime));
+        return CreateTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -549,7 +792,7 @@ class FCOpen extends OpenApiClient
     public function createVpcBinding($serviceName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new CreateVpcBindingHeaders([]);
 
         return $this->createVpcBindingWithOptions($serviceName, $request, $headers, $runtime);
     }
@@ -557,7 +800,7 @@ class FCOpen extends OpenApiClient
     /**
      * @param string                  $serviceName
      * @param CreateVpcBindingRequest $request
-     * @param string[]                $headers
+     * @param CreateVpcBindingHeaders $headers
      * @param RuntimeOptions          $runtime
      *
      * @return CreateVpcBindingResponse
@@ -570,12 +813,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->vpcId)) {
             @$body['vpcId'] = $request->vpcId;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'CreateVpcBinding',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/bindings',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return CreateVpcBindingResponse::fromMap($this->doROARequest('CreateVpcBinding', '2021-04-06', 'HTTPS', 'POST', 'AK', '/2021-04-06/services/' . $serviceName . '/bindings', 'none', $req, $runtime));
+        return CreateVpcBindingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -611,11 +887,40 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($headers->ifMatch)) {
             @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteAlias',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/aliases/' . $aliasName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteAliasResponse::fromMap($this->doROARequest('DeleteAlias', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/services/' . $serviceName . '/aliases/' . $aliasName . '', 'none', $req, $runtime));
+        return DeleteAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -626,26 +931,59 @@ class FCOpen extends OpenApiClient
     public function deleteCustomDomain($domainName)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new DeleteCustomDomainHeaders([]);
 
         return $this->deleteCustomDomainWithOptions($domainName, $headers, $runtime);
     }
 
     /**
-     * @param string         $domainName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                    $domainName
+     * @param DeleteCustomDomainHeaders $headers
+     * @param RuntimeOptions            $runtime
      *
      * @return DeleteCustomDomainResponse
      */
     public function deleteCustomDomainWithOptions($domainName, $headers, $runtime)
     {
-        $domainName = OpenApiUtilClient::getEncodeParam($domainName);
-        $req        = new OpenApiRequest([
-            'headers' => $headers,
+        $domainName  = OpenApiUtilClient::getEncodeParam($domainName);
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCustomDomain',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/custom-domains/' . $domainName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
         ]);
 
-        return DeleteCustomDomainResponse::fromMap($this->doROARequest('DeleteCustomDomain', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/custom-domains/' . $domainName . '', 'none', $req, $runtime));
+        return DeleteCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -681,11 +1019,40 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($headers->ifMatch)) {
             @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteFunction',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteFunctionResponse::fromMap($this->doROARequest('DeleteFunction', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '', 'none', $req, $runtime));
+        return DeleteFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -698,7 +1065,7 @@ class FCOpen extends OpenApiClient
     public function deleteFunctionAsyncInvokeConfig($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new DeleteFunctionAsyncInvokeConfigHeaders([]);
 
         return $this->deleteFunctionAsyncInvokeConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
@@ -707,7 +1074,7 @@ class FCOpen extends OpenApiClient
      * @param string                                 $serviceName
      * @param string                                 $functionName
      * @param DeleteFunctionAsyncInvokeConfigRequest $request
-     * @param string[]                               $headers
+     * @param DeleteFunctionAsyncInvokeConfigHeaders $headers
      * @param RuntimeOptions                         $runtime
      *
      * @return DeleteFunctionAsyncInvokeConfigResponse
@@ -721,12 +1088,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->qualifier)) {
             @$query['qualifier'] = $request->qualifier;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteFunctionAsyncInvokeConfig',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/async-invoke-config',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteFunctionAsyncInvokeConfigResponse::fromMap($this->doROARequest('DeleteFunctionAsyncInvokeConfig', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/async-invoke-config', 'none', $req, $runtime));
+        return DeleteFunctionAsyncInvokeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -769,12 +1169,41 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($headers->ifMatch)) {
             @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteFunctionOnDemandConfig',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/on-demand-config',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteFunctionOnDemandConfigResponse::fromMap($this->doROARequest('DeleteFunctionOnDemandConfig', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/on-demand-config', 'none', $req, $runtime));
+        return DeleteFunctionOnDemandConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -786,28 +1215,61 @@ class FCOpen extends OpenApiClient
     public function deleteLayerVersion($layerName, $version)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new DeleteLayerVersionHeaders([]);
 
         return $this->deleteLayerVersionWithOptions($layerName, $version, $headers, $runtime);
     }
 
     /**
-     * @param string         $layerName
-     * @param string         $version
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                    $layerName
+     * @param string                    $version
+     * @param DeleteLayerVersionHeaders $headers
+     * @param RuntimeOptions            $runtime
      *
      * @return DeleteLayerVersionResponse
      */
     public function deleteLayerVersionWithOptions($layerName, $version, $headers, $runtime)
     {
-        $layerName = OpenApiUtilClient::getEncodeParam($layerName);
-        $version   = OpenApiUtilClient::getEncodeParam($version);
-        $req       = new OpenApiRequest([
-            'headers' => $headers,
+        $layerName   = OpenApiUtilClient::getEncodeParam($layerName);
+        $version     = OpenApiUtilClient::getEncodeParam($version);
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteLayerVersion',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/layers/' . $layerName . '/versions/' . $version . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
         ]);
 
-        return DeleteLayerVersionResponse::fromMap($this->doROARequest('DeleteLayerVersion', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/layers/' . $layerName . '/versions/' . $version . '', 'none', $req, $runtime));
+        return DeleteLayerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -840,11 +1302,40 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($headers->ifMatch)) {
             @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteService',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteServiceResponse::fromMap($this->doROARequest('DeleteService', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/services/' . $serviceName . '', 'none', $req, $runtime));
+        return DeleteServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -856,16 +1347,16 @@ class FCOpen extends OpenApiClient
     public function deleteServiceVersion($serviceName, $versionId)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new DeleteServiceVersionHeaders([]);
 
         return $this->deleteServiceVersionWithOptions($serviceName, $versionId, $headers, $runtime);
     }
 
     /**
-     * @param string         $serviceName
-     * @param string         $versionId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                      $serviceName
+     * @param string                      $versionId
+     * @param DeleteServiceVersionHeaders $headers
+     * @param RuntimeOptions              $runtime
      *
      * @return DeleteServiceVersionResponse
      */
@@ -873,11 +1364,44 @@ class FCOpen extends OpenApiClient
     {
         $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
         $versionId   = OpenApiUtilClient::getEncodeParam($versionId);
-        $req         = new OpenApiRequest([
-            'headers' => $headers,
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteServiceVersion',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/versions/' . $versionId . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
         ]);
 
-        return DeleteServiceVersionResponse::fromMap($this->doROARequest('DeleteServiceVersion', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/services/' . $serviceName . '/versions/' . $versionId . '', 'none', $req, $runtime));
+        return DeleteServiceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -916,11 +1440,40 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($headers->ifMatch)) {
             @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteTrigger',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/triggers/' . $triggerName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteTriggerResponse::fromMap($this->doROARequest('DeleteTrigger', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/triggers/' . $triggerName . '', 'none', $req, $runtime));
+        return DeleteTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -932,16 +1485,16 @@ class FCOpen extends OpenApiClient
     public function deleteVpcBinding($serviceName, $vpcId)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new DeleteVpcBindingHeaders([]);
 
         return $this->deleteVpcBindingWithOptions($serviceName, $vpcId, $headers, $runtime);
     }
 
     /**
-     * @param string         $serviceName
-     * @param string         $vpcId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                  $serviceName
+     * @param string                  $vpcId
+     * @param DeleteVpcBindingHeaders $headers
+     * @param RuntimeOptions          $runtime
      *
      * @return DeleteVpcBindingResponse
      */
@@ -949,11 +1502,44 @@ class FCOpen extends OpenApiClient
     {
         $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
         $vpcId       = OpenApiUtilClient::getEncodeParam($vpcId);
-        $req         = new OpenApiRequest([
-            'headers' => $headers,
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVpcBinding',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/bindings/' . $vpcId . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
         ]);
 
-        return DeleteVpcBindingResponse::fromMap($this->doROARequest('DeleteVpcBinding', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/services/' . $serviceName . '/bindings/' . $vpcId . '', 'none', $req, $runtime));
+        return DeleteVpcBindingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -967,7 +1553,7 @@ class FCOpen extends OpenApiClient
     public function deregisterEventSource($serviceName, $functionName, $sourceArn, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new DeregisterEventSourceHeaders([]);
 
         return $this->deregisterEventSourceWithOptions($serviceName, $functionName, $sourceArn, $request, $headers, $runtime);
     }
@@ -977,7 +1563,7 @@ class FCOpen extends OpenApiClient
      * @param string                       $functionName
      * @param string                       $sourceArn
      * @param DeregisterEventSourceRequest $request
-     * @param string[]                     $headers
+     * @param DeregisterEventSourceHeaders $headers
      * @param RuntimeOptions               $runtime
      *
      * @return DeregisterEventSourceResponse
@@ -992,12 +1578,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->qualifier)) {
             @$query['qualifier'] = $request->qualifier;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'DeregisterEventSource',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/event-sources/' . $sourceArn . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeregisterEventSourceResponse::fromMap($this->doROARequest('DeregisterEventSource', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/event-sources/' . $sourceArn . '', 'none', $req, $runtime));
+        return DeregisterEventSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1006,24 +1625,57 @@ class FCOpen extends OpenApiClient
     public function getAccountSettings()
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new GetAccountSettingsHeaders([]);
 
         return $this->getAccountSettingsWithOptions($headers, $runtime);
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param GetAccountSettingsHeaders $headers
+     * @param RuntimeOptions            $runtime
      *
      * @return GetAccountSettingsResponse
      */
     public function getAccountSettingsWithOptions($headers, $runtime)
     {
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'GetAccountSettings',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/account-settings',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAccountSettingsResponse::fromMap($this->doROARequest('GetAccountSettings', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/account-settings', 'json', $req, $runtime));
+        return GetAccountSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1035,16 +1687,16 @@ class FCOpen extends OpenApiClient
     public function getAlias($serviceName, $aliasName)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new GetAliasHeaders([]);
 
         return $this->getAliasWithOptions($serviceName, $aliasName, $headers, $runtime);
     }
 
     /**
-     * @param string         $serviceName
-     * @param string         $aliasName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string          $serviceName
+     * @param string          $aliasName
+     * @param GetAliasHeaders $headers
+     * @param RuntimeOptions  $runtime
      *
      * @return GetAliasResponse
      */
@@ -1052,11 +1704,44 @@ class FCOpen extends OpenApiClient
     {
         $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
         $aliasName   = OpenApiUtilClient::getEncodeParam($aliasName);
-        $req         = new OpenApiRequest([
-            'headers' => $headers,
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'GetAlias',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/aliases/' . $aliasName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAliasResponse::fromMap($this->doROARequest('GetAlias', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/aliases/' . $aliasName . '', 'json', $req, $runtime));
+        return GetAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1067,26 +1752,59 @@ class FCOpen extends OpenApiClient
     public function getCustomDomain($domainName)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new GetCustomDomainHeaders([]);
 
         return $this->getCustomDomainWithOptions($domainName, $headers, $runtime);
     }
 
     /**
-     * @param string         $domainName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                 $domainName
+     * @param GetCustomDomainHeaders $headers
+     * @param RuntimeOptions         $runtime
      *
      * @return GetCustomDomainResponse
      */
     public function getCustomDomainWithOptions($domainName, $headers, $runtime)
     {
-        $domainName = OpenApiUtilClient::getEncodeParam($domainName);
-        $req        = new OpenApiRequest([
-            'headers' => $headers,
+        $domainName  = OpenApiUtilClient::getEncodeParam($domainName);
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'GetCustomDomain',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/custom-domains/' . $domainName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetCustomDomainResponse::fromMap($this->doROARequest('GetCustomDomain', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/custom-domains/' . $domainName . '', 'json', $req, $runtime));
+        return GetCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1099,7 +1817,7 @@ class FCOpen extends OpenApiClient
     public function getFunction($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new GetFunctionHeaders([]);
 
         return $this->getFunctionWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
@@ -1108,7 +1826,7 @@ class FCOpen extends OpenApiClient
      * @param string             $serviceName
      * @param string             $functionName
      * @param GetFunctionRequest $request
-     * @param string[]           $headers
+     * @param GetFunctionHeaders $headers
      * @param RuntimeOptions     $runtime
      *
      * @return GetFunctionResponse
@@ -1122,12 +1840,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->qualifier)) {
             @$query['qualifier'] = $request->qualifier;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetFunction',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetFunctionResponse::fromMap($this->doROARequest('GetFunction', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '', 'json', $req, $runtime));
+        return GetFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1140,7 +1891,7 @@ class FCOpen extends OpenApiClient
     public function getFunctionAsyncInvokeConfig($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new GetFunctionAsyncInvokeConfigHeaders([]);
 
         return $this->getFunctionAsyncInvokeConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
@@ -1149,7 +1900,7 @@ class FCOpen extends OpenApiClient
      * @param string                              $serviceName
      * @param string                              $functionName
      * @param GetFunctionAsyncInvokeConfigRequest $request
-     * @param string[]                            $headers
+     * @param GetFunctionAsyncInvokeConfigHeaders $headers
      * @param RuntimeOptions                      $runtime
      *
      * @return GetFunctionAsyncInvokeConfigResponse
@@ -1163,12 +1914,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->qualifier)) {
             @$query['qualifier'] = $request->qualifier;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetFunctionAsyncInvokeConfig',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/async-invoke-config',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetFunctionAsyncInvokeConfigResponse::fromMap($this->doROARequest('GetFunctionAsyncInvokeConfig', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/async-invoke-config', 'json', $req, $runtime));
+        return GetFunctionAsyncInvokeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1181,7 +1965,7 @@ class FCOpen extends OpenApiClient
     public function getFunctionCode($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new GetFunctionCodeHeaders([]);
 
         return $this->getFunctionCodeWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
@@ -1190,7 +1974,7 @@ class FCOpen extends OpenApiClient
      * @param string                 $serviceName
      * @param string                 $functionName
      * @param GetFunctionCodeRequest $request
-     * @param string[]               $headers
+     * @param GetFunctionCodeHeaders $headers
      * @param RuntimeOptions         $runtime
      *
      * @return GetFunctionCodeResponse
@@ -1204,12 +1988,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->qualifier)) {
             @$query['qualifier'] = $request->qualifier;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetFunctionCode',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/code',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetFunctionCodeResponse::fromMap($this->doROARequest('GetFunctionCode', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/code', 'json', $req, $runtime));
+        return GetFunctionCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1222,7 +2039,7 @@ class FCOpen extends OpenApiClient
     public function getFunctionOnDemandConfig($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new GetFunctionOnDemandConfigHeaders([]);
 
         return $this->getFunctionOnDemandConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
@@ -1231,7 +2048,7 @@ class FCOpen extends OpenApiClient
      * @param string                           $serviceName
      * @param string                           $functionName
      * @param GetFunctionOnDemandConfigRequest $request
-     * @param string[]                         $headers
+     * @param GetFunctionOnDemandConfigHeaders $headers
      * @param RuntimeOptions                   $runtime
      *
      * @return GetFunctionOnDemandConfigResponse
@@ -1245,12 +2062,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->qualifier)) {
             @$query['qualifier'] = $request->qualifier;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetFunctionOnDemandConfig',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/on-demand-config',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetFunctionOnDemandConfigResponse::fromMap($this->doROARequest('GetFunctionOnDemandConfig', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/on-demand-config', 'json', $req, $runtime));
+        return GetFunctionOnDemandConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1262,28 +2112,61 @@ class FCOpen extends OpenApiClient
     public function getLayerVersion($layerName, $version)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new GetLayerVersionHeaders([]);
 
         return $this->getLayerVersionWithOptions($layerName, $version, $headers, $runtime);
     }
 
     /**
-     * @param string         $layerName
-     * @param string         $version
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                 $layerName
+     * @param string                 $version
+     * @param GetLayerVersionHeaders $headers
+     * @param RuntimeOptions         $runtime
      *
      * @return GetLayerVersionResponse
      */
     public function getLayerVersionWithOptions($layerName, $version, $headers, $runtime)
     {
-        $layerName = OpenApiUtilClient::getEncodeParam($layerName);
-        $version   = OpenApiUtilClient::getEncodeParam($version);
-        $req       = new OpenApiRequest([
-            'headers' => $headers,
+        $layerName   = OpenApiUtilClient::getEncodeParam($layerName);
+        $version     = OpenApiUtilClient::getEncodeParam($version);
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'GetLayerVersion',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/layers/' . $layerName . '/versions/' . $version . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetLayerVersionResponse::fromMap($this->doROARequest('GetLayerVersion', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/layers/' . $layerName . '/versions/' . $version . '', 'json', $req, $runtime));
+        return GetLayerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1294,26 +2177,59 @@ class FCOpen extends OpenApiClient
     public function getLayerVersionByArn($arn)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new GetLayerVersionByArnHeaders([]);
 
         return $this->getLayerVersionByArnWithOptions($arn, $headers, $runtime);
     }
 
     /**
-     * @param string         $arn
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                      $arn
+     * @param GetLayerVersionByArnHeaders $headers
+     * @param RuntimeOptions              $runtime
      *
      * @return GetLayerVersionByArnResponse
      */
     public function getLayerVersionByArnWithOptions($arn, $headers, $runtime)
     {
-        $arn = OpenApiUtilClient::getEncodeParam($arn);
+        $arn         = OpenApiUtilClient::getEncodeParam($arn);
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'GetLayerVersionByArn',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/layerarn/' . $arn . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetLayerVersionByArnResponse::fromMap($this->doROARequest('GetLayerVersionByArn', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/layerarn/' . $arn . '', 'json', $req, $runtime));
+        return GetLayerVersionByArnResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1326,7 +2242,7 @@ class FCOpen extends OpenApiClient
     public function getProvisionConfig($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new GetProvisionConfigHeaders([]);
 
         return $this->getProvisionConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
@@ -1335,7 +2251,7 @@ class FCOpen extends OpenApiClient
      * @param string                    $serviceName
      * @param string                    $functionName
      * @param GetProvisionConfigRequest $request
-     * @param string[]                  $headers
+     * @param GetProvisionConfigHeaders $headers
      * @param RuntimeOptions            $runtime
      *
      * @return GetProvisionConfigResponse
@@ -1349,12 +2265,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->qualifier)) {
             @$query['qualifier'] = $request->qualifier;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetProvisionConfig',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/provision-config',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetProvisionConfigResponse::fromMap($this->doROARequest('GetProvisionConfig', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/provision-config', 'json', $req, $runtime));
+        return GetProvisionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1365,14 +2314,14 @@ class FCOpen extends OpenApiClient
     public function getResourceTags($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new GetResourceTagsHeaders([]);
 
         return $this->getResourceTagsWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param GetResourceTagsRequest $request
-     * @param string[]               $headers
+     * @param GetResourceTagsHeaders $headers
      * @param RuntimeOptions         $runtime
      *
      * @return GetResourceTagsResponse
@@ -1384,12 +2333,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->resourceArn)) {
             @$query['resourceArn'] = $request->resourceArn;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetResourceTags',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/tag',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetResourceTagsResponse::fromMap($this->doROARequest('GetResourceTags', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/tag', 'json', $req, $runtime));
+        return GetResourceTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1401,7 +2383,7 @@ class FCOpen extends OpenApiClient
     public function getService($serviceName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new GetServiceHeaders([]);
 
         return $this->getServiceWithOptions($serviceName, $request, $headers, $runtime);
     }
@@ -1409,7 +2391,7 @@ class FCOpen extends OpenApiClient
     /**
      * @param string            $serviceName
      * @param GetServiceRequest $request
-     * @param string[]          $headers
+     * @param GetServiceHeaders $headers
      * @param RuntimeOptions    $runtime
      *
      * @return GetServiceResponse
@@ -1422,12 +2404,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->qualifier)) {
             @$query['qualifier'] = $request->qualifier;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetService',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetServiceResponse::fromMap($this->doROARequest('GetService', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '', 'json', $req, $runtime));
+        return GetServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1441,7 +2456,7 @@ class FCOpen extends OpenApiClient
     public function getStatefulAsyncInvocation($serviceName, $functionName, $invocationId, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new GetStatefulAsyncInvocationHeaders([]);
 
         return $this->getStatefulAsyncInvocationWithOptions($serviceName, $functionName, $invocationId, $request, $headers, $runtime);
     }
@@ -1451,7 +2466,7 @@ class FCOpen extends OpenApiClient
      * @param string                            $functionName
      * @param string                            $invocationId
      * @param GetStatefulAsyncInvocationRequest $request
-     * @param string[]                          $headers
+     * @param GetStatefulAsyncInvocationHeaders $headers
      * @param RuntimeOptions                    $runtime
      *
      * @return GetStatefulAsyncInvocationResponse
@@ -1466,12 +2481,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->qualifier)) {
             @$query['qualifier'] = $request->qualifier;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetStatefulAsyncInvocation',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/stateful-async-invocations/' . $invocationId . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetStatefulAsyncInvocationResponse::fromMap($this->doROARequest('GetStatefulAsyncInvocation', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/stateful-async-invocations/' . $invocationId . '', 'json', $req, $runtime));
+        return GetStatefulAsyncInvocationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1484,17 +2532,17 @@ class FCOpen extends OpenApiClient
     public function getTrigger($serviceName, $functionName, $triggerName)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new GetTriggerHeaders([]);
 
         return $this->getTriggerWithOptions($serviceName, $functionName, $triggerName, $headers, $runtime);
     }
 
     /**
-     * @param string         $serviceName
-     * @param string         $functionName
-     * @param string         $triggerName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string            $serviceName
+     * @param string            $functionName
+     * @param string            $triggerName
+     * @param GetTriggerHeaders $headers
+     * @param RuntimeOptions    $runtime
      *
      * @return GetTriggerResponse
      */
@@ -1503,11 +2551,44 @@ class FCOpen extends OpenApiClient
         $serviceName  = OpenApiUtilClient::getEncodeParam($serviceName);
         $functionName = OpenApiUtilClient::getEncodeParam($functionName);
         $triggerName  = OpenApiUtilClient::getEncodeParam($triggerName);
-        $req          = new OpenApiRequest([
-            'headers' => $headers,
+        $realHeaders  = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'GetTrigger',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/triggers/' . $triggerName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetTriggerResponse::fromMap($this->doROARequest('GetTrigger', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/triggers/' . $triggerName . '', 'json', $req, $runtime));
+        return GetTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1550,22 +2631,42 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($headers->xFcAccountId)) {
             @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
         if (!Utils::isUnset($headers->xFcInvocationType)) {
-            @$realHeaders['x-fc-invocation-type'] = Utils::toJSONString($headers->xFcInvocationType);
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
         }
         if (!Utils::isUnset($headers->xFcLogType)) {
-            @$realHeaders['x-fc-log-type'] = Utils::toJSONString($headers->xFcLogType);
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
         }
         if (!Utils::isUnset($headers->xFcStatefulAsyncInvocationId)) {
-            @$realHeaders['x-fc-stateful-async-invocation-id'] = Utils::toJSONString($headers->xFcStatefulAsyncInvocationId);
+            @$realHeaders['X-Fc-Stateful-Async-Invocation-Id'] = Utils::toJSONString($headers->xFcStatefulAsyncInvocationId);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
             'body'    => $request->body,
         ]);
+        $params = new Params([
+            'action'      => 'InvokeFunction',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/invocations',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'byte',
+        ]);
 
-        return InvokeFunctionResponse::fromMap($this->doROARequest('InvokeFunction', '2021-04-06', 'HTTPS', 'POST', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/invocations', 'byte', $req, $runtime));
+        return InvokeFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1577,7 +2678,7 @@ class FCOpen extends OpenApiClient
     public function listAliases($serviceName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new ListAliasesHeaders([]);
 
         return $this->listAliasesWithOptions($serviceName, $request, $headers, $runtime);
     }
@@ -1585,7 +2686,7 @@ class FCOpen extends OpenApiClient
     /**
      * @param string             $serviceName
      * @param ListAliasesRequest $request
-     * @param string[]           $headers
+     * @param ListAliasesHeaders $headers
      * @param RuntimeOptions     $runtime
      *
      * @return ListAliasesResponse
@@ -1607,12 +2708,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->startKey)) {
             @$query['startKey'] = $request->startKey;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListAliases',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/aliases',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListAliasesResponse::fromMap($this->doROARequest('ListAliases', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/aliases', 'json', $req, $runtime));
+        return ListAliasesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1623,14 +2757,14 @@ class FCOpen extends OpenApiClient
     public function listCustomDomains($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new ListCustomDomainsHeaders([]);
 
         return $this->listCustomDomainsWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param ListCustomDomainsRequest $request
-     * @param string[]                 $headers
+     * @param ListCustomDomainsHeaders $headers
      * @param RuntimeOptions           $runtime
      *
      * @return ListCustomDomainsResponse
@@ -1651,12 +2785,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->startKey)) {
             @$query['startKey'] = $request->startKey;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListCustomDomains',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/custom-domains',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListCustomDomainsResponse::fromMap($this->doROARequest('ListCustomDomains', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/custom-domains', 'json', $req, $runtime));
+        return ListCustomDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1669,7 +2836,7 @@ class FCOpen extends OpenApiClient
     public function listEventSources($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new ListEventSourcesHeaders([]);
 
         return $this->listEventSourcesWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
@@ -1678,7 +2845,7 @@ class FCOpen extends OpenApiClient
      * @param string                  $serviceName
      * @param string                  $functionName
      * @param ListEventSourcesRequest $request
-     * @param string[]                $headers
+     * @param ListEventSourcesHeaders $headers
      * @param RuntimeOptions          $runtime
      *
      * @return ListEventSourcesResponse
@@ -1692,12 +2859,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->qualifier)) {
             @$query['qualifier'] = $request->qualifier;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListEventSources',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/event-sources',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListEventSourcesResponse::fromMap($this->doROARequest('ListEventSources', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/event-sources', 'json', $req, $runtime));
+        return ListEventSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1710,7 +2910,7 @@ class FCOpen extends OpenApiClient
     public function listFunctionAsyncInvokeConfigs($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new ListFunctionAsyncInvokeConfigsHeaders([]);
 
         return $this->listFunctionAsyncInvokeConfigsWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
@@ -1719,7 +2919,7 @@ class FCOpen extends OpenApiClient
      * @param string                                $serviceName
      * @param string                                $functionName
      * @param ListFunctionAsyncInvokeConfigsRequest $request
-     * @param string[]                              $headers
+     * @param ListFunctionAsyncInvokeConfigsHeaders $headers
      * @param RuntimeOptions                        $runtime
      *
      * @return ListFunctionAsyncInvokeConfigsResponse
@@ -1736,12 +2936,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->nextToken)) {
             @$query['nextToken'] = $request->nextToken;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListFunctionAsyncInvokeConfigs',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/async-invoke-configs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListFunctionAsyncInvokeConfigsResponse::fromMap($this->doROARequest('ListFunctionAsyncInvokeConfigs', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/async-invoke-configs', 'json', $req, $runtime));
+        return ListFunctionAsyncInvokeConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1753,7 +2986,7 @@ class FCOpen extends OpenApiClient
     public function listFunctions($serviceName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new ListFunctionsHeaders([]);
 
         return $this->listFunctionsWithOptions($serviceName, $request, $headers, $runtime);
     }
@@ -1761,7 +2994,7 @@ class FCOpen extends OpenApiClient
     /**
      * @param string               $serviceName
      * @param ListFunctionsRequest $request
-     * @param string[]             $headers
+     * @param ListFunctionsHeaders $headers
      * @param RuntimeOptions       $runtime
      *
      * @return ListFunctionsResponse
@@ -1786,12 +3019,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->startKey)) {
             @$query['startKey'] = $request->startKey;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListFunctions',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListFunctionsResponse::fromMap($this->doROARequest('ListFunctions', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/functions', 'json', $req, $runtime));
+        return ListFunctionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1844,8 +3110,19 @@ class FCOpen extends OpenApiClient
             'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListInstances',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/instances',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListInstancesResponse::fromMap($this->doROARequest('ListInstances', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/instances', 'json', $req, $runtime));
+        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1857,7 +3134,7 @@ class FCOpen extends OpenApiClient
     public function listLayerVersions($layerName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new ListLayerVersionsHeaders([]);
 
         return $this->listLayerVersionsWithOptions($layerName, $request, $headers, $runtime);
     }
@@ -1865,7 +3142,7 @@ class FCOpen extends OpenApiClient
     /**
      * @param string                   $layerName
      * @param ListLayerVersionsRequest $request
-     * @param string[]                 $headers
+     * @param ListLayerVersionsHeaders $headers
      * @param RuntimeOptions           $runtime
      *
      * @return ListLayerVersionsResponse
@@ -1881,12 +3158,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->startVersion)) {
             @$query['startVersion'] = $request->startVersion;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListLayerVersions',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/layers/' . $layerName . '/versions',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListLayerVersionsResponse::fromMap($this->doROARequest('ListLayerVersions', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/layers/' . $layerName . '/versions', 'json', $req, $runtime));
+        return ListLayerVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1897,14 +3207,14 @@ class FCOpen extends OpenApiClient
     public function listLayers($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new ListLayersHeaders([]);
 
         return $this->listLayersWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param ListLayersRequest $request
-     * @param string[]          $headers
+     * @param ListLayersHeaders $headers
      * @param RuntimeOptions    $runtime
      *
      * @return ListLayersResponse
@@ -1925,12 +3235,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->startKey)) {
             @$query['startKey'] = $request->startKey;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListLayers',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/layers',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListLayersResponse::fromMap($this->doROARequest('ListLayers', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/layers', 'json', $req, $runtime));
+        return ListLayersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1941,14 +3284,14 @@ class FCOpen extends OpenApiClient
     public function listOnDemandConfigs($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new ListOnDemandConfigsHeaders([]);
 
         return $this->listOnDemandConfigsWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param ListOnDemandConfigsRequest $request
-     * @param string[]                   $headers
+     * @param ListOnDemandConfigsHeaders $headers
      * @param RuntimeOptions             $runtime
      *
      * @return ListOnDemandConfigsResponse
@@ -1969,12 +3312,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->startKey)) {
             @$query['startKey'] = $request->startKey;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListOnDemandConfigs',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/on-demand-configs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListOnDemandConfigsResponse::fromMap($this->doROARequest('ListOnDemandConfigs', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/on-demand-configs', 'json', $req, $runtime));
+        return ListOnDemandConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1985,14 +3361,14 @@ class FCOpen extends OpenApiClient
     public function listProvisionConfigs($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new ListProvisionConfigsHeaders([]);
 
         return $this->listProvisionConfigsWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param ListProvisionConfigsRequest $request
-     * @param string[]                    $headers
+     * @param ListProvisionConfigsHeaders $headers
      * @param RuntimeOptions              $runtime
      *
      * @return ListProvisionConfigsResponse
@@ -2013,12 +3389,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->serviceName)) {
             @$query['serviceName'] = $request->serviceName;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListProvisionConfigs',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/provision-configs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListProvisionConfigsResponse::fromMap($this->doROARequest('ListProvisionConfigs', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/provision-configs', 'json', $req, $runtime));
+        return ListProvisionConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2029,14 +3438,14 @@ class FCOpen extends OpenApiClient
     public function listReservedCapacities($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new ListReservedCapacitiesHeaders([]);
 
         return $this->listReservedCapacitiesWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param ListReservedCapacitiesRequest $request
-     * @param string[]                      $headers
+     * @param ListReservedCapacitiesHeaders $headers
      * @param RuntimeOptions                $runtime
      *
      * @return ListReservedCapacitiesResponse
@@ -2051,12 +3460,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->nextToken)) {
             @$query['nextToken'] = $request->nextToken;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListReservedCapacities',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/reserved-capacities',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListReservedCapacitiesResponse::fromMap($this->doROARequest('ListReservedCapacities', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/reserved-capacities', 'json', $req, $runtime));
+        return ListReservedCapacitiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2068,7 +3510,7 @@ class FCOpen extends OpenApiClient
     public function listServiceVersions($serviceName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new ListServiceVersionsHeaders([]);
 
         return $this->listServiceVersionsWithOptions($serviceName, $request, $headers, $runtime);
     }
@@ -2076,7 +3518,7 @@ class FCOpen extends OpenApiClient
     /**
      * @param string                     $serviceName
      * @param ListServiceVersionsRequest $request
-     * @param string[]                   $headers
+     * @param ListServiceVersionsHeaders $headers
      * @param RuntimeOptions             $runtime
      *
      * @return ListServiceVersionsResponse
@@ -2098,12 +3540,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->startKey)) {
             @$query['startKey'] = $request->startKey;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListServiceVersions',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/versions',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListServiceVersionsResponse::fromMap($this->doROARequest('ListServiceVersions', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/versions', 'json', $req, $runtime));
+        return ListServiceVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2114,14 +3589,14 @@ class FCOpen extends OpenApiClient
     public function listServices($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new ListServicesHeaders([]);
 
         return $this->listServicesWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param ListServicesRequest $request
-     * @param string[]            $headers
+     * @param ListServicesHeaders $headers
      * @param RuntimeOptions      $runtime
      *
      * @return ListServicesResponse
@@ -2142,12 +3617,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->startKey)) {
             @$query['startKey'] = $request->startKey;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListServices',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListServicesResponse::fromMap($this->doROARequest('ListServices', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services', 'json', $req, $runtime));
+        return ListServicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2160,7 +3668,7 @@ class FCOpen extends OpenApiClient
     public function listStatefulAsyncInvocations($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new ListStatefulAsyncInvocationsHeaders([]);
 
         return $this->listStatefulAsyncInvocationsWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
@@ -2169,7 +3677,7 @@ class FCOpen extends OpenApiClient
      * @param string                              $serviceName
      * @param string                              $functionName
      * @param ListStatefulAsyncInvocationsRequest $request
-     * @param string[]                            $headers
+     * @param ListStatefulAsyncInvocationsHeaders $headers
      * @param RuntimeOptions                      $runtime
      *
      * @return ListStatefulAsyncInvocationsResponse
@@ -2207,12 +3715,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->status)) {
             @$query['status'] = $request->status;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListStatefulAsyncInvocations',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/stateful-async-invocations',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListStatefulAsyncInvocationsResponse::fromMap($this->doROARequest('ListStatefulAsyncInvocations', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/stateful-async-invocations', 'json', $req, $runtime));
+        return ListStatefulAsyncInvocationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2223,14 +3764,14 @@ class FCOpen extends OpenApiClient
     public function listTaggedResources($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new ListTaggedResourcesHeaders([]);
 
         return $this->listTaggedResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param ListTaggedResourcesRequest $request
-     * @param string[]                   $headers
+     * @param ListTaggedResourcesHeaders $headers
      * @param RuntimeOptions             $runtime
      *
      * @return ListTaggedResourcesResponse
@@ -2245,12 +3786,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->nextToken)) {
             @$query['nextToken'] = $request->nextToken;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListTaggedResources',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/tags',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListTaggedResourcesResponse::fromMap($this->doROARequest('ListTaggedResources', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/tags', 'json', $req, $runtime));
+        return ListTaggedResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2263,7 +3837,7 @@ class FCOpen extends OpenApiClient
     public function listTriggers($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new ListTriggersHeaders([]);
 
         return $this->listTriggersWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
@@ -2272,7 +3846,7 @@ class FCOpen extends OpenApiClient
      * @param string              $serviceName
      * @param string              $functionName
      * @param ListTriggersRequest $request
-     * @param string[]            $headers
+     * @param ListTriggersHeaders $headers
      * @param RuntimeOptions      $runtime
      *
      * @return ListTriggersResponse
@@ -2295,12 +3869,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->startKey)) {
             @$query['startKey'] = $request->startKey;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'ListTriggers',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/triggers',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListTriggersResponse::fromMap($this->doROARequest('ListTriggers', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/triggers', 'json', $req, $runtime));
+        return ListTriggersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2311,26 +3918,59 @@ class FCOpen extends OpenApiClient
     public function listVpcBindings($serviceName)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new ListVpcBindingsHeaders([]);
 
         return $this->listVpcBindingsWithOptions($serviceName, $headers, $runtime);
     }
 
     /**
-     * @param string         $serviceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                 $serviceName
+     * @param ListVpcBindingsHeaders $headers
+     * @param RuntimeOptions         $runtime
      *
      * @return ListVpcBindingsResponse
      */
     public function listVpcBindingsWithOptions($serviceName, $headers, $runtime)
     {
         $serviceName = OpenApiUtilClient::getEncodeParam($serviceName);
-        $req         = new OpenApiRequest([
-            'headers' => $headers,
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'ListVpcBindings',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/bindings',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListVpcBindingsResponse::fromMap($this->doROARequest('ListVpcBindings', '2021-04-06', 'HTTPS', 'GET', 'AK', '/2021-04-06/services/' . $serviceName . '/bindings', 'json', $req, $runtime));
+        return ListVpcBindingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2343,30 +3983,63 @@ class FCOpen extends OpenApiClient
     public function permanentDeleteLayerVersion($userID, $layerName, $version)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new PermanentDeleteLayerVersionHeaders([]);
 
         return $this->permanentDeleteLayerVersionWithOptions($userID, $layerName, $version, $headers, $runtime);
     }
 
     /**
-     * @param string         $userID
-     * @param string         $layerName
-     * @param string         $version
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                             $userID
+     * @param string                             $layerName
+     * @param string                             $version
+     * @param PermanentDeleteLayerVersionHeaders $headers
+     * @param RuntimeOptions                     $runtime
      *
      * @return PermanentDeleteLayerVersionResponse
      */
     public function permanentDeleteLayerVersionWithOptions($userID, $layerName, $version, $headers, $runtime)
     {
-        $userID    = OpenApiUtilClient::getEncodeParam($userID);
-        $layerName = OpenApiUtilClient::getEncodeParam($layerName);
-        $version   = OpenApiUtilClient::getEncodeParam($version);
-        $req       = new OpenApiRequest([
-            'headers' => $headers,
+        $userID      = OpenApiUtilClient::getEncodeParam($userID);
+        $layerName   = OpenApiUtilClient::getEncodeParam($layerName);
+        $version     = OpenApiUtilClient::getEncodeParam($version);
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'PermanentDeleteLayerVersion',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/adminlayers/' . $userID . '/' . $layerName . '/versions/' . $version . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
         ]);
 
-        return PermanentDeleteLayerVersionResponse::fromMap($this->doROARequest('PermanentDeleteLayerVersion', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/adminlayers/' . $userID . '/' . $layerName . '/versions/' . $version . '', 'none', $req, $runtime));
+        return PermanentDeleteLayerVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2378,28 +4051,61 @@ class FCOpen extends OpenApiClient
     public function publishLayerAsPublic($layerName, $version)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new PublishLayerAsPublicHeaders([]);
 
         return $this->publishLayerAsPublicWithOptions($layerName, $version, $headers, $runtime);
     }
 
     /**
-     * @param string         $layerName
-     * @param string         $version
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                      $layerName
+     * @param string                      $version
+     * @param PublishLayerAsPublicHeaders $headers
+     * @param RuntimeOptions              $runtime
      *
      * @return PublishLayerAsPublicResponse
      */
     public function publishLayerAsPublicWithOptions($layerName, $version, $headers, $runtime)
     {
-        $layerName = OpenApiUtilClient::getEncodeParam($layerName);
-        $version   = OpenApiUtilClient::getEncodeParam($version);
-        $req       = new OpenApiRequest([
-            'headers' => $headers,
+        $layerName   = OpenApiUtilClient::getEncodeParam($layerName);
+        $version     = OpenApiUtilClient::getEncodeParam($version);
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'PublishLayerAsPublic',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/layers/' . $layerName . '/versions/' . $version . '',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
         ]);
 
-        return PublishLayerAsPublicResponse::fromMap($this->doROARequest('PublishLayerAsPublic', '2021-04-06', 'HTTPS', 'POST', 'AK', '/2021-04-06/layers/' . $layerName . '/versions/' . $version . '', 'none', $req, $runtime));
+        return PublishLayerAsPublicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2439,12 +4145,41 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($headers->ifMatch)) {
             @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'PublishServiceVersion',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/versions',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return PublishServiceVersionResponse::fromMap($this->doROARequest('PublishServiceVersion', '2021-04-06', 'HTTPS', 'POST', 'AK', '/2021-04-06/services/' . $serviceName . '/versions', 'json', $req, $runtime));
+        return PublishServiceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2457,7 +4192,7 @@ class FCOpen extends OpenApiClient
     public function putFunctionAsyncInvokeConfig($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new PutFunctionAsyncInvokeConfigHeaders([]);
 
         return $this->putFunctionAsyncInvokeConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
@@ -2466,7 +4201,7 @@ class FCOpen extends OpenApiClient
      * @param string                              $serviceName
      * @param string                              $functionName
      * @param PutFunctionAsyncInvokeConfigRequest $request
-     * @param string[]                            $headers
+     * @param PutFunctionAsyncInvokeConfigHeaders $headers
      * @param RuntimeOptions                      $runtime
      *
      * @return PutFunctionAsyncInvokeConfigResponse
@@ -2493,13 +4228,46 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->statefulInvocation)) {
             @$body['statefulInvocation'] = $request->statefulInvocation;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'PutFunctionAsyncInvokeConfig',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/async-invoke-config',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return PutFunctionAsyncInvokeConfigResponse::fromMap($this->doROARequest('PutFunctionAsyncInvokeConfig', '2021-04-06', 'HTTPS', 'PUT', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/async-invoke-config', 'json', $req, $runtime));
+        return PutFunctionAsyncInvokeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2546,13 +4314,42 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($headers->ifMatch)) {
             @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'PutFunctionOnDemandConfig',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/on-demand-config',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return PutFunctionOnDemandConfigResponse::fromMap($this->doROARequest('PutFunctionOnDemandConfig', '2021-04-06', 'HTTPS', 'PUT', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/on-demand-config', 'json', $req, $runtime));
+        return PutFunctionOnDemandConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2565,7 +4362,7 @@ class FCOpen extends OpenApiClient
     public function putProvisionConfig($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new PutProvisionConfigHeaders([]);
 
         return $this->putProvisionConfigWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
@@ -2574,7 +4371,7 @@ class FCOpen extends OpenApiClient
      * @param string                    $serviceName
      * @param string                    $functionName
      * @param PutProvisionConfigRequest $request
-     * @param string[]                  $headers
+     * @param PutProvisionConfigHeaders $headers
      * @param RuntimeOptions            $runtime
      *
      * @return PutProvisionConfigResponse
@@ -2598,13 +4395,46 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->targetTrackingPolicies)) {
             @$body['targetTrackingPolicies'] = $request->targetTrackingPolicies;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'PutProvisionConfig',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/provision-config',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return PutProvisionConfigResponse::fromMap($this->doROARequest('PutProvisionConfig', '2021-04-06', 'HTTPS', 'PUT', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/provision-config', 'json', $req, $runtime));
+        return PutProvisionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2617,7 +4447,7 @@ class FCOpen extends OpenApiClient
     public function registerEventSource($serviceName, $functionName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new RegisterEventSourceHeaders([]);
 
         return $this->registerEventSourceWithOptions($serviceName, $functionName, $request, $headers, $runtime);
     }
@@ -2626,7 +4456,7 @@ class FCOpen extends OpenApiClient
      * @param string                     $serviceName
      * @param string                     $functionName
      * @param RegisterEventSourceRequest $request
-     * @param string[]                   $headers
+     * @param RegisterEventSourceHeaders $headers
      * @param RuntimeOptions             $runtime
      *
      * @return RegisterEventSourceResponse
@@ -2644,13 +4474,46 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->sourceArn)) {
             @$body['sourceArn'] = $request->sourceArn;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'RegisterEventSource',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/event-sources',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return RegisterEventSourceResponse::fromMap($this->doROARequest('RegisterEventSource', '2021-04-06', 'HTTPS', 'POST', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/event-sources', 'json', $req, $runtime));
+        return RegisterEventSourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2664,7 +4527,7 @@ class FCOpen extends OpenApiClient
     public function stopStatefulAsyncInvocation($serviceName, $functionName, $invocationId, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new StopStatefulAsyncInvocationHeaders([]);
 
         return $this->stopStatefulAsyncInvocationWithOptions($serviceName, $functionName, $invocationId, $request, $headers, $runtime);
     }
@@ -2674,7 +4537,7 @@ class FCOpen extends OpenApiClient
      * @param string                             $functionName
      * @param string                             $invocationId
      * @param StopStatefulAsyncInvocationRequest $request
-     * @param string[]                           $headers
+     * @param StopStatefulAsyncInvocationHeaders $headers
      * @param RuntimeOptions                     $runtime
      *
      * @return StopStatefulAsyncInvocationResponse
@@ -2689,12 +4552,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->qualifier)) {
             @$query['qualifier'] = $request->qualifier;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'StopStatefulAsyncInvocation',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/stateful-async-invocations/' . $invocationId . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return StopStatefulAsyncInvocationResponse::fromMap($this->doROARequest('StopStatefulAsyncInvocation', '2021-04-06', 'HTTPS', 'PUT', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/stateful-async-invocations/' . $invocationId . '', 'none', $req, $runtime));
+        return StopStatefulAsyncInvocationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2705,14 +4601,14 @@ class FCOpen extends OpenApiClient
     public function tagResource($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new TagResourceHeaders([]);
 
         return $this->tagResourceWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param TagResourceRequest $request
-     * @param string[]           $headers
+     * @param TagResourceHeaders $headers
      * @param RuntimeOptions     $runtime
      *
      * @return TagResourceResponse
@@ -2727,12 +4623,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->tags)) {
             @$body['tags'] = $request->tags;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'TagResource',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/tag',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return TagResourceResponse::fromMap($this->doROARequest('TagResource', '2021-04-06', 'HTTPS', 'POST', 'AK', '/2021-04-06/tag', 'none', $req, $runtime));
+        return TagResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2743,14 +4672,14 @@ class FCOpen extends OpenApiClient
     public function untagResource($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new UntagResourceHeaders([]);
 
         return $this->untagResourceWithOptions($request, $headers, $runtime);
     }
 
     /**
      * @param UntagResourceRequest $request
-     * @param string[]             $headers
+     * @param UntagResourceHeaders $headers
      * @param RuntimeOptions       $runtime
      *
      * @return UntagResourceResponse
@@ -2768,12 +4697,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->tagKeys)) {
             @$body['tagKeys'] = $request->tagKeys;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UntagResource',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/tag',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return UntagResourceResponse::fromMap($this->doROARequest('UntagResource', '2021-04-06', 'HTTPS', 'DELETE', 'AK', '/2021-04-06/tag', 'none', $req, $runtime));
+        return UntagResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2822,12 +4784,41 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($headers->ifMatch)) {
             @$realHeaders['If-Match'] = Utils::toJSONString($headers->ifMatch);
         }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateAlias',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/aliases/' . $aliasName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateAliasResponse::fromMap($this->doROARequest('UpdateAlias', '2021-04-06', 'HTTPS', 'PUT', 'AK', '/2021-04-06/services/' . $serviceName . '/aliases/' . $aliasName . '', 'json', $req, $runtime));
+        return UpdateAliasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2839,7 +4830,7 @@ class FCOpen extends OpenApiClient
     public function updateCustomDomain($domainName, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new UpdateCustomDomainHeaders([]);
 
         return $this->updateCustomDomainWithOptions($domainName, $request, $headers, $runtime);
     }
@@ -2847,7 +4838,7 @@ class FCOpen extends OpenApiClient
     /**
      * @param string                    $domainName
      * @param UpdateCustomDomainRequest $request
-     * @param string[]                  $headers
+     * @param UpdateCustomDomainHeaders $headers
      * @param RuntimeOptions            $runtime
      *
      * @return UpdateCustomDomainResponse
@@ -2866,12 +4857,45 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($request->routeConfig)) {
             @$body['routeConfig'] = $request->routeConfig;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xFcAccountId)) {
+            @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
+        }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateCustomDomain',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/custom-domains/' . $domainName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateCustomDomainResponse::fromMap($this->doROARequest('UpdateCustomDomain', '2021-04-06', 'HTTPS', 'PUT', 'AK', '/2021-04-06/custom-domains/' . $domainName . '', 'json', $req, $runtime));
+        return UpdateCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2966,14 +4990,37 @@ class FCOpen extends OpenApiClient
             @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
         if (!Utils::isUnset($headers->xFcCodeChecksum)) {
-            @$realHeaders['x-fc-code-checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateFunction',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateFunctionResponse::fromMap($this->doROARequest('UpdateFunction', '2021-04-06', 'HTTPS', 'PUT', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '', 'json', $req, $runtime));
+        return UpdateFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3034,12 +5081,38 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($headers->xFcAccountId)) {
             @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateService',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateServiceResponse::fromMap($this->doROARequest('UpdateService', '2021-04-06', 'HTTPS', 'PUT', 'AK', '/2021-04-06/services/' . $serviceName . '', 'json', $req, $runtime));
+        return UpdateServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3097,11 +5170,37 @@ class FCOpen extends OpenApiClient
         if (!Utils::isUnset($headers->xFcAccountId)) {
             @$realHeaders['X-Fc-Account-Id'] = Utils::toJSONString($headers->xFcAccountId);
         }
+        if (!Utils::isUnset($headers->xFcCodeChecksum)) {
+            @$realHeaders['X-Fc-Code-Checksum'] = Utils::toJSONString($headers->xFcCodeChecksum);
+        }
+        if (!Utils::isUnset($headers->xFcDate)) {
+            @$realHeaders['X-Fc-Date'] = Utils::toJSONString($headers->xFcDate);
+        }
+        if (!Utils::isUnset($headers->xFcInvocationType)) {
+            @$realHeaders['X-Fc-Invocation-Type'] = Utils::toJSONString($headers->xFcInvocationType);
+        }
+        if (!Utils::isUnset($headers->xFcLogType)) {
+            @$realHeaders['X-Fc-Log-Type'] = Utils::toJSONString($headers->xFcLogType);
+        }
+        if (!Utils::isUnset($headers->xFcTraceId)) {
+            @$realHeaders['X-Fc-Trace-Id'] = Utils::toJSONString($headers->xFcTraceId);
+        }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateTrigger',
+            'version'     => '2021-04-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/triggers/' . $triggerName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateTriggerResponse::fromMap($this->doROARequest('UpdateTrigger', '2021-04-06', 'HTTPS', 'PUT', 'AK', '/2021-04-06/services/' . $serviceName . '/functions/' . $functionName . '/triggers/' . $triggerName . '', 'json', $req, $runtime));
+        return UpdateTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 }
