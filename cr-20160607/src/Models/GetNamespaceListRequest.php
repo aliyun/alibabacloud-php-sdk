@@ -11,15 +11,15 @@ class GetNamespaceListRequest extends Model
     /**
      * @var string
      */
-    public $status;
+    public $authorize;
 
     /**
      * @var string
      */
-    public $authorize;
+    public $status;
     protected $_name = [
-        'status'    => 'Status',
         'authorize' => 'Authorize',
+        'status'    => 'Status',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetNamespaceListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->authorize) {
             $res['Authorize'] = $this->authorize;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class GetNamespaceListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['Authorize'])) {
             $model->authorize = $map['Authorize'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

@@ -44,6 +44,7 @@ use AlibabaCloud\SDK\Cr\V20160607\Models\GetRepoTagScanSummaryResponse;
 use AlibabaCloud\SDK\Cr\V20160607\Models\GetRepoTagsRequest;
 use AlibabaCloud\SDK\Cr\V20160607\Models\GetRepoTagsResponse;
 use AlibabaCloud\SDK\Cr\V20160607\Models\GetRepoWebhookResponse;
+use AlibabaCloud\SDK\Cr\V20160607\Models\GetResourceQuotaResponse;
 use AlibabaCloud\SDK\Cr\V20160607\Models\StartImageScanResponse;
 use AlibabaCloud\SDK\Cr\V20160607\Models\StartRepoBuildByRuleResponse;
 use AlibabaCloud\SDK\Cr\V20160607\Models\UpdateNamespaceResponse;
@@ -54,6 +55,7 @@ use AlibabaCloud\SDK\Cr\V20160607\Models\UpdateUserInfoResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Cr extends OpenApiClient
@@ -115,11 +117,25 @@ class Cr extends OpenApiClient
      */
     public function cancelRepoBuildWithOptions($RepoNamespace, $RepoName, $BuildId, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $RepoNamespace = OpenApiUtilClient::getEncodeParam($RepoNamespace);
+        $RepoName      = OpenApiUtilClient::getEncodeParam($RepoName);
+        $BuildId       = OpenApiUtilClient::getEncodeParam($BuildId);
+        $req           = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'CancelRepoBuild',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos/' . $RepoNamespace . '/' . $RepoName . '/build/' . $BuildId . '/cancel',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return CancelRepoBuildResponse::fromMap($this->doROARequest('CancelRepoBuild', '2016-06-07', 'HTTPS', 'POST', 'AK', '/repos/' . $RepoNamespace . '/{RepoName}/build/{BuildId}/cancel', 'none', $req, $runtime));
+        return CancelRepoBuildResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -144,8 +160,19 @@ class Cr extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'CreateNamespace',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/namespace',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return CreateNamespaceResponse::fromMap($this->doROARequest('CreateNamespace', '2016-06-07', 'HTTPS', 'PUT', 'AK', '/namespace', 'none', $req, $runtime));
+        return CreateNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -170,8 +197,19 @@ class Cr extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'CreateRepo',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return CreateRepoResponse::fromMap($this->doROARequest('CreateRepo', '2016-06-07', 'HTTPS', 'PUT', 'AK', '/repos', 'none', $req, $runtime));
+        return CreateRepoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -198,11 +236,24 @@ class Cr extends OpenApiClient
      */
     public function createRepoBuildRuleWithOptions($RepoNamespace, $RepoName, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $RepoNamespace = OpenApiUtilClient::getEncodeParam($RepoNamespace);
+        $RepoName      = OpenApiUtilClient::getEncodeParam($RepoName);
+        $req           = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'CreateRepoBuildRule',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos/' . $RepoNamespace . '/' . $RepoName . '/rules',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return CreateRepoBuildRuleResponse::fromMap($this->doROARequest('CreateRepoBuildRule', '2016-06-07', 'HTTPS', 'PUT', 'AK', '/repos/' . $RepoNamespace . '/{RepoName}/rules', 'none', $req, $runtime));
+        return CreateRepoBuildRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -229,11 +280,24 @@ class Cr extends OpenApiClient
      */
     public function createRepoWebhookWithOptions($RepoNamespace, $RepoName, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $RepoNamespace = OpenApiUtilClient::getEncodeParam($RepoNamespace);
+        $RepoName      = OpenApiUtilClient::getEncodeParam($RepoName);
+        $req           = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'CreateRepoWebhook',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos/' . $RepoNamespace . '/' . $RepoName . '/webhooks',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return CreateRepoWebhookResponse::fromMap($this->doROARequest('CreateRepoWebhook', '2016-06-07', 'HTTPS', 'PUT', 'AK', '/repos/' . $RepoNamespace . '/{RepoName}/webhooks', 'none', $req, $runtime));
+        return CreateRepoWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -258,8 +322,19 @@ class Cr extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'CreateUserInfo',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/users',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return CreateUserInfoResponse::fromMap($this->doROARequest('CreateUserInfo', '2016-06-07', 'HTTPS', 'PUT', 'AK', '/users', 'none', $req, $runtime));
+        return CreateUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -288,11 +363,25 @@ class Cr extends OpenApiClient
      */
     public function deleteImageWithOptions($RepoNamespace, $RepoName, $Tag, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $RepoNamespace = OpenApiUtilClient::getEncodeParam($RepoNamespace);
+        $RepoName      = OpenApiUtilClient::getEncodeParam($RepoName);
+        $Tag           = OpenApiUtilClient::getEncodeParam($Tag);
+        $req           = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteImage',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos/' . $RepoNamespace . '/' . $RepoName . '/tags/' . $Tag . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteImageResponse::fromMap($this->doROARequest('DeleteImage', '2016-06-07', 'HTTPS', 'DELETE', 'AK', '/repos/' . $RepoNamespace . '/{RepoName}/tags/{Tag}', 'none', $req, $runtime));
+        return DeleteImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -317,11 +406,23 @@ class Cr extends OpenApiClient
      */
     public function deleteNamespaceWithOptions($Namespace, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $Namespace = OpenApiUtilClient::getEncodeParam($Namespace);
+        $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteNamespace',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/namespace/' . $Namespace . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteNamespaceResponse::fromMap($this->doROARequest('DeleteNamespace', '2016-06-07', 'HTTPS', 'DELETE', 'AK', '/namespace/' . $Namespace . '', 'none', $req, $runtime));
+        return DeleteNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -348,11 +449,24 @@ class Cr extends OpenApiClient
      */
     public function deleteRepoWithOptions($RepoNamespace, $RepoName, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $RepoNamespace = OpenApiUtilClient::getEncodeParam($RepoNamespace);
+        $RepoName      = OpenApiUtilClient::getEncodeParam($RepoName);
+        $req           = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteRepo',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos/' . $RepoNamespace . '/' . $RepoName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteRepoResponse::fromMap($this->doROARequest('DeleteRepo', '2016-06-07', 'HTTPS', 'DELETE', 'AK', '/repos/' . $RepoNamespace . '/{RepoName}', 'none', $req, $runtime));
+        return DeleteRepoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -381,11 +495,25 @@ class Cr extends OpenApiClient
      */
     public function deleteRepoBuildRuleWithOptions($RepoNamespace, $RepoName, $BuildRuleId, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $RepoNamespace = OpenApiUtilClient::getEncodeParam($RepoNamespace);
+        $RepoName      = OpenApiUtilClient::getEncodeParam($RepoName);
+        $BuildRuleId   = OpenApiUtilClient::getEncodeParam($BuildRuleId);
+        $req           = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteRepoBuildRule',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos/' . $RepoNamespace . '/' . $RepoName . '/rules/' . $BuildRuleId . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteRepoBuildRuleResponse::fromMap($this->doROARequest('DeleteRepoBuildRule', '2016-06-07', 'HTTPS', 'DELETE', 'AK', '/repos/' . $RepoNamespace . '/{RepoName}/rules/{BuildRuleId}', 'none', $req, $runtime));
+        return DeleteRepoBuildRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -414,11 +542,25 @@ class Cr extends OpenApiClient
      */
     public function deleteRepoWebhookWithOptions($RepoNamespace, $RepoName, $WebhookId, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $RepoNamespace = OpenApiUtilClient::getEncodeParam($RepoNamespace);
+        $RepoName      = OpenApiUtilClient::getEncodeParam($RepoName);
+        $WebhookId     = OpenApiUtilClient::getEncodeParam($WebhookId);
+        $req           = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'DeleteRepoWebhook',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos/' . $RepoNamespace . '/' . $RepoName . '/webhooks/' . $WebhookId . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return DeleteRepoWebhookResponse::fromMap($this->doROARequest('DeleteRepoWebhook', '2016-06-07', 'HTTPS', 'DELETE', 'AK', '/repos/' . $RepoNamespace . '/{RepoName}/webhooks/{WebhookId}', 'none', $req, $runtime));
+        return DeleteRepoWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -443,8 +585,19 @@ class Cr extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetAuthorizationToken',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/tokens',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return GetAuthorizationTokenResponse::fromMap($this->doROARequest('GetAuthorizationToken', '2016-06-07', 'HTTPS', 'GET', 'AK', '/tokens', 'none', $req, $runtime));
+        return GetAuthorizationTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -473,11 +626,25 @@ class Cr extends OpenApiClient
      */
     public function getImageLayerWithOptions($RepoNamespace, $RepoName, $Tag, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $RepoNamespace = OpenApiUtilClient::getEncodeParam($RepoNamespace);
+        $RepoName      = OpenApiUtilClient::getEncodeParam($RepoName);
+        $Tag           = OpenApiUtilClient::getEncodeParam($Tag);
+        $req           = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetImageLayer',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos/' . $RepoNamespace . '/' . $RepoName . '/tags/' . $Tag . '/layers',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return GetImageLayerResponse::fromMap($this->doROARequest('GetImageLayer', '2016-06-07', 'HTTPS', 'GET', 'AK', '/repos/' . $RepoNamespace . '/{RepoName}/tags/{Tag}/layers', 'none', $req, $runtime));
+        return GetImageLayerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -509,7 +676,10 @@ class Cr extends OpenApiClient
     public function getImageManifestWithOptions($RepoNamespace, $RepoName, $Tag, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
+        $RepoNamespace = OpenApiUtilClient::getEncodeParam($RepoNamespace);
+        $RepoName      = OpenApiUtilClient::getEncodeParam($RepoName);
+        $Tag           = OpenApiUtilClient::getEncodeParam($Tag);
+        $query         = [];
         if (!Utils::isUnset($request->schemaVersion)) {
             @$query['SchemaVersion'] = $request->schemaVersion;
         }
@@ -517,8 +687,19 @@ class Cr extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetImageManifest',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos/' . $RepoNamespace . '/' . $RepoName . '/tags/' . $Tag . '/manifest',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return GetImageManifestResponse::fromMap($this->doROARequest('GetImageManifest', '2016-06-07', 'HTTPS', 'GET', 'AK', '/repos/' . $RepoNamespace . '/{RepoName}/tags/{Tag}/manifest', 'none', $req, $runtime));
+        return GetImageManifestResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -543,11 +724,23 @@ class Cr extends OpenApiClient
      */
     public function getNamespaceWithOptions($Namespace, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $Namespace = OpenApiUtilClient::getEncodeParam($Namespace);
+        $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetNamespace',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/namespace/' . $Namespace . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return GetNamespaceResponse::fromMap($this->doROARequest('GetNamespace', '2016-06-07', 'HTTPS', 'GET', 'AK', '/namespace/' . $Namespace . '', 'none', $req, $runtime));
+        return GetNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -574,18 +767,29 @@ class Cr extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->status)) {
-            @$query['Status'] = $request->status;
-        }
         if (!Utils::isUnset($request->authorize)) {
             @$query['Authorize'] = $request->authorize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            @$query['Status'] = $request->status;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetNamespaceList',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/namespace',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return GetNamespaceListResponse::fromMap($this->doROARequest('GetNamespaceList', '2016-06-07', 'HTTPS', 'GET', 'AK', '/namespace', 'none', $req, $runtime));
+        return GetNamespaceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -619,8 +823,19 @@ class Cr extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetRegion',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/regions',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return GetRegionResponse::fromMap($this->doROARequest('GetRegion', '2016-06-07', 'HTTPS', 'GET', 'AK', '/regions', 'none', $req, $runtime));
+        return GetRegionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -645,8 +860,19 @@ class Cr extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetRegionList',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/regions',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return GetRegionListResponse::fromMap($this->doROARequest('GetRegionList', '2016-06-07', 'HTTPS', 'GET', 'AK', '/regions', 'none', $req, $runtime));
+        return GetRegionListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -673,11 +899,24 @@ class Cr extends OpenApiClient
      */
     public function getRepoWithOptions($RepoNamespace, $RepoName, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $RepoNamespace = OpenApiUtilClient::getEncodeParam($RepoNamespace);
+        $RepoName      = OpenApiUtilClient::getEncodeParam($RepoName);
+        $req           = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetRepo',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos/' . $RepoNamespace . '/' . $RepoName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return GetRepoResponse::fromMap($this->doROARequest('GetRepo', '2016-06-07', 'HTTPS', 'GET', 'AK', '/repos/' . $RepoNamespace . '/{RepoName}', 'none', $req, $runtime));
+        return GetRepoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -707,7 +946,9 @@ class Cr extends OpenApiClient
     public function getRepoBuildListWithOptions($RepoNamespace, $RepoName, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
+        $RepoNamespace = OpenApiUtilClient::getEncodeParam($RepoNamespace);
+        $RepoName      = OpenApiUtilClient::getEncodeParam($RepoName);
+        $query         = [];
         if (!Utils::isUnset($request->page)) {
             @$query['Page'] = $request->page;
         }
@@ -718,8 +959,19 @@ class Cr extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetRepoBuildList',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos/' . $RepoNamespace . '/' . $RepoName . '/build',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return GetRepoBuildListResponse::fromMap($this->doROARequest('GetRepoBuildList', '2016-06-07', 'HTTPS', 'GET', 'AK', '/repos/' . $RepoNamespace . '/{RepoName}/build', 'none', $req, $runtime));
+        return GetRepoBuildListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -746,11 +998,24 @@ class Cr extends OpenApiClient
      */
     public function getRepoBuildRuleListWithOptions($RepoNamespace, $RepoName, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $RepoNamespace = OpenApiUtilClient::getEncodeParam($RepoNamespace);
+        $RepoName      = OpenApiUtilClient::getEncodeParam($RepoName);
+        $req           = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetRepoBuildRuleList',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos/' . $RepoNamespace . '/' . $RepoName . '/rules',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return GetRepoBuildRuleListResponse::fromMap($this->doROARequest('GetRepoBuildRuleList', '2016-06-07', 'HTTPS', 'GET', 'AK', '/repos/' . $RepoNamespace . '/{RepoName}/rules', 'none', $req, $runtime));
+        return GetRepoBuildRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -779,11 +1044,25 @@ class Cr extends OpenApiClient
      */
     public function getRepoBuildStatusWithOptions($RepoNamespace, $RepoName, $BuildId, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $RepoNamespace = OpenApiUtilClient::getEncodeParam($RepoNamespace);
+        $RepoName      = OpenApiUtilClient::getEncodeParam($RepoName);
+        $BuildId       = OpenApiUtilClient::getEncodeParam($BuildId);
+        $req           = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetRepoBuildStatus',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos/' . $RepoNamespace . '/' . $RepoName . '/build/' . $BuildId . '/status',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return GetRepoBuildStatusResponse::fromMap($this->doROARequest('GetRepoBuildStatus', '2016-06-07', 'HTTPS', 'GET', 'AK', '/repos/' . $RepoNamespace . '/{RepoName}/build/{BuildId}/status', 'none', $req, $runtime));
+        return GetRepoBuildStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -810,21 +1089,32 @@ class Cr extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->status)) {
-            @$query['Status'] = $request->status;
-        }
         if (!Utils::isUnset($request->page)) {
             @$query['Page'] = $request->page;
         }
         if (!Utils::isUnset($request->pageSize)) {
             @$query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->status)) {
+            @$query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetRepoList',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return GetRepoListResponse::fromMap($this->doROARequest('GetRepoList', '2016-06-07', 'HTTPS', 'GET', 'AK', '/repos', 'none', $req, $runtime));
+        return GetRepoListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -852,22 +1142,34 @@ class Cr extends OpenApiClient
     public function getRepoListByNamespaceWithOptions($RepoNamespace, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->status)) {
-            @$query['Status'] = $request->status;
-        }
+        $RepoNamespace = OpenApiUtilClient::getEncodeParam($RepoNamespace);
+        $query         = [];
         if (!Utils::isUnset($request->page)) {
             @$query['Page'] = $request->page;
         }
         if (!Utils::isUnset($request->pageSize)) {
             @$query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->status)) {
+            @$query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetRepoListByNamespace',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos/' . $RepoNamespace . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return GetRepoListByNamespaceResponse::fromMap($this->doROARequest('GetRepoListByNamespace', '2016-06-07', 'HTTPS', 'GET', 'AK', '/repos/' . $RepoNamespace . '', 'none', $req, $runtime));
+        return GetRepoListByNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -896,53 +1198,25 @@ class Cr extends OpenApiClient
      */
     public function getRepoTagWithOptions($RepoNamespace, $RepoName, $Tag, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $RepoNamespace = OpenApiUtilClient::getEncodeParam($RepoNamespace);
+        $RepoName      = OpenApiUtilClient::getEncodeParam($RepoName);
+        $Tag           = OpenApiUtilClient::getEncodeParam($Tag);
+        $req           = new OpenApiRequest([
             'headers' => $headers,
         ]);
-
-        return GetRepoTagResponse::fromMap($this->doROARequest('GetRepoTag', '2016-06-07', 'HTTPS', 'GET', 'AK', '/repos/' . $RepoNamespace . '/{RepoName}/tags/{Tag}', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param string             $RepoNamespace
-     * @param string             $RepoName
-     * @param GetRepoTagsRequest $request
-     *
-     * @return GetRepoTagsResponse
-     */
-    public function getRepoTags($RepoNamespace, $RepoName, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getRepoTagsWithOptions($RepoNamespace, $RepoName, $request, $headers, $runtime);
-    }
-
-    /**
-     * @param string             $RepoNamespace
-     * @param string             $RepoName
-     * @param GetRepoTagsRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
-     *
-     * @return GetRepoTagsResponse
-     */
-    public function getRepoTagsWithOptions($RepoNamespace, $RepoName, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->page)) {
-            @$query['Page'] = $request->page;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            @$query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+        $params = new Params([
+            'action'      => 'GetRepoTag',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos/' . $RepoNamespace . '/' . $RepoName . '/tags/' . $Tag . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetRepoTagsResponse::fromMap($this->doROARequest('GetRepoTags', '2016-06-07', 'HTTPS', 'GET', 'AK', '/repos/' . $RepoNamespace . '/{RepoName}/tags', 'none', $req, $runtime));
+        return GetRepoTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -974,7 +1248,10 @@ class Cr extends OpenApiClient
     public function getRepoTagScanListWithOptions($RepoNamespace, $RepoName, $Tag, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
+        $RepoNamespace = OpenApiUtilClient::getEncodeParam($RepoNamespace);
+        $RepoName      = OpenApiUtilClient::getEncodeParam($RepoName);
+        $Tag           = OpenApiUtilClient::getEncodeParam($Tag);
+        $query         = [];
         if (!Utils::isUnset($request->page)) {
             @$query['Page'] = $request->page;
         }
@@ -988,8 +1265,19 @@ class Cr extends OpenApiClient
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
         ]);
+        $params = new Params([
+            'action'      => 'GetRepoTagScanList',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos/' . $RepoNamespace . '/' . $RepoName . '/tags/' . $Tag . '/scanResult',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return GetRepoTagScanListResponse::fromMap($this->doROARequest('GetRepoTagScanList', '2016-06-07', 'HTTPS', 'GET', 'AK', '/repos/' . $RepoNamespace . '/{RepoName}/tags/{Tag}/scanResult', 'none', $req, $runtime));
+        return GetRepoTagScanListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1018,11 +1306,25 @@ class Cr extends OpenApiClient
      */
     public function getRepoTagScanStatusWithOptions($RepoNamespace, $RepoName, $Tag, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $RepoNamespace = OpenApiUtilClient::getEncodeParam($RepoNamespace);
+        $RepoName      = OpenApiUtilClient::getEncodeParam($RepoName);
+        $Tag           = OpenApiUtilClient::getEncodeParam($Tag);
+        $req           = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetRepoTagScanStatus',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos/' . $RepoNamespace . '/' . $RepoName . '/tags/' . $Tag . '/scanStatus',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return GetRepoTagScanStatusResponse::fromMap($this->doROARequest('GetRepoTagScanStatus', '2016-06-07', 'HTTPS', 'GET', 'AK', '/repos/' . $RepoNamespace . '/{RepoName}/tags/{Tag}/scanStatus', 'none', $req, $runtime));
+        return GetRepoTagScanStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1051,11 +1353,80 @@ class Cr extends OpenApiClient
      */
     public function getRepoTagScanSummaryWithOptions($RepoNamespace, $RepoName, $Tag, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $RepoNamespace = OpenApiUtilClient::getEncodeParam($RepoNamespace);
+        $RepoName      = OpenApiUtilClient::getEncodeParam($RepoName);
+        $Tag           = OpenApiUtilClient::getEncodeParam($Tag);
+        $req           = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetRepoTagScanSummary',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos/' . $RepoNamespace . '/' . $RepoName . '/tags/' . $Tag . '/scanCount',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return GetRepoTagScanSummaryResponse::fromMap($this->doROARequest('GetRepoTagScanSummary', '2016-06-07', 'HTTPS', 'GET', 'AK', '/repos/' . $RepoNamespace . '/{RepoName}/tags/{Tag}/scanCount', 'none', $req, $runtime));
+        return GetRepoTagScanSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string             $RepoNamespace
+     * @param string             $RepoName
+     * @param GetRepoTagsRequest $request
+     *
+     * @return GetRepoTagsResponse
+     */
+    public function getRepoTags($RepoNamespace, $RepoName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getRepoTagsWithOptions($RepoNamespace, $RepoName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string             $RepoNamespace
+     * @param string             $RepoName
+     * @param GetRepoTagsRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetRepoTagsResponse
+     */
+    public function getRepoTagsWithOptions($RepoNamespace, $RepoName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $RepoNamespace = OpenApiUtilClient::getEncodeParam($RepoNamespace);
+        $RepoName      = OpenApiUtilClient::getEncodeParam($RepoName);
+        $query         = [];
+        if (!Utils::isUnset($request->page)) {
+            @$query['Page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRepoTags',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos/' . $RepoNamespace . '/' . $RepoName . '/tags',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return GetRepoTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1082,11 +1453,65 @@ class Cr extends OpenApiClient
      */
     public function getRepoWebhookWithOptions($RepoNamespace, $RepoName, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $RepoNamespace = OpenApiUtilClient::getEncodeParam($RepoNamespace);
+        $RepoName      = OpenApiUtilClient::getEncodeParam($RepoName);
+        $req           = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'GetRepoWebhook',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos/' . $RepoNamespace . '/' . $RepoName . '/webhooks',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return GetRepoWebhookResponse::fromMap($this->doROARequest('GetRepoWebhook', '2016-06-07', 'HTTPS', 'GET', 'AK', '/repos/' . $RepoNamespace . '/{RepoName}/webhooks', 'none', $req, $runtime));
+        return GetRepoWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ResourceName
+     *
+     * @return GetResourceQuotaResponse
+     */
+    public function getResourceQuota($ResourceName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getResourceQuotaWithOptions($ResourceName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ResourceName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetResourceQuotaResponse
+     */
+    public function getResourceQuotaWithOptions($ResourceName, $headers, $runtime)
+    {
+        $ResourceName = OpenApiUtilClient::getEncodeParam($ResourceName);
+        $req          = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetResourceQuota',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/resource/' . $ResourceName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return GetResourceQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1115,11 +1540,25 @@ class Cr extends OpenApiClient
      */
     public function startImageScanWithOptions($RepoNamespace, $RepoName, $Tag, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $RepoNamespace = OpenApiUtilClient::getEncodeParam($RepoNamespace);
+        $RepoName      = OpenApiUtilClient::getEncodeParam($RepoName);
+        $Tag           = OpenApiUtilClient::getEncodeParam($Tag);
+        $req           = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'StartImageScan',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos/' . $RepoNamespace . '/' . $RepoName . '/tags/' . $Tag . '/scan',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return StartImageScanResponse::fromMap($this->doROARequest('StartImageScan', '2016-06-07', 'HTTPS', 'PUT', 'AK', '/repos/' . $RepoNamespace . '/{RepoName}/tags/{Tag}/scan', 'none', $req, $runtime));
+        return StartImageScanResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1148,11 +1587,25 @@ class Cr extends OpenApiClient
      */
     public function startRepoBuildByRuleWithOptions($RepoNamespace, $RepoName, $BuildRuleId, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $RepoNamespace = OpenApiUtilClient::getEncodeParam($RepoNamespace);
+        $RepoName      = OpenApiUtilClient::getEncodeParam($RepoName);
+        $BuildRuleId   = OpenApiUtilClient::getEncodeParam($BuildRuleId);
+        $req           = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'StartRepoBuildByRule',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos/' . $RepoNamespace . '/' . $RepoName . '/rules/' . $BuildRuleId . '/build',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return StartRepoBuildByRuleResponse::fromMap($this->doROARequest('StartRepoBuildByRule', '2016-06-07', 'HTTPS', 'PUT', 'AK', '/repos/' . $RepoNamespace . '/{RepoName}/rules/{BuildRuleId}/build', 'none', $req, $runtime));
+        return StartRepoBuildByRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1177,11 +1630,23 @@ class Cr extends OpenApiClient
      */
     public function updateNamespaceWithOptions($Namespace, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $Namespace = OpenApiUtilClient::getEncodeParam($Namespace);
+        $req       = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'UpdateNamespace',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/namespace/' . $Namespace . '',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return UpdateNamespaceResponse::fromMap($this->doROARequest('UpdateNamespace', '2016-06-07', 'HTTPS', 'POST', 'AK', '/namespace/' . $Namespace . '', 'none', $req, $runtime));
+        return UpdateNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1208,11 +1673,24 @@ class Cr extends OpenApiClient
      */
     public function updateRepoWithOptions($RepoNamespace, $RepoName, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $RepoNamespace = OpenApiUtilClient::getEncodeParam($RepoNamespace);
+        $RepoName      = OpenApiUtilClient::getEncodeParam($RepoName);
+        $req           = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'UpdateRepo',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos/' . $RepoNamespace . '/' . $RepoName . '',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return UpdateRepoResponse::fromMap($this->doROARequest('UpdateRepo', '2016-06-07', 'HTTPS', 'POST', 'AK', '/repos/' . $RepoNamespace . '/{RepoName}', 'none', $req, $runtime));
+        return UpdateRepoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1241,11 +1719,25 @@ class Cr extends OpenApiClient
      */
     public function updateRepoBuildRuleWithOptions($RepoNamespace, $RepoName, $BuildRuleId, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $RepoNamespace = OpenApiUtilClient::getEncodeParam($RepoNamespace);
+        $RepoName      = OpenApiUtilClient::getEncodeParam($RepoName);
+        $BuildRuleId   = OpenApiUtilClient::getEncodeParam($BuildRuleId);
+        $req           = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'UpdateRepoBuildRule',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos/' . $RepoNamespace . '/' . $RepoName . '/rules/' . $BuildRuleId . '',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return UpdateRepoBuildRuleResponse::fromMap($this->doROARequest('UpdateRepoBuildRule', '2016-06-07', 'HTTPS', 'POST', 'AK', '/repos/' . $RepoNamespace . '/{RepoName}/rules/{BuildRuleId}', 'none', $req, $runtime));
+        return UpdateRepoBuildRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1274,11 +1766,25 @@ class Cr extends OpenApiClient
      */
     public function updateRepoWebhookWithOptions($RepoNamespace, $RepoName, $WebhookId, $headers, $runtime)
     {
-        $req = new OpenApiRequest([
+        $RepoNamespace = OpenApiUtilClient::getEncodeParam($RepoNamespace);
+        $RepoName      = OpenApiUtilClient::getEncodeParam($RepoName);
+        $WebhookId     = OpenApiUtilClient::getEncodeParam($WebhookId);
+        $req           = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'UpdateRepoWebhook',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/repos/' . $RepoNamespace . '/' . $RepoName . '/webhooks/' . $WebhookId . '',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return UpdateRepoWebhookResponse::fromMap($this->doROARequest('UpdateRepoWebhook', '2016-06-07', 'HTTPS', 'POST', 'AK', '/repos/' . $RepoNamespace . '/{RepoName}/webhooks/{WebhookId}', 'none', $req, $runtime));
+        return UpdateRepoWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1303,7 +1809,18 @@ class Cr extends OpenApiClient
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
+        $params = new Params([
+            'action'      => 'UpdateUserInfo',
+            'version'     => '2016-06-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/users',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
 
-        return UpdateUserInfoResponse::fromMap($this->doROARequest('UpdateUserInfo', '2016-06-07', 'HTTPS', 'POST', 'AK', '/users', 'none', $req, $runtime));
+        return UpdateUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 }
