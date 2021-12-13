@@ -18,8 +18,6 @@ use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateCompliancePackShrink
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateConfigRuleRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateConfigRuleResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateConfigRuleShrinkRequest;
-use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateRemediationRequest;
-use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateRemediationResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregatorRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregatorResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregatorShrinkRequest;
@@ -29,8 +27,6 @@ use AlibabaCloud\SDK\Config\V20200907\Models\CreateCompliancePackShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateConfigRuleRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateConfigRuleResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateConfigRuleShrinkRequest;
-use AlibabaCloud\SDK\Config\V20200907\Models\CreateRemediationRequest;
-use AlibabaCloud\SDK\Config\V20200907\Models\CreateRemediationResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeactiveAggregateConfigRulesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeactiveAggregateConfigRulesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeactiveConfigRulesRequest;
@@ -39,14 +35,10 @@ use AlibabaCloud\SDK\Config\V20200907\Models\DeleteAggregateCompliancePacksReque
 use AlibabaCloud\SDK\Config\V20200907\Models\DeleteAggregateCompliancePacksResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeleteAggregateConfigRulesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeleteAggregateConfigRulesResponse;
-use AlibabaCloud\SDK\Config\V20200907\Models\DeleteAggregateRemediationsRequest;
-use AlibabaCloud\SDK\Config\V20200907\Models\DeleteAggregateRemediationsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeleteAggregatorsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeleteAggregatorsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeleteCompliancePacksRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeleteCompliancePacksResponse;
-use AlibabaCloud\SDK\Config\V20200907\Models\DeleteRemediationsRequest;
-use AlibabaCloud\SDK\Config\V20200907\Models\DeleteRemediationsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\DetachAggregateConfigRuleToCompliancePackRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\DetachAggregateConfigRuleToCompliancePackResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\DetachConfigRuleToCompliancePackRequest;
@@ -55,14 +47,10 @@ use AlibabaCloud\SDK\Config\V20200907\Models\GenerateAggregateCompliancePackRepo
 use AlibabaCloud\SDK\Config\V20200907\Models\GenerateAggregateCompliancePackReportResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GenerateAggregateConfigRulesReportRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GenerateAggregateConfigRulesReportResponse;
-use AlibabaCloud\SDK\Config\V20200907\Models\GenerateAggregateResourceInventoryRequest;
-use AlibabaCloud\SDK\Config\V20200907\Models\GenerateAggregateResourceInventoryResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GenerateCompliancePackReportRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GenerateCompliancePackReportResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GenerateConfigRulesReportRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GenerateConfigRulesReportResponse;
-use AlibabaCloud\SDK\Config\V20200907\Models\GenerateResourceInventoryRequest;
-use AlibabaCloud\SDK\Config\V20200907\Models\GenerateResourceInventoryResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateAccountComplianceByPackRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateAccountComplianceByPackResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateCompliancePackReportRequest;
@@ -89,8 +77,6 @@ use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceCountsGroupByRe
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceCountsGroupByRegionResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceCountsGroupByResourceTypeRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceCountsGroupByResourceTypeResponse;
-use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceInventoryRequest;
-use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceInventoryResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregatorRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregatorResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetCompliancePackReportRequest;
@@ -115,15 +101,18 @@ use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceComplianceTimelineReques
 use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceComplianceTimelineResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceConfigurationTimelineRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceConfigurationTimelineResponse;
-use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceInventoryResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\IgnoreAggregateEvaluationResultsRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\IgnoreAggregateEvaluationResultsResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\IgnoreAggregateEvaluationResultsShrinkRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\IgnoreEvaluationResultsRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\IgnoreEvaluationResultsResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\IgnoreEvaluationResultsShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateCompliancePacksRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateCompliancePacksResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRuleEvaluationResultsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRuleEvaluationResultsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRulesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRulesResponse;
-use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateRemediationsRequest;
-use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateRemediationsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateResourceEvaluationResultsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateResourceEvaluationResultsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregatorsRequest;
@@ -134,25 +123,22 @@ use AlibabaCloud\SDK\Config\V20200907\Models\ListCompliancePackTemplatesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListCompliancePackTemplatesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRuleEvaluationResultsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRuleEvaluationResultsResponse;
-use AlibabaCloud\SDK\Config\V20200907\Models\ListRemediationsRequest;
-use AlibabaCloud\SDK\Config\V20200907\Models\ListRemediationsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListResourceEvaluationResultsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListResourceEvaluationResultsResponse;
-use AlibabaCloud\SDK\Config\V20200907\Models\ListResourceOwnerInAllAggregatorResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\RevertAggregateEvaluationResultsRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\RevertAggregateEvaluationResultsResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\RevertAggregateEvaluationResultsShrinkRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\RevertEvaluationResultsRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\RevertEvaluationResultsResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\RevertEvaluationResultsShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\StartAggregateConfigRuleEvaluationRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\StartAggregateConfigRuleEvaluationResponse;
-use AlibabaCloud\SDK\Config\V20200907\Models\StartAggregateRemediationRequest;
-use AlibabaCloud\SDK\Config\V20200907\Models\StartAggregateRemediationResponse;
-use AlibabaCloud\SDK\Config\V20200907\Models\StartRemediationRequest;
-use AlibabaCloud\SDK\Config\V20200907\Models\StartRemediationResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateCompliancePackRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateCompliancePackResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateCompliancePackShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateConfigRuleRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateConfigRuleResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateConfigRuleShrinkRequest;
-use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateRemediationRequest;
-use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregateRemediationResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregatorRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregatorResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateAggregatorShrinkRequest;
@@ -162,11 +148,10 @@ use AlibabaCloud\SDK\Config\V20200907\Models\UpdateCompliancePackShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateConfigRuleRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateConfigRuleResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateConfigRuleShrinkRequest;
-use AlibabaCloud\SDK\Config\V20200907\Models\UpdateRemediationRequest;
-use AlibabaCloud\SDK\Config\V20200907\Models\UpdateRemediationResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Config extends OpenApiClient
@@ -215,11 +200,26 @@ class Config extends OpenApiClient
     public function activeAggregateConfigRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AggregatorId']  = $request->aggregatorId;
+        $query['ConfigRuleIds'] = $request->configRuleIds;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ActiveAggregateConfigRules',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ActiveAggregateConfigRulesResponse::fromMap($this->doRPCRequest('ActiveAggregateConfigRules', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ActiveAggregateConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -243,11 +243,27 @@ class Config extends OpenApiClient
     public function attachAggregateConfigRuleToCompliancePackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['AggregatorId']     = $request->aggregatorId;
+        $query['CompliancePackId'] = $request->compliancePackId;
+        $query['ConfigRuleIds']    = $request->configRuleIds;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachAggregateConfigRuleToCompliancePack',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AttachAggregateConfigRuleToCompliancePackResponse::fromMap($this->doRPCRequest('AttachAggregateConfigRuleToCompliancePack', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AttachAggregateConfigRuleToCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -271,11 +287,26 @@ class Config extends OpenApiClient
     public function attachConfigRuleToCompliancePackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['CompliancePackId'] = $request->compliancePackId;
+        $query['ConfigRuleIds']    = $request->configRuleIds;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachConfigRuleToCompliancePack',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return AttachConfigRuleToCompliancePackResponse::fromMap($this->doRPCRequest('AttachConfigRuleToCompliancePack', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AttachConfigRuleToCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -307,8 +338,19 @@ class Config extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateAggregateCompliancePack',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateAggregateCompliancePackResponse::fromMap($this->doRPCRequest('CreateAggregateCompliancePack', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAggregateCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -343,8 +385,19 @@ class Config extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateAggregateConfigRule',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateAggregateConfigRuleResponse::fromMap($this->doRPCRequest('CreateAggregateConfigRule', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAggregateConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -357,34 +410,6 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAggregateConfigRuleWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateAggregateRemediationRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return CreateAggregateRemediationResponse
-     */
-    public function createAggregateRemediationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateAggregateRemediationResponse::fromMap($this->doRPCRequest('CreateAggregateRemediation', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateAggregateRemediationRequest $request
-     *
-     * @return CreateAggregateRemediationResponse
-     */
-    public function createAggregateRemediation($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createAggregateRemediationWithOptions($request, $runtime);
     }
 
     /**
@@ -404,8 +429,19 @@ class Config extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateAggregator',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateAggregatorResponse::fromMap($this->doRPCRequest('CreateAggregator', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAggregatorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -437,8 +473,19 @@ class Config extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateCompliancePack',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateCompliancePackResponse::fromMap($this->doRPCRequest('CreateCompliancePack', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -473,8 +520,19 @@ class Config extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateConfigRule',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateConfigRuleResponse::fromMap($this->doRPCRequest('CreateConfigRule', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -490,34 +548,6 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param CreateRemediationRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateRemediationResponse
-     */
-    public function createRemediationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateRemediationResponse::fromMap($this->doRPCRequest('CreateRemediation', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateRemediationRequest $request
-     *
-     * @return CreateRemediationResponse
-     */
-    public function createRemediation($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createRemediationWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeactiveAggregateConfigRulesRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -526,11 +556,26 @@ class Config extends OpenApiClient
     public function deactiveAggregateConfigRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AggregatorId']  = $request->aggregatorId;
+        $query['ConfigRuleIds'] = $request->configRuleIds;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeactiveAggregateConfigRules',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeactiveAggregateConfigRulesResponse::fromMap($this->doRPCRequest('DeactiveAggregateConfigRules', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeactiveAggregateConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -554,11 +599,25 @@ class Config extends OpenApiClient
     public function deactiveConfigRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ConfigRuleIds'] = $request->configRuleIds;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeactiveConfigRules',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeactiveConfigRulesResponse::fromMap($this->doRPCRequest('DeactiveConfigRules', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeactiveConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -585,8 +644,19 @@ class Config extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteAggregateCompliancePacks',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteAggregateCompliancePacksResponse::fromMap($this->doRPCRequest('DeleteAggregateCompliancePacks', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAggregateCompliancePacksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -610,11 +680,26 @@ class Config extends OpenApiClient
     public function deleteAggregateConfigRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['AggregatorId']  = $request->aggregatorId;
+        $query['ConfigRuleIds'] = $request->configRuleIds;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAggregateConfigRules',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAggregateConfigRulesResponse::fromMap($this->doRPCRequest('DeleteAggregateConfigRules', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAggregateConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -630,34 +715,6 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param DeleteAggregateRemediationsRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DeleteAggregateRemediationsResponse
-     */
-    public function deleteAggregateRemediationsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteAggregateRemediationsResponse::fromMap($this->doRPCRequest('DeleteAggregateRemediations', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteAggregateRemediationsRequest $request
-     *
-     * @return DeleteAggregateRemediationsResponse
-     */
-    public function deleteAggregateRemediations($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteAggregateRemediationsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DeleteAggregatorsRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -669,8 +726,19 @@ class Config extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteAggregators',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteAggregatorsResponse::fromMap($this->doRPCRequest('DeleteAggregators', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAggregatorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -697,8 +765,19 @@ class Config extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteCompliancePacks',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteCompliancePacksResponse::fromMap($this->doRPCRequest('DeleteCompliancePacks', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteCompliancePacksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -714,34 +793,6 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param DeleteRemediationsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteRemediationsResponse
-     */
-    public function deleteRemediationsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteRemediationsResponse::fromMap($this->doRPCRequest('DeleteRemediations', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteRemediationsRequest $request
-     *
-     * @return DeleteRemediationsResponse
-     */
-    public function deleteRemediations($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteRemediationsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DetachAggregateConfigRuleToCompliancePackRequest $request
      * @param RuntimeOptions                                   $runtime
      *
@@ -750,11 +801,27 @@ class Config extends OpenApiClient
     public function detachAggregateConfigRuleToCompliancePackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['AggregatorId']     = $request->aggregatorId;
+        $query['CompliancePackId'] = $request->compliancePackId;
+        $query['ConfigRuleIds']    = $request->configRuleIds;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachAggregateConfigRuleToCompliancePack',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DetachAggregateConfigRuleToCompliancePackResponse::fromMap($this->doRPCRequest('DetachAggregateConfigRuleToCompliancePack', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetachAggregateConfigRuleToCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -778,11 +845,26 @@ class Config extends OpenApiClient
     public function detachConfigRuleToCompliancePackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['CompliancePackId'] = $request->compliancePackId;
+        $query['ConfigRuleIds']    = $request->configRuleIds;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachConfigRuleToCompliancePack',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DetachConfigRuleToCompliancePackResponse::fromMap($this->doRPCRequest('DetachConfigRuleToCompliancePack', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetachConfigRuleToCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -809,8 +891,19 @@ class Config extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GenerateAggregateCompliancePackReport',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GenerateAggregateCompliancePackReportResponse::fromMap($this->doRPCRequest('GenerateAggregateCompliancePackReport', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GenerateAggregateCompliancePackReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -837,8 +930,19 @@ class Config extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GenerateAggregateConfigRulesReport',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GenerateAggregateConfigRulesReportResponse::fromMap($this->doRPCRequest('GenerateAggregateConfigRulesReport', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GenerateAggregateConfigRulesReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -854,34 +958,6 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param GenerateAggregateResourceInventoryRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return GenerateAggregateResourceInventoryResponse
-     */
-    public function generateAggregateResourceInventoryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GenerateAggregateResourceInventoryResponse::fromMap($this->doRPCRequest('GenerateAggregateResourceInventory', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GenerateAggregateResourceInventoryRequest $request
-     *
-     * @return GenerateAggregateResourceInventoryResponse
-     */
-    public function generateAggregateResourceInventory($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->generateAggregateResourceInventoryWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GenerateCompliancePackReportRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -893,8 +969,19 @@ class Config extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GenerateCompliancePackReport',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GenerateCompliancePackReportResponse::fromMap($this->doRPCRequest('GenerateCompliancePackReport', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GenerateCompliancePackReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -921,8 +1008,19 @@ class Config extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GenerateConfigRulesReport',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GenerateConfigRulesReportResponse::fromMap($this->doRPCRequest('GenerateConfigRulesReport', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GenerateConfigRulesReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -938,34 +1036,6 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param GenerateResourceInventoryRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return GenerateResourceInventoryResponse
-     */
-    public function generateResourceInventoryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GenerateResourceInventoryResponse::fromMap($this->doRPCRequest('GenerateResourceInventory', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GenerateResourceInventoryRequest $request
-     *
-     * @return GenerateResourceInventoryResponse
-     */
-    public function generateResourceInventory($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->generateResourceInventoryWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetAggregateAccountComplianceByPackRequest $request
      * @param RuntimeOptions                             $runtime
      *
@@ -976,10 +1046,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAggregateAccountComplianceByPack',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAggregateAccountComplianceByPackResponse::fromMap($this->doRPCRequest('GetAggregateAccountComplianceByPack', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetAggregateAccountComplianceByPackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1005,10 +1086,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAggregateCompliancePack',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAggregateCompliancePackResponse::fromMap($this->doRPCRequest('GetAggregateCompliancePack', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetAggregateCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1034,10 +1126,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAggregateCompliancePackReport',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAggregateCompliancePackReportResponse::fromMap($this->doRPCRequest('GetAggregateCompliancePackReport', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetAggregateCompliancePackReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1061,11 +1164,26 @@ class Config extends OpenApiClient
     public function getAggregateConfigRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['AggregatorId'] = $request->aggregatorId;
+        $query['ConfigRuleId'] = $request->configRuleId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAggregateConfigRule',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAggregateConfigRuleResponse::fromMap($this->doRPCRequest('GetAggregateConfigRule', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAggregateConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1091,10 +1209,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAggregateConfigRuleComplianceByPack',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAggregateConfigRuleComplianceByPackResponse::fromMap($this->doRPCRequest('GetAggregateConfigRuleComplianceByPack', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetAggregateConfigRuleComplianceByPackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1120,10 +1249,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAggregateConfigRuleSummaryByRiskLevel',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAggregateConfigRuleSummaryByRiskLevelResponse::fromMap($this->doRPCRequest('GetAggregateConfigRuleSummaryByRiskLevel', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetAggregateConfigRuleSummaryByRiskLevelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1149,10 +1289,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAggregateConfigRulesReport',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAggregateConfigRulesReportResponse::fromMap($this->doRPCRequest('GetAggregateConfigRulesReport', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetAggregateConfigRulesReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1178,10 +1329,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAggregateResourceComplianceByConfigRule',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAggregateResourceComplianceByConfigRuleResponse::fromMap($this->doRPCRequest('GetAggregateResourceComplianceByConfigRule', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetAggregateResourceComplianceByConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1207,10 +1369,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAggregateResourceComplianceByPack',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAggregateResourceComplianceByPackResponse::fromMap($this->doRPCRequest('GetAggregateResourceComplianceByPack', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetAggregateResourceComplianceByPackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1236,10 +1409,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAggregateResourceComplianceTimeline',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAggregateResourceComplianceTimelineResponse::fromMap($this->doRPCRequest('GetAggregateResourceComplianceTimeline', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetAggregateResourceComplianceTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1265,10 +1449,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAggregateResourceConfigurationTimeline',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAggregateResourceConfigurationTimelineResponse::fromMap($this->doRPCRequest('GetAggregateResourceConfigurationTimeline', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetAggregateResourceConfigurationTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1294,10 +1489,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAggregateResourceCountsGroupByRegion',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAggregateResourceCountsGroupByRegionResponse::fromMap($this->doRPCRequest('GetAggregateResourceCountsGroupByRegion', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetAggregateResourceCountsGroupByRegionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1323,10 +1529,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAggregateResourceCountsGroupByResourceType',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAggregateResourceCountsGroupByResourceTypeResponse::fromMap($this->doRPCRequest('GetAggregateResourceCountsGroupByResourceType', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetAggregateResourceCountsGroupByResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1342,34 +1559,6 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param GetAggregateResourceInventoryRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return GetAggregateResourceInventoryResponse
-     */
-    public function getAggregateResourceInventoryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetAggregateResourceInventoryResponse::fromMap($this->doRPCRequest('GetAggregateResourceInventory', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetAggregateResourceInventoryRequest $request
-     *
-     * @return GetAggregateResourceInventoryResponse
-     */
-    public function getAggregateResourceInventory($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getAggregateResourceInventoryWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetAggregatorRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1380,10 +1569,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAggregator',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAggregatorResponse::fromMap($this->doRPCRequest('GetAggregator', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetAggregatorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1409,10 +1609,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCompliancePack',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetCompliancePackResponse::fromMap($this->doRPCRequest('GetCompliancePack', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1438,10 +1649,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCompliancePackReport',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetCompliancePackReportResponse::fromMap($this->doRPCRequest('GetCompliancePackReport', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetCompliancePackReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1465,11 +1687,25 @@ class Config extends OpenApiClient
     public function getConfigRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['ConfigRuleId'] = $request->configRuleId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetConfigRule',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetConfigRuleResponse::fromMap($this->doRPCRequest('GetConfigRule', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1495,10 +1731,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetConfigRuleComplianceByPack',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetConfigRuleComplianceByPackResponse::fromMap($this->doRPCRequest('GetConfigRuleComplianceByPack', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetConfigRuleComplianceByPackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1520,9 +1767,20 @@ class Config extends OpenApiClient
      */
     public function getConfigRuleSummaryByRiskLevelWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetConfigRuleSummaryByRiskLevel',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetConfigRuleSummaryByRiskLevelResponse::fromMap($this->doRPCRequest('GetConfigRuleSummaryByRiskLevel', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetConfigRuleSummaryByRiskLevelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1542,9 +1800,20 @@ class Config extends OpenApiClient
      */
     public function getConfigRulesReportWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetConfigRulesReport',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetConfigRulesReportResponse::fromMap($this->doRPCRequest('GetConfigRulesReport', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetConfigRulesReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1568,10 +1837,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDiscoveredResourceCountsGroupByRegion',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetDiscoveredResourceCountsGroupByRegionResponse::fromMap($this->doRPCRequest('GetDiscoveredResourceCountsGroupByRegion', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetDiscoveredResourceCountsGroupByRegionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1597,10 +1877,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDiscoveredResourceCountsGroupByResourceType',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetDiscoveredResourceCountsGroupByResourceTypeResponse::fromMap($this->doRPCRequest('GetDiscoveredResourceCountsGroupByResourceType', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetDiscoveredResourceCountsGroupByResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1626,10 +1917,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetResourceComplianceByConfigRule',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetResourceComplianceByConfigRuleResponse::fromMap($this->doRPCRequest('GetResourceComplianceByConfigRule', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetResourceComplianceByConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1655,10 +1957,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetResourceComplianceByPack',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetResourceComplianceByPackResponse::fromMap($this->doRPCRequest('GetResourceComplianceByPack', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetResourceComplianceByPackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1684,10 +1997,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetResourceComplianceTimeline',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetResourceComplianceTimelineResponse::fromMap($this->doRPCRequest('GetResourceComplianceTimeline', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetResourceComplianceTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1713,10 +2037,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetResourceConfigurationTimeline',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetResourceConfigurationTimelineResponse::fromMap($this->doRPCRequest('GetResourceConfigurationTimeline', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetResourceConfigurationTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1732,25 +2067,91 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param IgnoreAggregateEvaluationResultsRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
      *
-     * @return GetResourceInventoryResponse
+     * @return IgnoreAggregateEvaluationResultsResponse
      */
-    public function getResourceInventoryWithOptions($runtime)
+    public function ignoreAggregateEvaluationResultsWithOptions($tmpReq, $runtime)
     {
-        $req = new OpenApiRequest([]);
+        Utils::validateModel($tmpReq);
+        $request = new IgnoreAggregateEvaluationResultsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->resources)) {
+            $request->resourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resources, 'Resources', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'IgnoreAggregateEvaluationResults',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetResourceInventoryResponse::fromMap($this->doRPCRequest('GetResourceInventory', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return IgnoreAggregateEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @return GetResourceInventoryResponse
+     * @param IgnoreAggregateEvaluationResultsRequest $request
+     *
+     * @return IgnoreAggregateEvaluationResultsResponse
      */
-    public function getResourceInventory()
+    public function ignoreAggregateEvaluationResults($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getResourceInventoryWithOptions($runtime);
+        return $this->ignoreAggregateEvaluationResultsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param IgnoreEvaluationResultsRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return IgnoreEvaluationResultsResponse
+     */
+    public function ignoreEvaluationResultsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new IgnoreEvaluationResultsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->resources)) {
+            $request->resourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resources, 'Resources', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'IgnoreEvaluationResults',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return IgnoreEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param IgnoreEvaluationResultsRequest $request
+     *
+     * @return IgnoreEvaluationResultsResponse
+     */
+    public function ignoreEvaluationResults($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->ignoreEvaluationResultsWithOptions($request, $runtime);
     }
 
     /**
@@ -1764,10 +2165,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAggregateCompliancePacks',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAggregateCompliancePacksResponse::fromMap($this->doRPCRequest('ListAggregateCompliancePacks', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListAggregateCompliancePacksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1793,10 +2205,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAggregateConfigRuleEvaluationResults',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAggregateConfigRuleEvaluationResultsResponse::fromMap($this->doRPCRequest('ListAggregateConfigRuleEvaluationResults', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListAggregateConfigRuleEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1822,10 +2245,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAggregateConfigRules',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAggregateConfigRulesResponse::fromMap($this->doRPCRequest('ListAggregateConfigRules', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListAggregateConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1841,34 +2275,6 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param ListAggregateRemediationsRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ListAggregateRemediationsResponse
-     */
-    public function listAggregateRemediationsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListAggregateRemediationsResponse::fromMap($this->doRPCRequest('ListAggregateRemediations', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListAggregateRemediationsRequest $request
-     *
-     * @return ListAggregateRemediationsResponse
-     */
-    public function listAggregateRemediations($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listAggregateRemediationsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListAggregateResourceEvaluationResultsRequest $request
      * @param RuntimeOptions                                $runtime
      *
@@ -1879,10 +2285,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAggregateResourceEvaluationResults',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAggregateResourceEvaluationResultsResponse::fromMap($this->doRPCRequest('ListAggregateResourceEvaluationResults', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListAggregateResourceEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1908,10 +2325,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAggregators',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAggregatorsResponse::fromMap($this->doRPCRequest('ListAggregators', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListAggregatorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1937,10 +2365,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCompliancePackTemplates',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListCompliancePackTemplatesResponse::fromMap($this->doRPCRequest('ListCompliancePackTemplates', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListCompliancePackTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1966,10 +2405,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCompliancePacks',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListCompliancePacksResponse::fromMap($this->doRPCRequest('ListCompliancePacks', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListCompliancePacksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1995,10 +2445,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListConfigRuleEvaluationResults',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListConfigRuleEvaluationResultsResponse::fromMap($this->doRPCRequest('ListConfigRuleEvaluationResults', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListConfigRuleEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2014,34 +2475,6 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param ListRemediationsRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListRemediationsResponse
-     */
-    public function listRemediationsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListRemediationsResponse::fromMap($this->doRPCRequest('ListRemediations', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListRemediationsRequest $request
-     *
-     * @return ListRemediationsResponse
-     */
-    public function listRemediations($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listRemediationsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListResourceEvaluationResultsRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -2052,10 +2485,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListResourceEvaluationResults',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListResourceEvaluationResultsResponse::fromMap($this->doRPCRequest('ListResourceEvaluationResults', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListResourceEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2071,25 +2515,91 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param RevertAggregateEvaluationResultsRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
      *
-     * @return ListResourceOwnerInAllAggregatorResponse
+     * @return RevertAggregateEvaluationResultsResponse
      */
-    public function listResourceOwnerInAllAggregatorWithOptions($runtime)
+    public function revertAggregateEvaluationResultsWithOptions($tmpReq, $runtime)
     {
-        $req = new OpenApiRequest([]);
+        Utils::validateModel($tmpReq);
+        $request = new RevertAggregateEvaluationResultsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->resources)) {
+            $request->resourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resources, 'Resources', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RevertAggregateEvaluationResults',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListResourceOwnerInAllAggregatorResponse::fromMap($this->doRPCRequest('ListResourceOwnerInAllAggregator', '2020-09-07', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return RevertAggregateEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @return ListResourceOwnerInAllAggregatorResponse
+     * @param RevertAggregateEvaluationResultsRequest $request
+     *
+     * @return RevertAggregateEvaluationResultsResponse
      */
-    public function listResourceOwnerInAllAggregator()
+    public function revertAggregateEvaluationResults($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listResourceOwnerInAllAggregatorWithOptions($runtime);
+        return $this->revertAggregateEvaluationResultsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RevertEvaluationResultsRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RevertEvaluationResultsResponse
+     */
+    public function revertEvaluationResultsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RevertEvaluationResultsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->resources)) {
+            $request->resourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resources, 'Resources', 'json');
+        }
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'RevertEvaluationResults',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RevertEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RevertEvaluationResultsRequest $request
+     *
+     * @return RevertEvaluationResultsResponse
+     */
+    public function revertEvaluationResults($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revertEvaluationResultsWithOptions($request, $runtime);
     }
 
     /**
@@ -2101,11 +2611,28 @@ class Config extends OpenApiClient
     public function startAggregateConfigRuleEvaluationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['AggregatorId']     = $request->aggregatorId;
+        $query['CompliancePackId'] = $request->compliancePackId;
+        $query['ConfigRuleId']     = $request->configRuleId;
+        $query['RevertEvaluation'] = $request->revertEvaluation;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'StartAggregateConfigRuleEvaluation',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StartAggregateConfigRuleEvaluationResponse::fromMap($this->doRPCRequest('StartAggregateConfigRuleEvaluation', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartAggregateConfigRuleEvaluationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2118,62 +2645,6 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startAggregateConfigRuleEvaluationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param StartAggregateRemediationRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return StartAggregateRemediationResponse
-     */
-    public function startAggregateRemediationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return StartAggregateRemediationResponse::fromMap($this->doRPCRequest('StartAggregateRemediation', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param StartAggregateRemediationRequest $request
-     *
-     * @return StartAggregateRemediationResponse
-     */
-    public function startAggregateRemediation($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->startAggregateRemediationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param StartRemediationRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return StartRemediationResponse
-     */
-    public function startRemediationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return StartRemediationResponse::fromMap($this->doRPCRequest('StartRemediation', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param StartRemediationRequest $request
-     *
-     * @return StartRemediationResponse
-     */
-    public function startRemediation($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->startRemediationWithOptions($request, $runtime);
     }
 
     /**
@@ -2193,8 +2664,19 @@ class Config extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateAggregateCompliancePack',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateAggregateCompliancePackResponse::fromMap($this->doRPCRequest('UpdateAggregateCompliancePack', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateAggregateCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2229,8 +2711,19 @@ class Config extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateAggregateConfigRule',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateAggregateConfigRuleResponse::fromMap($this->doRPCRequest('UpdateAggregateConfigRule', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateAggregateConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2243,34 +2736,6 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAggregateConfigRuleWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateAggregateRemediationRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return UpdateAggregateRemediationResponse
-     */
-    public function updateAggregateRemediationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateAggregateRemediationResponse::fromMap($this->doRPCRequest('UpdateAggregateRemediation', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateAggregateRemediationRequest $request
-     *
-     * @return UpdateAggregateRemediationResponse
-     */
-    public function updateAggregateRemediation($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateAggregateRemediationWithOptions($request, $runtime);
     }
 
     /**
@@ -2290,8 +2755,19 @@ class Config extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateAggregator',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateAggregatorResponse::fromMap($this->doRPCRequest('UpdateAggregator', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateAggregatorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2323,8 +2799,19 @@ class Config extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateCompliancePack',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateCompliancePackResponse::fromMap($this->doRPCRequest('UpdateCompliancePack', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateCompliancePackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2359,8 +2846,19 @@ class Config extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateConfigRule',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateConfigRuleResponse::fromMap($this->doRPCRequest('UpdateConfigRule', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2373,33 +2871,5 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateConfigRuleWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateRemediationRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return UpdateRemediationResponse
-     */
-    public function updateRemediationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateRemediationResponse::fromMap($this->doRPCRequest('UpdateRemediation', '2020-09-07', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateRemediationRequest $request
-     *
-     * @return UpdateRemediationResponse
-     */
-    public function updateRemediation($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateRemediationWithOptions($request, $runtime);
     }
 }

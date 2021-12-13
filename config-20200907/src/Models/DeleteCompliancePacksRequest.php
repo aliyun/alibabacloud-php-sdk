@@ -17,9 +17,15 @@ class DeleteCompliancePacksRequest extends Model
      * @var string
      */
     public $compliancePackIds;
+
+    /**
+     * @var bool
+     */
+    public $deleteRule;
     protected $_name = [
         'clientToken'       => 'ClientToken',
         'compliancePackIds' => 'CompliancePackIds',
+        'deleteRule'        => 'DeleteRule',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class DeleteCompliancePacksRequest extends Model
         }
         if (null !== $this->compliancePackIds) {
             $res['CompliancePackIds'] = $this->compliancePackIds;
+        }
+        if (null !== $this->deleteRule) {
+            $res['DeleteRule'] = $this->deleteRule;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class DeleteCompliancePacksRequest extends Model
         }
         if (isset($map['CompliancePackIds'])) {
             $model->compliancePackIds = $map['CompliancePackIds'];
+        }
+        if (isset($map['DeleteRule'])) {
+            $model->deleteRule = $map['DeleteRule'];
         }
 
         return $model;

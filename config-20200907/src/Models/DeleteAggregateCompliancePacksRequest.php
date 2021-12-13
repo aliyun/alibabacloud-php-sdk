@@ -22,10 +22,16 @@ class DeleteAggregateCompliancePacksRequest extends Model
      * @var string
      */
     public $compliancePackIds;
+
+    /**
+     * @var bool
+     */
+    public $deleteRule;
     protected $_name = [
         'aggregatorId'      => 'AggregatorId',
         'clientToken'       => 'ClientToken',
         'compliancePackIds' => 'CompliancePackIds',
+        'deleteRule'        => 'DeleteRule',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class DeleteAggregateCompliancePacksRequest extends Model
         }
         if (null !== $this->compliancePackIds) {
             $res['CompliancePackIds'] = $this->compliancePackIds;
+        }
+        if (null !== $this->deleteRule) {
+            $res['DeleteRule'] = $this->deleteRule;
         }
 
         return $res;
@@ -64,6 +73,9 @@ class DeleteAggregateCompliancePacksRequest extends Model
         }
         if (isset($map['CompliancePackIds'])) {
             $model->compliancePackIds = $map['CompliancePackIds'];
+        }
+        if (isset($map['DeleteRule'])) {
+            $model->deleteRule = $map['DeleteRule'];
         }
 
         return $model;
