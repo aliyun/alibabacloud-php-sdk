@@ -59,6 +59,7 @@ use AlibabaCloud\SDK\Config\V20190108\Models\StopConfigRulesResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Config extends OpenApiClient
@@ -107,11 +108,25 @@ class Config extends OpenApiClient
     public function activeConfigRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ConfigRuleIds'] = $request->configRuleIds;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ActiveConfigRules',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ActiveConfigRulesResponse::fromMap($this->doRPCRequest('ActiveConfigRules', '2019-01-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ActiveConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -135,11 +150,25 @@ class Config extends OpenApiClient
     public function deleteConfigRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ConfigRuleIds'] = $request->configRuleIds;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteConfigRules',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteConfigRulesResponse::fromMap($this->doRPCRequest('DeleteConfigRules', '2019-01-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -165,10 +194,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCompliance',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeComplianceResponse::fromMap($this->doRPCRequest('DescribeCompliance', '2019-01-08', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeComplianceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -194,10 +234,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeComplianceSummary',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeComplianceSummaryResponse::fromMap($this->doRPCRequest('DescribeComplianceSummary', '2019-01-08', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeComplianceSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -223,10 +274,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeConfigRule',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeConfigRuleResponse::fromMap($this->doRPCRequest('DescribeConfigRule', '2019-01-08', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -248,9 +310,20 @@ class Config extends OpenApiClient
      */
     public function describeConfigurationRecorderWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeConfigurationRecorder',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return DescribeConfigurationRecorderResponse::fromMap($this->doRPCRequest('DescribeConfigurationRecorder', '2019-01-08', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeConfigurationRecorderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -274,10 +347,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDeliveryChannels',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDeliveryChannelsResponse::fromMap($this->doRPCRequest('DescribeDeliveryChannels', '2019-01-08', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeDeliveryChannelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -303,10 +387,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDiscoveredResource',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDiscoveredResourceResponse::fromMap($this->doRPCRequest('DescribeDiscoveredResource', '2019-01-08', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeDiscoveredResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -332,10 +427,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEvaluationResults',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeEvaluationResultsResponse::fromMap($this->doRPCRequest('DescribeEvaluationResults', '2019-01-08', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeEvaluationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -361,10 +467,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAggregateDiscoveredResource',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAggregateDiscoveredResourceResponse::fromMap($this->doRPCRequest('GetAggregateDiscoveredResource', '2019-01-08', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetAggregateDiscoveredResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -390,10 +507,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDiscoveredResourceCounts',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetDiscoveredResourceCountsResponse::fromMap($this->doRPCRequest('GetDiscoveredResourceCounts', '2019-01-08', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetDiscoveredResourceCountsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -419,10 +547,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDiscoveredResourceSummary',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetDiscoveredResourceSummaryResponse::fromMap($this->doRPCRequest('GetDiscoveredResourceSummary', '2019-01-08', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetDiscoveredResourceSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -448,10 +587,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetResourceComplianceTimeline',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetResourceComplianceTimelineResponse::fromMap($this->doRPCRequest('GetResourceComplianceTimeline', '2019-01-08', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetResourceComplianceTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -477,10 +627,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetResourceConfigurationTimeline',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return GetResourceConfigurationTimelineResponse::fromMap($this->doRPCRequest('GetResourceConfigurationTimeline', '2019-01-08', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetResourceConfigurationTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -502,9 +663,20 @@ class Config extends OpenApiClient
      */
     public function getSupportedResourceTypesWithOptions($runtime)
     {
-        $req = new OpenApiRequest([]);
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetSupportedResourceTypes',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetSupportedResourceTypesResponse::fromMap($this->doRPCRequest('GetSupportedResourceTypes', '2019-01-08', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetSupportedResourceTypesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -528,10 +700,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAggregateDiscoveredResources',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAggregateDiscoveredResourcesResponse::fromMap($this->doRPCRequest('ListAggregateDiscoveredResources', '2019-01-08', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListAggregateDiscoveredResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -557,10 +740,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListConfigRules',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListConfigRulesResponse::fromMap($this->doRPCRequest('ListConfigRules', '2019-01-08', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -586,10 +780,21 @@ class Config extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDiscoveredResources',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListDiscoveredResourcesResponse::fromMap($this->doRPCRequest('ListDiscoveredResources', '2019-01-08', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListDiscoveredResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -613,11 +818,26 @@ class Config extends OpenApiClient
     public function listRemediationTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                          = [];
+        $query['ManagedRuleIdentifier'] = $request->managedRuleIdentifier;
+        $query['RemediationType']       = $request->remediationType;
+        $req                            = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRemediationTemplates',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ListRemediationTemplatesResponse::fromMap($this->doRPCRequest('ListRemediationTemplates', '2019-01-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListRemediationTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -641,11 +861,26 @@ class Config extends OpenApiClient
     public function putConfigRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['MemberId']     = $request->memberId;
+        $query['MultiAccount'] = $request->multiAccount;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'PutConfigRule',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PutConfigRuleResponse::fromMap($this->doRPCRequest('PutConfigRule', '2019-01-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutConfigRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -672,8 +907,19 @@ class Config extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'PutConfigurationRecorder',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return PutConfigurationRecorderResponse::fromMap($this->doRPCRequest('PutConfigurationRecorder', '2019-01-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutConfigurationRecorderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -700,8 +946,19 @@ class Config extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'PutDeliveryChannel',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return PutDeliveryChannelResponse::fromMap($this->doRPCRequest('PutDeliveryChannel', '2019-01-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutDeliveryChannelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -728,8 +985,19 @@ class Config extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'PutEvaluations',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return PutEvaluationsResponse::fromMap($this->doRPCRequest('PutEvaluations', '2019-01-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PutEvaluationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -753,11 +1021,27 @@ class Config extends OpenApiClient
     public function startConfigRuleEvaluationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['CompliancePackId'] = $request->compliancePackId;
+        $query['ConfigRuleId']     = $request->configRuleId;
+        $query['RevertEvaluation'] = $request->revertEvaluation;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'StartConfigRuleEvaluation',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StartConfigRuleEvaluationResponse::fromMap($this->doRPCRequest('StartConfigRuleEvaluation', '2019-01-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartConfigRuleEvaluationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -784,8 +1068,19 @@ class Config extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'StartConfigurationRecorder',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return StartConfigurationRecorderResponse::fromMap($this->doRPCRequest('StartConfigurationRecorder', '2019-01-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartConfigurationRecorderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -809,11 +1104,25 @@ class Config extends OpenApiClient
     public function stopConfigRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ConfigRuleIds'] = $request->configRuleIds;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'StopConfigRules',
+            'version'     => '2019-01-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StopConfigRulesResponse::fromMap($this->doRPCRequest('StopConfigRules', '2019-01-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopConfigRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

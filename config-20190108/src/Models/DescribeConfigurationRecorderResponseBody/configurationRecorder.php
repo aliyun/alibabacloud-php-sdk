@@ -19,12 +19,24 @@ class configurationRecorder extends Model
     public $configurationRecorderStatus;
 
     /**
+     * @var string
+     */
+    public $organizationEnableStatus;
+
+    /**
+     * @var int
+     */
+    public $organizationMasterId;
+
+    /**
      * @var string[]
      */
     public $resourceTypes;
     protected $_name = [
         'accountId'                   => 'AccountId',
         'configurationRecorderStatus' => 'ConfigurationRecorderStatus',
+        'organizationEnableStatus'    => 'OrganizationEnableStatus',
+        'organizationMasterId'        => 'OrganizationMasterId',
         'resourceTypes'               => 'ResourceTypes',
     ];
 
@@ -40,6 +52,12 @@ class configurationRecorder extends Model
         }
         if (null !== $this->configurationRecorderStatus) {
             $res['ConfigurationRecorderStatus'] = $this->configurationRecorderStatus;
+        }
+        if (null !== $this->organizationEnableStatus) {
+            $res['OrganizationEnableStatus'] = $this->organizationEnableStatus;
+        }
+        if (null !== $this->organizationMasterId) {
+            $res['OrganizationMasterId'] = $this->organizationMasterId;
         }
         if (null !== $this->resourceTypes) {
             $res['ResourceTypes'] = $this->resourceTypes;
@@ -61,6 +79,12 @@ class configurationRecorder extends Model
         }
         if (isset($map['ConfigurationRecorderStatus'])) {
             $model->configurationRecorderStatus = $map['ConfigurationRecorderStatus'];
+        }
+        if (isset($map['OrganizationEnableStatus'])) {
+            $model->organizationEnableStatus = $map['OrganizationEnableStatus'];
+        }
+        if (isset($map['OrganizationMasterId'])) {
+            $model->organizationMasterId = $map['OrganizationMasterId'];
         }
         if (isset($map['ResourceTypes'])) {
             if (!empty($map['ResourceTypes'])) {
