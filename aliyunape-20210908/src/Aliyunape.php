@@ -5,6 +5,9 @@
 namespace AlibabaCloud\SDK\Aliyunape\V20210908;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Aliyunape\V20210908\Models\ApeInnerCommonApiRequest;
+use AlibabaCloud\SDK\Aliyunape\V20210908\Models\ApeInnerCommonApiResponse;
 use AlibabaCloud\SDK\Aliyunape\V20210908\Models\HistoricalRequest;
 use AlibabaCloud\SDK\Aliyunape\V20210908\Models\HistoricalResponse;
 use AlibabaCloud\SDK\Aliyunape\V20210908\Models\StationDayRequest;
@@ -18,6 +21,7 @@ use AlibabaCloud\SDK\Aliyunape\V20210908\Models\WeathermonitorResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Aliyunape extends OpenApiClient
@@ -54,6 +58,46 @@ class Aliyunape extends OpenApiClient
     }
 
     /**
+     * @param ApeInnerCommonApiRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ApeInnerCommonApiResponse
+     */
+    public function apeInnerCommonApiWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ApeInnerCommonApi',
+            'version'     => '2021-09-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ApeInnerCommonApiResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ApeInnerCommonApiRequest $request
+     *
+     * @return ApeInnerCommonApiResponse
+     */
+    public function apeInnerCommonApi($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->apeInnerCommonApiWithOptions($request, $runtime);
+    }
+
+    /**
      * @param HistoricalRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -62,11 +106,30 @@ class Aliyunape extends OpenApiClient
     public function historicalWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['EndTime']   = $request->endTime;
+        $query['OrderId']   = $request->orderId;
+        $query['PageNum']   = $request->pageNum;
+        $query['PageSize']  = $request->pageSize;
+        $query['StartTime'] = $request->startTime;
+        $query['Station']   = $request->station;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'Historical',
+            'version'     => '2021-09-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return HistoricalResponse::fromMap($this->doRPCRequest('Historical', '2021-09-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return HistoricalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -90,11 +153,27 @@ class Aliyunape extends OpenApiClient
     public function stationDayWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['OrderId']       = $request->orderId;
+        $query['StartForecast'] = $request->startForecast;
+        $query['Station']       = $request->station;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'StationDay',
+            'version'     => '2021-09-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return StationDayResponse::fromMap($this->doRPCRequest('StationDay', '2021-09-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StationDayResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -118,11 +197,28 @@ class Aliyunape extends OpenApiClient
     public function weatherforecastWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['Lat']           = $request->lat;
+        $query['Lon']           = $request->lon;
+        $query['OrderId']       = $request->orderId;
+        $query['StartForecast'] = $request->startForecast;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'Weatherforecast',
+            'version'     => '2021-09-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return WeatherforecastResponse::fromMap($this->doRPCRequest('Weatherforecast', '2021-09-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return WeatherforecastResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -146,11 +242,28 @@ class Aliyunape extends OpenApiClient
     public function weatherforecastTimeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['CurHour'] = $request->curHour;
+        $query['Lat']     = $request->lat;
+        $query['Lon']     = $request->lon;
+        $query['OrderId'] = $request->orderId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'WeatherforecastTime',
+            'version'     => '2021-09-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return WeatherforecastTimeResponse::fromMap($this->doRPCRequest('WeatherforecastTime', '2021-09-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return WeatherforecastTimeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -174,11 +287,28 @@ class Aliyunape extends OpenApiClient
     public function weathermonitorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['CurHour']  = $request->curHour;
+        $query['OrderId']  = $request->orderId;
+        $query['PageNum']  = $request->pageNum;
+        $query['PageSize'] = $request->pageSize;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'Weathermonitor',
+            'version'     => '2021-09-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return WeathermonitorResponse::fromMap($this->doRPCRequest('Weathermonitor', '2021-09-08', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return WeathermonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
