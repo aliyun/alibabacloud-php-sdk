@@ -11,15 +11,15 @@ class instanceSpecInfos extends Model
     /**
      * @var string
      */
-    public $value;
+    public $code;
 
     /**
      * @var string
      */
-    public $code;
+    public $value;
     protected $_name = [
-        'value' => 'Value',
         'code'  => 'Code',
+        'value' => 'Value',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class instanceSpecInfos extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class instanceSpecInfos extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

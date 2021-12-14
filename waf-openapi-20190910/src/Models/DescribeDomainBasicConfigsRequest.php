@@ -11,7 +11,12 @@ class DescribeDomainBasicConfigsRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $accessType;
+
+    /**
+     * @var int
+     */
+    public $cloudNativeProductId;
 
     /**
      * @var string
@@ -21,12 +26,7 @@ class DescribeDomainBasicConfigsRequest extends Model
     /**
      * @var string
      */
-    public $accessType;
-
-    /**
-     * @var int
-     */
-    public $cloudNativeProductId;
+    public $instanceId;
 
     /**
      * @var int
@@ -43,10 +43,10 @@ class DescribeDomainBasicConfigsRequest extends Model
      */
     public $resourceGroupId;
     protected $_name = [
-        'instanceId'           => 'InstanceId',
-        'domainKey'            => 'DomainKey',
         'accessType'           => 'AccessType',
         'cloudNativeProductId' => 'CloudNativeProductId',
+        'domainKey'            => 'DomainKey',
+        'instanceId'           => 'InstanceId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
         'resourceGroupId'      => 'ResourceGroupId',
@@ -59,17 +59,17 @@ class DescribeDomainBasicConfigsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->domainKey) {
-            $res['DomainKey'] = $this->domainKey;
-        }
         if (null !== $this->accessType) {
             $res['AccessType'] = $this->accessType;
         }
         if (null !== $this->cloudNativeProductId) {
             $res['CloudNativeProductId'] = $this->cloudNativeProductId;
+        }
+        if (null !== $this->domainKey) {
+            $res['DomainKey'] = $this->domainKey;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -92,17 +92,17 @@ class DescribeDomainBasicConfigsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['DomainKey'])) {
-            $model->domainKey = $map['DomainKey'];
-        }
         if (isset($map['AccessType'])) {
             $model->accessType = $map['AccessType'];
         }
         if (isset($map['CloudNativeProductId'])) {
             $model->cloudNativeProductId = $map['CloudNativeProductId'];
+        }
+        if (isset($map['DomainKey'])) {
+            $model->domainKey = $map['DomainKey'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

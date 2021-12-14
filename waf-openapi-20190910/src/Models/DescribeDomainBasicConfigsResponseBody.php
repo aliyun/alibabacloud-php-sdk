@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainBasicConfigsResponseBody extends Model
 {
     /**
-     * @var int
+     * @var domainConfigs[]
      */
-    public $totalCount;
+    public $domainConfigs;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribeDomainBasicConfigsResponseBody extends Model
     public $requestId;
 
     /**
-     * @var domainConfigs[]
+     * @var int
      */
-    public $domainConfigs;
+    public $totalCount;
     protected $_name = [
-        'totalCount'    => 'TotalCount',
-        'requestId'     => 'RequestId',
         'domainConfigs' => 'DomainConfigs',
+        'requestId'     => 'RequestId',
+        'totalCount'    => 'TotalCount',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class DescribeDomainBasicConfigsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->domainConfigs) {
             $res['DomainConfigs'] = [];
             if (null !== $this->domainConfigs && \is_array($this->domainConfigs)) {
@@ -50,6 +44,12 @@ class DescribeDomainBasicConfigsResponseBody extends Model
                     $res['DomainConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class DescribeDomainBasicConfigsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DomainConfigs'])) {
             if (!empty($map['DomainConfigs'])) {
                 $model->domainConfigs = [];
@@ -77,6 +71,12 @@ class DescribeDomainBasicConfigsResponseBody extends Model
                     $model->domainConfigs[$n++] = null !== $item ? domainConfigs::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

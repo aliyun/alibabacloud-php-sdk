@@ -9,19 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogServiceStatusRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $domainNames;
+
+    /**
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $region;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
 
     /**
      * @var int
@@ -34,16 +29,21 @@ class DescribeLogServiceStatusRequest extends Model
     public $pageSize;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $domainNames;
+    public $region;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
+        'domainNames'     => 'DomainNames',
         'instanceId'      => 'InstanceId',
-        'region'          => 'Region',
-        'resourceGroupId' => 'ResourceGroupId',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
-        'domainNames'     => 'DomainNames',
+        'region'          => 'Region',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -53,14 +53,11 @@ class DescribeLogServiceStatusRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->domainNames) {
+            $res['DomainNames'] = $this->domainNames;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -68,8 +65,11 @@ class DescribeLogServiceStatusRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->domainNames) {
-            $res['DomainNames'] = $this->domainNames;
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -83,14 +83,13 @@ class DescribeLogServiceStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DomainNames'])) {
+            if (!empty($map['DomainNames'])) {
+                $model->domainNames = $map['DomainNames'];
+            }
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -98,10 +97,11 @@ class DescribeLogServiceStatusRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['DomainNames'])) {
-            if (!empty($map['DomainNames'])) {
-                $model->domainNames = $map['DomainNames'];
-            }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

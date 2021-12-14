@@ -14,16 +14,6 @@ class SetDomainRuleGroupRequest extends Model
     public $domains;
 
     /**
-     * @var int
-     */
-    public $ruleGroupId;
-
-    /**
-     * @var int
-     */
-    public $wafVersion;
-
-    /**
      * @var string
      */
     public $instanceId;
@@ -32,12 +22,22 @@ class SetDomainRuleGroupRequest extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var int
+     */
+    public $ruleGroupId;
+
+    /**
+     * @var int
+     */
+    public $wafVersion;
     protected $_name = [
         'domains'         => 'Domains',
-        'ruleGroupId'     => 'RuleGroupId',
-        'wafVersion'      => 'WafVersion',
         'instanceId'      => 'InstanceId',
         'resourceGroupId' => 'ResourceGroupId',
+        'ruleGroupId'     => 'RuleGroupId',
+        'wafVersion'      => 'WafVersion',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class SetDomainRuleGroupRequest extends Model
         if (null !== $this->domains) {
             $res['Domains'] = $this->domains;
         }
-        if (null !== $this->ruleGroupId) {
-            $res['RuleGroupId'] = $this->ruleGroupId;
-        }
-        if (null !== $this->wafVersion) {
-            $res['WafVersion'] = $this->wafVersion;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->ruleGroupId) {
+            $res['RuleGroupId'] = $this->ruleGroupId;
+        }
+        if (null !== $this->wafVersion) {
+            $res['WafVersion'] = $this->wafVersion;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class SetDomainRuleGroupRequest extends Model
         if (isset($map['Domains'])) {
             $model->domains = $map['Domains'];
         }
-        if (isset($map['RuleGroupId'])) {
-            $model->ruleGroupId = $map['RuleGroupId'];
-        }
-        if (isset($map['WafVersion'])) {
-            $model->wafVersion = $map['WafVersion'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['RuleGroupId'])) {
+            $model->ruleGroupId = $map['RuleGroupId'];
+        }
+        if (isset($map['WafVersion'])) {
+            $model->wafVersion = $map['WafVersion'];
         }
 
         return $model;

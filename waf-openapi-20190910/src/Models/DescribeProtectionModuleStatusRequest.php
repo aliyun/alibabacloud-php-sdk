@@ -11,20 +11,20 @@ class DescribeProtectionModuleStatusRequest extends Model
     /**
      * @var string
      */
-    public $domain;
+    public $defenseType;
 
     /**
      * @var string
      */
-    public $defenseType;
+    public $domain;
 
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'domain'      => 'Domain',
         'defenseType' => 'DefenseType',
+        'domain'      => 'Domain',
         'instanceId'  => 'InstanceId',
     ];
 
@@ -35,11 +35,11 @@ class DescribeProtectionModuleStatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
         if (null !== $this->defenseType) {
             $res['DefenseType'] = $this->defenseType;
+        }
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -56,11 +56,11 @@ class DescribeProtectionModuleStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
         if (isset($map['DefenseType'])) {
             $model->defenseType = $map['DefenseType'];
+        }
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

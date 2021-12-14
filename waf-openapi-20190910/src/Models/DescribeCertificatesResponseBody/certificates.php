@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class certificates extends Model
 {
     /**
+     * @var int
+     */
+    public $certificateId;
+
+    /**
      * @var string
      */
     public $certificateName;
@@ -19,25 +24,20 @@ class certificates extends Model
     public $commonName;
 
     /**
-     * @var string[]
-     */
-    public $sans;
-
-    /**
      * @var bool
      */
     public $isUsing;
 
     /**
-     * @var int
+     * @var string[]
      */
-    public $certificateId;
+    public $sans;
     protected $_name = [
+        'certificateId'   => 'CertificateId',
         'certificateName' => 'CertificateName',
         'commonName'      => 'CommonName',
-        'sans'            => 'Sans',
         'isUsing'         => 'IsUsing',
-        'certificateId'   => 'CertificateId',
+        'sans'            => 'Sans',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class certificates extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->certificateId) {
+            $res['CertificateId'] = $this->certificateId;
+        }
         if (null !== $this->certificateName) {
             $res['CertificateName'] = $this->certificateName;
         }
         if (null !== $this->commonName) {
             $res['CommonName'] = $this->commonName;
         }
-        if (null !== $this->sans) {
-            $res['Sans'] = $this->sans;
-        }
         if (null !== $this->isUsing) {
             $res['IsUsing'] = $this->isUsing;
         }
-        if (null !== $this->certificateId) {
-            $res['CertificateId'] = $this->certificateId;
+        if (null !== $this->sans) {
+            $res['Sans'] = $this->sans;
         }
 
         return $res;
@@ -74,22 +74,22 @@ class certificates extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CertificateId'])) {
+            $model->certificateId = $map['CertificateId'];
+        }
         if (isset($map['CertificateName'])) {
             $model->certificateName = $map['CertificateName'];
         }
         if (isset($map['CommonName'])) {
             $model->commonName = $map['CommonName'];
         }
+        if (isset($map['IsUsing'])) {
+            $model->isUsing = $map['IsUsing'];
+        }
         if (isset($map['Sans'])) {
             if (!empty($map['Sans'])) {
                 $model->sans = $map['Sans'];
             }
-        }
-        if (isset($map['IsUsing'])) {
-            $model->isUsing = $map['IsUsing'];
-        }
-        if (isset($map['CertificateId'])) {
-            $model->certificateId = $map['CertificateId'];
         }
 
         return $model;

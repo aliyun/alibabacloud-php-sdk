@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Wafopenapi\V20190910;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\CreateCertificateByCertificateIdRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\CreateCertificateByCertificateIdResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\CreateCertificateRequest;
@@ -37,16 +38,12 @@ use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeDomainRuleGroupRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeDomainRuleGroupResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeInstanceInfoRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeInstanceInfoResponse;
-use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeInstanceInfosRequest;
-use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeInstanceInfosResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeInstanceSpecInfoRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeInstanceSpecInfoResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeLogServiceStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeLogServiceStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeProtectionModuleCodeConfigRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeProtectionModuleCodeConfigResponse;
-use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeProtectionModuleModeRequest;
-use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeProtectionModuleModeResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeProtectionModuleRulesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeProtectionModuleRulesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeProtectionModuleStatusRequest;
@@ -71,11 +68,14 @@ use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\ModifyProtectionRuleCacheStatus
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\ModifyProtectionRuleCacheStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\ModifyProtectionRuleStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\ModifyProtectionRuleStatusResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\MoveResourceGroupRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\MoveResourceGroupResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\SetDomainRuleGroupRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\SetDomainRuleGroupResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Wafopenapi extends OpenApiClient
@@ -146,11 +146,29 @@ class Wafopenapi extends OpenApiClient
     public function createCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Certificate']     = $request->certificate;
+        $query['CertificateName'] = $request->certificateName;
+        $query['Domain']          = $request->domain;
+        $query['InstanceId']      = $request->instanceId;
+        $query['PrivateKey']      = $request->privateKey;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCertificate',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateCertificateResponse::fromMap($this->doRPCRequest('CreateCertificate', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -174,11 +192,27 @@ class Wafopenapi extends OpenApiClient
     public function createCertificateByCertificateIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['CertificateId'] = $request->certificateId;
+        $query['Domain']        = $request->domain;
+        $query['InstanceId']    = $request->instanceId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCertificateByCertificateId',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateCertificateByCertificateIdResponse::fromMap($this->doRPCRequest('CreateCertificateByCertificateId', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateCertificateByCertificateIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -202,11 +236,47 @@ class Wafopenapi extends OpenApiClient
     public function createDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AccessHeaderMode']     = $request->accessHeaderMode;
+        $query['AccessHeaders']        = $request->accessHeaders;
+        $query['AccessType']           = $request->accessType;
+        $query['CloudNativeInstances'] = $request->cloudNativeInstances;
+        $query['ClusterType']          = $request->clusterType;
+        $query['ConnectionTime']       = $request->connectionTime;
+        $query['Domain']               = $request->domain;
+        $query['Http2Port']            = $request->http2Port;
+        $query['HttpPort']             = $request->httpPort;
+        $query['HttpToUserIp']         = $request->httpToUserIp;
+        $query['HttpsPort']            = $request->httpsPort;
+        $query['HttpsRedirect']        = $request->httpsRedirect;
+        $query['InstanceId']           = $request->instanceId;
+        $query['IpFollowStatus']       = $request->ipFollowStatus;
+        $query['IsAccessProduct']      = $request->isAccessProduct;
+        $query['LoadBalancing']        = $request->loadBalancing;
+        $query['LogHeaders']           = $request->logHeaders;
+        $query['ReadTime']             = $request->readTime;
+        $query['ResourceGroupId']      = $request->resourceGroupId;
+        $query['SniHost']              = $request->sniHost;
+        $query['SniStatus']            = $request->sniStatus;
+        $query['SourceIps']            = $request->sourceIps;
+        $query['WriteTime']            = $request->writeTime;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDomain',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDomainResponse::fromMap($this->doRPCRequest('CreateDomain', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -230,11 +300,28 @@ class Wafopenapi extends OpenApiClient
     public function createProtectionModuleRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['DefenseType'] = $request->defenseType;
+        $query['Domain']      = $request->domain;
+        $query['InstanceId']  = $request->instanceId;
+        $query['Rule']        = $request->rule;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateProtectionModuleRule',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateProtectionModuleRuleResponse::fromMap($this->doRPCRequest('CreateProtectionModuleRule', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateProtectionModuleRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -258,11 +345,26 @@ class Wafopenapi extends OpenApiClient
     public function deleteDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['Domain']     = $request->domain;
+        $query['InstanceId'] = $request->instanceId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDomain',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDomainResponse::fromMap($this->doRPCRequest('DeleteDomain', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -286,11 +388,26 @@ class Wafopenapi extends OpenApiClient
     public function deleteInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['InstanceId']      = $request->instanceId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteInstance',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteInstanceResponse::fromMap($this->doRPCRequest('DeleteInstance', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -314,11 +431,28 @@ class Wafopenapi extends OpenApiClient
     public function deleteProtectionModuleRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['DefenseType'] = $request->defenseType;
+        $query['Domain']      = $request->domain;
+        $query['InstanceId']  = $request->instanceId;
+        $query['RuleId']      = $request->ruleId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteProtectionModuleRule',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteProtectionModuleRuleResponse::fromMap($this->doRPCRequest('DeleteProtectionModuleRule', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteProtectionModuleRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -334,34 +468,6 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeCertificatesRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeCertificatesResponse
-     */
-    public function describeCertificatesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeCertificatesResponse::fromMap($this->doRPCRequest('DescribeCertificates', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeCertificatesRequest $request
-     *
-     * @return DescribeCertificatesResponse
-     */
-    public function describeCertificates($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeCertificatesWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeCertMatchStatusRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -370,11 +476,28 @@ class Wafopenapi extends OpenApiClient
     public function describeCertMatchStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['Certificate'] = $request->certificate;
+        $query['Domain']      = $request->domain;
+        $query['InstanceId']  = $request->instanceId;
+        $query['PrivateKey']  = $request->privateKey;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCertMatchStatus',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCertMatchStatusResponse::fromMap($this->doRPCRequest('DescribeCertMatchStatus', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeCertMatchStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -390,6 +513,49 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @param DescribeCertificatesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeCertificatesResponse
+     */
+    public function describeCertificatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['Domain']     = $request->domain;
+        $query['InstanceId'] = $request->instanceId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCertificates',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCertificatesRequest $request
+     *
+     * @return DescribeCertificatesResponse
+     */
+    public function describeCertificates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCertificatesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDomainRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -398,11 +564,26 @@ class Wafopenapi extends OpenApiClient
     public function describeDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['Domain']     = $request->domain;
+        $query['InstanceId'] = $request->instanceId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomain',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainResponse::fromMap($this->doRPCRequest('DescribeDomain', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -426,11 +607,27 @@ class Wafopenapi extends OpenApiClient
     public function describeDomainAdvanceConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['DomainList']      = $request->domainList;
+        $query['InstanceId']      = $request->instanceId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainAdvanceConfigs',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainAdvanceConfigsResponse::fromMap($this->doRPCRequest('DescribeDomainAdvanceConfigs', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainAdvanceConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -454,11 +651,31 @@ class Wafopenapi extends OpenApiClient
     public function describeDomainBasicConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AccessType']           = $request->accessType;
+        $query['CloudNativeProductId'] = $request->cloudNativeProductId;
+        $query['DomainKey']            = $request->domainKey;
+        $query['InstanceId']           = $request->instanceId;
+        $query['PageNumber']           = $request->pageNumber;
+        $query['PageSize']             = $request->pageSize;
+        $query['ResourceGroupId']      = $request->resourceGroupId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainBasicConfigs',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainBasicConfigsResponse::fromMap($this->doRPCRequest('DescribeDomainBasicConfigs', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainBasicConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -482,11 +699,31 @@ class Wafopenapi extends OpenApiClient
     public function describeDomainListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['DomainName']      = $request->domainName;
+        $query['DomainNames']     = $request->domainNames;
+        $query['InstanceId']      = $request->instanceId;
+        $query['IsSub']           = $request->isSub;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainList',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainListResponse::fromMap($this->doRPCRequest('DescribeDomainList', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -510,11 +747,26 @@ class Wafopenapi extends OpenApiClient
     public function describeDomainNamesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['InstanceId']      = $request->instanceId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainNames',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainNamesResponse::fromMap($this->doRPCRequest('DescribeDomainNames', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainNamesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -538,11 +790,26 @@ class Wafopenapi extends OpenApiClient
     public function describeDomainRuleGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['Domain']     = $request->domain;
+        $query['InstanceId'] = $request->instanceId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainRuleGroup',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDomainRuleGroupResponse::fromMap($this->doRPCRequest('DescribeDomainRuleGroup', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDomainRuleGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -566,11 +833,26 @@ class Wafopenapi extends OpenApiClient
     public function describeInstanceInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['InstanceId']      = $request->instanceId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceInfo',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceInfoResponse::fromMap($this->doRPCRequest('DescribeInstanceInfo', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstanceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -586,34 +868,6 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceInfosRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeInstanceInfosResponse
-     */
-    public function describeInstanceInfosWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeInstanceInfosResponse::fromMap($this->doRPCRequest('DescribeInstanceInfos', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeInstanceInfosRequest $request
-     *
-     * @return DescribeInstanceInfosResponse
-     */
-    public function describeInstanceInfos($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeInstanceInfosWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeInstanceSpecInfoRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -622,11 +876,26 @@ class Wafopenapi extends OpenApiClient
     public function describeInstanceSpecInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['InstanceId']      = $request->instanceId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceSpecInfo',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeInstanceSpecInfoResponse::fromMap($this->doRPCRequest('DescribeInstanceSpecInfo', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeInstanceSpecInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -650,11 +919,30 @@ class Wafopenapi extends OpenApiClient
     public function describeLogServiceStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['DomainNames']     = $request->domainNames;
+        $query['InstanceId']      = $request->instanceId;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['Region']          = $request->region;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLogServiceStatus',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeLogServiceStatusResponse::fromMap($this->doRPCRequest('DescribeLogServiceStatus', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeLogServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -678,11 +966,28 @@ class Wafopenapi extends OpenApiClient
     public function describeProtectionModuleCodeConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['CodeType']        = $request->codeType;
+        $query['CodeValue']       = $request->codeValue;
+        $query['InstanceId']      = $request->instanceId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeProtectionModuleCodeConfig',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeProtectionModuleCodeConfigResponse::fromMap($this->doRPCRequest('DescribeProtectionModuleCodeConfig', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeProtectionModuleCodeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -698,34 +1003,6 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @param DescribeProtectionModuleModeRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeProtectionModuleModeResponse
-     */
-    public function describeProtectionModuleModeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeProtectionModuleModeResponse::fromMap($this->doRPCRequest('DescribeProtectionModuleMode', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeProtectionModuleModeRequest $request
-     *
-     * @return DescribeProtectionModuleModeResponse
-     */
-    public function describeProtectionModuleMode($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeProtectionModuleModeWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeProtectionModuleRulesRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -734,11 +1011,32 @@ class Wafopenapi extends OpenApiClient
     public function describeProtectionModuleRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['DefenseType']     = $request->defenseType;
+        $query['Domain']          = $request->domain;
+        $query['InstanceId']      = $request->instanceId;
+        $query['Lang']            = $request->lang;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['Query']           = $request->query;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeProtectionModuleRules',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeProtectionModuleRulesResponse::fromMap($this->doRPCRequest('DescribeProtectionModuleRules', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeProtectionModuleRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -762,11 +1060,27 @@ class Wafopenapi extends OpenApiClient
     public function describeProtectionModuleStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['DefenseType'] = $request->defenseType;
+        $query['Domain']      = $request->domain;
+        $query['InstanceId']  = $request->instanceId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeProtectionModuleStatus',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeProtectionModuleStatusResponse::fromMap($this->doRPCRequest('DescribeProtectionModuleStatus', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeProtectionModuleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -790,11 +1104,26 @@ class Wafopenapi extends OpenApiClient
     public function describeWafSourceIpSegmentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['InstanceId']      = $request->instanceId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWafSourceIpSegment',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeWafSourceIpSegmentResponse::fromMap($this->doRPCRequest('DescribeWafSourceIpSegment', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeWafSourceIpSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -818,11 +1147,47 @@ class Wafopenapi extends OpenApiClient
     public function modifyDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AccessHeaderMode']     = $request->accessHeaderMode;
+        $query['AccessHeaders']        = $request->accessHeaders;
+        $query['AccessType']           = $request->accessType;
+        $query['CloudNativeInstances'] = $request->cloudNativeInstances;
+        $query['ClusterType']          = $request->clusterType;
+        $query['ConnectionTime']       = $request->connectionTime;
+        $query['Domain']               = $request->domain;
+        $query['Http2Port']            = $request->http2Port;
+        $query['HttpPort']             = $request->httpPort;
+        $query['HttpToUserIp']         = $request->httpToUserIp;
+        $query['HttpsPort']            = $request->httpsPort;
+        $query['HttpsRedirect']        = $request->httpsRedirect;
+        $query['InstanceId']           = $request->instanceId;
+        $query['InstanceId']           = $request->instanceId;
+        $query['IpFollowStatus']       = $request->ipFollowStatus;
+        $query['IsAccessProduct']      = $request->isAccessProduct;
+        $query['LoadBalancing']        = $request->loadBalancing;
+        $query['LogHeaders']           = $request->logHeaders;
+        $query['ReadTime']             = $request->readTime;
+        $query['SniHost']              = $request->sniHost;
+        $query['SniStatus']            = $request->sniStatus;
+        $query['SourceIps']            = $request->sourceIps;
+        $query['WriteTime']            = $request->writeTime;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDomain',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyDomainResponse::fromMap($this->doRPCRequest('ModifyDomain', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -846,11 +1211,27 @@ class Wafopenapi extends OpenApiClient
     public function modifyDomainIpv6StatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['Domain']     = $request->domain;
+        $query['Enabled']    = $request->enabled;
+        $query['InstanceId'] = $request->instanceId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDomainIpv6Status',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyDomainIpv6StatusResponse::fromMap($this->doRPCRequest('ModifyDomainIpv6Status', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDomainIpv6StatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -874,11 +1255,27 @@ class Wafopenapi extends OpenApiClient
     public function modifyLogRetrievalStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['Domain']     = $request->domain;
+        $query['Enabled']    = $request->enabled;
+        $query['InstanceId'] = $request->instanceId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyLogRetrievalStatus',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyLogRetrievalStatusResponse::fromMap($this->doRPCRequest('ModifyLogRetrievalStatus', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyLogRetrievalStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -902,11 +1299,27 @@ class Wafopenapi extends OpenApiClient
     public function modifyLogServiceStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['Domain']     = $request->domain;
+        $query['Enabled']    = $request->enabled;
+        $query['InstanceId'] = $request->instanceId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyLogServiceStatus',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyLogServiceStatusResponse::fromMap($this->doRPCRequest('ModifyLogServiceStatus', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyLogServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -930,11 +1343,28 @@ class Wafopenapi extends OpenApiClient
     public function modifyProtectionModuleModeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['DefenseType'] = $request->defenseType;
+        $query['Domain']      = $request->domain;
+        $query['InstanceId']  = $request->instanceId;
+        $query['Mode']        = $request->mode;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyProtectionModuleMode',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyProtectionModuleModeResponse::fromMap($this->doRPCRequest('ModifyProtectionModuleMode', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyProtectionModuleModeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -958,11 +1388,30 @@ class Wafopenapi extends OpenApiClient
     public function modifyProtectionModuleRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['DefenseType'] = $request->defenseType;
+        $query['Domain']      = $request->domain;
+        $query['InstanceId']  = $request->instanceId;
+        $query['LockVersion'] = $request->lockVersion;
+        $query['Rule']        = $request->rule;
+        $query['RuleId']      = $request->ruleId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyProtectionModuleRule',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyProtectionModuleRuleResponse::fromMap($this->doRPCRequest('ModifyProtectionModuleRule', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyProtectionModuleRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -986,11 +1435,28 @@ class Wafopenapi extends OpenApiClient
     public function modifyProtectionModuleStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['DefenseType']  = $request->defenseType;
+        $query['Domain']       = $request->domain;
+        $query['InstanceId']   = $request->instanceId;
+        $query['ModuleStatus'] = $request->moduleStatus;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyProtectionModuleStatus',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyProtectionModuleStatusResponse::fromMap($this->doRPCRequest('ModifyProtectionModuleStatus', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyProtectionModuleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1014,11 +1480,28 @@ class Wafopenapi extends OpenApiClient
     public function modifyProtectionRuleCacheStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['DefenseType'] = $request->defenseType;
+        $query['Domain']      = $request->domain;
+        $query['InstanceId']  = $request->instanceId;
+        $query['RuleId']      = $request->ruleId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyProtectionRuleCacheStatus',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyProtectionRuleCacheStatusResponse::fromMap($this->doRPCRequest('ModifyProtectionRuleCacheStatus', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyProtectionRuleCacheStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1042,11 +1525,30 @@ class Wafopenapi extends OpenApiClient
     public function modifyProtectionRuleStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['DefenseType'] = $request->defenseType;
+        $query['Domain']      = $request->domain;
+        $query['InstanceId']  = $request->instanceId;
+        $query['LockVersion'] = $request->lockVersion;
+        $query['RuleId']      = $request->ruleId;
+        $query['RuleStatus']  = $request->ruleStatus;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyProtectionRuleStatus',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyProtectionRuleStatusResponse::fromMap($this->doRPCRequest('ModifyProtectionRuleStatus', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyProtectionRuleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1062,6 +1564,50 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @param MoveResourceGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return MoveResourceGroupResponse
+     */
+    public function moveResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                    = [];
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['ResourceId']      = $request->resourceId;
+        $query['ResourceType']    = $request->resourceType;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'MoveResourceGroup',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MoveResourceGroupRequest $request
+     *
+     * @return MoveResourceGroupResponse
+     */
+    public function moveResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->moveResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SetDomainRuleGroupRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1070,11 +1616,29 @@ class Wafopenapi extends OpenApiClient
     public function setDomainRuleGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['Domains']         = $request->domains;
+        $query['InstanceId']      = $request->instanceId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['RuleGroupId']     = $request->ruleGroupId;
+        $query['WafVersion']      = $request->wafVersion;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDomainRuleGroup',
+            'version'     => '2019-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDomainRuleGroupResponse::fromMap($this->doRPCRequest('SetDomainRuleGroup', '2019-09-10', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDomainRuleGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

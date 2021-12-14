@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateCertificateByCertificateIdRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $domain;
-
-    /**
      * @var int
      */
     public $certificateId;
@@ -21,10 +16,15 @@ class CreateCertificateByCertificateIdRequest extends Model
     /**
      * @var string
      */
+    public $domain;
+
+    /**
+     * @var string
+     */
     public $instanceId;
     protected $_name = [
-        'domain'        => 'Domain',
         'certificateId' => 'CertificateId',
+        'domain'        => 'Domain',
         'instanceId'    => 'InstanceId',
     ];
 
@@ -35,11 +35,11 @@ class CreateCertificateByCertificateIdRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
         if (null !== $this->certificateId) {
             $res['CertificateId'] = $this->certificateId;
+        }
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -56,11 +56,11 @@ class CreateCertificateByCertificateIdRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
         if (isset($map['CertificateId'])) {
             $model->certificateId = $map['CertificateId'];
+        }
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

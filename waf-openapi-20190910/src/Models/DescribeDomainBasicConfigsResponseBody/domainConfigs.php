@@ -9,19 +9,14 @@ use AlibabaCloud\Tea\Model;
 class domainConfigs extends Model
 {
     /**
+     * @var string
+     */
+    public $accessType;
+
+    /**
      * @var int
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $domain;
-
-    /**
-     * @var string
-     */
-    public $owner;
+    public $aclStatus;
 
     /**
      * @var int
@@ -36,7 +31,17 @@ class domainConfigs extends Model
     /**
      * @var string
      */
-    public $accessType;
+    public $domain;
+
+    /**
+     * @var string
+     */
+    public $owner;
+
+    /**
+     * @var int
+     */
+    public $status;
 
     /**
      * @var int
@@ -46,28 +51,23 @@ class domainConfigs extends Model
     /**
      * @var int
      */
-    public $aclStatus;
+    public $wafMode;
 
     /**
      * @var int
      */
     public $wafStatus;
-
-    /**
-     * @var int
-     */
-    public $wafMode;
     protected $_name = [
-        'status'     => 'Status',
-        'domain'     => 'Domain',
-        'owner'      => 'Owner',
+        'accessType' => 'AccessType',
+        'aclStatus'  => 'AclStatus',
         'ccMode'     => 'CcMode',
         'ccStatus'   => 'CcStatus',
-        'accessType' => 'AccessType',
+        'domain'     => 'Domain',
+        'owner'      => 'Owner',
+        'status'     => 'Status',
         'version'    => 'Version',
-        'aclStatus'  => 'AclStatus',
-        'wafStatus'  => 'WafStatus',
         'wafMode'    => 'WafMode',
+        'wafStatus'  => 'WafStatus',
     ];
 
     public function validate()
@@ -77,14 +77,11 @@ class domainConfigs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->accessType) {
+            $res['AccessType'] = $this->accessType;
         }
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
-        if (null !== $this->owner) {
-            $res['Owner'] = $this->owner;
+        if (null !== $this->aclStatus) {
+            $res['AclStatus'] = $this->aclStatus;
         }
         if (null !== $this->ccMode) {
             $res['CcMode'] = $this->ccMode;
@@ -92,20 +89,23 @@ class domainConfigs extends Model
         if (null !== $this->ccStatus) {
             $res['CcStatus'] = $this->ccStatus;
         }
-        if (null !== $this->accessType) {
-            $res['AccessType'] = $this->accessType;
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
-        if (null !== $this->aclStatus) {
-            $res['AclStatus'] = $this->aclStatus;
+        if (null !== $this->wafMode) {
+            $res['WafMode'] = $this->wafMode;
         }
         if (null !== $this->wafStatus) {
             $res['WafStatus'] = $this->wafStatus;
-        }
-        if (null !== $this->wafMode) {
-            $res['WafMode'] = $this->wafMode;
         }
 
         return $res;
@@ -119,14 +119,11 @@ class domainConfigs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['AccessType'])) {
+            $model->accessType = $map['AccessType'];
         }
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
-        if (isset($map['Owner'])) {
-            $model->owner = $map['Owner'];
+        if (isset($map['AclStatus'])) {
+            $model->aclStatus = $map['AclStatus'];
         }
         if (isset($map['CcMode'])) {
             $model->ccMode = $map['CcMode'];
@@ -134,20 +131,23 @@ class domainConfigs extends Model
         if (isset($map['CcStatus'])) {
             $model->ccStatus = $map['CcStatus'];
         }
-        if (isset($map['AccessType'])) {
-            $model->accessType = $map['AccessType'];
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
+        }
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }
-        if (isset($map['AclStatus'])) {
-            $model->aclStatus = $map['AclStatus'];
+        if (isset($map['WafMode'])) {
+            $model->wafMode = $map['WafMode'];
         }
         if (isset($map['WafStatus'])) {
             $model->wafStatus = $map['WafStatus'];
-        }
-        if (isset($map['WafMode'])) {
-            $model->wafMode = $map['WafMode'];
         }
 
         return $model;

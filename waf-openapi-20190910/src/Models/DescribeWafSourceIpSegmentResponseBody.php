@@ -11,21 +11,21 @@ class DescribeWafSourceIpSegmentResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $ipV6s;
 
     /**
      * @var string
      */
     public $ips;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'ipV6s'     => 'IpV6s',
         'ips'       => 'Ips',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeWafSourceIpSegmentResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->ipV6s) {
             $res['IpV6s'] = $this->ipV6s;
         }
         if (null !== $this->ips) {
             $res['Ips'] = $this->ips;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeWafSourceIpSegmentResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['IpV6s'])) {
             $model->ipV6s = $map['IpV6s'];
         }
         if (isset($map['Ips'])) {
             $model->ips = $map['Ips'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

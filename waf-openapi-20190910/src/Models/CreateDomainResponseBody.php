@@ -11,15 +11,15 @@ class CreateDomainResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $cname;
 
     /**
      * @var string
      */
-    public $cname;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'cname'     => 'Cname',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class CreateDomainResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->cname) {
             $res['Cname'] = $this->cname;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class CreateDomainResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Cname'])) {
             $model->cname = $map['Cname'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

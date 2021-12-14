@@ -11,15 +11,15 @@ class DescribeDomainRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $domain;
 
     /**
      * @var string
      */
-    public $domain;
+    public $instanceId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
         'domain'     => 'Domain',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeDomainRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

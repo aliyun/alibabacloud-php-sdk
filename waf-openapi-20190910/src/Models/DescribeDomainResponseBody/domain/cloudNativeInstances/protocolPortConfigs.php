@@ -11,15 +11,15 @@ class protocolPortConfigs extends Model
     /**
      * @var string
      */
-    public $protocol;
+    public $ports;
 
     /**
      * @var string
      */
-    public $ports;
+    public $protocol;
     protected $_name = [
-        'protocol' => 'Protocol',
         'ports'    => 'Ports',
+        'protocol' => 'Protocol',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class protocolPortConfigs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->protocol) {
-            $res['Protocol'] = $this->protocol;
-        }
         if (null !== $this->ports) {
             $res['Ports'] = $this->ports;
+        }
+        if (null !== $this->protocol) {
+            $res['Protocol'] = $this->protocol;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class protocolPortConfigs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Protocol'])) {
-            $model->protocol = $map['Protocol'];
-        }
         if (isset($map['Ports'])) {
             $model->ports = $map['Ports'];
+        }
+        if (isset($map['Protocol'])) {
+            $model->protocol = $map['Protocol'];
         }
 
         return $model;

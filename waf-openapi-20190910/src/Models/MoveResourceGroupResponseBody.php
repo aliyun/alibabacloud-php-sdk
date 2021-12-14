@@ -6,26 +6,14 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20190910\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeProtectionModuleModeResponseBody extends Model
+class MoveResourceGroupResponseBody extends Model
 {
-    /**
-     * @var int
-     */
-    public $learnStatus;
-
     /**
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var int
-     */
-    public $mode;
     protected $_name = [
-        'learnStatus' => 'LearnStatus',
-        'requestId'   => 'RequestId',
-        'mode'        => 'Mode',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +23,8 @@ class DescribeProtectionModuleModeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->learnStatus) {
-            $res['LearnStatus'] = $this->learnStatus;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->mode) {
-            $res['Mode'] = $this->mode;
         }
 
         return $res;
@@ -51,19 +33,13 @@ class DescribeProtectionModuleModeResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeProtectionModuleModeResponseBody
+     * @return MoveResourceGroupResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['LearnStatus'])) {
-            $model->learnStatus = $map['LearnStatus'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Mode'])) {
-            $model->mode = $map['Mode'];
         }
 
         return $model;

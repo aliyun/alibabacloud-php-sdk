@@ -11,21 +11,21 @@ class ModifyDomainIpv6StatusRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
     public $domain;
 
     /**
      * @var string
      */
     public $enabled;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
         'domain'     => 'Domain',
         'enabled'    => 'Enabled',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class ModifyDomainIpv6StatusRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class ModifyDomainIpv6StatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

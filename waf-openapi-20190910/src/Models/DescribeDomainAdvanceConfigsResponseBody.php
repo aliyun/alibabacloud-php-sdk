@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainAdvanceConfigsResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var domainConfigs[]
      */
     public $domainConfigs;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'     => 'RequestId',
         'domainConfigs' => 'DomainConfigs',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class DescribeDomainAdvanceConfigsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->domainConfigs) {
             $res['DomainConfigs'] = [];
             if (null !== $this->domainConfigs && \is_array($this->domainConfigs)) {
@@ -41,6 +38,9 @@ class DescribeDomainAdvanceConfigsResponseBody extends Model
                     $res['DomainConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class DescribeDomainAdvanceConfigsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DomainConfigs'])) {
             if (!empty($map['DomainConfigs'])) {
                 $model->domainConfigs = [];
@@ -65,6 +62,9 @@ class DescribeDomainAdvanceConfigsResponseBody extends Model
                     $model->domainConfigs[$n++] = null !== $item ? domainConfigs::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

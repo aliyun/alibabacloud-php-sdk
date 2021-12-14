@@ -10,6 +10,21 @@ use AlibabaCloud\Tea\Model;
 class cloudNativeInstances extends Model
 {
     /**
+     * @var string
+     */
+    public $cloudNativeProductName;
+
+    /**
+     * @var string
+     */
+    public $IPAddressList;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @var protocolPortConfigs[]
      */
     public $protocolPortConfigs;
@@ -18,27 +33,12 @@ class cloudNativeInstances extends Model
      * @var string
      */
     public $redirectionTypeName;
-
-    /**
-     * @var string
-     */
-    public $cloudNativeProductName;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $IPAddressList;
     protected $_name = [
+        'cloudNativeProductName' => 'CloudNativeProductName',
+        'IPAddressList'          => 'IPAddressList',
+        'instanceId'             => 'InstanceId',
         'protocolPortConfigs'    => 'ProtocolPortConfigs',
         'redirectionTypeName'    => 'RedirectionTypeName',
-        'cloudNativeProductName' => 'CloudNativeProductName',
-        'instanceId'             => 'InstanceId',
-        'IPAddressList'          => 'IPAddressList',
     ];
 
     public function validate()
@@ -48,6 +48,15 @@ class cloudNativeInstances extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cloudNativeProductName) {
+            $res['CloudNativeProductName'] = $this->cloudNativeProductName;
+        }
+        if (null !== $this->IPAddressList) {
+            $res['IPAddressList'] = $this->IPAddressList;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->protocolPortConfigs) {
             $res['ProtocolPortConfigs'] = [];
             if (null !== $this->protocolPortConfigs && \is_array($this->protocolPortConfigs)) {
@@ -59,15 +68,6 @@ class cloudNativeInstances extends Model
         }
         if (null !== $this->redirectionTypeName) {
             $res['RedirectionTypeName'] = $this->redirectionTypeName;
-        }
-        if (null !== $this->cloudNativeProductName) {
-            $res['CloudNativeProductName'] = $this->cloudNativeProductName;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->IPAddressList) {
-            $res['IPAddressList'] = $this->IPAddressList;
         }
 
         return $res;
@@ -81,6 +81,15 @@ class cloudNativeInstances extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CloudNativeProductName'])) {
+            $model->cloudNativeProductName = $map['CloudNativeProductName'];
+        }
+        if (isset($map['IPAddressList'])) {
+            $model->IPAddressList = $map['IPAddressList'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['ProtocolPortConfigs'])) {
             if (!empty($map['ProtocolPortConfigs'])) {
                 $model->protocolPortConfigs = [];
@@ -92,15 +101,6 @@ class cloudNativeInstances extends Model
         }
         if (isset($map['RedirectionTypeName'])) {
             $model->redirectionTypeName = $map['RedirectionTypeName'];
-        }
-        if (isset($map['CloudNativeProductName'])) {
-            $model->cloudNativeProductName = $map['CloudNativeProductName'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['IPAddressList'])) {
-            $model->IPAddressList = $map['IPAddressList'];
         }
 
         return $model;

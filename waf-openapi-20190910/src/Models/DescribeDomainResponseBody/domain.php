@@ -11,9 +11,19 @@ use AlibabaCloud\Tea\Model;
 class domain extends Model
 {
     /**
+     * @var int
+     */
+    public $accessHeaderMode;
+
+    /**
      * @var string[]
      */
-    public $http2Port;
+    public $accessHeaders;
+
+    /**
+     * @var string
+     */
+    public $accessType;
 
     /**
      * @var cloudNativeInstances[]
@@ -23,87 +33,12 @@ class domain extends Model
     /**
      * @var int
      */
-    public $httpToUserIp;
-
-    /**
-     * @var string[]
-     */
-    public $httpPort;
-
-    /**
-     * @var logHeaders[]
-     */
-    public $logHeaders;
-
-    /**
-     * @var int
-     */
-    public $isAccessProduct;
-
-    /**
-     * @var string[]
-     */
-    public $accessHeaders;
-
-    /**
-     * @var int
-     */
-    public $accessHeaderMode;
-
-    /**
-     * @var int
-     */
-    public $httpsRedirect;
-
-    /**
-     * @var int
-     */
-    public $loadBalancing;
-
-    /**
-     * @var int
-     */
-    public $ipFollowStatus;
-
-    /**
-     * @var string
-     */
-    public $accessType;
-
-    /**
-     * @var int
-     */
-    public $version;
-
-    /**
-     * @var int
-     */
     public $clusterType;
-
-    /**
-     * @var int
-     */
-    public $readTime;
-
-    /**
-     * @var int
-     */
-    public $writeTime;
-
-    /**
-     * @var string
-     */
-    public $resourceGroupId;
 
     /**
      * @var string
      */
     public $cname;
-
-    /**
-     * @var string[]
-     */
-    public $sourceIps;
 
     /**
      * @var int
@@ -113,29 +48,106 @@ class domain extends Model
     /**
      * @var string[]
      */
+    public $http2Port;
+
+    /**
+     * @var string[]
+     */
+    public $httpPort;
+
+    /**
+     * @var int
+     */
+    public $httpToUserIp;
+
+    /**
+     * @var string[]
+     */
     public $httpsPort;
+
+    /**
+     * @var int
+     */
+    public $httpsRedirect;
+
+    /**
+     * @var int
+     */
+    public $ipFollowStatus;
+
+    /**
+     * @var int
+     */
+    public $isAccessProduct;
+
+    /**
+     * @var int
+     */
+    public $loadBalancing;
+
+    /**
+     * @var logHeaders[]
+     */
+    public $logHeaders;
+
+    /**
+     * @var int
+     */
+    public $readTime;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $sniHost;
+
+    /**
+     * @var int
+     */
+    public $sniStatus;
+
+    /**
+     * @var string[]
+     */
+    public $sourceIps;
+
+    /**
+     * @var int
+     */
+    public $version;
+
+    /**
+     * @var int
+     */
+    public $writeTime;
     protected $_name = [
-        'http2Port'            => 'Http2Port',
-        'cloudNativeInstances' => 'CloudNativeInstances',
-        'httpToUserIp'         => 'HttpToUserIp',
-        'httpPort'             => 'HttpPort',
-        'logHeaders'           => 'LogHeaders',
-        'isAccessProduct'      => 'IsAccessProduct',
-        'accessHeaders'        => 'AccessHeaders',
         'accessHeaderMode'     => 'AccessHeaderMode',
-        'httpsRedirect'        => 'HttpsRedirect',
-        'loadBalancing'        => 'LoadBalancing',
-        'ipFollowStatus'       => 'IpFollowStatus',
+        'accessHeaders'        => 'AccessHeaders',
         'accessType'           => 'AccessType',
-        'version'              => 'Version',
+        'cloudNativeInstances' => 'CloudNativeInstances',
         'clusterType'          => 'ClusterType',
-        'readTime'             => 'ReadTime',
-        'writeTime'            => 'WriteTime',
-        'resourceGroupId'      => 'ResourceGroupId',
         'cname'                => 'Cname',
-        'sourceIps'            => 'SourceIps',
         'connectionTime'       => 'ConnectionTime',
+        'http2Port'            => 'Http2Port',
+        'httpPort'             => 'HttpPort',
+        'httpToUserIp'         => 'HttpToUserIp',
         'httpsPort'            => 'HttpsPort',
+        'httpsRedirect'        => 'HttpsRedirect',
+        'ipFollowStatus'       => 'IpFollowStatus',
+        'isAccessProduct'      => 'IsAccessProduct',
+        'loadBalancing'        => 'LoadBalancing',
+        'logHeaders'           => 'LogHeaders',
+        'readTime'             => 'ReadTime',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'sniHost'              => 'SniHost',
+        'sniStatus'            => 'SniStatus',
+        'sourceIps'            => 'SourceIps',
+        'version'              => 'Version',
+        'writeTime'            => 'WriteTime',
     ];
 
     public function validate()
@@ -145,8 +157,14 @@ class domain extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->http2Port) {
-            $res['Http2Port'] = $this->http2Port;
+        if (null !== $this->accessHeaderMode) {
+            $res['AccessHeaderMode'] = $this->accessHeaderMode;
+        }
+        if (null !== $this->accessHeaders) {
+            $res['AccessHeaders'] = $this->accessHeaders;
+        }
+        if (null !== $this->accessType) {
+            $res['AccessType'] = $this->accessType;
         }
         if (null !== $this->cloudNativeInstances) {
             $res['CloudNativeInstances'] = [];
@@ -157,11 +175,38 @@ class domain extends Model
                 }
             }
         }
-        if (null !== $this->httpToUserIp) {
-            $res['HttpToUserIp'] = $this->httpToUserIp;
+        if (null !== $this->clusterType) {
+            $res['ClusterType'] = $this->clusterType;
+        }
+        if (null !== $this->cname) {
+            $res['Cname'] = $this->cname;
+        }
+        if (null !== $this->connectionTime) {
+            $res['ConnectionTime'] = $this->connectionTime;
+        }
+        if (null !== $this->http2Port) {
+            $res['Http2Port'] = $this->http2Port;
         }
         if (null !== $this->httpPort) {
             $res['HttpPort'] = $this->httpPort;
+        }
+        if (null !== $this->httpToUserIp) {
+            $res['HttpToUserIp'] = $this->httpToUserIp;
+        }
+        if (null !== $this->httpsPort) {
+            $res['HttpsPort'] = $this->httpsPort;
+        }
+        if (null !== $this->httpsRedirect) {
+            $res['HttpsRedirect'] = $this->httpsRedirect;
+        }
+        if (null !== $this->ipFollowStatus) {
+            $res['IpFollowStatus'] = $this->ipFollowStatus;
+        }
+        if (null !== $this->isAccessProduct) {
+            $res['IsAccessProduct'] = $this->isAccessProduct;
+        }
+        if (null !== $this->loadBalancing) {
+            $res['LoadBalancing'] = $this->loadBalancing;
         }
         if (null !== $this->logHeaders) {
             $res['LogHeaders'] = [];
@@ -172,53 +217,26 @@ class domain extends Model
                 }
             }
         }
-        if (null !== $this->isAccessProduct) {
-            $res['IsAccessProduct'] = $this->isAccessProduct;
-        }
-        if (null !== $this->accessHeaders) {
-            $res['AccessHeaders'] = $this->accessHeaders;
-        }
-        if (null !== $this->accessHeaderMode) {
-            $res['AccessHeaderMode'] = $this->accessHeaderMode;
-        }
-        if (null !== $this->httpsRedirect) {
-            $res['HttpsRedirect'] = $this->httpsRedirect;
-        }
-        if (null !== $this->loadBalancing) {
-            $res['LoadBalancing'] = $this->loadBalancing;
-        }
-        if (null !== $this->ipFollowStatus) {
-            $res['IpFollowStatus'] = $this->ipFollowStatus;
-        }
-        if (null !== $this->accessType) {
-            $res['AccessType'] = $this->accessType;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
-        if (null !== $this->clusterType) {
-            $res['ClusterType'] = $this->clusterType;
-        }
         if (null !== $this->readTime) {
             $res['ReadTime'] = $this->readTime;
-        }
-        if (null !== $this->writeTime) {
-            $res['WriteTime'] = $this->writeTime;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->cname) {
-            $res['Cname'] = $this->cname;
+        if (null !== $this->sniHost) {
+            $res['SniHost'] = $this->sniHost;
+        }
+        if (null !== $this->sniStatus) {
+            $res['SniStatus'] = $this->sniStatus;
         }
         if (null !== $this->sourceIps) {
             $res['SourceIps'] = $this->sourceIps;
         }
-        if (null !== $this->connectionTime) {
-            $res['ConnectionTime'] = $this->connectionTime;
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
-        if (null !== $this->httpsPort) {
-            $res['HttpsPort'] = $this->httpsPort;
+        if (null !== $this->writeTime) {
+            $res['WriteTime'] = $this->writeTime;
         }
 
         return $res;
@@ -232,10 +250,16 @@ class domain extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Http2Port'])) {
-            if (!empty($map['Http2Port'])) {
-                $model->http2Port = $map['Http2Port'];
+        if (isset($map['AccessHeaderMode'])) {
+            $model->accessHeaderMode = $map['AccessHeaderMode'];
+        }
+        if (isset($map['AccessHeaders'])) {
+            if (!empty($map['AccessHeaders'])) {
+                $model->accessHeaders = $map['AccessHeaders'];
             }
+        }
+        if (isset($map['AccessType'])) {
+            $model->accessType = $map['AccessType'];
         }
         if (isset($map['CloudNativeInstances'])) {
             if (!empty($map['CloudNativeInstances'])) {
@@ -246,13 +270,44 @@ class domain extends Model
                 }
             }
         }
-        if (isset($map['HttpToUserIp'])) {
-            $model->httpToUserIp = $map['HttpToUserIp'];
+        if (isset($map['ClusterType'])) {
+            $model->clusterType = $map['ClusterType'];
+        }
+        if (isset($map['Cname'])) {
+            $model->cname = $map['Cname'];
+        }
+        if (isset($map['ConnectionTime'])) {
+            $model->connectionTime = $map['ConnectionTime'];
+        }
+        if (isset($map['Http2Port'])) {
+            if (!empty($map['Http2Port'])) {
+                $model->http2Port = $map['Http2Port'];
+            }
         }
         if (isset($map['HttpPort'])) {
             if (!empty($map['HttpPort'])) {
                 $model->httpPort = $map['HttpPort'];
             }
+        }
+        if (isset($map['HttpToUserIp'])) {
+            $model->httpToUserIp = $map['HttpToUserIp'];
+        }
+        if (isset($map['HttpsPort'])) {
+            if (!empty($map['HttpsPort'])) {
+                $model->httpsPort = $map['HttpsPort'];
+            }
+        }
+        if (isset($map['HttpsRedirect'])) {
+            $model->httpsRedirect = $map['HttpsRedirect'];
+        }
+        if (isset($map['IpFollowStatus'])) {
+            $model->ipFollowStatus = $map['IpFollowStatus'];
+        }
+        if (isset($map['IsAccessProduct'])) {
+            $model->isAccessProduct = $map['IsAccessProduct'];
+        }
+        if (isset($map['LoadBalancing'])) {
+            $model->loadBalancing = $map['LoadBalancing'];
         }
         if (isset($map['LogHeaders'])) {
             if (!empty($map['LogHeaders'])) {
@@ -263,59 +318,28 @@ class domain extends Model
                 }
             }
         }
-        if (isset($map['IsAccessProduct'])) {
-            $model->isAccessProduct = $map['IsAccessProduct'];
-        }
-        if (isset($map['AccessHeaders'])) {
-            if (!empty($map['AccessHeaders'])) {
-                $model->accessHeaders = $map['AccessHeaders'];
-            }
-        }
-        if (isset($map['AccessHeaderMode'])) {
-            $model->accessHeaderMode = $map['AccessHeaderMode'];
-        }
-        if (isset($map['HttpsRedirect'])) {
-            $model->httpsRedirect = $map['HttpsRedirect'];
-        }
-        if (isset($map['LoadBalancing'])) {
-            $model->loadBalancing = $map['LoadBalancing'];
-        }
-        if (isset($map['IpFollowStatus'])) {
-            $model->ipFollowStatus = $map['IpFollowStatus'];
-        }
-        if (isset($map['AccessType'])) {
-            $model->accessType = $map['AccessType'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
-        if (isset($map['ClusterType'])) {
-            $model->clusterType = $map['ClusterType'];
-        }
         if (isset($map['ReadTime'])) {
             $model->readTime = $map['ReadTime'];
-        }
-        if (isset($map['WriteTime'])) {
-            $model->writeTime = $map['WriteTime'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['Cname'])) {
-            $model->cname = $map['Cname'];
+        if (isset($map['SniHost'])) {
+            $model->sniHost = $map['SniHost'];
+        }
+        if (isset($map['SniStatus'])) {
+            $model->sniStatus = $map['SniStatus'];
         }
         if (isset($map['SourceIps'])) {
             if (!empty($map['SourceIps'])) {
                 $model->sourceIps = $map['SourceIps'];
             }
         }
-        if (isset($map['ConnectionTime'])) {
-            $model->connectionTime = $map['ConnectionTime'];
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
-        if (isset($map['HttpsPort'])) {
-            if (!empty($map['HttpsPort'])) {
-                $model->httpsPort = $map['HttpsPort'];
-            }
+        if (isset($map['WriteTime'])) {
+            $model->writeTime = $map['WriteTime'];
         }
 
         return $model;

@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @var mixed[]
+     */
+    public $content;
+
+    /**
+     * @var int
+     */
+    public $ruleId;
+
+    /**
      * @var int
      */
     public $status;
@@ -22,22 +32,12 @@ class rules extends Model
      * @var int
      */
     public $version;
-
-    /**
-     * @var mixed[]
-     */
-    public $content;
-
-    /**
-     * @var int
-     */
-    public $ruleId;
     protected $_name = [
+        'content' => 'Content',
+        'ruleId'  => 'RuleId',
         'status'  => 'Status',
         'time'    => 'Time',
         'version' => 'Version',
-        'content' => 'Content',
-        'ruleId'  => 'RuleId',
     ];
 
     public function validate()
@@ -47,6 +47,12 @@ class rules extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
+        }
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -55,12 +61,6 @@ class rules extends Model
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
-        }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
-        }
-        if (null !== $this->ruleId) {
-            $res['RuleId'] = $this->ruleId;
         }
 
         return $res;
@@ -74,6 +74,12 @@ class rules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
+        }
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
@@ -82,12 +88,6 @@ class rules extends Model
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
-        }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
-        }
-        if (isset($map['RuleId'])) {
-            $model->ruleId = $map['RuleId'];
         }
 
         return $model;

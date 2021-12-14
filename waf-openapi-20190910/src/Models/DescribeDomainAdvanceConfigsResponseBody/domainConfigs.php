@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class domainConfigs extends Model
 {
     /**
-     * @var profile
-     */
-    public $profile;
-
-    /**
      * @var string
      */
     public $domain;
+
+    /**
+     * @var profile
+     */
+    public $profile;
     protected $_name = [
-        'profile' => 'Profile',
         'domain'  => 'Domain',
+        'profile' => 'Profile',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class domainConfigs extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->profile) {
-            $res['Profile'] = null !== $this->profile ? $this->profile->toMap() : null;
-        }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->profile) {
+            $res['Profile'] = null !== $this->profile ? $this->profile->toMap() : null;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class domainConfigs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Profile'])) {
-            $model->profile = profile::fromMap($map['Profile']);
-        }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
+        }
+        if (isset($map['Profile'])) {
+            $model->profile = profile::fromMap($map['Profile']);
         }
 
         return $model;

@@ -11,7 +11,12 @@ class DescribeDomainListRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupId;
+    public $domainName;
+
+    /**
+     * @var string[]
+     */
+    public $domainNames;
 
     /**
      * @var string
@@ -19,9 +24,9 @@ class DescribeDomainListRequest extends Model
     public $instanceId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $domainName;
+    public $isSub;
 
     /**
      * @var int
@@ -34,22 +39,17 @@ class DescribeDomainListRequest extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $isSub;
-
-    /**
-     * @var string[]
-     */
-    public $domainNames;
+    public $resourceGroupId;
     protected $_name = [
-        'resourceGroupId' => 'ResourceGroupId',
-        'instanceId'      => 'InstanceId',
         'domainName'      => 'DomainName',
+        'domainNames'     => 'DomainNames',
+        'instanceId'      => 'InstanceId',
+        'isSub'           => 'IsSub',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
-        'isSub'           => 'IsSub',
-        'domainNames'     => 'DomainNames',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -59,14 +59,17 @@ class DescribeDomainListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->domainNames) {
+            $res['DomainNames'] = $this->domainNames;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+        if (null !== $this->isSub) {
+            $res['IsSub'] = $this->isSub;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -74,11 +77,8 @@ class DescribeDomainListRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->isSub) {
-            $res['IsSub'] = $this->isSub;
-        }
-        if (null !== $this->domainNames) {
-            $res['DomainNames'] = $this->domainNames;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -92,14 +92,19 @@ class DescribeDomainListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['DomainNames'])) {
+            if (!empty($map['DomainNames'])) {
+                $model->domainNames = $map['DomainNames'];
+            }
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
+        if (isset($map['IsSub'])) {
+            $model->isSub = $map['IsSub'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -107,13 +112,8 @@ class DescribeDomainListRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['IsSub'])) {
-            $model->isSub = $map['IsSub'];
-        }
-        if (isset($map['DomainNames'])) {
-            if (!empty($map['DomainNames'])) {
-                $model->domainNames = $map['DomainNames'];
-            }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

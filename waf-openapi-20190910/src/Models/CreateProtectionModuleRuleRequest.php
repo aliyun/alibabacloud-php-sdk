@@ -11,27 +11,27 @@ class CreateProtectionModuleRuleRequest extends Model
     /**
      * @var string
      */
-    public $domain;
-
-    /**
-     * @var string
-     */
     public $defenseType;
 
     /**
      * @var string
      */
-    public $rule;
+    public $domain;
 
     /**
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $rule;
     protected $_name = [
-        'domain'      => 'Domain',
         'defenseType' => 'DefenseType',
-        'rule'        => 'Rule',
+        'domain'      => 'Domain',
         'instanceId'  => 'InstanceId',
+        'rule'        => 'Rule',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class CreateProtectionModuleRuleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
         if (null !== $this->defenseType) {
             $res['DefenseType'] = $this->defenseType;
         }
-        if (null !== $this->rule) {
-            $res['Rule'] = $this->rule;
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->rule) {
+            $res['Rule'] = $this->rule;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class CreateProtectionModuleRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
         if (isset($map['DefenseType'])) {
             $model->defenseType = $map['DefenseType'];
         }
-        if (isset($map['Rule'])) {
-            $model->rule = $map['Rule'];
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Rule'])) {
+            $model->rule = $map['Rule'];
         }
 
         return $model;

@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainRuleGroupResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $ruleGroupId;
-
-    /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $ruleGroupId;
     protected $_name = [
-        'ruleGroupId' => 'RuleGroupId',
         'requestId'   => 'RequestId',
+        'ruleGroupId' => 'RuleGroupId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeDomainRuleGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ruleGroupId) {
-            $res['RuleGroupId'] = $this->ruleGroupId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->ruleGroupId) {
+            $res['RuleGroupId'] = $this->ruleGroupId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeDomainRuleGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RuleGroupId'])) {
-            $model->ruleGroupId = $map['RuleGroupId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['RuleGroupId'])) {
+            $model->ruleGroupId = $map['RuleGroupId'];
         }
 
         return $model;

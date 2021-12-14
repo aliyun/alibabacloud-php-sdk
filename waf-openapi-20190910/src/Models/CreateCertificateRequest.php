@@ -11,17 +11,7 @@ class CreateCertificateRequest extends Model
     /**
      * @var string
      */
-    public $domain;
-
-    /**
-     * @var string
-     */
     public $certificate;
-
-    /**
-     * @var string
-     */
-    public $privateKey;
 
     /**
      * @var string
@@ -31,13 +21,23 @@ class CreateCertificateRequest extends Model
     /**
      * @var string
      */
+    public $domain;
+
+    /**
+     * @var string
+     */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $privateKey;
     protected $_name = [
-        'domain'          => 'Domain',
         'certificate'     => 'Certificate',
-        'privateKey'      => 'PrivateKey',
         'certificateName' => 'CertificateName',
+        'domain'          => 'Domain',
         'instanceId'      => 'InstanceId',
+        'privateKey'      => 'PrivateKey',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class CreateCertificateRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
         if (null !== $this->certificate) {
             $res['Certificate'] = $this->certificate;
-        }
-        if (null !== $this->privateKey) {
-            $res['PrivateKey'] = $this->privateKey;
         }
         if (null !== $this->certificateName) {
             $res['CertificateName'] = $this->certificateName;
         }
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->privateKey) {
+            $res['PrivateKey'] = $this->privateKey;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class CreateCertificateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
         if (isset($map['Certificate'])) {
             $model->certificate = $map['Certificate'];
-        }
-        if (isset($map['PrivateKey'])) {
-            $model->privateKey = $map['PrivateKey'];
         }
         if (isset($map['CertificateName'])) {
             $model->certificateName = $map['CertificateName'];
         }
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['PrivateKey'])) {
+            $model->privateKey = $map['PrivateKey'];
         }
 
         return $model;

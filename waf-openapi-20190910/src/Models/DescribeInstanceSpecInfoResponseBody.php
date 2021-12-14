@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSpecInfoResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $expireTime;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @var instanceSpecInfos[]
      */
     public $instanceSpecInfos;
@@ -22,23 +32,13 @@ class DescribeInstanceSpecInfoResponseBody extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
     public $version;
-
-    /**
-     * @var int
-     */
-    public $expireTime;
     protected $_name = [
+        'expireTime'        => 'ExpireTime',
+        'instanceId'        => 'InstanceId',
         'instanceSpecInfos' => 'InstanceSpecInfos',
         'requestId'         => 'RequestId',
-        'instanceId'        => 'InstanceId',
         'version'           => 'Version',
-        'expireTime'        => 'ExpireTime',
     ];
 
     public function validate()
@@ -48,6 +48,12 @@ class DescribeInstanceSpecInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->instanceSpecInfos) {
             $res['InstanceSpecInfos'] = [];
             if (null !== $this->instanceSpecInfos && \is_array($this->instanceSpecInfos)) {
@@ -60,14 +66,8 @@ class DescribeInstanceSpecInfoResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
-        }
-        if (null !== $this->expireTime) {
-            $res['ExpireTime'] = $this->expireTime;
         }
 
         return $res;
@@ -81,6 +81,12 @@ class DescribeInstanceSpecInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['InstanceSpecInfos'])) {
             if (!empty($map['InstanceSpecInfos'])) {
                 $model->instanceSpecInfos = [];
@@ -93,14 +99,8 @@ class DescribeInstanceSpecInfoResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
-        }
-        if (isset($map['ExpireTime'])) {
-            $model->expireTime = $map['ExpireTime'];
         }
 
         return $model;

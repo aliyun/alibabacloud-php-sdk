@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogServiceStatusResponseBody extends Model
 {
     /**
-     * @var int
+     * @var domainStatus[]
      */
-    public $totalCount;
+    public $domainStatus;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribeLogServiceStatusResponseBody extends Model
     public $requestId;
 
     /**
-     * @var domainStatus[]
+     * @var int
      */
-    public $domainStatus;
+    public $totalCount;
     protected $_name = [
-        'totalCount'   => 'TotalCount',
-        'requestId'    => 'RequestId',
         'domainStatus' => 'DomainStatus',
+        'requestId'    => 'RequestId',
+        'totalCount'   => 'TotalCount',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class DescribeLogServiceStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->domainStatus) {
             $res['DomainStatus'] = [];
             if (null !== $this->domainStatus && \is_array($this->domainStatus)) {
@@ -50,6 +44,12 @@ class DescribeLogServiceStatusResponseBody extends Model
                     $res['DomainStatus'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class DescribeLogServiceStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DomainStatus'])) {
             if (!empty($map['DomainStatus'])) {
                 $model->domainStatus = [];
@@ -77,6 +71,12 @@ class DescribeLogServiceStatusResponseBody extends Model
                     $model->domainStatus[$n++] = null !== $item ? domainStatus::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

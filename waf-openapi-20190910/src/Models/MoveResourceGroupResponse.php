@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20190910\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeProtectionModuleModeResponse extends Model
+class MoveResourceGroupResponse extends Model
 {
     /**
      * @var string[]
@@ -14,7 +14,7 @@ class DescribeProtectionModuleModeResponse extends Model
     public $headers;
 
     /**
-     * @var DescribeProtectionModuleModeResponseBody
+     * @var MoveResourceGroupResponseBody
      */
     public $body;
     protected $_name = [
@@ -44,7 +44,7 @@ class DescribeProtectionModuleModeResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeProtectionModuleModeResponse
+     * @return MoveResourceGroupResponse
      */
     public static function fromMap($map = [])
     {
@@ -53,7 +53,7 @@ class DescribeProtectionModuleModeResponse extends Model
             $model->headers = $map['headers'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeProtectionModuleModeResponseBody::fromMap($map['body']);
+            $model->body = MoveResourceGroupResponseBody::fromMap($map['body']);
         }
 
         return $model;
