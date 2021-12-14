@@ -211,7 +211,6 @@ class ROS extends OpenApiClient
         $query['StackId']    = $request->stackId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CancelUpdateStack',
@@ -221,7 +220,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -264,7 +263,6 @@ class ROS extends OpenApiClient
         $query['TemplateVersion']     = $request->templateVersion;
         $req                          = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ContinueCreateStack',
@@ -274,7 +272,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -330,7 +328,6 @@ class ROS extends OpenApiClient
         $query['UsePreviousParameters']       = $request->usePreviousParameters;
         $req                                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateChangeSet',
@@ -340,7 +337,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -391,7 +388,6 @@ class ROS extends OpenApiClient
         $query['TimeoutInMinutes']   = $request->timeoutInMinutes;
         $req                         = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateStack',
@@ -401,7 +397,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -451,7 +447,6 @@ class ROS extends OpenApiClient
         $query['TemplateVersion']        = $request->templateVersion;
         $req                             = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateStackGroup',
@@ -461,7 +456,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -517,7 +512,6 @@ class ROS extends OpenApiClient
         $query['TimeoutInMinutes']     = $request->timeoutInMinutes;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateStackInstances',
@@ -527,7 +521,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -563,7 +557,6 @@ class ROS extends OpenApiClient
         $query['TemplateURL']     = $request->templateURL;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateTemplate',
@@ -573,7 +566,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -628,7 +621,6 @@ class ROS extends OpenApiClient
         $query['TemplateScratchType']  = $request->templateScratchType;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateTemplateScratch',
@@ -638,7 +630,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -671,7 +663,6 @@ class ROS extends OpenApiClient
         $query['RegionId']    = $request->regionId;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteChangeSet',
@@ -681,7 +672,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -717,7 +708,6 @@ class ROS extends OpenApiClient
         $query['StackId']            = $request->stackId;
         $req                         = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteStack',
@@ -727,7 +717,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -760,7 +750,6 @@ class ROS extends OpenApiClient
         $query['StackGroupName'] = $request->stackGroupName;
         $req                     = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteStackGroup',
@@ -770,7 +759,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -824,7 +813,6 @@ class ROS extends OpenApiClient
         $query['StackGroupName']       = $request->stackGroupName;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteStackInstances',
@@ -834,7 +822,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -866,7 +854,6 @@ class ROS extends OpenApiClient
         $query['TemplateId'] = $request->templateId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteTemplate',
@@ -876,7 +863,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -909,7 +896,6 @@ class ROS extends OpenApiClient
         $query['TemplateScratchId'] = $request->templateScratchId;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteTemplateScratch',
@@ -919,7 +905,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -951,7 +937,6 @@ class ROS extends OpenApiClient
         $query['AcceptLanguage'] = $request->acceptLanguage;
         $req                     = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeRegions',
@@ -961,7 +946,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -996,7 +981,6 @@ class ROS extends OpenApiClient
         $query['StackId']           = $request->stackId;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DetectStackDrift',
@@ -1006,7 +990,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1046,7 +1030,6 @@ class ROS extends OpenApiClient
         $query['StackGroupName']       = $request->stackGroupName;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DetectStackGroupDrift',
@@ -1056,7 +1039,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1091,7 +1074,6 @@ class ROS extends OpenApiClient
         $query['StackId']           = $request->stackId;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DetectStackResourceDrift',
@@ -1101,7 +1083,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1135,7 +1117,6 @@ class ROS extends OpenApiClient
         $query['RegionId']    = $request->regionId;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ExecuteChangeSet',
@@ -1145,7 +1126,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1179,7 +1160,6 @@ class ROS extends OpenApiClient
         $query['TemplateScratchId'] = $request->templateScratchId;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GenerateTemplateByScratch',
@@ -1189,7 +1169,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1224,7 +1204,6 @@ class ROS extends OpenApiClient
         $query['TemplateVersion'] = $request->templateVersion;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GenerateTemplatePolicy',
@@ -1234,7 +1213,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1268,7 +1247,6 @@ class ROS extends OpenApiClient
         $query['ShowTemplate'] = $request->showTemplate;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetChangeSet',
@@ -1278,7 +1256,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1311,7 +1289,6 @@ class ROS extends OpenApiClient
         $query['RegionId'] = $request->regionId;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetFeatureDetails',
@@ -1321,7 +1298,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1353,7 +1330,6 @@ class ROS extends OpenApiClient
         $query['ResourceType'] = $request->resourceType;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetResourceType',
@@ -1363,7 +1339,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1395,7 +1371,6 @@ class ROS extends OpenApiClient
         $query['ResourceType'] = $request->resourceType;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetResourceTypeTemplate',
@@ -1405,7 +1380,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1443,7 +1418,6 @@ class ROS extends OpenApiClient
         $query['TemplateVersion'] = $request->templateVersion;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetServiceProvisions',
@@ -1453,7 +1427,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1489,7 +1463,6 @@ class ROS extends OpenApiClient
         $query['StackId']              = $request->stackId;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetStack',
@@ -1499,7 +1472,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1532,7 +1505,6 @@ class ROS extends OpenApiClient
         $query['RegionId']         = $request->regionId;
         $req                       = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetStackDriftDetectionStatus',
@@ -1542,7 +1514,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1576,7 +1548,6 @@ class ROS extends OpenApiClient
         $query['StackGroupName'] = $request->stackGroupName;
         $req                     = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetStackGroup',
@@ -1586,7 +1557,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1619,7 +1590,6 @@ class ROS extends OpenApiClient
         $query['RegionId']    = $request->regionId;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetStackGroupOperation',
@@ -1629,7 +1599,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1664,7 +1634,6 @@ class ROS extends OpenApiClient
         $query['StackInstanceRegionId']  = $request->stackInstanceRegionId;
         $req                             = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetStackInstance',
@@ -1674,7 +1643,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1707,7 +1676,6 @@ class ROS extends OpenApiClient
         $query['StackId']  = $request->stackId;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetStackPolicy',
@@ -1717,7 +1685,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1753,7 +1721,6 @@ class ROS extends OpenApiClient
         $query['StackId']                = $request->stackId;
         $req                             = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetStackResource',
@@ -1763,7 +1730,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1802,7 +1769,6 @@ class ROS extends OpenApiClient
         $query['TemplateVersion']   = $request->templateVersion;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetTemplate',
@@ -1812,7 +1778,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1840,17 +1806,17 @@ class ROS extends OpenApiClient
     public function getTemplateEstimateCostWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['ClientToken']     = $request->clientToken;
-        $query['Parameters']      = $request->parameters;
-        $query['RegionId']        = $request->regionId;
-        $query['TemplateBody']    = $request->templateBody;
-        $query['TemplateId']      = $request->templateId;
-        $query['TemplateURL']     = $request->templateURL;
-        $query['TemplateVersion'] = $request->templateVersion;
-        $req                      = new OpenApiRequest([
+        $query                      = [];
+        $query['ClientToken']       = $request->clientToken;
+        $query['Parameters']        = $request->parameters;
+        $query['RegionId']          = $request->regionId;
+        $query['TemplateBody']      = $request->templateBody;
+        $query['TemplateId']        = $request->templateId;
+        $query['TemplateScratchId'] = $request->templateScratchId;
+        $query['TemplateURL']       = $request->templateURL;
+        $query['TemplateVersion']   = $request->templateVersion;
+        $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetTemplateEstimateCost',
@@ -1860,7 +1826,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1904,7 +1870,6 @@ class ROS extends OpenApiClient
         $query['TemplateVersion']     = $request->templateVersion;
         $req                          = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetTemplateParameterConstraints',
@@ -1914,7 +1879,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1948,7 +1913,6 @@ class ROS extends OpenApiClient
         $query['TemplateScratchId'] = $request->templateScratchId;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetTemplateScratch',
@@ -1958,7 +1922,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1997,7 +1961,6 @@ class ROS extends OpenApiClient
         $query['TemplateVersion'] = $request->templateVersion;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetTemplateSummary',
@@ -2007,7 +1970,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2046,7 +2009,6 @@ class ROS extends OpenApiClient
         $query['Status']          = $request->status;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListChangeSets',
@@ -2056,7 +2018,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2091,7 +2053,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2127,7 +2089,6 @@ class ROS extends OpenApiClient
         $query['Status']            = $request->status;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListStackEvents',
@@ -2137,7 +2098,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2172,7 +2133,6 @@ class ROS extends OpenApiClient
         $query['RegionId']    = $request->regionId;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListStackGroupOperationResults',
@@ -2182,7 +2142,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2217,7 +2177,6 @@ class ROS extends OpenApiClient
         $query['StackGroupName'] = $request->stackGroupName;
         $req                     = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListStackGroupOperations',
@@ -2227,7 +2186,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2263,7 +2222,6 @@ class ROS extends OpenApiClient
         $query['Status']          = $request->status;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListStackGroups',
@@ -2273,7 +2231,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2310,7 +2268,6 @@ class ROS extends OpenApiClient
         $query['StackInstanceRegionId']  = $request->stackInstanceRegionId;
         $req                             = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListStackInstances',
@@ -2320,7 +2277,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2358,7 +2315,6 @@ class ROS extends OpenApiClient
         $query['StackId']            = $request->stackId;
         $req                         = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListStackOperationRisks',
@@ -2368,7 +2324,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2404,7 +2360,6 @@ class ROS extends OpenApiClient
         $query['StackId']             = $request->stackId;
         $req                          = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListStackResourceDrifts',
@@ -2414,7 +2369,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2447,7 +2402,6 @@ class ROS extends OpenApiClient
         $query['StackId']  = $request->stackId;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListStackResources',
@@ -2457,7 +2411,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2499,7 +2453,6 @@ class ROS extends OpenApiClient
         $query['Tag']             = $request->tag;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListStacks',
@@ -2509,7 +2462,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2543,7 +2496,6 @@ class ROS extends OpenApiClient
         $query['ResourceType'] = $request->resourceType;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListTagKeys',
@@ -2553,7 +2505,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2589,7 +2541,6 @@ class ROS extends OpenApiClient
         $query['Tag']          = $request->tag;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListTagResources',
@@ -2599,7 +2550,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2634,7 +2585,6 @@ class ROS extends OpenApiClient
         $query['ResourceType'] = $request->resourceType;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListTagValues',
@@ -2644,7 +2594,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2681,7 +2631,6 @@ class ROS extends OpenApiClient
         $query['TemplateScratchType'] = $request->templateScratchType;
         $req                          = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListTemplateScratches',
@@ -2691,7 +2640,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2725,7 +2674,6 @@ class ROS extends OpenApiClient
         $query['TemplateId'] = $request->templateId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListTemplateVersions',
@@ -2735,7 +2683,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2772,7 +2720,6 @@ class ROS extends OpenApiClient
         $query['TemplateName']    = $request->templateName;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListTemplates',
@@ -2782,7 +2729,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2817,7 +2764,6 @@ class ROS extends OpenApiClient
         $query['ResourceType']       = $request->resourceType;
         $req                         = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'MoveResourceGroup',
@@ -2827,7 +2773,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2855,23 +2801,23 @@ class ROS extends OpenApiClient
     public function previewStackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                     = [];
-        $query['ClientToken']      = $request->clientToken;
-        $query['DisableRollback']  = $request->disableRollback;
-        $query['Parallelism']      = $request->parallelism;
-        $query['Parameters']       = $request->parameters;
-        $query['RegionId']         = $request->regionId;
-        $query['StackName']        = $request->stackName;
-        $query['StackPolicyBody']  = $request->stackPolicyBody;
-        $query['StackPolicyURL']   = $request->stackPolicyURL;
-        $query['TemplateBody']     = $request->templateBody;
-        $query['TemplateId']       = $request->templateId;
-        $query['TemplateURL']      = $request->templateURL;
-        $query['TemplateVersion']  = $request->templateVersion;
-        $query['TimeoutInMinutes'] = $request->timeoutInMinutes;
-        $req                       = new OpenApiRequest([
+        $query                      = [];
+        $query['ClientToken']       = $request->clientToken;
+        $query['DisableRollback']   = $request->disableRollback;
+        $query['Parallelism']       = $request->parallelism;
+        $query['Parameters']        = $request->parameters;
+        $query['RegionId']          = $request->regionId;
+        $query['StackName']         = $request->stackName;
+        $query['StackPolicyBody']   = $request->stackPolicyBody;
+        $query['StackPolicyURL']    = $request->stackPolicyURL;
+        $query['TemplateBody']      = $request->templateBody;
+        $query['TemplateId']        = $request->templateId;
+        $query['TemplateScratchId'] = $request->templateScratchId;
+        $query['TemplateURL']       = $request->templateURL;
+        $query['TemplateVersion']   = $request->templateVersion;
+        $query['TimeoutInMinutes']  = $request->timeoutInMinutes;
+        $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'PreviewStack',
@@ -2881,7 +2827,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2915,7 +2861,6 @@ class ROS extends OpenApiClient
         $query['StackId']            = $request->stackId;
         $req                         = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetDeletionProtection',
@@ -2925,7 +2870,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2960,7 +2905,6 @@ class ROS extends OpenApiClient
         $query['StackPolicyURL']  = $request->stackPolicyURL;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetStackPolicy',
@@ -2970,7 +2914,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3006,7 +2950,6 @@ class ROS extends OpenApiClient
         $query['VersionOption']   = $request->versionOption;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetTemplatePermission',
@@ -3016,7 +2959,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3053,7 +2996,6 @@ class ROS extends OpenApiClient
         $query['UniqueId']          = $request->uniqueId;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SignalResource',
@@ -3063,7 +3005,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3096,7 +3038,6 @@ class ROS extends OpenApiClient
         $query['RegionId']    = $request->regionId;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'StopStackGroupOperation',
@@ -3106,7 +3047,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3141,7 +3082,6 @@ class ROS extends OpenApiClient
         $query['Tag']          = $request->tag;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'TagResources',
@@ -3151,7 +3091,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3187,7 +3127,6 @@ class ROS extends OpenApiClient
         $query['TagKey']       = $request->tagKey;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UntagResources',
@@ -3197,7 +3136,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3247,7 +3186,6 @@ class ROS extends OpenApiClient
         $query['UsePreviousParameters']       = $request->usePreviousParameters;
         $req                                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateStack',
@@ -3257,7 +3195,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3323,7 +3261,6 @@ class ROS extends OpenApiClient
         $query['TemplateVersion']        = $request->templateVersion;
         $req                             = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateStackGroup',
@@ -3333,7 +3270,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3388,7 +3325,6 @@ class ROS extends OpenApiClient
         $query['TimeoutInMinutes']     = $request->timeoutInMinutes;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateStackInstances',
@@ -3398,7 +3334,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3435,7 +3371,6 @@ class ROS extends OpenApiClient
         $query['TemplateFormat']    = $request->templateFormat;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateStackTemplateByResources',
@@ -3445,7 +3380,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3481,7 +3416,6 @@ class ROS extends OpenApiClient
         $query['TemplateURL']  = $request->templateURL;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateTemplate',
@@ -3491,7 +3425,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3546,7 +3480,6 @@ class ROS extends OpenApiClient
         $query['TemplateScratchId']    = $request->templateScratchId;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateTemplateScratch',
@@ -3556,7 +3489,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3592,7 +3525,6 @@ class ROS extends OpenApiClient
         $query['ValidationOption'] = $request->validationOption;
         $req                       = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ValidateTemplate',
@@ -3602,7 +3534,7 @@ class ROS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 

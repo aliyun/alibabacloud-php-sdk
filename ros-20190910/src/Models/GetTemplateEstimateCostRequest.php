@@ -37,6 +37,11 @@ class GetTemplateEstimateCostRequest extends Model
     /**
      * @var string
      */
+    public $templateScratchId;
+
+    /**
+     * @var string
+     */
     public $templateURL;
 
     /**
@@ -44,13 +49,14 @@ class GetTemplateEstimateCostRequest extends Model
      */
     public $templateVersion;
     protected $_name = [
-        'clientToken'     => 'ClientToken',
-        'parameters'      => 'Parameters',
-        'regionId'        => 'RegionId',
-        'templateBody'    => 'TemplateBody',
-        'templateId'      => 'TemplateId',
-        'templateURL'     => 'TemplateURL',
-        'templateVersion' => 'TemplateVersion',
+        'clientToken'       => 'ClientToken',
+        'parameters'        => 'Parameters',
+        'regionId'          => 'RegionId',
+        'templateBody'      => 'TemplateBody',
+        'templateId'        => 'TemplateId',
+        'templateScratchId' => 'TemplateScratchId',
+        'templateURL'       => 'TemplateURL',
+        'templateVersion'   => 'TemplateVersion',
     ];
 
     public function validate()
@@ -80,6 +86,9 @@ class GetTemplateEstimateCostRequest extends Model
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->templateScratchId) {
+            $res['TemplateScratchId'] = $this->templateScratchId;
         }
         if (null !== $this->templateURL) {
             $res['TemplateURL'] = $this->templateURL;
@@ -119,6 +128,9 @@ class GetTemplateEstimateCostRequest extends Model
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateScratchId'])) {
+            $model->templateScratchId = $map['TemplateScratchId'];
         }
         if (isset($map['TemplateURL'])) {
             $model->templateURL = $map['TemplateURL'];

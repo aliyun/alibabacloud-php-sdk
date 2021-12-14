@@ -32,12 +32,18 @@ class GetResourceTypeResponseBody extends Model
      * @var bool
      */
     public $supportDriftDetection;
+
+    /**
+     * @var bool
+     */
+    public $supportScratchDetection;
     protected $_name = [
-        'attributes'            => 'Attributes',
-        'properties'            => 'Properties',
-        'requestId'             => 'RequestId',
-        'resourceType'          => 'ResourceType',
-        'supportDriftDetection' => 'SupportDriftDetection',
+        'attributes'              => 'Attributes',
+        'properties'              => 'Properties',
+        'requestId'               => 'RequestId',
+        'resourceType'            => 'ResourceType',
+        'supportDriftDetection'   => 'SupportDriftDetection',
+        'supportScratchDetection' => 'SupportScratchDetection',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class GetResourceTypeResponseBody extends Model
         }
         if (null !== $this->supportDriftDetection) {
             $res['SupportDriftDetection'] = $this->supportDriftDetection;
+        }
+        if (null !== $this->supportScratchDetection) {
+            $res['SupportScratchDetection'] = $this->supportScratchDetection;
         }
 
         return $res;
@@ -88,6 +97,9 @@ class GetResourceTypeResponseBody extends Model
         }
         if (isset($map['SupportDriftDetection'])) {
             $model->supportDriftDetection = $map['SupportDriftDetection'];
+        }
+        if (isset($map['SupportScratchDetection'])) {
+            $model->supportScratchDetection = $map['SupportScratchDetection'];
         }
 
         return $model;

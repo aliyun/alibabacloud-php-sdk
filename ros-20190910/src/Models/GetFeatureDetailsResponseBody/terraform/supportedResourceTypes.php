@@ -21,11 +21,17 @@ class supportedResourceTypes extends Model
     /**
      * @var string[]
      */
+    public $resourceGroup;
+
+    /**
+     * @var string[]
+     */
     public $systemTag;
     protected $_name = [
-        'customTag'    => 'CustomTag',
-        'estimateCost' => 'EstimateCost',
-        'systemTag'    => 'SystemTag',
+        'customTag'     => 'CustomTag',
+        'estimateCost'  => 'EstimateCost',
+        'resourceGroup' => 'ResourceGroup',
+        'systemTag'     => 'SystemTag',
     ];
 
     public function validate()
@@ -40,6 +46,9 @@ class supportedResourceTypes extends Model
         }
         if (null !== $this->estimateCost) {
             $res['EstimateCost'] = $this->estimateCost;
+        }
+        if (null !== $this->resourceGroup) {
+            $res['ResourceGroup'] = $this->resourceGroup;
         }
         if (null !== $this->systemTag) {
             $res['SystemTag'] = $this->systemTag;
@@ -64,6 +73,11 @@ class supportedResourceTypes extends Model
         if (isset($map['EstimateCost'])) {
             if (!empty($map['EstimateCost'])) {
                 $model->estimateCost = $map['EstimateCost'];
+            }
+        }
+        if (isset($map['ResourceGroup'])) {
+            if (!empty($map['ResourceGroup'])) {
+                $model->resourceGroup = $map['ResourceGroup'];
             }
         }
         if (isset($map['SystemTag'])) {
