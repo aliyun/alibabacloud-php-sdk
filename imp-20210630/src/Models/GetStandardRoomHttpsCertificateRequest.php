@@ -14,8 +14,16 @@ class GetStandardRoomHttpsCertificateRequest extends Model
      * @var string
      */
     public $certificateId;
+
+    /**
+     * @description 地域
+     *
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'certificateId' => 'CertificateId',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -27,6 +35,9 @@ class GetStandardRoomHttpsCertificateRequest extends Model
         $res = [];
         if (null !== $this->certificateId) {
             $res['CertificateId'] = $this->certificateId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -42,6 +53,9 @@ class GetStandardRoomHttpsCertificateRequest extends Model
         $model = new self();
         if (isset($map['CertificateId'])) {
             $model->certificateId = $map['CertificateId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

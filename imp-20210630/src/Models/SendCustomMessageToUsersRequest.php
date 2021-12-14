@@ -30,6 +30,11 @@ class SendCustomMessageToUsersRequest extends Model
     public $receiverList;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description 房间唯一标识，由调用CreateRoom返回。
      *
      * @var string
@@ -39,6 +44,7 @@ class SendCustomMessageToUsersRequest extends Model
         'appId'        => 'AppId',
         'body'         => 'Body',
         'receiverList' => 'ReceiverList',
+        'regionId'     => 'RegionId',
         'roomId'       => 'RoomId',
     ];
 
@@ -57,6 +63,9 @@ class SendCustomMessageToUsersRequest extends Model
         }
         if (null !== $this->receiverList) {
             $res['ReceiverList'] = $this->receiverList;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
@@ -83,6 +92,9 @@ class SendCustomMessageToUsersRequest extends Model
             if (!empty($map['ReceiverList'])) {
                 $model->receiverList = $map['ReceiverList'];
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];

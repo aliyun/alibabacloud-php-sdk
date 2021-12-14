@@ -23,6 +23,11 @@ class DeleteConferenceRequest extends Model
     public $conferenceId;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description 房间ID，最大长度36位
      *
      * @var string
@@ -38,6 +43,7 @@ class DeleteConferenceRequest extends Model
     protected $_name = [
         'appId'        => 'AppId',
         'conferenceId' => 'ConferenceId',
+        'regionId'     => 'RegionId',
         'roomId'       => 'RoomId',
         'userId'       => 'UserId',
     ];
@@ -54,6 +60,9 @@ class DeleteConferenceRequest extends Model
         }
         if (null !== $this->conferenceId) {
             $res['ConferenceId'] = $this->conferenceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
@@ -78,6 +87,9 @@ class DeleteConferenceRequest extends Model
         }
         if (isset($map['ConferenceId'])) {
             $model->conferenceId = $map['ConferenceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];

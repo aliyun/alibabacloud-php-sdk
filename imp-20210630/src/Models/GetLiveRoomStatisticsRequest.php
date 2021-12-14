@@ -21,9 +21,15 @@ class GetLiveRoomStatisticsRequest extends Model
      * @var string
      */
     public $liveId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'appId'  => 'AppId',
-        'liveId' => 'LiveId',
+        'appId'    => 'AppId',
+        'liveId'   => 'LiveId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -38,6 +44,9 @@ class GetLiveRoomStatisticsRequest extends Model
         }
         if (null !== $this->liveId) {
             $res['LiveId'] = $this->liveId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -56,6 +65,9 @@ class GetLiveRoomStatisticsRequest extends Model
         }
         if (isset($map['LiveId'])) {
             $model->liveId = $map['LiveId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

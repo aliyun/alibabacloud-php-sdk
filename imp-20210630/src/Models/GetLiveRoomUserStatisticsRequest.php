@@ -35,11 +35,17 @@ class GetLiveRoomUserStatisticsRequest extends Model
      * @var string
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'appId'      => 'AppId',
         'liveId'     => 'LiveId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -60,6 +66,9 @@ class GetLiveRoomUserStatisticsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -84,6 +93,9 @@ class GetLiveRoomUserStatisticsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

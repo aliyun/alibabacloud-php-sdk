@@ -37,6 +37,11 @@ class UpdateClassRequest extends Model
     public $createUserId;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description 课堂标题，1~32个字符。
      *
      * @var string
@@ -47,6 +52,7 @@ class UpdateClassRequest extends Model
         'classId'        => 'ClassId',
         'createNickname' => 'CreateNickname',
         'createUserId'   => 'CreateUserId',
+        'regionId'       => 'RegionId',
         'title'          => 'Title',
     ];
 
@@ -68,6 +74,9 @@ class UpdateClassRequest extends Model
         }
         if (null !== $this->createUserId) {
             $res['CreateUserId'] = $this->createUserId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
@@ -95,6 +104,9 @@ class UpdateClassRequest extends Model
         }
         if (isset($map['CreateUserId'])) {
             $model->createUserId = $map['CreateUserId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];

@@ -6,15 +6,8 @@ namespace AlibabaCloud\SDK\Imp\V20210630\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetConferenceRequest extends Model
+class GetImpProductStatusRequest extends Model
 {
-    /**
-     * @description 会议资源唯一标识。
-     *
-     * @var string
-     */
-    public $conferenceId;
-
     /**
      * @description 地域
      *
@@ -22,8 +15,7 @@ class GetConferenceRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'conferenceId' => 'ConferenceId',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -33,9 +25,6 @@ class GetConferenceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->conferenceId) {
-            $res['ConferenceId'] = $this->conferenceId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -46,14 +35,11 @@ class GetConferenceRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetConferenceRequest
+     * @return GetImpProductStatusRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ConferenceId'])) {
-            $model->conferenceId = $map['ConferenceId'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

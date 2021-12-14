@@ -28,10 +28,18 @@ class UpdateAppTemplateRequest extends Model
      * @var string[]
      */
     public $componentList;
+
+    /**
+     * @description 地域
+     *
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'appTemplateId'   => 'AppTemplateId',
         'appTemplateName' => 'AppTemplateName',
         'componentList'   => 'ComponentList',
+        'regionId'        => 'RegionId',
     ];
 
     public function validate()
@@ -49,6 +57,9 @@ class UpdateAppTemplateRequest extends Model
         }
         if (null !== $this->componentList) {
             $res['ComponentList'] = $this->componentList;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -72,6 +83,9 @@ class UpdateAppTemplateRequest extends Model
             if (!empty($map['ComponentList'])) {
                 $model->componentList = $map['ComponentList'];
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

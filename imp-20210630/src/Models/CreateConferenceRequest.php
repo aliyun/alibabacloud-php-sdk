@@ -16,6 +16,11 @@ class CreateConferenceRequest extends Model
     public $appId;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description 房间ID，最大长度36个字符，传空值，则随机生成一个房间ID。
      *
      * @var string
@@ -36,10 +41,11 @@ class CreateConferenceRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'appId'  => 'AppId',
-        'roomId' => 'RoomId',
-        'title'  => 'Title',
-        'userId' => 'UserId',
+        'appId'    => 'AppId',
+        'regionId' => 'RegionId',
+        'roomId'   => 'RoomId',
+        'title'    => 'Title',
+        'userId'   => 'UserId',
     ];
 
     public function validate()
@@ -51,6 +57,9 @@ class CreateConferenceRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
@@ -75,6 +84,9 @@ class CreateConferenceRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];

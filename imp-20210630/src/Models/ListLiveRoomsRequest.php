@@ -30,6 +30,11 @@ class ListLiveRoomsRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description 直播状态，0-在播 1-下播，不传则返回所有直播。
      *
      * @var int
@@ -39,6 +44,7 @@ class ListLiveRoomsRequest extends Model
         'appId'      => 'AppId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'regionId'   => 'RegionId',
         'status'     => 'Status',
     ];
 
@@ -57,6 +63,9 @@ class ListLiveRoomsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -81,6 +90,9 @@ class ListLiveRoomsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

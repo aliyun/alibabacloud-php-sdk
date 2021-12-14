@@ -23,6 +23,11 @@ class ListRoomLivesShrinkRequest extends Model
     public $queryTimestamp;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description 房间ID，最大长度36个字符。
      *
      * @var string
@@ -52,6 +57,7 @@ class ListRoomLivesShrinkRequest extends Model
     protected $_name = [
         'appId'            => 'AppId',
         'queryTimestamp'   => 'QueryTimestamp',
+        'regionId'         => 'RegionId',
         'roomId'           => 'RoomId',
         'roomIdListShrink' => 'RoomIdList',
         'size'             => 'Size',
@@ -70,6 +76,9 @@ class ListRoomLivesShrinkRequest extends Model
         }
         if (null !== $this->queryTimestamp) {
             $res['QueryTimestamp'] = $this->queryTimestamp;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
@@ -100,6 +109,9 @@ class ListRoomLivesShrinkRequest extends Model
         }
         if (isset($map['QueryTimestamp'])) {
             $model->queryTimestamp = $map['QueryTimestamp'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];

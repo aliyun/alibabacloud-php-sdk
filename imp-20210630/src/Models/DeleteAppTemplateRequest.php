@@ -14,8 +14,16 @@ class DeleteAppTemplateRequest extends Model
      * @var string
      */
     public $appTemplateId;
+
+    /**
+     * @description 地域
+     *
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'appTemplateId' => 'AppTemplateId',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -27,6 +35,9 @@ class DeleteAppTemplateRequest extends Model
         $res = [];
         if (null !== $this->appTemplateId) {
             $res['AppTemplateId'] = $this->appTemplateId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -42,6 +53,9 @@ class DeleteAppTemplateRequest extends Model
         $model = new self();
         if (isset($map['AppTemplateId'])) {
             $model->appTemplateId = $map['AppTemplateId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

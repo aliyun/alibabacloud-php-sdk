@@ -14,8 +14,16 @@ class GetAppRequest extends Model
      * @var string
      */
     public $appId;
+
+    /**
+     * @description 地域
+     *
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'appId' => 'AppId',
+        'appId'    => 'AppId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -27,6 +35,9 @@ class GetAppRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -42,6 +53,9 @@ class GetAppRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -14,8 +14,16 @@ class GetDomainOwnerVerifyContentRequest extends Model
      * @var string
      */
     public $liveDomainName;
+
+    /**
+     * @description 地域
+     *
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'liveDomainName' => 'LiveDomainName',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
@@ -27,6 +35,9 @@ class GetDomainOwnerVerifyContentRequest extends Model
         $res = [];
         if (null !== $this->liveDomainName) {
             $res['LiveDomainName'] = $this->liveDomainName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -42,6 +53,9 @@ class GetDomainOwnerVerifyContentRequest extends Model
         $model = new self();
         if (isset($map['LiveDomainName'])) {
             $model->liveDomainName = $map['LiveDomainName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

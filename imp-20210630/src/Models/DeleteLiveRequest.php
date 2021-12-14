@@ -14,8 +14,14 @@ class DeleteLiveRequest extends Model
      * @var string
      */
     public $liveId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'liveId' => 'LiveId',
+        'liveId'   => 'LiveId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class DeleteLiveRequest extends Model
         $res = [];
         if (null !== $this->liveId) {
             $res['LiveId'] = $this->liveId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -42,6 +51,9 @@ class DeleteLiveRequest extends Model
         $model = new self();
         if (isset($map['LiveId'])) {
             $model->liveId = $map['LiveId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

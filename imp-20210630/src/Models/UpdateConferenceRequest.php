@@ -16,6 +16,13 @@ class UpdateConferenceRequest extends Model
     public $conferenceId;
 
     /**
+     * @description 地域
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description 会议标题
      *
      * @var string
@@ -23,6 +30,7 @@ class UpdateConferenceRequest extends Model
     public $title;
     protected $_name = [
         'conferenceId' => 'ConferenceId',
+        'regionId'     => 'RegionId',
         'title'        => 'Title',
     ];
 
@@ -35,6 +43,9 @@ class UpdateConferenceRequest extends Model
         $res = [];
         if (null !== $this->conferenceId) {
             $res['ConferenceId'] = $this->conferenceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
@@ -53,6 +64,9 @@ class UpdateConferenceRequest extends Model
         $model = new self();
         if (isset($map['ConferenceId'])) {
             $model->conferenceId = $map['ConferenceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];

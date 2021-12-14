@@ -30,6 +30,11 @@ class SendCommentRequest extends Model
     public $extension;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description 直播间唯一标识，在调用CreateRoom返回。
      *
      * @var string
@@ -53,6 +58,7 @@ class SendCommentRequest extends Model
         'appId'      => 'AppId',
         'content'    => 'Content',
         'extension'  => 'Extension',
+        'regionId'   => 'RegionId',
         'roomId'     => 'RoomId',
         'senderId'   => 'SenderId',
         'senderNick' => 'SenderNick',
@@ -73,6 +79,9 @@ class SendCommentRequest extends Model
         }
         if (null !== $this->extension) {
             $res['Extension'] = $this->extension;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
@@ -103,6 +112,9 @@ class SendCommentRequest extends Model
         }
         if (isset($map['Extension'])) {
             $model->extension = $map['Extension'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];

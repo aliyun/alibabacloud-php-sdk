@@ -16,14 +16,20 @@ class DeleteRoomRequest extends Model
     public $appId;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description 房间唯一标识，由字母、数字、符号.和-组成，最大长度36位。
      *
      * @var string
      */
     public $roomId;
     protected $_name = [
-        'appId'  => 'AppId',
-        'roomId' => 'RoomId',
+        'appId'    => 'AppId',
+        'regionId' => 'RegionId',
+        'roomId'   => 'RoomId',
     ];
 
     public function validate()
@@ -35,6 +41,9 @@ class DeleteRoomRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
@@ -53,6 +62,9 @@ class DeleteRoomRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];

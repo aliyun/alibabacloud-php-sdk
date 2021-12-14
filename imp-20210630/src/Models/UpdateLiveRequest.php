@@ -23,6 +23,11 @@ class UpdateLiveRequest extends Model
     public $liveId;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description 直播标题，支持中英文，最大长度256位
      *
      * @var string
@@ -31,6 +36,7 @@ class UpdateLiveRequest extends Model
     protected $_name = [
         'introduction' => 'Introduction',
         'liveId'       => 'LiveId',
+        'regionId'     => 'RegionId',
         'title'        => 'Title',
     ];
 
@@ -46,6 +52,9 @@ class UpdateLiveRequest extends Model
         }
         if (null !== $this->liveId) {
             $res['LiveId'] = $this->liveId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
@@ -67,6 +76,9 @@ class UpdateLiveRequest extends Model
         }
         if (isset($map['LiveId'])) {
             $model->liveId = $map['LiveId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];

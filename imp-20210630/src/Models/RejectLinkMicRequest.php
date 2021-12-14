@@ -23,6 +23,13 @@ class RejectLinkMicRequest extends Model
     public $fromUserId;
 
     /**
+     * @description 地域
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description 被同意用户ID
      *
      * @var string
@@ -31,6 +38,7 @@ class RejectLinkMicRequest extends Model
     protected $_name = [
         'conferenceId' => 'ConferenceId',
         'fromUserId'   => 'FromUserId',
+        'regionId'     => 'RegionId',
         'toUserId'     => 'ToUserId',
     ];
 
@@ -46,6 +54,9 @@ class RejectLinkMicRequest extends Model
         }
         if (null !== $this->fromUserId) {
             $res['FromUserId'] = $this->fromUserId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->toUserId) {
             $res['ToUserId'] = $this->toUserId;
@@ -67,6 +78,9 @@ class RejectLinkMicRequest extends Model
         }
         if (isset($map['FromUserId'])) {
             $model->fromUserId = $map['FromUserId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ToUserId'])) {
             $model->toUserId = $map['ToUserId'];

@@ -30,6 +30,11 @@ class CreateRoomRequest extends Model
     public $notice;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description 房间唯一标识，由字母、数字、符号.和-组成，最大长度36位，传空则随机生成一个房间id。
      *
      * @var string
@@ -60,6 +65,7 @@ class CreateRoomRequest extends Model
         'appId'       => 'AppId',
         'extension'   => 'Extension',
         'notice'      => 'Notice',
+        'regionId'    => 'RegionId',
         'roomId'      => 'RoomId',
         'roomOwnerId' => 'RoomOwnerId',
         'templateId'  => 'TemplateId',
@@ -81,6 +87,9 @@ class CreateRoomRequest extends Model
         }
         if (null !== $this->notice) {
             $res['Notice'] = $this->notice;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
@@ -114,6 +123,9 @@ class CreateRoomRequest extends Model
         }
         if (isset($map['Notice'])) {
             $model->notice = $map['Notice'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];

@@ -23,15 +23,21 @@ class DeleteClassRequest extends Model
     public $classId;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description 操作人用户ID，仅支持中英文数字，下划线，中划线，1~36个字符。
      *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'appId'   => 'AppId',
-        'classId' => 'ClassId',
-        'userId'  => 'UserId',
+        'appId'    => 'AppId',
+        'classId'  => 'ClassId',
+        'regionId' => 'RegionId',
+        'userId'   => 'UserId',
     ];
 
     public function validate()
@@ -46,6 +52,9 @@ class DeleteClassRequest extends Model
         }
         if (null !== $this->classId) {
             $res['ClassId'] = $this->classId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -67,6 +76,9 @@ class DeleteClassRequest extends Model
         }
         if (isset($map['ClassId'])) {
             $model->classId = $map['ClassId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

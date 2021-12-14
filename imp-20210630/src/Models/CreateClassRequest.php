@@ -30,6 +30,11 @@ class CreateClassRequest extends Model
     public $createUserId;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description 课堂标题
      *
      * @var string
@@ -39,6 +44,7 @@ class CreateClassRequest extends Model
         'appId'          => 'AppId',
         'createNickname' => 'CreateNickname',
         'createUserId'   => 'CreateUserId',
+        'regionId'       => 'RegionId',
         'title'          => 'Title',
     ];
 
@@ -57,6 +63,9 @@ class CreateClassRequest extends Model
         }
         if (null !== $this->createUserId) {
             $res['CreateUserId'] = $this->createUserId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
@@ -81,6 +90,9 @@ class CreateClassRequest extends Model
         }
         if (isset($map['CreateUserId'])) {
             $model->createUserId = $map['CreateUserId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];

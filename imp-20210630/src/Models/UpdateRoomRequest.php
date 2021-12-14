@@ -30,6 +30,11 @@ class UpdateRoomRequest extends Model
     public $notice;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description 房间唯一标识。
      *
      * @var string
@@ -53,6 +58,7 @@ class UpdateRoomRequest extends Model
         'appId'       => 'AppId',
         'extension'   => 'Extension',
         'notice'      => 'Notice',
+        'regionId'    => 'RegionId',
         'roomId'      => 'RoomId',
         'roomOwnerId' => 'RoomOwnerId',
         'title'       => 'Title',
@@ -73,6 +79,9 @@ class UpdateRoomRequest extends Model
         }
         if (null !== $this->notice) {
             $res['Notice'] = $this->notice;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->roomId) {
             $res['RoomId'] = $this->roomId;
@@ -103,6 +112,9 @@ class UpdateRoomRequest extends Model
         }
         if (isset($map['Notice'])) {
             $model->notice = $map['Notice'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RoomId'])) {
             $model->roomId = $map['RoomId'];

@@ -16,14 +16,20 @@ class PublishLiveRequest extends Model
     public $liveId;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description 当前用户Id
      *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'liveId' => 'LiveId',
-        'userId' => 'UserId',
+        'liveId'   => 'LiveId',
+        'regionId' => 'RegionId',
+        'userId'   => 'UserId',
     ];
 
     public function validate()
@@ -35,6 +41,9 @@ class PublishLiveRequest extends Model
         $res = [];
         if (null !== $this->liveId) {
             $res['LiveId'] = $this->liveId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -53,6 +62,9 @@ class PublishLiveRequest extends Model
         $model = new self();
         if (isset($map['LiveId'])) {
             $model->liveId = $map['LiveId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

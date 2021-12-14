@@ -6,40 +6,46 @@ namespace AlibabaCloud\SDK\Imp\V20210630\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListConferenceUsersRequest extends Model
+class ListRoomUsersRequest extends Model
 {
     /**
-     * @description 会议唯一标识符
+     * @description 应用唯一标识，由6位小写字母、数字组成。
      *
      * @var string
      */
-    public $conferenceId;
+    public $appId;
 
     /**
-     * @description 查询页码，从第1页开始。
+     * @description 查询页码，从1开始，传空默认查询第1页。
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 每页显示个数，最大显示个数为100。
+     * @description 每页显示个数，最大支持50，参数为空默认显示个数为10。
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 地域
-     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description 房间ID，最大长度36个字符。
+     *
+     * @var string
+     */
+    public $roomId;
     protected $_name = [
-        'conferenceId' => 'ConferenceId',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'regionId'     => 'RegionId',
+        'appId'      => 'AppId',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
+        'regionId'   => 'RegionId',
+        'roomId'     => 'RoomId',
     ];
 
     public function validate()
@@ -49,8 +55,8 @@ class ListConferenceUsersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->conferenceId) {
-            $res['ConferenceId'] = $this->conferenceId;
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -61,6 +67,9 @@ class ListConferenceUsersRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->roomId) {
+            $res['RoomId'] = $this->roomId;
+        }
 
         return $res;
     }
@@ -68,13 +77,13 @@ class ListConferenceUsersRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListConferenceUsersRequest
+     * @return ListRoomUsersRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ConferenceId'])) {
-            $model->conferenceId = $map['ConferenceId'];
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -84,6 +93,9 @@ class ListConferenceUsersRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RoomId'])) {
+            $model->roomId = $map['RoomId'];
         }
 
         return $model;

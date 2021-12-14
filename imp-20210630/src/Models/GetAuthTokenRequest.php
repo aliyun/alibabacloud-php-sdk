@@ -30,6 +30,13 @@ class GetAuthTokenRequest extends Model
     public $deviceId;
 
     /**
+     * @description cn-shanghai
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description 用户UserId,在AppId下单独唯一
      *
      * @var string
@@ -39,6 +46,7 @@ class GetAuthTokenRequest extends Model
         'appId'    => 'AppId',
         'appKey'   => 'AppKey',
         'deviceId' => 'DeviceId',
+        'regionId' => 'RegionId',
         'userId'   => 'UserId',
     ];
 
@@ -57,6 +65,9 @@ class GetAuthTokenRequest extends Model
         }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -81,6 +92,9 @@ class GetAuthTokenRequest extends Model
         }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

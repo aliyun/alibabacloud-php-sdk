@@ -22,9 +22,17 @@ class UpdateAppTemplateConfigRequest extends Model
      * @var configList[]
      */
     public $configList;
+
+    /**
+     * @description 地域
+     *
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'appTemplateId' => 'AppTemplateId',
         'configList'    => 'ConfigList',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -45,6 +53,9 @@ class UpdateAppTemplateConfigRequest extends Model
                     $res['ConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -69,6 +80,9 @@ class UpdateAppTemplateConfigRequest extends Model
                     $model->configList[$n++] = null !== $item ? configList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

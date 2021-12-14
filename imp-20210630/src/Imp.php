@@ -69,6 +69,7 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\GetConferenceRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetConferenceResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetDomainOwnerVerifyContentRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetDomainOwnerVerifyContentResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\GetImpProductStatusRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetImpProductStatusResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveDomainStatusRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\GetLiveDomainStatusResponse;
@@ -111,6 +112,8 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\ListRoomLivesResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListRoomLivesShrinkRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListRoomsRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\ListRoomsResponse;
+use AlibabaCloud\SDK\Imp\V20210630\Models\ListRoomUsersRequest;
+use AlibabaCloud\SDK\Imp\V20210630\Models\ListRoomUsersResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\PublishLiveRequest;
 use AlibabaCloud\SDK\Imp\V20210630\Models\PublishLiveResponse;
 use AlibabaCloud\SDK\Imp\V20210630\Models\PublishLiveRoomRequest;
@@ -157,6 +160,7 @@ use AlibabaCloud\SDK\Imp\V20210630\Models\VerifyDomainOwnerResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Imp extends OpenApiClient
@@ -204,8 +208,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'AddMember',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return AddMemberResponse::fromMap($this->doRPCRequest('AddMember', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -232,8 +247,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'AgreeLinkMic',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return AgreeLinkMicResponse::fromMap($this->doRPCRequest('AgreeLinkMic', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AgreeLinkMicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -260,8 +286,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ApplyLinkMic',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ApplyLinkMicResponse::fromMap($this->doRPCRequest('ApplyLinkMic', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ApplyLinkMicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -288,8 +325,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'AttachStandardRoomHttpsCertificate',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return AttachStandardRoomHttpsCertificateResponse::fromMap($this->doRPCRequest('AttachStandardRoomHttpsCertificate', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AttachStandardRoomHttpsCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -316,8 +364,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'BanAllComment',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return BanAllCommentResponse::fromMap($this->doRPCRequest('BanAllComment', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BanAllCommentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -344,8 +403,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'BanComment',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return BanCommentResponse::fromMap($this->doRPCRequest('BanComment', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BanCommentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -372,8 +442,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CancelApplyLinkMic',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CancelApplyLinkMicResponse::fromMap($this->doRPCRequest('CancelApplyLinkMic', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CancelApplyLinkMicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -400,8 +481,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CancelBanAllComment',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CancelBanAllCommentResponse::fromMap($this->doRPCRequest('CancelBanAllComment', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CancelBanAllCommentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -428,8 +520,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CancelBanComment',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CancelBanCommentResponse::fromMap($this->doRPCRequest('CancelBanComment', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CancelBanCommentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -456,8 +559,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateApp',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateAppResponse::fromMap($this->doRPCRequest('CreateApp', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -489,8 +603,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateAppTemplate',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateAppTemplateResponse::fromMap($this->doRPCRequest('CreateAppTemplate', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAppTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -517,8 +642,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateClass',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateClassResponse::fromMap($this->doRPCRequest('CreateClass', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateClassResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -545,8 +681,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateConference',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateConferenceResponse::fromMap($this->doRPCRequest('CreateConference', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -573,8 +720,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateLive',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateLiveResponse::fromMap($this->doRPCRequest('CreateLive', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateLiveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -606,8 +764,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateLiveRoom',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateLiveRoomResponse::fromMap($this->doRPCRequest('CreateLiveRoom', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateLiveRoomResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -639,8 +808,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'CreateRoom',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return CreateRoomResponse::fromMap($this->doRPCRequest('CreateRoom', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateRoomResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -667,8 +847,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteApp',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteAppResponse::fromMap($this->doRPCRequest('DeleteApp', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -695,8 +886,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteAppTemplate',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteAppTemplateResponse::fromMap($this->doRPCRequest('DeleteAppTemplate', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAppTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -723,8 +925,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteClass',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteClassResponse::fromMap($this->doRPCRequest('DeleteClass', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteClassResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -751,8 +964,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteComment',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteCommentResponse::fromMap($this->doRPCRequest('DeleteComment', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteCommentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -779,8 +1003,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteConference',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteConferenceResponse::fromMap($this->doRPCRequest('DeleteConference', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -807,8 +1042,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteLive',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteLiveResponse::fromMap($this->doRPCRequest('DeleteLive', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteLiveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -835,8 +1081,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteLiveRoom',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteLiveRoomResponse::fromMap($this->doRPCRequest('DeleteLiveRoom', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteLiveRoomResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -863,8 +1120,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'DeleteRoom',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return DeleteRoomResponse::fromMap($this->doRPCRequest('DeleteRoom', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteRoomResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -891,8 +1159,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetApp',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetAppResponse::fromMap($this->doRPCRequest('GetApp', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -919,8 +1198,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetAppTemplate',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetAppTemplateResponse::fromMap($this->doRPCRequest('GetAppTemplate', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAppTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -947,8 +1237,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetAuthToken',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetAuthTokenResponse::fromMap($this->doRPCRequest('GetAuthToken', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAuthTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -975,8 +1276,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetClassDetail',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetClassDetailResponse::fromMap($this->doRPCRequest('GetClassDetail', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetClassDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1003,8 +1315,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetConference',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetConferenceResponse::fromMap($this->doRPCRequest('GetConference', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1031,8 +1354,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetDomainOwnerVerifyContent',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetDomainOwnerVerifyContentResponse::fromMap($this->doRPCRequest('GetDomainOwnerVerifyContent', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetDomainOwnerVerifyContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1048,25 +1382,42 @@ class Imp extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param GetImpProductStatusRequest $request
+     * @param RuntimeOptions             $runtime
      *
      * @return GetImpProductStatusResponse
      */
-    public function getImpProductStatusWithOptions($runtime)
+    public function getImpProductStatusWithOptions($request, $runtime)
     {
-        $req = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'GetImpProductStatus',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetImpProductStatusResponse::fromMap($this->doRPCRequest('GetImpProductStatus', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetImpProductStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @param GetImpProductStatusRequest $request
+     *
      * @return GetImpProductStatusResponse
      */
-    public function getImpProductStatus()
+    public function getImpProductStatus($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getImpProductStatusWithOptions($runtime);
+        return $this->getImpProductStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -1081,8 +1432,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetLive',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetLiveResponse::fromMap($this->doRPCRequest('GetLive', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetLiveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1114,8 +1476,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetLiveDomainStatus',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetLiveDomainStatusResponse::fromMap($this->doRPCRequest('GetLiveDomainStatus', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetLiveDomainStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1142,8 +1515,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetLiveRoom',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetLiveRoomResponse::fromMap($this->doRPCRequest('GetLiveRoom', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetLiveRoomResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1170,8 +1554,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetLiveRoomStatistics',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetLiveRoomStatisticsResponse::fromMap($this->doRPCRequest('GetLiveRoomStatistics', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetLiveRoomStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1198,8 +1593,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetLiveRoomUserStatistics',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetLiveRoomUserStatisticsResponse::fromMap($this->doRPCRequest('GetLiveRoomUserStatistics', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetLiveRoomUserStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1226,8 +1632,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetRoom',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetRoomResponse::fromMap($this->doRPCRequest('GetRoom', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetRoomResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1254,8 +1671,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetStandardRoomHttpsCertificate',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetStandardRoomHttpsCertificateResponse::fromMap($this->doRPCRequest('GetStandardRoomHttpsCertificate', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetStandardRoomHttpsCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1282,8 +1710,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'GetStandardRoomJumpUrl',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return GetStandardRoomJumpUrlResponse::fromMap($this->doRPCRequest('GetStandardRoomJumpUrl', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetStandardRoomJumpUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1310,8 +1749,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListAppTemplates',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListAppTemplatesResponse::fromMap($this->doRPCRequest('ListAppTemplates', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAppTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1338,8 +1788,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListApplyLinkMicUsers',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListApplyLinkMicUsersResponse::fromMap($this->doRPCRequest('ListApplyLinkMicUsers', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListApplyLinkMicUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1366,8 +1827,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListApps',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListAppsResponse::fromMap($this->doRPCRequest('ListApps', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAppsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1394,8 +1866,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListClasses',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListClassesResponse::fromMap($this->doRPCRequest('ListClasses', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListClassesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1422,8 +1905,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListComments',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListCommentsResponse::fromMap($this->doRPCRequest('ListComments', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListCommentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1450,8 +1944,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListComponents',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListComponentsResponse::fromMap($this->doRPCRequest('ListComponents', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListComponentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1478,8 +1983,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListConferenceUsers',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListConferenceUsersResponse::fromMap($this->doRPCRequest('ListConferenceUsers', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListConferenceUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1506,8 +2022,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListLiveRooms',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListLiveRoomsResponse::fromMap($this->doRPCRequest('ListLiveRooms', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListLiveRoomsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1539,8 +2066,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListLiveRoomsById',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListLiveRoomsByIdResponse::fromMap($this->doRPCRequest('ListLiveRoomsById', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListLiveRoomsByIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1572,8 +2110,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListRoomLives',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListRoomLivesResponse::fromMap($this->doRPCRequest('ListRoomLives', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListRoomLivesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1589,6 +2138,45 @@ class Imp extends OpenApiClient
     }
 
     /**
+     * @param ListRoomUsersRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListRoomUsersResponse
+     */
+    public function listRoomUsersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'body' => Utils::toMap($request),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRoomUsers',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRoomUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListRoomUsersRequest $request
+     *
+     * @return ListRoomUsersResponse
+     */
+    public function listRoomUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRoomUsersWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListRoomsRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -1600,8 +2188,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'ListRooms',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return ListRoomsResponse::fromMap($this->doRPCRequest('ListRooms', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListRoomsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1628,8 +2227,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'PublishLive',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return PublishLiveResponse::fromMap($this->doRPCRequest('PublishLive', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PublishLiveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1656,8 +2266,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'PublishLiveRoom',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return PublishLiveRoomResponse::fromMap($this->doRPCRequest('PublishLiveRoom', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PublishLiveRoomResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1684,8 +2305,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'RejectLinkMic',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return RejectLinkMicResponse::fromMap($this->doRPCRequest('RejectLinkMic', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RejectLinkMicResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1712,8 +2344,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'RemoveMember',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return RemoveMemberResponse::fromMap($this->doRPCRequest('RemoveMember', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveMemberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1745,8 +2388,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'SendComment',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return SendCommentResponse::fromMap($this->doRPCRequest('SendComment', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SendCommentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1773,8 +2427,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'SendCustomMessageToAll',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return SendCustomMessageToAllResponse::fromMap($this->doRPCRequest('SendCustomMessageToAll', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SendCustomMessageToAllResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1801,8 +2466,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'SendCustomMessageToUsers',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return SendCustomMessageToUsersResponse::fromMap($this->doRPCRequest('SendCustomMessageToUsers', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SendCustomMessageToUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1829,8 +2505,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'StopClass',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return StopClassResponse::fromMap($this->doRPCRequest('StopClass', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopClassResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1857,8 +2544,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'StopLive',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return StopLiveResponse::fromMap($this->doRPCRequest('StopLive', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopLiveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1885,8 +2583,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'StopLiveRoom',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return StopLiveRoomResponse::fromMap($this->doRPCRequest('StopLiveRoom', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopLiveRoomResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1913,8 +2622,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateApp',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateAppResponse::fromMap($this->doRPCRequest('UpdateApp', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1946,8 +2666,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateAppTemplate',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateAppTemplateResponse::fromMap($this->doRPCRequest('UpdateAppTemplate', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateAppTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1979,8 +2710,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateAppTemplateConfig',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateAppTemplateConfigResponse::fromMap($this->doRPCRequest('UpdateAppTemplateConfig', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateAppTemplateConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2007,8 +2749,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateClass',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateClassResponse::fromMap($this->doRPCRequest('UpdateClass', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateClassResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2035,8 +2788,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateConference',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateConferenceResponse::fromMap($this->doRPCRequest('UpdateConference', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateConferenceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2063,8 +2827,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateLive',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateLiveResponse::fromMap($this->doRPCRequest('UpdateLive', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateLiveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2096,8 +2871,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateLiveRoom',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateLiveRoomResponse::fromMap($this->doRPCRequest('UpdateLiveRoom', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateLiveRoomResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2129,8 +2915,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'UpdateRoom',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return UpdateRoomResponse::fromMap($this->doRPCRequest('UpdateRoom', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateRoomResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2157,8 +2954,19 @@ class Imp extends OpenApiClient
         $req = new OpenApiRequest([
             'body' => Utils::toMap($request),
         ]);
+        $params = new Params([
+            'action'      => 'VerifyDomainOwner',
+            'version'     => '2021-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
 
-        return VerifyDomainOwnerResponse::fromMap($this->doRPCRequest('VerifyDomainOwner', '2021-06-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return VerifyDomainOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

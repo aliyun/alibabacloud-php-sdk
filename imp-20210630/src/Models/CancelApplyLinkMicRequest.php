@@ -16,6 +16,13 @@ class CancelApplyLinkMicRequest extends Model
     public $conferenceId;
 
     /**
+     * @description 地域
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description 申请连麦用户
      *
      * @var string
@@ -23,6 +30,7 @@ class CancelApplyLinkMicRequest extends Model
     public $userId;
     protected $_name = [
         'conferenceId' => 'ConferenceId',
+        'regionId'     => 'RegionId',
         'userId'       => 'UserId',
     ];
 
@@ -35,6 +43,9 @@ class CancelApplyLinkMicRequest extends Model
         $res = [];
         if (null !== $this->conferenceId) {
             $res['ConferenceId'] = $this->conferenceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -53,6 +64,9 @@ class CancelApplyLinkMicRequest extends Model
         $model = new self();
         if (isset($map['ConferenceId'])) {
             $model->conferenceId = $map['ConferenceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

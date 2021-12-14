@@ -30,6 +30,11 @@ class ListClassesRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @description 课程状态，0-未开课 1-上课中 2-已下课，不传则返回所有课程。
      *
      * @var int
@@ -39,6 +44,7 @@ class ListClassesRequest extends Model
         'appId'      => 'AppId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
+        'regionId'   => 'RegionId',
         'status'     => 'Status',
     ];
 
@@ -57,6 +63,9 @@ class ListClassesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -81,6 +90,9 @@ class ListClassesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

@@ -28,10 +28,18 @@ class ListApplyLinkMicUsersRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @description 地域
+     *
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'conferenceId' => 'ConferenceId',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
+        'regionId'     => 'RegionId',
     ];
 
     public function validate()
@@ -49,6 +57,9 @@ class ListApplyLinkMicUsersRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -70,6 +81,9 @@ class ListApplyLinkMicUsersRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

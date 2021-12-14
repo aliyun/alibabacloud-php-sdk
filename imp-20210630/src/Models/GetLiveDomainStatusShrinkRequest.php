@@ -28,10 +28,18 @@ class GetLiveDomainStatusShrinkRequest extends Model
      * @var string
      */
     public $liveDomainType;
+
+    /**
+     * @description 地域
+     *
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'appId'                => 'AppId',
         'liveDomainListShrink' => 'LiveDomainList',
         'liveDomainType'       => 'LiveDomainType',
+        'regionId'             => 'RegionId',
     ];
 
     public function validate()
@@ -49,6 +57,9 @@ class GetLiveDomainStatusShrinkRequest extends Model
         }
         if (null !== $this->liveDomainType) {
             $res['LiveDomainType'] = $this->liveDomainType;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -70,6 +81,9 @@ class GetLiveDomainStatusShrinkRequest extends Model
         }
         if (isset($map['LiveDomainType'])) {
             $model->liveDomainType = $map['LiveDomainType'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;
