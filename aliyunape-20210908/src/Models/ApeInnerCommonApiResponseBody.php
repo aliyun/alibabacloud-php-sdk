@@ -18,7 +18,7 @@ class ApeInnerCommonApiResponseBody extends Model
     /**
      * @description data
      *
-     * @var string
+     * @var mixed[][]
      */
     public $data;
 
@@ -99,7 +99,9 @@ class ApeInnerCommonApiResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            if (!empty($map['Data'])) {
+                $model->data = $map['Data'];
+            }
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
