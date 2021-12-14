@@ -11,37 +11,12 @@ class GetLindormInstanceListRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $ownerAccount;
 
     /**
      * @var int
      */
     public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $resourceOwnerAccount;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $queryStr;
 
     /**
      * @var int
@@ -56,6 +31,31 @@ class GetLindormInstanceListRequest extends Model
     /**
      * @var string
      */
+    public $queryStr;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $serviceType;
 
     /**
@@ -63,15 +63,15 @@ class GetLindormInstanceListRequest extends Model
      */
     public $supportEngine;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
         'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
-        'queryStr'             => 'QueryStr',
+        'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
+        'queryStr'             => 'QueryStr',
+        'regionId'             => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'securityToken'        => 'SecurityToken',
         'serviceType'          => 'ServiceType',
         'supportEngine'        => 'SupportEngine',
     ];
@@ -83,11 +83,23 @@ class GetLindormInstanceListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->queryStr) {
+            $res['QueryStr'] = $this->queryStr;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -95,20 +107,8 @@ class GetLindormInstanceListRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->queryStr) {
-            $res['QueryStr'] = $this->queryStr;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
         if (null !== $this->serviceType) {
             $res['ServiceType'] = $this->serviceType;
@@ -128,11 +128,23 @@ class GetLindormInstanceListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['QueryStr'])) {
+            $model->queryStr = $map['QueryStr'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -140,20 +152,8 @@ class GetLindormInstanceListRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['QueryStr'])) {
-            $model->queryStr = $map['QueryStr'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
         if (isset($map['ServiceType'])) {
             $model->serviceType = $map['ServiceType'];

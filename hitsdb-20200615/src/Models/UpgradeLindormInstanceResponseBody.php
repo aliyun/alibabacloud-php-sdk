@@ -6,26 +6,20 @@ namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetInstanceIpWhiteListResponseBody extends Model
+class UpgradeLindormInstanceResponseBody extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $instanceId;
-
-    /**
-     * @var string[]
-     */
-    public $ipList;
+    public $orderId;
 
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'ipList'     => 'IpList',
-        'requestId'  => 'RequestId',
+        'orderId'   => 'OrderId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -35,11 +29,8 @@ class GetInstanceIpWhiteListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->ipList) {
-            $res['IpList'] = $this->ipList;
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -51,18 +42,13 @@ class GetInstanceIpWhiteListResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetInstanceIpWhiteListResponseBody
+     * @return UpgradeLindormInstanceResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['IpList'])) {
-            if (!empty($map['IpList'])) {
-                $model->ipList = $map['IpList'];
-            }
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

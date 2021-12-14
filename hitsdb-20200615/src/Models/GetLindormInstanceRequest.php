@@ -11,12 +11,22 @@ class GetLindormInstanceRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -31,25 +41,15 @@ class GetLindormInstanceRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
+    public $securityToken;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
+        'instanceId'           => 'InstanceId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
-        'instanceId'           => 'InstanceId',
+        'securityToken'        => 'SecurityToken',
     ];
 
     public function validate()
@@ -59,11 +59,17 @@ class GetLindormInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -71,14 +77,8 @@ class GetLindormInstanceRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -92,11 +92,17 @@ class GetLindormInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -104,14 +110,8 @@ class GetLindormInstanceRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

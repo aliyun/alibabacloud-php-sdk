@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetLindormInstanceEngineListRequest extends Model
+class ReleaseLindormInstanceRequest extends Model
 {
     /**
      * @var string
@@ -87,7 +87,7 @@ class GetLindormInstanceEngineListRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetLindormInstanceEngineListRequest
+     * @return ReleaseLindormInstanceRequest
      */
     public static function fromMap($map = [])
     {

@@ -11,12 +11,27 @@ class UpdateInstanceIpWhiteListRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $groupName;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -31,31 +46,22 @@ class UpdateInstanceIpWhiteListRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
     public $securityIpList;
 
     /**
      * @var string
      */
-    public $groupName;
+    public $securityToken;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
+        'groupName'            => 'GroupName',
+        'instanceId'           => 'InstanceId',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'instanceId'           => 'InstanceId',
         'securityIpList'       => 'SecurityIpList',
-        'groupName'            => 'GroupName',
+        'securityToken'        => 'SecurityToken',
     ];
 
     public function validate()
@@ -65,11 +71,20 @@ class UpdateInstanceIpWhiteListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -77,17 +92,11 @@ class UpdateInstanceIpWhiteListRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->securityIpList) {
             $res['SecurityIpList'] = $this->securityIpList;
         }
-        if (null !== $this->groupName) {
-            $res['GroupName'] = $this->groupName;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -101,11 +110,20 @@ class UpdateInstanceIpWhiteListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -113,17 +131,11 @@ class UpdateInstanceIpWhiteListRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['SecurityIpList'])) {
             $model->securityIpList = $map['SecurityIpList'];
         }
-        if (isset($map['GroupName'])) {
-            $model->groupName = $map['GroupName'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

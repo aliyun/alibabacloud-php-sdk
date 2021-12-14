@@ -5,6 +5,9 @@
 namespace AlibabaCloud\SDK\Hitsdb\V20200615;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\CreateLindormInstanceRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\CreateLindormInstanceResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetInstanceIpWhiteListRequest;
@@ -15,11 +18,16 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceListRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceListResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ReleaseLindormInstanceRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ReleaseLindormInstanceResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateInstanceIpWhiteListRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpdateInstanceIpWhiteListResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpgradeLindormInstanceRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\UpgradeLindormInstanceResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Hitsdb extends OpenApiClient
@@ -105,6 +113,71 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * @param CreateLindormInstanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateLindormInstanceResponse
+     */
+    public function createLindormInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                         = [];
+        $query['ColdStorage']          = $request->coldStorage;
+        $query['CoreSpec']             = $request->coreSpec;
+        $query['DiskCategory']         = $request->diskCategory;
+        $query['Duration']             = $request->duration;
+        $query['FilestoreNum']         = $request->filestoreNum;
+        $query['FilestoreSpec']        = $request->filestoreSpec;
+        $query['InstanceAlias']        = $request->instanceAlias;
+        $query['InstanceStorage']      = $request->instanceStorage;
+        $query['LindormNum']           = $request->lindormNum;
+        $query['LindormSpec']          = $request->lindormSpec;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PayType']              = $request->payType;
+        $query['PricingCycle']         = $request->pricingCycle;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['SecurityToken']        = $request->securityToken;
+        $query['SolrNum']              = $request->solrNum;
+        $query['SolrSpec']             = $request->solrSpec;
+        $query['TsdbNum']              = $request->tsdbNum;
+        $query['TsdbSpec']             = $request->tsdbSpec;
+        $query['VPCId']                = $request->VPCId;
+        $query['VSwitchId']            = $request->vSwitchId;
+        $query['ZoneId']               = $request->zoneId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateLindormInstance',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateLindormInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateLindormInstanceRequest $request
+     *
+     * @return CreateLindormInstanceResponse
+     */
+    public function createLindormInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLindormInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeRegionsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -113,11 +186,29 @@ class Hitsdb extends OpenApiClient
     public function describeRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AcceptLanguage']       = $request->acceptLanguage;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['SecurityToken']        = $request->securityToken;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRegions',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2020-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -141,11 +232,30 @@ class Hitsdb extends OpenApiClient
     public function getInstanceIpWhiteListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['GroupName']            = $request->groupName;
+        $query['InstanceId']           = $request->instanceId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['SecurityToken']        = $request->securityToken;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetInstanceIpWhiteList',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetInstanceIpWhiteListResponse::fromMap($this->doRPCRequest('GetInstanceIpWhiteList', '2020-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetInstanceIpWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -169,11 +279,30 @@ class Hitsdb extends OpenApiClient
     public function getLindormInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['InstanceId']           = $request->instanceId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['SecurityToken']        = $request->securityToken;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLindormInstance',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetLindormInstanceResponse::fromMap($this->doRPCRequest('GetLindormInstance', '2020-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetLindormInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -197,11 +326,30 @@ class Hitsdb extends OpenApiClient
     public function getLindormInstanceEngineListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['InstanceId']           = $request->instanceId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['SecurityToken']        = $request->securityToken;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLindormInstanceEngineList',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetLindormInstanceEngineListResponse::fromMap($this->doRPCRequest('GetLindormInstanceEngineList', '2020-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetLindormInstanceEngineListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -225,11 +373,34 @@ class Hitsdb extends OpenApiClient
     public function getLindormInstanceListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageNumber']           = $request->pageNumber;
+        $query['PageSize']             = $request->pageSize;
+        $query['QueryStr']             = $request->queryStr;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['SecurityToken']        = $request->securityToken;
+        $query['ServiceType']          = $request->serviceType;
+        $query['SupportEngine']        = $request->supportEngine;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLindormInstanceList',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetLindormInstanceListResponse::fromMap($this->doRPCRequest('GetLindormInstanceList', '2020-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetLindormInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -245,6 +416,52 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * @param ReleaseLindormInstanceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ReleaseLindormInstanceResponse
+     */
+    public function releaseLindormInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                         = [];
+        $query['InstanceId']           = $request->instanceId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['SecurityToken']        = $request->securityToken;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleaseLindormInstance',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReleaseLindormInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ReleaseLindormInstanceRequest $request
+     *
+     * @return ReleaseLindormInstanceResponse
+     */
+    public function releaseLindormInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->releaseLindormInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateInstanceIpWhiteListRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -253,11 +470,31 @@ class Hitsdb extends OpenApiClient
     public function updateInstanceIpWhiteListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['GroupName']            = $request->groupName;
+        $query['InstanceId']           = $request->instanceId;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['SecurityIpList']       = $request->securityIpList;
+        $query['SecurityToken']        = $request->securityToken;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateInstanceIpWhiteList',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateInstanceIpWhiteListResponse::fromMap($this->doRPCRequest('UpdateInstanceIpWhiteList', '2020-06-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateInstanceIpWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -270,5 +507,70 @@ class Hitsdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateInstanceIpWhiteListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpgradeLindormInstanceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpgradeLindormInstanceResponse
+     */
+    public function upgradeLindormInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                         = [];
+        $query['ClusterStorage']       = $request->clusterStorage;
+        $query['ColdStorage']          = $request->coldStorage;
+        $query['CoreNum']              = $request->coreNum;
+        $query['CoreSpec']             = $request->coreSpec;
+        $query['FilestoreNum']         = $request->filestoreNum;
+        $query['FilestoreSpec']        = $request->filestoreSpec;
+        $query['InstanceId']           = $request->instanceId;
+        $query['LindormNum']           = $request->lindormNum;
+        $query['LindormSpec']          = $request->lindormSpec;
+        $query['LtsCoreNum']           = $request->ltsCoreNum;
+        $query['LtsCoreSpec']          = $request->ltsCoreSpec;
+        $query['OwnerAccount']         = $request->ownerAccount;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PhoenixCoreNum']       = $request->phoenixCoreNum;
+        $query['PhoenixCoreSpec']      = $request->phoenixCoreSpec;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['SecurityToken']        = $request->securityToken;
+        $query['SolrNum']              = $request->solrNum;
+        $query['SolrSpec']             = $request->solrSpec;
+        $query['TsdbNum']              = $request->tsdbNum;
+        $query['TsdbSpec']             = $request->tsdbSpec;
+        $query['UpgradeType']          = $request->upgradeType;
+        $query['ZoneId']               = $request->zoneId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradeLindormInstance',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpgradeLindormInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpgradeLindormInstanceRequest $request
+     *
+     * @return UpgradeLindormInstanceResponse
+     */
+    public function upgradeLindormInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeLindormInstanceWithOptions($request, $runtime);
     }
 }

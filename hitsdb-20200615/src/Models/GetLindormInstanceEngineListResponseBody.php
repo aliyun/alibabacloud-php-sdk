@@ -17,16 +17,16 @@ class GetLindormInstanceEngineListResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $requestId;
     protected $_name = [
         'engineList' => 'EngineList',
-        'requestId'  => 'RequestId',
         'instanceId' => 'InstanceId',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -45,11 +45,11 @@ class GetLindormInstanceEngineListResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -72,11 +72,11 @@ class GetLindormInstanceEngineListResponseBody extends Model
                 }
             }
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

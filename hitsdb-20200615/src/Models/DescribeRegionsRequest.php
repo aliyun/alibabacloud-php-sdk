@@ -11,12 +11,22 @@ class DescribeRegionsRequest extends Model
     /**
      * @var string
      */
-    public $securityToken;
+    public $acceptLanguage;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
 
     /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -31,19 +41,21 @@ class DescribeRegionsRequest extends Model
     /**
      * @var string
      */
-    public $ownerAccount;
+    public $securityToken;
 
     /**
      * @var string
      */
-    public $acceptLanguage;
+    public $zoneId;
     protected $_name = [
-        'securityToken'        => 'SecurityToken',
+        'acceptLanguage'       => 'AcceptLanguage',
+        'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'ownerAccount'         => 'OwnerAccount',
-        'acceptLanguage'       => 'AcceptLanguage',
+        'securityToken'        => 'SecurityToken',
+        'zoneId'               => 'ZoneId',
     ];
 
     public function validate()
@@ -53,11 +65,17 @@ class DescribeRegionsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -65,11 +83,11 @@ class DescribeRegionsRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
-        if (null !== $this->acceptLanguage) {
-            $res['AcceptLanguage'] = $this->acceptLanguage;
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -83,11 +101,17 @@ class DescribeRegionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -95,11 +119,11 @@ class DescribeRegionsRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
-        if (isset($map['AcceptLanguage'])) {
-            $model->acceptLanguage = $map['AcceptLanguage'];
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;
