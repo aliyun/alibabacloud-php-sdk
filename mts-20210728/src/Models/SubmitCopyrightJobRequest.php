@@ -44,6 +44,13 @@ class SubmitCopyrightJobRequest extends Model
     public $message;
 
     /**
+     * @description 输出的视频，oss三元组
+     *
+     * @var string
+     */
+    public $output;
+
+    /**
      * @description 水印起始时间(单位是秒)，不填写默认为0
      *
      * @var int
@@ -58,11 +65,11 @@ class SubmitCopyrightJobRequest extends Model
     public $totalTime;
 
     /**
-     * @description 输出的视频，oss三元组
+     * @description 外部url链接(Input和url二选一)
      *
      * @var string
      */
-    public $output;
+    public $url;
 
     /**
      * @description 用户自定义数据
@@ -70,24 +77,17 @@ class SubmitCopyrightJobRequest extends Model
      * @var string
      */
     public $userData;
-
-    /**
-     * @description 外部url链接(Input和url二选一)
-     *
-     * @var string
-     */
-    public $url;
     protected $_name = [
         'callBack'    => 'CallBack',
         'description' => 'Description',
         'input'       => 'Input',
         'level'       => 'Level',
         'message'     => 'Message',
+        'output'      => 'Output',
         'startTime'   => 'StartTime',
         'totalTime'   => 'TotalTime',
-        'output'      => 'Output',
-        'userData'    => 'UserData',
         'url'         => 'Url',
+        'userData'    => 'UserData',
     ];
 
     public function validate()
@@ -112,20 +112,20 @@ class SubmitCopyrightJobRequest extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+        if (null !== $this->output) {
+            $res['Output'] = $this->output;
+        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->totalTime) {
             $res['TotalTime'] = $this->totalTime;
         }
-        if (null !== $this->output) {
-            $res['Output'] = $this->output;
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
-        }
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -154,20 +154,20 @@ class SubmitCopyrightJobRequest extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+        if (isset($map['Output'])) {
+            $model->output = $map['Output'];
+        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
         if (isset($map['TotalTime'])) {
             $model->totalTime = $map['TotalTime'];
         }
-        if (isset($map['Output'])) {
-            $model->output = $map['Output'];
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
-        }
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
         }
 
         return $model;

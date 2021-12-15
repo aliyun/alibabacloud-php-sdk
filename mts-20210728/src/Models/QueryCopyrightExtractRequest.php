@@ -2,19 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Mts\V20210728\Models\SubmitTracemuResponseBody;
+namespace AlibabaCloud\SDK\Mts\V20210728\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class data extends Model
+class QueryCopyrightExtractRequest extends Model
 {
-    /**
-     * @description 生成m3u8文件的code
-     *
-     * @var string
-     */
-    public $code;
-
     /**
      * @description 任务id
      *
@@ -22,7 +15,6 @@ class data extends Model
      */
     public $jobId;
     protected $_name = [
-        'code'  => 'Code',
         'jobId' => 'JobId',
     ];
 
@@ -33,9 +25,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
@@ -46,14 +35,11 @@ class data extends Model
     /**
      * @param array $map
      *
-     * @return data
+     * @return QueryCopyrightExtractRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }

@@ -6,25 +6,34 @@ namespace AlibabaCloud\SDK\Mts\V20210728;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Mts\V20210728\Models\QueryCopyrightExtractRequest;
+use AlibabaCloud\SDK\Mts\V20210728\Models\QueryCopyrightExtractResponse;
 use AlibabaCloud\SDK\Mts\V20210728\Models\QueryCopyrightRequest;
 use AlibabaCloud\SDK\Mts\V20210728\Models\QueryCopyrightResponse;
 use AlibabaCloud\SDK\Mts\V20210728\Models\QueryImageCopyrightRequest;
 use AlibabaCloud\SDK\Mts\V20210728\Models\QueryImageCopyrightResponse;
 use AlibabaCloud\SDK\Mts\V20210728\Models\QueryTraceAbRequest;
 use AlibabaCloud\SDK\Mts\V20210728\Models\QueryTraceAbResponse;
+use AlibabaCloud\SDK\Mts\V20210728\Models\QueryTraceExtractRequest;
+use AlibabaCloud\SDK\Mts\V20210728\Models\QueryTraceExtractResponse;
 use AlibabaCloud\SDK\Mts\V20210728\Models\QueryTraceMuRequest;
 use AlibabaCloud\SDK\Mts\V20210728\Models\QueryTraceMuResponse;
+use AlibabaCloud\SDK\Mts\V20210728\Models\SubmitCopyrightExtractRequest;
+use AlibabaCloud\SDK\Mts\V20210728\Models\SubmitCopyrightExtractResponse;
 use AlibabaCloud\SDK\Mts\V20210728\Models\SubmitCopyrightJobRequest;
 use AlibabaCloud\SDK\Mts\V20210728\Models\SubmitCopyrightJobResponse;
 use AlibabaCloud\SDK\Mts\V20210728\Models\SubmitImageCopyrightRequest;
 use AlibabaCloud\SDK\Mts\V20210728\Models\SubmitImageCopyrightResponse;
 use AlibabaCloud\SDK\Mts\V20210728\Models\SubmitTraceAbRequest;
 use AlibabaCloud\SDK\Mts\V20210728\Models\SubmitTraceAbResponse;
+use AlibabaCloud\SDK\Mts\V20210728\Models\SubmitTraceExtractRequest;
+use AlibabaCloud\SDK\Mts\V20210728\Models\SubmitTraceExtractResponse;
 use AlibabaCloud\SDK\Mts\V20210728\Models\SubmitTracemuRequest;
 use AlibabaCloud\SDK\Mts\V20210728\Models\SubmitTracemuResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Mts extends OpenApiClient
@@ -105,103 +114,110 @@ class Mts extends OpenApiClient
     }
 
     /**
-     * @param QueryTraceMuRequest $request
+     * @param QueryCopyrightRequest $request
      *
-     * @return QueryTraceMuResponse
+     * @return QueryCopyrightResponse
      */
-    public function queryTraceMu($request)
+    public function queryCopyright($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->queryTraceMuWithOptions($request, $headers, $runtime);
+        return $this->queryCopyrightWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param QueryTraceMuRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param QueryCopyrightRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return QueryTraceMuResponse
+     * @return QueryCopyrightResponse
      */
-    public function queryTraceMuWithOptions($request, $headers, $runtime)
+    public function queryCopyrightWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->createTimeEnd)) {
-            @$body['CreateTimeEnd'] = $request->createTimeEnd;
+            $body['CreateTimeEnd'] = $request->createTimeEnd;
         }
         if (!Utils::isUnset($request->createTimeStart)) {
-            @$body['CreateTimeStart'] = $request->createTimeStart;
+            $body['CreateTimeStart'] = $request->createTimeStart;
         }
         if (!Utils::isUnset($request->jobId)) {
-            @$body['JobId'] = $request->jobId;
+            $body['JobId'] = $request->jobId;
         }
         if (!Utils::isUnset($request->level)) {
-            @$body['Level'] = $request->level;
-        }
-        if (!Utils::isUnset($request->messageId)) {
-            @$body['MessageId'] = $request->messageId;
+            $body['Level'] = $request->level;
         }
         if (!Utils::isUnset($request->pageNumber)) {
-            @$body['PageNumber'] = $request->pageNumber;
+            $body['PageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$body['PageSize'] = $request->pageSize;
+            $body['PageSize'] = $request->pageSize;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'QueryCopyright',
+            'version'     => '2021-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/queryCopyrightJob',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return QueryTraceMuResponse::fromMap($this->doROARequest('QueryTraceMu', '2021-07-28', 'HTTPS', 'POST', 'AK', '/queryTraceM3u8', 'json', $req, $runtime));
+        return QueryCopyrightResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SubmitImageCopyrightRequest $request
+     * @param QueryCopyrightExtractRequest $request
      *
-     * @return SubmitImageCopyrightResponse
+     * @return QueryCopyrightExtractResponse
      */
-    public function submitImageCopyright($request)
+    public function queryCopyrightExtract($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->submitImageCopyrightWithOptions($request, $headers, $runtime);
+        return $this->queryCopyrightExtractWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param SubmitImageCopyrightRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param QueryCopyrightExtractRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
      *
-     * @return SubmitImageCopyrightResponse
+     * @return QueryCopyrightExtractResponse
      */
-    public function submitImageCopyrightWithOptions($request, $headers, $runtime)
+    public function queryCopyrightExtractWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $body = [];
-        if (!Utils::isUnset($request->input)) {
-            @$body['Input'] = $request->input;
-        }
-        if (!Utils::isUnset($request->level)) {
-            @$body['Level'] = $request->level;
-        }
-        if (!Utils::isUnset($request->message)) {
-            @$body['Message'] = $request->message;
-        }
-        if (!Utils::isUnset($request->output)) {
-            @$body['Output'] = $request->output;
-        }
-        if (!Utils::isUnset($request->url)) {
-            @$body['Url'] = $request->url;
+        if (!Utils::isUnset($request->jobId)) {
+            $body['JobId'] = $request->jobId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'QueryCopyrightExtract',
+            'version'     => '2021-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/queryCopyrightExtract',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return SubmitImageCopyrightResponse::fromMap($this->doROARequest('SubmitImageCopyright', '2021-07-28', 'HTTPS', 'POST', 'AK', '/submitImageCopyright', 'json', $req, $runtime));
+        return QueryCopyrightExtractResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -229,117 +245,37 @@ class Mts extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->createTimeEnd)) {
-            @$body['CreateTimeEnd'] = $request->createTimeEnd;
+            $body['CreateTimeEnd'] = $request->createTimeEnd;
         }
         if (!Utils::isUnset($request->createTimeStart)) {
-            @$body['CreateTimeStart'] = $request->createTimeStart;
+            $body['CreateTimeStart'] = $request->createTimeStart;
         }
         if (!Utils::isUnset($request->jobId)) {
-            @$body['JobId'] = $request->jobId;
+            $body['JobId'] = $request->jobId;
         }
         if (!Utils::isUnset($request->pageNumber)) {
-            @$body['PageNumber'] = $request->pageNumber;
+            $body['PageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$body['PageSize'] = $request->pageSize;
+            $body['PageSize'] = $request->pageSize;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
-
-        return QueryImageCopyrightResponse::fromMap($this->doROARequest('QueryImageCopyright', '2021-07-28', 'HTTPS', 'POST', 'AK', '/queryImageCopyright', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryCopyrightRequest $request
-     *
-     * @return QueryCopyrightResponse
-     */
-    public function queryCopyright($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->queryCopyrightWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param QueryCopyrightRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return QueryCopyrightResponse
-     */
-    public function queryCopyrightWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->createTimeEnd)) {
-            @$body['CreateTimeEnd'] = $request->createTimeEnd;
-        }
-        if (!Utils::isUnset($request->createTimeStart)) {
-            @$body['CreateTimeStart'] = $request->createTimeStart;
-        }
-        if (!Utils::isUnset($request->jobId)) {
-            @$body['JobId'] = $request->jobId;
-        }
-        if (!Utils::isUnset($request->level)) {
-            @$body['Level'] = $request->level;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            @$body['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            @$body['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+        $params = new Params([
+            'action'      => 'QueryImageCopyright',
+            'version'     => '2021-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/queryImageCopyright',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
         ]);
 
-        return QueryCopyrightResponse::fromMap($this->doROARequest('QueryCopyright', '2021-07-28', 'HTTPS', 'POST', 'AK', '/queryCopyrightJob', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SubmitTracemuRequest $request
-     *
-     * @return SubmitTracemuResponse
-     */
-    public function submitTracemu($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->submitTracemuWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param SubmitTracemuRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
-     *
-     * @return SubmitTracemuResponse
-     */
-    public function submitTracemuWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->mediaId)) {
-            @$body['MediaId'] = $request->mediaId;
-        }
-        if (!Utils::isUnset($request->output)) {
-            @$body['Output'] = $request->output;
-        }
-        if (!Utils::isUnset($request->trace)) {
-            @$body['Trace'] = $request->trace;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-
-        return SubmitTracemuResponse::fromMap($this->doROARequest('SubmitTracemu', '2021-07-28', 'HTTPS', 'POST', 'AK', '/submitTraceM3u8', 'json', $req, $runtime));
+        return QueryImageCopyrightResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -367,67 +303,190 @@ class Mts extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->jobId)) {
-            @$body['JobId'] = $request->jobId;
+            $body['JobId'] = $request->jobId;
         }
         if (!Utils::isUnset($request->mediaId)) {
-            @$body['MediaId'] = $request->mediaId;
+            $body['MediaId'] = $request->mediaId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'QueryTraceAb',
+            'version'     => '2021-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/queryTraceAb',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return QueryTraceAbResponse::fromMap($this->doROARequest('QueryTraceAb', '2021-07-28', 'HTTPS', 'POST', 'AK', '/queryTraceAb', 'json', $req, $runtime));
+        return QueryTraceAbResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SubmitTraceAbRequest $request
+     * @param QueryTraceExtractRequest $request
      *
-     * @return SubmitTraceAbResponse
+     * @return QueryTraceExtractResponse
      */
-    public function submitTraceAb($request)
+    public function queryTraceExtract($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->submitTraceAbWithOptions($request, $headers, $runtime);
+        return $this->queryTraceExtractWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param SubmitTraceAbRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param QueryTraceExtractRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
-     * @return SubmitTraceAbResponse
+     * @return QueryTraceExtractResponse
      */
-    public function submitTraceAbWithOptions($request, $headers, $runtime)
+    public function queryTraceExtractWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $body = [];
-        if (!Utils::isUnset($request->callBack)) {
-            @$body['CallBack'] = $request->callBack;
-        }
-        if (!Utils::isUnset($request->input)) {
-            @$body['Input'] = $request->input;
-        }
-        if (!Utils::isUnset($request->level)) {
-            @$body['Level'] = $request->level;
-        }
-        if (!Utils::isUnset($request->output)) {
-            @$body['Output'] = $request->output;
-        }
-        if (!Utils::isUnset($request->userData)) {
-            @$body['UserData'] = $request->userData;
-        }
-        if (!Utils::isUnset($request->url)) {
-            @$body['Url'] = $request->url;
+        if (!Utils::isUnset($request->jobId)) {
+            $body['JobId'] = $request->jobId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'QueryTraceExtract',
+            'version'     => '2021-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/queryTraceExtract',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return SubmitTraceAbResponse::fromMap($this->doROARequest('SubmitTraceAb', '2021-07-28', 'HTTPS', 'POST', 'AK', '/submitTraceAb', 'json', $req, $runtime));
+        return QueryTraceExtractResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryTraceMuRequest $request
+     *
+     * @return QueryTraceMuResponse
+     */
+    public function queryTraceMu($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->queryTraceMuWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param QueryTraceMuRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return QueryTraceMuResponse
+     */
+    public function queryTraceMuWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->createTimeEnd)) {
+            $body['CreateTimeEnd'] = $request->createTimeEnd;
+        }
+        if (!Utils::isUnset($request->createTimeStart)) {
+            $body['CreateTimeStart'] = $request->createTimeStart;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $body['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->level)) {
+            $body['Level'] = $request->level;
+        }
+        if (!Utils::isUnset($request->messageId)) {
+            $body['MessageId'] = $request->messageId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryTraceMu',
+            'version'     => '2021-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/queryTraceM3u8',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryTraceMuResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitCopyrightExtractRequest $request
+     *
+     * @return SubmitCopyrightExtractResponse
+     */
+    public function submitCopyrightExtract($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->submitCopyrightExtractWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param SubmitCopyrightExtractRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SubmitCopyrightExtractResponse
+     */
+    public function submitCopyrightExtractWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->callBack)) {
+            $body['CallBack'] = $request->callBack;
+        }
+        if (!Utils::isUnset($request->input)) {
+            $body['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $body['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitCopyrightExtract',
+            'version'     => '2021-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/submitCopyrightExtract',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitCopyrightExtractResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -455,40 +514,274 @@ class Mts extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->callBack)) {
-            @$body['CallBack'] = $request->callBack;
+            $body['CallBack'] = $request->callBack;
         }
         if (!Utils::isUnset($request->description)) {
-            @$body['Description'] = $request->description;
+            $body['Description'] = $request->description;
         }
         if (!Utils::isUnset($request->input)) {
-            @$body['Input'] = $request->input;
+            $body['Input'] = $request->input;
         }
         if (!Utils::isUnset($request->level)) {
-            @$body['Level'] = $request->level;
+            $body['Level'] = $request->level;
         }
         if (!Utils::isUnset($request->message)) {
-            @$body['Message'] = $request->message;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            @$body['StartTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->totalTime)) {
-            @$body['TotalTime'] = $request->totalTime;
+            $body['Message'] = $request->message;
         }
         if (!Utils::isUnset($request->output)) {
-            @$body['Output'] = $request->output;
+            $body['Output'] = $request->output;
         }
-        if (!Utils::isUnset($request->userData)) {
-            @$body['UserData'] = $request->userData;
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->totalTime)) {
+            $body['TotalTime'] = $request->totalTime;
         }
         if (!Utils::isUnset($request->url)) {
-            @$body['Url'] = $request->url;
+            $body['Url'] = $request->url;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $body['UserData'] = $request->userData;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
+        $params = new Params([
+            'action'      => 'SubmitCopyrightJob',
+            'version'     => '2021-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/submitCopyrightJob',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
 
-        return SubmitCopyrightJobResponse::fromMap($this->doROARequest('SubmitCopyrightJob', '2021-07-28', 'HTTPS', 'POST', 'AK', '/submitCopyrightJob', 'json', $req, $runtime));
+        return SubmitCopyrightJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitImageCopyrightRequest $request
+     *
+     * @return SubmitImageCopyrightResponse
+     */
+    public function submitImageCopyright($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->submitImageCopyrightWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param SubmitImageCopyrightRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SubmitImageCopyrightResponse
+     */
+    public function submitImageCopyrightWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->input)) {
+            $body['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->level)) {
+            $body['Level'] = $request->level;
+        }
+        if (!Utils::isUnset($request->message)) {
+            $body['Message'] = $request->message;
+        }
+        if (!Utils::isUnset($request->output)) {
+            $body['Output'] = $request->output;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $body['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitImageCopyright',
+            'version'     => '2021-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/submitImageCopyright',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitImageCopyrightResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitTraceAbRequest $request
+     *
+     * @return SubmitTraceAbResponse
+     */
+    public function submitTraceAb($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->submitTraceAbWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param SubmitTraceAbRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return SubmitTraceAbResponse
+     */
+    public function submitTraceAbWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->callBack)) {
+            $body['CallBack'] = $request->callBack;
+        }
+        if (!Utils::isUnset($request->input)) {
+            $body['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->level)) {
+            $body['Level'] = $request->level;
+        }
+        if (!Utils::isUnset($request->output)) {
+            $body['Output'] = $request->output;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $body['Url'] = $request->url;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $body['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitTraceAb',
+            'version'     => '2021-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/submitTraceAb',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitTraceAbResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitTraceExtractRequest $request
+     *
+     * @return SubmitTraceExtractResponse
+     */
+    public function submitTraceExtract($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->submitTraceExtractWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param SubmitTraceExtractRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SubmitTraceExtractResponse
+     */
+    public function submitTraceExtractWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->callBack)) {
+            $body['CallBack'] = $request->callBack;
+        }
+        if (!Utils::isUnset($request->input)) {
+            $body['Input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $body['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitTraceExtract',
+            'version'     => '2021-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/submitTraceExtract',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitTraceExtractResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitTracemuRequest $request
+     *
+     * @return SubmitTracemuResponse
+     */
+    public function submitTracemu($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->submitTracemuWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param SubmitTracemuRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return SubmitTracemuResponse
+     */
+    public function submitTracemuWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->mediaId)) {
+            $body['MediaId'] = $request->mediaId;
+        }
+        if (!Utils::isUnset($request->output)) {
+            $body['Output'] = $request->output;
+        }
+        if (!Utils::isUnset($request->trace)) {
+            $body['Trace'] = $request->trace;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitTracemu',
+            'version'     => '2021-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/submitTraceM3u8',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitTracemuResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 }

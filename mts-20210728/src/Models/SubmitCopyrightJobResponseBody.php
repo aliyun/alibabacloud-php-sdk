@@ -10,11 +10,11 @@ use AlibabaCloud\Tea\Model;
 class SubmitCopyrightJobResponseBody extends Model
 {
     /**
-     * @description 请求Id
+     * @description 返回数据
      *
-     * @var string
+     * @var data
      */
-    public $requestID;
+    public $data;
 
     /**
      * @description 返回信息
@@ -24,11 +24,11 @@ class SubmitCopyrightJobResponseBody extends Model
     public $message;
 
     /**
-     * @description 返回数据
+     * @description 请求Id
      *
-     * @var data
+     * @var string
      */
-    public $data;
+    public $requestID;
 
     /**
      * @description 状态码
@@ -37,9 +37,9 @@ class SubmitCopyrightJobResponseBody extends Model
      */
     public $statusCode;
     protected $_name = [
-        'requestID'  => 'RequestID',
-        'message'    => 'Message',
         'data'       => 'Data',
+        'message'    => 'Message',
+        'requestID'  => 'RequestID',
         'statusCode' => 'StatusCode',
     ];
 
@@ -50,14 +50,14 @@ class SubmitCopyrightJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestID) {
-            $res['RequestID'] = $this->requestID;
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        if (null !== $this->requestID) {
+            $res['RequestID'] = $this->requestID;
         }
         if (null !== $this->statusCode) {
             $res['StatusCode'] = $this->statusCode;
@@ -74,14 +74,14 @@ class SubmitCopyrightJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestID'])) {
-            $model->requestID = $map['RequestID'];
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+        if (isset($map['RequestID'])) {
+            $model->requestID = $map['RequestID'];
         }
         if (isset($map['StatusCode'])) {
             $model->statusCode = $map['StatusCode'];

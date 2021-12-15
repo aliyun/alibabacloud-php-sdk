@@ -6,45 +6,24 @@ namespace AlibabaCloud\SDK\Mts\V20210728\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SubmitTraceAbRequest extends Model
+class SubmitTraceExtractRequest extends Model
 {
     /**
-     * @description 任务结果回调
+     * @description 任务完成回调
      *
      * @var string
      */
     public $callBack;
 
     /**
-     * @description 溯源水印ab流处理视频输入
+     * @description 输入文件oss地址
      *
      * @var string
      */
     public $input;
 
     /**
-     * @description 水印强度
-     *
-     * @var int
-     */
-    public $level;
-
-    /**
-     * @description 溯源水印ab流处理输出
-     *
-     * @var string
-     */
-    public $output;
-
-    /**
-     * @description 外部url链接(Input和url二选一)
-     *
-     * @var string
-     */
-    public $url;
-
-    /**
-     * @description 用户自定义数据，最大长度1024个字节
+     * @description 用户数据
      *
      * @var string
      */
@@ -52,9 +31,6 @@ class SubmitTraceAbRequest extends Model
     protected $_name = [
         'callBack' => 'CallBack',
         'input'    => 'Input',
-        'level'    => 'Level',
-        'output'   => 'Output',
-        'url'      => 'Url',
         'userData' => 'UserData',
     ];
 
@@ -71,15 +47,6 @@ class SubmitTraceAbRequest extends Model
         if (null !== $this->input) {
             $res['Input'] = $this->input;
         }
-        if (null !== $this->level) {
-            $res['Level'] = $this->level;
-        }
-        if (null !== $this->output) {
-            $res['Output'] = $this->output;
-        }
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
-        }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
         }
@@ -90,7 +57,7 @@ class SubmitTraceAbRequest extends Model
     /**
      * @param array $map
      *
-     * @return SubmitTraceAbRequest
+     * @return SubmitTraceExtractRequest
      */
     public static function fromMap($map = [])
     {
@@ -100,15 +67,6 @@ class SubmitTraceAbRequest extends Model
         }
         if (isset($map['Input'])) {
             $model->input = $map['Input'];
-        }
-        if (isset($map['Level'])) {
-            $model->level = $map['Level'];
-        }
-        if (isset($map['Output'])) {
-            $model->output = $map['Output'];
-        }
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
