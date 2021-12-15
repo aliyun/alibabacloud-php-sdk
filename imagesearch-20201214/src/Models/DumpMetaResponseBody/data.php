@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByPicResponseBody\picInfo;
+namespace AlibabaCloud\SDK\ImageSearch\V20201214\Models\DumpMetaResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class allCategories extends Model
+class data extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $id;
+    public $dumpMetaStatus;
 
     /**
      * @var string
      */
-    public $name;
+    public $id;
     protected $_name = [
-        'id'   => 'Id',
-        'name' => 'Name',
+        'dumpMetaStatus' => 'DumpMetaStatus',
+        'id'             => 'Id',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class allCategories extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dumpMetaStatus) {
+            $res['DumpMetaStatus'] = $this->dumpMetaStatus;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -42,16 +42,16 @@ class allCategories extends Model
     /**
      * @param array $map
      *
-     * @return allCategories
+     * @return data
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DumpMetaStatus'])) {
+            $model->dumpMetaStatus = $map['DumpMetaStatus'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
 
         return $model;

@@ -6,26 +6,14 @@ namespace AlibabaCloud\SDK\ImageSearch\V20201214\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteImageRequest extends Model
+class DetailRequest extends Model
 {
     /**
      * @var string
      */
     public $instanceName;
-
-    /**
-     * @var string
-     */
-    public $picName;
-
-    /**
-     * @var string
-     */
-    public $productId;
     protected $_name = [
         'instanceName' => 'InstanceName',
-        'picName'      => 'PicName',
-        'productId'    => 'ProductId',
     ];
 
     public function validate()
@@ -38,12 +26,6 @@ class DeleteImageRequest extends Model
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
-        if (null !== $this->picName) {
-            $res['PicName'] = $this->picName;
-        }
-        if (null !== $this->productId) {
-            $res['ProductId'] = $this->productId;
-        }
 
         return $res;
     }
@@ -51,19 +33,13 @@ class DeleteImageRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteImageRequest
+     * @return DetailRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
-        }
-        if (isset($map['PicName'])) {
-            $model->picName = $map['PicName'];
-        }
-        if (isset($map['ProductId'])) {
-            $model->productId = $map['ProductId'];
         }
 
         return $model;

@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class picInfo extends Model
 {
     /**
-     * @var string
+     * @var allCategories[]
      */
-    public $region;
+    public $allCategories;
 
     /**
      * @var int
@@ -26,14 +26,14 @@ class picInfo extends Model
     public $multiRegion;
 
     /**
-     * @var allCategories[]
+     * @var string
      */
-    public $allCategories;
+    public $region;
     protected $_name = [
-        'region'        => 'Region',
+        'allCategories' => 'AllCategories',
         'categoryId'    => 'CategoryId',
         'multiRegion'   => 'MultiRegion',
-        'allCategories' => 'AllCategories',
+        'region'        => 'Region',
     ];
 
     public function validate()
@@ -43,8 +43,14 @@ class picInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
+        if (null !== $this->allCategories) {
+            $res['AllCategories'] = [];
+            if (null !== $this->allCategories && \is_array($this->allCategories)) {
+                $n = 0;
+                foreach ($this->allCategories as $item) {
+                    $res['AllCategories'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
@@ -58,14 +64,8 @@ class picInfo extends Model
                 }
             }
         }
-        if (null !== $this->allCategories) {
-            $res['AllCategories'] = [];
-            if (null !== $this->allCategories && \is_array($this->allCategories)) {
-                $n = 0;
-                foreach ($this->allCategories as $item) {
-                    $res['AllCategories'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
         }
 
         return $res;
@@ -79,8 +79,14 @@ class picInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
+        if (isset($map['AllCategories'])) {
+            if (!empty($map['AllCategories'])) {
+                $model->allCategories = [];
+                $n                    = 0;
+                foreach ($map['AllCategories'] as $item) {
+                    $model->allCategories[$n++] = null !== $item ? allCategories::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
@@ -94,14 +100,8 @@ class picInfo extends Model
                 }
             }
         }
-        if (isset($map['AllCategories'])) {
-            if (!empty($map['AllCategories'])) {
-                $model->allCategories = [];
-                $n                    = 0;
-                foreach ($map['AllCategories'] as $item) {
-                    $model->allCategories[$n++] = null !== $item ? allCategories::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
         }
 
         return $model;

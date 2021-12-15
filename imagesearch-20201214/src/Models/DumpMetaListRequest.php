@@ -6,26 +6,32 @@ namespace AlibabaCloud\SDK\ImageSearch\V20201214\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteImageRequest extends Model
+class DumpMetaListRequest extends Model
 {
+    /**
+     * @var int
+     */
+    public $id;
+
     /**
      * @var string
      */
     public $instanceName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $picName;
+    public $pageNumber;
 
     /**
-     * @var string
+     * @var int
      */
-    public $productId;
+    public $pageSize;
     protected $_name = [
+        'id'           => 'Id',
         'instanceName' => 'InstanceName',
-        'picName'      => 'PicName',
-        'productId'    => 'ProductId',
+        'pageNumber'   => 'PageNumber',
+        'pageSize'     => 'PageSize',
     ];
 
     public function validate()
@@ -35,14 +41,17 @@ class DeleteImageRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
-        if (null !== $this->picName) {
-            $res['PicName'] = $this->picName;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->productId) {
-            $res['ProductId'] = $this->productId;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         return $res;
@@ -51,19 +60,22 @@ class DeleteImageRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteImageRequest
+     * @return DumpMetaListRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
-        if (isset($map['PicName'])) {
-            $model->picName = $map['PicName'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['ProductId'])) {
-            $model->productId = $map['ProductId'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         return $model;

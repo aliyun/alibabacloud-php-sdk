@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\ImageSearch\V20201214\Models;
 
-use AlibabaCloud\SDK\ImageSearch\V20201214\Models\AddImageResponseBody\picInfo;
 use AlibabaCloud\Tea\Model;
 
-class AddImageResponseBody extends Model
+class UpdateImageResponseBody extends Model
 {
     /**
      * @var int
@@ -15,14 +14,11 @@ class AddImageResponseBody extends Model
     public $code;
 
     /**
+     * @description Id of the request
+     *
      * @var string
      */
     public $message;
-
-    /**
-     * @var picInfo
-     */
-    public $picInfo;
 
     /**
      * @var string
@@ -36,7 +32,6 @@ class AddImageResponseBody extends Model
     protected $_name = [
         'code'      => 'Code',
         'message'   => 'Message',
-        'picInfo'   => 'PicInfo',
         'requestId' => 'RequestId',
         'success'   => 'Success',
     ];
@@ -54,9 +49,6 @@ class AddImageResponseBody extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->picInfo) {
-            $res['PicInfo'] = null !== $this->picInfo ? $this->picInfo->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -70,7 +62,7 @@ class AddImageResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return AddImageResponseBody
+     * @return UpdateImageResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -80,9 +72,6 @@ class AddImageResponseBody extends Model
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
-        }
-        if (isset($map['PicInfo'])) {
-            $model->picInfo = picInfo::fromMap($map['PicInfo']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByPicResponseBody\picInfo;
+namespace AlibabaCloud\SDK\ImageSearch\V20201214\Models\IncreaseInstanceResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class allCategories extends Model
+class data extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $id;
 
     /**
      * @var string
      */
-    public $name;
+    public $incrementStatus;
     protected $_name = [
-        'id'   => 'Id',
-        'name' => 'Name',
+        'id'              => 'Id',
+        'incrementStatus' => 'IncrementStatus',
     ];
 
     public function validate()
@@ -32,8 +32,8 @@ class allCategories extends Model
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->incrementStatus) {
+            $res['IncrementStatus'] = $this->incrementStatus;
         }
 
         return $res;
@@ -42,7 +42,7 @@ class allCategories extends Model
     /**
      * @param array $map
      *
-     * @return allCategories
+     * @return data
      */
     public static function fromMap($map = [])
     {
@@ -50,8 +50,8 @@ class allCategories extends Model
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['IncrementStatus'])) {
+            $model->incrementStatus = $map['IncrementStatus'];
         }
 
         return $model;

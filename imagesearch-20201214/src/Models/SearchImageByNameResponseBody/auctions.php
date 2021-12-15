@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class auctions extends Model
 {
     /**
-     * @var string
-     */
-    public $picName;
-
-    /**
-     * @var int
-     */
-    public $intAttr;
-
-    /**
      * @var int
      */
     public $categoryId;
@@ -26,12 +16,27 @@ class auctions extends Model
     /**
      * @var string
      */
-    public $productId;
+    public $customContent;
+
+    /**
+     * @var int
+     */
+    public $intAttr;
 
     /**
      * @var string
      */
-    public $strAttr;
+    public $picName;
+
+    /**
+     * @var string
+     */
+    public $productId;
+
+    /**
+     * @var float
+     */
+    public $score;
 
     /**
      * @var string
@@ -41,21 +46,16 @@ class auctions extends Model
     /**
      * @var string
      */
-    public $customContent;
-
-    /**
-     * @var float
-     */
-    public $score;
+    public $strAttr;
     protected $_name = [
-        'picName'        => 'PicName',
-        'intAttr'        => 'IntAttr',
         'categoryId'     => 'CategoryId',
-        'productId'      => 'ProductId',
-        'strAttr'        => 'StrAttr',
-        'sortExprValues' => 'SortExprValues',
         'customContent'  => 'CustomContent',
+        'intAttr'        => 'IntAttr',
+        'picName'        => 'PicName',
+        'productId'      => 'ProductId',
         'score'          => 'Score',
+        'sortExprValues' => 'SortExprValues',
+        'strAttr'        => 'StrAttr',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class auctions extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->picName) {
-            $res['PicName'] = $this->picName;
-        }
-        if (null !== $this->intAttr) {
-            $res['IntAttr'] = $this->intAttr;
-        }
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
-        }
-        if (null !== $this->productId) {
-            $res['ProductId'] = $this->productId;
-        }
-        if (null !== $this->strAttr) {
-            $res['StrAttr'] = $this->strAttr;
-        }
-        if (null !== $this->sortExprValues) {
-            $res['SortExprValues'] = $this->sortExprValues;
         }
         if (null !== $this->customContent) {
             $res['CustomContent'] = $this->customContent;
         }
+        if (null !== $this->intAttr) {
+            $res['IntAttr'] = $this->intAttr;
+        }
+        if (null !== $this->picName) {
+            $res['PicName'] = $this->picName;
+        }
+        if (null !== $this->productId) {
+            $res['ProductId'] = $this->productId;
+        }
         if (null !== $this->score) {
             $res['Score'] = $this->score;
+        }
+        if (null !== $this->sortExprValues) {
+            $res['SortExprValues'] = $this->sortExprValues;
+        }
+        if (null !== $this->strAttr) {
+            $res['StrAttr'] = $this->strAttr;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class auctions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PicName'])) {
-            $model->picName = $map['PicName'];
-        }
-        if (isset($map['IntAttr'])) {
-            $model->intAttr = $map['IntAttr'];
-        }
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
-        }
-        if (isset($map['ProductId'])) {
-            $model->productId = $map['ProductId'];
-        }
-        if (isset($map['StrAttr'])) {
-            $model->strAttr = $map['StrAttr'];
-        }
-        if (isset($map['SortExprValues'])) {
-            $model->sortExprValues = $map['SortExprValues'];
         }
         if (isset($map['CustomContent'])) {
             $model->customContent = $map['CustomContent'];
         }
+        if (isset($map['IntAttr'])) {
+            $model->intAttr = $map['IntAttr'];
+        }
+        if (isset($map['PicName'])) {
+            $model->picName = $map['PicName'];
+        }
+        if (isset($map['ProductId'])) {
+            $model->productId = $map['ProductId'];
+        }
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
+        }
+        if (isset($map['SortExprValues'])) {
+            $model->sortExprValues = $map['SortExprValues'];
+        }
+        if (isset($map['StrAttr'])) {
+            $model->strAttr = $map['StrAttr'];
         }
 
         return $model;

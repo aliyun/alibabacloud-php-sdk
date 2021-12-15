@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SearchImageByPicRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $instanceName;
-
-    /**
-     * @var string
-     */
-    public $picContent;
-
-    /**
      * @var int
      */
     public $categoryId;
@@ -31,7 +21,12 @@ class SearchImageByPicRequest extends Model
     /**
      * @var string
      */
-    public $region;
+    public $filter;
+
+    /**
+     * @var string
+     */
+    public $instanceName;
 
     /**
      * @var int
@@ -39,23 +34,34 @@ class SearchImageByPicRequest extends Model
     public $num;
 
     /**
-     * @var int
+     * @var string
      */
-    public $start;
+    public $picContent;
 
     /**
      * @var string
      */
-    public $filter;
+    public $region;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var int
+     */
+    public $start;
     protected $_name = [
-        'instanceName' => 'InstanceName',
-        'picContent'   => 'PicContent',
         'categoryId'   => 'CategoryId',
         'crop'         => 'Crop',
-        'region'       => 'Region',
-        'num'          => 'Num',
-        'start'        => 'Start',
         'filter'       => 'Filter',
+        'instanceName' => 'InstanceName',
+        'num'          => 'Num',
+        'picContent'   => 'PicContent',
+        'region'       => 'Region',
+        'regionId'     => 'RegionId',
+        'start'        => 'Start',
     ];
 
     public function validate()
@@ -65,29 +71,32 @@ class SearchImageByPicRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
-        }
-        if (null !== $this->picContent) {
-            $res['PicContent'] = $this->picContent;
-        }
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
         if (null !== $this->crop) {
             $res['Crop'] = $this->crop;
         }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
+        if (null !== $this->filter) {
+            $res['Filter'] = $this->filter;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
         if (null !== $this->num) {
             $res['Num'] = $this->num;
         }
+        if (null !== $this->picContent) {
+            $res['PicContent'] = $this->picContent;
+        }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->start) {
             $res['Start'] = $this->start;
-        }
-        if (null !== $this->filter) {
-            $res['Filter'] = $this->filter;
         }
 
         return $res;
@@ -101,29 +110,32 @@ class SearchImageByPicRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
-        }
-        if (isset($map['PicContent'])) {
-            $model->picContent = $map['PicContent'];
-        }
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
         if (isset($map['Crop'])) {
             $model->crop = $map['Crop'];
         }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
+        if (isset($map['Filter'])) {
+            $model->filter = $map['Filter'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
         if (isset($map['Num'])) {
             $model->num = $map['Num'];
         }
+        if (isset($map['PicContent'])) {
+            $model->picContent = $map['PicContent'];
+        }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['Start'])) {
             $model->start = $map['Start'];
-        }
-        if (isset($map['Filter'])) {
-            $model->filter = $map['Filter'];
         }
 
         return $model;
