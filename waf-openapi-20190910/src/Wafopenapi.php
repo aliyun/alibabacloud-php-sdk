@@ -154,7 +154,6 @@ class Wafopenapi extends OpenApiClient
         $query['PrivateKey']      = $request->privateKey;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateCertificate',
@@ -164,7 +163,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -198,7 +197,6 @@ class Wafopenapi extends OpenApiClient
         $query['InstanceId']    = $request->instanceId;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateCertificateByCertificateId',
@@ -208,7 +206,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -262,7 +260,6 @@ class Wafopenapi extends OpenApiClient
         $query['WriteTime']            = $request->writeTime;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateDomain',
@@ -272,7 +269,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -307,7 +304,6 @@ class Wafopenapi extends OpenApiClient
         $query['Rule']        = $request->rule;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateProtectionModuleRule',
@@ -317,7 +313,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -350,7 +346,6 @@ class Wafopenapi extends OpenApiClient
         $query['InstanceId'] = $request->instanceId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteDomain',
@@ -360,7 +355,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -393,7 +388,6 @@ class Wafopenapi extends OpenApiClient
         $query['ResourceGroupId'] = $request->resourceGroupId;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteInstance',
@@ -403,7 +397,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -438,7 +432,6 @@ class Wafopenapi extends OpenApiClient
         $query['RuleId']      = $request->ruleId;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteProtectionModuleRule',
@@ -448,7 +441,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -483,7 +476,6 @@ class Wafopenapi extends OpenApiClient
         $query['PrivateKey']  = $request->privateKey;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCertMatchStatus',
@@ -493,7 +485,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -526,7 +518,6 @@ class Wafopenapi extends OpenApiClient
         $query['InstanceId'] = $request->instanceId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCertificates',
@@ -536,7 +527,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -569,7 +560,6 @@ class Wafopenapi extends OpenApiClient
         $query['InstanceId'] = $request->instanceId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomain',
@@ -579,7 +569,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -613,7 +603,6 @@ class Wafopenapi extends OpenApiClient
         $query['ResourceGroupId'] = $request->resourceGroupId;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainAdvanceConfigs',
@@ -623,7 +612,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -661,7 +650,6 @@ class Wafopenapi extends OpenApiClient
         $query['ResourceGroupId']      = $request->resourceGroupId;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainBasicConfigs',
@@ -671,7 +659,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -709,7 +697,6 @@ class Wafopenapi extends OpenApiClient
         $query['ResourceGroupId'] = $request->resourceGroupId;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainList',
@@ -719,7 +706,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -752,7 +739,6 @@ class Wafopenapi extends OpenApiClient
         $query['ResourceGroupId'] = $request->resourceGroupId;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainNames',
@@ -762,7 +748,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -795,7 +781,6 @@ class Wafopenapi extends OpenApiClient
         $query['InstanceId'] = $request->instanceId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainRuleGroup',
@@ -805,7 +790,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -838,7 +823,6 @@ class Wafopenapi extends OpenApiClient
         $query['ResourceGroupId'] = $request->resourceGroupId;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstanceInfo',
@@ -848,7 +832,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -881,7 +865,6 @@ class Wafopenapi extends OpenApiClient
         $query['ResourceGroupId'] = $request->resourceGroupId;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstanceSpecInfo',
@@ -891,7 +874,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -928,7 +911,6 @@ class Wafopenapi extends OpenApiClient
         $query['ResourceGroupId'] = $request->resourceGroupId;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeLogServiceStatus',
@@ -938,7 +920,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -973,7 +955,6 @@ class Wafopenapi extends OpenApiClient
         $query['ResourceGroupId'] = $request->resourceGroupId;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeProtectionModuleCodeConfig',
@@ -983,7 +964,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1022,7 +1003,6 @@ class Wafopenapi extends OpenApiClient
         $query['ResourceGroupId'] = $request->resourceGroupId;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeProtectionModuleRules',
@@ -1032,7 +1012,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1066,7 +1046,6 @@ class Wafopenapi extends OpenApiClient
         $query['InstanceId']  = $request->instanceId;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeProtectionModuleStatus',
@@ -1076,7 +1055,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1109,7 +1088,6 @@ class Wafopenapi extends OpenApiClient
         $query['ResourceGroupId'] = $request->resourceGroupId;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeWafSourceIpSegment',
@@ -1119,7 +1097,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1173,7 +1151,6 @@ class Wafopenapi extends OpenApiClient
         $query['WriteTime']            = $request->writeTime;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyDomain',
@@ -1183,7 +1160,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1217,7 +1194,6 @@ class Wafopenapi extends OpenApiClient
         $query['InstanceId'] = $request->instanceId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyDomainIpv6Status',
@@ -1227,7 +1203,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1261,7 +1237,6 @@ class Wafopenapi extends OpenApiClient
         $query['InstanceId'] = $request->instanceId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyLogRetrievalStatus',
@@ -1271,7 +1246,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1305,7 +1280,6 @@ class Wafopenapi extends OpenApiClient
         $query['InstanceId'] = $request->instanceId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyLogServiceStatus',
@@ -1315,7 +1289,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1350,7 +1324,6 @@ class Wafopenapi extends OpenApiClient
         $query['Mode']        = $request->mode;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyProtectionModuleMode',
@@ -1360,7 +1333,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1397,7 +1370,6 @@ class Wafopenapi extends OpenApiClient
         $query['RuleId']      = $request->ruleId;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyProtectionModuleRule',
@@ -1407,7 +1379,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1442,7 +1414,6 @@ class Wafopenapi extends OpenApiClient
         $query['ModuleStatus'] = $request->moduleStatus;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyProtectionModuleStatus',
@@ -1452,7 +1423,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1487,7 +1458,6 @@ class Wafopenapi extends OpenApiClient
         $query['RuleId']      = $request->ruleId;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyProtectionRuleCacheStatus',
@@ -1497,7 +1467,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1534,7 +1504,6 @@ class Wafopenapi extends OpenApiClient
         $query['RuleStatus']  = $request->ruleStatus;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyProtectionRuleStatus',
@@ -1544,7 +1513,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1578,7 +1547,6 @@ class Wafopenapi extends OpenApiClient
         $query['ResourceType']    = $request->resourceType;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'MoveResourceGroup',
@@ -1588,7 +1556,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1624,7 +1592,6 @@ class Wafopenapi extends OpenApiClient
         $query['WafVersion']      = $request->wafVersion;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetDomainRuleGroup',
@@ -1634,7 +1601,7 @@ class Wafopenapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
