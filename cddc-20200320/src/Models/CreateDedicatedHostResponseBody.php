@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateDedicatedHostResponseBody extends Model
 {
     /**
+     * @var dedicateHostList
+     */
+    public $dedicateHostList;
+
+    /**
      * @var int
      */
     public $orderId;
@@ -18,15 +23,10 @@ class CreateDedicatedHostResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var dedicateHostList
-     */
-    public $dedicateHostList;
     protected $_name = [
+        'dedicateHostList' => 'DedicateHostList',
         'orderId'          => 'OrderId',
         'requestId'        => 'RequestId',
-        'dedicateHostList' => 'DedicateHostList',
     ];
 
     public function validate()
@@ -36,14 +36,14 @@ class CreateDedicatedHostResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dedicateHostList) {
+            $res['DedicateHostList'] = null !== $this->dedicateHostList ? $this->dedicateHostList->toMap() : null;
+        }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->dedicateHostList) {
-            $res['DedicateHostList'] = null !== $this->dedicateHostList ? $this->dedicateHostList->toMap() : null;
         }
 
         return $res;
@@ -57,14 +57,14 @@ class CreateDedicatedHostResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DedicateHostList'])) {
+            $model->dedicateHostList = dedicateHostList::fromMap($map['DedicateHostList']);
+        }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['DedicateHostList'])) {
-            $model->dedicateHostList = dedicateHostList::fromMap($map['DedicateHostList']);
         }
 
         return $model;

@@ -11,7 +11,7 @@ class perfInfo extends Model
     /**
      * @var float
      */
-    public $perfIdbPio;
+    public $cpuRatio;
 
     /**
      * @var float
@@ -26,12 +26,12 @@ class perfInfo extends Model
     /**
      * @var float
      */
-    public $cpuRatio;
+    public $perfIdbPio;
     protected $_name = [
-        'perfIdbPio' => 'PerfIdbPio',
+        'cpuRatio'   => 'CpuRatio',
         'diskCurr'   => 'DiskCurr',
         'memRatio'   => 'MemRatio',
-        'cpuRatio'   => 'CpuRatio',
+        'perfIdbPio' => 'PerfIdbPio',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class perfInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->perfIdbPio) {
-            $res['PerfIdbPio'] = $this->perfIdbPio;
+        if (null !== $this->cpuRatio) {
+            $res['CpuRatio'] = $this->cpuRatio;
         }
         if (null !== $this->diskCurr) {
             $res['DiskCurr'] = $this->diskCurr;
@@ -50,8 +50,8 @@ class perfInfo extends Model
         if (null !== $this->memRatio) {
             $res['MemRatio'] = $this->memRatio;
         }
-        if (null !== $this->cpuRatio) {
-            $res['CpuRatio'] = $this->cpuRatio;
+        if (null !== $this->perfIdbPio) {
+            $res['PerfIdbPio'] = $this->perfIdbPio;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class perfInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PerfIdbPio'])) {
-            $model->perfIdbPio = $map['PerfIdbPio'];
+        if (isset($map['CpuRatio'])) {
+            $model->cpuRatio = $map['CpuRatio'];
         }
         if (isset($map['DiskCurr'])) {
             $model->diskCurr = $map['DiskCurr'];
@@ -74,8 +74,8 @@ class perfInfo extends Model
         if (isset($map['MemRatio'])) {
             $model->memRatio = $map['MemRatio'];
         }
-        if (isset($map['CpuRatio'])) {
-            $model->cpuRatio = $map['CpuRatio'];
+        if (isset($map['PerfIdbPio'])) {
+            $model->perfIdbPio = $map['PerfIdbPio'];
         }
 
         return $model;

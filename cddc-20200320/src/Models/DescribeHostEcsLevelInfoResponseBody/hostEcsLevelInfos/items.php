@@ -11,17 +11,7 @@ class items extends Model
     /**
      * @var float
      */
-    public $netBandWidth;
-
-    /**
-     * @var string
-     */
-    public $ecsClass;
-
-    /**
-     * @var string
-     */
-    public $rdsClassCode;
+    public $cloudStorageBandwidth;
 
     /**
      * @var int
@@ -34,14 +24,19 @@ class items extends Model
     public $cpuFrequency;
 
     /**
-     * @var int
+     * @var string
      */
-    public $storageIops;
+    public $cpuVersion;
 
     /**
-     * @var float
+     * @var string
      */
-    public $cloudStorageBandwidth;
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $ecsClass;
 
     /**
      * @var string
@@ -54,9 +49,19 @@ class items extends Model
     public $isCloudDisk;
 
     /**
+     * @var string
+     */
+    public $localStorage;
+
+    /**
      * @var int
      */
     public $memory;
+
+    /**
+     * @var float
+     */
+    public $netBandWidth;
 
     /**
      * @var int
@@ -66,32 +71,27 @@ class items extends Model
     /**
      * @var string
      */
-    public $cpuVersion;
+    public $rdsClassCode;
 
     /**
-     * @var string
+     * @var int
      */
-    public $localStorage;
-
-    /**
-     * @var string
-     */
-    public $description;
+    public $storageIops;
     protected $_name = [
-        'netBandWidth'          => 'NetBandWidth',
-        'ecsClass'              => 'EcsClass',
-        'rdsClassCode'          => 'RdsClassCode',
+        'cloudStorageBandwidth' => 'CloudStorageBandwidth',
         'cpu'                   => 'Cpu',
         'cpuFrequency'          => 'CpuFrequency',
-        'storageIops'           => 'StorageIops',
-        'cloudStorageBandwidth' => 'CloudStorageBandwidth',
+        'cpuVersion'            => 'CpuVersion',
+        'description'           => 'Description',
+        'ecsClass'              => 'EcsClass',
         'ecsClassCode'          => 'EcsClassCode',
         'isCloudDisk'           => 'IsCloudDisk',
-        'memory'                => 'Memory',
-        'netPackage'            => 'NetPackage',
-        'cpuVersion'            => 'CpuVersion',
         'localStorage'          => 'LocalStorage',
-        'description'           => 'Description',
+        'memory'                => 'Memory',
+        'netBandWidth'          => 'NetBandWidth',
+        'netPackage'            => 'NetPackage',
+        'rdsClassCode'          => 'RdsClassCode',
+        'storageIops'           => 'StorageIops',
     ];
 
     public function validate()
@@ -101,14 +101,8 @@ class items extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->netBandWidth) {
-            $res['NetBandWidth'] = $this->netBandWidth;
-        }
-        if (null !== $this->ecsClass) {
-            $res['EcsClass'] = $this->ecsClass;
-        }
-        if (null !== $this->rdsClassCode) {
-            $res['RdsClassCode'] = $this->rdsClassCode;
+        if (null !== $this->cloudStorageBandwidth) {
+            $res['CloudStorageBandwidth'] = $this->cloudStorageBandwidth;
         }
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
@@ -116,11 +110,14 @@ class items extends Model
         if (null !== $this->cpuFrequency) {
             $res['CpuFrequency'] = $this->cpuFrequency;
         }
-        if (null !== $this->storageIops) {
-            $res['StorageIops'] = $this->storageIops;
+        if (null !== $this->cpuVersion) {
+            $res['CpuVersion'] = $this->cpuVersion;
         }
-        if (null !== $this->cloudStorageBandwidth) {
-            $res['CloudStorageBandwidth'] = $this->cloudStorageBandwidth;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->ecsClass) {
+            $res['EcsClass'] = $this->ecsClass;
         }
         if (null !== $this->ecsClassCode) {
             $res['EcsClassCode'] = $this->ecsClassCode;
@@ -128,20 +125,23 @@ class items extends Model
         if (null !== $this->isCloudDisk) {
             $res['IsCloudDisk'] = $this->isCloudDisk;
         }
+        if (null !== $this->localStorage) {
+            $res['LocalStorage'] = $this->localStorage;
+        }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
+        }
+        if (null !== $this->netBandWidth) {
+            $res['NetBandWidth'] = $this->netBandWidth;
         }
         if (null !== $this->netPackage) {
             $res['NetPackage'] = $this->netPackage;
         }
-        if (null !== $this->cpuVersion) {
-            $res['CpuVersion'] = $this->cpuVersion;
+        if (null !== $this->rdsClassCode) {
+            $res['RdsClassCode'] = $this->rdsClassCode;
         }
-        if (null !== $this->localStorage) {
-            $res['LocalStorage'] = $this->localStorage;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->storageIops) {
+            $res['StorageIops'] = $this->storageIops;
         }
 
         return $res;
@@ -155,14 +155,8 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NetBandWidth'])) {
-            $model->netBandWidth = $map['NetBandWidth'];
-        }
-        if (isset($map['EcsClass'])) {
-            $model->ecsClass = $map['EcsClass'];
-        }
-        if (isset($map['RdsClassCode'])) {
-            $model->rdsClassCode = $map['RdsClassCode'];
+        if (isset($map['CloudStorageBandwidth'])) {
+            $model->cloudStorageBandwidth = $map['CloudStorageBandwidth'];
         }
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
@@ -170,11 +164,14 @@ class items extends Model
         if (isset($map['CpuFrequency'])) {
             $model->cpuFrequency = $map['CpuFrequency'];
         }
-        if (isset($map['StorageIops'])) {
-            $model->storageIops = $map['StorageIops'];
+        if (isset($map['CpuVersion'])) {
+            $model->cpuVersion = $map['CpuVersion'];
         }
-        if (isset($map['CloudStorageBandwidth'])) {
-            $model->cloudStorageBandwidth = $map['CloudStorageBandwidth'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['EcsClass'])) {
+            $model->ecsClass = $map['EcsClass'];
         }
         if (isset($map['EcsClassCode'])) {
             $model->ecsClassCode = $map['EcsClassCode'];
@@ -182,20 +179,23 @@ class items extends Model
         if (isset($map['IsCloudDisk'])) {
             $model->isCloudDisk = $map['IsCloudDisk'];
         }
+        if (isset($map['LocalStorage'])) {
+            $model->localStorage = $map['LocalStorage'];
+        }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
+        }
+        if (isset($map['NetBandWidth'])) {
+            $model->netBandWidth = $map['NetBandWidth'];
         }
         if (isset($map['NetPackage'])) {
             $model->netPackage = $map['NetPackage'];
         }
-        if (isset($map['CpuVersion'])) {
-            $model->cpuVersion = $map['CpuVersion'];
+        if (isset($map['RdsClassCode'])) {
+            $model->rdsClassCode = $map['RdsClassCode'];
         }
-        if (isset($map['LocalStorage'])) {
-            $model->localStorage = $map['LocalStorage'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['StorageIops'])) {
+            $model->storageIops = $map['StorageIops'];
         }
 
         return $model;

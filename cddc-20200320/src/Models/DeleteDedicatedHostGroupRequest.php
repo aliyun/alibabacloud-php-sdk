@@ -9,9 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteDedicatedHostGroupRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $dedicatedHostGroupId;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -22,22 +32,12 @@ class DeleteDedicatedHostGroupRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $dedicatedHostGroupId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
+        'dedicatedHostGroupId' => 'DedicatedHostGroupId',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'dedicatedHostGroupId' => 'DedicatedHostGroupId',
-        'regionId'             => 'RegionId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DeleteDedicatedHostGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dedicatedHostGroupId) {
+            $res['DedicatedHostGroupId'] = $this->dedicatedHostGroupId;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->dedicatedHostGroupId) {
-            $res['DedicatedHostGroupId'] = $this->dedicatedHostGroupId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DeleteDedicatedHostGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DedicatedHostGroupId'])) {
+            $model->dedicatedHostGroupId = $map['DedicatedHostGroupId'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['DedicatedHostGroupId'])) {
-            $model->dedicatedHostGroupId = $map['DedicatedHostGroupId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

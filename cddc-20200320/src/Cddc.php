@@ -5,16 +5,7 @@
 namespace AlibabaCloud\SDK\Cddc\V20200320;
 
 use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\AddHostsToBastionRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\AddHostsToBastionResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\AllocateHostInstanceCrossVpcVipRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\AllocateHostInstanceCrossVpcVipResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\AttachHostsToBastionUserRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\AttachHostsToBastionUserResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\CheckUserIfAuthoriseMyBaseSystemRoleRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\CheckUserIfAuthoriseMyBaseSystemRoleResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\ClearDedicatedHostRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\ClearDedicatedHostResponse;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateDedicatedHostAccountRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateDedicatedHostAccountResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\CreateDedicatedHostGroupRequest;
@@ -25,70 +16,22 @@ use AlibabaCloud\SDK\Cddc\V20200320\Models\DeleteDedicatedHostAccountRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DeleteDedicatedHostAccountResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DeleteDedicatedHostGroupRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DeleteDedicatedHostGroupResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DeleteUserBackupFileRecordRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DeleteUserBackupFileRecordResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeAvailableDedicatedHostClassesRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeAvailableDedicatedHostClassesResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeAvailableDedicatedHostZonesRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeAvailableDedicatedHostZonesResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeBriefDedicatedHostsRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeBriefDedicatedHostsResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeCheckUserBackupFileRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeCheckUserBackupFileResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeCrossVpcInstanceRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeCrossVpcInstanceResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedHostAttributeRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedHostAttributeResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedHostDisksRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedHostDisksResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedHostGroupsRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedHostGroupsResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedHostHealthRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedHostHealthResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedHostMetricRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedHostMetricResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedHostsCheckInBastionRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedHostsCheckInBastionResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedHostsInBastionRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedHostsInBastionResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedHostsRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedHostsResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedInstanceDistributionRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedInstanceDistributionResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedInstanceMetricRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedInstanceMetricResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedResourceAdvisorRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeDedicatedResourceAdvisorResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeEvaluateDedicatedHostsForInstanceRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeEvaluateDedicatedHostsForInstanceResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeEvaluateDedicatedHostsRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeEvaluateDedicatedHostsResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeHostEcsLevelInfoRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeHostEcsLevelInfoResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeHostInstanceMonitorInfoRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeHostInstanceMonitorInfoResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeHostWebShellRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeHostWebShellResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeListUserBackupFileRecordRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeListUserBackupFileRecordResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeMyBaseHostOverViewRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeMyBaseHostOverViewResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeMyBaseInstanceOverViewRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeMyBaseInstanceOverViewResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeRegionsResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeScheduleHostRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeScheduleHostResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeScheduleInstanceRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeScheduleInstanceResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeScheduleMethodsRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeScheduleMethodsResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DropDedicatedHostUserRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DropDedicatedHostUserResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\ExcuteScheduleRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\ExcuteScheduleResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\ModifyDBInstanceSwitchWeightRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\ModifyDBInstanceSwitchWeightResponse;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\ModifyDedicatedHostAccountRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\ModifyDedicatedHostAccountResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\ModifyDedicatedHostAttributeRequest;
@@ -99,8 +42,6 @@ use AlibabaCloud\SDK\Cddc\V20200320\Models\ModifyDedicatedHostGroupAttributeRequ
 use AlibabaCloud\SDK\Cddc\V20200320\Models\ModifyDedicatedHostGroupAttributeResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\ModifyDedicatedHostPasswordRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\ModifyDedicatedHostPasswordResponse;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\ModifyScheduleMethodRequest;
-use AlibabaCloud\SDK\Cddc\V20200320\Models\ModifyScheduleMethodResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\QueryHostBaseInfoByInstanceRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\QueryHostBaseInfoByInstanceResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\QueryHostInstanceConsoleInfoRequest;
@@ -109,9 +50,14 @@ use AlibabaCloud\SDK\Cddc\V20200320\Models\ReplaceDedicatedHostRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\ReplaceDedicatedHostResponse;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\RestartDedicatedHostRequest;
 use AlibabaCloud\SDK\Cddc\V20200320\Models\RestartDedicatedHostResponse;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\Cddc\V20200320\Models\UntagResourcesResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Cddc extends OpenApiClient
@@ -148,199 +94,59 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceSwitchWeightRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param CreateDedicatedHostRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return ModifyDBInstanceSwitchWeightResponse
+     * @return CreateDedicatedHostResponse
      */
-    public function modifyDBInstanceSwitchWeightWithOptions($request, $runtime)
+    public function createDedicatedHostWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AutoRenew']            = $request->autoRenew;
+        $query['ClientToken']          = $request->clientToken;
+        $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
+        $query['HostClass']            = $request->hostClass;
+        $query['HostName']             = $request->hostName;
+        $query['ImageCategory']        = $request->imageCategory;
+        $query['OsPassword']           = $request->osPassword;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PayType']              = $request->payType;
+        $query['Period']               = $request->period;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['UsedTime']             = $request->usedTime;
+        $query['VSwitchId']            = $request->vSwitchId;
+        $query['ZoneId']               = $request->zoneId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDedicatedHost',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyDBInstanceSwitchWeightResponse::fromMap($this->doRPCRequest('ModifyDBInstanceSwitchWeight', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDedicatedHostResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyDBInstanceSwitchWeightRequest $request
+     * @param CreateDedicatedHostRequest $request
      *
-     * @return ModifyDBInstanceSwitchWeightResponse
+     * @return CreateDedicatedHostResponse
      */
-    public function modifyDBInstanceSwitchWeight($request)
+    public function createDedicatedHost($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyDBInstanceSwitchWeightWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeAvailableDedicatedHostZonesRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return DescribeAvailableDedicatedHostZonesResponse
-     */
-    public function describeAvailableDedicatedHostZonesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeAvailableDedicatedHostZonesResponse::fromMap($this->doRPCRequest('DescribeAvailableDedicatedHostZones', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeAvailableDedicatedHostZonesRequest $request
-     *
-     * @return DescribeAvailableDedicatedHostZonesResponse
-     */
-    public function describeAvailableDedicatedHostZones($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAvailableDedicatedHostZonesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDedicatedHostGroupsRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeDedicatedHostGroupsResponse
-     */
-    public function describeDedicatedHostGroupsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDedicatedHostGroupsResponse::fromMap($this->doRPCRequest('DescribeDedicatedHostGroups', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDedicatedHostGroupsRequest $request
-     *
-     * @return DescribeDedicatedHostGroupsResponse
-     */
-    public function describeDedicatedHostGroups($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDedicatedHostGroupsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeMyBaseHostOverViewRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeMyBaseHostOverViewResponse
-     */
-    public function describeMyBaseHostOverViewWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeMyBaseHostOverViewResponse::fromMap($this->doRPCRequest('DescribeMyBaseHostOverView', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeMyBaseHostOverViewRequest $request
-     *
-     * @return DescribeMyBaseHostOverViewResponse
-     */
-    public function describeMyBaseHostOverView($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeMyBaseHostOverViewWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeBriefDedicatedHostsRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeBriefDedicatedHostsResponse
-     */
-    public function describeBriefDedicatedHostsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeBriefDedicatedHostsResponse::fromMap($this->doRPCRequest('DescribeBriefDedicatedHosts', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeBriefDedicatedHostsRequest $request
-     *
-     * @return DescribeBriefDedicatedHostsResponse
-     */
-    public function describeBriefDedicatedHosts($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeBriefDedicatedHostsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDedicatedResourceAdvisorRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DescribeDedicatedResourceAdvisorResponse
-     */
-    public function describeDedicatedResourceAdvisorWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDedicatedResourceAdvisorResponse::fromMap($this->doRPCRequest('DescribeDedicatedResourceAdvisor', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDedicatedResourceAdvisorRequest $request
-     *
-     * @return DescribeDedicatedResourceAdvisorResponse
-     */
-    public function describeDedicatedResourceAdvisor($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDedicatedResourceAdvisorWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeListUserBackupFileRecordRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DescribeListUserBackupFileRecordResponse
-     */
-    public function describeListUserBackupFileRecordWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeListUserBackupFileRecordResponse::fromMap($this->doRPCRequest('DescribeListUserBackupFileRecord', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeListUserBackupFileRecordRequest $request
-     *
-     * @return DescribeListUserBackupFileRecordResponse
-     */
-    public function describeListUserBackupFileRecord($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeListUserBackupFileRecordWithOptions($request, $runtime);
+        return $this->createDedicatedHostWithOptions($request, $runtime);
     }
 
     /**
@@ -352,11 +158,33 @@ class Cddc extends OpenApiClient
     public function createDedicatedHostAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AccountName']          = $request->accountName;
+        $query['AccountPassword']      = $request->accountPassword;
+        $query['AccountType']          = $request->accountType;
+        $query['BastionInstanceId']    = $request->bastionInstanceId;
+        $query['ClientToken']          = $request->clientToken;
+        $query['DedicatedHostId']      = $request->dedicatedHostId;
+        $query['OwnerId']              = $request->ownerId;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDedicatedHostAccount',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDedicatedHostAccountResponse::fromMap($this->doRPCRequest('CreateDedicatedHostAccount', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDedicatedHostAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -372,6 +200,60 @@ class Cddc extends OpenApiClient
     }
 
     /**
+     * @param CreateDedicatedHostGroupRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateDedicatedHostGroupResponse
+     */
+    public function createDedicatedHostGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                           = [];
+        $query['AllocationPolicy']       = $request->allocationPolicy;
+        $query['ClientToken']            = $request->clientToken;
+        $query['CpuAllocationRatio']     = $request->cpuAllocationRatio;
+        $query['DedicatedHostGroupDesc'] = $request->dedicatedHostGroupDesc;
+        $query['DiskAllocationRatio']    = $request->diskAllocationRatio;
+        $query['Engine']                 = $request->engine;
+        $query['HostReplacePolicy']      = $request->hostReplacePolicy;
+        $query['MemAllocationRatio']     = $request->memAllocationRatio;
+        $query['OpenPermission']         = $request->openPermission;
+        $query['OwnerId']                = $request->ownerId;
+        $query['RegionId']               = $request->regionId;
+        $query['ResourceOwnerAccount']   = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']        = $request->resourceOwnerId;
+        $query['VPCId']                  = $request->VPCId;
+        $req                             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDedicatedHostGroup',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDedicatedHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDedicatedHostGroupRequest $request
+     *
+     * @return CreateDedicatedHostGroupResponse
+     */
+    public function createDedicatedHostGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDedicatedHostGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteDedicatedHostAccountRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -380,11 +262,29 @@ class Cddc extends OpenApiClient
     public function deleteDedicatedHostAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AccountName']          = $request->accountName;
+        $query['DedicatedHostId']      = $request->dedicatedHostId;
+        $query['OwnerId']              = $request->ownerId;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDedicatedHostAccount',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDedicatedHostAccountResponse::fromMap($this->doRPCRequest('DeleteDedicatedHostAccount', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDedicatedHostAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -408,11 +308,28 @@ class Cddc extends OpenApiClient
     public function deleteDedicatedHostGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
+        $query['OwnerId']              = $request->ownerId;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDedicatedHostGroup',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDedicatedHostGroupResponse::fromMap($this->doRPCRequest('DeleteDedicatedHostGroup', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDedicatedHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -428,227 +345,49 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * @param CheckUserIfAuthoriseMyBaseSystemRoleRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @param DescribeDedicatedHostAttributeRequest $request
+     * @param RuntimeOptions                        $runtime
      *
-     * @return CheckUserIfAuthoriseMyBaseSystemRoleResponse
+     * @return DescribeDedicatedHostAttributeResponse
      */
-    public function checkUserIfAuthoriseMyBaseSystemRoleWithOptions($request, $runtime)
+    public function describeDedicatedHostAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
+        $query['DedicatedHostId']      = $request->dedicatedHostId;
+        $query['OwnerId']              = $request->ownerId;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDedicatedHostAttribute',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CheckUserIfAuthoriseMyBaseSystemRoleResponse::fromMap($this->doRPCRequest('CheckUserIfAuthoriseMyBaseSystemRole', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDedicatedHostAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CheckUserIfAuthoriseMyBaseSystemRoleRequest $request
+     * @param DescribeDedicatedHostAttributeRequest $request
      *
-     * @return CheckUserIfAuthoriseMyBaseSystemRoleResponse
+     * @return DescribeDedicatedHostAttributeResponse
      */
-    public function checkUserIfAuthoriseMyBaseSystemRole($request)
+    public function describeDedicatedHostAttribute($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->checkUserIfAuthoriseMyBaseSystemRoleWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeScheduleInstanceRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeScheduleInstanceResponse
-     */
-    public function describeScheduleInstanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeScheduleInstanceResponse::fromMap($this->doRPCRequest('DescribeScheduleInstance', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeScheduleInstanceRequest $request
-     *
-     * @return DescribeScheduleInstanceResponse
-     */
-    public function describeScheduleInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeScheduleInstanceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ExcuteScheduleRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ExcuteScheduleResponse
-     */
-    public function excuteScheduleWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ExcuteScheduleResponse::fromMap($this->doRPCRequest('ExcuteSchedule', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ExcuteScheduleRequest $request
-     *
-     * @return ExcuteScheduleResponse
-     */
-    public function excuteSchedule($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->excuteScheduleWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ReplaceDedicatedHostRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ReplaceDedicatedHostResponse
-     */
-    public function replaceDedicatedHostWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ReplaceDedicatedHostResponse::fromMap($this->doRPCRequest('ReplaceDedicatedHost', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ReplaceDedicatedHostRequest $request
-     *
-     * @return ReplaceDedicatedHostResponse
-     */
-    public function replaceDedicatedHost($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->replaceDedicatedHostWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyDedicatedHostAccountRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ModifyDedicatedHostAccountResponse
-     */
-    public function modifyDedicatedHostAccountWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyDedicatedHostAccountResponse::fromMap($this->doRPCRequest('ModifyDedicatedHostAccount', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyDedicatedHostAccountRequest $request
-     *
-     * @return ModifyDedicatedHostAccountResponse
-     */
-    public function modifyDedicatedHostAccount($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyDedicatedHostAccountWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeHostEcsLevelInfoRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeHostEcsLevelInfoResponse
-     */
-    public function describeHostEcsLevelInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeHostEcsLevelInfoResponse::fromMap($this->doRPCRequest('DescribeHostEcsLevelInfo', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeHostEcsLevelInfoRequest $request
-     *
-     * @return DescribeHostEcsLevelInfoResponse
-     */
-    public function describeHostEcsLevelInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeHostEcsLevelInfoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AllocateHostInstanceCrossVpcVipRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return AllocateHostInstanceCrossVpcVipResponse
-     */
-    public function allocateHostInstanceCrossVpcVipWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AllocateHostInstanceCrossVpcVipResponse::fromMap($this->doRPCRequest('AllocateHostInstanceCrossVpcVip', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AllocateHostInstanceCrossVpcVipRequest $request
-     *
-     * @return AllocateHostInstanceCrossVpcVipResponse
-     */
-    public function allocateHostInstanceCrossVpcVip($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->allocateHostInstanceCrossVpcVipWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDedicatedHostsRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeDedicatedHostsResponse
-     */
-    public function describeDedicatedHostsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDedicatedHostsResponse::fromMap($this->doRPCRequest('DescribeDedicatedHosts', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDedicatedHostsRequest $request
-     *
-     * @return DescribeDedicatedHostsResponse
-     */
-    public function describeDedicatedHosts($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDedicatedHostsWithOptions($request, $runtime);
+        return $this->describeDedicatedHostAttributeWithOptions($request, $runtime);
     }
 
     /**
@@ -660,11 +399,28 @@ class Cddc extends OpenApiClient
     public function describeDedicatedHostDisksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['DedicatedHostId']      = $request->dedicatedHostId;
+        $query['OwnerId']              = $request->ownerId;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDedicatedHostDisks',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDedicatedHostDisksResponse::fromMap($this->doRPCRequest('DescribeDedicatedHostDisks', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDedicatedHostDisksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -680,871 +436,152 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * @param DescribeMyBaseInstanceOverViewRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DescribeMyBaseInstanceOverViewResponse
-     */
-    public function describeMyBaseInstanceOverViewWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeMyBaseInstanceOverViewResponse::fromMap($this->doRPCRequest('DescribeMyBaseInstanceOverView', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeMyBaseInstanceOverViewRequest $request
-     *
-     * @return DescribeMyBaseInstanceOverViewResponse
-     */
-    public function describeMyBaseInstanceOverView($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeMyBaseInstanceOverViewWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyScheduleMethodRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ModifyScheduleMethodResponse
-     */
-    public function modifyScheduleMethodWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyScheduleMethodResponse::fromMap($this->doRPCRequest('ModifyScheduleMethod', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyScheduleMethodRequest $request
-     *
-     * @return ModifyScheduleMethodResponse
-     */
-    public function modifyScheduleMethod($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyScheduleMethodWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeAvailableDedicatedHostClassesRequest $request
-     * @param RuntimeOptions                               $runtime
-     *
-     * @return DescribeAvailableDedicatedHostClassesResponse
-     */
-    public function describeAvailableDedicatedHostClassesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeAvailableDedicatedHostClassesResponse::fromMap($this->doRPCRequest('DescribeAvailableDedicatedHostClasses', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeAvailableDedicatedHostClassesRequest $request
-     *
-     * @return DescribeAvailableDedicatedHostClassesResponse
-     */
-    public function describeAvailableDedicatedHostClasses($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAvailableDedicatedHostClassesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeCheckUserBackupFileRequest $request
+     * @param DescribeDedicatedHostGroupsRequest $request
      * @param RuntimeOptions                     $runtime
      *
-     * @return DescribeCheckUserBackupFileResponse
+     * @return DescribeDedicatedHostGroupsResponse
      */
-    public function describeCheckUserBackupFileWithOptions($request, $runtime)
+    public function describeDedicatedHostGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
+        $query['Engine']               = $request->engine;
+        $query['ImageCategory']        = $request->imageCategory;
+        $query['OwnerId']              = $request->ownerId;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDedicatedHostGroups',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCheckUserBackupFileResponse::fromMap($this->doRPCRequest('DescribeCheckUserBackupFile', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDedicatedHostGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeCheckUserBackupFileRequest $request
+     * @param DescribeDedicatedHostGroupsRequest $request
      *
-     * @return DescribeCheckUserBackupFileResponse
+     * @return DescribeDedicatedHostGroupsResponse
      */
-    public function describeCheckUserBackupFile($request)
+    public function describeDedicatedHostGroups($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeCheckUserBackupFileWithOptions($request, $runtime);
+        return $this->describeDedicatedHostGroupsWithOptions($request, $runtime);
     }
 
     /**
-     * @param ModifyDedicatedHostPasswordRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeDedicatedHostsRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return ModifyDedicatedHostPasswordResponse
+     * @return DescribeDedicatedHostsResponse
      */
-    public function modifyDedicatedHostPasswordWithOptions($request, $runtime)
+    public function describeDedicatedHostsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AllocationStatus']     = $request->allocationStatus;
+        $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
+        $query['DedicatedHostId']      = $request->dedicatedHostId;
+        $query['HostStatus']           = $request->hostStatus;
+        $query['HostType']             = $request->hostType;
+        $query['OrderId']              = $request->orderId;
+        $query['OwnerId']              = $request->ownerId;
+        $query['PageNumbers']          = $request->pageNumbers;
+        $query['PageSize']             = $request->pageSize;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['Tags']                 = $request->tags;
+        $query['ZoneId']               = $request->zoneId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDedicatedHosts',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyDedicatedHostPasswordResponse::fromMap($this->doRPCRequest('ModifyDedicatedHostPassword', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDedicatedHostsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyDedicatedHostPasswordRequest $request
+     * @param DescribeDedicatedHostsRequest $request
      *
-     * @return ModifyDedicatedHostPasswordResponse
+     * @return DescribeDedicatedHostsResponse
      */
-    public function modifyDedicatedHostPassword($request)
+    public function describeDedicatedHosts($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyDedicatedHostPasswordWithOptions($request, $runtime);
+        return $this->describeDedicatedHostsWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeScheduleMethodsRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeScheduleMethodsResponse
-     */
-    public function describeScheduleMethodsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeScheduleMethodsResponse::fromMap($this->doRPCRequest('DescribeScheduleMethods', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeScheduleMethodsRequest $request
-     *
-     * @return DescribeScheduleMethodsResponse
-     */
-    public function describeScheduleMethods($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeScheduleMethodsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ClearDedicatedHostRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ClearDedicatedHostResponse
-     */
-    public function clearDedicatedHostWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ClearDedicatedHostResponse::fromMap($this->doRPCRequest('ClearDedicatedHost', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ClearDedicatedHostRequest $request
-     *
-     * @return ClearDedicatedHostResponse
-     */
-    public function clearDedicatedHost($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->clearDedicatedHostWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteUserBackupFileRecordRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DeleteUserBackupFileRecordResponse
-     */
-    public function deleteUserBackupFileRecordWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteUserBackupFileRecordResponse::fromMap($this->doRPCRequest('DeleteUserBackupFileRecord', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteUserBackupFileRecordRequest $request
-     *
-     * @return DeleteUserBackupFileRecordResponse
-     */
-    public function deleteUserBackupFileRecord($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteUserBackupFileRecordWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeEvaluateDedicatedHostsRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DescribeEvaluateDedicatedHostsResponse
-     */
-    public function describeEvaluateDedicatedHostsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeEvaluateDedicatedHostsResponse::fromMap($this->doRPCRequest('DescribeEvaluateDedicatedHosts', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeEvaluateDedicatedHostsRequest $request
-     *
-     * @return DescribeEvaluateDedicatedHostsResponse
-     */
-    public function describeEvaluateDedicatedHosts($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeEvaluateDedicatedHostsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeHostInstanceMonitorInfoRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeHostInstanceMonitorInfoResponse
-     */
-    public function describeHostInstanceMonitorInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeHostInstanceMonitorInfoResponse::fromMap($this->doRPCRequest('DescribeHostInstanceMonitorInfo', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeHostInstanceMonitorInfoRequest $request
-     *
-     * @return DescribeHostInstanceMonitorInfoResponse
-     */
-    public function describeHostInstanceMonitorInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeHostInstanceMonitorInfoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDedicatedHostMetricRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeDedicatedHostMetricResponse
-     */
-    public function describeDedicatedHostMetricWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDedicatedHostMetricResponse::fromMap($this->doRPCRequest('DescribeDedicatedHostMetric', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDedicatedHostMetricRequest $request
-     *
-     * @return DescribeDedicatedHostMetricResponse
-     */
-    public function describeDedicatedHostMetric($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDedicatedHostMetricWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateDedicatedHostRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return CreateDedicatedHostResponse
-     */
-    public function createDedicatedHostWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateDedicatedHostResponse::fromMap($this->doRPCRequest('CreateDedicatedHost', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateDedicatedHostRequest $request
-     *
-     * @return CreateDedicatedHostResponse
-     */
-    public function createDedicatedHost($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDedicatedHostWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDedicatedInstanceMetricRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeDedicatedInstanceMetricResponse
-     */
-    public function describeDedicatedInstanceMetricWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDedicatedInstanceMetricResponse::fromMap($this->doRPCRequest('DescribeDedicatedInstanceMetric', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDedicatedInstanceMetricRequest $request
-     *
-     * @return DescribeDedicatedInstanceMetricResponse
-     */
-    public function describeDedicatedInstanceMetric($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDedicatedInstanceMetricWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeCrossVpcInstanceRequest $request
+     * @param DescribeHostEcsLevelInfoRequest $request
      * @param RuntimeOptions                  $runtime
      *
-     * @return DescribeCrossVpcInstanceResponse
+     * @return DescribeHostEcsLevelInfoResponse
      */
-    public function describeCrossVpcInstanceWithOptions($request, $runtime)
+    public function describeHostEcsLevelInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['DbType']               = $request->dbType;
+        $query['ImageCategory']        = $request->imageCategory;
+        $query['OwnerId']              = $request->ownerId;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['StorageType']          = $request->storageType;
+        $query['ZoneId']               = $request->zoneId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHostEcsLevelInfo',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeCrossVpcInstanceResponse::fromMap($this->doRPCRequest('DescribeCrossVpcInstance', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeHostEcsLevelInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeCrossVpcInstanceRequest $request
+     * @param DescribeHostEcsLevelInfoRequest $request
      *
-     * @return DescribeCrossVpcInstanceResponse
+     * @return DescribeHostEcsLevelInfoResponse
      */
-    public function describeCrossVpcInstance($request)
+    public function describeHostEcsLevelInfo($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeCrossVpcInstanceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyDedicatedHostClassRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ModifyDedicatedHostClassResponse
-     */
-    public function modifyDedicatedHostClassWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyDedicatedHostClassResponse::fromMap($this->doRPCRequest('ModifyDedicatedHostClass', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyDedicatedHostClassRequest $request
-     *
-     * @return ModifyDedicatedHostClassResponse
-     */
-    public function modifyDedicatedHostClass($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyDedicatedHostClassWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDedicatedHostsCheckInBastionRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return DescribeDedicatedHostsCheckInBastionResponse
-     */
-    public function describeDedicatedHostsCheckInBastionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDedicatedHostsCheckInBastionResponse::fromMap($this->doRPCRequest('DescribeDedicatedHostsCheckInBastion', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDedicatedHostsCheckInBastionRequest $request
-     *
-     * @return DescribeDedicatedHostsCheckInBastionResponse
-     */
-    public function describeDedicatedHostsCheckInBastion($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDedicatedHostsCheckInBastionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DropDedicatedHostUserRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DropDedicatedHostUserResponse
-     */
-    public function dropDedicatedHostUserWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DropDedicatedHostUserResponse::fromMap($this->doRPCRequest('DropDedicatedHostUser', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DropDedicatedHostUserRequest $request
-     *
-     * @return DropDedicatedHostUserResponse
-     */
-    public function dropDedicatedHostUser($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->dropDedicatedHostUserWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDedicatedHostsInBastionRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeDedicatedHostsInBastionResponse
-     */
-    public function describeDedicatedHostsInBastionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDedicatedHostsInBastionResponse::fromMap($this->doRPCRequest('DescribeDedicatedHostsInBastion', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDedicatedHostsInBastionRequest $request
-     *
-     * @return DescribeDedicatedHostsInBastionResponse
-     */
-    public function describeDedicatedHostsInBastion($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDedicatedHostsInBastionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyDedicatedHostGroupAttributeRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return ModifyDedicatedHostGroupAttributeResponse
-     */
-    public function modifyDedicatedHostGroupAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyDedicatedHostGroupAttributeResponse::fromMap($this->doRPCRequest('ModifyDedicatedHostGroupAttribute', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyDedicatedHostGroupAttributeRequest $request
-     *
-     * @return ModifyDedicatedHostGroupAttributeResponse
-     */
-    public function modifyDedicatedHostGroupAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyDedicatedHostGroupAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QueryHostInstanceConsoleInfoRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return QueryHostInstanceConsoleInfoResponse
-     */
-    public function queryHostInstanceConsoleInfoWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryHostInstanceConsoleInfoResponse::fromMap($this->doRPCRequest('QueryHostInstanceConsoleInfo', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryHostInstanceConsoleInfoRequest $request
-     *
-     * @return QueryHostInstanceConsoleInfoResponse
-     */
-    public function queryHostInstanceConsoleInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryHostInstanceConsoleInfoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeRegionsResponse
-     */
-    public function describeRegionsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeRegionsRequest $request
-     *
-     * @return DescribeRegionsResponse
-     */
-    public function describeRegions($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeRegionsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param QueryHostBaseInfoByInstanceRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return QueryHostBaseInfoByInstanceResponse
-     */
-    public function queryHostBaseInfoByInstanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return QueryHostBaseInfoByInstanceResponse::fromMap($this->doRPCRequest('QueryHostBaseInfoByInstance', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param QueryHostBaseInfoByInstanceRequest $request
-     *
-     * @return QueryHostBaseInfoByInstanceResponse
-     */
-    public function queryHostBaseInfoByInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->queryHostBaseInfoByInstanceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDedicatedInstanceDistributionRequest $request
-     * @param RuntimeOptions                               $runtime
-     *
-     * @return DescribeDedicatedInstanceDistributionResponse
-     */
-    public function describeDedicatedInstanceDistributionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDedicatedInstanceDistributionResponse::fromMap($this->doRPCRequest('DescribeDedicatedInstanceDistribution', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDedicatedInstanceDistributionRequest $request
-     *
-     * @return DescribeDedicatedInstanceDistributionResponse
-     */
-    public function describeDedicatedInstanceDistribution($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDedicatedInstanceDistributionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeScheduleHostRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeScheduleHostResponse
-     */
-    public function describeScheduleHostWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeScheduleHostResponse::fromMap($this->doRPCRequest('DescribeScheduleHost', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeScheduleHostRequest $request
-     *
-     * @return DescribeScheduleHostResponse
-     */
-    public function describeScheduleHost($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeScheduleHostWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyDedicatedHostAttributeRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ModifyDedicatedHostAttributeResponse
-     */
-    public function modifyDedicatedHostAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyDedicatedHostAttributeResponse::fromMap($this->doRPCRequest('ModifyDedicatedHostAttribute', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyDedicatedHostAttributeRequest $request
-     *
-     * @return ModifyDedicatedHostAttributeResponse
-     */
-    public function modifyDedicatedHostAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyDedicatedHostAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateDedicatedHostGroupRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return CreateDedicatedHostGroupResponse
-     */
-    public function createDedicatedHostGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateDedicatedHostGroupResponse::fromMap($this->doRPCRequest('CreateDedicatedHostGroup', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateDedicatedHostGroupRequest $request
-     *
-     * @return CreateDedicatedHostGroupResponse
-     */
-    public function createDedicatedHostGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createDedicatedHostGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AddHostsToBastionRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return AddHostsToBastionResponse
-     */
-    public function addHostsToBastionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AddHostsToBastionResponse::fromMap($this->doRPCRequest('AddHostsToBastion', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AddHostsToBastionRequest $request
-     *
-     * @return AddHostsToBastionResponse
-     */
-    public function addHostsToBastion($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addHostsToBastionWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AttachHostsToBastionUserRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return AttachHostsToBastionUserResponse
-     */
-    public function attachHostsToBastionUserWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AttachHostsToBastionUserResponse::fromMap($this->doRPCRequest('AttachHostsToBastionUser', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AttachHostsToBastionUserRequest $request
-     *
-     * @return AttachHostsToBastionUserResponse
-     */
-    public function attachHostsToBastionUser($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->attachHostsToBastionUserWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeEvaluateDedicatedHostsForInstanceRequest $request
-     * @param RuntimeOptions                                   $runtime
-     *
-     * @return DescribeEvaluateDedicatedHostsForInstanceResponse
-     */
-    public function describeEvaluateDedicatedHostsForInstanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeEvaluateDedicatedHostsForInstanceResponse::fromMap($this->doRPCRequest('DescribeEvaluateDedicatedHostsForInstance', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeEvaluateDedicatedHostsForInstanceRequest $request
-     *
-     * @return DescribeEvaluateDedicatedHostsForInstanceResponse
-     */
-    public function describeEvaluateDedicatedHostsForInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeEvaluateDedicatedHostsForInstanceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RestartDedicatedHostRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return RestartDedicatedHostResponse
-     */
-    public function restartDedicatedHostWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RestartDedicatedHostResponse::fromMap($this->doRPCRequest('RestartDedicatedHost', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RestartDedicatedHostRequest $request
-     *
-     * @return RestartDedicatedHostResponse
-     */
-    public function restartDedicatedHost($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->restartDedicatedHostWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDedicatedHostHealthRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeDedicatedHostHealthResponse
-     */
-    public function describeDedicatedHostHealthWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDedicatedHostHealthResponse::fromMap($this->doRPCRequest('DescribeDedicatedHostHealth', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDedicatedHostHealthRequest $request
-     *
-     * @return DescribeDedicatedHostHealthResponse
-     */
-    public function describeDedicatedHostHealth($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDedicatedHostHealthWithOptions($request, $runtime);
+        return $this->describeHostEcsLevelInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -1556,11 +593,29 @@ class Cddc extends OpenApiClient
     public function describeHostWebShellWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['DedicatedHostId']      = $request->dedicatedHostId;
+        $query['OwnerId']              = $request->ownerId;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['ZoneId']               = $request->zoneId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHostWebShell',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeHostWebShellResponse::fromMap($this->doRPCRequest('DescribeHostWebShell', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeHostWebShellResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1576,30 +631,608 @@ class Cddc extends OpenApiClient
     }
 
     /**
-     * @param DescribeDedicatedHostAttributeRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return DescribeDedicatedHostAttributeResponse
+     * @return DescribeRegionsResponse
      */
-    public function describeDedicatedHostAttributeWithOptions($request, $runtime)
+    public function describeRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRegions',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDedicatedHostAttributeResponse::fromMap($this->doRPCRequest('DescribeDedicatedHostAttribute', '2020-03-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDedicatedHostAttributeRequest $request
+     * @param DescribeRegionsRequest $request
      *
-     * @return DescribeDedicatedHostAttributeResponse
+     * @return DescribeRegionsResponse
      */
-    public function describeDedicatedHostAttribute($request)
+    public function describeRegions($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeDedicatedHostAttributeWithOptions($request, $runtime);
+        return $this->describeRegionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                         = [];
+        $query['OwnerId']              = $request->ownerId;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceId']           = $request->resourceId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['ResourceType']         = $request->resourceType;
+        $query['Tag']                  = $request->tag;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDedicatedHostAccountRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyDedicatedHostAccountResponse
+     */
+    public function modifyDedicatedHostAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                         = [];
+        $query['AccountName']          = $request->accountName;
+        $query['AccountPassword']      = $request->accountPassword;
+        $query['DedicatedHostId']      = $request->dedicatedHostId;
+        $query['OwnerId']              = $request->ownerId;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDedicatedHostAccount',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDedicatedHostAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDedicatedHostAccountRequest $request
+     *
+     * @return ModifyDedicatedHostAccountResponse
+     */
+    public function modifyDedicatedHostAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDedicatedHostAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDedicatedHostAttributeRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyDedicatedHostAttributeResponse
+     */
+    public function modifyDedicatedHostAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                         = [];
+        $query['AllocationStatus']     = $request->allocationStatus;
+        $query['DedicatedHostId']      = $request->dedicatedHostId;
+        $query['HostName']             = $request->hostName;
+        $query['OwnerId']              = $request->ownerId;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDedicatedHostAttribute',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDedicatedHostAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDedicatedHostAttributeRequest $request
+     *
+     * @return ModifyDedicatedHostAttributeResponse
+     */
+    public function modifyDedicatedHostAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDedicatedHostAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDedicatedHostClassRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyDedicatedHostClassResponse
+     */
+    public function modifyDedicatedHostClassWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                         = [];
+        $query['DedicatedHostId']      = $request->dedicatedHostId;
+        $query['OwnerId']              = $request->ownerId;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['SwitchTime']           = $request->switchTime;
+        $query['SwitchTimeMode']       = $request->switchTimeMode;
+        $query['TargetClassCode']      = $request->targetClassCode;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDedicatedHostClass',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDedicatedHostClassResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDedicatedHostClassRequest $request
+     *
+     * @return ModifyDedicatedHostClassResponse
+     */
+    public function modifyDedicatedHostClass($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDedicatedHostClassWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDedicatedHostGroupAttributeRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ModifyDedicatedHostGroupAttributeResponse
+     */
+    public function modifyDedicatedHostGroupAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                           = [];
+        $query['AllocationPolicy']       = $request->allocationPolicy;
+        $query['CpuAllocationRatio']     = $request->cpuAllocationRatio;
+        $query['DedicatedHostGroupDesc'] = $request->dedicatedHostGroupDesc;
+        $query['DedicatedHostGroupId']   = $request->dedicatedHostGroupId;
+        $query['DiskAllocationRatio']    = $request->diskAllocationRatio;
+        $query['HostReplacePolicy']      = $request->hostReplacePolicy;
+        $query['MemAllocationRatio']     = $request->memAllocationRatio;
+        $query['OpenPermission']         = $request->openPermission;
+        $query['OwnerId']                = $request->ownerId;
+        $query['RegionId']               = $request->regionId;
+        $query['ResourceOwnerAccount']   = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']        = $request->resourceOwnerId;
+        $req                             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDedicatedHostGroupAttribute',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDedicatedHostGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDedicatedHostGroupAttributeRequest $request
+     *
+     * @return ModifyDedicatedHostGroupAttributeResponse
+     */
+    public function modifyDedicatedHostGroupAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDedicatedHostGroupAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDedicatedHostPasswordRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyDedicatedHostPasswordResponse
+     */
+    public function modifyDedicatedHostPasswordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                         = [];
+        $query['DedicatedHostId']      = $request->dedicatedHostId;
+        $query['NewPassword']          = $request->newPassword;
+        $query['OwnerId']              = $request->ownerId;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDedicatedHostPassword',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDedicatedHostPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDedicatedHostPasswordRequest $request
+     *
+     * @return ModifyDedicatedHostPasswordResponse
+     */
+    public function modifyDedicatedHostPassword($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDedicatedHostPasswordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryHostBaseInfoByInstanceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return QueryHostBaseInfoByInstanceResponse
+     */
+    public function queryHostBaseInfoByInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                         = [];
+        $query['DBInstanceId']         = $request->DBInstanceId;
+        $query['OwnerId']              = $request->ownerId;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryHostBaseInfoByInstance',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryHostBaseInfoByInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryHostBaseInfoByInstanceRequest $request
+     *
+     * @return QueryHostBaseInfoByInstanceResponse
+     */
+    public function queryHostBaseInfoByInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryHostBaseInfoByInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryHostInstanceConsoleInfoRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return QueryHostInstanceConsoleInfoResponse
+     */
+    public function queryHostInstanceConsoleInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                         = [];
+        $query['DedicatedHostId']      = $request->dedicatedHostId;
+        $query['OwnerId']              = $request->ownerId;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryHostInstanceConsoleInfo',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryHostInstanceConsoleInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryHostInstanceConsoleInfoRequest $request
+     *
+     * @return QueryHostInstanceConsoleInfoResponse
+     */
+    public function queryHostInstanceConsoleInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryHostInstanceConsoleInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ReplaceDedicatedHostRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ReplaceDedicatedHostResponse
+     */
+    public function replaceDedicatedHostWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                         = [];
+        $query['DedicatedHostId']      = $request->dedicatedHostId;
+        $query['FailoverMode']         = $request->failoverMode;
+        $query['OwnerId']              = $request->ownerId;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReplaceDedicatedHost',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReplaceDedicatedHostResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ReplaceDedicatedHostRequest $request
+     *
+     * @return ReplaceDedicatedHostResponse
+     */
+    public function replaceDedicatedHost($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->replaceDedicatedHostWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RestartDedicatedHostRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RestartDedicatedHostResponse
+     */
+    public function restartDedicatedHostWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                         = [];
+        $query['DedicatedHostId']      = $request->dedicatedHostId;
+        $query['FailoverMode']         = $request->failoverMode;
+        $query['ForceStop']            = $request->forceStop;
+        $query['OwnerId']              = $request->ownerId;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RestartDedicatedHost',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RestartDedicatedHostResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RestartDedicatedHostRequest $request
+     *
+     * @return RestartDedicatedHostResponse
+     */
+    public function restartDedicatedHost($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restartDedicatedHostWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                         = [];
+        $query['OwnerId']              = $request->ownerId;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceId']           = $request->resourceId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['ResourceType']         = $request->resourceType;
+        $query['Tag']                  = $request->tag;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                         = [];
+        $query['All']                  = $request->all;
+        $query['OwnerId']              = $request->ownerId;
+        $query['RegionId']             = $request->regionId;
+        $query['ResourceId']           = $request->resourceId;
+        $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        $query['ResourceOwnerId']      = $request->resourceOwnerId;
+        $query['ResourceType']         = $request->resourceType;
+        $query['TagKey']               = $request->tagKey;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2020-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
     }
 }

@@ -6,17 +6,12 @@ namespace AlibabaCloud\SDK\Cddc\V20200320\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeHostEcsLevelInfoRequest extends Model
+class UntagResourcesRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $dbType;
-
-    /**
-     * @var string
-     */
-    public $imageCategory;
+    public $all;
 
     /**
      * @var int
@@ -27,6 +22,11 @@ class DescribeHostEcsLevelInfoRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string[]
+     */
+    public $resourceId;
 
     /**
      * @var string
@@ -41,21 +41,21 @@ class DescribeHostEcsLevelInfoRequest extends Model
     /**
      * @var string
      */
-    public $storageType;
+    public $resourceType;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $zoneId;
+    public $tagKey;
     protected $_name = [
-        'dbType'               => 'DbType',
-        'imageCategory'        => 'ImageCategory',
+        'all'                  => 'All',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
+        'resourceId'           => 'ResourceId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'storageType'          => 'StorageType',
-        'zoneId'               => 'ZoneId',
+        'resourceType'         => 'ResourceType',
+        'tagKey'               => 'TagKey',
     ];
 
     public function validate()
@@ -65,11 +65,8 @@ class DescribeHostEcsLevelInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dbType) {
-            $res['DbType'] = $this->dbType;
-        }
-        if (null !== $this->imageCategory) {
-            $res['ImageCategory'] = $this->imageCategory;
+        if (null !== $this->all) {
+            $res['All'] = $this->all;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -77,17 +74,20 @@ class DescribeHostEcsLevelInfoRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->storageType) {
-            $res['StorageType'] = $this->storageType;
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
+        if (null !== $this->tagKey) {
+            $res['TagKey'] = $this->tagKey;
         }
 
         return $res;
@@ -96,16 +96,13 @@ class DescribeHostEcsLevelInfoRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeHostEcsLevelInfoRequest
+     * @return UntagResourcesRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DbType'])) {
-            $model->dbType = $map['DbType'];
-        }
-        if (isset($map['ImageCategory'])) {
-            $model->imageCategory = $map['ImageCategory'];
+        if (isset($map['All'])) {
+            $model->all = $map['All'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
@@ -113,17 +110,24 @@ class DescribeHostEcsLevelInfoRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceId'])) {
+            if (!empty($map['ResourceId'])) {
+                $model->resourceId = $map['ResourceId'];
+            }
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['StorageType'])) {
-            $model->storageType = $map['StorageType'];
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
+        if (isset($map['TagKey'])) {
+            if (!empty($map['TagKey'])) {
+                $model->tagKey = $map['TagKey'];
+            }
         }
 
         return $model;

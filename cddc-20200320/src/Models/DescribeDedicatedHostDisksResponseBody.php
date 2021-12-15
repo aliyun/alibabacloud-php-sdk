@@ -15,18 +15,18 @@ class DescribeDedicatedHostDisksResponseBody extends Model
     public $dedicatedHostId;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var disks[]
      */
     public $disks;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'dedicatedHostId' => 'DedicatedHostId',
-        'requestId'       => 'RequestId',
         'disks'           => 'Disks',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -39,9 +39,6 @@ class DescribeDedicatedHostDisksResponseBody extends Model
         if (null !== $this->dedicatedHostId) {
             $res['DedicatedHostId'] = $this->dedicatedHostId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->disks) {
             $res['Disks'] = [];
             if (null !== $this->disks && \is_array($this->disks)) {
@@ -50,6 +47,9 @@ class DescribeDedicatedHostDisksResponseBody extends Model
                     $res['Disks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -66,9 +66,6 @@ class DescribeDedicatedHostDisksResponseBody extends Model
         if (isset($map['DedicatedHostId'])) {
             $model->dedicatedHostId = $map['DedicatedHostId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Disks'])) {
             if (!empty($map['Disks'])) {
                 $model->disks = [];
@@ -77,6 +74,9 @@ class DescribeDedicatedHostDisksResponseBody extends Model
                     $model->disks[$n++] = null !== $item ? disks::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

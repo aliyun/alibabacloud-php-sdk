@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cddc\V20200320\Models;
 
-use AlibabaCloud\SDK\Cddc\V20200320\Models\DescribeRegionsResponseBody\regions;
 use AlibabaCloud\Tea\Model;
 
-class DescribeRegionsResponseBody extends Model
+class UntagResourcesResponseBody extends Model
 {
-    /**
-     * @var regions
-     */
-    public $regions;
-
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'regions'   => 'Regions',
         'requestId' => 'RequestId',
     ];
 
@@ -30,9 +23,6 @@ class DescribeRegionsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->regions) {
-            $res['Regions'] = null !== $this->regions ? $this->regions->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,14 +33,11 @@ class DescribeRegionsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeRegionsResponseBody
+     * @return UntagResourcesResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Regions'])) {
-            $model->regions = regions::fromMap($map['Regions']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

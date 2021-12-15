@@ -9,9 +9,24 @@ use AlibabaCloud\Tea\Model;
 class ModifyDedicatedHostPasswordRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $dedicatedHostId;
+
+    /**
+     * @var string
+     */
+    public $newPassword;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -22,28 +37,13 @@ class ModifyDedicatedHostPasswordRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $newPassword;
-
-    /**
-     * @var string
-     */
-    public $dedicatedHostId;
     protected $_name = [
+        'dedicatedHostId'      => 'DedicatedHostId',
+        'newPassword'          => 'NewPassword',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'regionId'             => 'RegionId',
-        'newPassword'          => 'NewPassword',
-        'dedicatedHostId'      => 'DedicatedHostId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class ModifyDedicatedHostPasswordRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dedicatedHostId) {
+            $res['DedicatedHostId'] = $this->dedicatedHostId;
+        }
+        if (null !== $this->newPassword) {
+            $res['NewPassword'] = $this->newPassword;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->newPassword) {
-            $res['NewPassword'] = $this->newPassword;
-        }
-        if (null !== $this->dedicatedHostId) {
-            $res['DedicatedHostId'] = $this->dedicatedHostId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class ModifyDedicatedHostPasswordRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DedicatedHostId'])) {
+            $model->dedicatedHostId = $map['DedicatedHostId'];
+        }
+        if (isset($map['NewPassword'])) {
+            $model->newPassword = $map['NewPassword'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['NewPassword'])) {
-            $model->newPassword = $map['NewPassword'];
-        }
-        if (isset($map['DedicatedHostId'])) {
-            $model->dedicatedHostId = $map['DedicatedHostId'];
         }
 
         return $model;

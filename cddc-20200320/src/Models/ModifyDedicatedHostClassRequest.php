@@ -9,9 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyDedicatedHostClassRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $dedicatedHostId;
+
+    /**
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -26,36 +36,26 @@ class ModifyDedicatedHostClassRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
-    public $dedicatedHostId;
-
-    /**
-     * @var string
-     */
-    public $targetClassCode;
-
-    /**
-     * @var string
-     */
     public $switchTime;
 
     /**
      * @var string
      */
     public $switchTimeMode;
+
+    /**
+     * @var string
+     */
+    public $targetClassCode;
     protected $_name = [
+        'dedicatedHostId'      => 'DedicatedHostId',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'regionId'             => 'RegionId',
-        'dedicatedHostId'      => 'DedicatedHostId',
-        'targetClassCode'      => 'TargetClassCode',
         'switchTime'           => 'SwitchTime',
         'switchTimeMode'       => 'SwitchTimeMode',
+        'targetClassCode'      => 'TargetClassCode',
     ];
 
     public function validate()
@@ -65,8 +65,14 @@ class ModifyDedicatedHostClassRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dedicatedHostId) {
+            $res['DedicatedHostId'] = $this->dedicatedHostId;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -74,20 +80,14 @@ class ModifyDedicatedHostClassRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->dedicatedHostId) {
-            $res['DedicatedHostId'] = $this->dedicatedHostId;
-        }
-        if (null !== $this->targetClassCode) {
-            $res['TargetClassCode'] = $this->targetClassCode;
-        }
         if (null !== $this->switchTime) {
             $res['SwitchTime'] = $this->switchTime;
         }
         if (null !== $this->switchTimeMode) {
             $res['SwitchTimeMode'] = $this->switchTimeMode;
+        }
+        if (null !== $this->targetClassCode) {
+            $res['TargetClassCode'] = $this->targetClassCode;
         }
 
         return $res;
@@ -101,8 +101,14 @@ class ModifyDedicatedHostClassRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DedicatedHostId'])) {
+            $model->dedicatedHostId = $map['DedicatedHostId'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -110,20 +116,14 @@ class ModifyDedicatedHostClassRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['DedicatedHostId'])) {
-            $model->dedicatedHostId = $map['DedicatedHostId'];
-        }
-        if (isset($map['TargetClassCode'])) {
-            $model->targetClassCode = $map['TargetClassCode'];
-        }
         if (isset($map['SwitchTime'])) {
             $model->switchTime = $map['SwitchTime'];
         }
         if (isset($map['SwitchTimeMode'])) {
             $model->switchTimeMode = $map['SwitchTimeMode'];
+        }
+        if (isset($map['TargetClassCode'])) {
+            $model->targetClassCode = $map['TargetClassCode'];
         }
 
         return $model;

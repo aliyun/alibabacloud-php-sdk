@@ -11,32 +11,7 @@ class hostInstanceConsoleInfos extends Model
     /**
      * @var string
      */
-    public $vpcId;
-
-    /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $expiredTime;
-
-    /**
-     * @var string
-     */
     public $clusterName;
-
-    /**
-     * @var string
-     */
-    public $ip;
-
-    /**
-     * @var string
-     */
-    public $hostName;
 
     /**
      * @var string
@@ -46,7 +21,22 @@ class hostInstanceConsoleInfos extends Model
     /**
      * @var string
      */
-    public $role;
+    public $engineVersion;
+
+    /**
+     * @var string
+     */
+    public $expiredTime;
+
+    /**
+     * @var string
+     */
+    public $hostName;
+
+    /**
+     * @var string
+     */
+    public $ip;
 
     /**
      * @var string
@@ -56,18 +46,28 @@ class hostInstanceConsoleInfos extends Model
     /**
      * @var string
      */
-    public $engineVersion;
+    public $role;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
-        'vpcId'         => 'VpcId',
-        'status'        => 'Status',
-        'expiredTime'   => 'ExpiredTime',
         'clusterName'   => 'ClusterName',
-        'ip'            => 'Ip',
-        'hostName'      => 'HostName',
         'engine'        => 'Engine',
-        'role'          => 'Role',
-        'port'          => 'Port',
         'engineVersion' => 'EngineVersion',
+        'expiredTime'   => 'ExpiredTime',
+        'hostName'      => 'HostName',
+        'ip'            => 'Ip',
+        'port'          => 'Port',
+        'role'          => 'Role',
+        'status'        => 'Status',
+        'vpcId'         => 'VpcId',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class hostInstanceConsoleInfos extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->expiredTime) {
-            $res['ExpiredTime'] = $this->expiredTime;
-        }
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
-        }
-        if (null !== $this->ip) {
-            $res['Ip'] = $this->ip;
-        }
-        if (null !== $this->hostName) {
-            $res['HostName'] = $this->hostName;
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
-        if (null !== $this->role) {
-            $res['Role'] = $this->role;
+        if (null !== $this->engineVersion) {
+            $res['EngineVersion'] = $this->engineVersion;
+        }
+        if (null !== $this->expiredTime) {
+            $res['ExpiredTime'] = $this->expiredTime;
+        }
+        if (null !== $this->hostName) {
+            $res['HostName'] = $this->hostName;
+        }
+        if (null !== $this->ip) {
+            $res['Ip'] = $this->ip;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
-        if (null !== $this->engineVersion) {
-            $res['EngineVersion'] = $this->engineVersion;
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -119,35 +119,35 @@ class hostInstanceConsoleInfos extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['ExpiredTime'])) {
-            $model->expiredTime = $map['ExpiredTime'];
-        }
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
-        }
-        if (isset($map['Ip'])) {
-            $model->ip = $map['Ip'];
-        }
-        if (isset($map['HostName'])) {
-            $model->hostName = $map['HostName'];
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
-        if (isset($map['Role'])) {
-            $model->role = $map['Role'];
+        if (isset($map['EngineVersion'])) {
+            $model->engineVersion = $map['EngineVersion'];
+        }
+        if (isset($map['ExpiredTime'])) {
+            $model->expiredTime = $map['ExpiredTime'];
+        }
+        if (isset($map['HostName'])) {
+            $model->hostName = $map['HostName'];
+        }
+        if (isset($map['Ip'])) {
+            $model->ip = $map['Ip'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
-        if (isset($map['EngineVersion'])) {
-            $model->engineVersion = $map['EngineVersion'];
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;
