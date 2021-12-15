@@ -98,6 +98,7 @@ use AlibabaCloud\Tea\Rpc\Rpc\Config;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Ocr extends OpenApiClient
@@ -142,11 +143,26 @@ class Ocr extends OpenApiClient
     public function detectCardScreenshotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectCardScreenshot',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DetectCardScreenshotResponse::fromMap($this->doRPCRequest('DetectCardScreenshot', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DetectCardScreenshotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -248,11 +264,26 @@ class Ocr extends OpenApiClient
     public function getAsyncJobResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $body['JobId'] = $request->jobId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAsyncJobResult',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetAsyncJobResultResponse::fromMap($this->doRPCRequest('GetAsyncJobResult', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAsyncJobResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -276,11 +307,26 @@ class Ocr extends OpenApiClient
     public function recognizeAccountPageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeAccountPage',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeAccountPageResponse::fromMap($this->doRPCRequest('RecognizeAccountPage', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizeAccountPageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -382,11 +428,26 @@ class Ocr extends OpenApiClient
     public function recognizeBankCardWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeBankCard',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeBankCardResponse::fromMap($this->doRPCRequest('RecognizeBankCard', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizeBankCardResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -488,11 +549,26 @@ class Ocr extends OpenApiClient
     public function recognizeBusinessCardWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeBusinessCard',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeBusinessCardResponse::fromMap($this->doRPCRequest('RecognizeBusinessCard', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizeBusinessCardResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -594,11 +670,26 @@ class Ocr extends OpenApiClient
     public function recognizeBusinessLicenseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeBusinessLicense',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeBusinessLicenseResponse::fromMap($this->doRPCRequest('RecognizeBusinessLicense', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizeBusinessLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -700,11 +791,32 @@ class Ocr extends OpenApiClient
     public function recognizeCharacterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->minHeight)) {
+            $body['MinHeight'] = $request->minHeight;
+        }
+        if (!Utils::isUnset($request->outputProbability)) {
+            $body['OutputProbability'] = $request->outputProbability;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeCharacter',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeCharacterResponse::fromMap($this->doRPCRequest('RecognizeCharacter', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizeCharacterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -806,11 +918,26 @@ class Ocr extends OpenApiClient
     public function recognizeChinapassportWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeChinapassport',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeChinapassportResponse::fromMap($this->doRPCRequest('RecognizeChinapassport', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizeChinapassportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -912,11 +1039,29 @@ class Ocr extends OpenApiClient
     public function recognizeDriverLicenseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->side)) {
+            $body['Side'] = $request->side;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeDriverLicense',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeDriverLicenseResponse::fromMap($this->doRPCRequest('RecognizeDriverLicense', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizeDriverLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1018,11 +1163,29 @@ class Ocr extends OpenApiClient
     public function recognizeDrivingLicenseWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->side)) {
+            $body['Side'] = $request->side;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeDrivingLicense',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeDrivingLicenseResponse::fromMap($this->doRPCRequest('RecognizeDrivingLicense', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizeDrivingLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1124,11 +1287,29 @@ class Ocr extends OpenApiClient
     public function recognizeIdentityCardWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->side)) {
+            $body['Side'] = $request->side;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeIdentityCard',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeIdentityCardResponse::fromMap($this->doRPCRequest('RecognizeIdentityCard', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizeIdentityCardResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1230,11 +1411,26 @@ class Ocr extends OpenApiClient
     public function recognizeLicensePlateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeLicensePlate',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeLicensePlateResponse::fromMap($this->doRPCRequest('RecognizeLicensePlate', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizeLicensePlateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1336,11 +1532,26 @@ class Ocr extends OpenApiClient
     public function recognizePassportMRZWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizePassportMRZ',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizePassportMRZResponse::fromMap($this->doRPCRequest('RecognizePassportMRZ', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizePassportMRZResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1442,11 +1653,26 @@ class Ocr extends OpenApiClient
     public function recognizePdfWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->fileURL)) {
+            $body['FileURL'] = $request->fileURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizePdf',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizePdfResponse::fromMap($this->doRPCRequest('RecognizePdf', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizePdfResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1548,11 +1774,26 @@ class Ocr extends OpenApiClient
     public function recognizePoiNameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizePoiName',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizePoiNameResponse::fromMap($this->doRPCRequest('RecognizePoiName', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizePoiNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1654,11 +1895,26 @@ class Ocr extends OpenApiClient
     public function recognizeQrCodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->tasks)) {
+            $body['Tasks'] = $request->tasks;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeQrCode',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeQrCodeResponse::fromMap($this->doRPCRequest('RecognizeQrCode', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizeQrCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1682,11 +1938,26 @@ class Ocr extends OpenApiClient
     public function recognizeQuotaInvoiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeQuotaInvoice',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeQuotaInvoiceResponse::fromMap($this->doRPCRequest('RecognizeQuotaInvoice', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizeQuotaInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1788,11 +2059,26 @@ class Ocr extends OpenApiClient
     public function recognizeStampWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeStamp',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeStampResponse::fromMap($this->doRPCRequest('RecognizeStamp', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizeStampResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1894,11 +2180,41 @@ class Ocr extends OpenApiClient
     public function recognizeTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->assureDirection)) {
+            $body['AssureDirection'] = $request->assureDirection;
+        }
+        if (!Utils::isUnset($request->hasLine)) {
+            $body['HasLine'] = $request->hasLine;
+        }
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
+        if (!Utils::isUnset($request->outputFormat)) {
+            $body['OutputFormat'] = $request->outputFormat;
+        }
+        if (!Utils::isUnset($request->skipDetection)) {
+            $body['SkipDetection'] = $request->skipDetection;
+        }
+        if (!Utils::isUnset($request->useFinanceModel)) {
+            $body['UseFinanceModel'] = $request->useFinanceModel;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeTable',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeTableResponse::fromMap($this->doRPCRequest('RecognizeTable', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizeTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2000,11 +2316,26 @@ class Ocr extends OpenApiClient
     public function recognizeTakeoutOrderWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeTakeoutOrder',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeTakeoutOrderResponse::fromMap($this->doRPCRequest('RecognizeTakeoutOrder', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizeTakeoutOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2106,11 +2437,26 @@ class Ocr extends OpenApiClient
     public function recognizeTaxiInvoiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeTaxiInvoice',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeTaxiInvoiceResponse::fromMap($this->doRPCRequest('RecognizeTaxiInvoice', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizeTaxiInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2212,11 +2558,26 @@ class Ocr extends OpenApiClient
     public function recognizeTicketInvoiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeTicketInvoice',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeTicketInvoiceResponse::fromMap($this->doRPCRequest('RecognizeTicketInvoice', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizeTicketInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2318,11 +2679,26 @@ class Ocr extends OpenApiClient
     public function recognizeTrainTicketWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeTrainTicket',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeTrainTicketResponse::fromMap($this->doRPCRequest('RecognizeTrainTicket', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizeTrainTicketResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2424,11 +2800,29 @@ class Ocr extends OpenApiClient
     public function recognizeVATInvoiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->fileType)) {
+            $body['FileType'] = $request->fileType;
+        }
+        if (!Utils::isUnset($request->fileURL)) {
+            $body['FileURL'] = $request->fileURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeVATInvoice',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeVATInvoiceResponse::fromMap($this->doRPCRequest('RecognizeVATInvoice', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizeVATInvoiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2530,11 +2924,24 @@ class Ocr extends OpenApiClient
     public function recognizeVINCodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['ImageURL'] = $request->imageURL;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeVINCode',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeVINCodeResponse::fromMap($this->doRPCRequest('RecognizeVINCode', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizeVINCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2636,11 +3043,26 @@ class Ocr extends OpenApiClient
     public function recognizeVerificationcodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageURL)) {
+            $body['ImageURL'] = $request->imageURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeVerificationcode',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeVerificationcodeResponse::fromMap($this->doRPCRequest('RecognizeVerificationcode', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizeVerificationcodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2742,11 +3164,26 @@ class Ocr extends OpenApiClient
     public function recognizeVideoCharacterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->videoURL)) {
+            $body['VideoURL'] = $request->videoURL;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeVideoCharacter',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RecognizeVideoCharacterResponse::fromMap($this->doRPCRequest('RecognizeVideoCharacter', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RecognizeVideoCharacterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2770,11 +3207,32 @@ class Ocr extends OpenApiClient
     public function trimDocumentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->fileType)) {
+            $body['FileType'] = $request->fileType;
+        }
+        if (!Utils::isUnset($request->fileURL)) {
+            $body['FileURL'] = $request->fileURL;
+        }
+        if (!Utils::isUnset($request->outputType)) {
+            $body['OutputType'] = $request->outputType;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TrimDocument',
+            'version'     => '2019-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return TrimDocumentResponse::fromMap($this->doRPCRequest('TrimDocument', '2019-12-30', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TrimDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

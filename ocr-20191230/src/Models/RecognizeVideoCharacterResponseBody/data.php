@@ -22,13 +22,21 @@ class data extends Model
     public $height;
 
     /**
+     * @description 对应的输入OSS文件 (格式oss://{bucketName}/{object})
+     *
+     * @var string
+     */
+    public $inputFile;
+
+    /**
      * @var int
      */
     public $width;
     protected $_name = [
-        'frames' => 'Frames',
-        'height' => 'Height',
-        'width'  => 'Width',
+        'frames'    => 'Frames',
+        'height'    => 'Height',
+        'inputFile' => 'InputFile',
+        'width'     => 'Width',
     ];
 
     public function validate()
@@ -49,6 +57,9 @@ class data extends Model
         }
         if (null !== $this->height) {
             $res['Height'] = $this->height;
+        }
+        if (null !== $this->inputFile) {
+            $res['InputFile'] = $this->inputFile;
         }
         if (null !== $this->width) {
             $res['Width'] = $this->width;
@@ -76,6 +87,9 @@ class data extends Model
         }
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
+        }
+        if (isset($map['InputFile'])) {
+            $model->inputFile = $map['InputFile'];
         }
         if (isset($map['Width'])) {
             $model->width = $map['Width'];
