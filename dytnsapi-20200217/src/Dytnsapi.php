@@ -73,7 +73,6 @@ class Dytnsapi extends OpenApiClient
         $query['ResourceOwnerId']      = $request->resourceOwnerId;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeEmptyNumberDetect',
@@ -83,7 +82,7 @@ class Dytnsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -122,7 +121,6 @@ class Dytnsapi extends OpenApiClient
         $query['ResourceOwnerId']      = $request->resourceOwnerId;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribePhoneNumberAnalysis',
@@ -132,7 +130,7 @@ class Dytnsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -167,7 +165,6 @@ class Dytnsapi extends OpenApiClient
         $query['ResourceOwnerId']      = $request->resourceOwnerId;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribePhoneNumberAttribute',
@@ -177,7 +174,7 @@ class Dytnsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -213,7 +210,6 @@ class Dytnsapi extends OpenApiClient
         $query['Since']                = $request->since;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribePhoneNumberResale',
@@ -223,7 +219,7 @@ class Dytnsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -258,7 +254,6 @@ class Dytnsapi extends OpenApiClient
         $query['ResourceOwnerId']      = $request->resourceOwnerId;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribePhoneNumberStatus',
@@ -268,7 +263,7 @@ class Dytnsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -303,7 +298,7 @@ class Dytnsapi extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'none',
         ]);
 
