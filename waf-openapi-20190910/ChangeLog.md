@@ -1,3 +1,6 @@
+2021-12-16 Version: 1.1.4
+- Upgrade SDK.
+
 2021-12-15 Version: 0.0.2
 - Generated php 2019-09-10 for waf-openapi.
 
