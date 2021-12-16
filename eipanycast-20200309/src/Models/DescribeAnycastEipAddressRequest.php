@@ -17,9 +17,15 @@ class DescribeAnycastEipAddressRequest extends Model
      * @var string
      */
     public $bindInstanceId;
+
+    /**
+     * @var string
+     */
+    public $ip;
     protected $_name = [
         'anycastId'      => 'AnycastId',
         'bindInstanceId' => 'BindInstanceId',
+        'ip'             => 'Ip',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class DescribeAnycastEipAddressRequest extends Model
         }
         if (null !== $this->bindInstanceId) {
             $res['BindInstanceId'] = $this->bindInstanceId;
+        }
+        if (null !== $this->ip) {
+            $res['Ip'] = $this->ip;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class DescribeAnycastEipAddressRequest extends Model
         }
         if (isset($map['BindInstanceId'])) {
             $model->bindInstanceId = $map['BindInstanceId'];
+        }
+        if (isset($map['Ip'])) {
+            $model->ip = $map['Ip'];
         }
 
         return $model;

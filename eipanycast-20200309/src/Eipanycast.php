@@ -86,7 +86,6 @@ class Eipanycast extends OpenApiClient
         $query['ServiceLocation']    = $request->serviceLocation;
         $req                         = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AllocateAnycastEipAddress',
@@ -96,7 +95,7 @@ class Eipanycast extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -136,7 +135,6 @@ class Eipanycast extends OpenApiClient
         $query['PrivateIpAddress']     = $request->privateIpAddress;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AssociateAnycastEipAddress',
@@ -146,7 +144,7 @@ class Eipanycast extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -177,9 +175,9 @@ class Eipanycast extends OpenApiClient
         $query                   = [];
         $query['AnycastId']      = $request->anycastId;
         $query['BindInstanceId'] = $request->bindInstanceId;
+        $query['Ip']             = $request->ip;
         $req                     = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeAnycastEipAddress',
@@ -189,7 +187,7 @@ class Eipanycast extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -221,7 +219,6 @@ class Eipanycast extends OpenApiClient
         $query['ServiceLocation'] = $request->serviceLocation;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeAnycastPopLocations',
@@ -231,7 +228,7 @@ class Eipanycast extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -263,7 +260,6 @@ class Eipanycast extends OpenApiClient
         $query['ServiceLocation'] = $request->serviceLocation;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeAnycastServerRegions',
@@ -273,7 +269,7 @@ class Eipanycast extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -315,7 +311,6 @@ class Eipanycast extends OpenApiClient
         $query['Status']             = $request->status;
         $req                         = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListAnycastEipAddresses',
@@ -325,7 +320,7 @@ class Eipanycast extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -359,7 +354,6 @@ class Eipanycast extends OpenApiClient
         $query['Name']        = $request->name;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyAnycastEipAddressAttribute',
@@ -369,7 +363,7 @@ class Eipanycast extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -402,7 +396,6 @@ class Eipanycast extends OpenApiClient
         $query['Bandwidth'] = $request->bandwidth;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyAnycastEipAddressSpec',
@@ -412,7 +405,7 @@ class Eipanycast extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -445,7 +438,6 @@ class Eipanycast extends OpenApiClient
         $query['ClientToken'] = $request->clientToken;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ReleaseAnycastEipAddress',
@@ -455,7 +447,7 @@ class Eipanycast extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -493,7 +485,6 @@ class Eipanycast extends OpenApiClient
         $query['PrivateIpAddress']     = $request->privateIpAddress;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UnassociateAnycastEipAddress',
@@ -503,7 +494,7 @@ class Eipanycast extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -541,7 +532,6 @@ class Eipanycast extends OpenApiClient
         $query['PopLocationDeleteList'] = $request->popLocationDeleteList;
         $req                            = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateAnycastEipAddressAssociations',
@@ -551,7 +541,7 @@ class Eipanycast extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
