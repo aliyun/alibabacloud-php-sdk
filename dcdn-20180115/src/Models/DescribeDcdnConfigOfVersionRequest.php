@@ -11,21 +11,6 @@ class DescribeDcdnConfigOfVersionRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $versionId;
-
-    /**
-     * @var int
-     */
     public $functionId;
 
     /**
@@ -37,13 +22,28 @@ class DescribeDcdnConfigOfVersionRequest extends Model
      * @var int
      */
     public $groupId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
+    public $versionId;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
-        'securityToken' => 'SecurityToken',
-        'versionId'     => 'VersionId',
         'functionId'    => 'FunctionId',
         'functionName'  => 'FunctionName',
         'groupId'       => 'GroupId',
+        'ownerId'       => 'OwnerId',
+        'securityToken' => 'SecurityToken',
+        'versionId'     => 'VersionId',
     ];
 
     public function validate()
@@ -53,15 +53,6 @@ class DescribeDcdnConfigOfVersionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->versionId) {
-            $res['VersionId'] = $this->versionId;
-        }
         if (null !== $this->functionId) {
             $res['FunctionId'] = $this->functionId;
         }
@@ -70,6 +61,15 @@ class DescribeDcdnConfigOfVersionRequest extends Model
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->versionId) {
+            $res['VersionId'] = $this->versionId;
         }
 
         return $res;
@@ -83,15 +83,6 @@ class DescribeDcdnConfigOfVersionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['VersionId'])) {
-            $model->versionId = $map['VersionId'];
-        }
         if (isset($map['FunctionId'])) {
             $model->functionId = $map['FunctionId'];
         }
@@ -100,6 +91,15 @@ class DescribeDcdnConfigOfVersionRequest extends Model
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['VersionId'])) {
+            $model->versionId = $map['VersionId'];
         }
 
         return $model;

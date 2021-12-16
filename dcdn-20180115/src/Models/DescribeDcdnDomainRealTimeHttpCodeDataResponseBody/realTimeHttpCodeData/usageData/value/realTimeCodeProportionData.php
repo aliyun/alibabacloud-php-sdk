@@ -16,16 +16,16 @@ class realTimeCodeProportionData extends Model
     /**
      * @var string
      */
-    public $proportion;
+    public $count;
 
     /**
      * @var string
      */
-    public $count;
+    public $proportion;
     protected $_name = [
         'code'       => 'Code',
-        'proportion' => 'Proportion',
         'count'      => 'Count',
+        'proportion' => 'Proportion',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class realTimeCodeProportionData extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->proportion) {
-            $res['Proportion'] = $this->proportion;
-        }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+        if (null !== $this->proportion) {
+            $res['Proportion'] = $this->proportion;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class realTimeCodeProportionData extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Proportion'])) {
-            $model->proportion = $map['Proportion'];
-        }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+        if (isset($map['Proportion'])) {
+            $model->proportion = $map['Proportion'];
         }
 
         return $model;

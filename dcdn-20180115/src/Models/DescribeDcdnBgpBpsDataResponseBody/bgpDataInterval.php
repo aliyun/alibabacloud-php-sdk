@@ -11,20 +11,20 @@ class bgpDataInterval extends Model
     /**
      * @var float
      */
-    public $out;
+    public $in;
 
     /**
      * @var float
      */
-    public $in;
+    public $out;
 
     /**
      * @var string
      */
     public $timeStamp;
     protected $_name = [
-        'out'       => 'Out',
         'in'        => 'In',
+        'out'       => 'Out',
         'timeStamp' => 'TimeStamp',
     ];
 
@@ -35,11 +35,11 @@ class bgpDataInterval extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->out) {
-            $res['Out'] = $this->out;
-        }
         if (null !== $this->in) {
             $res['In'] = $this->in;
+        }
+        if (null !== $this->out) {
+            $res['Out'] = $this->out;
         }
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
@@ -56,11 +56,11 @@ class bgpDataInterval extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Out'])) {
-            $model->out = $map['Out'];
-        }
         if (isset($map['In'])) {
             $model->in = $map['In'];
+        }
+        if (isset($map['Out'])) {
+            $model->out = $map['Out'];
         }
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];

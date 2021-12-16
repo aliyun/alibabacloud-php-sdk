@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafDomainResponseBody extends Model
 {
     /**
-     * @var int
+     * @var outPutDomains[]
      */
-    public $totalCount;
+    public $outPutDomains;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class DescribeDcdnWafDomainResponseBody extends Model
     public $requestId;
 
     /**
-     * @var outPutDomains[]
+     * @var int
      */
-    public $outPutDomains;
+    public $totalCount;
     protected $_name = [
-        'totalCount'    => 'TotalCount',
-        'requestId'     => 'RequestId',
         'outPutDomains' => 'OutPutDomains',
+        'requestId'     => 'RequestId',
+        'totalCount'    => 'TotalCount',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class DescribeDcdnWafDomainResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->outPutDomains) {
             $res['OutPutDomains'] = [];
             if (null !== $this->outPutDomains && \is_array($this->outPutDomains)) {
@@ -50,6 +44,12 @@ class DescribeDcdnWafDomainResponseBody extends Model
                     $res['OutPutDomains'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class DescribeDcdnWafDomainResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['OutPutDomains'])) {
             if (!empty($map['OutPutDomains'])) {
                 $model->outPutDomains = [];
@@ -77,6 +71,12 @@ class DescribeDcdnWafDomainResponseBody extends Model
                     $model->outPutDomains[$n++] = null !== $item ? outPutDomains::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

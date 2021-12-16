@@ -11,7 +11,7 @@ class certInfo extends Model
     /**
      * @var string
      */
-    public $certStartTime;
+    public $certCaIsLegacy;
 
     /**
      * @var string
@@ -21,7 +21,12 @@ class certInfo extends Model
     /**
      * @var string
      */
-    public $certCaIsLegacy;
+    public $certExpired;
+
+    /**
+     * @var string
+     */
+    public $certStartTime;
 
     /**
      * @var string
@@ -36,32 +41,27 @@ class certInfo extends Model
     /**
      * @var string
      */
+    public $domainList;
+
+    /**
+     * @var string
+     */
     public $domainNames;
 
     /**
      * @var string
      */
-    public $certExpired;
-
-    /**
-     * @var string
-     */
     public $issuer;
-
-    /**
-     * @var string
-     */
-    public $domainList;
     protected $_name = [
-        'certStartTime'         => 'CertStartTime',
-        'certExpireTime'        => 'CertExpireTime',
         'certCaIsLegacy'        => 'CertCaIsLegacy',
+        'certExpireTime'        => 'CertExpireTime',
+        'certExpired'           => 'CertExpired',
+        'certStartTime'         => 'CertStartTime',
         'certSubjectCommonName' => 'CertSubjectCommonName',
         'certType'              => 'CertType',
-        'domainNames'           => 'DomainNames',
-        'certExpired'           => 'CertExpired',
-        'issuer'                => 'Issuer',
         'domainList'            => 'DomainList',
+        'domainNames'           => 'DomainNames',
+        'issuer'                => 'Issuer',
     ];
 
     public function validate()
@@ -71,14 +71,17 @@ class certInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->certStartTime) {
-            $res['CertStartTime'] = $this->certStartTime;
+        if (null !== $this->certCaIsLegacy) {
+            $res['CertCaIsLegacy'] = $this->certCaIsLegacy;
         }
         if (null !== $this->certExpireTime) {
             $res['CertExpireTime'] = $this->certExpireTime;
         }
-        if (null !== $this->certCaIsLegacy) {
-            $res['CertCaIsLegacy'] = $this->certCaIsLegacy;
+        if (null !== $this->certExpired) {
+            $res['CertExpired'] = $this->certExpired;
+        }
+        if (null !== $this->certStartTime) {
+            $res['CertStartTime'] = $this->certStartTime;
         }
         if (null !== $this->certSubjectCommonName) {
             $res['CertSubjectCommonName'] = $this->certSubjectCommonName;
@@ -86,17 +89,14 @@ class certInfo extends Model
         if (null !== $this->certType) {
             $res['CertType'] = $this->certType;
         }
+        if (null !== $this->domainList) {
+            $res['DomainList'] = $this->domainList;
+        }
         if (null !== $this->domainNames) {
             $res['DomainNames'] = $this->domainNames;
         }
-        if (null !== $this->certExpired) {
-            $res['CertExpired'] = $this->certExpired;
-        }
         if (null !== $this->issuer) {
             $res['Issuer'] = $this->issuer;
-        }
-        if (null !== $this->domainList) {
-            $res['DomainList'] = $this->domainList;
         }
 
         return $res;
@@ -110,14 +110,17 @@ class certInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CertStartTime'])) {
-            $model->certStartTime = $map['CertStartTime'];
+        if (isset($map['CertCaIsLegacy'])) {
+            $model->certCaIsLegacy = $map['CertCaIsLegacy'];
         }
         if (isset($map['CertExpireTime'])) {
             $model->certExpireTime = $map['CertExpireTime'];
         }
-        if (isset($map['CertCaIsLegacy'])) {
-            $model->certCaIsLegacy = $map['CertCaIsLegacy'];
+        if (isset($map['CertExpired'])) {
+            $model->certExpired = $map['CertExpired'];
+        }
+        if (isset($map['CertStartTime'])) {
+            $model->certStartTime = $map['CertStartTime'];
         }
         if (isset($map['CertSubjectCommonName'])) {
             $model->certSubjectCommonName = $map['CertSubjectCommonName'];
@@ -125,17 +128,14 @@ class certInfo extends Model
         if (isset($map['CertType'])) {
             $model->certType = $map['CertType'];
         }
+        if (isset($map['DomainList'])) {
+            $model->domainList = $map['DomainList'];
+        }
         if (isset($map['DomainNames'])) {
             $model->domainNames = $map['DomainNames'];
         }
-        if (isset($map['CertExpired'])) {
-            $model->certExpired = $map['CertExpired'];
-        }
         if (isset($map['Issuer'])) {
             $model->issuer = $map['Issuer'];
-        }
-        if (isset($map['DomainList'])) {
-            $model->domainList = $map['DomainList'];
         }
 
         return $model;

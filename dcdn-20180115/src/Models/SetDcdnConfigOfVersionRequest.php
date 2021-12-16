@@ -9,29 +9,14 @@ use AlibabaCloud\Tea\Model;
 class SetDcdnConfigOfVersionRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $versionId;
-
-    /**
      * @var string
      */
     public $configId;
+
+    /**
+     * @var string
+     */
+    public $functionArgs;
 
     /**
      * @var int
@@ -46,16 +31,31 @@ class SetDcdnConfigOfVersionRequest extends Model
     /**
      * @var string
      */
-    public $functionArgs;
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
+    public $versionId;
     protected $_name = [
-        'ownerId'       => 'OwnerId',
-        'ownerAccount'  => 'OwnerAccount',
-        'securityToken' => 'SecurityToken',
-        'versionId'     => 'VersionId',
         'configId'      => 'ConfigId',
+        'functionArgs'  => 'FunctionArgs',
         'functionId'    => 'FunctionId',
         'functionName'  => 'FunctionName',
-        'functionArgs'  => 'FunctionArgs',
+        'ownerAccount'  => 'OwnerAccount',
+        'ownerId'       => 'OwnerId',
+        'securityToken' => 'SecurityToken',
+        'versionId'     => 'VersionId',
     ];
 
     public function validate()
@@ -65,20 +65,11 @@ class SetDcdnConfigOfVersionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->versionId) {
-            $res['VersionId'] = $this->versionId;
-        }
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
+        }
+        if (null !== $this->functionArgs) {
+            $res['FunctionArgs'] = $this->functionArgs;
         }
         if (null !== $this->functionId) {
             $res['FunctionId'] = $this->functionId;
@@ -86,8 +77,17 @@ class SetDcdnConfigOfVersionRequest extends Model
         if (null !== $this->functionName) {
             $res['FunctionName'] = $this->functionName;
         }
-        if (null !== $this->functionArgs) {
-            $res['FunctionArgs'] = $this->functionArgs;
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->versionId) {
+            $res['VersionId'] = $this->versionId;
         }
 
         return $res;
@@ -101,20 +101,11 @@ class SetDcdnConfigOfVersionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['VersionId'])) {
-            $model->versionId = $map['VersionId'];
-        }
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
+        }
+        if (isset($map['FunctionArgs'])) {
+            $model->functionArgs = $map['FunctionArgs'];
         }
         if (isset($map['FunctionId'])) {
             $model->functionId = $map['FunctionId'];
@@ -122,8 +113,17 @@ class SetDcdnConfigOfVersionRequest extends Model
         if (isset($map['FunctionName'])) {
             $model->functionName = $map['FunctionName'];
         }
-        if (isset($map['FunctionArgs'])) {
-            $model->functionArgs = $map['FunctionArgs'];
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['VersionId'])) {
+            $model->versionId = $map['VersionId'];
         }
 
         return $model;

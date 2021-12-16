@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnBgpBpsDataResponseBody extends Model
 {
     /**
+     * @var bgpDataInterval[]
+     */
+    public $bgpDataInterval;
+
+    /**
      * @var string
      */
     public $endTime;
@@ -17,22 +22,17 @@ class DescribeDcdnBgpBpsDataResponseBody extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $requestId;
 
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var bgpDataInterval[]
-     */
-    public $bgpDataInterval;
+    public $startTime;
     protected $_name = [
-        'endTime'         => 'EndTime',
-        'startTime'       => 'StartTime',
-        'requestId'       => 'RequestId',
         'bgpDataInterval' => 'BgpDataInterval',
+        'endTime'         => 'EndTime',
+        'requestId'       => 'RequestId',
+        'startTime'       => 'StartTime',
     ];
 
     public function validate()
@@ -42,15 +42,6 @@ class DescribeDcdnBgpBpsDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->bgpDataInterval) {
             $res['BgpDataInterval'] = [];
             if (null !== $this->bgpDataInterval && \is_array($this->bgpDataInterval)) {
@@ -59,6 +50,15 @@ class DescribeDcdnBgpBpsDataResponseBody extends Model
                     $res['BgpDataInterval'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -72,15 +72,6 @@ class DescribeDcdnBgpBpsDataResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['BgpDataInterval'])) {
             if (!empty($map['BgpDataInterval'])) {
                 $model->bgpDataInterval = [];
@@ -89,6 +80,15 @@ class DescribeDcdnBgpBpsDataResponseBody extends Model
                     $model->bgpDataInterval[$n++] = null !== $item ? bgpDataInterval::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

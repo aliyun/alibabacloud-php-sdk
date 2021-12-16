@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $status;
+    public $cname;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class data extends Model
     public $domain;
 
     /**
-     * @var string
+     * @var int
      */
-    public $cname;
+    public $status;
     protected $_name = [
-        'status' => 'Status',
-        'domain' => 'Domain',
         'cname'  => 'Cname',
+        'domain' => 'Domain',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->cname) {
+            $res['Cname'] = $this->cname;
         }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
-        if (null !== $this->cname) {
-            $res['Cname'] = $this->cname;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['Cname'])) {
+            $model->cname = $map['Cname'];
         }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
-        if (isset($map['Cname'])) {
-            $model->cname = $map['Cname'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

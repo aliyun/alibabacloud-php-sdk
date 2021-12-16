@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserBillTypeResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var billTypeData
      */
     public $billTypeData;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'billTypeData' => 'BillTypeData',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeDcdnUserBillTypeResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->billTypeData) {
             $res['BillTypeData'] = null !== $this->billTypeData ? $this->billTypeData->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeDcdnUserBillTypeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['BillTypeData'])) {
             $model->billTypeData = billTypeData::fromMap($map['BillTypeData']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

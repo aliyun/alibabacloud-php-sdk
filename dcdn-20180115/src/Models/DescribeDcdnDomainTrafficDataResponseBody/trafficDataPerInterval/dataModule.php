@@ -11,7 +11,7 @@ class dataModule extends Model
     /**
      * @var float
      */
-    public $staticHttpTraffic;
+    public $dynamicHttpTraffic;
 
     /**
      * @var float
@@ -21,12 +21,12 @@ class dataModule extends Model
     /**
      * @var float
      */
-    public $traffic;
+    public $staticHttpTraffic;
 
     /**
      * @var float
      */
-    public $dynamicHttpTraffic;
+    public $staticHttpsTraffic;
 
     /**
      * @var string
@@ -36,14 +36,14 @@ class dataModule extends Model
     /**
      * @var float
      */
-    public $staticHttpsTraffic;
+    public $traffic;
     protected $_name = [
-        'staticHttpTraffic'   => 'StaticHttpTraffic',
-        'dynamicHttpsTraffic' => 'DynamicHttpsTraffic',
-        'traffic'             => 'Traffic',
         'dynamicHttpTraffic'  => 'DynamicHttpTraffic',
-        'timeStamp'           => 'TimeStamp',
+        'dynamicHttpsTraffic' => 'DynamicHttpsTraffic',
+        'staticHttpTraffic'   => 'StaticHttpTraffic',
         'staticHttpsTraffic'  => 'StaticHttpsTraffic',
+        'timeStamp'           => 'TimeStamp',
+        'traffic'             => 'Traffic',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class dataModule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->staticHttpTraffic) {
-            $res['StaticHttpTraffic'] = $this->staticHttpTraffic;
+        if (null !== $this->dynamicHttpTraffic) {
+            $res['DynamicHttpTraffic'] = $this->dynamicHttpTraffic;
         }
         if (null !== $this->dynamicHttpsTraffic) {
             $res['DynamicHttpsTraffic'] = $this->dynamicHttpsTraffic;
         }
-        if (null !== $this->traffic) {
-            $res['Traffic'] = $this->traffic;
+        if (null !== $this->staticHttpTraffic) {
+            $res['StaticHttpTraffic'] = $this->staticHttpTraffic;
         }
-        if (null !== $this->dynamicHttpTraffic) {
-            $res['DynamicHttpTraffic'] = $this->dynamicHttpTraffic;
+        if (null !== $this->staticHttpsTraffic) {
+            $res['StaticHttpsTraffic'] = $this->staticHttpsTraffic;
         }
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
-        if (null !== $this->staticHttpsTraffic) {
-            $res['StaticHttpsTraffic'] = $this->staticHttpsTraffic;
+        if (null !== $this->traffic) {
+            $res['Traffic'] = $this->traffic;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class dataModule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StaticHttpTraffic'])) {
-            $model->staticHttpTraffic = $map['StaticHttpTraffic'];
+        if (isset($map['DynamicHttpTraffic'])) {
+            $model->dynamicHttpTraffic = $map['DynamicHttpTraffic'];
         }
         if (isset($map['DynamicHttpsTraffic'])) {
             $model->dynamicHttpsTraffic = $map['DynamicHttpsTraffic'];
         }
-        if (isset($map['Traffic'])) {
-            $model->traffic = $map['Traffic'];
+        if (isset($map['StaticHttpTraffic'])) {
+            $model->staticHttpTraffic = $map['StaticHttpTraffic'];
         }
-        if (isset($map['DynamicHttpTraffic'])) {
-            $model->dynamicHttpTraffic = $map['DynamicHttpTraffic'];
+        if (isset($map['StaticHttpsTraffic'])) {
+            $model->staticHttpsTraffic = $map['StaticHttpsTraffic'];
         }
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }
-        if (isset($map['StaticHttpsTraffic'])) {
-            $model->staticHttpsTraffic = $map['StaticHttpsTraffic'];
+        if (isset($map['Traffic'])) {
+            $model->traffic = $map['Traffic'];
         }
 
         return $model;

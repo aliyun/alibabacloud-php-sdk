@@ -9,14 +9,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserDomainsByFuncRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $domainName;
+
+    /**
+     * @var string
+     */
+    public $funcFilter;
 
     /**
      * @var int
      */
     public $funcId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @var int
@@ -33,8 +43,10 @@ class DescribeDcdnUserDomainsByFuncRequest extends Model
      */
     public $resourceGroupId;
     protected $_name = [
-        'ownerId'         => 'OwnerId',
+        'domainName'      => 'DomainName',
+        'funcFilter'      => 'FuncFilter',
         'funcId'          => 'FuncId',
+        'ownerId'         => 'OwnerId',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
@@ -47,11 +59,17 @@ class DescribeDcdnUserDomainsByFuncRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->funcFilter) {
+            $res['FuncFilter'] = $this->funcFilter;
         }
         if (null !== $this->funcId) {
             $res['FuncId'] = $this->funcId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -74,11 +92,17 @@ class DescribeDcdnUserDomainsByFuncRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['FuncFilter'])) {
+            $model->funcFilter = $map['FuncFilter'];
         }
         if (isset($map['FuncId'])) {
             $model->funcId = $map['FuncId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

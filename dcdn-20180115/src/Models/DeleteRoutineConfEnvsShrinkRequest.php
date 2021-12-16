@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteRoutineConfEnvsShrinkRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $envsShrink;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class DeleteRoutineConfEnvsShrinkRequest extends Model
     public $name;
 
     /**
-     * @var string
+     * @var int
      */
-    public $envsShrink;
+    public $ownerId;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
-        'name'       => 'Name',
         'envsShrink' => 'Envs',
+        'name'       => 'Name',
+        'ownerId'    => 'OwnerId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteRoutineConfEnvsShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->envsShrink) {
+            $res['Envs'] = $this->envsShrink;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->envsShrink) {
-            $res['Envs'] = $this->envsShrink;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DeleteRoutineConfEnvsShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['Envs'])) {
+            $model->envsShrink = $map['Envs'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Envs'])) {
-            $model->envsShrink = $map['Envs'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class PublishDcdnStagingConfigToProductionRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $domainName;
@@ -22,10 +17,15 @@ class PublishDcdnStagingConfigToProductionRequest extends Model
      * @var string
      */
     public $functionName;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
     protected $_name = [
-        'ownerId'      => 'OwnerId',
         'domainName'   => 'DomainName',
         'functionName' => 'FunctionName',
+        'ownerId'      => 'OwnerId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class PublishDcdnStagingConfigToProductionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->functionName) {
             $res['FunctionName'] = $this->functionName;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class PublishDcdnStagingConfigToProductionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
         if (isset($map['FunctionName'])) {
             $model->functionName = $map['FunctionName'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

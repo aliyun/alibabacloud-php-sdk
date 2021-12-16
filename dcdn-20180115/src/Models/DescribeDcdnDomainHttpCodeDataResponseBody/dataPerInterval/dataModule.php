@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
-     * @var string
-     */
-    public $timeStamp;
-
-    /**
      * @var httpCodeDataPerInterval
      */
     public $httpCodeDataPerInterval;
+
+    /**
+     * @var string
+     */
+    public $timeStamp;
     protected $_name = [
-        'timeStamp'               => 'TimeStamp',
         'httpCodeDataPerInterval' => 'HttpCodeDataPerInterval',
+        'timeStamp'               => 'TimeStamp',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class dataModule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->timeStamp) {
-            $res['TimeStamp'] = $this->timeStamp;
-        }
         if (null !== $this->httpCodeDataPerInterval) {
             $res['HttpCodeDataPerInterval'] = null !== $this->httpCodeDataPerInterval ? $this->httpCodeDataPerInterval->toMap() : null;
+        }
+        if (null !== $this->timeStamp) {
+            $res['TimeStamp'] = $this->timeStamp;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class dataModule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TimeStamp'])) {
-            $model->timeStamp = $map['TimeStamp'];
-        }
         if (isset($map['HttpCodeDataPerInterval'])) {
             $model->httpCodeDataPerInterval = httpCodeDataPerInterval::fromMap($map['HttpCodeDataPerInterval']);
+        }
+        if (isset($map['TimeStamp'])) {
+            $model->timeStamp = $map['TimeStamp'];
         }
 
         return $model;

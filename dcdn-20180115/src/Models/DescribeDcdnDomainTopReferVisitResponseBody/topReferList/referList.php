@@ -21,12 +21,12 @@ class referList extends Model
     /**
      * @var string
      */
-    public $visitData;
+    public $referDetail;
 
     /**
      * @var string
      */
-    public $referDetail;
+    public $visitData;
 
     /**
      * @var float
@@ -35,8 +35,8 @@ class referList extends Model
     protected $_name = [
         'flow'            => 'Flow',
         'flowProportion'  => 'FlowProportion',
-        'visitData'       => 'VisitData',
         'referDetail'     => 'ReferDetail',
+        'visitData'       => 'VisitData',
         'visitProportion' => 'VisitProportion',
     ];
 
@@ -53,11 +53,11 @@ class referList extends Model
         if (null !== $this->flowProportion) {
             $res['FlowProportion'] = $this->flowProportion;
         }
-        if (null !== $this->visitData) {
-            $res['VisitData'] = $this->visitData;
-        }
         if (null !== $this->referDetail) {
             $res['ReferDetail'] = $this->referDetail;
+        }
+        if (null !== $this->visitData) {
+            $res['VisitData'] = $this->visitData;
         }
         if (null !== $this->visitProportion) {
             $res['VisitProportion'] = $this->visitProportion;
@@ -80,11 +80,11 @@ class referList extends Model
         if (isset($map['FlowProportion'])) {
             $model->flowProportion = $map['FlowProportion'];
         }
-        if (isset($map['VisitData'])) {
-            $model->visitData = $map['VisitData'];
-        }
         if (isset($map['ReferDetail'])) {
             $model->referDetail = $map['ReferDetail'];
+        }
+        if (isset($map['VisitData'])) {
+            $model->visitData = $map['VisitData'];
         }
         if (isset($map['VisitProportion'])) {
             $model->visitProportion = $map['VisitProportion'];

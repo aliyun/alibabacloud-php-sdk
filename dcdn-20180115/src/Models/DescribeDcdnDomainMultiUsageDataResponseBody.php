@@ -18,11 +18,6 @@ class DescribeDcdnDomainMultiUsageDataResponseBody extends Model
     /**
      * @var string
      */
-    public $startTime;
-
-    /**
-     * @var string
-     */
     public $requestId;
 
     /**
@@ -31,14 +26,19 @@ class DescribeDcdnDomainMultiUsageDataResponseBody extends Model
     public $requestPerInterval;
 
     /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
      * @var trafficPerInterval
      */
     public $trafficPerInterval;
     protected $_name = [
         'endTime'            => 'EndTime',
-        'startTime'          => 'StartTime',
         'requestId'          => 'RequestId',
         'requestPerInterval' => 'RequestPerInterval',
+        'startTime'          => 'StartTime',
         'trafficPerInterval' => 'TrafficPerInterval',
     ];
 
@@ -52,14 +52,14 @@ class DescribeDcdnDomainMultiUsageDataResponseBody extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->requestPerInterval) {
             $res['RequestPerInterval'] = null !== $this->requestPerInterval ? $this->requestPerInterval->toMap() : null;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->trafficPerInterval) {
             $res['TrafficPerInterval'] = null !== $this->trafficPerInterval ? $this->trafficPerInterval->toMap() : null;
@@ -79,14 +79,14 @@ class DescribeDcdnDomainMultiUsageDataResponseBody extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['RequestPerInterval'])) {
             $model->requestPerInterval = requestPerInterval::fromMap($map['RequestPerInterval']);
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['TrafficPerInterval'])) {
             $model->trafficPerInterval = trafficPerInterval::fromMap($map['TrafficPerInterval']);

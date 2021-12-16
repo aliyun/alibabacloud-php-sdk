@@ -11,7 +11,17 @@ class DescribeUserLogserviceStatusResponseBody extends Model
     /**
      * @var bool
      */
+    public $enabled;
+
+    /**
+     * @var bool
+     */
     public $inDebt;
+
+    /**
+     * @var bool
+     */
+    public $inDebtOverdue;
 
     /**
      * @var bool
@@ -22,22 +32,12 @@ class DescribeUserLogserviceStatusResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $inDebtOverdue;
-
-    /**
-     * @var bool
-     */
-    public $enabled;
     protected $_name = [
+        'enabled'       => 'Enabled',
         'inDebt'        => 'InDebt',
+        'inDebtOverdue' => 'InDebtOverdue',
         'onService'     => 'OnService',
         'requestId'     => 'RequestId',
-        'inDebtOverdue' => 'InDebtOverdue',
-        'enabled'       => 'Enabled',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeUserLogserviceStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->enabled) {
+            $res['Enabled'] = $this->enabled;
+        }
         if (null !== $this->inDebt) {
             $res['InDebt'] = $this->inDebt;
+        }
+        if (null !== $this->inDebtOverdue) {
+            $res['InDebtOverdue'] = $this->inDebtOverdue;
         }
         if (null !== $this->onService) {
             $res['OnService'] = $this->onService;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->inDebtOverdue) {
-            $res['InDebtOverdue'] = $this->inDebtOverdue;
-        }
-        if (null !== $this->enabled) {
-            $res['Enabled'] = $this->enabled;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeUserLogserviceStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Enabled'])) {
+            $model->enabled = $map['Enabled'];
+        }
         if (isset($map['InDebt'])) {
             $model->inDebt = $map['InDebt'];
+        }
+        if (isset($map['InDebtOverdue'])) {
+            $model->inDebtOverdue = $map['InDebtOverdue'];
         }
         if (isset($map['OnService'])) {
             $model->onService = $map['OnService'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['InDebtOverdue'])) {
-            $model->inDebtOverdue = $map['InDebtOverdue'];
-        }
-        if (isset($map['Enabled'])) {
-            $model->enabled = $map['Enabled'];
         }
 
         return $model;

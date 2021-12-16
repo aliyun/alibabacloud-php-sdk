@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainCnameResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var cnameDatas
      */
     public $cnameDatas;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'cnameDatas' => 'CnameDatas',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeDcdnDomainCnameResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->cnameDatas) {
             $res['CnameDatas'] = null !== $this->cnameDatas ? $this->cnameDatas->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeDcdnDomainCnameResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['CnameDatas'])) {
             $model->cnameDatas = cnameDatas::fromMap($map['CnameDatas']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

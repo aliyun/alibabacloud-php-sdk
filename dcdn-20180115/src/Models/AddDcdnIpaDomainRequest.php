@@ -9,19 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AddDcdnIpaDomainRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
-    public $ownerAccount;
-
-    /**
-     * @var string
-     */
-    public $securityToken;
+    public $checkUrl;
 
     /**
      * @var string
@@ -31,17 +21,22 @@ class AddDcdnIpaDomainRequest extends Model
     /**
      * @var string
      */
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $protocol;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
-
-    /**
-     * @var string
-     */
-    public $sources;
-
-    /**
-     * @var string
-     */
-    public $checkUrl;
 
     /**
      * @var string
@@ -51,23 +46,28 @@ class AddDcdnIpaDomainRequest extends Model
     /**
      * @var string
      */
-    public $topLevelDomain;
+    public $securityToken;
 
     /**
      * @var string
      */
-    public $protocol;
+    public $sources;
+
+    /**
+     * @var string
+     */
+    public $topLevelDomain;
     protected $_name = [
-        'ownerId'         => 'OwnerId',
-        'ownerAccount'    => 'OwnerAccount',
-        'securityToken'   => 'SecurityToken',
-        'domainName'      => 'DomainName',
-        'resourceGroupId' => 'ResourceGroupId',
-        'sources'         => 'Sources',
         'checkUrl'        => 'CheckUrl',
-        'scope'           => 'Scope',
-        'topLevelDomain'  => 'TopLevelDomain',
+        'domainName'      => 'DomainName',
+        'ownerAccount'    => 'OwnerAccount',
+        'ownerId'         => 'OwnerId',
         'protocol'        => 'Protocol',
+        'resourceGroupId' => 'ResourceGroupId',
+        'scope'           => 'Scope',
+        'securityToken'   => 'SecurityToken',
+        'sources'         => 'Sources',
+        'topLevelDomain'  => 'TopLevelDomain',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class AddDcdnIpaDomainRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->securityToken) {
-            $res['SecurityToken'] = $this->securityToken;
+        if (null !== $this->checkUrl) {
+            $res['CheckUrl'] = $this->checkUrl;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->protocol) {
+            $res['Protocol'] = $this->protocol;
+        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->sources) {
-            $res['Sources'] = $this->sources;
-        }
-        if (null !== $this->checkUrl) {
-            $res['CheckUrl'] = $this->checkUrl;
         }
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
         }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->sources) {
+            $res['Sources'] = $this->sources;
+        }
         if (null !== $this->topLevelDomain) {
             $res['TopLevelDomain'] = $this->topLevelDomain;
-        }
-        if (null !== $this->protocol) {
-            $res['Protocol'] = $this->protocol;
         }
 
         return $res;
@@ -119,35 +119,35 @@ class AddDcdnIpaDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['SecurityToken'])) {
-            $model->securityToken = $map['SecurityToken'];
+        if (isset($map['CheckUrl'])) {
+            $model->checkUrl = $map['CheckUrl'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['Protocol'])) {
+            $model->protocol = $map['Protocol'];
+        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['Sources'])) {
-            $model->sources = $map['Sources'];
-        }
-        if (isset($map['CheckUrl'])) {
-            $model->checkUrl = $map['CheckUrl'];
         }
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
         }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['Sources'])) {
+            $model->sources = $map['Sources'];
+        }
         if (isset($map['TopLevelDomain'])) {
             $model->topLevelDomain = $map['TopLevelDomain'];
-        }
-        if (isset($map['Protocol'])) {
-            $model->protocol = $map['Protocol'];
         }
 
         return $model;

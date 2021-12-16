@@ -11,22 +11,12 @@ class source extends Model
     /**
      * @var string
      */
-    public $type;
-
-    /**
-     * @var string
-     */
-    public $weight;
+    public $content;
 
     /**
      * @var string
      */
     public $enabled;
-
-    /**
-     * @var string
-     */
-    public $priority;
 
     /**
      * @var int
@@ -36,14 +26,24 @@ class source extends Model
     /**
      * @var string
      */
-    public $content;
+    public $priority;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $weight;
     protected $_name = [
+        'content'  => 'Content',
+        'enabled'  => 'Enabled',
+        'port'     => 'Port',
+        'priority' => 'Priority',
         'type'     => 'Type',
         'weight'   => 'Weight',
-        'enabled'  => 'Enabled',
-        'priority' => 'Priority',
-        'port'     => 'Port',
-        'content'  => 'Content',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class source extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
+        }
+        if (null !== $this->enabled) {
+            $res['Enabled'] = $this->enabled;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
+        }
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
-        }
-        if (null !== $this->enabled) {
-            $res['Enabled'] = $this->enabled;
-        }
-        if (null !== $this->priority) {
-            $res['Priority'] = $this->priority;
-        }
-        if (null !== $this->port) {
-            $res['Port'] = $this->port;
-        }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class source extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
+        }
+        if (isset($map['Enabled'])) {
+            $model->enabled = $map['Enabled'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
+        }
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
+        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
-        }
-        if (isset($map['Enabled'])) {
-            $model->enabled = $map['Enabled'];
-        }
-        if (isset($map['Priority'])) {
-            $model->priority = $map['Priority'];
-        }
-        if (isset($map['Port'])) {
-            $model->port = $map['Port'];
-        }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
         }
 
         return $model;

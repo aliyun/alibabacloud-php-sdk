@@ -9,21 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnBgpBpsDataRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $isp;
-
-    /**
-     * @var string
-     */
-    public $startTime;
-
-    /**
      * @var string
      */
     public $endTime;
@@ -32,12 +17,27 @@ class DescribeDcdnBgpBpsDataRequest extends Model
      * @var string
      */
     public $interval;
+
+    /**
+     * @var string
+     */
+    public $isp;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
-        'ownerId'   => 'OwnerId',
-        'isp'       => 'Isp',
-        'startTime' => 'StartTime',
         'endTime'   => 'EndTime',
         'interval'  => 'Interval',
+        'isp'       => 'Isp',
+        'ownerId'   => 'OwnerId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class DescribeDcdnBgpBpsDataRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->isp) {
-            $res['Isp'] = $this->isp;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
+        }
+        if (null !== $this->isp) {
+            $res['Isp'] = $this->isp;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class DescribeDcdnBgpBpsDataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['Isp'])) {
-            $model->isp = $map['Isp'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
+        }
+        if (isset($map['Isp'])) {
+            $model->isp = $map['Isp'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

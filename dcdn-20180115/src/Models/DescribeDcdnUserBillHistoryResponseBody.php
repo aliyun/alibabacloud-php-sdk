@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserBillHistoryResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var billHistoryData
      */
     public $billHistoryData;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'       => 'RequestId',
         'billHistoryData' => 'BillHistoryData',
+        'requestId'       => 'RequestId',
     ];
 
     public function validate()
@@ -30,11 +30,11 @@ class DescribeDcdnUserBillHistoryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->billHistoryData) {
             $res['BillHistoryData'] = null !== $this->billHistoryData ? $this->billHistoryData->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -48,11 +48,11 @@ class DescribeDcdnUserBillHistoryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['BillHistoryData'])) {
             $model->billHistoryData = billHistoryData::fromMap($map['BillHistoryData']);
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

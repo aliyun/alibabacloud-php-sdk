@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserSecDropResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $drops;
+
+    /**
      * @var string
      */
     public $msg;
@@ -19,18 +24,13 @@ class DescribeDcdnUserSecDropResponseBody extends Model
     public $requestId;
 
     /**
-     * @var int
-     */
-    public $drops;
-
-    /**
      * @var string
      */
     public $uuidStr;
     protected $_name = [
+        'drops'     => 'Drops',
         'msg'       => 'Msg',
         'requestId' => 'RequestId',
-        'drops'     => 'Drops',
         'uuidStr'   => 'UuidStr',
     ];
 
@@ -41,14 +41,14 @@ class DescribeDcdnUserSecDropResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->drops) {
+            $res['Drops'] = $this->drops;
+        }
         if (null !== $this->msg) {
             $res['Msg'] = $this->msg;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->drops) {
-            $res['Drops'] = $this->drops;
         }
         if (null !== $this->uuidStr) {
             $res['UuidStr'] = $this->uuidStr;
@@ -65,14 +65,14 @@ class DescribeDcdnUserSecDropResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Drops'])) {
+            $model->drops = $map['Drops'];
+        }
         if (isset($map['Msg'])) {
             $model->msg = $map['Msg'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Drops'])) {
-            $model->drops = $map['Drops'];
         }
         if (isset($map['UuidStr'])) {
             $model->uuidStr = $map['UuidStr'];

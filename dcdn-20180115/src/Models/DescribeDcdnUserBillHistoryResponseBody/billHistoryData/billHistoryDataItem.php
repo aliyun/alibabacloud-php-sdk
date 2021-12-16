@@ -12,7 +12,7 @@ class billHistoryDataItem extends Model
     /**
      * @var string
      */
-    public $dimension;
+    public $billTime;
 
     /**
      * @var string
@@ -20,19 +20,19 @@ class billHistoryDataItem extends Model
     public $billType;
 
     /**
-     * @var string
-     */
-    public $billTime;
-
-    /**
      * @var billingData
      */
     public $billingData;
+
+    /**
+     * @var string
+     */
+    public $dimension;
     protected $_name = [
-        'dimension'   => 'Dimension',
-        'billType'    => 'BillType',
         'billTime'    => 'BillTime',
+        'billType'    => 'BillType',
         'billingData' => 'BillingData',
+        'dimension'   => 'Dimension',
     ];
 
     public function validate()
@@ -42,17 +42,17 @@ class billHistoryDataItem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dimension) {
-            $res['Dimension'] = $this->dimension;
+        if (null !== $this->billTime) {
+            $res['BillTime'] = $this->billTime;
         }
         if (null !== $this->billType) {
             $res['BillType'] = $this->billType;
         }
-        if (null !== $this->billTime) {
-            $res['BillTime'] = $this->billTime;
-        }
         if (null !== $this->billingData) {
             $res['BillingData'] = null !== $this->billingData ? $this->billingData->toMap() : null;
+        }
+        if (null !== $this->dimension) {
+            $res['Dimension'] = $this->dimension;
         }
 
         return $res;
@@ -66,17 +66,17 @@ class billHistoryDataItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Dimension'])) {
-            $model->dimension = $map['Dimension'];
+        if (isset($map['BillTime'])) {
+            $model->billTime = $map['BillTime'];
         }
         if (isset($map['BillType'])) {
             $model->billType = $map['BillType'];
         }
-        if (isset($map['BillTime'])) {
-            $model->billTime = $map['BillTime'];
-        }
         if (isset($map['BillingData'])) {
             $model->billingData = billingData::fromMap($map['BillingData']);
+        }
+        if (isset($map['Dimension'])) {
+            $model->dimension = $map['Dimension'];
         }
 
         return $model;

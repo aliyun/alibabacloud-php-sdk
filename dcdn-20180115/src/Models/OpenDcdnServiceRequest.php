@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class OpenDcdnServiceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $billType;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -21,16 +26,11 @@ class OpenDcdnServiceRequest extends Model
     /**
      * @var string
      */
-    public $billType;
-
-    /**
-     * @var string
-     */
     public $websocketBillType;
     protected $_name = [
+        'billType'          => 'BillType',
         'ownerId'           => 'OwnerId',
         'securityToken'     => 'SecurityToken',
-        'billType'          => 'BillType',
         'websocketBillType' => 'WebsocketBillType',
     ];
 
@@ -41,14 +41,14 @@ class OpenDcdnServiceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->billType) {
+            $res['BillType'] = $this->billType;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->billType) {
-            $res['BillType'] = $this->billType;
         }
         if (null !== $this->websocketBillType) {
             $res['WebsocketBillType'] = $this->websocketBillType;
@@ -65,14 +65,14 @@ class OpenDcdnServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BillType'])) {
+            $model->billType = $map['BillType'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['BillType'])) {
-            $model->billType = $map['BillType'];
         }
         if (isset($map['WebsocketBillType'])) {
             $model->websocketBillType = $map['WebsocketBillType'];

@@ -16,7 +16,7 @@ class dataModule extends Model
     /**
      * @var float
      */
-    public $staticHttpsOriginTraffic;
+    public $dynamicHttpsOriginTraffic;
 
     /**
      * @var float
@@ -31,7 +31,7 @@ class dataModule extends Model
     /**
      * @var float
      */
-    public $dynamicHttpsOriginTraffic;
+    public $staticHttpsOriginTraffic;
 
     /**
      * @var string
@@ -39,10 +39,10 @@ class dataModule extends Model
     public $timeStamp;
     protected $_name = [
         'dynamicHttpOriginTraffic'  => 'DynamicHttpOriginTraffic',
-        'staticHttpsOriginTraffic'  => 'StaticHttpsOriginTraffic',
+        'dynamicHttpsOriginTraffic' => 'DynamicHttpsOriginTraffic',
         'originTraffic'             => 'OriginTraffic',
         'staticHttpOriginTraffic'   => 'StaticHttpOriginTraffic',
-        'dynamicHttpsOriginTraffic' => 'DynamicHttpsOriginTraffic',
+        'staticHttpsOriginTraffic'  => 'StaticHttpsOriginTraffic',
         'timeStamp'                 => 'TimeStamp',
     ];
 
@@ -56,8 +56,8 @@ class dataModule extends Model
         if (null !== $this->dynamicHttpOriginTraffic) {
             $res['DynamicHttpOriginTraffic'] = $this->dynamicHttpOriginTraffic;
         }
-        if (null !== $this->staticHttpsOriginTraffic) {
-            $res['StaticHttpsOriginTraffic'] = $this->staticHttpsOriginTraffic;
+        if (null !== $this->dynamicHttpsOriginTraffic) {
+            $res['DynamicHttpsOriginTraffic'] = $this->dynamicHttpsOriginTraffic;
         }
         if (null !== $this->originTraffic) {
             $res['OriginTraffic'] = $this->originTraffic;
@@ -65,8 +65,8 @@ class dataModule extends Model
         if (null !== $this->staticHttpOriginTraffic) {
             $res['StaticHttpOriginTraffic'] = $this->staticHttpOriginTraffic;
         }
-        if (null !== $this->dynamicHttpsOriginTraffic) {
-            $res['DynamicHttpsOriginTraffic'] = $this->dynamicHttpsOriginTraffic;
+        if (null !== $this->staticHttpsOriginTraffic) {
+            $res['StaticHttpsOriginTraffic'] = $this->staticHttpsOriginTraffic;
         }
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
@@ -86,8 +86,8 @@ class dataModule extends Model
         if (isset($map['DynamicHttpOriginTraffic'])) {
             $model->dynamicHttpOriginTraffic = $map['DynamicHttpOriginTraffic'];
         }
-        if (isset($map['StaticHttpsOriginTraffic'])) {
-            $model->staticHttpsOriginTraffic = $map['StaticHttpsOriginTraffic'];
+        if (isset($map['DynamicHttpsOriginTraffic'])) {
+            $model->dynamicHttpsOriginTraffic = $map['DynamicHttpsOriginTraffic'];
         }
         if (isset($map['OriginTraffic'])) {
             $model->originTraffic = $map['OriginTraffic'];
@@ -95,8 +95,8 @@ class dataModule extends Model
         if (isset($map['StaticHttpOriginTraffic'])) {
             $model->staticHttpOriginTraffic = $map['StaticHttpOriginTraffic'];
         }
-        if (isset($map['DynamicHttpsOriginTraffic'])) {
-            $model->dynamicHttpsOriginTraffic = $map['DynamicHttpsOriginTraffic'];
+        if (isset($map['StaticHttpsOriginTraffic'])) {
+            $model->staticHttpsOriginTraffic = $map['StaticHttpsOriginTraffic'];
         }
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];

@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnBlockedRegionsRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $language;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
     protected $_name = [
-        'ownerId'  => 'OwnerId',
         'language' => 'Language',
+        'ownerId'  => 'OwnerId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DescribeDcdnBlockedRegionsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DescribeDcdnBlockedRegionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

@@ -9,21 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnReportRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @var string
-     */
-    public $domainName;
-
-    /**
-     * @var int
-     */
-    public $reportId;
-
-    /**
      * @var string
      */
     public $area;
@@ -31,7 +16,12 @@ class DescribeDcdnReportRequest extends Model
     /**
      * @var string
      */
-    public $isOverseas;
+    public $domainName;
+
+    /**
+     * @var string
+     */
+    public $endTime;
 
     /**
      * @var string
@@ -41,21 +31,31 @@ class DescribeDcdnReportRequest extends Model
     /**
      * @var string
      */
-    public $startTime;
+    public $isOverseas;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $reportId;
 
     /**
      * @var string
      */
-    public $endTime;
+    public $startTime;
     protected $_name = [
-        'ownerId'    => 'OwnerId',
-        'domainName' => 'DomainName',
-        'reportId'   => 'ReportId',
         'area'       => 'Area',
-        'isOverseas' => 'IsOverseas',
-        'httpCode'   => 'HttpCode',
-        'startTime'  => 'StartTime',
+        'domainName' => 'DomainName',
         'endTime'    => 'EndTime',
+        'httpCode'   => 'HttpCode',
+        'isOverseas' => 'IsOverseas',
+        'ownerId'    => 'OwnerId',
+        'reportId'   => 'ReportId',
+        'startTime'  => 'StartTime',
     ];
 
     public function validate()
@@ -65,29 +65,29 @@ class DescribeDcdnReportRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->area) {
+            $res['Area'] = $this->area;
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
-        if (null !== $this->reportId) {
-            $res['ReportId'] = $this->reportId;
-        }
-        if (null !== $this->area) {
-            $res['Area'] = $this->area;
-        }
-        if (null !== $this->isOverseas) {
-            $res['IsOverseas'] = $this->isOverseas;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->httpCode) {
             $res['HttpCode'] = $this->httpCode;
         }
+        if (null !== $this->isOverseas) {
+            $res['IsOverseas'] = $this->isOverseas;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->reportId) {
+            $res['ReportId'] = $this->reportId;
+        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
         }
 
         return $res;
@@ -101,29 +101,29 @@ class DescribeDcdnReportRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['Area'])) {
+            $model->area = $map['Area'];
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
-        if (isset($map['ReportId'])) {
-            $model->reportId = $map['ReportId'];
-        }
-        if (isset($map['Area'])) {
-            $model->area = $map['Area'];
-        }
-        if (isset($map['IsOverseas'])) {
-            $model->isOverseas = $map['IsOverseas'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['HttpCode'])) {
             $model->httpCode = $map['HttpCode'];
         }
+        if (isset($map['IsOverseas'])) {
+            $model->isOverseas = $map['IsOverseas'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ReportId'])) {
+            $model->reportId = $map['ReportId'];
+        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
         }
 
         return $model;

@@ -11,15 +11,15 @@ class DeleteDcdnDeliverTaskRequest extends Model
     /**
      * @var int
      */
-    public $ownerId;
+    public $deliverId;
 
     /**
      * @var int
      */
-    public $deliverId;
+    public $ownerId;
     protected $_name = [
-        'ownerId'   => 'OwnerId',
         'deliverId' => 'DeliverId',
+        'ownerId'   => 'OwnerId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class DeleteDcdnDeliverTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
         if (null !== $this->deliverId) {
             $res['DeliverId'] = $this->deliverId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class DeleteDcdnDeliverTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
         if (isset($map['DeliverId'])) {
             $model->deliverId = $map['DeliverId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

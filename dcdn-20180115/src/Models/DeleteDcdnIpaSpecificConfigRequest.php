@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteDcdnIpaSpecificConfigRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $configId;
+
+    /**
+     * @var string
+     */
+    public $domainName;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -17,21 +27,11 @@ class DeleteDcdnIpaSpecificConfigRequest extends Model
      * @var string
      */
     public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $domainName;
-
-    /**
-     * @var string
-     */
-    public $configId;
     protected $_name = [
+        'configId'      => 'ConfigId',
+        'domainName'    => 'DomainName',
         'ownerId'       => 'OwnerId',
         'securityToken' => 'SecurityToken',
-        'domainName'    => 'DomainName',
-        'configId'      => 'ConfigId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class DeleteDcdnIpaSpecificConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->configId) {
+            $res['ConfigId'] = $this->configId;
+        }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->configId) {
-            $res['ConfigId'] = $this->configId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class DeleteDcdnIpaSpecificConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConfigId'])) {
+            $model->configId = $map['ConfigId'];
+        }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['ConfigId'])) {
-            $model->configId = $map['ConfigId'];
         }
 
         return $model;

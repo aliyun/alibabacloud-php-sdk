@@ -24,20 +24,23 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchStartDcdnDomainRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchStartDcdnDomainResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchStopDcdnDomainRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchStopDcdnDomainResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\CheckDcdnProjectExistRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\CheckDcdnProjectExistResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CommitStagingRoutineCodeRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CommitStagingRoutineCodeResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnCertificateSigningRequestRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnCertificateSigningRequestResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnDeliverTaskRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnDeliverTaskResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnDeliverTaskShrinkRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnDomainOfflineLogDeliveryRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnDomainOfflineLogDeliveryResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnSLSRealTimeLogDeliveryRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnSLSRealTimeLogDeliveryResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnSubTaskRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnSubTaskResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateRoutineRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateRoutineResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateRoutineShrinkRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateSlrAndSlsProjectRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateSlrAndSlsProjectResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnDeliverTaskRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnDeliverTaskResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnDomainRequest;
@@ -46,6 +49,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnIpaDomainRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnIpaDomainResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnIpaSpecificConfigRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnIpaSpecificConfigResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnRealTimeLogProjectRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnRealTimeLogProjectResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnSpecificConfigRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnSpecificConfigResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnSpecificStagingConfigRequest;
@@ -59,6 +64,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineConfEnvsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineConfEnvsShrinkRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnAclFieldsRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnAclFieldsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnBgpBpsDataRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnBgpBpsDataResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnBgpTrafficDataRequest;
@@ -69,14 +76,20 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnCertificateDetailRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnCertificateDetailResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnCertificateListRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnCertificateListResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnConfigGroupDetailRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnConfigGroupDetailResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnConfigOfVersionRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnConfigOfVersionResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDeletedDomainsRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDeletedDomainsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDeliverListRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDeliverListResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainBpsDataRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainBpsDataResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainByCertificateRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainByCertificateResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainCcActivityLogRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainCcActivityLogResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainCertificateInfoRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainCertificateInfoResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainCnameRequest;
@@ -139,6 +152,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainTopUrlVisitRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainTopUrlVisitResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainTrafficDataRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainTrafficDataResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainUsageDataRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainUsageDataResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainUvDataRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainUvDataResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainWebsocketBpsDataRequest;
@@ -147,6 +162,10 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainWebsocketHttpCodeDa
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainWebsocketHttpCodeDataResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainWebsocketTrafficDataRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDomainWebsocketTrafficDataResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnEsExceptionDataRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnEsExceptionDataResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnEsExecuteDataRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnEsExecuteDataResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnHttpsDomainListRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnHttpsDomainListResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaDomainConfigsRequest;
@@ -159,14 +178,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaUserDomainsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaUserDomainsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpInfoRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpInfoResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnOfflineLogDeliveryFieldRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnOfflineLogDeliveryFieldResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnOfflineLogDeliveryRegionsRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnOfflineLogDeliveryRegionsResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnOfflineLogDeliveryRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnOfflineLogDeliveryResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnOfflineLogDeliveryStatusRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnOfflineLogDeliveryStatusResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnRealTimeDeliveryFieldRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnRealTimeDeliveryFieldResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnRefreshQuotaRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnRefreshQuotaResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnRefreshTaskByIdRequest;
@@ -181,8 +194,18 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnReportRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnReportResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSecFuncInfoRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSecFuncInfoResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnsecServiceRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnsecServiceResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSecSpecInfoRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSecSpecInfoResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnServiceRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnServiceResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSLSRealtimeLogDeliveryRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSLSRealtimeLogDeliveryResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSMCertificateDetailRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSMCertificateDetailResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSMCertificateListRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSMCertificateListResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnStagingIpRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnStagingIpResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSubListRequest;
@@ -201,6 +224,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserDomainsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserDomainsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserQuotaRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserQuotaResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserRealTimeDeliveryFieldRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserRealTimeDeliveryFieldResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserResourcePackageRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserResourcePackageResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserSecDropByMinuteRequest;
@@ -231,15 +256,11 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeUserErStatusRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeUserErStatusResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeUserLogserviceStatusRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeUserLogserviceStatusResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DisableDcdnDomainOfflineLogDeliveryRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DisableDcdnDomainOfflineLogDeliveryResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DisableDcdnOfflineLogDeliveryRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\DisableDcdnOfflineLogDeliveryResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditRoutineConfRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditRoutineConfResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditRoutineConfShrinkRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\EnableDcdnDomainOfflineLogDeliveryRequest;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\EnableDcdnDomainOfflineLogDeliveryResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnRealTimeDeliveryProjectRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnRealTimeDeliveryProjectResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyDCdnDomainSchdmByPropertyRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyDCdnDomainSchdmByPropertyResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\OpenDcdnServiceRequest;
@@ -261,8 +282,14 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainCertificateRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainCertificateResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainCSRCertificateRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainCSRCertificateResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainSMCertificateRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainSMCertificateResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainStagingConfigRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainStagingConfigResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnFullDomainsBlockIPRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnFullDomainsBlockIPResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnUserConfigRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnUserConfigResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetRoutineSubdomainRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetRoutineSubdomainResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetRoutineSubdomainShrinkRequest;
@@ -280,13 +307,16 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\UntagDcdnResourcesRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\UntagDcdnResourcesResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\UpdateDcdnDeliverTaskRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\UpdateDcdnDeliverTaskResponse;
-use AlibabaCloud\SDK\Dcdn\V20180115\Models\UpdateDcdnDeliverTaskShrinkRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\UpdateDcdnDomainRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\UpdateDcdnDomainResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\UpdateDcdnIpaDomainRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\UpdateDcdnIpaDomainResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\UpdateDcdnSLSRealtimeLogDeliveryRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\UpdateDcdnSLSRealtimeLogDeliveryResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\UpdateDcdnSubTaskRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\UpdateDcdnSubTaskResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\UpdateDcdnUserRealTimeDeliveryFieldRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\UpdateDcdnUserRealTimeDeliveryFieldResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\UploadRoutineCodeRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\UploadRoutineCodeResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\UploadStagingRoutineCodeRequest;
@@ -296,6 +326,7 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\VerifyDcdnDomainOwnerResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Dcdn extends OpenApiClient
@@ -396,11 +427,32 @@ class Dcdn extends OpenApiClient
     public function addDcdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['CheckUrl']        = $request->checkUrl;
+        $query['DomainName']      = $request->domainName;
+        $query['OwnerAccount']    = $request->ownerAccount;
+        $query['OwnerId']         = $request->ownerId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['Scope']           = $request->scope;
+        $query['SecurityToken']   = $request->securityToken;
+        $query['Sources']         = $request->sources;
+        $query['TopLevelDomain']  = $request->topLevelDomain;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddDcdnDomain',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddDcdnDomainResponse::fromMap($this->doRPCRequest('AddDcdnDomain', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddDcdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -424,11 +476,33 @@ class Dcdn extends OpenApiClient
     public function addDcdnIpaDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['CheckUrl']        = $request->checkUrl;
+        $query['DomainName']      = $request->domainName;
+        $query['OwnerAccount']    = $request->ownerAccount;
+        $query['OwnerId']         = $request->ownerId;
+        $query['Protocol']        = $request->protocol;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['Scope']           = $request->scope;
+        $query['SecurityToken']   = $request->securityToken;
+        $query['Sources']         = $request->sources;
+        $query['TopLevelDomain']  = $request->topLevelDomain;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddDcdnIpaDomain',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddDcdnIpaDomainResponse::fromMap($this->doRPCRequest('AddDcdnIpaDomain', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddDcdnIpaDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -452,11 +526,32 @@ class Dcdn extends OpenApiClient
     public function batchAddDcdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['CheckUrl']        = $request->checkUrl;
+        $query['DomainName']      = $request->domainName;
+        $query['OwnerAccount']    = $request->ownerAccount;
+        $query['OwnerId']         = $request->ownerId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['Scope']           = $request->scope;
+        $query['SecurityToken']   = $request->securityToken;
+        $query['Sources']         = $request->sources;
+        $query['TopLevelDomain']  = $request->topLevelDomain;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchAddDcdnDomain',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchAddDcdnDomainResponse::fromMap($this->doRPCRequest('BatchAddDcdnDomain', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchAddDcdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -480,11 +575,28 @@ class Dcdn extends OpenApiClient
     public function batchDeleteDcdnDomainConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainNames']   = $request->domainNames;
+        $query['FunctionNames'] = $request->functionNames;
+        $query['OwnerAccount']  = $request->ownerAccount;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchDeleteDcdnDomainConfigs',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchDeleteDcdnDomainConfigsResponse::fromMap($this->doRPCRequest('BatchDeleteDcdnDomainConfigs', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchDeleteDcdnDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -508,11 +620,32 @@ class Dcdn extends OpenApiClient
     public function batchSetDcdnDomainCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['CertName']      = $request->certName;
+        $query['CertType']      = $request->certType;
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['Region']        = $request->region;
+        $query['SSLPri']        = $request->SSLPri;
+        $query['SSLProtocol']   = $request->SSLProtocol;
+        $query['SSLPub']        = $request->SSLPub;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchSetDcdnDomainCertificate',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchSetDcdnDomainCertificateResponse::fromMap($this->doRPCRequest('BatchSetDcdnDomainCertificate', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchSetDcdnDomainCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -536,11 +669,28 @@ class Dcdn extends OpenApiClient
     public function batchSetDcdnDomainConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainNames']   = $request->domainNames;
+        $query['Functions']     = $request->functions;
+        $query['OwnerAccount']  = $request->ownerAccount;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchSetDcdnDomainConfigs',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchSetDcdnDomainConfigsResponse::fromMap($this->doRPCRequest('BatchSetDcdnDomainConfigs', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchSetDcdnDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -564,11 +714,28 @@ class Dcdn extends OpenApiClient
     public function batchSetDcdnIpaDomainConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainNames']   = $request->domainNames;
+        $query['Functions']     = $request->functions;
+        $query['OwnerAccount']  = $request->ownerAccount;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchSetDcdnIpaDomainConfigs',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchSetDcdnIpaDomainConfigsResponse::fromMap($this->doRPCRequest('BatchSetDcdnIpaDomainConfigs', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchSetDcdnIpaDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -592,11 +759,26 @@ class Dcdn extends OpenApiClient
     public function batchStartDcdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainNames']   = $request->domainNames;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchStartDcdnDomain',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchStartDcdnDomainResponse::fromMap($this->doRPCRequest('BatchStartDcdnDomain', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchStartDcdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -620,11 +802,26 @@ class Dcdn extends OpenApiClient
     public function batchStopDcdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainNames']   = $request->domainNames;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchStopDcdnDomain',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BatchStopDcdnDomainResponse::fromMap($this->doRPCRequest('BatchStopDcdnDomain', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BatchStopDcdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -640,6 +837,46 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param CheckDcdnProjectExistRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CheckDcdnProjectExistResponse
+     */
+    public function checkDcdnProjectExistWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckDcdnProjectExist',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckDcdnProjectExistResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CheckDcdnProjectExistRequest $request
+     *
+     * @return CheckDcdnProjectExistResponse
+     */
+    public function checkDcdnProjectExist($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkDcdnProjectExistWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CommitStagingRoutineCodeRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -648,11 +885,32 @@ class Dcdn extends OpenApiClient
     public function commitStagingRoutineCodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $body             = [];
+        if (!Utils::isUnset($request->codeDescription)) {
+            $body['CodeDescription'] = $request->codeDescription;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CommitStagingRoutineCode',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CommitStagingRoutineCodeResponse::fromMap($this->doRPCRequest('CommitStagingRoutineCode', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CommitStagingRoutineCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -676,11 +934,32 @@ class Dcdn extends OpenApiClient
     public function createDcdnCertificateSigningRequestWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['City']             = $request->city;
+        $query['CommonName']       = $request->commonName;
+        $query['Country']          = $request->country;
+        $query['Email']            = $request->email;
+        $query['Organization']     = $request->organization;
+        $query['OrganizationUnit'] = $request->organizationUnit;
+        $query['OwnerId']          = $request->ownerId;
+        $query['SANs']             = $request->SANs;
+        $query['State']            = $request->state;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDcdnCertificateSigningRequest',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDcdnCertificateSigningRequestResponse::fromMap($this->doRPCRequest('CreateDcdnCertificateSigningRequest', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDcdnCertificateSigningRequestResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -696,27 +975,49 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param CreateDcdnDeliverTaskRequest $tmpReq
+     * @param CreateDcdnDeliverTaskRequest $request
      * @param RuntimeOptions               $runtime
      *
      * @return CreateDcdnDeliverTaskResponse
      */
-    public function createDcdnDeliverTaskWithOptions($tmpReq, $runtime)
+    public function createDcdnDeliverTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new CreateDcdnDeliverTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deliver)) {
-            $request->deliverShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deliver, 'Deliver', 'json');
+        Utils::validateModel($request);
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $body             = [];
+        if (!Utils::isUnset($request->deliver)) {
+            $body['Deliver'] = $request->deliver;
         }
-        if (!Utils::isUnset($tmpReq->schedule)) {
-            $request->scheduleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->schedule, 'Schedule', 'json');
+        if (!Utils::isUnset($request->domainName)) {
+            $body['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->reports)) {
+            $body['Reports'] = $request->reports;
+        }
+        if (!Utils::isUnset($request->schedule)) {
+            $body['Schedule'] = $request->schedule;
         }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDcdnDeliverTask',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDcdnDeliverTaskResponse::fromMap($this->doRPCRequest('CreateDcdnDeliverTask', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDcdnDeliverTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -732,31 +1033,70 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param CreateDcdnDomainOfflineLogDeliveryRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @param CreateDcdnSLSRealTimeLogDeliveryRequest $request
+     * @param RuntimeOptions                          $runtime
      *
-     * @return CreateDcdnDomainOfflineLogDeliveryResponse
+     * @return CreateDcdnSLSRealTimeLogDeliveryResponse
      */
-    public function createDcdnDomainOfflineLogDeliveryWithOptions($request, $runtime)
+    public function createDcdnSLSRealTimeLogDeliveryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $body             = [];
+        if (!Utils::isUnset($request->businessType)) {
+            $body['BusinessType'] = $request->businessType;
+        }
+        if (!Utils::isUnset($request->dataCenter)) {
+            $body['DataCenter'] = $request->dataCenter;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $body['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->SLSLogStore)) {
+            $body['SLSLogStore'] = $request->SLSLogStore;
+        }
+        if (!Utils::isUnset($request->SLSProject)) {
+            $body['SLSProject'] = $request->SLSProject;
+        }
+        if (!Utils::isUnset($request->SLSRegion)) {
+            $body['SLSRegion'] = $request->SLSRegion;
+        }
+        if (!Utils::isUnset($request->samplingRate)) {
+            $body['SamplingRate'] = $request->samplingRate;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDcdnSLSRealTimeLogDelivery',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDcdnDomainOfflineLogDeliveryResponse::fromMap($this->doRPCRequest('CreateDcdnDomainOfflineLogDelivery', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDcdnSLSRealTimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateDcdnDomainOfflineLogDeliveryRequest $request
+     * @param CreateDcdnSLSRealTimeLogDeliveryRequest $request
      *
-     * @return CreateDcdnDomainOfflineLogDeliveryResponse
+     * @return CreateDcdnSLSRealTimeLogDeliveryResponse
      */
-    public function createDcdnDomainOfflineLogDelivery($request)
+    public function createDcdnSLSRealTimeLogDelivery($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createDcdnDomainOfflineLogDeliveryWithOptions($request, $runtime);
+        return $this->createDcdnSLSRealTimeLogDeliveryWithOptions($request, $runtime);
     }
 
     /**
@@ -768,11 +1108,32 @@ class Dcdn extends OpenApiClient
     public function createDcdnSubTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $body             = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $body['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->reportIds)) {
+            $body['ReportIds'] = $request->reportIds;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDcdnSubTask',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateDcdnSubTaskResponse::fromMap($this->doRPCRequest('CreateDcdnSubTask', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateDcdnSubTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -801,11 +1162,35 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($tmpReq->envConf)) {
             $request->envConfShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->envConf, 'EnvConf', 'json');
         }
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $body             = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->envConfShrink)) {
+            $body['EnvConf'] = $request->envConfShrink;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRoutine',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateRoutineResponse::fromMap($this->doRPCRequest('CreateRoutine', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateRoutineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -821,6 +1206,52 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param CreateSlrAndSlsProjectRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateSlrAndSlsProjectResponse
+     */
+    public function createSlrAndSlsProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $body             = [];
+        if (!Utils::isUnset($request->region)) {
+            $body['Region'] = $request->region;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSlrAndSlsProject',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSlrAndSlsProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSlrAndSlsProjectRequest $request
+     *
+     * @return CreateSlrAndSlsProjectResponse
+     */
+    public function createSlrAndSlsProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSlrAndSlsProjectWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteDcdnDeliverTaskRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -829,11 +1260,25 @@ class Dcdn extends OpenApiClient
     public function deleteDcdnDeliverTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['DeliverId'] = $request->deliverId;
+        $query['OwnerId']   = $request->ownerId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDcdnDeliverTask',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDcdnDeliverTaskResponse::fromMap($this->doRPCRequest('DeleteDcdnDeliverTask', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDcdnDeliverTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -857,11 +1302,27 @@ class Dcdn extends OpenApiClient
     public function deleteDcdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerAccount']  = $request->ownerAccount;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDcdnDomain',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDcdnDomainResponse::fromMap($this->doRPCRequest('DeleteDcdnDomain', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDcdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -885,11 +1346,27 @@ class Dcdn extends OpenApiClient
     public function deleteDcdnIpaDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerAccount']  = $request->ownerAccount;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDcdnIpaDomain',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDcdnIpaDomainResponse::fromMap($this->doRPCRequest('DeleteDcdnIpaDomain', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDcdnIpaDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -913,11 +1390,27 @@ class Dcdn extends OpenApiClient
     public function deleteDcdnIpaSpecificConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ConfigId']      = $request->configId;
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDcdnIpaSpecificConfig',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDcdnIpaSpecificConfigResponse::fromMap($this->doRPCRequest('DeleteDcdnIpaSpecificConfig', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDcdnIpaSpecificConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -933,6 +1426,49 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DeleteDcdnRealTimeLogProjectRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteDcdnRealTimeLogProjectResponse
+     */
+    public function deleteDcdnRealTimeLogProjectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                 = [];
+        $query['BusinessType'] = $request->businessType;
+        $query['OwnerId']      = $request->ownerId;
+        $query['ProjectName']  = $request->projectName;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDcdnRealTimeLogProject',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDcdnRealTimeLogProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDcdnRealTimeLogProjectRequest $request
+     *
+     * @return DeleteDcdnRealTimeLogProjectResponse
+     */
+    public function deleteDcdnRealTimeLogProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDcdnRealTimeLogProjectWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteDcdnSpecificConfigRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -941,11 +1477,27 @@ class Dcdn extends OpenApiClient
     public function deleteDcdnSpecificConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ConfigId']      = $request->configId;
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDcdnSpecificConfig',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDcdnSpecificConfigResponse::fromMap($this->doRPCRequest('DeleteDcdnSpecificConfig', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDcdnSpecificConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -969,11 +1521,27 @@ class Dcdn extends OpenApiClient
     public function deleteDcdnSpecificStagingConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ConfigId']      = $request->configId;
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDcdnSpecificStagingConfig',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDcdnSpecificStagingConfigResponse::fromMap($this->doRPCRequest('DeleteDcdnSpecificStagingConfig', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDcdnSpecificStagingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -997,11 +1565,24 @@ class Dcdn extends OpenApiClient
     public function deleteDcdnSubTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDcdnSubTask',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteDcdnSubTaskResponse::fromMap($this->doRPCRequest('DeleteDcdnSubTask', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteDcdnSubTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1025,11 +1606,29 @@ class Dcdn extends OpenApiClient
     public function deleteRoutineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $body             = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRoutine',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteRoutineResponse::fromMap($this->doRPCRequest('DeleteRoutine', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteRoutineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1053,11 +1652,32 @@ class Dcdn extends OpenApiClient
     public function deleteRoutineCodeRevisionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $body             = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->selectCodeRevision)) {
+            $body['SelectCodeRevision'] = $request->selectCodeRevision;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRoutineCodeRevision',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteRoutineCodeRevisionResponse::fromMap($this->doRPCRequest('DeleteRoutineCodeRevision', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteRoutineCodeRevisionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1086,11 +1706,32 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($tmpReq->envs)) {
             $request->envsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->envs, 'Envs', 'json');
         }
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $body             = [];
+        if (!Utils::isUnset($request->envsShrink)) {
+            $body['Envs'] = $request->envsShrink;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRoutineConfEnvs',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteRoutineConfEnvsResponse::fromMap($this->doRPCRequest('DeleteRoutineConfEnvs', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteRoutineConfEnvsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1106,6 +1747,48 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeDcdnAclFieldsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDcdnAclFieldsResponse
+     */
+    public function describeDcdnAclFieldsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query            = [];
+        $query['Lang']    = $request->lang;
+        $query['OwnerId'] = $request->ownerId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnAclFields',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnAclFieldsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnAclFieldsRequest $request
+     *
+     * @return DescribeDcdnAclFieldsResponse
+     */
+    public function describeDcdnAclFields($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnAclFieldsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDcdnBgpBpsDataRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -1114,11 +1797,28 @@ class Dcdn extends OpenApiClient
     public function describeDcdnBgpBpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['EndTime']   = $request->endTime;
+        $query['Interval']  = $request->interval;
+        $query['Isp']       = $request->isp;
+        $query['OwnerId']   = $request->ownerId;
+        $query['StartTime'] = $request->startTime;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnBgpBpsData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnBgpBpsDataResponse::fromMap($this->doRPCRequest('DescribeDcdnBgpBpsData', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnBgpBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1142,11 +1842,28 @@ class Dcdn extends OpenApiClient
     public function describeDcdnBgpTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['EndTime']   = $request->endTime;
+        $query['Interval']  = $request->interval;
+        $query['Isp']       = $request->isp;
+        $query['OwnerId']   = $request->ownerId;
+        $query['StartTime'] = $request->startTime;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnBgpTrafficData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnBgpTrafficDataResponse::fromMap($this->doRPCRequest('DescribeDcdnBgpTrafficData', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnBgpTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1172,10 +1889,21 @@ class Dcdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnBlockedRegions',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnBlockedRegionsResponse::fromMap($this->doRPCRequest('DescribeDcdnBlockedRegions', '2018-01-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnBlockedRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1199,11 +1927,26 @@ class Dcdn extends OpenApiClient
     public function describeDcdnCertificateDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['CertName']      = $request->certName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnCertificateDetail',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnCertificateDetailResponse::fromMap($this->doRPCRequest('DescribeDcdnCertificateDetail', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnCertificateDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1227,11 +1970,26 @@ class Dcdn extends OpenApiClient
     public function describeDcdnCertificateListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnCertificateList',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnCertificateListResponse::fromMap($this->doRPCRequest('DescribeDcdnCertificateList', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1247,6 +2005,49 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeDcdnConfigGroupDetailRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDcdnConfigGroupDetailResponse
+     */
+    public function describeDcdnConfigGroupDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                    = [];
+        $query['ConfigGroupId']   = $request->configGroupId;
+        $query['ConfigGroupName'] = $request->configGroupName;
+        $query['OwnerId']         = $request->ownerId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnConfigGroupDetail',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnConfigGroupDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnConfigGroupDetailRequest $request
+     *
+     * @return DescribeDcdnConfigGroupDetailResponse
+     */
+    public function describeDcdnConfigGroupDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnConfigGroupDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDcdnConfigOfVersionRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -1255,11 +2056,29 @@ class Dcdn extends OpenApiClient
     public function describeDcdnConfigOfVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['FunctionId']    = $request->functionId;
+        $query['FunctionName']  = $request->functionName;
+        $query['GroupId']       = $request->groupId;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['VersionId']     = $request->versionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnConfigOfVersion',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnConfigOfVersionResponse::fromMap($this->doRPCRequest('DescribeDcdnConfigOfVersion', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnConfigOfVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1275,6 +2094,49 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeDcdnDeletedDomainsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDcdnDeletedDomainsResponse
+     */
+    public function describeDcdnDeletedDomainsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['OwnerId']    = $request->ownerId;
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDeletedDomains',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnDeletedDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnDeletedDomainsRequest $request
+     *
+     * @return DescribeDcdnDeletedDomainsResponse
+     */
+    public function describeDcdnDeletedDomains($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnDeletedDomainsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDcdnDeliverListRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -1283,11 +2145,25 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDeliverListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['DeliverId'] = $request->deliverId;
+        $query['OwnerId']   = $request->ownerId;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDeliverList',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDeliverListResponse::fromMap($this->doRPCRequest('DescribeDcdnDeliverList', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDeliverListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1311,11 +2187,30 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainBpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DomainName']     = $request->domainName;
+        $query['EndTime']        = $request->endTime;
+        $query['Interval']       = $request->interval;
+        $query['IspNameEn']      = $request->ispNameEn;
+        $query['LocationNameEn'] = $request->locationNameEn;
+        $query['OwnerId']        = $request->ownerId;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainBpsData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainBpsDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainBpsData', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1339,11 +2234,25 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainByCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $query['SSLPub']  = $request->SSLPub;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainByCertificate',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainByCertificateResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainByCertificate', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainByCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1359,6 +2268,55 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeDcdnDomainCcActivityLogRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeDcdnDomainCcActivityLogResponse
+     */
+    public function describeDcdnDomainCcActivityLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['EndTime']       = $request->endTime;
+        $query['OwnerId']       = $request->ownerId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['RuleName']      = $request->ruleName;
+        $query['StartTime']     = $request->startTime;
+        $query['TriggerObject'] = $request->triggerObject;
+        $query['Value']         = $request->value;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainCcActivityLog',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnDomainCcActivityLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnDomainCcActivityLogRequest $request
+     *
+     * @return DescribeDcdnDomainCcActivityLogResponse
+     */
+    public function describeDcdnDomainCcActivityLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnDomainCcActivityLogWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDcdnDomainCertificateInfoRequest $request
      * @param RuntimeOptions                           $runtime
      *
@@ -1367,11 +2325,25 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainCertificateInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['OwnerId']    = $request->ownerId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainCertificateInfo',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainCertificateInfoResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainCertificateInfo', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainCertificateInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1397,10 +2369,21 @@ class Dcdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainCname',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainCnameResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainCname', '2018-01-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainCnameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1424,11 +2407,28 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ConfigId']      = $request->configId;
+        $query['DomainName']    = $request->domainName;
+        $query['FunctionNames'] = $request->functionNames;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainConfigs',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainConfigsResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainConfigs', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1452,11 +2452,26 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainDetail',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainDetailResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainDetail', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1480,11 +2495,28 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainHitRateDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['Interval']   = $request->interval;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainHitRateData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainHitRateDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainHitRateData', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1508,11 +2540,30 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainHttpCodeDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DomainName']     = $request->domainName;
+        $query['EndTime']        = $request->endTime;
+        $query['Interval']       = $request->interval;
+        $query['IspNameEn']      = $request->ispNameEn;
+        $query['LocationNameEn'] = $request->locationNameEn;
+        $query['OwnerId']        = $request->ownerId;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainHttpCodeData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainHttpCodeDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainHttpCodeData', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1536,11 +2587,32 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainIpaBpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DomainName']     = $request->domainName;
+        $query['EndTime']        = $request->endTime;
+        $query['FixTimeGap']     = $request->fixTimeGap;
+        $query['Interval']       = $request->interval;
+        $query['IspNameEn']      = $request->ispNameEn;
+        $query['LocationNameEn'] = $request->locationNameEn;
+        $query['OwnerId']        = $request->ownerId;
+        $query['StartTime']      = $request->startTime;
+        $query['TimeMerge']      = $request->timeMerge;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainIpaBpsData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainIpaBpsDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainIpaBpsData', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainIpaBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1564,11 +2636,32 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainIpaTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DomainName']     = $request->domainName;
+        $query['EndTime']        = $request->endTime;
+        $query['FixTimeGap']     = $request->fixTimeGap;
+        $query['Interval']       = $request->interval;
+        $query['IspNameEn']      = $request->ispNameEn;
+        $query['LocationNameEn'] = $request->locationNameEn;
+        $query['OwnerId']        = $request->ownerId;
+        $query['StartTime']      = $request->startTime;
+        $query['TimeMerge']      = $request->timeMerge;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainIpaTrafficData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainIpaTrafficDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainIpaTrafficData', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainIpaTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1592,11 +2685,27 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainIspDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainIspData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainIspDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainIspData', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainIspDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1620,11 +2729,29 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['OwnerId']    = $request->ownerId;
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainLog',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainLogResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainLog', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1648,11 +2775,27 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainMultiUsageDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainMultiUsageData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainMultiUsageDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainMultiUsageData', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainMultiUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1676,11 +2819,28 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainOriginBpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['Interval']   = $request->interval;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainOriginBpsData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainOriginBpsDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainOriginBpsData', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainOriginBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1704,11 +2864,28 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainOriginTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['Interval']   = $request->interval;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainOriginTrafficData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainOriginTrafficDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainOriginTrafficData', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainOriginTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1732,11 +2909,25 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainPropertyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['OwnerId']    = $request->ownerId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainProperty',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainPropertyResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainProperty', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1760,11 +2951,27 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainPvDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainPvData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainPvDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainPvData', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainPvDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1788,11 +2995,30 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainQpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DomainName']     = $request->domainName;
+        $query['EndTime']        = $request->endTime;
+        $query['Interval']       = $request->interval;
+        $query['IspNameEn']      = $request->ispNameEn;
+        $query['LocationNameEn'] = $request->locationNameEn;
+        $query['OwnerId']        = $request->ownerId;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainQpsData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainQpsDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainQpsData', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1818,10 +3044,21 @@ class Dcdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainRealTimeBpsData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainRealTimeBpsDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainRealTimeBpsData', '2018-01-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainRealTimeBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1847,10 +3084,21 @@ class Dcdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainRealTimeByteHitRateData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainRealTimeByteHitRateDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainRealTimeByteHitRateData', '2018-01-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainRealTimeByteHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1876,10 +3124,21 @@ class Dcdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainRealTimeDetailData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainRealTimeDetailDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainRealTimeDetailData', '2018-01-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainRealTimeDetailDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1903,11 +3162,29 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainRealTimeHttpCodeDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DomainName']     = $request->domainName;
+        $query['EndTime']        = $request->endTime;
+        $query['IspNameEn']      = $request->ispNameEn;
+        $query['LocationNameEn'] = $request->locationNameEn;
+        $query['OwnerId']        = $request->ownerId;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainRealTimeHttpCodeData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainRealTimeHttpCodeDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainRealTimeHttpCodeData', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainRealTimeHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1933,10 +3210,21 @@ class Dcdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainRealTimeQpsData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainRealTimeQpsDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainRealTimeQpsData', '2018-01-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainRealTimeQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1962,10 +3250,21 @@ class Dcdn extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainRealTimeReqHitRateData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainRealTimeReqHitRateDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainRealTimeReqHitRateData', '2018-01-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainRealTimeReqHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1989,11 +3288,27 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainRealTimeSrcBpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainRealTimeSrcBpsData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainRealTimeSrcBpsDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainRealTimeSrcBpsData', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainRealTimeSrcBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2017,11 +3332,29 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainRealTimeSrcHttpCodeDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DomainName']     = $request->domainName;
+        $query['EndTime']        = $request->endTime;
+        $query['IspNameEn']      = $request->ispNameEn;
+        $query['LocationNameEn'] = $request->locationNameEn;
+        $query['OwnerId']        = $request->ownerId;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainRealTimeSrcHttpCodeData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainRealTimeSrcHttpCodeDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainRealTimeSrcHttpCodeData', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainRealTimeSrcHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2045,11 +3378,27 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainRealTimeSrcTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainRealTimeSrcTrafficData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainRealTimeSrcTrafficDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainRealTimeSrcTrafficData', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainRealTimeSrcTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2073,11 +3422,27 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainRealTimeTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainRealTimeTrafficData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainRealTimeTrafficDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainRealTimeTrafficData', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainRealTimeTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2101,11 +3466,27 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainRegionDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainRegionData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainRegionDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainRegionData', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainRegionDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2129,11 +3510,26 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainStagingConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['FunctionNames'] = $request->functionNames;
+        $query['OwnerId']       = $request->ownerId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainStagingConfig',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainStagingConfigResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainStagingConfig', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainStagingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2157,11 +3553,27 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainTopReferVisitWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['OwnerId']    = $request->ownerId;
+        $query['SortBy']     = $request->sortBy;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainTopReferVisit',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainTopReferVisitResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainTopReferVisit', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainTopReferVisitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2185,11 +3597,27 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainTopUrlVisitWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['OwnerId']    = $request->ownerId;
+        $query['SortBy']     = $request->sortBy;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainTopUrlVisit',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainTopUrlVisitResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainTopUrlVisit', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainTopUrlVisitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2213,11 +3641,30 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DomainName']     = $request->domainName;
+        $query['EndTime']        = $request->endTime;
+        $query['Interval']       = $request->interval;
+        $query['IspNameEn']      = $request->ispNameEn;
+        $query['LocationNameEn'] = $request->locationNameEn;
+        $query['OwnerId']        = $request->ownerId;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainTrafficData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainTrafficDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainTrafficData', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2233,6 +3680,54 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeDcdnDomainUsageDataRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDcdnDomainUsageDataResponse
+     */
+    public function describeDcdnDomainUsageDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                 = [];
+        $query['Area']         = $request->area;
+        $query['DataProtocol'] = $request->dataProtocol;
+        $query['DomainName']   = $request->domainName;
+        $query['EndTime']      = $request->endTime;
+        $query['Field']        = $request->field;
+        $query['Interval']     = $request->interval;
+        $query['OwnerId']      = $request->ownerId;
+        $query['StartTime']    = $request->startTime;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainUsageData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnDomainUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnDomainUsageDataRequest $request
+     *
+     * @return DescribeDcdnDomainUsageDataResponse
+     */
+    public function describeDcdnDomainUsageData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnDomainUsageDataWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDcdnDomainUvDataRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -2241,11 +3736,27 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainUvDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['OwnerId']    = $request->ownerId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainUvData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainUvDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainUvData', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainUvDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2269,11 +3780,30 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainWebsocketBpsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DomainName']     = $request->domainName;
+        $query['EndTime']        = $request->endTime;
+        $query['Interval']       = $request->interval;
+        $query['IspNameEn']      = $request->ispNameEn;
+        $query['LocationNameEn'] = $request->locationNameEn;
+        $query['OwnerId']        = $request->ownerId;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainWebsocketBpsData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainWebsocketBpsDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainWebsocketBpsData', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainWebsocketBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2297,11 +3827,30 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainWebsocketHttpCodeDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DomainName']     = $request->domainName;
+        $query['EndTime']        = $request->endTime;
+        $query['Interval']       = $request->interval;
+        $query['IspNameEn']      = $request->ispNameEn;
+        $query['LocationNameEn'] = $request->locationNameEn;
+        $query['OwnerId']        = $request->ownerId;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainWebsocketHttpCodeData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainWebsocketHttpCodeDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainWebsocketHttpCodeData', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainWebsocketHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2325,11 +3874,30 @@ class Dcdn extends OpenApiClient
     public function describeDcdnDomainWebsocketTrafficDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DomainName']     = $request->domainName;
+        $query['EndTime']        = $request->endTime;
+        $query['Interval']       = $request->interval;
+        $query['IspNameEn']      = $request->ispNameEn;
+        $query['LocationNameEn'] = $request->locationNameEn;
+        $query['OwnerId']        = $request->ownerId;
+        $query['StartTime']      = $request->startTime;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDomainWebsocketTrafficData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnDomainWebsocketTrafficDataResponse::fromMap($this->doRPCRequest('DescribeDcdnDomainWebsocketTrafficData', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnDomainWebsocketTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2345,6 +3913,94 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeDcdnEsExceptionDataRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDcdnEsExceptionDataResponse
+     */
+    public function describeDcdnEsExceptionDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query              = [];
+        $query['EndTime']   = $request->endTime;
+        $query['OwnerId']   = $request->ownerId;
+        $query['RuleId']    = $request->ruleId;
+        $query['StartTime'] = $request->startTime;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnEsExceptionData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnEsExceptionDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnEsExceptionDataRequest $request
+     *
+     * @return DescribeDcdnEsExceptionDataResponse
+     */
+    public function describeDcdnEsExceptionData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnEsExceptionDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnEsExecuteDataRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDcdnEsExecuteDataResponse
+     */
+    public function describeDcdnEsExecuteDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query              = [];
+        $query['EndTime']   = $request->endTime;
+        $query['OwnerId']   = $request->ownerId;
+        $query['RuleId']    = $request->ruleId;
+        $query['StartTime'] = $request->startTime;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnEsExecuteData',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnEsExecuteDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnEsExecuteDataRequest $request
+     *
+     * @return DescribeDcdnEsExecuteDataResponse
+     */
+    public function describeDcdnEsExecuteData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnEsExecuteDataWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDcdnHttpsDomainListRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -2353,11 +4009,27 @@ class Dcdn extends OpenApiClient
     public function describeDcdnHttpsDomainListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['Keyword']    = $request->keyword;
+        $query['OwnerId']    = $request->ownerId;
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnHttpsDomainList',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnHttpsDomainListResponse::fromMap($this->doRPCRequest('DescribeDcdnHttpsDomainList', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnHttpsDomainListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2373,6 +4045,49 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeDcdnIpInfoRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeDcdnIpInfoResponse
+     */
+    public function describeDcdnIpInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['IP']            = $request->IP;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnIpInfo',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnIpInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnIpInfoRequest $request
+     *
+     * @return DescribeDcdnIpInfoResponse
+     */
+    public function describeDcdnIpInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnIpInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDcdnIpaDomainConfigsRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -2381,11 +4096,27 @@ class Dcdn extends OpenApiClient
     public function describeDcdnIpaDomainConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['FunctionNames'] = $request->functionNames;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnIpaDomainConfigs',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnIpaDomainConfigsResponse::fromMap($this->doRPCRequest('DescribeDcdnIpaDomainConfigs', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnIpaDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2409,11 +4140,26 @@ class Dcdn extends OpenApiClient
     public function describeDcdnIpaDomainDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnIpaDomainDetail',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnIpaDomainDetailResponse::fromMap($this->doRPCRequest('DescribeDcdnIpaDomainDetail', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnIpaDomainDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2437,11 +4183,25 @@ class Dcdn extends OpenApiClient
     public function describeDcdnIpaServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnIpaService',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnIpaServiceResponse::fromMap($this->doRPCRequest('DescribeDcdnIpaService', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnIpaServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2465,11 +4225,35 @@ class Dcdn extends OpenApiClient
     public function describeDcdnIpaUserDomainsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['CheckDomainShow']  = $request->checkDomainShow;
+        $query['DomainName']       = $request->domainName;
+        $query['DomainSearchType'] = $request->domainSearchType;
+        $query['DomainStatus']     = $request->domainStatus;
+        $query['FuncFilter']       = $request->funcFilter;
+        $query['FuncId']           = $request->funcId;
+        $query['OwnerId']          = $request->ownerId;
+        $query['PageNumber']       = $request->pageNumber;
+        $query['PageSize']         = $request->pageSize;
+        $query['ResourceGroupId']  = $request->resourceGroupId;
+        $query['SecurityToken']    = $request->securityToken;
+        $query['Tag']              = $request->tag;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnIpaUserDomains',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnIpaUserDomainsResponse::fromMap($this->doRPCRequest('DescribeDcdnIpaUserDomains', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnIpaUserDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2485,143 +4269,45 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param DescribeDcdnIpInfoRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param DescribeDcdnRealTimeDeliveryFieldRequest $request
+     * @param RuntimeOptions                           $runtime
      *
-     * @return DescribeDcdnIpInfoResponse
+     * @return DescribeDcdnRealTimeDeliveryFieldResponse
      */
-    public function describeDcdnIpInfoWithOptions($request, $runtime)
+    public function describeDcdnRealTimeDeliveryFieldWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['BusinessType'] = $request->businessType;
+        $query['OwnerId']      = $request->ownerId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnRealTimeDeliveryField',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnIpInfoResponse::fromMap($this->doRPCRequest('DescribeDcdnIpInfo', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnRealTimeDeliveryFieldResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDcdnIpInfoRequest $request
+     * @param DescribeDcdnRealTimeDeliveryFieldRequest $request
      *
-     * @return DescribeDcdnIpInfoResponse
+     * @return DescribeDcdnRealTimeDeliveryFieldResponse
      */
-    public function describeDcdnIpInfo($request)
+    public function describeDcdnRealTimeDeliveryField($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeDcdnIpInfoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDcdnOfflineLogDeliveryRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DescribeDcdnOfflineLogDeliveryResponse
-     */
-    public function describeDcdnOfflineLogDeliveryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDcdnOfflineLogDeliveryResponse::fromMap($this->doRPCRequest('DescribeDcdnOfflineLogDelivery', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDcdnOfflineLogDeliveryRequest $request
-     *
-     * @return DescribeDcdnOfflineLogDeliveryResponse
-     */
-    public function describeDcdnOfflineLogDelivery($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDcdnOfflineLogDeliveryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDcdnOfflineLogDeliveryFieldRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return DescribeDcdnOfflineLogDeliveryFieldResponse
-     */
-    public function describeDcdnOfflineLogDeliveryFieldWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDcdnOfflineLogDeliveryFieldResponse::fromMap($this->doRPCRequest('DescribeDcdnOfflineLogDeliveryField', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDcdnOfflineLogDeliveryFieldRequest $request
-     *
-     * @return DescribeDcdnOfflineLogDeliveryFieldResponse
-     */
-    public function describeDcdnOfflineLogDeliveryField($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDcdnOfflineLogDeliveryFieldWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDcdnOfflineLogDeliveryRegionsRequest $request
-     * @param RuntimeOptions                               $runtime
-     *
-     * @return DescribeDcdnOfflineLogDeliveryRegionsResponse
-     */
-    public function describeDcdnOfflineLogDeliveryRegionsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDcdnOfflineLogDeliveryRegionsResponse::fromMap($this->doRPCRequest('DescribeDcdnOfflineLogDeliveryRegions', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDcdnOfflineLogDeliveryRegionsRequest $request
-     *
-     * @return DescribeDcdnOfflineLogDeliveryRegionsResponse
-     */
-    public function describeDcdnOfflineLogDeliveryRegions($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDcdnOfflineLogDeliveryRegionsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDcdnOfflineLogDeliveryStatusRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return DescribeDcdnOfflineLogDeliveryStatusResponse
-     */
-    public function describeDcdnOfflineLogDeliveryStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeDcdnOfflineLogDeliveryStatusResponse::fromMap($this->doRPCRequest('DescribeDcdnOfflineLogDeliveryStatus', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDcdnOfflineLogDeliveryStatusRequest $request
-     *
-     * @return DescribeDcdnOfflineLogDeliveryStatusResponse
-     */
-    public function describeDcdnOfflineLogDeliveryStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDcdnOfflineLogDeliveryStatusWithOptions($request, $runtime);
+        return $this->describeDcdnRealTimeDeliveryFieldWithOptions($request, $runtime);
     }
 
     /**
@@ -2633,11 +4319,25 @@ class Dcdn extends OpenApiClient
     public function describeDcdnRefreshQuotaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnRefreshQuota',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnRefreshQuotaResponse::fromMap($this->doRPCRequest('DescribeDcdnRefreshQuota', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnRefreshQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2661,11 +4361,25 @@ class Dcdn extends OpenApiClient
     public function describeDcdnRefreshTaskByIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $query['TaskId']  = $request->taskId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnRefreshTaskById',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnRefreshTaskByIdResponse::fromMap($this->doRPCRequest('DescribeDcdnRefreshTaskById', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnRefreshTaskByIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2689,11 +4403,34 @@ class Dcdn extends OpenApiClient
     public function describeDcdnRefreshTasksWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['EndTime']       = $request->endTime;
+        $query['ObjectPath']    = $request->objectPath;
+        $query['ObjectType']    = $request->objectType;
+        $query['OwnerId']       = $request->ownerId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['StartTime']     = $request->startTime;
+        $query['Status']        = $request->status;
+        $query['TaskId']        = $request->taskId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnRefreshTasks',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnRefreshTasksResponse::fromMap($this->doRPCRequest('DescribeDcdnRefreshTasks', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnRefreshTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2717,11 +4454,25 @@ class Dcdn extends OpenApiClient
     public function describeDcdnRegionAndIspWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnRegionAndIsp',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnRegionAndIspResponse::fromMap($this->doRPCRequest('DescribeDcdnRegionAndIsp', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnRegionAndIspResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2745,11 +4496,31 @@ class Dcdn extends OpenApiClient
     public function describeDcdnReportWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['Area']       = $request->area;
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['HttpCode']   = $request->httpCode;
+        $query['IsOverseas'] = $request->isOverseas;
+        $query['OwnerId']    = $request->ownerId;
+        $query['ReportId']   = $request->reportId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnReport',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnReportResponse::fromMap($this->doRPCRequest('DescribeDcdnReport', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2773,11 +4544,25 @@ class Dcdn extends OpenApiClient
     public function describeDcdnReportListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['OwnerId']  = $request->ownerId;
+        $query['ReportId'] = $request->reportId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnReportList',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnReportListResponse::fromMap($this->doRPCRequest('DescribeDcdnReportList', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnReportListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2793,6 +4578,135 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeDcdnSLSRealtimeLogDeliveryRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeDcdnSLSRealtimeLogDeliveryResponse
+     */
+    public function describeDcdnSLSRealtimeLogDeliveryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                 = [];
+        $query['BusinessType'] = $request->businessType;
+        $query['OwnerId']      = $request->ownerId;
+        $query['ProjectName']  = $request->projectName;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnSLSRealtimeLogDelivery',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnSLSRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnSLSRealtimeLogDeliveryRequest $request
+     *
+     * @return DescribeDcdnSLSRealtimeLogDeliveryResponse
+     */
+    public function describeDcdnSLSRealtimeLogDelivery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnSLSRealtimeLogDeliveryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnSMCertificateDetailRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeDcdnSMCertificateDetailResponse
+     */
+    public function describeDcdnSMCertificateDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                   = [];
+        $query['CertIdentifier'] = $request->certIdentifier;
+        $query['OwnerId']        = $request->ownerId;
+        $query['SecurityToken']  = $request->securityToken;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnSMCertificateDetail',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnSMCertificateDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnSMCertificateDetailRequest $request
+     *
+     * @return DescribeDcdnSMCertificateDetailResponse
+     */
+    public function describeDcdnSMCertificateDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnSMCertificateDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnSMCertificateListRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDcdnSMCertificateListResponse
+     */
+    public function describeDcdnSMCertificateListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnSMCertificateList',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnSMCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnSMCertificateListRequest $request
+     *
+     * @return DescribeDcdnSMCertificateListResponse
+     */
+    public function describeDcdnSMCertificateList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnSMCertificateListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDcdnSecFuncInfoRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -2801,11 +4715,26 @@ class Dcdn extends OpenApiClient
     public function describeDcdnSecFuncInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['Lang']        = $request->lang;
+        $query['OwnerId']     = $request->ownerId;
+        $query['SecFuncType'] = $request->secFuncType;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnSecFuncInfo',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnSecFuncInfoResponse::fromMap($this->doRPCRequest('DescribeDcdnSecFuncInfo', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnSecFuncInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2821,6 +4750,47 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeDcdnSecSpecInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDcdnSecSpecInfoResponse
+     */
+    public function describeDcdnSecSpecInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnSecSpecInfo',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnSecSpecInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnSecSpecInfoRequest $request
+     *
+     * @return DescribeDcdnSecSpecInfoResponse
+     */
+    public function describeDcdnSecSpecInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnSecSpecInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDcdnServiceRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -2829,11 +4799,25 @@ class Dcdn extends OpenApiClient
     public function describeDcdnServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnService',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnServiceResponse::fromMap($this->doRPCRequest('DescribeDcdnService', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2857,11 +4841,24 @@ class Dcdn extends OpenApiClient
     public function describeDcdnStagingIpWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnStagingIp',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnStagingIpResponse::fromMap($this->doRPCRequest('DescribeDcdnStagingIp', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnStagingIpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2885,11 +4882,24 @@ class Dcdn extends OpenApiClient
     public function describeDcdnSubListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnSubList',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnSubListResponse::fromMap($this->doRPCRequest('DescribeDcdnSubList', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnSubListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2913,11 +4923,27 @@ class Dcdn extends OpenApiClient
     public function describeDcdnTagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['OwnerId']      = $request->ownerId;
+        $query['ResourceId']   = $request->resourceId;
+        $query['ResourceType'] = $request->resourceType;
+        $query['Tag']          = $request->tag;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnTagResources',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnTagResourcesResponse::fromMap($this->doRPCRequest('DescribeDcdnTagResources', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2941,11 +4967,27 @@ class Dcdn extends OpenApiClient
     public function describeDcdnTopDomainsByFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['EndTime']   = $request->endTime;
+        $query['Limit']     = $request->limit;
+        $query['OwnerId']   = $request->ownerId;
+        $query['StartTime'] = $request->startTime;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnTopDomainsByFlow',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnTopDomainsByFlowResponse::fromMap($this->doRPCRequest('DescribeDcdnTopDomainsByFlow', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnTopDomainsByFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2969,11 +5011,26 @@ class Dcdn extends OpenApiClient
     public function describeDcdnUserBillHistoryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['EndTime']   = $request->endTime;
+        $query['OwnerId']   = $request->ownerId;
+        $query['StartTime'] = $request->startTime;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnUserBillHistory',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnUserBillHistoryResponse::fromMap($this->doRPCRequest('DescribeDcdnUserBillHistory', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnUserBillHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2997,11 +5054,26 @@ class Dcdn extends OpenApiClient
     public function describeDcdnUserBillTypeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query              = [];
+        $query['EndTime']   = $request->endTime;
+        $query['OwnerId']   = $request->ownerId;
+        $query['StartTime'] = $request->startTime;
+        $req                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnUserBillType',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnUserBillTypeResponse::fromMap($this->doRPCRequest('DescribeDcdnUserBillType', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnUserBillTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3025,11 +5097,36 @@ class Dcdn extends OpenApiClient
     public function describeDcdnUserDomainsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['ChangeEndTime']    = $request->changeEndTime;
+        $query['ChangeStartTime']  = $request->changeStartTime;
+        $query['CheckDomainShow']  = $request->checkDomainShow;
+        $query['Coverage']         = $request->coverage;
+        $query['DomainName']       = $request->domainName;
+        $query['DomainSearchType'] = $request->domainSearchType;
+        $query['DomainStatus']     = $request->domainStatus;
+        $query['OwnerId']          = $request->ownerId;
+        $query['PageNumber']       = $request->pageNumber;
+        $query['PageSize']         = $request->pageSize;
+        $query['ResourceGroupId']  = $request->resourceGroupId;
+        $query['SecurityToken']    = $request->securityToken;
+        $query['Tag']              = $request->tag;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnUserDomains',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnUserDomainsResponse::fromMap($this->doRPCRequest('DescribeDcdnUserDomains', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnUserDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3053,11 +5150,30 @@ class Dcdn extends OpenApiClient
     public function describeDcdnUserDomainsByFuncWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['DomainName']      = $request->domainName;
+        $query['FuncFilter']      = $request->funcFilter;
+        $query['FuncId']          = $request->funcId;
+        $query['OwnerId']         = $request->ownerId;
+        $query['PageNumber']      = $request->pageNumber;
+        $query['PageSize']        = $request->pageSize;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnUserDomainsByFunc',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnUserDomainsByFuncResponse::fromMap($this->doRPCRequest('DescribeDcdnUserDomainsByFunc', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnUserDomainsByFuncResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3081,11 +5197,25 @@ class Dcdn extends OpenApiClient
     public function describeDcdnUserQuotaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnUserQuota',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnUserQuotaResponse::fromMap($this->doRPCRequest('DescribeDcdnUserQuota', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnUserQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3101,6 +5231,46 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeDcdnUserRealTimeDeliveryFieldRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeDcdnUserRealTimeDeliveryFieldResponse
+     */
+    public function describeDcdnUserRealTimeDeliveryFieldWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnUserRealTimeDeliveryField',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnUserRealTimeDeliveryFieldResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnUserRealTimeDeliveryFieldRequest $request
+     *
+     * @return DescribeDcdnUserRealTimeDeliveryFieldResponse
+     */
+    public function describeDcdnUserRealTimeDeliveryField($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnUserRealTimeDeliveryFieldWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDcdnUserResourcePackageRequest $request
      * @param RuntimeOptions                         $runtime
      *
@@ -3109,11 +5279,26 @@ class Dcdn extends OpenApiClient
     public function describeDcdnUserResourcePackageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['Status']        = $request->status;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnUserResourcePackage',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnUserResourcePackageResponse::fromMap($this->doRPCRequest('DescribeDcdnUserResourcePackage', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnUserResourcePackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3137,11 +5322,27 @@ class Dcdn extends OpenApiClient
     public function describeDcdnUserSecDropWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['Data']    = $request->data;
+        $query['Metric']  = $request->metric;
+        $query['OwnerId'] = $request->ownerId;
+        $query['SecFunc'] = $request->secFunc;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnUserSecDrop',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnUserSecDropResponse::fromMap($this->doRPCRequest('DescribeDcdnUserSecDrop', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnUserSecDropResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3165,11 +5366,33 @@ class Dcdn extends OpenApiClient
     public function describeDcdnUserSecDropByMinuteWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['EndTime']    = $request->endTime;
+        $query['Lang']       = $request->lang;
+        $query['Object']     = $request->object;
+        $query['OwnerId']    = $request->ownerId;
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $query['RuleName']   = $request->ruleName;
+        $query['SecFunc']    = $request->secFunc;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnUserSecDropByMinute',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnUserSecDropByMinuteResponse::fromMap($this->doRPCRequest('DescribeDcdnUserSecDropByMinute', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnUserSecDropByMinuteResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3193,11 +5416,24 @@ class Dcdn extends OpenApiClient
     public function describeDcdnUserTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnUserTags',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnUserTagsResponse::fromMap($this->doRPCRequest('DescribeDcdnUserTags', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnUserTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3221,11 +5457,25 @@ class Dcdn extends OpenApiClient
     public function describeDcdnVerifyContentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['OwnerId']    = $request->ownerId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnVerifyContent',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnVerifyContentResponse::fromMap($this->doRPCRequest('DescribeDcdnVerifyContent', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnVerifyContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3249,11 +5499,27 @@ class Dcdn extends OpenApiClient
     public function describeDcdnWafDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['DomainName']      = $request->domainName;
+        $query['OwnerId']         = $request->ownerId;
+        $query['RegionId']        = $request->regionId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnWafDomain',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDcdnWafDomainResponse::fromMap($this->doRPCRequest('DescribeDcdnWafDomain', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDcdnWafDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3269,6 +5535,48 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeDcdnsecServiceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeDcdnsecServiceResponse
+     */
+    public function describeDcdnsecServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnsecService',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnsecServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnsecServiceRequest $request
+     *
+     * @return DescribeDcdnsecServiceResponse
+     */
+    public function describeDcdnsecService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnsecServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeRoutineRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -3277,11 +5585,29 @@ class Dcdn extends OpenApiClient
     public function describeRoutineWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $body             = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRoutine',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRoutineResponse::fromMap($this->doRPCRequest('DescribeRoutine', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRoutineResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3305,11 +5631,24 @@ class Dcdn extends OpenApiClient
     public function describeRoutineCanaryEnvsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRoutineCanaryEnvs',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRoutineCanaryEnvsResponse::fromMap($this->doRPCRequest('DescribeRoutineCanaryEnvs', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRoutineCanaryEnvsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3333,11 +5672,32 @@ class Dcdn extends OpenApiClient
     public function describeRoutineCodeRevisionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $body             = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->selectCodeRevision)) {
+            $body['SelectCodeRevision'] = $request->selectCodeRevision;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRoutineCodeRevision',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRoutineCodeRevisionResponse::fromMap($this->doRPCRequest('DescribeRoutineCodeRevision', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRoutineCodeRevisionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3361,11 +5721,24 @@ class Dcdn extends OpenApiClient
     public function describeRoutineSpecWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRoutineSpec',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRoutineSpecResponse::fromMap($this->doRPCRequest('DescribeRoutineSpec', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRoutineSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3389,11 +5762,24 @@ class Dcdn extends OpenApiClient
     public function describeRoutineUserInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $req              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRoutineUserInfo',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeRoutineUserInfoResponse::fromMap($this->doRPCRequest('DescribeRoutineUserInfo', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeRoutineUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3417,11 +5803,25 @@ class Dcdn extends OpenApiClient
     public function describeUserDcdnIpaStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserDcdnIpaStatus',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeUserDcdnIpaStatusResponse::fromMap($this->doRPCRequest('DescribeUserDcdnIpaStatus', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeUserDcdnIpaStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3445,11 +5845,25 @@ class Dcdn extends OpenApiClient
     public function describeUserDcdnStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserDcdnStatus',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeUserDcdnStatusResponse::fromMap($this->doRPCRequest('DescribeUserDcdnStatus', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeUserDcdnStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3473,11 +5887,25 @@ class Dcdn extends OpenApiClient
     public function describeUserErStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserErStatus',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeUserErStatusResponse::fromMap($this->doRPCRequest('DescribeUserErStatus', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeUserErStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3501,11 +5929,25 @@ class Dcdn extends OpenApiClient
     public function describeUserLogserviceStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserLogserviceStatus',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeUserLogserviceStatusResponse::fromMap($this->doRPCRequest('DescribeUserLogserviceStatus', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeUserLogserviceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3518,62 +5960,6 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeUserLogserviceStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DisableDcdnDomainOfflineLogDeliveryRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return DisableDcdnDomainOfflineLogDeliveryResponse
-     */
-    public function disableDcdnDomainOfflineLogDeliveryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DisableDcdnDomainOfflineLogDeliveryResponse::fromMap($this->doRPCRequest('DisableDcdnDomainOfflineLogDelivery', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DisableDcdnDomainOfflineLogDeliveryRequest $request
-     *
-     * @return DisableDcdnDomainOfflineLogDeliveryResponse
-     */
-    public function disableDcdnDomainOfflineLogDelivery($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->disableDcdnDomainOfflineLogDeliveryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DisableDcdnOfflineLogDeliveryRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DisableDcdnOfflineLogDeliveryResponse
-     */
-    public function disableDcdnOfflineLogDeliveryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DisableDcdnOfflineLogDeliveryResponse::fromMap($this->doRPCRequest('DisableDcdnOfflineLogDelivery', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DisableDcdnOfflineLogDeliveryRequest $request
-     *
-     * @return DisableDcdnOfflineLogDeliveryResponse
-     */
-    public function disableDcdnOfflineLogDelivery($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->disableDcdnOfflineLogDeliveryWithOptions($request, $runtime);
     }
 
     /**
@@ -3590,11 +5976,35 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($tmpReq->envConf)) {
             $request->envConfShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->envConf, 'EnvConf', 'json');
         }
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $body             = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->envConfShrink)) {
+            $body['EnvConf'] = $request->envConfShrink;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'EditRoutineConf',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EditRoutineConfResponse::fromMap($this->doRPCRequest('EditRoutineConf', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EditRoutineConfResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3610,31 +6020,48 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param EnableDcdnDomainOfflineLogDeliveryRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @param ListDcdnRealTimeDeliveryProjectRequest $request
+     * @param RuntimeOptions                         $runtime
      *
-     * @return EnableDcdnDomainOfflineLogDeliveryResponse
+     * @return ListDcdnRealTimeDeliveryProjectResponse
      */
-    public function enableDcdnDomainOfflineLogDeliveryWithOptions($request, $runtime)
+    public function listDcdnRealTimeDeliveryProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['BusinessType'] = $request->businessType;
+        $query['DomainName']   = $request->domainName;
+        $query['OwnerId']      = $request->ownerId;
+        $query['PageNumber']   = $request->pageNumber;
+        $query['PageSize']     = $request->pageSize;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDcdnRealTimeDeliveryProject',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableDcdnDomainOfflineLogDeliveryResponse::fromMap($this->doRPCRequest('EnableDcdnDomainOfflineLogDelivery', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListDcdnRealTimeDeliveryProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param EnableDcdnDomainOfflineLogDeliveryRequest $request
+     * @param ListDcdnRealTimeDeliveryProjectRequest $request
      *
-     * @return EnableDcdnDomainOfflineLogDeliveryResponse
+     * @return ListDcdnRealTimeDeliveryProjectResponse
      */
-    public function enableDcdnDomainOfflineLogDelivery($request)
+    public function listDcdnRealTimeDeliveryProject($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->enableDcdnDomainOfflineLogDeliveryWithOptions($request, $runtime);
+        return $this->listDcdnRealTimeDeliveryProjectWithOptions($request, $runtime);
     }
 
     /**
@@ -3646,11 +6073,26 @@ class Dcdn extends OpenApiClient
     public function modifyDCdnDomainSchdmByPropertyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['OwnerId']    = $request->ownerId;
+        $query['Property']   = $request->property;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDCdnDomainSchdmByProperty',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyDCdnDomainSchdmByPropertyResponse::fromMap($this->doRPCRequest('ModifyDCdnDomainSchdmByProperty', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDCdnDomainSchdmByPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3674,11 +6116,27 @@ class Dcdn extends OpenApiClient
     public function openDcdnServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['BillType']          = $request->billType;
+        $query['OwnerId']           = $request->ownerId;
+        $query['SecurityToken']     = $request->securityToken;
+        $query['WebsocketBillType'] = $request->websocketBillType;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OpenDcdnService',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OpenDcdnServiceResponse::fromMap($this->doRPCRequest('OpenDcdnService', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OpenDcdnServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3702,11 +6160,27 @@ class Dcdn extends OpenApiClient
     public function preloadDcdnObjectCachesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['Area']          = $request->area;
+        $query['ObjectPath']    = $request->objectPath;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PreloadDcdnObjectCaches',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PreloadDcdnObjectCachesResponse::fromMap($this->doRPCRequest('PreloadDcdnObjectCaches', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PreloadDcdnObjectCachesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3730,11 +6204,26 @@ class Dcdn extends OpenApiClient
     public function publishDcdnStagingConfigToProductionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['DomainName']   = $request->domainName;
+        $query['FunctionName'] = $request->functionName;
+        $query['OwnerId']      = $request->ownerId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PublishDcdnStagingConfigToProduction',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PublishDcdnStagingConfigToProductionResponse::fromMap($this->doRPCRequest('PublishDcdnStagingConfigToProduction', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PublishDcdnStagingConfigToProductionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3763,11 +6252,35 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($tmpReq->envs)) {
             $request->envsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->envs, 'Envs', 'json');
         }
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $body             = [];
+        if (!Utils::isUnset($request->envsShrink)) {
+            $body['Envs'] = $request->envsShrink;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->selectCodeRevision)) {
+            $body['SelectCodeRevision'] = $request->selectCodeRevision;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PublishRoutineCodeRevision',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PublishRoutineCodeRevisionResponse::fromMap($this->doRPCRequest('PublishRoutineCodeRevision', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PublishRoutineCodeRevisionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3791,11 +6304,27 @@ class Dcdn extends OpenApiClient
     public function refreshDcdnObjectCachesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ObjectPath']    = $request->objectPath;
+        $query['ObjectType']    = $request->objectType;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshDcdnObjectCaches',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RefreshDcdnObjectCachesResponse::fromMap($this->doRPCRequest('RefreshDcdnObjectCaches', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RefreshDcdnObjectCachesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3819,11 +6348,25 @@ class Dcdn extends OpenApiClient
     public function rollbackDcdnStagingConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['OwnerId']    = $request->ownerId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RollbackDcdnStagingConfig',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RollbackDcdnStagingConfigResponse::fromMap($this->doRPCRequest('RollbackDcdnStagingConfig', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RollbackDcdnStagingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3847,11 +6390,31 @@ class Dcdn extends OpenApiClient
     public function setDcdnConfigOfVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ConfigId']      = $request->configId;
+        $query['FunctionArgs']  = $request->functionArgs;
+        $query['FunctionId']    = $request->functionId;
+        $query['FunctionName']  = $request->functionName;
+        $query['OwnerAccount']  = $request->ownerAccount;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $query['VersionId']     = $request->versionId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDcdnConfigOfVersion',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDcdnConfigOfVersionResponse::fromMap($this->doRPCRequest('SetDcdnConfigOfVersion', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDcdnConfigOfVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3867,34 +6430,6 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param SetDcdnDomainCertificateRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return SetDcdnDomainCertificateResponse
-     */
-    public function setDcdnDomainCertificateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SetDcdnDomainCertificateResponse::fromMap($this->doRPCRequest('SetDcdnDomainCertificate', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SetDcdnDomainCertificateRequest $request
-     *
-     * @return SetDcdnDomainCertificateResponse
-     */
-    public function setDcdnDomainCertificate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->setDcdnDomainCertificateWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SetDcdnDomainCSRCertificateRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -3903,11 +6438,26 @@ class Dcdn extends OpenApiClient
     public function setDcdnDomainCSRCertificateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                      = [];
+        $query['DomainName']        = $request->domainName;
+        $query['OwnerId']           = $request->ownerId;
+        $query['ServerCertificate'] = $request->serverCertificate;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDcdnDomainCSRCertificate',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDcdnDomainCSRCertificateResponse::fromMap($this->doRPCRequest('SetDcdnDomainCSRCertificate', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDcdnDomainCSRCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3923,6 +6473,101 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param SetDcdnDomainCertificateRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SetDcdnDomainCertificateResponse
+     */
+    public function setDcdnDomainCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['CertName']      = $request->certName;
+        $query['CertType']      = $request->certType;
+        $query['DomainName']    = $request->domainName;
+        $query['ForceSet']      = $request->forceSet;
+        $query['OwnerId']       = $request->ownerId;
+        $query['Region']        = $request->region;
+        $query['SSLPri']        = $request->SSLPri;
+        $query['SSLProtocol']   = $request->SSLProtocol;
+        $query['SSLPub']        = $request->SSLPub;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDcdnDomainCertificate',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetDcdnDomainCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetDcdnDomainCertificateRequest $request
+     *
+     * @return SetDcdnDomainCertificateResponse
+     */
+    public function setDcdnDomainCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setDcdnDomainCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetDcdnDomainSMCertificateRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return SetDcdnDomainSMCertificateResponse
+     */
+    public function setDcdnDomainSMCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                   = [];
+        $query['CertIdentifier'] = $request->certIdentifier;
+        $query['DomainName']     = $request->domainName;
+        $query['OwnerId']        = $request->ownerId;
+        $query['SSLProtocol']    = $request->SSLProtocol;
+        $query['SecurityToken']  = $request->securityToken;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDcdnDomainSMCertificate',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetDcdnDomainSMCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetDcdnDomainSMCertificateRequest $request
+     *
+     * @return SetDcdnDomainSMCertificateResponse
+     */
+    public function setDcdnDomainSMCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setDcdnDomainSMCertificateWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SetDcdnDomainStagingConfigRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -3931,11 +6576,26 @@ class Dcdn extends OpenApiClient
     public function setDcdnDomainStagingConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['Functions']  = $request->functions;
+        $query['OwnerId']    = $request->ownerId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDcdnDomainStagingConfig',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetDcdnDomainStagingConfigResponse::fromMap($this->doRPCRequest('SetDcdnDomainStagingConfig', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetDcdnDomainStagingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3948,6 +6608,103 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setDcdnDomainStagingConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetDcdnFullDomainsBlockIPRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SetDcdnFullDomainsBlockIPResponse
+     */
+    public function setDcdnFullDomainsBlockIPWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $body             = [];
+        if (!Utils::isUnset($request->blockInterval)) {
+            $body['BlockInterval'] = $request->blockInterval;
+        }
+        if (!Utils::isUnset($request->IPList)) {
+            $body['IPList'] = $request->IPList;
+        }
+        if (!Utils::isUnset($request->operationType)) {
+            $body['OperationType'] = $request->operationType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDcdnFullDomainsBlockIP',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetDcdnFullDomainsBlockIPResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetDcdnFullDomainsBlockIPRequest $request
+     *
+     * @return SetDcdnFullDomainsBlockIPResponse
+     */
+    public function setDcdnFullDomainsBlockIP($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setDcdnFullDomainsBlockIPWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetDcdnUserConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SetDcdnUserConfigResponse
+     */
+    public function setDcdnUserConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['Configs']       = $request->configs;
+        $query['FunctionId']    = $request->functionId;
+        $query['OwnerAccount']  = $request->ownerAccount;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDcdnUserConfig',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetDcdnUserConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetDcdnUserConfigRequest $request
+     *
+     * @return SetDcdnUserConfigResponse
+     */
+    public function setDcdnUserConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setDcdnUserConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -3964,11 +6721,29 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($tmpReq->subdomains)) {
             $request->subdomainsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->subdomains, 'Subdomains', 'json');
         }
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $body             = [];
+        if (!Utils::isUnset($request->subdomainsShrink)) {
+            $body['Subdomains'] = $request->subdomainsShrink;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SetRoutineSubdomain',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SetRoutineSubdomainResponse::fromMap($this->doRPCRequest('SetRoutineSubdomain', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SetRoutineSubdomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3992,11 +6767,26 @@ class Dcdn extends OpenApiClient
     public function startDcdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartDcdnDomain',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StartDcdnDomainResponse::fromMap($this->doRPCRequest('StartDcdnDomain', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartDcdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4020,11 +6810,26 @@ class Dcdn extends OpenApiClient
     public function startDcdnIpaDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartDcdnIpaDomain',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StartDcdnIpaDomainResponse::fromMap($this->doRPCRequest('StartDcdnIpaDomain', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartDcdnIpaDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4048,11 +6853,26 @@ class Dcdn extends OpenApiClient
     public function stopDcdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopDcdnDomain',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StopDcdnDomainResponse::fromMap($this->doRPCRequest('StopDcdnDomain', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopDcdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4076,11 +6896,26 @@ class Dcdn extends OpenApiClient
     public function stopDcdnIpaDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['DomainName']    = $request->domainName;
+        $query['OwnerId']       = $request->ownerId;
+        $query['SecurityToken'] = $request->securityToken;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopDcdnIpaDomain',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StopDcdnIpaDomainResponse::fromMap($this->doRPCRequest('StopDcdnIpaDomain', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopDcdnIpaDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4104,11 +6939,27 @@ class Dcdn extends OpenApiClient
     public function tagDcdnResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['OwnerId']      = $request->ownerId;
+        $query['ResourceId']   = $request->resourceId;
+        $query['ResourceType'] = $request->resourceType;
+        $query['Tag']          = $request->tag;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagDcdnResources',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return TagDcdnResourcesResponse::fromMap($this->doRPCRequest('TagDcdnResources', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return TagDcdnResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4132,11 +6983,28 @@ class Dcdn extends OpenApiClient
     public function untagDcdnResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['All']          = $request->all;
+        $query['OwnerId']      = $request->ownerId;
+        $query['ResourceId']   = $request->resourceId;
+        $query['ResourceType'] = $request->resourceType;
+        $query['TagKey']       = $request->tagKey;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagDcdnResources',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UntagDcdnResourcesResponse::fromMap($this->doRPCRequest('UntagDcdnResources', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UntagDcdnResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4152,27 +7020,52 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * @param UpdateDcdnDeliverTaskRequest $tmpReq
+     * @param UpdateDcdnDeliverTaskRequest $request
      * @param RuntimeOptions               $runtime
      *
      * @return UpdateDcdnDeliverTaskResponse
      */
-    public function updateDcdnDeliverTaskWithOptions($tmpReq, $runtime)
+    public function updateDcdnDeliverTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new UpdateDcdnDeliverTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deliver)) {
-            $request->deliverShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deliver, 'Deliver', 'json');
+        Utils::validateModel($request);
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $body             = [];
+        if (!Utils::isUnset($request->deliver)) {
+            $body['Deliver'] = $request->deliver;
         }
-        if (!Utils::isUnset($tmpReq->schedule)) {
-            $request->scheduleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->schedule, 'Schedule', 'json');
+        if (!Utils::isUnset($request->deliverId)) {
+            $body['DeliverId'] = $request->deliverId;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $body['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->reports)) {
+            $body['Reports'] = $request->reports;
+        }
+        if (!Utils::isUnset($request->schedule)) {
+            $body['Schedule'] = $request->schedule;
         }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDcdnDeliverTask',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDcdnDeliverTaskResponse::fromMap($this->doRPCRequest('UpdateDcdnDeliverTask', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDcdnDeliverTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4196,11 +7089,29 @@ class Dcdn extends OpenApiClient
     public function updateDcdnDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['DomainName']      = $request->domainName;
+        $query['OwnerId']         = $request->ownerId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['SecurityToken']   = $request->securityToken;
+        $query['Sources']         = $request->sources;
+        $query['TopLevelDomain']  = $request->topLevelDomain;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDcdnDomain',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDcdnDomainResponse::fromMap($this->doRPCRequest('UpdateDcdnDomain', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDcdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4224,11 +7135,29 @@ class Dcdn extends OpenApiClient
     public function updateDcdnIpaDomainWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                    = [];
+        $query['DomainName']      = $request->domainName;
+        $query['OwnerId']         = $request->ownerId;
+        $query['ResourceGroupId'] = $request->resourceGroupId;
+        $query['SecurityToken']   = $request->securityToken;
+        $query['Sources']         = $request->sources;
+        $query['TopLevelDomain']  = $request->topLevelDomain;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDcdnIpaDomain',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDcdnIpaDomainResponse::fromMap($this->doRPCRequest('UpdateDcdnIpaDomain', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDcdnIpaDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4244,6 +7173,70 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param UpdateDcdnSLSRealtimeLogDeliveryRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return UpdateDcdnSLSRealtimeLogDeliveryResponse
+     */
+    public function updateDcdnSLSRealtimeLogDeliveryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $body             = [];
+        if (!Utils::isUnset($request->dataCenter)) {
+            $body['DataCenter'] = $request->dataCenter;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $body['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->SLSLogStore)) {
+            $body['SLSLogStore'] = $request->SLSLogStore;
+        }
+        if (!Utils::isUnset($request->SLSProject)) {
+            $body['SLSProject'] = $request->SLSProject;
+        }
+        if (!Utils::isUnset($request->SLSRegion)) {
+            $body['SLSRegion'] = $request->SLSRegion;
+        }
+        if (!Utils::isUnset($request->samplingRate)) {
+            $body['SamplingRate'] = $request->samplingRate;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDcdnSLSRealtimeLogDelivery',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDcdnSLSRealtimeLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDcdnSLSRealtimeLogDeliveryRequest $request
+     *
+     * @return UpdateDcdnSLSRealtimeLogDeliveryResponse
+     */
+    public function updateDcdnSLSRealtimeLogDelivery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDcdnSLSRealtimeLogDeliveryWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateDcdnSubTaskRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -4252,11 +7245,38 @@ class Dcdn extends OpenApiClient
     public function updateDcdnSubTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $body             = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $body['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->reportIds)) {
+            $body['ReportIds'] = $request->reportIds;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDcdnSubTask',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateDcdnSubTaskResponse::fromMap($this->doRPCRequest('UpdateDcdnSubTask', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateDcdnSubTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4272,6 +7292,46 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param UpdateDcdnUserRealTimeDeliveryFieldRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return UpdateDcdnUserRealTimeDeliveryFieldResponse
+     */
+    public function updateDcdnUserRealTimeDeliveryFieldWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDcdnUserRealTimeDeliveryField',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDcdnUserRealTimeDeliveryFieldResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDcdnUserRealTimeDeliveryFieldRequest $request
+     *
+     * @return UpdateDcdnUserRealTimeDeliveryFieldResponse
+     */
+    public function updateDcdnUserRealTimeDeliveryField($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDcdnUserRealTimeDeliveryFieldWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UploadRoutineCodeRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -4280,11 +7340,32 @@ class Dcdn extends OpenApiClient
     public function uploadRoutineCodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $body             = [];
+        if (!Utils::isUnset($request->codeDescription)) {
+            $body['CodeDescription'] = $request->codeDescription;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UploadRoutineCode',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UploadRoutineCodeResponse::fromMap($this->doRPCRequest('UploadRoutineCode', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UploadRoutineCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4308,11 +7389,32 @@ class Dcdn extends OpenApiClient
     public function uploadStagingRoutineCodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query            = [];
+        $query['OwnerId'] = $request->ownerId;
+        $body             = [];
+        if (!Utils::isUnset($request->codeDescription)) {
+            $body['CodeDescription'] = $request->codeDescription;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UploadStagingRoutineCode',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UploadStagingRoutineCodeResponse::fromMap($this->doRPCRequest('UploadStagingRoutineCode', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UploadStagingRoutineCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4336,11 +7438,26 @@ class Dcdn extends OpenApiClient
     public function verifyDcdnDomainOwnerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DomainName'] = $request->domainName;
+        $query['OwnerId']    = $request->ownerId;
+        $query['VerifyType'] = $request->verifyType;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'VerifyDcdnDomainOwner',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return VerifyDcdnDomainOwnerResponse::fromMap($this->doRPCRequest('VerifyDcdnDomainOwner', '2018-01-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return VerifyDcdnDomainOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

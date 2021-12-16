@@ -11,21 +11,21 @@ class DescribeDcdnDomainPropertyResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $domainName;
 
     /**
      * @var string
      */
     public $protocol;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'  => 'RequestId',
         'domainName' => 'DomainName',
         'protocol'   => 'Protocol',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DescribeDcdnDomainPropertyResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DescribeDcdnDomainPropertyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

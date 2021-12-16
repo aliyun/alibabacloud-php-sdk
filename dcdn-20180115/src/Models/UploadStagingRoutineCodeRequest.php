@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UploadStagingRoutineCodeRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $ownerId;
+    public $codeDescription;
 
     /**
      * @var string
@@ -19,13 +19,13 @@ class UploadStagingRoutineCodeRequest extends Model
     public $name;
 
     /**
-     * @var string
+     * @var int
      */
-    public $codeDescription;
+    public $ownerId;
     protected $_name = [
-        'ownerId'         => 'OwnerId',
-        'name'            => 'Name',
         'codeDescription' => 'CodeDescription',
+        'name'            => 'Name',
+        'ownerId'         => 'OwnerId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class UploadStagingRoutineCodeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
+        if (null !== $this->codeDescription) {
+            $res['CodeDescription'] = $this->codeDescription;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->codeDescription) {
-            $res['CodeDescription'] = $this->codeDescription;
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class UploadStagingRoutineCodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
+        if (isset($map['CodeDescription'])) {
+            $model->codeDescription = $map['CodeDescription'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['CodeDescription'])) {
-            $model->codeDescription = $map['CodeDescription'];
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

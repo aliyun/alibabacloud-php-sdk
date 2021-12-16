@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnSecFuncInfoResponseBody extends Model
 {
     /**
-     * @var string
+     * @var content[]
      */
-    public $requestId;
+    public $content;
 
     /**
      * @var string
@@ -22,23 +22,23 @@ class DescribeDcdnSecFuncInfoResponseBody extends Model
     /**
      * @var string
      */
-    public $retCode;
+    public $httpStatus;
 
     /**
      * @var string
      */
-    public $httpStatus;
+    public $requestId;
 
     /**
-     * @var content[]
+     * @var string
      */
-    public $content;
+    public $retCode;
     protected $_name = [
-        'requestId'   => 'RequestId',
-        'description' => 'Description',
-        'retCode'     => 'RetCode',
-        'httpStatus'  => 'HttpStatus',
         'content'     => 'Content',
+        'description' => 'Description',
+        'httpStatus'  => 'HttpStatus',
+        'requestId'   => 'RequestId',
+        'retCode'     => 'RetCode',
     ];
 
     public function validate()
@@ -48,18 +48,6 @@ class DescribeDcdnSecFuncInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->retCode) {
-            $res['RetCode'] = $this->retCode;
-        }
-        if (null !== $this->httpStatus) {
-            $res['HttpStatus'] = $this->httpStatus;
-        }
         if (null !== $this->content) {
             $res['Content'] = [];
             if (null !== $this->content && \is_array($this->content)) {
@@ -68,6 +56,18 @@ class DescribeDcdnSecFuncInfoResponseBody extends Model
                     $res['Content'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->httpStatus) {
+            $res['HttpStatus'] = $this->httpStatus;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->retCode) {
+            $res['RetCode'] = $this->retCode;
         }
 
         return $res;
@@ -81,18 +81,6 @@ class DescribeDcdnSecFuncInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['RetCode'])) {
-            $model->retCode = $map['RetCode'];
-        }
-        if (isset($map['HttpStatus'])) {
-            $model->httpStatus = $map['HttpStatus'];
-        }
         if (isset($map['Content'])) {
             if (!empty($map['Content'])) {
                 $model->content = [];
@@ -101,6 +89,18 @@ class DescribeDcdnSecFuncInfoResponseBody extends Model
                     $model->content[$n++] = null !== $item ? content::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['HttpStatus'])) {
+            $model->httpStatus = $map['HttpStatus'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['RetCode'])) {
+            $model->retCode = $map['RetCode'];
         }
 
         return $model;

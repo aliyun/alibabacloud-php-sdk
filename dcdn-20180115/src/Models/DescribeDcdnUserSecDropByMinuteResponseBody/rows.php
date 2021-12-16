@@ -14,11 +14,6 @@ class rows extends Model
     public $domain;
 
     /**
-     * @var string
-     */
-    public $tmStr;
-
-    /**
      * @var int
      */
     public $drops;
@@ -31,19 +26,24 @@ class rows extends Model
     /**
      * @var string
      */
+    public $ruleName;
+
+    /**
+     * @var string
+     */
     public $secFunc;
 
     /**
      * @var string
      */
-    public $ruleName;
+    public $tmStr;
     protected $_name = [
         'domain'   => 'Domain',
-        'tmStr'    => 'TmStr',
         'drops'    => 'Drops',
         'object'   => 'Object',
-        'secFunc'  => 'SecFunc',
         'ruleName' => 'RuleName',
+        'secFunc'  => 'SecFunc',
+        'tmStr'    => 'TmStr',
     ];
 
     public function validate()
@@ -56,20 +56,20 @@ class rows extends Model
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
-        if (null !== $this->tmStr) {
-            $res['TmStr'] = $this->tmStr;
-        }
         if (null !== $this->drops) {
             $res['Drops'] = $this->drops;
         }
         if (null !== $this->object) {
             $res['Object'] = $this->object;
         }
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
+        }
         if (null !== $this->secFunc) {
             $res['SecFunc'] = $this->secFunc;
         }
-        if (null !== $this->ruleName) {
-            $res['RuleName'] = $this->ruleName;
+        if (null !== $this->tmStr) {
+            $res['TmStr'] = $this->tmStr;
         }
 
         return $res;
@@ -86,20 +86,20 @@ class rows extends Model
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
-        if (isset($map['TmStr'])) {
-            $model->tmStr = $map['TmStr'];
-        }
         if (isset($map['Drops'])) {
             $model->drops = $map['Drops'];
         }
         if (isset($map['Object'])) {
             $model->object = $map['Object'];
         }
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
+        }
         if (isset($map['SecFunc'])) {
             $model->secFunc = $map['SecFunc'];
         }
-        if (isset($map['RuleName'])) {
-            $model->ruleName = $map['RuleName'];
+        if (isset($map['TmStr'])) {
+            $model->tmStr = $map['TmStr'];
         }
 
         return $model;

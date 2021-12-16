@@ -11,7 +11,12 @@ class trafficDataModule extends Model
     /**
      * @var string
      */
-    public $type;
+    public $area;
+
+    /**
+     * @var float
+     */
+    public $bps;
 
     /**
      * @var string
@@ -26,18 +31,13 @@ class trafficDataModule extends Model
     /**
      * @var string
      */
-    public $area;
-
-    /**
-     * @var float
-     */
-    public $bps;
+    public $type;
     protected $_name = [
-        'type'      => 'Type',
-        'domain'    => 'Domain',
-        'timeStamp' => 'TimeStamp',
         'area'      => 'Area',
         'bps'       => 'Bps',
+        'domain'    => 'Domain',
+        'timeStamp' => 'TimeStamp',
+        'type'      => 'Type',
     ];
 
     public function validate()
@@ -47,8 +47,11 @@ class trafficDataModule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->area) {
+            $res['Area'] = $this->area;
+        }
+        if (null !== $this->bps) {
+            $res['Bps'] = $this->bps;
         }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
@@ -56,11 +59,8 @@ class trafficDataModule extends Model
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
-        if (null !== $this->area) {
-            $res['Area'] = $this->area;
-        }
-        if (null !== $this->bps) {
-            $res['Bps'] = $this->bps;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -74,8 +74,11 @@ class trafficDataModule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['Area'])) {
+            $model->area = $map['Area'];
+        }
+        if (isset($map['Bps'])) {
+            $model->bps = $map['Bps'];
         }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
@@ -83,11 +86,8 @@ class trafficDataModule extends Model
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }
-        if (isset($map['Area'])) {
-            $model->area = $map['Area'];
-        }
-        if (isset($map['Bps'])) {
-            $model->bps = $map['Bps'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

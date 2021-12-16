@@ -12,11 +12,6 @@ class DescribeDcdnUserSecDropByMinuteResponseBody extends Model
     /**
      * @var string
      */
-    public $requestId;
-
-    /**
-     * @var string
-     */
     public $description;
 
     /**
@@ -35,22 +30,27 @@ class DescribeDcdnUserSecDropByMinuteResponseBody extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $totalCount;
+    public $requestId;
 
     /**
      * @var rows[]
      */
     public $rows;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'requestId'   => 'RequestId',
         'description' => 'Description',
         'len'         => 'Len',
         'pageNumber'  => 'PageNumber',
         'pageSize'    => 'PageSize',
-        'totalCount'  => 'TotalCount',
+        'requestId'   => 'RequestId',
         'rows'        => 'Rows',
+        'totalCount'  => 'TotalCount',
     ];
 
     public function validate()
@@ -60,9 +60,6 @@ class DescribeDcdnUserSecDropByMinuteResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -75,8 +72,8 @@ class DescribeDcdnUserSecDropByMinuteResponseBody extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->rows) {
             $res['Rows'] = [];
@@ -86,6 +83,9 @@ class DescribeDcdnUserSecDropByMinuteResponseBody extends Model
                     $res['Rows'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -99,9 +99,6 @@ class DescribeDcdnUserSecDropByMinuteResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -114,8 +111,8 @@ class DescribeDcdnUserSecDropByMinuteResponseBody extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Rows'])) {
             if (!empty($map['Rows'])) {
@@ -125,6 +122,9 @@ class DescribeDcdnUserSecDropByMinuteResponseBody extends Model
                     $model->rows[$n++] = null !== $item ? rows::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

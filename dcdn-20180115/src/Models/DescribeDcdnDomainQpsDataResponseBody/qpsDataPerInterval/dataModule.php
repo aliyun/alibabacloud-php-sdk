@@ -11,7 +11,7 @@ class dataModule extends Model
     /**
      * @var float
      */
-    public $dynamicHttpsAcc;
+    public $acc;
 
     /**
      * @var float
@@ -21,22 +21,12 @@ class dataModule extends Model
     /**
      * @var float
      */
-    public $qps;
+    public $dynamicHttpQps;
 
     /**
      * @var float
      */
-    public $staticHttpsAcc;
-
-    /**
-     * @var float
-     */
-    public $staticHttpQps;
-
-    /**
-     * @var float
-     */
-    public $staticHttpAcc;
+    public $dynamicHttpsAcc;
 
     /**
      * @var float
@@ -46,7 +36,22 @@ class dataModule extends Model
     /**
      * @var float
      */
-    public $acc;
+    public $qps;
+
+    /**
+     * @var float
+     */
+    public $staticHttpAcc;
+
+    /**
+     * @var float
+     */
+    public $staticHttpQps;
+
+    /**
+     * @var float
+     */
+    public $staticHttpsAcc;
 
     /**
      * @var float
@@ -54,25 +59,20 @@ class dataModule extends Model
     public $staticHttpsQps;
 
     /**
-     * @var float
-     */
-    public $dynamicHttpQps;
-
-    /**
      * @var string
      */
     public $timeStamp;
     protected $_name = [
-        'dynamicHttpsAcc' => 'DynamicHttpsAcc',
-        'dynamicHttpAcc'  => 'DynamicHttpAcc',
-        'qps'             => 'Qps',
-        'staticHttpsAcc'  => 'StaticHttpsAcc',
-        'staticHttpQps'   => 'StaticHttpQps',
-        'staticHttpAcc'   => 'StaticHttpAcc',
-        'dynamicHttpsQps' => 'DynamicHttpsQps',
         'acc'             => 'Acc',
-        'staticHttpsQps'  => 'StaticHttpsQps',
+        'dynamicHttpAcc'  => 'DynamicHttpAcc',
         'dynamicHttpQps'  => 'DynamicHttpQps',
+        'dynamicHttpsAcc' => 'DynamicHttpsAcc',
+        'dynamicHttpsQps' => 'DynamicHttpsQps',
+        'qps'             => 'Qps',
+        'staticHttpAcc'   => 'StaticHttpAcc',
+        'staticHttpQps'   => 'StaticHttpQps',
+        'staticHttpsAcc'  => 'StaticHttpsAcc',
+        'staticHttpsQps'  => 'StaticHttpsQps',
         'timeStamp'       => 'TimeStamp',
     ];
 
@@ -83,35 +83,35 @@ class dataModule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dynamicHttpsAcc) {
-            $res['DynamicHttpsAcc'] = $this->dynamicHttpsAcc;
+        if (null !== $this->acc) {
+            $res['Acc'] = $this->acc;
         }
         if (null !== $this->dynamicHttpAcc) {
             $res['DynamicHttpAcc'] = $this->dynamicHttpAcc;
         }
-        if (null !== $this->qps) {
-            $res['Qps'] = $this->qps;
+        if (null !== $this->dynamicHttpQps) {
+            $res['DynamicHttpQps'] = $this->dynamicHttpQps;
         }
-        if (null !== $this->staticHttpsAcc) {
-            $res['StaticHttpsAcc'] = $this->staticHttpsAcc;
-        }
-        if (null !== $this->staticHttpQps) {
-            $res['StaticHttpQps'] = $this->staticHttpQps;
-        }
-        if (null !== $this->staticHttpAcc) {
-            $res['StaticHttpAcc'] = $this->staticHttpAcc;
+        if (null !== $this->dynamicHttpsAcc) {
+            $res['DynamicHttpsAcc'] = $this->dynamicHttpsAcc;
         }
         if (null !== $this->dynamicHttpsQps) {
             $res['DynamicHttpsQps'] = $this->dynamicHttpsQps;
         }
-        if (null !== $this->acc) {
-            $res['Acc'] = $this->acc;
+        if (null !== $this->qps) {
+            $res['Qps'] = $this->qps;
+        }
+        if (null !== $this->staticHttpAcc) {
+            $res['StaticHttpAcc'] = $this->staticHttpAcc;
+        }
+        if (null !== $this->staticHttpQps) {
+            $res['StaticHttpQps'] = $this->staticHttpQps;
+        }
+        if (null !== $this->staticHttpsAcc) {
+            $res['StaticHttpsAcc'] = $this->staticHttpsAcc;
         }
         if (null !== $this->staticHttpsQps) {
             $res['StaticHttpsQps'] = $this->staticHttpsQps;
-        }
-        if (null !== $this->dynamicHttpQps) {
-            $res['DynamicHttpQps'] = $this->dynamicHttpQps;
         }
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
@@ -128,35 +128,35 @@ class dataModule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DynamicHttpsAcc'])) {
-            $model->dynamicHttpsAcc = $map['DynamicHttpsAcc'];
+        if (isset($map['Acc'])) {
+            $model->acc = $map['Acc'];
         }
         if (isset($map['DynamicHttpAcc'])) {
             $model->dynamicHttpAcc = $map['DynamicHttpAcc'];
         }
-        if (isset($map['Qps'])) {
-            $model->qps = $map['Qps'];
+        if (isset($map['DynamicHttpQps'])) {
+            $model->dynamicHttpQps = $map['DynamicHttpQps'];
         }
-        if (isset($map['StaticHttpsAcc'])) {
-            $model->staticHttpsAcc = $map['StaticHttpsAcc'];
-        }
-        if (isset($map['StaticHttpQps'])) {
-            $model->staticHttpQps = $map['StaticHttpQps'];
-        }
-        if (isset($map['StaticHttpAcc'])) {
-            $model->staticHttpAcc = $map['StaticHttpAcc'];
+        if (isset($map['DynamicHttpsAcc'])) {
+            $model->dynamicHttpsAcc = $map['DynamicHttpsAcc'];
         }
         if (isset($map['DynamicHttpsQps'])) {
             $model->dynamicHttpsQps = $map['DynamicHttpsQps'];
         }
-        if (isset($map['Acc'])) {
-            $model->acc = $map['Acc'];
+        if (isset($map['Qps'])) {
+            $model->qps = $map['Qps'];
+        }
+        if (isset($map['StaticHttpAcc'])) {
+            $model->staticHttpAcc = $map['StaticHttpAcc'];
+        }
+        if (isset($map['StaticHttpQps'])) {
+            $model->staticHttpQps = $map['StaticHttpQps'];
+        }
+        if (isset($map['StaticHttpsAcc'])) {
+            $model->staticHttpsAcc = $map['StaticHttpsAcc'];
         }
         if (isset($map['StaticHttpsQps'])) {
             $model->staticHttpsQps = $map['StaticHttpsQps'];
-        }
-        if (isset($map['DynamicHttpQps'])) {
-            $model->dynamicHttpQps = $map['DynamicHttpQps'];
         }
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];

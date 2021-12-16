@@ -11,12 +11,7 @@ class billTypeDataItem extends Model
     /**
      * @var string
      */
-    public $endTime;
-
-    /**
-     * @var string
-     */
-    public $startTime;
+    public $billType;
 
     /**
      * @var string
@@ -26,24 +21,29 @@ class billTypeDataItem extends Model
     /**
      * @var string
      */
+    public $dimension;
+
+    /**
+     * @var string
+     */
+    public $endTime;
+
+    /**
+     * @var string
+     */
     public $product;
 
     /**
      * @var string
      */
-    public $billType;
-
-    /**
-     * @var string
-     */
-    public $dimension;
+    public $startTime;
     protected $_name = [
-        'endTime'      => 'EndTime',
-        'startTime'    => 'StartTime',
-        'billingCycle' => 'BillingCycle',
-        'product'      => 'Product',
         'billType'     => 'BillType',
+        'billingCycle' => 'BillingCycle',
         'dimension'    => 'Dimension',
+        'endTime'      => 'EndTime',
+        'product'      => 'Product',
+        'startTime'    => 'StartTime',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class billTypeDataItem extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->billType) {
+            $res['BillType'] = $this->billType;
         }
         if (null !== $this->billingCycle) {
             $res['BillingCycle'] = $this->billingCycle;
         }
+        if (null !== $this->dimension) {
+            $res['Dimension'] = $this->dimension;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->product) {
             $res['Product'] = $this->product;
         }
-        if (null !== $this->billType) {
-            $res['BillType'] = $this->billType;
-        }
-        if (null !== $this->dimension) {
-            $res['Dimension'] = $this->dimension;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class billTypeDataItem extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['BillType'])) {
+            $model->billType = $map['BillType'];
         }
         if (isset($map['BillingCycle'])) {
             $model->billingCycle = $map['BillingCycle'];
         }
+        if (isset($map['Dimension'])) {
+            $model->dimension = $map['Dimension'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['Product'])) {
             $model->product = $map['Product'];
         }
-        if (isset($map['BillType'])) {
-            $model->billType = $map['BillType'];
-        }
-        if (isset($map['Dimension'])) {
-            $model->dimension = $map['Dimension'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;
