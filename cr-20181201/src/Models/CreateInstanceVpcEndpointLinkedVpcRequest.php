@@ -21,6 +21,11 @@ class CreateInstanceVpcEndpointLinkedVpcRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $vpcId;
 
     /**
@@ -30,6 +35,7 @@ class CreateInstanceVpcEndpointLinkedVpcRequest extends Model
     protected $_name = [
         'instanceId' => 'InstanceId',
         'moduleName' => 'ModuleName',
+        'regionId'   => 'RegionId',
         'vpcId'      => 'VpcId',
         'vswitchId'  => 'VswitchId',
     ];
@@ -46,6 +52,9 @@ class CreateInstanceVpcEndpointLinkedVpcRequest extends Model
         }
         if (null !== $this->moduleName) {
             $res['ModuleName'] = $this->moduleName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -70,6 +79,9 @@ class CreateInstanceVpcEndpointLinkedVpcRequest extends Model
         }
         if (isset($map['ModuleName'])) {
             $model->moduleName = $map['ModuleName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

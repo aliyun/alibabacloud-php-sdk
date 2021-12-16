@@ -41,6 +41,11 @@ class UpdateEventCenterRuleShrinkRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $repoNamesShrink;
 
     /**
@@ -64,6 +69,7 @@ class UpdateEventCenterRuleShrinkRequest extends Model
         'eventType'            => 'EventType',
         'instanceId'           => 'InstanceId',
         'namespacesShrink'     => 'Namespaces',
+        'regionId'             => 'RegionId',
         'repoNamesShrink'      => 'RepoNames',
         'repoTagFilterPattern' => 'RepoTagFilterPattern',
         'ruleId'               => 'RuleId',
@@ -94,6 +100,9 @@ class UpdateEventCenterRuleShrinkRequest extends Model
         }
         if (null !== $this->namespacesShrink) {
             $res['Namespaces'] = $this->namespacesShrink;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->repoNamesShrink) {
             $res['RepoNames'] = $this->repoNamesShrink;
@@ -136,6 +145,9 @@ class UpdateEventCenterRuleShrinkRequest extends Model
         }
         if (isset($map['Namespaces'])) {
             $model->namespacesShrink = $map['Namespaces'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RepoNames'])) {
             $model->repoNamesShrink = $map['RepoNames'];

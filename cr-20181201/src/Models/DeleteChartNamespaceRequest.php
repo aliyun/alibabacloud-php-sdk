@@ -17,9 +17,15 @@ class DeleteChartNamespaceRequest extends Model
      * @var string
      */
     public $namespaceName;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'instanceId'    => 'InstanceId',
         'namespaceName' => 'NamespaceName',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class DeleteChartNamespaceRequest extends Model
         }
         if (null !== $this->namespaceName) {
             $res['NamespaceName'] = $this->namespaceName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class DeleteChartNamespaceRequest extends Model
         }
         if (isset($map['NamespaceName'])) {
             $model->namespaceName = $map['NamespaceName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

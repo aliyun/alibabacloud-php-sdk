@@ -26,6 +26,11 @@ class ListRepoSyncTaskRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $repoName;
 
     /**
@@ -46,6 +51,7 @@ class ListRepoSyncTaskRequest extends Model
         'instanceId'        => 'InstanceId',
         'pageNo'            => 'PageNo',
         'pageSize'          => 'PageSize',
+        'regionId'          => 'RegionId',
         'repoName'          => 'RepoName',
         'repoNamespaceName' => 'RepoNamespaceName',
         'syncRecordId'      => 'SyncRecordId',
@@ -67,6 +73,9 @@ class ListRepoSyncTaskRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
@@ -100,6 +109,9 @@ class ListRepoSyncTaskRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];

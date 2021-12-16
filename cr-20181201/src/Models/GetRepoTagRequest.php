@@ -6,13 +6,8 @@ namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CancelArtifactBuildTaskRequest extends Model
+class GetRepoTagRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $buildTaskId;
-
     /**
      * @var string
      */
@@ -22,10 +17,21 @@ class CancelArtifactBuildTaskRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $repoId;
+
+    /**
+     * @var string
+     */
+    public $tag;
     protected $_name = [
-        'buildTaskId' => 'BuildTaskId',
-        'instanceId'  => 'InstanceId',
-        'regionId'    => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId'   => 'RegionId',
+        'repoId'     => 'RepoId',
+        'tag'        => 'Tag',
     ];
 
     public function validate()
@@ -35,14 +41,17 @@ class CancelArtifactBuildTaskRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->buildTaskId) {
-            $res['BuildTaskId'] = $this->buildTaskId;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->repoId) {
+            $res['RepoId'] = $this->repoId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
         }
 
         return $res;
@@ -51,19 +60,22 @@ class CancelArtifactBuildTaskRequest extends Model
     /**
      * @param array $map
      *
-     * @return CancelArtifactBuildTaskRequest
+     * @return GetRepoTagRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BuildTaskId'])) {
-            $model->buildTaskId = $map['BuildTaskId'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RepoId'])) {
+            $model->repoId = $map['RepoId'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
         }
 
         return $model;

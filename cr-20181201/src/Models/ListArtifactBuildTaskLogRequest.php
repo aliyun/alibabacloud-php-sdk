@@ -27,11 +27,17 @@ class ListArtifactBuildTaskLogRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'buildTaskId' => 'BuildTaskId',
         'instanceId'  => 'InstanceId',
         'page'        => 'Page',
         'pageSize'    => 'PageSize',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class ListArtifactBuildTaskLogRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class ListArtifactBuildTaskLogRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

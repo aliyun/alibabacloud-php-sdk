@@ -17,9 +17,15 @@ class ResetLoginPasswordRequest extends Model
      * @var string
      */
     public $password;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'password'   => 'Password',
+        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class ResetLoginPasswordRequest extends Model
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class ResetLoginPasswordRequest extends Model
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

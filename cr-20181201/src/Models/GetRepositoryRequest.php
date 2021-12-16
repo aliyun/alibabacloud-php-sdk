@@ -16,6 +16,11 @@ class GetRepositoryRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $repoId;
 
     /**
@@ -29,6 +34,7 @@ class GetRepositoryRequest extends Model
     public $repoNamespaceName;
     protected $_name = [
         'instanceId'        => 'InstanceId',
+        'regionId'          => 'RegionId',
         'repoId'            => 'RepoId',
         'repoName'          => 'RepoName',
         'repoNamespaceName' => 'RepoNamespaceName',
@@ -43,6 +49,9 @@ class GetRepositoryRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
@@ -67,6 +76,9 @@ class GetRepositoryRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];

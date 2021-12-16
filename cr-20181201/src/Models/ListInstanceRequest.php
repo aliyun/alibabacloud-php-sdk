@@ -27,11 +27,17 @@ class ListInstanceRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'instanceName'   => 'InstanceName',
         'instanceStatus' => 'InstanceStatus',
         'pageNo'         => 'PageNo',
         'pageSize'       => 'PageSize',
+        'regionId'       => 'RegionId',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class ListInstanceRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class ListInstanceRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -6,20 +6,14 @@ namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetAuthorizationTokenRequest extends Model
+class GetInstanceCountRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $instanceId;
-
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -29,9 +23,6 @@ class GetAuthorizationTokenRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -42,14 +33,11 @@ class GetAuthorizationTokenRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetAuthorizationTokenRequest
+     * @return GetInstanceCountRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

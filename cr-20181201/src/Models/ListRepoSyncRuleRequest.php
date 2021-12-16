@@ -31,6 +31,11 @@ class ListRepoSyncRuleRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $repoName;
 
     /**
@@ -47,6 +52,7 @@ class ListRepoSyncRuleRequest extends Model
         'namespaceName'    => 'NamespaceName',
         'pageNo'           => 'PageNo',
         'pageSize'         => 'PageSize',
+        'regionId'         => 'RegionId',
         'repoName'         => 'RepoName',
         'targetInstanceId' => 'TargetInstanceId',
         'targetRegionId'   => 'TargetRegionId',
@@ -70,6 +76,9 @@ class ListRepoSyncRuleRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
@@ -103,6 +112,9 @@ class ListRepoSyncRuleRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];

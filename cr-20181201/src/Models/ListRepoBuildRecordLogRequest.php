@@ -26,11 +26,17 @@ class ListRepoBuildRecordLogRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $repoId;
     protected $_name = [
         'buildRecordId' => 'BuildRecordId',
         'instanceId'    => 'InstanceId',
         'offset'        => 'Offset',
+        'regionId'      => 'RegionId',
         'repoId'        => 'RepoId',
     ];
 
@@ -49,6 +55,9 @@ class ListRepoBuildRecordLogRequest extends Model
         }
         if (null !== $this->offset) {
             $res['Offset'] = $this->offset;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
@@ -73,6 +82,9 @@ class ListRepoBuildRecordLogRequest extends Model
         }
         if (isset($map['Offset'])) {
             $model->offset = $map['Offset'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];

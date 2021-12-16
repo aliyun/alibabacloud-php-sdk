@@ -21,6 +21,11 @@ class UpdateRepositoryRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $repoId;
 
     /**
@@ -40,6 +45,7 @@ class UpdateRepositoryRequest extends Model
     protected $_name = [
         'detail'          => 'Detail',
         'instanceId'      => 'InstanceId',
+        'regionId'        => 'RegionId',
         'repoId'          => 'RepoId',
         'repoType'        => 'RepoType',
         'summary'         => 'Summary',
@@ -58,6 +64,9 @@ class UpdateRepositoryRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
@@ -88,6 +97,9 @@ class UpdateRepositoryRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];

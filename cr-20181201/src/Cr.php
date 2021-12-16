@@ -78,6 +78,7 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\GetChartNamespaceRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetChartNamespaceResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetChartRepositoryRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetChartRepositoryResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\GetInstanceCountRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetInstanceCountResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetInstanceEndpointRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetInstanceEndpointResponse;
@@ -103,6 +104,8 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagLayersRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagLayersResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagManifestRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagManifestResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagScanStatusRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagScanStatusResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagScanSummaryRequest;
@@ -225,7 +228,6 @@ class Cr extends OpenApiClient
         $query['InstanceId']  = $request->instanceId;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CancelArtifactBuildTask',
@@ -235,7 +237,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -269,7 +271,6 @@ class Cr extends OpenApiClient
         $query['RepoId']        = $request->repoId;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CancelRepoBuildRecord',
@@ -279,7 +280,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -313,7 +314,6 @@ class Cr extends OpenApiClient
         $query['RepoId']      = $request->repoId;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateBuildRecordByRule',
@@ -323,7 +323,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -360,7 +360,6 @@ class Cr extends OpenApiClient
         $query['RepoNamespaceName'] = $request->repoNamespaceName;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateChain',
@@ -370,7 +369,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -405,7 +404,6 @@ class Cr extends OpenApiClient
         $query['NamespaceName']   = $request->namespaceName;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateChartNamespace',
@@ -415,7 +413,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -451,7 +449,6 @@ class Cr extends OpenApiClient
         $query['Summary']           = $request->summary;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateChartRepository',
@@ -461,7 +458,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -497,7 +494,6 @@ class Cr extends OpenApiClient
         $query['ModuleName']   = $request->moduleName;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateInstanceEndpointAclPolicy',
@@ -507,7 +503,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -542,7 +538,6 @@ class Cr extends OpenApiClient
         $query['VswitchId']  = $request->vswitchId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateInstanceVpcEndpointLinkedVpc',
@@ -552,7 +547,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -587,7 +582,6 @@ class Cr extends OpenApiClient
         $query['NamespaceName']   = $request->namespaceName;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateNamespace',
@@ -597,7 +591,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -635,7 +629,6 @@ class Cr extends OpenApiClient
         $query['RepoId']             = $request->repoId;
         $req                         = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateRepoBuildRule',
@@ -645,7 +638,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -684,7 +677,6 @@ class Cr extends OpenApiClient
         $query['RepoId']                = $request->repoId;
         $req                            = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateRepoSourceCodeRepo',
@@ -694,7 +686,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -737,7 +729,6 @@ class Cr extends OpenApiClient
         $query['TargetUserId']        = $request->targetUserId;
         $req                          = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateRepoSyncRule',
@@ -747,7 +738,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -788,7 +779,6 @@ class Cr extends OpenApiClient
         $query['TargetUserId']     = $request->targetUserId;
         $req                       = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateRepoSyncTask',
@@ -798,7 +788,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -833,7 +823,6 @@ class Cr extends OpenApiClient
         $query['Tag']        = $request->tag;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateRepoSyncTaskByRule',
@@ -843,7 +832,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -879,7 +868,6 @@ class Cr extends OpenApiClient
         $query['ToTag']         = $request->toTag;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateRepoTag',
@@ -889,7 +877,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -925,7 +913,6 @@ class Cr extends OpenApiClient
         $query['Tag']         = $request->tag;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateRepoTagScanTask',
@@ -935,7 +922,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -972,7 +959,6 @@ class Cr extends OpenApiClient
         $query['TriggerUrl']  = $request->triggerUrl;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateRepoTrigger',
@@ -982,7 +968,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1020,7 +1006,6 @@ class Cr extends OpenApiClient
         $query['TagImmutability']   = $request->tagImmutability;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateRepository',
@@ -1030,7 +1015,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1063,7 +1048,6 @@ class Cr extends OpenApiClient
         $query['InstanceId'] = $request->instanceId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteChain',
@@ -1073,7 +1057,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1106,7 +1090,6 @@ class Cr extends OpenApiClient
         $query['NamespaceName'] = $request->namespaceName;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteChartNamespace',
@@ -1116,7 +1099,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1152,7 +1135,6 @@ class Cr extends OpenApiClient
         $query['RepoNamespaceName'] = $request->repoNamespaceName;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteChartRelease',
@@ -1162,7 +1144,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1196,7 +1178,6 @@ class Cr extends OpenApiClient
         $query['RepoNamespaceName'] = $request->repoNamespaceName;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteChartRepository',
@@ -1206,7 +1187,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1239,7 +1220,6 @@ class Cr extends OpenApiClient
         $query['RuleId']     = $request->ruleId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteEventCenterRule',
@@ -1249,7 +1229,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1284,7 +1264,6 @@ class Cr extends OpenApiClient
         $query['ModuleName']   = $request->moduleName;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteInstanceEndpointAclPolicy',
@@ -1294,7 +1273,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1329,7 +1308,6 @@ class Cr extends OpenApiClient
         $query['VswitchId']  = $request->vswitchId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteInstanceVpcEndpointLinkedVpc',
@@ -1339,7 +1317,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1372,7 +1350,6 @@ class Cr extends OpenApiClient
         $query['NamespaceName'] = $request->namespaceName;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteNamespace',
@@ -1382,7 +1359,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1416,7 +1393,6 @@ class Cr extends OpenApiClient
         $query['RepoId']      = $request->repoId;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteRepoBuildRule',
@@ -1426,7 +1402,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1459,7 +1435,6 @@ class Cr extends OpenApiClient
         $query['SyncRuleId'] = $request->syncRuleId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteRepoSyncRule',
@@ -1469,7 +1444,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1503,7 +1478,6 @@ class Cr extends OpenApiClient
         $query['Tag']        = $request->tag;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteRepoTag',
@@ -1513,7 +1487,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1547,7 +1521,6 @@ class Cr extends OpenApiClient
         $query['TriggerId']  = $request->triggerId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteRepoTrigger',
@@ -1557,7 +1530,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1590,7 +1563,6 @@ class Cr extends OpenApiClient
         $query['RepoId']     = $request->repoId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteRepository',
@@ -1600,7 +1572,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1640,7 +1612,7 @@ class Cr extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1672,7 +1644,6 @@ class Cr extends OpenApiClient
         $query['InstanceId'] = $request->instanceId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetAuthorizationToken',
@@ -1682,7 +1653,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1715,7 +1686,6 @@ class Cr extends OpenApiClient
         $query['InstanceId'] = $request->instanceId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetChain',
@@ -1725,7 +1695,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1758,7 +1728,6 @@ class Cr extends OpenApiClient
         $query['NamespaceName'] = $request->namespaceName;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetChartNamespace',
@@ -1768,7 +1737,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1802,7 +1771,6 @@ class Cr extends OpenApiClient
         $query['RepoNamespaceName'] = $request->repoNamespaceName;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetChartRepository',
@@ -1812,7 +1780,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1844,7 +1812,6 @@ class Cr extends OpenApiClient
         $query['InstanceId'] = $request->instanceId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetInstance',
@@ -1854,7 +1821,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1874,12 +1841,14 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param GetInstanceCountRequest $request
+     * @param RuntimeOptions          $runtime
      *
      * @return GetInstanceCountResponse
      */
-    public function getInstanceCountWithOptions($runtime)
+    public function getInstanceCountWithOptions($request, $runtime)
     {
+        Utils::validateModel($request);
         $req    = new OpenApiRequest([]);
         $params = new Params([
             'action'      => 'GetInstanceCount',
@@ -1889,7 +1858,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1897,13 +1866,15 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * @param GetInstanceCountRequest $request
+     *
      * @return GetInstanceCountResponse
      */
-    public function getInstanceCount()
+    public function getInstanceCount($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getInstanceCountWithOptions($runtime);
+        return $this->getInstanceCountWithOptions($request, $runtime);
     }
 
     /**
@@ -1921,7 +1892,6 @@ class Cr extends OpenApiClient
         $query['ModuleName']   = $request->moduleName;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetInstanceEndpoint',
@@ -1931,7 +1901,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1963,7 +1933,6 @@ class Cr extends OpenApiClient
         $query['InstanceId'] = $request->instanceId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetInstanceUsage',
@@ -1973,7 +1942,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2006,7 +1975,6 @@ class Cr extends OpenApiClient
         $query['ModuleName'] = $request->moduleName;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetInstanceVpcEndpoint',
@@ -2016,7 +1984,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2050,7 +2018,6 @@ class Cr extends OpenApiClient
         $query['NamespaceName'] = $request->namespaceName;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetNamespace',
@@ -2060,7 +2027,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2093,7 +2060,6 @@ class Cr extends OpenApiClient
         $query['InstanceId']    = $request->instanceId;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetRepoBuildRecord',
@@ -2103,7 +2069,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2137,7 +2103,6 @@ class Cr extends OpenApiClient
         $query['RepoId']        = $request->repoId;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetRepoBuildRecordStatus',
@@ -2147,7 +2112,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2180,7 +2145,6 @@ class Cr extends OpenApiClient
         $query['RepoId']     = $request->repoId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetRepoSourceCodeRepo',
@@ -2190,7 +2154,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2223,7 +2187,6 @@ class Cr extends OpenApiClient
         $query['SyncTaskId'] = $request->syncTaskId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetRepoSyncTask',
@@ -2233,7 +2196,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2253,6 +2216,46 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * @param GetRepoTagRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetRepoTagResponse
+     */
+    public function getRepoTagWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRepoTag',
+            'version'     => '2018-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRepoTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRepoTagRequest $request
+     *
+     * @return GetRepoTagResponse
+     */
+    public function getRepoTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRepoTagWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetRepoTagLayersRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2268,7 +2271,6 @@ class Cr extends OpenApiClient
         $query['Tag']        = $request->tag;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetRepoTagLayers',
@@ -2278,7 +2280,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2313,7 +2315,6 @@ class Cr extends OpenApiClient
         $query['Tag']           = $request->tag;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetRepoTagManifest',
@@ -2323,7 +2324,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2359,7 +2360,6 @@ class Cr extends OpenApiClient
         $query['Tag']        = $request->tag;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetRepoTagScanStatus',
@@ -2369,7 +2369,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2405,7 +2405,6 @@ class Cr extends OpenApiClient
         $query['Tag']        = $request->tag;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetRepoTagScanSummary',
@@ -2415,7 +2414,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2450,7 +2449,6 @@ class Cr extends OpenApiClient
         $query['RepoNamespaceName'] = $request->repoNamespaceName;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetRepository',
@@ -2460,7 +2458,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2500,7 +2498,7 @@ class Cr extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2536,7 +2534,6 @@ class Cr extends OpenApiClient
         $query['RepoNamespaceName'] = $request->repoNamespaceName;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListChain',
@@ -2546,7 +2543,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2582,7 +2579,6 @@ class Cr extends OpenApiClient
         $query['RepoNamespaceName'] = $request->repoNamespaceName;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListChainInstance',
@@ -2592,7 +2588,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2628,7 +2624,6 @@ class Cr extends OpenApiClient
         $query['PageSize']        = $request->pageSize;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListChartNamespace',
@@ -2638,7 +2633,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2675,7 +2670,6 @@ class Cr extends OpenApiClient
         $query['RepoNamespaceName'] = $request->repoNamespaceName;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListChartRelease',
@@ -2685,7 +2679,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2722,7 +2716,6 @@ class Cr extends OpenApiClient
         $query['RepoStatus']        = $request->repoStatus;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListChartRepository',
@@ -2732,7 +2725,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2772,7 +2765,7 @@ class Cr extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2812,7 +2805,7 @@ class Cr extends OpenApiClient
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2847,7 +2840,6 @@ class Cr extends OpenApiClient
         $query['PageSize']       = $request->pageSize;
         $req                     = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListInstance',
@@ -2857,7 +2849,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2890,7 +2882,6 @@ class Cr extends OpenApiClient
         $query['ModuleName'] = $request->moduleName;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListInstanceEndpoint',
@@ -2900,7 +2891,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2932,7 +2923,6 @@ class Cr extends OpenApiClient
         $query['Lang'] = $request->lang;
         $req           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListInstanceRegion',
@@ -2942,7 +2932,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2978,7 +2968,6 @@ class Cr extends OpenApiClient
         $query['PageSize']        = $request->pageSize;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListNamespace',
@@ -2988,7 +2977,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3023,7 +3012,6 @@ class Cr extends OpenApiClient
         $query['RepoId']     = $request->repoId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListRepoBuildRecord',
@@ -3033,7 +3021,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3068,7 +3056,6 @@ class Cr extends OpenApiClient
         $query['RepoId']        = $request->repoId;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListRepoBuildRecordLog',
@@ -3078,7 +3065,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3113,7 +3100,6 @@ class Cr extends OpenApiClient
         $query['RepoId']     = $request->repoId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListRepoBuildRule',
@@ -3123,7 +3109,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3161,7 +3147,6 @@ class Cr extends OpenApiClient
         $query['TargetRegionId']   = $request->targetRegionId;
         $req                       = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListRepoSyncRule',
@@ -3171,7 +3156,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3209,7 +3194,6 @@ class Cr extends OpenApiClient
         $query['Tag']               = $request->tag;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListRepoSyncTask',
@@ -3219,7 +3203,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3254,7 +3238,6 @@ class Cr extends OpenApiClient
         $query['RepoId']     = $request->repoId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListRepoTag',
@@ -3264,7 +3247,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3303,7 +3286,6 @@ class Cr extends OpenApiClient
         $query['Tag']        = $request->tag;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListRepoTagScanResult',
@@ -3313,7 +3295,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3346,7 +3328,6 @@ class Cr extends OpenApiClient
         $query['RepoId']     = $request->repoId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListRepoTrigger',
@@ -3356,7 +3337,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3393,7 +3374,6 @@ class Cr extends OpenApiClient
         $query['RepoStatus']        = $request->repoStatus;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListRepository',
@@ -3403,7 +3383,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3436,7 +3416,6 @@ class Cr extends OpenApiClient
         $query['Password']   = $request->password;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ResetLoginPassword',
@@ -3446,7 +3425,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3482,7 +3461,6 @@ class Cr extends OpenApiClient
         $query['Name']        = $request->name;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateChain',
@@ -3492,7 +3470,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3527,7 +3505,6 @@ class Cr extends OpenApiClient
         $query['NamespaceName']   = $request->namespaceName;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateChartNamespace',
@@ -3537,7 +3514,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3573,7 +3550,6 @@ class Cr extends OpenApiClient
         $query['Summary']           = $request->summary;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateChartRepository',
@@ -3583,7 +3559,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3632,7 +3608,6 @@ class Cr extends OpenApiClient
         $query['RuleName']             = $request->ruleName;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateEventCenterRule',
@@ -3642,7 +3617,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3677,7 +3652,6 @@ class Cr extends OpenApiClient
         $query['ModuleName']   = $request->moduleName;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateInstanceEndpointStatus',
@@ -3687,7 +3661,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3722,7 +3696,6 @@ class Cr extends OpenApiClient
         $query['NamespaceName']   = $request->namespaceName;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateNamespace',
@@ -3732,7 +3705,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3772,7 +3745,6 @@ class Cr extends OpenApiClient
         $query['RepoId']             = $request->repoId;
         $req                         = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateRepoBuildRule',
@@ -3782,7 +3754,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3822,7 +3794,6 @@ class Cr extends OpenApiClient
         $query['RepoId']                = $request->repoId;
         $req                            = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateRepoSourceCodeRepo',
@@ -3832,7 +3803,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3870,7 +3841,6 @@ class Cr extends OpenApiClient
         $query['TriggerUrl']  = $request->triggerUrl;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateRepoTrigger',
@@ -3880,7 +3850,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3917,7 +3887,6 @@ class Cr extends OpenApiClient
         $query['TagImmutability'] = $request->tagImmutability;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateRepository',
@@ -3927,7 +3896,7 @@ class Cr extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 

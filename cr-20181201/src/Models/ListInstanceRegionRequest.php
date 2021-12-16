@@ -12,8 +12,14 @@ class ListInstanceRegionRequest extends Model
      * @var string
      */
     public $lang;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'lang' => 'Lang',
+        'lang'     => 'Lang',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class ListInstanceRegionRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class ListInstanceRegionRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

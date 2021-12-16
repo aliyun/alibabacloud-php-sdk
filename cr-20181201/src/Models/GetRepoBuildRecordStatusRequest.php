@@ -21,10 +21,16 @@ class GetRepoBuildRecordStatusRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $repoId;
     protected $_name = [
         'buildRecordId' => 'BuildRecordId',
         'instanceId'    => 'InstanceId',
+        'regionId'      => 'RegionId',
         'repoId'        => 'RepoId',
     ];
 
@@ -40,6 +46,9 @@ class GetRepoBuildRecordStatusRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
@@ -61,6 +70,9 @@ class GetRepoBuildRecordStatusRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];

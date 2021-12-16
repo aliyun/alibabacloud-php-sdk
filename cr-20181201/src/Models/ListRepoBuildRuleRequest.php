@@ -26,11 +26,17 @@ class ListRepoBuildRuleRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $repoId;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'pageNo'     => 'PageNo',
         'pageSize'   => 'PageSize',
+        'regionId'   => 'RegionId',
         'repoId'     => 'RepoId',
     ];
 
@@ -49,6 +55,9 @@ class ListRepoBuildRuleRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
@@ -73,6 +82,9 @@ class ListRepoBuildRuleRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];
