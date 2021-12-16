@@ -16,16 +16,16 @@ class RemoveSkillGroupsFromUserRequest extends Model
     /**
      * @var string
      */
-    public $userId;
+    public $skillGroupIdList;
 
     /**
      * @var string
      */
-    public $skillGroupIdList;
+    public $userId;
     protected $_name = [
         'instanceId'       => 'InstanceId',
-        'userId'           => 'UserId',
         'skillGroupIdList' => 'SkillGroupIdList',
+        'userId'           => 'UserId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class RemoveSkillGroupsFromUserRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->skillGroupIdList) {
             $res['SkillGroupIdList'] = $this->skillGroupIdList;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class RemoveSkillGroupsFromUserRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['SkillGroupIdList'])) {
             $model->skillGroupIdList = $map['SkillGroupIdList'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

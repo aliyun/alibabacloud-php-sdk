@@ -17,32 +17,12 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $createTime;
-
-    /**
-     * @var string
-     */
-    public $userId;
-
-    /**
-     * @var string
-     */
-    public $tags;
-
-    /**
-     * @var string
-     */
     public $city;
 
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $usage;
+    public $contactFlowId;
 
     /**
      * @var string
@@ -52,7 +32,12 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $provider;
+    public $createTime;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string
@@ -62,7 +47,7 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $contactFlowId;
+    public $provider;
 
     /**
      * @var string
@@ -73,20 +58,35 @@ class list_ extends Model
      * @var skillGroups[]
      */
     public $skillGroups;
+
+    /**
+     * @var string
+     */
+    public $tags;
+
+    /**
+     * @var string
+     */
+    public $usage;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
         'active'          => 'Active',
-        'createTime'      => 'CreateTime',
-        'userId'          => 'UserId',
-        'tags'            => 'Tags',
         'city'            => 'City',
-        'instanceId'      => 'InstanceId',
-        'usage'           => 'Usage',
-        'contactFlowName' => 'ContactFlowName',
-        'provider'        => 'Provider',
-        'number'          => 'Number',
         'contactFlowId'   => 'ContactFlowId',
+        'contactFlowName' => 'ContactFlowName',
+        'createTime'      => 'CreateTime',
+        'instanceId'      => 'InstanceId',
+        'number'          => 'Number',
+        'provider'        => 'Provider',
         'province'        => 'Province',
         'skillGroups'     => 'SkillGroups',
+        'tags'            => 'Tags',
+        'usage'           => 'Usage',
+        'userId'          => 'UserId',
     ];
 
     public function validate()
@@ -99,35 +99,26 @@ class list_ extends Model
         if (null !== $this->active) {
             $res['Active'] = $this->active;
         }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
-        }
         if (null !== $this->city) {
             $res['City'] = $this->city;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->usage) {
-            $res['Usage'] = $this->usage;
+        if (null !== $this->contactFlowId) {
+            $res['ContactFlowId'] = $this->contactFlowId;
         }
         if (null !== $this->contactFlowName) {
             $res['ContactFlowName'] = $this->contactFlowName;
         }
-        if (null !== $this->provider) {
-            $res['Provider'] = $this->provider;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->number) {
             $res['Number'] = $this->number;
         }
-        if (null !== $this->contactFlowId) {
-            $res['ContactFlowId'] = $this->contactFlowId;
+        if (null !== $this->provider) {
+            $res['Provider'] = $this->provider;
         }
         if (null !== $this->province) {
             $res['Province'] = $this->province;
@@ -140,6 +131,15 @@ class list_ extends Model
                     $res['SkillGroups'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
+        }
+        if (null !== $this->usage) {
+            $res['Usage'] = $this->usage;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -156,35 +156,26 @@ class list_ extends Model
         if (isset($map['Active'])) {
             $model->active = $map['Active'];
         }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
-        }
         if (isset($map['City'])) {
             $model->city = $map['City'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Usage'])) {
-            $model->usage = $map['Usage'];
+        if (isset($map['ContactFlowId'])) {
+            $model->contactFlowId = $map['ContactFlowId'];
         }
         if (isset($map['ContactFlowName'])) {
             $model->contactFlowName = $map['ContactFlowName'];
         }
-        if (isset($map['Provider'])) {
-            $model->provider = $map['Provider'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Number'])) {
             $model->number = $map['Number'];
         }
-        if (isset($map['ContactFlowId'])) {
-            $model->contactFlowId = $map['ContactFlowId'];
+        if (isset($map['Provider'])) {
+            $model->provider = $map['Provider'];
         }
         if (isset($map['Province'])) {
             $model->province = $map['Province'];
@@ -197,6 +188,15 @@ class list_ extends Model
                     $model->skillGroups[$n++] = null !== $item ? skillGroups::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
+        }
+        if (isset($map['Usage'])) {
+            $model->usage = $map['Usage'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

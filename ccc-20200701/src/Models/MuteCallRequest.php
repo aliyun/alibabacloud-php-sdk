@@ -11,12 +11,7 @@ class MuteCallRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $userId;
+    public $channelId;
 
     /**
      * @var string
@@ -26,18 +21,23 @@ class MuteCallRequest extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $jobId;
 
     /**
      * @var string
      */
-    public $channelId;
+    public $userId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'userId'     => 'UserId',
-        'deviceId'   => 'DeviceId',
-        'jobId'      => 'JobId',
         'channelId'  => 'ChannelId',
+        'deviceId'   => 'DeviceId',
+        'instanceId' => 'InstanceId',
+        'jobId'      => 'JobId',
+        'userId'     => 'UserId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class MuteCallRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->channelId) {
+            $res['ChannelId'] = $this->channelId;
         }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
-        if (null !== $this->channelId) {
-            $res['ChannelId'] = $this->channelId;
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class MuteCallRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['ChannelId'])) {
+            $model->channelId = $map['ChannelId'];
         }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
-        if (isset($map['ChannelId'])) {
-            $model->channelId = $map['ChannelId'];
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

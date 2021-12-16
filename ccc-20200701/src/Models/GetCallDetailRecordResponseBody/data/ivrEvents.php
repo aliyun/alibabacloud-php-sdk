@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ivrEvents extends Model
 {
     /**
-     * @var string
-     */
-    public $flowId;
-
-    /**
      * @var eventSequence[]
      */
     public $eventSequence;
+
+    /**
+     * @var string
+     */
+    public $flowId;
     protected $_name = [
-        'flowId'        => 'FlowId',
         'eventSequence' => 'EventSequence',
+        'flowId'        => 'FlowId',
     ];
 
     public function validate()
@@ -30,9 +30,6 @@ class ivrEvents extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->flowId) {
-            $res['FlowId'] = $this->flowId;
-        }
         if (null !== $this->eventSequence) {
             $res['EventSequence'] = [];
             if (null !== $this->eventSequence && \is_array($this->eventSequence)) {
@@ -41,6 +38,9 @@ class ivrEvents extends Model
                     $res['EventSequence'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->flowId) {
+            $res['FlowId'] = $this->flowId;
         }
 
         return $res;
@@ -54,9 +54,6 @@ class ivrEvents extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FlowId'])) {
-            $model->flowId = $map['FlowId'];
-        }
         if (isset($map['EventSequence'])) {
             if (!empty($map['EventSequence'])) {
                 $model->eventSequence = [];
@@ -65,6 +62,9 @@ class ivrEvents extends Model
                     $model->eventSequence[$n++] = null !== $item ? eventSequence::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['FlowId'])) {
+            $model->flowId = $map['FlowId'];
         }
 
         return $model;

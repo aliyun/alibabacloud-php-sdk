@@ -11,27 +11,27 @@ class GetHistoricalCallerReportRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $callingNumber;
 
     /**
      * @var string
      */
-    public $callingNumber;
-
-    /**
-     * @var int
-     */
-    public $stopTime;
+    public $instanceId;
 
     /**
      * @var int
      */
     public $startTime;
+
+    /**
+     * @var int
+     */
+    public $stopTime;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
         'callingNumber' => 'CallingNumber',
-        'stopTime'      => 'StopTime',
+        'instanceId'    => 'InstanceId',
         'startTime'     => 'StartTime',
+        'stopTime'      => 'StopTime',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class GetHistoricalCallerReportRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->callingNumber) {
             $res['CallingNumber'] = $this->callingNumber;
         }
-        if (null !== $this->stopTime) {
-            $res['StopTime'] = $this->stopTime;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->stopTime) {
+            $res['StopTime'] = $this->stopTime;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class GetHistoricalCallerReportRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['CallingNumber'])) {
             $model->callingNumber = $map['CallingNumber'];
         }
-        if (isset($map['StopTime'])) {
-            $model->stopTime = $map['StopTime'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['StopTime'])) {
+            $model->stopTime = $map['StopTime'];
         }
 
         return $model;

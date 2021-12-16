@@ -11,11 +11,6 @@ class SaveWebRTCStatsRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
     public $callId;
 
     /**
@@ -26,7 +21,12 @@ class SaveWebRTCStatsRequest extends Model
     /**
      * @var string
      */
-    public $senderReport;
+    public $googAddress;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string
@@ -36,14 +36,14 @@ class SaveWebRTCStatsRequest extends Model
     /**
      * @var string
      */
-    public $googAddress;
+    public $senderReport;
     protected $_name = [
-        'instanceId'     => 'InstanceId',
         'callId'         => 'CallId',
         'generalInfo'    => 'GeneralInfo',
-        'senderReport'   => 'SenderReport',
-        'receiverReport' => 'ReceiverReport',
         'googAddress'    => 'GoogAddress',
+        'instanceId'     => 'InstanceId',
+        'receiverReport' => 'ReceiverReport',
+        'senderReport'   => 'SenderReport',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class SaveWebRTCStatsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->callId) {
             $res['CallId'] = $this->callId;
         }
         if (null !== $this->generalInfo) {
             $res['GeneralInfo'] = $this->generalInfo;
         }
-        if (null !== $this->senderReport) {
-            $res['SenderReport'] = $this->senderReport;
+        if (null !== $this->googAddress) {
+            $res['GoogAddress'] = $this->googAddress;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->receiverReport) {
             $res['ReceiverReport'] = $this->receiverReport;
         }
-        if (null !== $this->googAddress) {
-            $res['GoogAddress'] = $this->googAddress;
+        if (null !== $this->senderReport) {
+            $res['SenderReport'] = $this->senderReport;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class SaveWebRTCStatsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['CallId'])) {
             $model->callId = $map['CallId'];
         }
         if (isset($map['GeneralInfo'])) {
             $model->generalInfo = $map['GeneralInfo'];
         }
-        if (isset($map['SenderReport'])) {
-            $model->senderReport = $map['SenderReport'];
+        if (isset($map['GoogAddress'])) {
+            $model->googAddress = $map['GoogAddress'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['ReceiverReport'])) {
             $model->receiverReport = $map['ReceiverReport'];
         }
-        if (isset($map['GoogAddress'])) {
-            $model->googAddress = $map['GoogAddress'];
+        if (isset($map['SenderReport'])) {
+            $model->senderReport = $map['SenderReport'];
         }
 
         return $model;

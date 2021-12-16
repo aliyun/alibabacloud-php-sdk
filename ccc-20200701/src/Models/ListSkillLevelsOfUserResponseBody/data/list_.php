@@ -11,21 +11,21 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $skillLevel;
-
-    /**
-     * @var string
-     */
     public $skillGroupId;
 
     /**
      * @var string
      */
     public $skillGroupName;
+
+    /**
+     * @var string
+     */
+    public $skillLevel;
     protected $_name = [
-        'skillLevel'     => 'SkillLevel',
         'skillGroupId'   => 'SkillGroupId',
         'skillGroupName' => 'SkillGroupName',
+        'skillLevel'     => 'SkillLevel',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->skillLevel) {
-            $res['SkillLevel'] = $this->skillLevel;
-        }
         if (null !== $this->skillGroupId) {
             $res['SkillGroupId'] = $this->skillGroupId;
         }
         if (null !== $this->skillGroupName) {
             $res['SkillGroupName'] = $this->skillGroupName;
+        }
+        if (null !== $this->skillLevel) {
+            $res['SkillLevel'] = $this->skillLevel;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SkillLevel'])) {
-            $model->skillLevel = $map['SkillLevel'];
-        }
         if (isset($map['SkillGroupId'])) {
             $model->skillGroupId = $map['SkillGroupId'];
         }
         if (isset($map['SkillGroupName'])) {
             $model->skillGroupName = $map['SkillGroupName'];
+        }
+        if (isset($map['SkillLevel'])) {
+            $model->skillLevel = $map['SkillLevel'];
         }
 
         return $model;

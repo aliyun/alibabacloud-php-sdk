@@ -11,24 +11,9 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @var string
+     * @var adminList[]
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $consoleUrl;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var int
-     */
-    public $createTime;
+    public $adminList;
 
     /**
      * @var string
@@ -38,7 +23,17 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $name;
+    public $consoleUrl;
+
+    /**
+     * @var int
+     */
+    public $createTime;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var string
@@ -51,25 +46,30 @@ class list_ extends Model
     public $id;
 
     /**
-     * @var adminList[]
+     * @var string
      */
-    public $adminList;
+    public $name;
 
     /**
      * @var numberList[]
      */
     public $numberList;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'      => 'Status',
-        'consoleUrl'  => 'ConsoleUrl',
-        'description' => 'Description',
-        'createTime'  => 'CreateTime',
+        'adminList'   => 'AdminList',
         'aliyunUid'   => 'AliyunUid',
-        'name'        => 'Name',
+        'consoleUrl'  => 'ConsoleUrl',
+        'createTime'  => 'CreateTime',
+        'description' => 'Description',
         'domainName'  => 'DomainName',
         'id'          => 'Id',
-        'adminList'   => 'AdminList',
+        'name'        => 'Name',
         'numberList'  => 'NumberList',
+        'status'      => 'Status',
     ];
 
     public function validate()
@@ -79,30 +79,6 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->consoleUrl) {
-            $res['ConsoleUrl'] = $this->consoleUrl;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->aliyunUid) {
-            $res['AliyunUid'] = $this->aliyunUid;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
         if (null !== $this->adminList) {
             $res['AdminList'] = [];
             if (null !== $this->adminList && \is_array($this->adminList)) {
@@ -112,6 +88,27 @@ class list_ extends Model
                 }
             }
         }
+        if (null !== $this->aliyunUid) {
+            $res['AliyunUid'] = $this->aliyunUid;
+        }
+        if (null !== $this->consoleUrl) {
+            $res['ConsoleUrl'] = $this->consoleUrl;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->numberList) {
             $res['NumberList'] = [];
             if (null !== $this->numberList && \is_array($this->numberList)) {
@@ -120,6 +117,9 @@ class list_ extends Model
                     $res['NumberList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -133,30 +133,6 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['ConsoleUrl'])) {
-            $model->consoleUrl = $map['ConsoleUrl'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['AliyunUid'])) {
-            $model->aliyunUid = $map['AliyunUid'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['DomainName'])) {
-            $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
         if (isset($map['AdminList'])) {
             if (!empty($map['AdminList'])) {
                 $model->adminList = [];
@@ -166,6 +142,27 @@ class list_ extends Model
                 }
             }
         }
+        if (isset($map['AliyunUid'])) {
+            $model->aliyunUid = $map['AliyunUid'];
+        }
+        if (isset($map['ConsoleUrl'])) {
+            $model->consoleUrl = $map['ConsoleUrl'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['NumberList'])) {
             if (!empty($map['NumberList'])) {
                 $model->numberList = [];
@@ -174,6 +171,9 @@ class list_ extends Model
                     $model->numberList[$n++] = null !== $item ? numberList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

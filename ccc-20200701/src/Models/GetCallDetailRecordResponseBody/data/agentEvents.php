@@ -12,27 +12,27 @@ class agentEvents extends Model
     /**
      * @var string
      */
-    public $agentName;
-
-    /**
-     * @var string
-     */
     public $agentId;
 
     /**
      * @var string
      */
-    public $skillGroupId;
+    public $agentName;
 
     /**
      * @var eventSequence[]
      */
     public $eventSequence;
+
+    /**
+     * @var string
+     */
+    public $skillGroupId;
     protected $_name = [
-        'agentName'     => 'AgentName',
         'agentId'       => 'AgentId',
-        'skillGroupId'  => 'SkillGroupId',
+        'agentName'     => 'AgentName',
         'eventSequence' => 'EventSequence',
+        'skillGroupId'  => 'SkillGroupId',
     ];
 
     public function validate()
@@ -42,14 +42,11 @@ class agentEvents extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->agentName) {
-            $res['AgentName'] = $this->agentName;
-        }
         if (null !== $this->agentId) {
             $res['AgentId'] = $this->agentId;
         }
-        if (null !== $this->skillGroupId) {
-            $res['SkillGroupId'] = $this->skillGroupId;
+        if (null !== $this->agentName) {
+            $res['AgentName'] = $this->agentName;
         }
         if (null !== $this->eventSequence) {
             $res['EventSequence'] = [];
@@ -59,6 +56,9 @@ class agentEvents extends Model
                     $res['EventSequence'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->skillGroupId) {
+            $res['SkillGroupId'] = $this->skillGroupId;
         }
 
         return $res;
@@ -72,14 +72,11 @@ class agentEvents extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AgentName'])) {
-            $model->agentName = $map['AgentName'];
-        }
         if (isset($map['AgentId'])) {
             $model->agentId = $map['AgentId'];
         }
-        if (isset($map['SkillGroupId'])) {
-            $model->skillGroupId = $map['SkillGroupId'];
+        if (isset($map['AgentName'])) {
+            $model->agentName = $map['AgentName'];
         }
         if (isset($map['EventSequence'])) {
             if (!empty($map['EventSequence'])) {
@@ -89,6 +86,9 @@ class agentEvents extends Model
                     $model->eventSequence[$n++] = null !== $item ? eventSequence::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['SkillGroupId'])) {
+            $model->skillGroupId = $map['SkillGroupId'];
         }
 
         return $model;

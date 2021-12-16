@@ -9,24 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListPhoneNumbersRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $searchPattern;
-
-    /**
-     * @var string
-     */
-    public $usage;
-
-    /**
      * @var bool
      */
     public $active;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var int
@@ -37,13 +27,23 @@ class ListPhoneNumbersRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $searchPattern;
+
+    /**
+     * @var string
+     */
+    public $usage;
     protected $_name = [
-        'instanceId'    => 'InstanceId',
-        'searchPattern' => 'SearchPattern',
-        'usage'         => 'Usage',
         'active'        => 'Active',
+        'instanceId'    => 'InstanceId',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
+        'searchPattern' => 'SearchPattern',
+        'usage'         => 'Usage',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class ListPhoneNumbersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->searchPattern) {
-            $res['SearchPattern'] = $this->searchPattern;
-        }
-        if (null !== $this->usage) {
-            $res['Usage'] = $this->usage;
-        }
         if (null !== $this->active) {
             $res['Active'] = $this->active;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->searchPattern) {
+            $res['SearchPattern'] = $this->searchPattern;
+        }
+        if (null !== $this->usage) {
+            $res['Usage'] = $this->usage;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class ListPhoneNumbersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['SearchPattern'])) {
-            $model->searchPattern = $map['SearchPattern'];
-        }
-        if (isset($map['Usage'])) {
-            $model->usage = $map['Usage'];
-        }
         if (isset($map['Active'])) {
             $model->active = $map['Active'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['SearchPattern'])) {
+            $model->searchPattern = $map['SearchPattern'];
+        }
+        if (isset($map['Usage'])) {
+            $model->usage = $map['Usage'];
         }
 
         return $model;

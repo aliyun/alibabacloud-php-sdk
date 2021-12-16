@@ -11,12 +11,17 @@ class data extends Model
     /**
      * @var string
      */
-    public $objectId;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $value;
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $objectId;
 
     /**
      * @var string
@@ -26,18 +31,13 @@ class data extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $name;
+    public $value;
     protected $_name = [
-        'objectId'   => 'ObjectId',
-        'value'      => 'Value',
-        'objectType' => 'ObjectType',
         'instanceId' => 'InstanceId',
         'name'       => 'Name',
+        'objectId'   => 'ObjectId',
+        'objectType' => 'ObjectType',
+        'value'      => 'Value',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->objectId) {
-            $res['ObjectId'] = $this->objectId;
-        }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
-        }
-        if (null !== $this->objectType) {
-            $res['ObjectType'] = $this->objectType;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->objectId) {
+            $res['ObjectId'] = $this->objectId;
+        }
+        if (null !== $this->objectType) {
+            $res['ObjectType'] = $this->objectType;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ObjectId'])) {
-            $model->objectId = $map['ObjectId'];
-        }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
-        }
-        if (isset($map['ObjectType'])) {
-            $model->objectType = $map['ObjectType'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['ObjectId'])) {
+            $model->objectId = $map['ObjectId'];
+        }
+        if (isset($map['ObjectType'])) {
+            $model->objectType = $map['ObjectType'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

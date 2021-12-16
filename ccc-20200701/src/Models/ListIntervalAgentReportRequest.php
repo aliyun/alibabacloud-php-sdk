@@ -16,11 +16,6 @@ class ListIntervalAgentReportRequest extends Model
     /**
      * @var int
      */
-    public $startTime;
-
-    /**
-     * @var int
-     */
     public $endTime;
 
     /**
@@ -32,12 +27,17 @@ class ListIntervalAgentReportRequest extends Model
      * @var string
      */
     public $interval;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
         'agentId'    => 'AgentId',
-        'startTime'  => 'StartTime',
         'endTime'    => 'EndTime',
         'instanceId' => 'InstanceId',
         'interval'   => 'Interval',
+        'startTime'  => 'StartTime',
     ];
 
     public function validate()
@@ -50,9 +50,6 @@ class ListIntervalAgentReportRequest extends Model
         if (null !== $this->agentId) {
             $res['AgentId'] = $this->agentId;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -61,6 +58,9 @@ class ListIntervalAgentReportRequest extends Model
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -77,9 +77,6 @@ class ListIntervalAgentReportRequest extends Model
         if (isset($map['AgentId'])) {
             $model->agentId = $map['AgentId'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
@@ -88,6 +85,9 @@ class ListIntervalAgentReportRequest extends Model
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

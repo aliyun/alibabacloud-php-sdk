@@ -11,27 +11,27 @@ class RegisterDeviceRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $userId;
-
-    /**
-     * @var string
-     */
     public $deviceId;
 
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $password;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'userId'     => 'UserId',
         'deviceId'   => 'DeviceId',
+        'instanceId' => 'InstanceId',
         'password'   => 'Password',
+        'userId'     => 'UserId',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class RegisterDeviceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class RegisterDeviceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

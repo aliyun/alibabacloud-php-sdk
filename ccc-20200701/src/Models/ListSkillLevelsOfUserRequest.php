@@ -14,11 +14,6 @@ class ListSkillLevelsOfUserRequest extends Model
     public $instanceId;
 
     /**
-     * @var string
-     */
-    public $userId;
-
-    /**
      * @var bool
      */
     public $isMember;
@@ -37,13 +32,18 @@ class ListSkillLevelsOfUserRequest extends Model
      * @var string
      */
     public $searchPattern;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
         'instanceId'    => 'InstanceId',
-        'userId'        => 'UserId',
         'isMember'      => 'IsMember',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
         'searchPattern' => 'SearchPattern',
+        'userId'        => 'UserId',
     ];
 
     public function validate()
@@ -56,9 +56,6 @@ class ListSkillLevelsOfUserRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->isMember) {
             $res['IsMember'] = $this->isMember;
         }
@@ -70,6 +67,9 @@ class ListSkillLevelsOfUserRequest extends Model
         }
         if (null !== $this->searchPattern) {
             $res['SearchPattern'] = $this->searchPattern;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -86,9 +86,6 @@ class ListSkillLevelsOfUserRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['IsMember'])) {
             $model->isMember = $map['IsMember'];
         }
@@ -100,6 +97,9 @@ class ListSkillLevelsOfUserRequest extends Model
         }
         if (isset($map['SearchPattern'])) {
             $model->searchPattern = $map['SearchPattern'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

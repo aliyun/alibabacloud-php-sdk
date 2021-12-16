@@ -11,6 +11,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $agentServerUrl;
+
+    /**
+     * @var string
+     */
+    public $deviceId;
+
+    /**
+     * @var string
+     */
     public $displayName;
 
     /**
@@ -31,16 +41,6 @@ class data extends Model
     /**
      * @var string
      */
-    public $deviceId;
-
-    /**
-     * @var string
-     */
-    public $agentServerUrl;
-
-    /**
-     * @var string
-     */
     public $userId;
 
     /**
@@ -48,12 +48,12 @@ class data extends Model
      */
     public $userKey;
     protected $_name = [
+        'agentServerUrl' => 'AgentServerUrl',
+        'deviceId'       => 'DeviceId',
         'displayName'    => 'DisplayName',
         'extension'      => 'Extension',
         'signature'      => 'Signature',
         'sipServerUrl'   => 'SipServerUrl',
-        'deviceId'       => 'DeviceId',
-        'agentServerUrl' => 'AgentServerUrl',
         'userId'         => 'UserId',
         'userKey'        => 'UserKey',
     ];
@@ -65,6 +65,12 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agentServerUrl) {
+            $res['AgentServerUrl'] = $this->agentServerUrl;
+        }
+        if (null !== $this->deviceId) {
+            $res['DeviceId'] = $this->deviceId;
+        }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
@@ -76,12 +82,6 @@ class data extends Model
         }
         if (null !== $this->sipServerUrl) {
             $res['SipServerUrl'] = $this->sipServerUrl;
-        }
-        if (null !== $this->deviceId) {
-            $res['DeviceId'] = $this->deviceId;
-        }
-        if (null !== $this->agentServerUrl) {
-            $res['AgentServerUrl'] = $this->agentServerUrl;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -101,6 +101,12 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentServerUrl'])) {
+            $model->agentServerUrl = $map['AgentServerUrl'];
+        }
+        if (isset($map['DeviceId'])) {
+            $model->deviceId = $map['DeviceId'];
+        }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
@@ -112,12 +118,6 @@ class data extends Model
         }
         if (isset($map['SipServerUrl'])) {
             $model->sipServerUrl = $map['SipServerUrl'];
-        }
-        if (isset($map['DeviceId'])) {
-            $model->deviceId = $map['DeviceId'];
-        }
-        if (isset($map['AgentServerUrl'])) {
-            $model->agentServerUrl = $map['AgentServerUrl'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

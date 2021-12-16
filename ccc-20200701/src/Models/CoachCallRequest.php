@@ -11,12 +11,7 @@ class CoachCallRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $userId;
+    public $coachedUserId;
 
     /**
      * @var string
@@ -26,24 +21,29 @@ class CoachCallRequest extends Model
     /**
      * @var string
      */
-    public $jobId;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $coachedUserId;
+    public $jobId;
 
     /**
      * @var int
      */
     public $timeoutSeconds;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
-        'instanceId'     => 'InstanceId',
-        'userId'         => 'UserId',
-        'deviceId'       => 'DeviceId',
-        'jobId'          => 'JobId',
         'coachedUserId'  => 'CoachedUserId',
+        'deviceId'       => 'DeviceId',
+        'instanceId'     => 'InstanceId',
+        'jobId'          => 'JobId',
         'timeoutSeconds' => 'TimeoutSeconds',
+        'userId'         => 'UserId',
     ];
 
     public function validate()
@@ -53,23 +53,23 @@ class CoachCallRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->coachedUserId) {
+            $res['CoachedUserId'] = $this->coachedUserId;
         }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
-        if (null !== $this->coachedUserId) {
-            $res['CoachedUserId'] = $this->coachedUserId;
-        }
         if (null !== $this->timeoutSeconds) {
             $res['TimeoutSeconds'] = $this->timeoutSeconds;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -83,23 +83,23 @@ class CoachCallRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['CoachedUserId'])) {
+            $model->coachedUserId = $map['CoachedUserId'];
         }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
-        if (isset($map['CoachedUserId'])) {
-            $model->coachedUserId = $map['CoachedUserId'];
-        }
         if (isset($map['TimeoutSeconds'])) {
             $model->timeoutSeconds = $map['TimeoutSeconds'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

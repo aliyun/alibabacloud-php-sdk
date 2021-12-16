@@ -11,15 +11,15 @@ class data extends Model
     /**
      * @var string
      */
-    public $fileUrl;
+    public $fileName;
 
     /**
      * @var string
      */
-    public $fileName;
+    public $fileUrl;
     protected $_name = [
-        'fileUrl'  => 'FileUrl',
         'fileName' => 'FileName',
+        'fileUrl'  => 'FileUrl',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->fileUrl) {
-            $res['FileUrl'] = $this->fileUrl;
-        }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
+        }
+        if (null !== $this->fileUrl) {
+            $res['FileUrl'] = $this->fileUrl;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FileUrl'])) {
-            $model->fileUrl = $map['FileUrl'];
-        }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
+        }
+        if (isset($map['FileUrl'])) {
+            $model->fileUrl = $map['FileUrl'];
         }
 
         return $model;

@@ -11,12 +11,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $extension;
-
-    /**
-     * @var int
-     */
-    public $expires;
+    public $callId;
 
     /**
      * @var string
@@ -29,27 +24,32 @@ class data extends Model
     public $deviceId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $userId;
+    public $expires;
 
     /**
      * @var string
      */
-    public $callId;
+    public $extension;
 
     /**
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
-        'extension'  => 'Extension',
-        'expires'    => 'Expires',
+        'callId'     => 'CallId',
         'contact'    => 'Contact',
         'deviceId'   => 'DeviceId',
-        'userId'     => 'UserId',
-        'callId'     => 'CallId',
+        'expires'    => 'Expires',
+        'extension'  => 'Extension',
         'instanceId' => 'InstanceId',
+        'userId'     => 'UserId',
     ];
 
     public function validate()
@@ -59,11 +59,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->extension) {
-            $res['Extension'] = $this->extension;
-        }
-        if (null !== $this->expires) {
-            $res['Expires'] = $this->expires;
+        if (null !== $this->callId) {
+            $res['CallId'] = $this->callId;
         }
         if (null !== $this->contact) {
             $res['Contact'] = $this->contact;
@@ -71,14 +68,17 @@ class data extends Model
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->expires) {
+            $res['Expires'] = $this->expires;
         }
-        if (null !== $this->callId) {
-            $res['CallId'] = $this->callId;
+        if (null !== $this->extension) {
+            $res['Extension'] = $this->extension;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -92,11 +92,8 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Extension'])) {
-            $model->extension = $map['Extension'];
-        }
-        if (isset($map['Expires'])) {
-            $model->expires = $map['Expires'];
+        if (isset($map['CallId'])) {
+            $model->callId = $map['CallId'];
         }
         if (isset($map['Contact'])) {
             $model->contact = $map['Contact'];
@@ -104,14 +101,17 @@ class data extends Model
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['Expires'])) {
+            $model->expires = $map['Expires'];
         }
-        if (isset($map['CallId'])) {
-            $model->callId = $map['CallId'];
+        if (isset($map['Extension'])) {
+            $model->extension = $map['Extension'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

@@ -16,16 +16,16 @@ class AddPersonalNumbersToUserRequest extends Model
     /**
      * @var string
      */
-    public $userId;
+    public $numberList;
 
     /**
      * @var string
      */
-    public $numberList;
+    public $userId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'userId'     => 'UserId',
         'numberList' => 'NumberList',
+        'userId'     => 'UserId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class AddPersonalNumbersToUserRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->numberList) {
             $res['NumberList'] = $this->numberList;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class AddPersonalNumbersToUserRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['NumberList'])) {
             $model->numberList = $map['NumberList'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

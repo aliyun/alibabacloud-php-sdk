@@ -9,14 +9,24 @@ use AlibabaCloud\Tea\Model;
 class channelContexts extends Model
 {
     /**
-     * @var int
+     * @var mixed[]
      */
-    public $index;
+    public $associatedData;
 
     /**
      * @var string
      */
-    public $releaseInitiator;
+    public $callType;
+
+    /**
+     * @var string
+     */
+    public $channelFlags;
+
+    /**
+     * @var string
+     */
+    public $channelId;
 
     /**
      * @var string
@@ -29,14 +39,29 @@ class channelContexts extends Model
     public $destination;
 
     /**
-     * @var string
+     * @var int
      */
-    public $userId;
+    public $index;
 
     /**
      * @var string
      */
-    public $channelFlags;
+    public $jobId;
+
+    /**
+     * @var string
+     */
+    public $originator;
+
+    /**
+     * @var string
+     */
+    public $releaseInitiator;
+
+    /**
+     * @var string
+     */
+    public $releaseReason;
 
     /**
      * @var string
@@ -49,31 +74,6 @@ class channelContexts extends Model
     public $timestamp;
 
     /**
-     * @var mixed[]
-     */
-    public $associatedData;
-
-    /**
-     * @var string
-     */
-    public $releaseReason;
-
-    /**
-     * @var string
-     */
-    public $callType;
-
-    /**
-     * @var string
-     */
-    public $jobId;
-
-    /**
-     * @var string
-     */
-    public $channelId;
-
-    /**
      * @var string
      */
     public $userExtension;
@@ -81,23 +81,23 @@ class channelContexts extends Model
     /**
      * @var string
      */
-    public $originator;
+    public $userId;
     protected $_name = [
-        'index'            => 'Index',
-        'releaseInitiator' => 'ReleaseInitiator',
+        'associatedData'   => 'AssociatedData',
+        'callType'         => 'CallType',
+        'channelFlags'     => 'ChannelFlags',
+        'channelId'        => 'ChannelId',
         'channelState'     => 'ChannelState',
         'destination'      => 'Destination',
-        'userId'           => 'UserId',
-        'channelFlags'     => 'ChannelFlags',
+        'index'            => 'Index',
+        'jobId'            => 'JobId',
+        'originator'       => 'Originator',
+        'releaseInitiator' => 'ReleaseInitiator',
+        'releaseReason'    => 'ReleaseReason',
         'skillGroupId'     => 'SkillGroupId',
         'timestamp'        => 'Timestamp',
-        'associatedData'   => 'AssociatedData',
-        'releaseReason'    => 'ReleaseReason',
-        'callType'         => 'CallType',
-        'jobId'            => 'JobId',
-        'channelId'        => 'ChannelId',
         'userExtension'    => 'UserExtension',
-        'originator'       => 'Originator',
+        'userId'           => 'UserId',
     ];
 
     public function validate()
@@ -107,11 +107,17 @@ class channelContexts extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->index) {
-            $res['Index'] = $this->index;
+        if (null !== $this->associatedData) {
+            $res['AssociatedData'] = $this->associatedData;
         }
-        if (null !== $this->releaseInitiator) {
-            $res['ReleaseInitiator'] = $this->releaseInitiator;
+        if (null !== $this->callType) {
+            $res['CallType'] = $this->callType;
+        }
+        if (null !== $this->channelFlags) {
+            $res['ChannelFlags'] = $this->channelFlags;
+        }
+        if (null !== $this->channelId) {
+            $res['ChannelId'] = $this->channelId;
         }
         if (null !== $this->channelState) {
             $res['ChannelState'] = $this->channelState;
@@ -119,11 +125,20 @@ class channelContexts extends Model
         if (null !== $this->destination) {
             $res['Destination'] = $this->destination;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->index) {
+            $res['Index'] = $this->index;
         }
-        if (null !== $this->channelFlags) {
-            $res['ChannelFlags'] = $this->channelFlags;
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->originator) {
+            $res['Originator'] = $this->originator;
+        }
+        if (null !== $this->releaseInitiator) {
+            $res['ReleaseInitiator'] = $this->releaseInitiator;
+        }
+        if (null !== $this->releaseReason) {
+            $res['ReleaseReason'] = $this->releaseReason;
         }
         if (null !== $this->skillGroupId) {
             $res['SkillGroupId'] = $this->skillGroupId;
@@ -131,26 +146,11 @@ class channelContexts extends Model
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
-        if (null !== $this->associatedData) {
-            $res['AssociatedData'] = $this->associatedData;
-        }
-        if (null !== $this->releaseReason) {
-            $res['ReleaseReason'] = $this->releaseReason;
-        }
-        if (null !== $this->callType) {
-            $res['CallType'] = $this->callType;
-        }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
-        if (null !== $this->channelId) {
-            $res['ChannelId'] = $this->channelId;
-        }
         if (null !== $this->userExtension) {
             $res['UserExtension'] = $this->userExtension;
         }
-        if (null !== $this->originator) {
-            $res['Originator'] = $this->originator;
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -164,11 +164,17 @@ class channelContexts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Index'])) {
-            $model->index = $map['Index'];
+        if (isset($map['AssociatedData'])) {
+            $model->associatedData = $map['AssociatedData'];
         }
-        if (isset($map['ReleaseInitiator'])) {
-            $model->releaseInitiator = $map['ReleaseInitiator'];
+        if (isset($map['CallType'])) {
+            $model->callType = $map['CallType'];
+        }
+        if (isset($map['ChannelFlags'])) {
+            $model->channelFlags = $map['ChannelFlags'];
+        }
+        if (isset($map['ChannelId'])) {
+            $model->channelId = $map['ChannelId'];
         }
         if (isset($map['ChannelState'])) {
             $model->channelState = $map['ChannelState'];
@@ -176,11 +182,20 @@ class channelContexts extends Model
         if (isset($map['Destination'])) {
             $model->destination = $map['Destination'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['Index'])) {
+            $model->index = $map['Index'];
         }
-        if (isset($map['ChannelFlags'])) {
-            $model->channelFlags = $map['ChannelFlags'];
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
+        if (isset($map['Originator'])) {
+            $model->originator = $map['Originator'];
+        }
+        if (isset($map['ReleaseInitiator'])) {
+            $model->releaseInitiator = $map['ReleaseInitiator'];
+        }
+        if (isset($map['ReleaseReason'])) {
+            $model->releaseReason = $map['ReleaseReason'];
         }
         if (isset($map['SkillGroupId'])) {
             $model->skillGroupId = $map['SkillGroupId'];
@@ -188,26 +203,11 @@ class channelContexts extends Model
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }
-        if (isset($map['AssociatedData'])) {
-            $model->associatedData = $map['AssociatedData'];
-        }
-        if (isset($map['ReleaseReason'])) {
-            $model->releaseReason = $map['ReleaseReason'];
-        }
-        if (isset($map['CallType'])) {
-            $model->callType = $map['CallType'];
-        }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
-        if (isset($map['ChannelId'])) {
-            $model->channelId = $map['ChannelId'];
-        }
         if (isset($map['UserExtension'])) {
             $model->userExtension = $map['UserExtension'];
         }
-        if (isset($map['Originator'])) {
-            $model->originator = $map['Originator'];
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

@@ -9,21 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListIntervalSkillGroupReportRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $skillGroupId;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
      * @var int
      */
     public $endTime;
@@ -31,13 +16,28 @@ class ListIntervalSkillGroupReportRequest extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $interval;
+
+    /**
+     * @var string
+     */
+    public $skillGroupId;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
-        'skillGroupId' => 'SkillGroupId',
-        'instanceId'   => 'InstanceId',
-        'startTime'    => 'StartTime',
         'endTime'      => 'EndTime',
+        'instanceId'   => 'InstanceId',
         'interval'     => 'Interval',
+        'skillGroupId' => 'SkillGroupId',
+        'startTime'    => 'StartTime',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class ListIntervalSkillGroupReportRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->skillGroupId) {
-            $res['SkillGroupId'] = $this->skillGroupId;
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
+        }
+        if (null !== $this->skillGroupId) {
+            $res['SkillGroupId'] = $this->skillGroupId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class ListIntervalSkillGroupReportRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SkillGroupId'])) {
-            $model->skillGroupId = $map['SkillGroupId'];
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
+        }
+        if (isset($map['SkillGroupId'])) {
+            $model->skillGroupId = $map['SkillGroupId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

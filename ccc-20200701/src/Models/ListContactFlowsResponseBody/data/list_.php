@@ -11,7 +11,12 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $type;
+    public $contactFlowId;
+
+    /**
+     * @var string
+     */
+    public $createdTime;
 
     /**
      * @var string
@@ -21,27 +26,17 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $draftId;
-
-    /**
-     * @var string
-     */
     public $description;
 
     /**
      * @var string
      */
-    public $updatedTime;
+    public $draftId;
 
     /**
      * @var string
      */
     public $editor;
-
-    /**
-     * @var bool
-     */
-    public $published;
 
     /**
      * @var string
@@ -54,32 +49,37 @@ class list_ extends Model
     public $name;
 
     /**
-     * @var string
-     */
-    public $contactFlowId;
-
-    /**
-     * @var string
-     */
-    public $createdTime;
-
-    /**
      * @var string[]
      */
     public $numberList;
+
+    /**
+     * @var bool
+     */
+    public $published;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var string
+     */
+    public $updatedTime;
     protected $_name = [
-        'type'          => 'Type',
-        'definition'    => 'Definition',
-        'draftId'       => 'DraftId',
-        'description'   => 'Description',
-        'updatedTime'   => 'UpdatedTime',
-        'editor'        => 'Editor',
-        'published'     => 'Published',
-        'instanceId'    => 'InstanceId',
-        'name'          => 'Name',
         'contactFlowId' => 'ContactFlowId',
         'createdTime'   => 'CreatedTime',
+        'definition'    => 'Definition',
+        'description'   => 'Description',
+        'draftId'       => 'DraftId',
+        'editor'        => 'Editor',
+        'instanceId'    => 'InstanceId',
+        'name'          => 'Name',
         'numberList'    => 'NumberList',
+        'published'     => 'Published',
+        'type'          => 'Type',
+        'updatedTime'   => 'UpdatedTime',
     ];
 
     public function validate()
@@ -89,26 +89,23 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->contactFlowId) {
+            $res['ContactFlowId'] = $this->contactFlowId;
+        }
+        if (null !== $this->createdTime) {
+            $res['CreatedTime'] = $this->createdTime;
         }
         if (null !== $this->definition) {
             $res['Definition'] = $this->definition;
         }
-        if (null !== $this->draftId) {
-            $res['DraftId'] = $this->draftId;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->updatedTime) {
-            $res['UpdatedTime'] = $this->updatedTime;
+        if (null !== $this->draftId) {
+            $res['DraftId'] = $this->draftId;
         }
         if (null !== $this->editor) {
             $res['Editor'] = $this->editor;
-        }
-        if (null !== $this->published) {
-            $res['Published'] = $this->published;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -116,14 +113,17 @@ class list_ extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->contactFlowId) {
-            $res['ContactFlowId'] = $this->contactFlowId;
-        }
-        if (null !== $this->createdTime) {
-            $res['CreatedTime'] = $this->createdTime;
-        }
         if (null !== $this->numberList) {
             $res['NumberList'] = $this->numberList;
+        }
+        if (null !== $this->published) {
+            $res['Published'] = $this->published;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+        if (null !== $this->updatedTime) {
+            $res['UpdatedTime'] = $this->updatedTime;
         }
 
         return $res;
@@ -137,26 +137,23 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['ContactFlowId'])) {
+            $model->contactFlowId = $map['ContactFlowId'];
+        }
+        if (isset($map['CreatedTime'])) {
+            $model->createdTime = $map['CreatedTime'];
         }
         if (isset($map['Definition'])) {
             $model->definition = $map['Definition'];
         }
-        if (isset($map['DraftId'])) {
-            $model->draftId = $map['DraftId'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['UpdatedTime'])) {
-            $model->updatedTime = $map['UpdatedTime'];
+        if (isset($map['DraftId'])) {
+            $model->draftId = $map['DraftId'];
         }
         if (isset($map['Editor'])) {
             $model->editor = $map['Editor'];
-        }
-        if (isset($map['Published'])) {
-            $model->published = $map['Published'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -164,16 +161,19 @@ class list_ extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['ContactFlowId'])) {
-            $model->contactFlowId = $map['ContactFlowId'];
-        }
-        if (isset($map['CreatedTime'])) {
-            $model->createdTime = $map['CreatedTime'];
-        }
         if (isset($map['NumberList'])) {
             if (!empty($map['NumberList'])) {
                 $model->numberList = $map['NumberList'];
             }
+        }
+        if (isset($map['Published'])) {
+            $model->published = $map['Published'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+        if (isset($map['UpdatedTime'])) {
+            $model->updatedTime = $map['UpdatedTime'];
         }
 
         return $model;

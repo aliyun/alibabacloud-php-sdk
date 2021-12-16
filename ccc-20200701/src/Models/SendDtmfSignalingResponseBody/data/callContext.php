@@ -15,6 +15,11 @@ class callContext extends Model
     public $callType;
 
     /**
+     * @var channelContexts[]
+     */
+    public $channelContexts;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -23,16 +28,11 @@ class callContext extends Model
      * @var string
      */
     public $jobId;
-
-    /**
-     * @var channelContexts[]
-     */
-    public $channelContexts;
     protected $_name = [
         'callType'        => 'CallType',
+        'channelContexts' => 'ChannelContexts',
         'instanceId'      => 'InstanceId',
         'jobId'           => 'JobId',
-        'channelContexts' => 'ChannelContexts',
     ];
 
     public function validate()
@@ -45,12 +45,6 @@ class callContext extends Model
         if (null !== $this->callType) {
             $res['CallType'] = $this->callType;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
         if (null !== $this->channelContexts) {
             $res['ChannelContexts'] = [];
             if (null !== $this->channelContexts && \is_array($this->channelContexts)) {
@@ -59,6 +53,12 @@ class callContext extends Model
                     $res['ChannelContexts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
 
         return $res;
@@ -75,12 +75,6 @@ class callContext extends Model
         if (isset($map['CallType'])) {
             $model->callType = $map['CallType'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
         if (isset($map['ChannelContexts'])) {
             if (!empty($map['ChannelContexts'])) {
                 $model->channelContexts = [];
@@ -89,6 +83,12 @@ class callContext extends Model
                     $model->channelContexts[$n++] = null !== $item ? channelContexts::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteSkillGroupRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $force;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -17,15 +22,10 @@ class DeleteSkillGroupRequest extends Model
      * @var string
      */
     public $skillGroupId;
-
-    /**
-     * @var bool
-     */
-    public $force;
     protected $_name = [
+        'force'        => 'Force',
         'instanceId'   => 'InstanceId',
         'skillGroupId' => 'SkillGroupId',
-        'force'        => 'Force',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class DeleteSkillGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->force) {
+            $res['Force'] = $this->force;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->skillGroupId) {
             $res['SkillGroupId'] = $this->skillGroupId;
-        }
-        if (null !== $this->force) {
-            $res['Force'] = $this->force;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class DeleteSkillGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Force'])) {
+            $model->force = $map['Force'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['SkillGroupId'])) {
             $model->skillGroupId = $map['SkillGroupId'];
-        }
-        if (isset($map['Force'])) {
-            $model->force = $map['Force'];
         }
 
         return $model;

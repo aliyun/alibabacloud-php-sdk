@@ -11,6 +11,11 @@ class UpdateConfigItemsRequest extends Model
     /**
      * @var string
      */
+    public $configItems;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -22,16 +27,11 @@ class UpdateConfigItemsRequest extends Model
      * @var string
      */
     public $objectType;
-
-    /**
-     * @var string
-     */
-    public $configItems;
     protected $_name = [
+        'configItems' => 'ConfigItems',
         'instanceId'  => 'InstanceId',
         'objectId'    => 'ObjectId',
         'objectType'  => 'ObjectType',
-        'configItems' => 'ConfigItems',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class UpdateConfigItemsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->configItems) {
+            $res['ConfigItems'] = $this->configItems;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -49,9 +52,6 @@ class UpdateConfigItemsRequest extends Model
         }
         if (null !== $this->objectType) {
             $res['ObjectType'] = $this->objectType;
-        }
-        if (null !== $this->configItems) {
-            $res['ConfigItems'] = $this->configItems;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class UpdateConfigItemsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConfigItems'])) {
+            $model->configItems = $map['ConfigItems'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -73,9 +76,6 @@ class UpdateConfigItemsRequest extends Model
         }
         if (isset($map['ObjectType'])) {
             $model->objectType = $map['ObjectType'];
-        }
-        if (isset($map['ConfigItems'])) {
-            $model->configItems = $map['ConfigItems'];
         }
 
         return $model;

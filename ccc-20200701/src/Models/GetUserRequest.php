@@ -11,21 +11,21 @@ class GetUserRequest extends Model
     /**
      * @var string
      */
+    public $extension;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
      * @var string
      */
     public $userId;
-
-    /**
-     * @var string
-     */
-    public $extension;
     protected $_name = [
+        'extension'  => 'Extension',
         'instanceId' => 'InstanceId',
         'userId'     => 'UserId',
-        'extension'  => 'Extension',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetUserRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->extension) {
+            $res['Extension'] = $this->extension;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->extension) {
-            $res['Extension'] = $this->extension;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Extension'])) {
+            $model->extension = $map['Extension'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
-        }
-        if (isset($map['Extension'])) {
-            $model->extension = $map['Extension'];
         }
 
         return $model;

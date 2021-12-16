@@ -11,12 +11,12 @@ class list_ extends Model
     /**
      * @var int
      */
-    public $workingAgents;
+    public $breakingAgents;
 
     /**
-     * @var int
+     * @var string
      */
-    public $longestWaitingTime;
+    public $instanceId;
 
     /**
      * @var int
@@ -26,27 +26,7 @@ class list_ extends Model
     /**
      * @var int
      */
-    public $waitingCalls;
-
-    /**
-     * @var int
-     */
-    public $breakingAgents;
-
-    /**
-     * @var int
-     */
-    public $talkingAgents;
-
-    /**
-     * @var string
-     */
-    public $skillGroupName;
-
-    /**
-     * @var string
-     */
-    public $skillGroupId;
+    public $longestWaitingTime;
 
     /**
      * @var int
@@ -56,18 +36,38 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $skillGroupId;
+
+    /**
+     * @var string
+     */
+    public $skillGroupName;
+
+    /**
+     * @var int
+     */
+    public $talkingAgents;
+
+    /**
+     * @var int
+     */
+    public $waitingCalls;
+
+    /**
+     * @var int
+     */
+    public $workingAgents;
     protected $_name = [
-        'workingAgents'      => 'WorkingAgents',
-        'longestWaitingTime' => 'LongestWaitingTime',
-        'loggedInAgents'     => 'LoggedInAgents',
-        'waitingCalls'       => 'WaitingCalls',
         'breakingAgents'     => 'BreakingAgents',
-        'talkingAgents'      => 'TalkingAgents',
-        'skillGroupName'     => 'SkillGroupName',
-        'skillGroupId'       => 'SkillGroupId',
-        'readyAgents'        => 'ReadyAgents',
         'instanceId'         => 'InstanceId',
+        'loggedInAgents'     => 'LoggedInAgents',
+        'longestWaitingTime' => 'LongestWaitingTime',
+        'readyAgents'        => 'ReadyAgents',
+        'skillGroupId'       => 'SkillGroupId',
+        'skillGroupName'     => 'SkillGroupName',
+        'talkingAgents'      => 'TalkingAgents',
+        'waitingCalls'       => 'WaitingCalls',
+        'workingAgents'      => 'WorkingAgents',
     ];
 
     public function validate()
@@ -77,35 +77,35 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->workingAgents) {
-            $res['WorkingAgents'] = $this->workingAgents;
+        if (null !== $this->breakingAgents) {
+            $res['BreakingAgents'] = $this->breakingAgents;
         }
-        if (null !== $this->longestWaitingTime) {
-            $res['LongestWaitingTime'] = $this->longestWaitingTime;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->loggedInAgents) {
             $res['LoggedInAgents'] = $this->loggedInAgents;
         }
-        if (null !== $this->waitingCalls) {
-            $res['WaitingCalls'] = $this->waitingCalls;
-        }
-        if (null !== $this->breakingAgents) {
-            $res['BreakingAgents'] = $this->breakingAgents;
-        }
-        if (null !== $this->talkingAgents) {
-            $res['TalkingAgents'] = $this->talkingAgents;
-        }
-        if (null !== $this->skillGroupName) {
-            $res['SkillGroupName'] = $this->skillGroupName;
-        }
-        if (null !== $this->skillGroupId) {
-            $res['SkillGroupId'] = $this->skillGroupId;
+        if (null !== $this->longestWaitingTime) {
+            $res['LongestWaitingTime'] = $this->longestWaitingTime;
         }
         if (null !== $this->readyAgents) {
             $res['ReadyAgents'] = $this->readyAgents;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->skillGroupId) {
+            $res['SkillGroupId'] = $this->skillGroupId;
+        }
+        if (null !== $this->skillGroupName) {
+            $res['SkillGroupName'] = $this->skillGroupName;
+        }
+        if (null !== $this->talkingAgents) {
+            $res['TalkingAgents'] = $this->talkingAgents;
+        }
+        if (null !== $this->waitingCalls) {
+            $res['WaitingCalls'] = $this->waitingCalls;
+        }
+        if (null !== $this->workingAgents) {
+            $res['WorkingAgents'] = $this->workingAgents;
         }
 
         return $res;
@@ -119,35 +119,35 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['WorkingAgents'])) {
-            $model->workingAgents = $map['WorkingAgents'];
+        if (isset($map['BreakingAgents'])) {
+            $model->breakingAgents = $map['BreakingAgents'];
         }
-        if (isset($map['LongestWaitingTime'])) {
-            $model->longestWaitingTime = $map['LongestWaitingTime'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['LoggedInAgents'])) {
             $model->loggedInAgents = $map['LoggedInAgents'];
         }
-        if (isset($map['WaitingCalls'])) {
-            $model->waitingCalls = $map['WaitingCalls'];
-        }
-        if (isset($map['BreakingAgents'])) {
-            $model->breakingAgents = $map['BreakingAgents'];
-        }
-        if (isset($map['TalkingAgents'])) {
-            $model->talkingAgents = $map['TalkingAgents'];
-        }
-        if (isset($map['SkillGroupName'])) {
-            $model->skillGroupName = $map['SkillGroupName'];
-        }
-        if (isset($map['SkillGroupId'])) {
-            $model->skillGroupId = $map['SkillGroupId'];
+        if (isset($map['LongestWaitingTime'])) {
+            $model->longestWaitingTime = $map['LongestWaitingTime'];
         }
         if (isset($map['ReadyAgents'])) {
             $model->readyAgents = $map['ReadyAgents'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['SkillGroupId'])) {
+            $model->skillGroupId = $map['SkillGroupId'];
+        }
+        if (isset($map['SkillGroupName'])) {
+            $model->skillGroupName = $map['SkillGroupName'];
+        }
+        if (isset($map['TalkingAgents'])) {
+            $model->talkingAgents = $map['TalkingAgents'];
+        }
+        if (isset($map['WaitingCalls'])) {
+            $model->waitingCalls = $map['WaitingCalls'];
+        }
+        if (isset($map['WorkingAgents'])) {
+            $model->workingAgents = $map['WorkingAgents'];
         }
 
         return $model;

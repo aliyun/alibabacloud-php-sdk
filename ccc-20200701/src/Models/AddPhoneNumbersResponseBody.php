@@ -14,6 +14,11 @@ class AddPhoneNumbersResponseBody extends Model
     public $code;
 
     /**
+     * @var string[]
+     */
+    public $data;
+
+    /**
      * @var int
      */
     public $httpStatusCode;
@@ -27,17 +32,12 @@ class AddPhoneNumbersResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string[]
-     */
-    public $data;
     protected $_name = [
         'code'           => 'Code',
+        'data'           => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
         'requestId'      => 'RequestId',
-        'data'           => 'Data',
     ];
 
     public function validate()
@@ -50,6 +50,9 @@ class AddPhoneNumbersResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
+        }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
@@ -58,9 +61,6 @@ class AddPhoneNumbersResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
         }
 
         return $res;
@@ -77,6 +77,11 @@ class AddPhoneNumbersResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['Data'])) {
+            if (!empty($map['Data'])) {
+                $model->data = $map['Data'];
+            }
+        }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
@@ -85,11 +90,6 @@ class AddPhoneNumbersResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = $map['Data'];
-            }
         }
 
         return $model;

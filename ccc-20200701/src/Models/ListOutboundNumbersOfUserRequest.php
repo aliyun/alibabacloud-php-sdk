@@ -14,11 +14,6 @@ class ListOutboundNumbersOfUserRequest extends Model
     public $instanceId;
 
     /**
-     * @var string
-     */
-    public $userId;
-
-    /**
      * @var int
      */
     public $pageNumber;
@@ -32,12 +27,17 @@ class ListOutboundNumbersOfUserRequest extends Model
      * @var string
      */
     public $skillGroupIdList;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
         'instanceId'       => 'InstanceId',
-        'userId'           => 'UserId',
         'pageNumber'       => 'PageNumber',
         'pageSize'         => 'PageSize',
         'skillGroupIdList' => 'SkillGroupIdList',
+        'userId'           => 'UserId',
     ];
 
     public function validate()
@@ -50,9 +50,6 @@ class ListOutboundNumbersOfUserRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -61,6 +58,9 @@ class ListOutboundNumbersOfUserRequest extends Model
         }
         if (null !== $this->skillGroupIdList) {
             $res['SkillGroupIdList'] = $this->skillGroupIdList;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -77,9 +77,6 @@ class ListOutboundNumbersOfUserRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -88,6 +85,9 @@ class ListOutboundNumbersOfUserRequest extends Model
         }
         if (isset($map['SkillGroupIdList'])) {
             $model->skillGroupIdList = $map['SkillGroupIdList'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

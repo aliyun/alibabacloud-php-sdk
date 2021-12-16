@@ -11,22 +11,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var int
-     */
-    public $contextId;
-
-    /**
      * @var callContext
      */
     public $callContext;
+
+    /**
+     * @var int
+     */
+    public $contextId;
 
     /**
      * @var userContext
      */
     public $userContext;
     protected $_name = [
-        'contextId'   => 'ContextId',
         'callContext' => 'CallContext',
+        'contextId'   => 'ContextId',
         'userContext' => 'UserContext',
     ];
 
@@ -37,11 +37,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->contextId) {
-            $res['ContextId'] = $this->contextId;
-        }
         if (null !== $this->callContext) {
             $res['CallContext'] = null !== $this->callContext ? $this->callContext->toMap() : null;
+        }
+        if (null !== $this->contextId) {
+            $res['ContextId'] = $this->contextId;
         }
         if (null !== $this->userContext) {
             $res['UserContext'] = null !== $this->userContext ? $this->userContext->toMap() : null;
@@ -58,11 +58,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ContextId'])) {
-            $model->contextId = $map['ContextId'];
-        }
         if (isset($map['CallContext'])) {
             $model->callContext = callContext::fromMap($map['CallContext']);
+        }
+        if (isset($map['ContextId'])) {
+            $model->contextId = $map['ContextId'];
         }
         if (isset($map['UserContext'])) {
             $model->userContext = userContext::fromMap($map['UserContext']);

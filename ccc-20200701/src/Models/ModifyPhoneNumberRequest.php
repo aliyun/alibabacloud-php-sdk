@@ -11,6 +11,11 @@ class ModifyPhoneNumberRequest extends Model
     /**
      * @var string
      */
+    public $contactFlowId;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -22,16 +27,11 @@ class ModifyPhoneNumberRequest extends Model
      * @var string
      */
     public $usage;
-
-    /**
-     * @var string
-     */
-    public $contactFlowId;
     protected $_name = [
+        'contactFlowId' => 'ContactFlowId',
         'instanceId'    => 'InstanceId',
         'number'        => 'Number',
         'usage'         => 'Usage',
-        'contactFlowId' => 'ContactFlowId',
     ];
 
     public function validate()
@@ -41,6 +41,9 @@ class ModifyPhoneNumberRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->contactFlowId) {
+            $res['ContactFlowId'] = $this->contactFlowId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -49,9 +52,6 @@ class ModifyPhoneNumberRequest extends Model
         }
         if (null !== $this->usage) {
             $res['Usage'] = $this->usage;
-        }
-        if (null !== $this->contactFlowId) {
-            $res['ContactFlowId'] = $this->contactFlowId;
         }
 
         return $res;
@@ -65,6 +65,9 @@ class ModifyPhoneNumberRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContactFlowId'])) {
+            $model->contactFlowId = $map['ContactFlowId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -73,9 +76,6 @@ class ModifyPhoneNumberRequest extends Model
         }
         if (isset($map['Usage'])) {
             $model->usage = $map['Usage'];
-        }
-        if (isset($map['ContactFlowId'])) {
-            $model->contactFlowId = $map['ContactFlowId'];
         }
 
         return $model;

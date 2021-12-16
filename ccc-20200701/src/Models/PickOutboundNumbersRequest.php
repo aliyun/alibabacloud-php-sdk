@@ -11,11 +11,6 @@ class PickOutboundNumbersRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
     public $calledNumber;
 
     /**
@@ -26,11 +21,16 @@ class PickOutboundNumbersRequest extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $skillGroupIdList;
     protected $_name = [
-        'instanceId'       => 'InstanceId',
         'calledNumber'     => 'CalledNumber',
         'count'            => 'Count',
+        'instanceId'       => 'InstanceId',
         'skillGroupIdList' => 'SkillGroupIdList',
     ];
 
@@ -41,14 +41,14 @@ class PickOutboundNumbersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->calledNumber) {
             $res['CalledNumber'] = $this->calledNumber;
         }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->skillGroupIdList) {
             $res['SkillGroupIdList'] = $this->skillGroupIdList;
@@ -65,14 +65,14 @@ class PickOutboundNumbersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['CalledNumber'])) {
             $model->calledNumber = $map['CalledNumber'];
         }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['SkillGroupIdList'])) {
             $model->skillGroupIdList = $map['SkillGroupIdList'];

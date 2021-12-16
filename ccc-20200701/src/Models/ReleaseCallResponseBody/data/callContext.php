@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class callContext extends Model
 {
     /**
-     * @var string
+     * @var channelContexts[]
      */
-    public $jobId;
+    public $channelContexts;
 
     /**
      * @var string
@@ -20,13 +20,13 @@ class callContext extends Model
     public $instanceId;
 
     /**
-     * @var channelContexts[]
+     * @var string
      */
-    public $channelContexts;
+    public $jobId;
     protected $_name = [
-        'jobId'           => 'JobId',
-        'instanceId'      => 'InstanceId',
         'channelContexts' => 'ChannelContexts',
+        'instanceId'      => 'InstanceId',
+        'jobId'           => 'JobId',
     ];
 
     public function validate()
@@ -36,12 +36,6 @@ class callContext extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->channelContexts) {
             $res['ChannelContexts'] = [];
             if (null !== $this->channelContexts && \is_array($this->channelContexts)) {
@@ -50,6 +44,12 @@ class callContext extends Model
                     $res['ChannelContexts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
 
         return $res;
@@ -63,12 +63,6 @@ class callContext extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['ChannelContexts'])) {
             if (!empty($map['ChannelContexts'])) {
                 $model->channelContexts = [];
@@ -77,6 +71,12 @@ class callContext extends Model
                     $model->channelContexts[$n++] = null !== $item ? channelContexts::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
 
         return $model;

@@ -11,17 +11,12 @@ class MonitorCallRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $userId;
-
-    /**
-     * @var string
-     */
     public $deviceId;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string
@@ -32,12 +27,17 @@ class MonitorCallRequest extends Model
      * @var int
      */
     public $timeoutSeconds;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
-        'instanceId'      => 'InstanceId',
-        'userId'          => 'UserId',
         'deviceId'        => 'DeviceId',
+        'instanceId'      => 'InstanceId',
         'monitoredUserId' => 'MonitoredUserId',
         'timeoutSeconds'  => 'TimeoutSeconds',
+        'userId'          => 'UserId',
     ];
 
     public function validate()
@@ -47,20 +47,20 @@ class MonitorCallRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->monitoredUserId) {
             $res['MonitoredUserId'] = $this->monitoredUserId;
         }
         if (null !== $this->timeoutSeconds) {
             $res['TimeoutSeconds'] = $this->timeoutSeconds;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -74,20 +74,20 @@ class MonitorCallRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['MonitoredUserId'])) {
             $model->monitoredUserId = $map['MonitoredUserId'];
         }
         if (isset($map['TimeoutSeconds'])) {
             $model->timeoutSeconds = $map['TimeoutSeconds'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

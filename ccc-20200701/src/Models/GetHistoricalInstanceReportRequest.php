@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetHistoricalInstanceReportRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -17,15 +22,10 @@ class GetHistoricalInstanceReportRequest extends Model
      * @var int
      */
     public $startTime;
-
-    /**
-     * @var int
-     */
-    public $endTime;
     protected $_name = [
+        'endTime'    => 'EndTime',
         'instanceId' => 'InstanceId',
         'startTime'  => 'StartTime',
-        'endTime'    => 'EndTime',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class GetHistoricalInstanceReportRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class GetHistoricalInstanceReportRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
         }
 
         return $model;

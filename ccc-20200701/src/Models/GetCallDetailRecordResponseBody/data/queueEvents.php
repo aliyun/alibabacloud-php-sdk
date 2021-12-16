@@ -10,6 +10,16 @@ use AlibabaCloud\Tea\Model;
 class queueEvents extends Model
 {
     /**
+     * @var eventSequence[]
+     */
+    public $eventSequence;
+
+    /**
+     * @var string
+     */
+    public $flowId;
+
+    /**
      * @var string
      */
     public $queueId;
@@ -20,25 +30,15 @@ class queueEvents extends Model
     public $queueName;
 
     /**
-     * @var string
-     */
-    public $flowId;
-
-    /**
      * @var int
      */
     public $queueType;
-
-    /**
-     * @var eventSequence[]
-     */
-    public $eventSequence;
     protected $_name = [
+        'eventSequence' => 'EventSequence',
+        'flowId'        => 'FlowId',
         'queueId'       => 'QueueId',
         'queueName'     => 'QueueName',
-        'flowId'        => 'FlowId',
         'queueType'     => 'QueueType',
-        'eventSequence' => 'EventSequence',
     ];
 
     public function validate()
@@ -48,18 +48,6 @@ class queueEvents extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->queueId) {
-            $res['QueueId'] = $this->queueId;
-        }
-        if (null !== $this->queueName) {
-            $res['QueueName'] = $this->queueName;
-        }
-        if (null !== $this->flowId) {
-            $res['FlowId'] = $this->flowId;
-        }
-        if (null !== $this->queueType) {
-            $res['QueueType'] = $this->queueType;
-        }
         if (null !== $this->eventSequence) {
             $res['EventSequence'] = [];
             if (null !== $this->eventSequence && \is_array($this->eventSequence)) {
@@ -68,6 +56,18 @@ class queueEvents extends Model
                     $res['EventSequence'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->flowId) {
+            $res['FlowId'] = $this->flowId;
+        }
+        if (null !== $this->queueId) {
+            $res['QueueId'] = $this->queueId;
+        }
+        if (null !== $this->queueName) {
+            $res['QueueName'] = $this->queueName;
+        }
+        if (null !== $this->queueType) {
+            $res['QueueType'] = $this->queueType;
         }
 
         return $res;
@@ -81,18 +81,6 @@ class queueEvents extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['QueueId'])) {
-            $model->queueId = $map['QueueId'];
-        }
-        if (isset($map['QueueName'])) {
-            $model->queueName = $map['QueueName'];
-        }
-        if (isset($map['FlowId'])) {
-            $model->flowId = $map['FlowId'];
-        }
-        if (isset($map['QueueType'])) {
-            $model->queueType = $map['QueueType'];
-        }
         if (isset($map['EventSequence'])) {
             if (!empty($map['EventSequence'])) {
                 $model->eventSequence = [];
@@ -101,6 +89,18 @@ class queueEvents extends Model
                     $model->eventSequence[$n++] = null !== $item ? eventSequence::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['FlowId'])) {
+            $model->flowId = $map['FlowId'];
+        }
+        if (isset($map['QueueId'])) {
+            $model->queueId = $map['QueueId'];
+        }
+        if (isset($map['QueueName'])) {
+            $model->queueName = $map['QueueName'];
+        }
+        if (isset($map['QueueType'])) {
+            $model->queueType = $map['QueueType'];
         }
 
         return $model;

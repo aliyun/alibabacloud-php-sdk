@@ -12,11 +12,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @var int
-     */
-    public $statsTime;
-
-    /**
      * @var inbound
      */
     public $inbound;
@@ -30,11 +25,16 @@ class data extends Model
      * @var overall
      */
     public $overall;
+
+    /**
+     * @var int
+     */
+    public $statsTime;
     protected $_name = [
-        'statsTime' => 'StatsTime',
         'inbound'   => 'Inbound',
         'outbound'  => 'Outbound',
         'overall'   => 'Overall',
+        'statsTime' => 'StatsTime',
     ];
 
     public function validate()
@@ -44,9 +44,6 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->statsTime) {
-            $res['StatsTime'] = $this->statsTime;
-        }
         if (null !== $this->inbound) {
             $res['Inbound'] = null !== $this->inbound ? $this->inbound->toMap() : null;
         }
@@ -55,6 +52,9 @@ class data extends Model
         }
         if (null !== $this->overall) {
             $res['Overall'] = null !== $this->overall ? $this->overall->toMap() : null;
+        }
+        if (null !== $this->statsTime) {
+            $res['StatsTime'] = $this->statsTime;
         }
 
         return $res;
@@ -68,9 +68,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StatsTime'])) {
-            $model->statsTime = $map['StatsTime'];
-        }
         if (isset($map['Inbound'])) {
             $model->inbound = inbound::fromMap($map['Inbound']);
         }
@@ -79,6 +76,9 @@ class data extends Model
         }
         if (isset($map['Overall'])) {
             $model->overall = overall::fromMap($map['Overall']);
+        }
+        if (isset($map['StatsTime'])) {
+            $model->statsTime = $map['StatsTime'];
         }
 
         return $model;

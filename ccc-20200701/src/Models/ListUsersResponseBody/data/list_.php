@@ -13,12 +13,12 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $displayName;
+    public $displayId;
 
     /**
      * @var string
      */
-    public $loginName;
+    public $displayName;
 
     /**
      * @var string
@@ -28,12 +28,37 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $workMode;
+    public $loginName;
 
     /**
      * @var string
      */
     public $mobile;
+
+    /**
+     * @var personalOutboundNumberList[]
+     */
+    public $personalOutboundNumberList;
+
+    /**
+     * @var bool
+     */
+    public $primaryAccount;
+
+    /**
+     * @var string
+     */
+    public $roleId;
+
+    /**
+     * @var string
+     */
+    public $roleName;
+
+    /**
+     * @var skillLevelList[]
+     */
+    public $skillLevelList;
 
     /**
      * @var string
@@ -43,39 +68,20 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $roleName;
-
-    /**
-     * @var string
-     */
-    public $roleId;
-
-    /**
-     * @var bool
-     */
-    public $primaryAccount;
-
-    /**
-     * @var personalOutboundNumberList[]
-     */
-    public $personalOutboundNumberList;
-
-    /**
-     * @var skillLevelList[]
-     */
-    public $skillLevelList;
+    public $workMode;
     protected $_name = [
+        'displayId'                  => 'DisplayId',
         'displayName'                => 'DisplayName',
-        'loginName'                  => 'LoginName',
         'email'                      => 'Email',
-        'workMode'                   => 'WorkMode',
+        'loginName'                  => 'LoginName',
         'mobile'                     => 'Mobile',
-        'userId'                     => 'UserId',
-        'roleName'                   => 'RoleName',
-        'roleId'                     => 'RoleId',
-        'primaryAccount'             => 'PrimaryAccount',
         'personalOutboundNumberList' => 'PersonalOutboundNumberList',
+        'primaryAccount'             => 'PrimaryAccount',
+        'roleId'                     => 'RoleId',
+        'roleName'                   => 'RoleName',
         'skillLevelList'             => 'SkillLevelList',
+        'userId'                     => 'UserId',
+        'workMode'                   => 'WorkMode',
     ];
 
     public function validate()
@@ -85,32 +91,20 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->displayId) {
+            $res['DisplayId'] = $this->displayId;
+        }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
-        }
-        if (null !== $this->loginName) {
-            $res['LoginName'] = $this->loginName;
         }
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
-        if (null !== $this->workMode) {
-            $res['WorkMode'] = $this->workMode;
+        if (null !== $this->loginName) {
+            $res['LoginName'] = $this->loginName;
         }
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->roleName) {
-            $res['RoleName'] = $this->roleName;
-        }
-        if (null !== $this->roleId) {
-            $res['RoleId'] = $this->roleId;
-        }
-        if (null !== $this->primaryAccount) {
-            $res['PrimaryAccount'] = $this->primaryAccount;
         }
         if (null !== $this->personalOutboundNumberList) {
             $res['PersonalOutboundNumberList'] = [];
@@ -121,6 +115,15 @@ class list_ extends Model
                 }
             }
         }
+        if (null !== $this->primaryAccount) {
+            $res['PrimaryAccount'] = $this->primaryAccount;
+        }
+        if (null !== $this->roleId) {
+            $res['RoleId'] = $this->roleId;
+        }
+        if (null !== $this->roleName) {
+            $res['RoleName'] = $this->roleName;
+        }
         if (null !== $this->skillLevelList) {
             $res['SkillLevelList'] = [];
             if (null !== $this->skillLevelList && \is_array($this->skillLevelList)) {
@@ -129,6 +132,12 @@ class list_ extends Model
                     $res['SkillLevelList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->workMode) {
+            $res['WorkMode'] = $this->workMode;
         }
 
         return $res;
@@ -142,32 +151,20 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DisplayId'])) {
+            $model->displayId = $map['DisplayId'];
+        }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
-        }
-        if (isset($map['LoginName'])) {
-            $model->loginName = $map['LoginName'];
         }
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
-        if (isset($map['WorkMode'])) {
-            $model->workMode = $map['WorkMode'];
+        if (isset($map['LoginName'])) {
+            $model->loginName = $map['LoginName'];
         }
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['RoleName'])) {
-            $model->roleName = $map['RoleName'];
-        }
-        if (isset($map['RoleId'])) {
-            $model->roleId = $map['RoleId'];
-        }
-        if (isset($map['PrimaryAccount'])) {
-            $model->primaryAccount = $map['PrimaryAccount'];
         }
         if (isset($map['PersonalOutboundNumberList'])) {
             if (!empty($map['PersonalOutboundNumberList'])) {
@@ -178,6 +175,15 @@ class list_ extends Model
                 }
             }
         }
+        if (isset($map['PrimaryAccount'])) {
+            $model->primaryAccount = $map['PrimaryAccount'];
+        }
+        if (isset($map['RoleId'])) {
+            $model->roleId = $map['RoleId'];
+        }
+        if (isset($map['RoleName'])) {
+            $model->roleName = $map['RoleName'];
+        }
         if (isset($map['SkillLevelList'])) {
             if (!empty($map['SkillLevelList'])) {
                 $model->skillLevelList = [];
@@ -186,6 +192,12 @@ class list_ extends Model
                     $model->skillLevelList[$n++] = null !== $item ? skillLevelList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
+        }
+        if (isset($map['WorkMode'])) {
+            $model->workMode = $map['WorkMode'];
         }
 
         return $model;

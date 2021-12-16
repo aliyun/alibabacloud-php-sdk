@@ -14,11 +14,6 @@ class list_ extends Model
     public $displayName;
 
     /**
-     * @var int
-     */
-    public $skillLevel;
-
-    /**
      * @var string
      */
     public $loginName;
@@ -26,7 +21,12 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $userId;
+    public $roleId;
+
+    /**
+     * @var string
+     */
+    public $roleName;
 
     /**
      * @var string
@@ -39,23 +39,23 @@ class list_ extends Model
     public $skillGroupName;
 
     /**
-     * @var string
+     * @var int
      */
-    public $roleName;
+    public $skillLevel;
 
     /**
      * @var string
      */
-    public $roleId;
+    public $userId;
     protected $_name = [
         'displayName'    => 'DisplayName',
-        'skillLevel'     => 'SkillLevel',
         'loginName'      => 'LoginName',
-        'userId'         => 'UserId',
+        'roleId'         => 'RoleId',
+        'roleName'       => 'RoleName',
         'skillGroupId'   => 'SkillGroupId',
         'skillGroupName' => 'SkillGroupName',
-        'roleName'       => 'RoleName',
-        'roleId'         => 'RoleId',
+        'skillLevel'     => 'SkillLevel',
+        'userId'         => 'UserId',
     ];
 
     public function validate()
@@ -68,14 +68,14 @@ class list_ extends Model
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
-        if (null !== $this->skillLevel) {
-            $res['SkillLevel'] = $this->skillLevel;
-        }
         if (null !== $this->loginName) {
             $res['LoginName'] = $this->loginName;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->roleId) {
+            $res['RoleId'] = $this->roleId;
+        }
+        if (null !== $this->roleName) {
+            $res['RoleName'] = $this->roleName;
         }
         if (null !== $this->skillGroupId) {
             $res['SkillGroupId'] = $this->skillGroupId;
@@ -83,11 +83,11 @@ class list_ extends Model
         if (null !== $this->skillGroupName) {
             $res['SkillGroupName'] = $this->skillGroupName;
         }
-        if (null !== $this->roleName) {
-            $res['RoleName'] = $this->roleName;
+        if (null !== $this->skillLevel) {
+            $res['SkillLevel'] = $this->skillLevel;
         }
-        if (null !== $this->roleId) {
-            $res['RoleId'] = $this->roleId;
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -104,14 +104,14 @@ class list_ extends Model
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
-        if (isset($map['SkillLevel'])) {
-            $model->skillLevel = $map['SkillLevel'];
-        }
         if (isset($map['LoginName'])) {
             $model->loginName = $map['LoginName'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['RoleId'])) {
+            $model->roleId = $map['RoleId'];
+        }
+        if (isset($map['RoleName'])) {
+            $model->roleName = $map['RoleName'];
         }
         if (isset($map['SkillGroupId'])) {
             $model->skillGroupId = $map['SkillGroupId'];
@@ -119,11 +119,11 @@ class list_ extends Model
         if (isset($map['SkillGroupName'])) {
             $model->skillGroupName = $map['SkillGroupName'];
         }
-        if (isset($map['RoleName'])) {
-            $model->roleName = $map['RoleName'];
+        if (isset($map['SkillLevel'])) {
+            $model->skillLevel = $map['SkillLevel'];
         }
-        if (isset($map['RoleId'])) {
-            $model->roleId = $map['RoleId'];
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

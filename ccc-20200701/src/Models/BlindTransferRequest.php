@@ -11,27 +11,17 @@ class BlindTransferRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $userId;
-
-    /**
-     * @var string
-     */
     public $deviceId;
 
     /**
      * @var string
      */
-    public $transferor;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $transferee;
+    public $jobId;
 
     /**
      * @var int
@@ -41,15 +31,25 @@ class BlindTransferRequest extends Model
     /**
      * @var string
      */
-    public $jobId;
+    public $transferee;
+
+    /**
+     * @var string
+     */
+    public $transferor;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
-        'instanceId'     => 'InstanceId',
-        'userId'         => 'UserId',
         'deviceId'       => 'DeviceId',
-        'transferor'     => 'Transferor',
-        'transferee'     => 'Transferee',
-        'timeoutSeconds' => 'TimeoutSeconds',
+        'instanceId'     => 'InstanceId',
         'jobId'          => 'JobId',
+        'timeoutSeconds' => 'TimeoutSeconds',
+        'transferee'     => 'Transferee',
+        'transferor'     => 'Transferor',
+        'userId'         => 'UserId',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class BlindTransferRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
-        if (null !== $this->transferor) {
-            $res['Transferor'] = $this->transferor;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->transferee) {
-            $res['Transferee'] = $this->transferee;
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
         if (null !== $this->timeoutSeconds) {
             $res['TimeoutSeconds'] = $this->timeoutSeconds;
         }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
+        if (null !== $this->transferee) {
+            $res['Transferee'] = $this->transferee;
+        }
+        if (null !== $this->transferor) {
+            $res['Transferor'] = $this->transferor;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class BlindTransferRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
-        if (isset($map['Transferor'])) {
-            $model->transferor = $map['Transferor'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['Transferee'])) {
-            $model->transferee = $map['Transferee'];
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
         if (isset($map['TimeoutSeconds'])) {
             $model->timeoutSeconds = $map['TimeoutSeconds'];
         }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
+        if (isset($map['Transferee'])) {
+            $model->transferee = $map['Transferee'];
+        }
+        if (isset($map['Transferor'])) {
+            $model->transferor = $map['Transferor'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

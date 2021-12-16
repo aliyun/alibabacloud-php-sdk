@@ -11,12 +11,22 @@ class skillGroups extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $displayName;
 
     /**
      * @var string
      */
-    public $description;
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var int
@@ -32,24 +42,14 @@ class skillGroups extends Model
      * @var int
      */
     public $userCount;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $name;
     protected $_name = [
-        'displayName'      => 'DisplayName',
         'description'      => 'Description',
+        'displayName'      => 'DisplayName',
+        'instanceId'       => 'InstanceId',
+        'name'             => 'Name',
         'phoneNumberCount' => 'PhoneNumberCount',
         'skillGroupId'     => 'SkillGroupId',
         'userCount'        => 'UserCount',
-        'instanceId'       => 'InstanceId',
-        'name'             => 'Name',
     ];
 
     public function validate()
@@ -59,11 +59,17 @@ class skillGroups extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->phoneNumberCount) {
             $res['PhoneNumberCount'] = $this->phoneNumberCount;
@@ -73,12 +79,6 @@ class skillGroups extends Model
         }
         if (null !== $this->userCount) {
             $res['UserCount'] = $this->userCount;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -92,11 +92,17 @@ class skillGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['PhoneNumberCount'])) {
             $model->phoneNumberCount = $map['PhoneNumberCount'];
@@ -106,12 +112,6 @@ class skillGroups extends Model
         }
         if (isset($map['UserCount'])) {
             $model->userCount = $map['UserCount'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
         }
 
         return $model;

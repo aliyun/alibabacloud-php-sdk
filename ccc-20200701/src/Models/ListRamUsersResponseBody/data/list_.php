@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @var int
+     */
+    public $aliyunUid;
+
+    /**
      * @var string
      */
     public $displayName;
@@ -29,11 +34,6 @@ class list_ extends Model
     public $mobile;
 
     /**
-     * @var int
-     */
-    public $aliyunUid;
-
-    /**
      * @var bool
      */
     public $primary;
@@ -43,11 +43,11 @@ class list_ extends Model
      */
     public $ramId;
     protected $_name = [
+        'aliyunUid'   => 'AliyunUid',
         'displayName' => 'DisplayName',
         'email'       => 'Email',
         'loginName'   => 'LoginName',
         'mobile'      => 'Mobile',
-        'aliyunUid'   => 'AliyunUid',
         'primary'     => 'Primary',
         'ramId'       => 'RamId',
     ];
@@ -59,6 +59,9 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aliyunUid) {
+            $res['AliyunUid'] = $this->aliyunUid;
+        }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
@@ -70,9 +73,6 @@ class list_ extends Model
         }
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
-        }
-        if (null !== $this->aliyunUid) {
-            $res['AliyunUid'] = $this->aliyunUid;
         }
         if (null !== $this->primary) {
             $res['Primary'] = $this->primary;
@@ -92,6 +92,9 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AliyunUid'])) {
+            $model->aliyunUid = $map['AliyunUid'];
+        }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
@@ -103,9 +106,6 @@ class list_ extends Model
         }
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];
-        }
-        if (isset($map['AliyunUid'])) {
-            $model->aliyunUid = $map['AliyunUid'];
         }
         if (isset($map['Primary'])) {
             $model->primary = $map['Primary'];

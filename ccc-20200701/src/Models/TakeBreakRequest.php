@@ -11,12 +11,7 @@ class TakeBreakRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $userId;
+    public $code;
 
     /**
      * @var string
@@ -26,12 +21,17 @@ class TakeBreakRequest extends Model
     /**
      * @var string
      */
-    public $code;
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
+        'code'       => 'Code',
+        'deviceId'   => 'DeviceId',
         'instanceId' => 'InstanceId',
         'userId'     => 'UserId',
-        'deviceId'   => 'DeviceId',
-        'code'       => 'Code',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class TakeBreakRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->deviceId) {
+            $res['DeviceId'] = $this->deviceId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->deviceId) {
-            $res['DeviceId'] = $this->deviceId;
-        }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class TakeBreakRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['DeviceId'])) {
+            $model->deviceId = $map['DeviceId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
-        }
-        if (isset($map['DeviceId'])) {
-            $model->deviceId = $map['DeviceId'];
-        }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
         }
 
         return $model;

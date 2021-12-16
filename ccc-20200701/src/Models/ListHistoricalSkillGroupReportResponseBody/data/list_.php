@@ -12,16 +12,6 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @var string
-     */
-    public $skillGroupName;
-
-    /**
-     * @var string
-     */
-    public $skillGroupId;
-
-    /**
      * @var inbound
      */
     public $inbound;
@@ -35,12 +25,22 @@ class list_ extends Model
      * @var overall
      */
     public $overall;
+
+    /**
+     * @var string
+     */
+    public $skillGroupId;
+
+    /**
+     * @var string
+     */
+    public $skillGroupName;
     protected $_name = [
-        'skillGroupName' => 'SkillGroupName',
-        'skillGroupId'   => 'SkillGroupId',
         'inbound'        => 'Inbound',
         'outbound'       => 'Outbound',
         'overall'        => 'Overall',
+        'skillGroupId'   => 'SkillGroupId',
+        'skillGroupName' => 'SkillGroupName',
     ];
 
     public function validate()
@@ -50,12 +50,6 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->skillGroupName) {
-            $res['SkillGroupName'] = $this->skillGroupName;
-        }
-        if (null !== $this->skillGroupId) {
-            $res['SkillGroupId'] = $this->skillGroupId;
-        }
         if (null !== $this->inbound) {
             $res['Inbound'] = null !== $this->inbound ? $this->inbound->toMap() : null;
         }
@@ -64,6 +58,12 @@ class list_ extends Model
         }
         if (null !== $this->overall) {
             $res['Overall'] = null !== $this->overall ? $this->overall->toMap() : null;
+        }
+        if (null !== $this->skillGroupId) {
+            $res['SkillGroupId'] = $this->skillGroupId;
+        }
+        if (null !== $this->skillGroupName) {
+            $res['SkillGroupName'] = $this->skillGroupName;
         }
 
         return $res;
@@ -77,12 +77,6 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SkillGroupName'])) {
-            $model->skillGroupName = $map['SkillGroupName'];
-        }
-        if (isset($map['SkillGroupId'])) {
-            $model->skillGroupId = $map['SkillGroupId'];
-        }
         if (isset($map['Inbound'])) {
             $model->inbound = inbound::fromMap($map['Inbound']);
         }
@@ -91,6 +85,12 @@ class list_ extends Model
         }
         if (isset($map['Overall'])) {
             $model->overall = overall::fromMap($map['Overall']);
+        }
+        if (isset($map['SkillGroupId'])) {
+            $model->skillGroupId = $map['SkillGroupId'];
+        }
+        if (isset($map['SkillGroupName'])) {
+            $model->skillGroupName = $map['SkillGroupName'];
         }
 
         return $model;

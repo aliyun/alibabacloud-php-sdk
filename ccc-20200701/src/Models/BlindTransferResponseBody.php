@@ -15,6 +15,11 @@ class BlindTransferResponseBody extends Model
     public $code;
 
     /**
+     * @var data
+     */
+    public $data;
+
+    /**
      * @var int
      */
     public $httpStatusCode;
@@ -25,26 +30,21 @@ class BlindTransferResponseBody extends Model
     public $message;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var string[]
      */
     public $params;
 
     /**
-     * @var data
+     * @var string
      */
-    public $data;
+    public $requestId;
     protected $_name = [
         'code'           => 'Code',
+        'data'           => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
-        'requestId'      => 'RequestId',
         'params'         => 'Params',
-        'data'           => 'Data',
+        'requestId'      => 'RequestId',
     ];
 
     public function validate()
@@ -57,20 +57,20 @@ class BlindTransferResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->params) {
             $res['Params'] = $this->params;
         }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -87,22 +87,22 @@ class BlindTransferResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
+        }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Params'])) {
             if (!empty($map['Params'])) {
                 $model->params = $map['Params'];
             }
         }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

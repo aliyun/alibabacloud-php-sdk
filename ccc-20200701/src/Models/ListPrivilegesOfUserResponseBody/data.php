@@ -16,16 +16,16 @@ class data extends Model
     /**
      * @var string
      */
-    public $scope;
+    public $name;
 
     /**
      * @var string
      */
-    public $name;
+    public $scope;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'scope'      => 'Scope',
         'name'       => 'Name',
+        'scope'      => 'Scope',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class data extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->scope) {
-            $res['Scope'] = $this->scope;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->scope) {
+            $res['Scope'] = $this->scope;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class data extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['Scope'])) {
-            $model->scope = $map['Scope'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Scope'])) {
+            $model->scope = $map['Scope'];
         }
 
         return $model;

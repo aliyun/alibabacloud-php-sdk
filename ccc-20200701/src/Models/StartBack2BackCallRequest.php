@@ -11,22 +11,7 @@ class StartBack2BackCallRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $caller;
-
-    /**
-     * @var string
-     */
-    public $callee;
-
-    /**
-     * @var int
-     */
-    public $timeoutSeconds;
+    public $additionalBroker;
 
     /**
      * @var string
@@ -36,20 +21,35 @@ class StartBack2BackCallRequest extends Model
     /**
      * @var string
      */
-    public $additionalBroker;
+    public $callee;
+
+    /**
+     * @var string
+     */
+    public $caller;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string
      */
     public $tags;
+
+    /**
+     * @var int
+     */
+    public $timeoutSeconds;
     protected $_name = [
-        'instanceId'       => 'InstanceId',
-        'caller'           => 'Caller',
-        'callee'           => 'Callee',
-        'timeoutSeconds'   => 'TimeoutSeconds',
-        'broker'           => 'Broker',
         'additionalBroker' => 'AdditionalBroker',
+        'broker'           => 'Broker',
+        'callee'           => 'Callee',
+        'caller'           => 'Caller',
+        'instanceId'       => 'InstanceId',
         'tags'             => 'Tags',
+        'timeoutSeconds'   => 'TimeoutSeconds',
     ];
 
     public function validate()
@@ -59,26 +59,26 @@ class StartBack2BackCallRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->caller) {
-            $res['Caller'] = $this->caller;
-        }
-        if (null !== $this->callee) {
-            $res['Callee'] = $this->callee;
-        }
-        if (null !== $this->timeoutSeconds) {
-            $res['TimeoutSeconds'] = $this->timeoutSeconds;
+        if (null !== $this->additionalBroker) {
+            $res['AdditionalBroker'] = $this->additionalBroker;
         }
         if (null !== $this->broker) {
             $res['Broker'] = $this->broker;
         }
-        if (null !== $this->additionalBroker) {
-            $res['AdditionalBroker'] = $this->additionalBroker;
+        if (null !== $this->callee) {
+            $res['Callee'] = $this->callee;
+        }
+        if (null !== $this->caller) {
+            $res['Caller'] = $this->caller;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
+        }
+        if (null !== $this->timeoutSeconds) {
+            $res['TimeoutSeconds'] = $this->timeoutSeconds;
         }
 
         return $res;
@@ -92,26 +92,26 @@ class StartBack2BackCallRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Caller'])) {
-            $model->caller = $map['Caller'];
-        }
-        if (isset($map['Callee'])) {
-            $model->callee = $map['Callee'];
-        }
-        if (isset($map['TimeoutSeconds'])) {
-            $model->timeoutSeconds = $map['TimeoutSeconds'];
+        if (isset($map['AdditionalBroker'])) {
+            $model->additionalBroker = $map['AdditionalBroker'];
         }
         if (isset($map['Broker'])) {
             $model->broker = $map['Broker'];
         }
-        if (isset($map['AdditionalBroker'])) {
-            $model->additionalBroker = $map['AdditionalBroker'];
+        if (isset($map['Callee'])) {
+            $model->callee = $map['Callee'];
+        }
+        if (isset($map['Caller'])) {
+            $model->caller = $map['Caller'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
+        }
+        if (isset($map['TimeoutSeconds'])) {
+            $model->timeoutSeconds = $map['TimeoutSeconds'];
         }
 
         return $model;

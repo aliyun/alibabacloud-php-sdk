@@ -9,29 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ListCallDetailRecordsRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
-     * @var int
-     */
-    public $endTime;
+    public $agentId;
 
     /**
      * @var string
      */
-    public $contactType;
+    public $calledNumber;
+
+    /**
+     * @var string
+     */
+    public $callingNumber;
 
     /**
      * @var string
@@ -46,17 +36,22 @@ class ListCallDetailRecordsRequest extends Model
     /**
      * @var string
      */
-    public $agentId;
+    public $contactType;
 
     /**
      * @var string
      */
-    public $skillGroupId;
+    public $criteria;
 
     /**
      * @var string
      */
-    public $sortOrder;
+    public $earlyMediaStateList;
+
+    /**
+     * @var int
+     */
+    public $endTime;
 
     /**
      * @var string
@@ -69,19 +64,19 @@ class ListCallDetailRecordsRequest extends Model
     public $orderByField;
 
     /**
-     * @var string
+     * @var int
      */
-    public $criteria;
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
 
     /**
      * @var string
      */
-    public $callingNumber;
-
-    /**
-     * @var string
-     */
-    public $calledNumber;
+    public $satisfactionDescriptionList;
 
     /**
      * @var string
@@ -96,26 +91,37 @@ class ListCallDetailRecordsRequest extends Model
     /**
      * @var string
      */
-    public $satisfactionDescriptionList;
+    public $skillGroupId;
+
+    /**
+     * @var string
+     */
+    public $sortOrder;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
-        'pageNumber'                  => 'PageNumber',
-        'pageSize'                    => 'PageSize',
-        'startTime'                   => 'StartTime',
-        'endTime'                     => 'EndTime',
-        'contactType'                 => 'ContactType',
+        'agentId'                     => 'AgentId',
+        'calledNumber'                => 'CalledNumber',
+        'callingNumber'               => 'CallingNumber',
         'contactDisposition'          => 'ContactDisposition',
         'contactId'                   => 'ContactId',
-        'agentId'                     => 'AgentId',
-        'skillGroupId'                => 'SkillGroupId',
-        'sortOrder'                   => 'SortOrder',
+        'contactType'                 => 'ContactType',
+        'criteria'                    => 'Criteria',
+        'earlyMediaStateList'         => 'EarlyMediaStateList',
+        'endTime'                     => 'EndTime',
         'instanceId'                  => 'InstanceId',
         'orderByField'                => 'OrderByField',
-        'criteria'                    => 'Criteria',
-        'callingNumber'               => 'CallingNumber',
-        'calledNumber'                => 'CalledNumber',
+        'pageNumber'                  => 'PageNumber',
+        'pageSize'                    => 'PageSize',
+        'satisfactionDescriptionList' => 'SatisfactionDescriptionList',
         'satisfactionList'            => 'SatisfactionList',
         'satisfactionSurveyChannel'   => 'SatisfactionSurveyChannel',
-        'satisfactionDescriptionList' => 'SatisfactionDescriptionList',
+        'skillGroupId'                => 'SkillGroupId',
+        'sortOrder'                   => 'SortOrder',
+        'startTime'                   => 'StartTime',
     ];
 
     public function validate()
@@ -125,20 +131,14 @@ class ListCallDetailRecordsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->agentId) {
+            $res['AgentId'] = $this->agentId;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->calledNumber) {
+            $res['CalledNumber'] = $this->calledNumber;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->contactType) {
-            $res['ContactType'] = $this->contactType;
+        if (null !== $this->callingNumber) {
+            $res['CallingNumber'] = $this->callingNumber;
         }
         if (null !== $this->contactDisposition) {
             $res['ContactDisposition'] = $this->contactDisposition;
@@ -146,14 +146,17 @@ class ListCallDetailRecordsRequest extends Model
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
         }
-        if (null !== $this->agentId) {
-            $res['AgentId'] = $this->agentId;
+        if (null !== $this->contactType) {
+            $res['ContactType'] = $this->contactType;
         }
-        if (null !== $this->skillGroupId) {
-            $res['SkillGroupId'] = $this->skillGroupId;
+        if (null !== $this->criteria) {
+            $res['Criteria'] = $this->criteria;
         }
-        if (null !== $this->sortOrder) {
-            $res['SortOrder'] = $this->sortOrder;
+        if (null !== $this->earlyMediaStateList) {
+            $res['EarlyMediaStateList'] = $this->earlyMediaStateList;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -161,14 +164,14 @@ class ListCallDetailRecordsRequest extends Model
         if (null !== $this->orderByField) {
             $res['OrderByField'] = $this->orderByField;
         }
-        if (null !== $this->criteria) {
-            $res['Criteria'] = $this->criteria;
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->callingNumber) {
-            $res['CallingNumber'] = $this->callingNumber;
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->calledNumber) {
-            $res['CalledNumber'] = $this->calledNumber;
+        if (null !== $this->satisfactionDescriptionList) {
+            $res['SatisfactionDescriptionList'] = $this->satisfactionDescriptionList;
         }
         if (null !== $this->satisfactionList) {
             $res['SatisfactionList'] = $this->satisfactionList;
@@ -176,8 +179,14 @@ class ListCallDetailRecordsRequest extends Model
         if (null !== $this->satisfactionSurveyChannel) {
             $res['SatisfactionSurveyChannel'] = $this->satisfactionSurveyChannel;
         }
-        if (null !== $this->satisfactionDescriptionList) {
-            $res['SatisfactionDescriptionList'] = $this->satisfactionDescriptionList;
+        if (null !== $this->skillGroupId) {
+            $res['SkillGroupId'] = $this->skillGroupId;
+        }
+        if (null !== $this->sortOrder) {
+            $res['SortOrder'] = $this->sortOrder;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -191,20 +200,14 @@ class ListCallDetailRecordsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['AgentId'])) {
+            $model->agentId = $map['AgentId'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['CalledNumber'])) {
+            $model->calledNumber = $map['CalledNumber'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['ContactType'])) {
-            $model->contactType = $map['ContactType'];
+        if (isset($map['CallingNumber'])) {
+            $model->callingNumber = $map['CallingNumber'];
         }
         if (isset($map['ContactDisposition'])) {
             $model->contactDisposition = $map['ContactDisposition'];
@@ -212,14 +215,17 @@ class ListCallDetailRecordsRequest extends Model
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
         }
-        if (isset($map['AgentId'])) {
-            $model->agentId = $map['AgentId'];
+        if (isset($map['ContactType'])) {
+            $model->contactType = $map['ContactType'];
         }
-        if (isset($map['SkillGroupId'])) {
-            $model->skillGroupId = $map['SkillGroupId'];
+        if (isset($map['Criteria'])) {
+            $model->criteria = $map['Criteria'];
         }
-        if (isset($map['SortOrder'])) {
-            $model->sortOrder = $map['SortOrder'];
+        if (isset($map['EarlyMediaStateList'])) {
+            $model->earlyMediaStateList = $map['EarlyMediaStateList'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -227,14 +233,14 @@ class ListCallDetailRecordsRequest extends Model
         if (isset($map['OrderByField'])) {
             $model->orderByField = $map['OrderByField'];
         }
-        if (isset($map['Criteria'])) {
-            $model->criteria = $map['Criteria'];
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
-        if (isset($map['CallingNumber'])) {
-            $model->callingNumber = $map['CallingNumber'];
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['CalledNumber'])) {
-            $model->calledNumber = $map['CalledNumber'];
+        if (isset($map['SatisfactionDescriptionList'])) {
+            $model->satisfactionDescriptionList = $map['SatisfactionDescriptionList'];
         }
         if (isset($map['SatisfactionList'])) {
             $model->satisfactionList = $map['SatisfactionList'];
@@ -242,8 +248,14 @@ class ListCallDetailRecordsRequest extends Model
         if (isset($map['SatisfactionSurveyChannel'])) {
             $model->satisfactionSurveyChannel = $map['SatisfactionSurveyChannel'];
         }
-        if (isset($map['SatisfactionDescriptionList'])) {
-            $model->satisfactionDescriptionList = $map['SatisfactionDescriptionList'];
+        if (isset($map['SkillGroupId'])) {
+            $model->skillGroupId = $map['SkillGroupId'];
+        }
+        if (isset($map['SortOrder'])) {
+            $model->sortOrder = $map['SortOrder'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

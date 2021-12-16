@@ -11,7 +11,7 @@ class ListRealtimeSkillGroupStatesRequest extends Model
     /**
      * @var string
      */
-    public $skillGroupIdList;
+    public $instanceId;
 
     /**
      * @var int
@@ -26,12 +26,12 @@ class ListRealtimeSkillGroupStatesRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $skillGroupIdList;
     protected $_name = [
-        'skillGroupIdList' => 'SkillGroupIdList',
+        'instanceId'       => 'InstanceId',
         'pageNumber'       => 'PageNumber',
         'pageSize'         => 'PageSize',
-        'instanceId'       => 'InstanceId',
+        'skillGroupIdList' => 'SkillGroupIdList',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class ListRealtimeSkillGroupStatesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->skillGroupIdList) {
-            $res['SkillGroupIdList'] = $this->skillGroupIdList;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -50,8 +50,8 @@ class ListRealtimeSkillGroupStatesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->skillGroupIdList) {
+            $res['SkillGroupIdList'] = $this->skillGroupIdList;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class ListRealtimeSkillGroupStatesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SkillGroupIdList'])) {
-            $model->skillGroupIdList = $map['SkillGroupIdList'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -74,8 +74,8 @@ class ListRealtimeSkillGroupStatesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['SkillGroupIdList'])) {
+            $model->skillGroupIdList = $map['SkillGroupIdList'];
         }
 
         return $model;

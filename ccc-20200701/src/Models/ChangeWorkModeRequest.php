@@ -11,6 +11,11 @@ class ChangeWorkModeRequest extends Model
     /**
      * @var string
      */
+    public $deviceId;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -21,16 +26,11 @@ class ChangeWorkModeRequest extends Model
     /**
      * @var string
      */
-    public $deviceId;
-
-    /**
-     * @var string
-     */
     public $workMode;
     protected $_name = [
+        'deviceId'   => 'DeviceId',
         'instanceId' => 'InstanceId',
         'userId'     => 'UserId',
-        'deviceId'   => 'DeviceId',
         'workMode'   => 'WorkMode',
     ];
 
@@ -41,14 +41,14 @@ class ChangeWorkModeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deviceId) {
+            $res['DeviceId'] = $this->deviceId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->deviceId) {
-            $res['DeviceId'] = $this->deviceId;
         }
         if (null !== $this->workMode) {
             $res['WorkMode'] = $this->workMode;
@@ -65,14 +65,14 @@ class ChangeWorkModeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeviceId'])) {
+            $model->deviceId = $map['DeviceId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
-        }
-        if (isset($map['DeviceId'])) {
-            $model->deviceId = $map['DeviceId'];
         }
         if (isset($map['WorkMode'])) {
             $model->workMode = $map['WorkMode'];

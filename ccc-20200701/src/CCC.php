@@ -5,6 +5,9 @@
 namespace AlibabaCloud\SDK\CCC\V20200701;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\CCC\V20200701\Models\AbortCampaignRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\AbortCampaignResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddNumbersToSkillGroupRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddNumbersToSkillGroupResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddPersonalNumbersToUserRequest;
@@ -33,6 +36,9 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\CoachCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CoachCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CompleteAttendedTransferRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CompleteAttendedTransferResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCampaignRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCampaignResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCampaignShrinkRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateInstanceResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateSkillGroupRequest;
@@ -43,6 +49,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteSkillGroupRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteSkillGroupResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCallDetailRecordRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetCallDetailRecordResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetCampaignRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetCampaignResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetHistoricalCallerReportRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetHistoricalCallerReportResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetHistoricalInstanceReportRequest;
@@ -79,10 +87,18 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\LaunchSurveyRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\LaunchSurveyResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListAgentStateLogsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListAgentStateLogsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListAttemptsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListAttemptsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListBriefSkillGroupsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListBriefSkillGroupsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallDetailRecordsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCallDetailRecordsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListCampaignsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListCampaignsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListCampaignTrendingReportRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListCampaignTrendingReportResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListCasesRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListCasesResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListConfigItemsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListConfigItemsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListContactFlowsRequest;
@@ -125,6 +141,10 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListRecentCallDetailRecordsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListRecentCallDetailRecordsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListRolesRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListRolesResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListSipCallRecordsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListSipCallRecordsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListSipTracesRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListSipTracesResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListSkillGroupsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListSkillGroupsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListSkillLevelsOfUserRequest;
@@ -153,6 +173,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\MonitorCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\MonitorCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\MuteCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\MuteCallResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\PauseCampaignRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\PauseCampaignResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\PickOutboundNumbersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\PickOutboundNumbersResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\PollUserStatusRequest;
@@ -181,6 +203,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ResetAgentStateRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ResetAgentStateResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ResetUserPasswordRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ResetUserPasswordResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ResumeCampaignRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ResumeCampaignResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RetrieveCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RetrieveCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\SaveRTCStatsV2Request;
@@ -201,6 +225,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\StartBack2BackCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\StartBack2BackCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\StartPredictiveCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\StartPredictiveCallResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\SubmitCampaignRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\SubmitCampaignResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\TakeBreakRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\TakeBreakResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UnmuteCallRequest;
@@ -210,6 +236,7 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateConfigItemsResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class CCC extends OpenApiClient
@@ -270,199 +297,45 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param AddSkillGroupsToUserRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param AbortCampaignRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return AddSkillGroupsToUserResponse
+     * @return AbortCampaignResponse
      */
-    public function addSkillGroupsToUserWithOptions($request, $runtime)
+    public function abortCampaignWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['CampaignId'] = $request->campaignId;
+        $query['InstanceId'] = $request->instanceId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AbortCampaign',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddSkillGroupsToUserResponse::fromMap($this->doRPCRequest('AddSkillGroupsToUser', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AbortCampaignResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param AddSkillGroupsToUserRequest $request
+     * @param AbortCampaignRequest $request
      *
-     * @return AddSkillGroupsToUserResponse
+     * @return AbortCampaignResponse
      */
-    public function addSkillGroupsToUser($request)
+    public function abortCampaign($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->addSkillGroupsToUserWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SaveWebRTCStatsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return SaveWebRTCStatsResponse
-     */
-    public function saveWebRTCStatsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SaveWebRTCStatsResponse::fromMap($this->doRPCRequest('SaveWebRTCStats', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SaveWebRTCStatsRequest $request
-     *
-     * @return SaveWebRTCStatsResponse
-     */
-    public function saveWebRTCStats($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->saveWebRTCStatsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetMonoRecordingRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetMonoRecordingResponse
-     */
-    public function getMonoRecordingWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetMonoRecordingResponse::fromMap($this->doRPCRequest('GetMonoRecording', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetMonoRecordingRequest $request
-     *
-     * @return GetMonoRecordingResponse
-     */
-    public function getMonoRecording($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getMonoRecordingWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListUsersRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ListUsersResponse
-     */
-    public function listUsersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListUsersResponse::fromMap($this->doRPCRequest('ListUsers', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListUsersRequest $request
-     *
-     * @return ListUsersResponse
-     */
-    public function listUsers($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listUsersWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListAgentStateLogsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListAgentStateLogsResponse
-     */
-    public function listAgentStateLogsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListAgentStateLogsResponse::fromMap($this->doRPCRequest('ListAgentStateLogs', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListAgentStateLogsRequest $request
-     *
-     * @return ListAgentStateLogsResponse
-     */
-    public function listAgentStateLogs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listAgentStateLogsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RemovePhoneNumberFromSkillGroupsRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return RemovePhoneNumberFromSkillGroupsResponse
-     */
-    public function removePhoneNumberFromSkillGroupsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RemovePhoneNumberFromSkillGroupsResponse::fromMap($this->doRPCRequest('RemovePhoneNumberFromSkillGroups', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RemovePhoneNumberFromSkillGroupsRequest $request
-     *
-     * @return RemovePhoneNumberFromSkillGroupsResponse
-     */
-    public function removePhoneNumberFromSkillGroups($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removePhoneNumberFromSkillGroupsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListPhoneNumbersRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListPhoneNumbersResponse
-     */
-    public function listPhoneNumbersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListPhoneNumbersResponse::fromMap($this->doRPCRequest('ListPhoneNumbers', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListPhoneNumbersRequest $request
-     *
-     * @return ListPhoneNumbersResponse
-     */
-    public function listPhoneNumbers($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listPhoneNumbersWithOptions($request, $runtime);
+        return $this->abortCampaignWithOptions($request, $runtime);
     }
 
     /**
@@ -474,11 +347,26 @@ class CCC extends OpenApiClient
     public function addNumbersToSkillGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                 = [];
+        $query['InstanceId']   = $request->instanceId;
+        $query['NumberList']   = $request->numberList;
+        $query['SkillGroupId'] = $request->skillGroupId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddNumbersToSkillGroup',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddNumbersToSkillGroupResponse::fromMap($this->doRPCRequest('AddNumbersToSkillGroup', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddNumbersToSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -494,87 +382,89 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param ResetAgentStateRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param AddPersonalNumbersToUserRequest $request
+     * @param RuntimeOptions                  $runtime
      *
-     * @return ResetAgentStateResponse
+     * @return AddPersonalNumbersToUserResponse
      */
-    public function resetAgentStateWithOptions($request, $runtime)
+    public function addPersonalNumbersToUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['InstanceId'] = $request->instanceId;
+        $query['NumberList'] = $request->numberList;
+        $query['UserId']     = $request->userId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddPersonalNumbersToUser',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ResetAgentStateResponse::fromMap($this->doRPCRequest('ResetAgentState', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddPersonalNumbersToUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ResetAgentStateRequest $request
+     * @param AddPersonalNumbersToUserRequest $request
      *
-     * @return ResetAgentStateResponse
+     * @return AddPersonalNumbersToUserResponse
      */
-    public function resetAgentState($request)
+    public function addPersonalNumbersToUser($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->resetAgentStateWithOptions($request, $runtime);
+        return $this->addPersonalNumbersToUserWithOptions($request, $runtime);
     }
 
     /**
-     * @param ChangeWorkModeRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param AddPhoneNumberToSkillGroupsRequest $request
+     * @param RuntimeOptions                     $runtime
      *
-     * @return ChangeWorkModeResponse
+     * @return AddPhoneNumberToSkillGroupsResponse
      */
-    public function changeWorkModeWithOptions($request, $runtime)
+    public function addPhoneNumberToSkillGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['InstanceId']       = $request->instanceId;
+        $query['Number']           = $request->number;
+        $query['SkillGroupIdList'] = $request->skillGroupIdList;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddPhoneNumberToSkillGroups',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ChangeWorkModeResponse::fromMap($this->doRPCRequest('ChangeWorkMode', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddPhoneNumberToSkillGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ChangeWorkModeRequest $request
+     * @param AddPhoneNumberToSkillGroupsRequest $request
      *
-     * @return ChangeWorkModeResponse
+     * @return AddPhoneNumberToSkillGroupsResponse
      */
-    public function changeWorkMode($request)
+    public function addPhoneNumberToSkillGroups($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->changeWorkModeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetTurnCredentialsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetTurnCredentialsResponse
-     */
-    public function getTurnCredentialsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetTurnCredentialsResponse::fromMap($this->doRPCRequest('GetTurnCredentials', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetTurnCredentialsRequest $request
-     *
-     * @return GetTurnCredentialsResponse
-     */
-    public function getTurnCredentials($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getTurnCredentialsWithOptions($request, $runtime);
+        return $this->addPhoneNumberToSkillGroupsWithOptions($request, $runtime);
     }
 
     /**
@@ -586,11 +476,28 @@ class CCC extends OpenApiClient
     public function addPhoneNumbersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ContactFlowId'] = $request->contactFlowId;
+        $query['InstanceId']    = $request->instanceId;
+        $query['NumberGroupId'] = $request->numberGroupId;
+        $query['NumberList']    = $request->numberList;
+        $query['Usage']         = $request->usage;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddPhoneNumbers',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AddPhoneNumbersResponse::fromMap($this->doRPCRequest('AddPhoneNumbers', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddPhoneNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -606,143 +513,224 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param SaveWebRtcInfoRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param AddSkillGroupsToUserRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return SaveWebRtcInfoResponse
+     * @return AddSkillGroupsToUserResponse
      */
-    public function saveWebRtcInfoWithOptions($request, $runtime)
+    public function addSkillGroupsToUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['InstanceId']     = $request->instanceId;
+        $query['SkillLevelList'] = $request->skillLevelList;
+        $query['UserId']         = $request->userId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddSkillGroupsToUser',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SaveWebRtcInfoResponse::fromMap($this->doRPCRequest('SaveWebRtcInfo', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddSkillGroupsToUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SaveWebRtcInfoRequest $request
+     * @param AddSkillGroupsToUserRequest $request
      *
-     * @return SaveWebRtcInfoResponse
+     * @return AddSkillGroupsToUserResponse
      */
-    public function saveWebRtcInfo($request)
+    public function addSkillGroupsToUser($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->saveWebRtcInfoWithOptions($request, $runtime);
+        return $this->addSkillGroupsToUserWithOptions($request, $runtime);
     }
 
     /**
-     * @param ListIntervalSkillGroupReportRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param AddUsersToSkillGroupRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return ListIntervalSkillGroupReportResponse
+     * @return AddUsersToSkillGroupResponse
      */
-    public function listIntervalSkillGroupReportWithOptions($request, $runtime)
+    public function addUsersToSkillGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                       = [];
+        $query['InstanceId']         = $request->instanceId;
+        $query['SkillGroupId']       = $request->skillGroupId;
+        $query['UserSkillLevelList'] = $request->userSkillLevelList;
+        $req                         = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddUsersToSkillGroup',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListIntervalSkillGroupReportResponse::fromMap($this->doRPCRequest('ListIntervalSkillGroupReport', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddUsersToSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListIntervalSkillGroupReportRequest $request
+     * @param AddUsersToSkillGroupRequest $request
      *
-     * @return ListIntervalSkillGroupReportResponse
+     * @return AddUsersToSkillGroupResponse
      */
-    public function listIntervalSkillGroupReport($request)
+    public function addUsersToSkillGroup($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listIntervalSkillGroupReportWithOptions($request, $runtime);
+        return $this->addUsersToSkillGroupWithOptions($request, $runtime);
     }
 
     /**
-     * @param MonitorCallRequest $request
+     * @param AnswerCallRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return AnswerCallResponse
+     */
+    public function answerCallWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['DeviceId']   = $request->deviceId;
+        $query['InstanceId'] = $request->instanceId;
+        $query['JobId']      = $request->jobId;
+        $query['UserId']     = $request->userId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AnswerCall',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AnswerCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AnswerCallRequest $request
+     *
+     * @return AnswerCallResponse
+     */
+    public function answerCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->answerCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AssignUsersRequest $request
      * @param RuntimeOptions     $runtime
      *
-     * @return MonitorCallResponse
+     * @return AssignUsersResponse
      */
-    public function monitorCallWithOptions($request, $runtime)
+    public function assignUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['InstanceId']     = $request->instanceId;
+        $query['RamIdList']      = $request->ramIdList;
+        $query['RoleId']         = $request->roleId;
+        $query['SkillLevelList'] = $request->skillLevelList;
+        $query['WorkMode']       = $request->workMode;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AssignUsers',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return MonitorCallResponse::fromMap($this->doRPCRequest('MonitorCall', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AssignUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param MonitorCallRequest $request
+     * @param AssignUsersRequest $request
      *
-     * @return MonitorCallResponse
+     * @return AssignUsersResponse
      */
-    public function monitorCall($request)
+    public function assignUsers($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->monitorCallWithOptions($request, $runtime);
+        return $this->assignUsersWithOptions($request, $runtime);
     }
 
     /**
-     * @param RemoveUsersFromSkillGroupRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param BargeInCallRequest $request
+     * @param RuntimeOptions     $runtime
      *
-     * @return RemoveUsersFromSkillGroupResponse
+     * @return BargeInCallResponse
      */
-    public function removeUsersFromSkillGroupWithOptions($request, $runtime)
+    public function bargeInCallWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['BargedUserId']   = $request->bargedUserId;
+        $query['DeviceId']       = $request->deviceId;
+        $query['InstanceId']     = $request->instanceId;
+        $query['JobId']          = $request->jobId;
+        $query['TimeoutSeconds'] = $request->timeoutSeconds;
+        $query['UserId']         = $request->userId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BargeInCall',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return RemoveUsersFromSkillGroupResponse::fromMap($this->doRPCRequest('RemoveUsersFromSkillGroup', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BargeInCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RemoveUsersFromSkillGroupRequest $request
+     * @param BargeInCallRequest $request
      *
-     * @return RemoveUsersFromSkillGroupResponse
+     * @return BargeInCallResponse
      */
-    public function removeUsersFromSkillGroup($request)
+    public function bargeInCall($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->removeUsersFromSkillGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteSkillGroupRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteSkillGroupResponse
-     */
-    public function deleteSkillGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteSkillGroupResponse::fromMap($this->doRPCRequest('DeleteSkillGroup', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteSkillGroupRequest $request
-     *
-     * @return DeleteSkillGroupResponse
-     */
-    public function deleteSkillGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteSkillGroupWithOptions($request, $runtime);
+        return $this->bargeInCallWithOptions($request, $runtime);
     }
 
     /**
@@ -754,11 +742,30 @@ class CCC extends OpenApiClient
     public function blindTransferWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['DeviceId']       = $request->deviceId;
+        $query['InstanceId']     = $request->instanceId;
+        $query['JobId']          = $request->jobId;
+        $query['TimeoutSeconds'] = $request->timeoutSeconds;
+        $query['Transferee']     = $request->transferee;
+        $query['Transferor']     = $request->transferor;
+        $query['UserId']         = $request->userId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BlindTransfer',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return BlindTransferResponse::fromMap($this->doRPCRequest('BlindTransfer', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return BlindTransferResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -774,6 +781,2646 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param CancelAttendedTransferRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CancelAttendedTransferResponse
+     */
+    public function cancelAttendedTransferWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['DeviceId']   = $request->deviceId;
+        $query['InstanceId'] = $request->instanceId;
+        $query['JobId']      = $request->jobId;
+        $query['UserId']     = $request->userId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelAttendedTransfer',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelAttendedTransferResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CancelAttendedTransferRequest $request
+     *
+     * @return CancelAttendedTransferResponse
+     */
+    public function cancelAttendedTransfer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelAttendedTransferWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ChangeWorkModeRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ChangeWorkModeResponse
+     */
+    public function changeWorkModeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['DeviceId']   = $request->deviceId;
+        $query['InstanceId'] = $request->instanceId;
+        $query['UserId']     = $request->userId;
+        $query['WorkMode']   = $request->workMode;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeWorkMode',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChangeWorkModeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChangeWorkModeRequest $request
+     *
+     * @return ChangeWorkModeResponse
+     */
+    public function changeWorkMode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeWorkModeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CoachCallRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CoachCallResponse
+     */
+    public function coachCallWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                   = [];
+        $query['CoachedUserId']  = $request->coachedUserId;
+        $query['DeviceId']       = $request->deviceId;
+        $query['InstanceId']     = $request->instanceId;
+        $query['JobId']          = $request->jobId;
+        $query['TimeoutSeconds'] = $request->timeoutSeconds;
+        $query['UserId']         = $request->userId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CoachCall',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CoachCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CoachCallRequest $request
+     *
+     * @return CoachCallResponse
+     */
+    public function coachCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->coachCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CompleteAttendedTransferRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CompleteAttendedTransferResponse
+     */
+    public function completeAttendedTransferWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['DeviceId']   = $request->deviceId;
+        $query['InstanceId'] = $request->instanceId;
+        $query['JobId']      = $request->jobId;
+        $query['UserId']     = $request->userId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CompleteAttendedTransfer',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CompleteAttendedTransferResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CompleteAttendedTransferRequest $request
+     *
+     * @return CompleteAttendedTransferResponse
+     */
+    public function completeAttendedTransfer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->completeAttendedTransferWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCampaignRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateCampaignResponse
+     */
+    public function createCampaignWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateCampaignShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->caseList)) {
+            $request->caseListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->caseList, 'CaseList', 'json');
+        }
+        $query                         = [];
+        $query['CallableTime']         = $request->callableTime;
+        $query['CaseFileKey']          = $request->caseFileKey;
+        $query['CaseList']             = $request->caseListShrink;
+        $query['ContactFlowId']        = $request->contactFlowId;
+        $query['EndTime']              = $request->endTime;
+        $query['InstanceId']           = $request->instanceId;
+        $query['MaxAttemptCount']      = $request->maxAttemptCount;
+        $query['MinAttemptInterval']   = $request->minAttemptInterval;
+        $query['Name']                 = $request->name;
+        $query['QueueId']              = $request->queueId;
+        $query['Simulation']           = $request->simulation;
+        $query['SimulationParameters'] = $request->simulationParameters;
+        $query['StartTime']            = $request->startTime;
+        $query['StrategyParameters']   = $request->strategyParameters;
+        $query['StrategyType']         = $request->strategyType;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCampaign',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCampaignResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCampaignRequest $request
+     *
+     * @return CreateCampaignResponse
+     */
+    public function createCampaign($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCampaignWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateInstanceResponse
+     */
+    public function createInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                   = [];
+        $query['AdminRamIdList'] = $request->adminRamIdList;
+        $query['Description']    = $request->description;
+        $query['DomainName']     = $request->domainName;
+        $query['Name']           = $request->name;
+        $query['NumberList']     = $request->numberList;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateInstance',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateInstanceRequest $request
+     *
+     * @return CreateInstanceResponse
+     */
+    public function createInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateSkillGroupRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateSkillGroupResponse
+     */
+    public function createSkillGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                = [];
+        $query['Description'] = $request->description;
+        $query['DisplayName'] = $request->displayName;
+        $query['InstanceId']  = $request->instanceId;
+        $query['Name']        = $request->name;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSkillGroup',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSkillGroupRequest $request
+     *
+     * @return CreateSkillGroupResponse
+     */
+    public function createSkillGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSkillGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateUserRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateUserResponse
+     */
+    public function createUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                   = [];
+        $query['DisplayName']    = $request->displayName;
+        $query['Email']          = $request->email;
+        $query['InstanceId']     = $request->instanceId;
+        $query['LoginName']      = $request->loginName;
+        $query['Mobile']         = $request->mobile;
+        $query['ResetPassword']  = $request->resetPassword;
+        $query['RoleId']         = $request->roleId;
+        $query['SkillLevelList'] = $request->skillLevelList;
+        $query['WorkMode']       = $request->workMode;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateUser',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateUserRequest $request
+     *
+     * @return CreateUserResponse
+     */
+    public function createUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteSkillGroupRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteSkillGroupResponse
+     */
+    public function deleteSkillGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                 = [];
+        $query['Force']        = $request->force;
+        $query['InstanceId']   = $request->instanceId;
+        $query['SkillGroupId'] = $request->skillGroupId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSkillGroup',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteSkillGroupRequest $request
+     *
+     * @return DeleteSkillGroupResponse
+     */
+    public function deleteSkillGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSkillGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetCallDetailRecordRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetCallDetailRecordResponse
+     */
+    public function getCallDetailRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['ContactId']  = $request->contactId;
+        $query['InstanceId'] = $request->instanceId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCallDetailRecord',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCallDetailRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCallDetailRecordRequest $request
+     *
+     * @return GetCallDetailRecordResponse
+     */
+    public function getCallDetailRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCallDetailRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetCampaignRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetCampaignResponse
+     */
+    public function getCampaignWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['CampaignId'] = $request->campaignId;
+        $query['InstanceId'] = $request->instanceId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCampaign',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCampaignResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCampaignRequest $request
+     *
+     * @return GetCampaignResponse
+     */
+    public function getCampaign($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCampaignWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetHistoricalCallerReportRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetHistoricalCallerReportResponse
+     */
+    public function getHistoricalCallerReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['CallingNumber'] = $request->callingNumber;
+        $query['InstanceId']    = $request->instanceId;
+        $query['StartTime']     = $request->startTime;
+        $query['StopTime']      = $request->stopTime;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetHistoricalCallerReport',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetHistoricalCallerReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetHistoricalCallerReportRequest $request
+     *
+     * @return GetHistoricalCallerReportResponse
+     */
+    public function getHistoricalCallerReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getHistoricalCallerReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetHistoricalInstanceReportRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetHistoricalInstanceReportResponse
+     */
+    public function getHistoricalInstanceReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['EndTime']    = $request->endTime;
+        $query['InstanceId'] = $request->instanceId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetHistoricalInstanceReport',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetHistoricalInstanceReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetHistoricalInstanceReportRequest $request
+     *
+     * @return GetHistoricalInstanceReportResponse
+     */
+    public function getHistoricalInstanceReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getHistoricalInstanceReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetInstanceRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetInstanceResponse
+     */
+    public function getInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['InstanceId'] = $request->instanceId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetInstance',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetInstanceRequest $request
+     *
+     * @return GetInstanceResponse
+     */
+    public function getInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetInstanceTrendingReportRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetInstanceTrendingReportResponse
+     */
+    public function getInstanceTrendingReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['EndTime']    = $request->endTime;
+        $query['InstanceId'] = $request->instanceId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetInstanceTrendingReport',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetInstanceTrendingReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetInstanceTrendingReportRequest $request
+     *
+     * @return GetInstanceTrendingReportResponse
+     */
+    public function getInstanceTrendingReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInstanceTrendingReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetLoginDetailsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetLoginDetailsResponse
+     */
+    public function getLoginDetailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['InstanceId'] = $request->instanceId;
+        $query['UserId']     = $request->userId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLoginDetails',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetLoginDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetLoginDetailsRequest $request
+     *
+     * @return GetLoginDetailsResponse
+     */
+    public function getLoginDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLoginDetailsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMonoRecordingRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetMonoRecordingResponse
+     */
+    public function getMonoRecordingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['ContactId']  = $request->contactId;
+        $query['InstanceId'] = $request->instanceId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMonoRecording',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMonoRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetMonoRecordingRequest $request
+     *
+     * @return GetMonoRecordingResponse
+     */
+    public function getMonoRecording($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMonoRecordingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetMultiChannelRecordingRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetMultiChannelRecordingResponse
+     */
+    public function getMultiChannelRecordingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['ContactId']  = $request->contactId;
+        $query['InstanceId'] = $request->instanceId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMultiChannelRecording',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMultiChannelRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetMultiChannelRecordingRequest $request
+     *
+     * @return GetMultiChannelRecordingResponse
+     */
+    public function getMultiChannelRecording($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMultiChannelRecordingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetNumberLocationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetNumberLocationResponse
+     */
+    public function getNumberLocationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['InstanceId'] = $request->instanceId;
+        $query['Number']     = $request->number;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetNumberLocation',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetNumberLocationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetNumberLocationRequest $request
+     *
+     * @return GetNumberLocationResponse
+     */
+    public function getNumberLocation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNumberLocationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetRealtimeInstanceStatesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetRealtimeInstanceStatesResponse
+     */
+    public function getRealtimeInstanceStatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['InstanceId'] = $request->instanceId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRealtimeInstanceStates',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRealtimeInstanceStatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRealtimeInstanceStatesRequest $request
+     *
+     * @return GetRealtimeInstanceStatesResponse
+     */
+    public function getRealtimeInstanceStates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRealtimeInstanceStatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTurnCredentialsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetTurnCredentialsResponse
+     */
+    public function getTurnCredentialsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['InstanceId'] = $request->instanceId;
+        $query['UserId']     = $request->userId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTurnCredentials',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTurnCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTurnCredentialsRequest $request
+     *
+     * @return GetTurnCredentialsResponse
+     */
+    public function getTurnCredentials($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTurnCredentialsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTurnServerListRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetTurnServerListResponse
+     */
+    public function getTurnServerListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['InstanceId'] = $request->instanceId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTurnServerList',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTurnServerListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTurnServerListRequest $request
+     *
+     * @return GetTurnServerListResponse
+     */
+    public function getTurnServerList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTurnServerListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetUserRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetUserResponse
+     */
+    public function getUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['Extension']  = $request->extension;
+        $query['InstanceId'] = $request->instanceId;
+        $query['UserId']     = $request->userId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUser',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetUserRequest $request
+     *
+     * @return GetUserResponse
+     */
+    public function getUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param HoldCallRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return HoldCallResponse
+     */
+    public function holdCallWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['ChannelId']  = $request->channelId;
+        $query['DeviceId']   = $request->deviceId;
+        $query['InstanceId'] = $request->instanceId;
+        $query['JobId']      = $request->jobId;
+        $query['Music']      = $request->music;
+        $query['UserId']     = $request->userId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'HoldCall',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return HoldCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param HoldCallRequest $request
+     *
+     * @return HoldCallResponse
+     */
+    public function holdCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->holdCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param InitiateAttendedTransferRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return InitiateAttendedTransferResponse
+     */
+    public function initiateAttendedTransferWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                   = [];
+        $query['DeviceId']       = $request->deviceId;
+        $query['InstanceId']     = $request->instanceId;
+        $query['JobId']          = $request->jobId;
+        $query['TimeoutSeconds'] = $request->timeoutSeconds;
+        $query['Transferee']     = $request->transferee;
+        $query['Transferor']     = $request->transferor;
+        $query['UserId']         = $request->userId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InitiateAttendedTransfer',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InitiateAttendedTransferResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InitiateAttendedTransferRequest $request
+     *
+     * @return InitiateAttendedTransferResponse
+     */
+    public function initiateAttendedTransfer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->initiateAttendedTransferWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param InterceptCallRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return InterceptCallResponse
+     */
+    public function interceptCallWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                      = [];
+        $query['DeviceId']          = $request->deviceId;
+        $query['InstanceId']        = $request->instanceId;
+        $query['InterceptedUserId'] = $request->interceptedUserId;
+        $query['JobId']             = $request->jobId;
+        $query['TimeoutSeconds']    = $request->timeoutSeconds;
+        $query['UserId']            = $request->userId;
+        $req                        = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InterceptCall',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InterceptCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InterceptCallRequest $request
+     *
+     * @return InterceptCallResponse
+     */
+    public function interceptCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->interceptCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param LaunchAuthenticationRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return LaunchAuthenticationResponse
+     */
+    public function launchAuthenticationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['ContactFlowId'] = $request->contactFlowId;
+        $query['DeviceId']      = $request->deviceId;
+        $query['InstanceId']    = $request->instanceId;
+        $query['JobId']         = $request->jobId;
+        $query['UserId']        = $request->userId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'LaunchAuthentication',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return LaunchAuthenticationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param LaunchAuthenticationRequest $request
+     *
+     * @return LaunchAuthenticationResponse
+     */
+    public function launchAuthentication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->launchAuthenticationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param LaunchSurveyRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return LaunchSurveyResponse
+     */
+    public function launchSurveyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['ContactFlowId'] = $request->contactFlowId;
+        $query['DeviceId']      = $request->deviceId;
+        $query['InstanceId']    = $request->instanceId;
+        $query['JobId']         = $request->jobId;
+        $query['UserId']        = $request->userId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'LaunchSurvey',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return LaunchSurveyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param LaunchSurveyRequest $request
+     *
+     * @return LaunchSurveyResponse
+     */
+    public function launchSurvey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->launchSurveyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAgentStateLogsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListAgentStateLogsResponse
+     */
+    public function listAgentStateLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['AgentId']    = $request->agentId;
+        $query['EndTime']    = $request->endTime;
+        $query['InstanceId'] = $request->instanceId;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAgentStateLogs',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAgentStateLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAgentStateLogsRequest $request
+     *
+     * @return ListAgentStateLogsResponse
+     */
+    public function listAgentStateLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAgentStateLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAttemptsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListAttemptsResponse
+     */
+    public function listAttemptsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAttempts',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAttemptsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAttemptsRequest $request
+     *
+     * @return ListAttemptsResponse
+     */
+    public function listAttempts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAttemptsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListBriefSkillGroupsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListBriefSkillGroupsResponse
+     */
+    public function listBriefSkillGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['InstanceId']    = $request->instanceId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SearchPattern'] = $request->searchPattern;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBriefSkillGroups',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListBriefSkillGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListBriefSkillGroupsRequest $request
+     *
+     * @return ListBriefSkillGroupsResponse
+     */
+    public function listBriefSkillGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBriefSkillGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCallDetailRecordsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListCallDetailRecordsResponse
+     */
+    public function listCallDetailRecordsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                                = [];
+        $query['AgentId']                     = $request->agentId;
+        $query['CalledNumber']                = $request->calledNumber;
+        $query['CallingNumber']               = $request->callingNumber;
+        $query['ContactDisposition']          = $request->contactDisposition;
+        $query['ContactId']                   = $request->contactId;
+        $query['ContactType']                 = $request->contactType;
+        $query['Criteria']                    = $request->criteria;
+        $query['EarlyMediaStateList']         = $request->earlyMediaStateList;
+        $query['EndTime']                     = $request->endTime;
+        $query['InstanceId']                  = $request->instanceId;
+        $query['OrderByField']                = $request->orderByField;
+        $query['PageNumber']                  = $request->pageNumber;
+        $query['PageSize']                    = $request->pageSize;
+        $query['SatisfactionDescriptionList'] = $request->satisfactionDescriptionList;
+        $query['SatisfactionList']            = $request->satisfactionList;
+        $query['SatisfactionSurveyChannel']   = $request->satisfactionSurveyChannel;
+        $query['SkillGroupId']                = $request->skillGroupId;
+        $query['SortOrder']                   = $request->sortOrder;
+        $query['StartTime']                   = $request->startTime;
+        $req                                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCallDetailRecords',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCallDetailRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCallDetailRecordsRequest $request
+     *
+     * @return ListCallDetailRecordsResponse
+     */
+    public function listCallDetailRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCallDetailRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCampaignTrendingReportRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListCampaignTrendingReportResponse
+     */
+    public function listCampaignTrendingReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCampaignTrendingReport',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCampaignTrendingReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCampaignTrendingReportRequest $request
+     *
+     * @return ListCampaignTrendingReportResponse
+     */
+    public function listCampaignTrendingReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCampaignTrendingReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCampaignsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListCampaignsResponse
+     */
+    public function listCampaignsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                        = [];
+        $query['ActualStartTimeFrom'] = $request->actualStartTimeFrom;
+        $query['ActualStartTimeTo']   = $request->actualStartTimeTo;
+        $query['InstanceId']          = $request->instanceId;
+        $query['Name']                = $request->name;
+        $query['PageNumber']          = $request->pageNumber;
+        $query['PageSize']            = $request->pageSize;
+        $query['PlanedStartTimeFrom'] = $request->planedStartTimeFrom;
+        $query['PlanedStartTimeTo']   = $request->planedStartTimeTo;
+        $query['QueueId']             = $request->queueId;
+        $query['State']               = $request->state;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCampaigns',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCampaignsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCampaignsRequest $request
+     *
+     * @return ListCampaignsResponse
+     */
+    public function listCampaigns($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCampaignsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCasesRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListCasesResponse
+     */
+    public function listCasesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                = [];
+        $query['CampaignId']  = $request->campaignId;
+        $query['InstanceId']  = $request->instanceId;
+        $query['PageNumber']  = $request->pageNumber;
+        $query['PageSize']    = $request->pageSize;
+        $query['PhoneNumber'] = $request->phoneNumber;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCases',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCasesRequest $request
+     *
+     * @return ListCasesResponse
+     */
+    public function listCases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCasesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListConfigItemsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListConfigItemsResponse
+     */
+    public function listConfigItemsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['InstanceId'] = $request->instanceId;
+        $query['ObjectId']   = $request->objectId;
+        $query['ObjectType'] = $request->objectType;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListConfigItems',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListConfigItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListConfigItemsRequest $request
+     *
+     * @return ListConfigItemsResponse
+     */
+    public function listConfigItems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listConfigItemsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListContactFlowsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListContactFlowsResponse
+     */
+    public function listContactFlowsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['InstanceId'] = $request->instanceId;
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $query['Type']       = $request->type;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListContactFlows',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListContactFlowsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListContactFlowsRequest $request
+     *
+     * @return ListContactFlowsResponse
+     */
+    public function listContactFlows($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listContactFlowsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDevicesRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListDevicesResponse
+     */
+    public function listDevicesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['InstanceId'] = $request->instanceId;
+        $query['UserId']     = $request->userId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDevices',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDevicesRequest $request
+     *
+     * @return ListDevicesResponse
+     */
+    public function listDevices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDevicesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListHistoricalAgentReportRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListHistoricalAgentReportResponse
+     */
+    public function listHistoricalAgentReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['InstanceId'] = $request->instanceId;
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $query['StartTime']  = $request->startTime;
+        $query['StopTime']   = $request->stopTime;
+        $body                = [];
+        if (!Utils::isUnset($request->agentIdList)) {
+            $body['AgentIdList'] = $request->agentIdList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListHistoricalAgentReport',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListHistoricalAgentReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListHistoricalAgentReportRequest $request
+     *
+     * @return ListHistoricalAgentReportResponse
+     */
+    public function listHistoricalAgentReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listHistoricalAgentReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListHistoricalSkillGroupReportRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListHistoricalSkillGroupReportResponse
+     */
+    public function listHistoricalSkillGroupReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['EndTime']    = $request->endTime;
+        $query['InstanceId'] = $request->instanceId;
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $query['StartTime']  = $request->startTime;
+        $body                = [];
+        if (!Utils::isUnset($request->skillGroupIdList)) {
+            $body['SkillGroupIdList'] = $request->skillGroupIdList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListHistoricalSkillGroupReport',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListHistoricalSkillGroupReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListHistoricalSkillGroupReportRequest $request
+     *
+     * @return ListHistoricalSkillGroupReportResponse
+     */
+    public function listHistoricalSkillGroupReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listHistoricalSkillGroupReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListInstancesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListInstancesResponse
+     */
+    public function listInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInstances',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListInstancesRequest $request
+     *
+     * @return ListInstancesResponse
+     */
+    public function listInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListInstancesOfUserRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListInstancesOfUserResponse
+     */
+    public function listInstancesOfUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInstancesOfUser',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListInstancesOfUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListInstancesOfUserRequest $request
+     *
+     * @return ListInstancesOfUserResponse
+     */
+    public function listInstancesOfUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstancesOfUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListIntervalAgentReportRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListIntervalAgentReportResponse
+     */
+    public function listIntervalAgentReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['AgentId']    = $request->agentId;
+        $query['EndTime']    = $request->endTime;
+        $query['InstanceId'] = $request->instanceId;
+        $query['Interval']   = $request->interval;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIntervalAgentReport',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListIntervalAgentReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListIntervalAgentReportRequest $request
+     *
+     * @return ListIntervalAgentReportResponse
+     */
+    public function listIntervalAgentReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIntervalAgentReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListIntervalInstanceReportRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListIntervalInstanceReportResponse
+     */
+    public function listIntervalInstanceReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['EndTime']    = $request->endTime;
+        $query['InstanceId'] = $request->instanceId;
+        $query['Interval']   = $request->interval;
+        $query['StartTime']  = $request->startTime;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIntervalInstanceReport',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListIntervalInstanceReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListIntervalInstanceReportRequest $request
+     *
+     * @return ListIntervalInstanceReportResponse
+     */
+    public function listIntervalInstanceReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIntervalInstanceReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListIntervalSkillGroupReportRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListIntervalSkillGroupReportResponse
+     */
+    public function listIntervalSkillGroupReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                 = [];
+        $query['EndTime']      = $request->endTime;
+        $query['InstanceId']   = $request->instanceId;
+        $query['Interval']     = $request->interval;
+        $query['SkillGroupId'] = $request->skillGroupId;
+        $query['StartTime']    = $request->startTime;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIntervalSkillGroupReport',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListIntervalSkillGroupReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListIntervalSkillGroupReportRequest $request
+     *
+     * @return ListIntervalSkillGroupReportResponse
+     */
+    public function listIntervalSkillGroupReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIntervalSkillGroupReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListIvrTrackingDetailsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListIvrTrackingDetailsResponse
+     */
+    public function listIvrTrackingDetailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['ContactId']  = $request->contactId;
+        $query['InstanceId'] = $request->instanceId;
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIvrTrackingDetails',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListIvrTrackingDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListIvrTrackingDetailsRequest $request
+     *
+     * @return ListIvrTrackingDetailsResponse
+     */
+    public function listIvrTrackingDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIvrTrackingDetailsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListOutboundNumbersOfUserRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListOutboundNumbersOfUserResponse
+     */
+    public function listOutboundNumbersOfUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                     = [];
+        $query['InstanceId']       = $request->instanceId;
+        $query['PageNumber']       = $request->pageNumber;
+        $query['PageSize']         = $request->pageSize;
+        $query['SkillGroupIdList'] = $request->skillGroupIdList;
+        $query['UserId']           = $request->userId;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOutboundNumbersOfUser',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListOutboundNumbersOfUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListOutboundNumbersOfUserRequest $request
+     *
+     * @return ListOutboundNumbersOfUserResponse
+     */
+    public function listOutboundNumbersOfUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOutboundNumbersOfUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPersonalNumbersOfUserRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListPersonalNumbersOfUserResponse
+     */
+    public function listPersonalNumbersOfUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['InstanceId']    = $request->instanceId;
+        $query['IsMember']      = $request->isMember;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SearchPattern'] = $request->searchPattern;
+        $query['UserId']        = $request->userId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPersonalNumbersOfUser',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPersonalNumbersOfUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListPersonalNumbersOfUserRequest $request
+     *
+     * @return ListPersonalNumbersOfUserResponse
+     */
+    public function listPersonalNumbersOfUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPersonalNumbersOfUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPhoneNumbersRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListPhoneNumbersResponse
+     */
+    public function listPhoneNumbersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['Active']        = $request->active;
+        $query['InstanceId']    = $request->instanceId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SearchPattern'] = $request->searchPattern;
+        $query['Usage']         = $request->usage;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPhoneNumbers',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPhoneNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListPhoneNumbersRequest $request
+     *
+     * @return ListPhoneNumbersResponse
+     */
+    public function listPhoneNumbers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPhoneNumbersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPhoneNumbersOfSkillGroupRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListPhoneNumbersOfSkillGroupResponse
+     */
+    public function listPhoneNumbersOfSkillGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['Active']        = $request->active;
+        $query['InstanceId']    = $request->instanceId;
+        $query['IsMember']      = $request->isMember;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SearchPattern'] = $request->searchPattern;
+        $query['SkillGroupId']  = $request->skillGroupId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPhoneNumbersOfSkillGroup',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPhoneNumbersOfSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListPhoneNumbersOfSkillGroupRequest $request
+     *
+     * @return ListPhoneNumbersOfSkillGroupResponse
+     */
+    public function listPhoneNumbersOfSkillGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPhoneNumbersOfSkillGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPrivilegesOfUserRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListPrivilegesOfUserResponse
+     */
+    public function listPrivilegesOfUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['InstanceId'] = $request->instanceId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPrivilegesOfUser',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPrivilegesOfUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListPrivilegesOfUserRequest $request
+     *
+     * @return ListPrivilegesOfUserResponse
+     */
+    public function listPrivilegesOfUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPrivilegesOfUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListRamUsersRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListRamUsersResponse
+     */
+    public function listRamUsersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['InstanceId']    = $request->instanceId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SearchPattern'] = $request->searchPattern;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRamUsers',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRamUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListRamUsersRequest $request
+     *
+     * @return ListRamUsersResponse
+     */
+    public function listRamUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRamUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListRealtimeAgentStatesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListRealtimeAgentStatesResponse
+     */
+    public function listRealtimeAgentStatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                 = [];
+        $query['AgentName']    = $request->agentName;
+        $query['InstanceId']   = $request->instanceId;
+        $query['PageNumber']   = $request->pageNumber;
+        $query['PageSize']     = $request->pageSize;
+        $query['SkillGroupId'] = $request->skillGroupId;
+        $body                  = [];
+        if (!Utils::isUnset($request->agentIdList)) {
+            $body['AgentIdList'] = $request->agentIdList;
+        }
+        if (!Utils::isUnset($request->stateList)) {
+            $body['StateList'] = $request->stateList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRealtimeAgentStates',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRealtimeAgentStatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListRealtimeAgentStatesRequest $request
+     *
+     * @return ListRealtimeAgentStatesResponse
+     */
+    public function listRealtimeAgentStates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRealtimeAgentStatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListRealtimeSkillGroupStatesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListRealtimeSkillGroupStatesResponse
+     */
+    public function listRealtimeSkillGroupStatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['InstanceId'] = $request->instanceId;
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $body                = [];
+        if (!Utils::isUnset($request->skillGroupIdList)) {
+            $body['SkillGroupIdList'] = $request->skillGroupIdList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRealtimeSkillGroupStates',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRealtimeSkillGroupStatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListRealtimeSkillGroupStatesRequest $request
+     *
+     * @return ListRealtimeSkillGroupStatesResponse
+     */
+    public function listRealtimeSkillGroupStates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRealtimeSkillGroupStatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListRecentCallDetailRecordsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListRecentCallDetailRecordsResponse
+     */
+    public function listRecentCallDetailRecordsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['Criteria']   = $request->criteria;
+        $query['EndTime']    = $request->endTime;
+        $query['InstanceId'] = $request->instanceId;
+        $query['PageNumber'] = $request->pageNumber;
+        $query['PageSize']   = $request->pageSize;
+        $body                = [];
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRecentCallDetailRecords',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRecentCallDetailRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListRecentCallDetailRecordsRequest $request
+     *
+     * @return ListRecentCallDetailRecordsResponse
+     */
+    public function listRecentCallDetailRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRecentCallDetailRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListRolesRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListRolesResponse
+     */
+    public function listRolesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['InstanceId'] = $request->instanceId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRoles',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListRolesRequest $request
+     *
+     * @return ListRolesResponse
+     */
+    public function listRoles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRolesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSipCallRecordsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListSipCallRecordsResponse
+     */
+    public function listSipCallRecordsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['ContactIdList'] = $request->contactIdList;
+        $query['InstanceId']    = $request->instanceId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSipCallRecords',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSipCallRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSipCallRecordsRequest $request
+     *
+     * @return ListSipCallRecordsResponse
+     */
+    public function listSipCallRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSipCallRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSipTracesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListSipTracesResponse
+     */
+    public function listSipTracesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['CallId']     = $request->callId;
+        $query['InstanceId'] = $request->instanceId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSipTraces',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSipTracesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSipTracesRequest $request
+     *
+     * @return ListSipTracesResponse
+     */
+    public function listSipTraces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSipTracesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSkillGroupsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListSkillGroupsResponse
+     */
+    public function listSkillGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['InstanceId']    = $request->instanceId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SearchPattern'] = $request->searchPattern;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSkillGroups',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSkillGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSkillGroupsRequest $request
+     *
+     * @return ListSkillGroupsResponse
+     */
+    public function listSkillGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSkillGroupsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListSkillLevelsOfUserRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -782,11 +3429,29 @@ class CCC extends OpenApiClient
     public function listSkillLevelsOfUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['InstanceId']    = $request->instanceId;
+        $query['IsMember']      = $request->isMember;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SearchPattern'] = $request->searchPattern;
+        $query['UserId']        = $request->userId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSkillLevelsOfUser',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListSkillLevelsOfUserResponse::fromMap($this->doRPCRequest('ListSkillLevelsOfUser', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSkillLevelsOfUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -810,11 +3475,27 @@ class CCC extends OpenApiClient
     public function listUnassignedNumbersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['InstanceId']    = $request->instanceId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SearchPattern'] = $request->searchPattern;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUnassignedNumbers',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListUnassignedNumbersResponse::fromMap($this->doRPCRequest('ListUnassignedNumbers', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListUnassignedNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -830,230 +3511,6 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceTrendingReportRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return GetInstanceTrendingReportResponse
-     */
-    public function getInstanceTrendingReportWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetInstanceTrendingReportResponse::fromMap($this->doRPCRequest('GetInstanceTrendingReport', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetInstanceTrendingReportRequest $request
-     *
-     * @return GetInstanceTrendingReportResponse
-     */
-    public function getInstanceTrendingReport($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getInstanceTrendingReportWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListInstancesOfUserRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ListInstancesOfUserResponse
-     */
-    public function listInstancesOfUserWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListInstancesOfUserResponse::fromMap($this->doRPCRequest('ListInstancesOfUser', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListInstancesOfUserRequest $request
-     *
-     * @return ListInstancesOfUserResponse
-     */
-    public function listInstancesOfUser($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listInstancesOfUserWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param LaunchSurveyRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return LaunchSurveyResponse
-     */
-    public function launchSurveyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return LaunchSurveyResponse::fromMap($this->doRPCRequest('LaunchSurvey', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param LaunchSurveyRequest $request
-     *
-     * @return LaunchSurveyResponse
-     */
-    public function launchSurvey($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->launchSurveyWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListIvrTrackingDetailsRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ListIvrTrackingDetailsResponse
-     */
-    public function listIvrTrackingDetailsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListIvrTrackingDetailsResponse::fromMap($this->doRPCRequest('ListIvrTrackingDetails', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListIvrTrackingDetailsRequest $request
-     *
-     * @return ListIvrTrackingDetailsResponse
-     */
-    public function listIvrTrackingDetails($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listIvrTrackingDetailsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListBriefSkillGroupsRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ListBriefSkillGroupsResponse
-     */
-    public function listBriefSkillGroupsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListBriefSkillGroupsResponse::fromMap($this->doRPCRequest('ListBriefSkillGroups', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListBriefSkillGroupsRequest $request
-     *
-     * @return ListBriefSkillGroupsResponse
-     */
-    public function listBriefSkillGroups($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listBriefSkillGroupsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UnmuteCallRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return UnmuteCallResponse
-     */
-    public function unmuteCallWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UnmuteCallResponse::fromMap($this->doRPCRequest('UnmuteCall', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UnmuteCallRequest $request
-     *
-     * @return UnmuteCallResponse
-     */
-    public function unmuteCall($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->unmuteCallWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifySkillLevelsOfUserRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ModifySkillLevelsOfUserResponse
-     */
-    public function modifySkillLevelsOfUserWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifySkillLevelsOfUserResponse::fromMap($this->doRPCRequest('ModifySkillLevelsOfUser', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifySkillLevelsOfUserRequest $request
-     *
-     * @return ModifySkillLevelsOfUserResponse
-     */
-    public function modifySkillLevelsOfUser($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifySkillLevelsOfUserWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AssignUsersRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return AssignUsersResponse
-     */
-    public function assignUsersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AssignUsersResponse::fromMap($this->doRPCRequest('AssignUsers', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AssignUsersRequest $request
-     *
-     * @return AssignUsersResponse
-     */
-    public function assignUsers($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->assignUsersWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListUserLevelsOfSkillGroupRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -1062,11 +3519,29 @@ class CCC extends OpenApiClient
     public function listUserLevelsOfSkillGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['InstanceId']    = $request->instanceId;
+        $query['IsMember']      = $request->isMember;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SearchPattern'] = $request->searchPattern;
+        $query['SkillGroupId']  = $request->skillGroupId;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUserLevelsOfSkillGroup',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListUserLevelsOfSkillGroupResponse::fromMap($this->doRPCRequest('ListUserLevelsOfSkillGroup', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListUserLevelsOfSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1082,1123 +3557,47 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param ListRolesRequest $request
+     * @param ListUsersRequest $request
      * @param RuntimeOptions   $runtime
      *
-     * @return ListRolesResponse
+     * @return ListUsersResponse
      */
-    public function listRolesWithOptions($request, $runtime)
+    public function listUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['InstanceId']    = $request->instanceId;
+        $query['PageNumber']    = $request->pageNumber;
+        $query['PageSize']      = $request->pageSize;
+        $query['SearchPattern'] = $request->searchPattern;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUsers',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListRolesResponse::fromMap($this->doRPCRequest('ListRoles', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListRolesRequest $request
+     * @param ListUsersRequest $request
      *
-     * @return ListRolesResponse
+     * @return ListUsersResponse
      */
-    public function listRoles($request)
+    public function listUsers($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listRolesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateConfigItemsRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return UpdateConfigItemsResponse
-     */
-    public function updateConfigItemsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UpdateConfigItemsResponse::fromMap($this->doRPCRequest('UpdateConfigItems', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UpdateConfigItemsRequest $request
-     *
-     * @return UpdateConfigItemsResponse
-     */
-    public function updateConfigItems($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateConfigItemsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetCallDetailRecordRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetCallDetailRecordResponse
-     */
-    public function getCallDetailRecordWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetCallDetailRecordResponse::fromMap($this->doRPCRequest('GetCallDetailRecord', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetCallDetailRecordRequest $request
-     *
-     * @return GetCallDetailRecordResponse
-     */
-    public function getCallDetailRecord($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getCallDetailRecordWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyPhoneNumberRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ModifyPhoneNumberResponse
-     */
-    public function modifyPhoneNumberWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyPhoneNumberResponse::fromMap($this->doRPCRequest('ModifyPhoneNumber', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyPhoneNumberRequest $request
-     *
-     * @return ModifyPhoneNumberResponse
-     */
-    public function modifyPhoneNumber($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyPhoneNumberWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CoachCallRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return CoachCallResponse
-     */
-    public function coachCallWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CoachCallResponse::fromMap($this->doRPCRequest('CoachCall', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CoachCallRequest $request
-     *
-     * @return CoachCallResponse
-     */
-    public function coachCall($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->coachCallWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateUserRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return CreateUserResponse
-     */
-    public function createUserWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateUserResponse::fromMap($this->doRPCRequest('CreateUser', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateUserRequest $request
-     *
-     * @return CreateUserResponse
-     */
-    public function createUser($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createUserWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListPrivilegesOfUserRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ListPrivilegesOfUserResponse
-     */
-    public function listPrivilegesOfUserWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListPrivilegesOfUserResponse::fromMap($this->doRPCRequest('ListPrivilegesOfUser', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListPrivilegesOfUserRequest $request
-     *
-     * @return ListPrivilegesOfUserResponse
-     */
-    public function listPrivilegesOfUser($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listPrivilegesOfUserWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AddPersonalNumbersToUserRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return AddPersonalNumbersToUserResponse
-     */
-    public function addPersonalNumbersToUserWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AddPersonalNumbersToUserResponse::fromMap($this->doRPCRequest('AddPersonalNumbersToUser', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AddPersonalNumbersToUserRequest $request
-     *
-     * @return AddPersonalNumbersToUserResponse
-     */
-    public function addPersonalNumbersToUser($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addPersonalNumbersToUserWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListHistoricalAgentReportRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ListHistoricalAgentReportResponse
-     */
-    public function listHistoricalAgentReportWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListHistoricalAgentReportResponse::fromMap($this->doRPCRequest('ListHistoricalAgentReport', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListHistoricalAgentReportRequest $request
-     *
-     * @return ListHistoricalAgentReportResponse
-     */
-    public function listHistoricalAgentReport($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listHistoricalAgentReportWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param InterceptCallRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return InterceptCallResponse
-     */
-    public function interceptCallWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return InterceptCallResponse::fromMap($this->doRPCRequest('InterceptCall', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param InterceptCallRequest $request
-     *
-     * @return InterceptCallResponse
-     */
-    public function interceptCall($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->interceptCallWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListContactFlowsRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListContactFlowsResponse
-     */
-    public function listContactFlowsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListContactFlowsResponse::fromMap($this->doRPCRequest('ListContactFlows', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListContactFlowsRequest $request
-     *
-     * @return ListContactFlowsResponse
-     */
-    public function listContactFlows($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listContactFlowsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListPersonalNumbersOfUserRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ListPersonalNumbersOfUserResponse
-     */
-    public function listPersonalNumbersOfUserWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListPersonalNumbersOfUserResponse::fromMap($this->doRPCRequest('ListPersonalNumbersOfUser', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListPersonalNumbersOfUserRequest $request
-     *
-     * @return ListPersonalNumbersOfUserResponse
-     */
-    public function listPersonalNumbersOfUser($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listPersonalNumbersOfUserWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param StartPredictiveCallRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return StartPredictiveCallResponse
-     */
-    public function startPredictiveCallWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return StartPredictiveCallResponse::fromMap($this->doRPCRequest('StartPredictiveCall', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param StartPredictiveCallRequest $request
-     *
-     * @return StartPredictiveCallResponse
-     */
-    public function startPredictiveCall($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->startPredictiveCallWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListIntervalInstanceReportRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ListIntervalInstanceReportResponse
-     */
-    public function listIntervalInstanceReportWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListIntervalInstanceReportResponse::fromMap($this->doRPCRequest('ListIntervalInstanceReport', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListIntervalInstanceReportRequest $request
-     *
-     * @return ListIntervalInstanceReportResponse
-     */
-    public function listIntervalInstanceReport($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listIntervalInstanceReportWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateInstanceRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateInstanceResponse
-     */
-    public function createInstanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateInstanceResponse::fromMap($this->doRPCRequest('CreateInstance', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateInstanceRequest $request
-     *
-     * @return CreateInstanceResponse
-     */
-    public function createInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createInstanceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RemoveSkillGroupsFromUserRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return RemoveSkillGroupsFromUserResponse
-     */
-    public function removeSkillGroupsFromUserWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RemoveSkillGroupsFromUserResponse::fromMap($this->doRPCRequest('RemoveSkillGroupsFromUser', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RemoveSkillGroupsFromUserRequest $request
-     *
-     * @return RemoveSkillGroupsFromUserResponse
-     */
-    public function removeSkillGroupsFromUser($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removeSkillGroupsFromUserWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListRealtimeAgentStatesRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ListRealtimeAgentStatesResponse
-     */
-    public function listRealtimeAgentStatesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListRealtimeAgentStatesResponse::fromMap($this->doRPCRequest('ListRealtimeAgentStates', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListRealtimeAgentStatesRequest $request
-     *
-     * @return ListRealtimeAgentStatesResponse
-     */
-    public function listRealtimeAgentStates($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listRealtimeAgentStatesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param LaunchAuthenticationRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return LaunchAuthenticationResponse
-     */
-    public function launchAuthenticationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return LaunchAuthenticationResponse::fromMap($this->doRPCRequest('LaunchAuthentication', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param LaunchAuthenticationRequest $request
-     *
-     * @return LaunchAuthenticationResponse
-     */
-    public function launchAuthentication($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->launchAuthenticationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListInstancesRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListInstancesResponse
-     */
-    public function listInstancesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListInstancesResponse::fromMap($this->doRPCRequest('ListInstances', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListInstancesRequest $request
-     *
-     * @return ListInstancesResponse
-     */
-    public function listInstances($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listInstancesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetHistoricalInstanceReportRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return GetHistoricalInstanceReportResponse
-     */
-    public function getHistoricalInstanceReportWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetHistoricalInstanceReportResponse::fromMap($this->doRPCRequest('GetHistoricalInstanceReport', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetHistoricalInstanceReportRequest $request
-     *
-     * @return GetHistoricalInstanceReportResponse
-     */
-    public function getHistoricalInstanceReport($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getHistoricalInstanceReportWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RemoveUsersRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return RemoveUsersResponse
-     */
-    public function removeUsersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RemoveUsersResponse::fromMap($this->doRPCRequest('RemoveUsers', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RemoveUsersRequest $request
-     *
-     * @return RemoveUsersResponse
-     */
-    public function removeUsers($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removeUsersWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param StartBack2BackCallRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return StartBack2BackCallResponse
-     */
-    public function startBack2BackCallWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return StartBack2BackCallResponse::fromMap($this->doRPCRequest('StartBack2BackCall', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param StartBack2BackCallRequest $request
-     *
-     * @return StartBack2BackCallResponse
-     */
-    public function startBack2BackCall($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->startBack2BackCallWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetUserRequest $request
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetUserResponse
-     */
-    public function getUserWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetUserResponse::fromMap($this->doRPCRequest('GetUser', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetUserRequest $request
-     *
-     * @return GetUserResponse
-     */
-    public function getUser($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getUserWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RemovePhoneNumbersFromSkillGroupRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return RemovePhoneNumbersFromSkillGroupResponse
-     */
-    public function removePhoneNumbersFromSkillGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RemovePhoneNumbersFromSkillGroupResponse::fromMap($this->doRPCRequest('RemovePhoneNumbersFromSkillGroup', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RemovePhoneNumbersFromSkillGroupRequest $request
-     *
-     * @return RemovePhoneNumbersFromSkillGroupResponse
-     */
-    public function removePhoneNumbersFromSkillGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removePhoneNumbersFromSkillGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CompleteAttendedTransferRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return CompleteAttendedTransferResponse
-     */
-    public function completeAttendedTransferWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CompleteAttendedTransferResponse::fromMap($this->doRPCRequest('CompleteAttendedTransfer', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CompleteAttendedTransferRequest $request
-     *
-     * @return CompleteAttendedTransferResponse
-     */
-    public function completeAttendedTransfer($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->completeAttendedTransferWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ResetUserPasswordRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ResetUserPasswordResponse
-     */
-    public function resetUserPasswordWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ResetUserPasswordResponse::fromMap($this->doRPCRequest('ResetUserPassword', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ResetUserPasswordRequest $request
-     *
-     * @return ResetUserPasswordResponse
-     */
-    public function resetUserPassword($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->resetUserPasswordWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetTurnServerListRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetTurnServerListResponse
-     */
-    public function getTurnServerListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetTurnServerListResponse::fromMap($this->doRPCRequest('GetTurnServerList', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetTurnServerListRequest $request
-     *
-     * @return GetTurnServerListResponse
-     */
-    public function getTurnServerList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getTurnServerListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetNumberLocationRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetNumberLocationResponse
-     */
-    public function getNumberLocationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetNumberLocationResponse::fromMap($this->doRPCRequest('GetNumberLocation', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetNumberLocationRequest $request
-     *
-     * @return GetNumberLocationResponse
-     */
-    public function getNumberLocation($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getNumberLocationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListRamUsersRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListRamUsersResponse
-     */
-    public function listRamUsersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListRamUsersResponse::fromMap($this->doRPCRequest('ListRamUsers', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListRamUsersRequest $request
-     *
-     * @return ListRamUsersResponse
-     */
-    public function listRamUsers($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listRamUsersWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param MuteCallRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return MuteCallResponse
-     */
-    public function muteCallWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return MuteCallResponse::fromMap($this->doRPCRequest('MuteCall', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param MuteCallRequest $request
-     *
-     * @return MuteCallResponse
-     */
-    public function muteCall($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->muteCallWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AnswerCallRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return AnswerCallResponse
-     */
-    public function answerCallWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AnswerCallResponse::fromMap($this->doRPCRequest('AnswerCall', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AnswerCallRequest $request
-     *
-     * @return AnswerCallResponse
-     */
-    public function answerCall($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->answerCallWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListIntervalAgentReportRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ListIntervalAgentReportResponse
-     */
-    public function listIntervalAgentReportWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListIntervalAgentReportResponse::fromMap($this->doRPCRequest('ListIntervalAgentReport', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListIntervalAgentReportRequest $request
-     *
-     * @return ListIntervalAgentReportResponse
-     */
-    public function listIntervalAgentReport($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listIntervalAgentReportWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListCallDetailRecordsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ListCallDetailRecordsResponse
-     */
-    public function listCallDetailRecordsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListCallDetailRecordsResponse::fromMap($this->doRPCRequest('ListCallDetailRecords', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListCallDetailRecordsRequest $request
-     *
-     * @return ListCallDetailRecordsResponse
-     */
-    public function listCallDetailRecords($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listCallDetailRecordsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RemovePhoneNumbersRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return RemovePhoneNumbersResponse
-     */
-    public function removePhoneNumbersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RemovePhoneNumbersResponse::fromMap($this->doRPCRequest('RemovePhoneNumbers', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RemovePhoneNumbersRequest $request
-     *
-     * @return RemovePhoneNumbersResponse
-     */
-    public function removePhoneNumbers($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removePhoneNumbersWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CancelAttendedTransferRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CancelAttendedTransferResponse
-     */
-    public function cancelAttendedTransferWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CancelAttendedTransferResponse::fromMap($this->doRPCRequest('CancelAttendedTransfer', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CancelAttendedTransferRequest $request
-     *
-     * @return CancelAttendedTransferResponse
-     */
-    public function cancelAttendedTransfer($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->cancelAttendedTransferWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param TakeBreakRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return TakeBreakResponse
-     */
-    public function takeBreakWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return TakeBreakResponse::fromMap($this->doRPCRequest('TakeBreak', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param TakeBreakRequest $request
-     *
-     * @return TakeBreakResponse
-     */
-    public function takeBreak($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->takeBreakWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListHistoricalSkillGroupReportRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return ListHistoricalSkillGroupReportResponse
-     */
-    public function listHistoricalSkillGroupReportWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListHistoricalSkillGroupReportResponse::fromMap($this->doRPCRequest('ListHistoricalSkillGroupReport', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListHistoricalSkillGroupReportRequest $request
-     *
-     * @return ListHistoricalSkillGroupReportResponse
-     */
-    public function listHistoricalSkillGroupReport($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listHistoricalSkillGroupReportWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SendDtmfSignalingRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return SendDtmfSignalingResponse
-     */
-    public function sendDtmfSignalingWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SendDtmfSignalingResponse::fromMap($this->doRPCRequest('SendDtmfSignaling', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SendDtmfSignalingRequest $request
-     *
-     * @return SendDtmfSignalingResponse
-     */
-    public function sendDtmfSignaling($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->sendDtmfSignalingWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListRecentCallDetailRecordsRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ListRecentCallDetailRecordsResponse
-     */
-    public function listRecentCallDetailRecordsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListRecentCallDetailRecordsResponse::fromMap($this->doRPCRequest('ListRecentCallDetailRecords', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListRecentCallDetailRecordsRequest $request
-     *
-     * @return ListRecentCallDetailRecordsResponse
-     */
-    public function listRecentCallDetailRecords($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listRecentCallDetailRecordsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param InitiateAttendedTransferRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return InitiateAttendedTransferResponse
-     */
-    public function initiateAttendedTransferWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return InitiateAttendedTransferResponse::fromMap($this->doRPCRequest('InitiateAttendedTransfer', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param InitiateAttendedTransferRequest $request
-     *
-     * @return InitiateAttendedTransferResponse
-     */
-    public function initiateAttendedTransfer($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->initiateAttendedTransferWithOptions($request, $runtime);
+        return $this->listUsersWithOptions($request, $runtime);
     }
 
     /**
@@ -2210,11 +3609,31 @@ class CCC extends OpenApiClient
     public function makeCallWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['Callee']         = $request->callee;
+        $query['Caller']         = $request->caller;
+        $query['DeviceId']       = $request->deviceId;
+        $query['InstanceId']     = $request->instanceId;
+        $query['MaskedCallee']   = $request->maskedCallee;
+        $query['Tags']           = $request->tags;
+        $query['TimeoutSeconds'] = $request->timeoutSeconds;
+        $query['UserId']         = $request->userId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MakeCall',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return MakeCallResponse::fromMap($this->doRPCRequest('MakeCall', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return MakeCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2230,398 +3649,6 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return GetInstanceResponse
-     */
-    public function getInstanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetInstanceResponse::fromMap($this->doRPCRequest('GetInstance', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetInstanceRequest $request
-     *
-     * @return GetInstanceResponse
-     */
-    public function getInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getInstanceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AddUsersToSkillGroupRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return AddUsersToSkillGroupResponse
-     */
-    public function addUsersToSkillGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AddUsersToSkillGroupResponse::fromMap($this->doRPCRequest('AddUsersToSkillGroup', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AddUsersToSkillGroupRequest $request
-     *
-     * @return AddUsersToSkillGroupResponse
-     */
-    public function addUsersToSkillGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addUsersToSkillGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListConfigItemsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListConfigItemsResponse
-     */
-    public function listConfigItemsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListConfigItemsResponse::fromMap($this->doRPCRequest('ListConfigItems', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListConfigItemsRequest $request
-     *
-     * @return ListConfigItemsResponse
-     */
-    public function listConfigItems($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listConfigItemsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SignInGroupRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return SignInGroupResponse
-     */
-    public function signInGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SignInGroupResponse::fromMap($this->doRPCRequest('SignInGroup', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SignInGroupRequest $request
-     *
-     * @return SignInGroupResponse
-     */
-    public function signInGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->signInGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetRealtimeInstanceStatesRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return GetRealtimeInstanceStatesResponse
-     */
-    public function getRealtimeInstanceStatesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetRealtimeInstanceStatesResponse::fromMap($this->doRPCRequest('GetRealtimeInstanceStates', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetRealtimeInstanceStatesRequest $request
-     *
-     * @return GetRealtimeInstanceStatesResponse
-     */
-    public function getRealtimeInstanceStates($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getRealtimeInstanceStatesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifySkillGroupRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ModifySkillGroupResponse
-     */
-    public function modifySkillGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifySkillGroupResponse::fromMap($this->doRPCRequest('ModifySkillGroup', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifySkillGroupRequest $request
-     *
-     * @return ModifySkillGroupResponse
-     */
-    public function modifySkillGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifySkillGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyUserRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return ModifyUserResponse
-     */
-    public function modifyUserWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyUserResponse::fromMap($this->doRPCRequest('ModifyUser', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyUserRequest $request
-     *
-     * @return ModifyUserResponse
-     */
-    public function modifyUser($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyUserWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AddPhoneNumberToSkillGroupsRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return AddPhoneNumberToSkillGroupsResponse
-     */
-    public function addPhoneNumberToSkillGroupsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AddPhoneNumberToSkillGroupsResponse::fromMap($this->doRPCRequest('AddPhoneNumberToSkillGroups', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AddPhoneNumberToSkillGroupsRequest $request
-     *
-     * @return AddPhoneNumberToSkillGroupsResponse
-     */
-    public function addPhoneNumberToSkillGroups($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addPhoneNumberToSkillGroupsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListDevicesRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ListDevicesResponse
-     */
-    public function listDevicesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListDevicesResponse::fromMap($this->doRPCRequest('ListDevices', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListDevicesRequest $request
-     *
-     * @return ListDevicesResponse
-     */
-    public function listDevices($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listDevicesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RetrieveCallRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return RetrieveCallResponse
-     */
-    public function retrieveCallWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RetrieveCallResponse::fromMap($this->doRPCRequest('RetrieveCall', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RetrieveCallRequest $request
-     *
-     * @return RetrieveCallResponse
-     */
-    public function retrieveCall($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->retrieveCallWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListSkillGroupsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListSkillGroupsResponse
-     */
-    public function listSkillGroupsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListSkillGroupsResponse::fromMap($this->doRPCRequest('ListSkillGroups', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListSkillGroupsRequest $request
-     *
-     * @return ListSkillGroupsResponse
-     */
-    public function listSkillGroups($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listSkillGroupsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param HoldCallRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return HoldCallResponse
-     */
-    public function holdCallWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return HoldCallResponse::fromMap($this->doRPCRequest('HoldCall', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param HoldCallRequest $request
-     *
-     * @return HoldCallResponse
-     */
-    public function holdCall($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->holdCallWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RegisterDeviceRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return RegisterDeviceResponse
-     */
-    public function registerDeviceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RegisterDeviceResponse::fromMap($this->doRPCRequest('RegisterDevice', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RegisterDeviceRequest $request
-     *
-     * @return RegisterDeviceResponse
-     */
-    public function registerDevice($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->registerDeviceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RemovePersonalNumbersFromUserRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return RemovePersonalNumbersFromUserResponse
-     */
-    public function removePersonalNumbersFromUserWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return RemovePersonalNumbersFromUserResponse::fromMap($this->doRPCRequest('RemovePersonalNumbersFromUser', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param RemovePersonalNumbersFromUserRequest $request
-     *
-     * @return RemovePersonalNumbersFromUserResponse
-     */
-    public function removePersonalNumbersFromUser($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->removePersonalNumbersFromUserWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ModifyInstanceRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -2630,11 +3657,25 @@ class CCC extends OpenApiClient
     public function modifyInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                = [];
+        $query['Description'] = $request->description;
+        $query['InstanceId']  = $request->instanceId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstance',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyInstanceResponse::fromMap($this->doRPCRequest('ModifyInstance', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2650,31 +3691,398 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param ListOutboundNumbersOfUserRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param ModifyPhoneNumberRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return ListOutboundNumbersOfUserResponse
+     * @return ModifyPhoneNumberResponse
      */
-    public function listOutboundNumbersOfUserWithOptions($request, $runtime)
+    public function modifyPhoneNumberWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                  = [];
+        $query['ContactFlowId'] = $request->contactFlowId;
+        $query['InstanceId']    = $request->instanceId;
+        $query['Number']        = $request->number;
+        $query['Usage']         = $request->usage;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyPhoneNumber',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListOutboundNumbersOfUserResponse::fromMap($this->doRPCRequest('ListOutboundNumbersOfUser', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyPhoneNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListOutboundNumbersOfUserRequest $request
+     * @param ModifyPhoneNumberRequest $request
      *
-     * @return ListOutboundNumbersOfUserResponse
+     * @return ModifyPhoneNumberResponse
      */
-    public function listOutboundNumbersOfUser($request)
+    public function modifyPhoneNumber($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->listOutboundNumbersOfUserWithOptions($request, $runtime);
+        return $this->modifyPhoneNumberWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifySkillGroupRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifySkillGroupResponse
+     */
+    public function modifySkillGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                 = [];
+        $query['Description']  = $request->description;
+        $query['DisplayName']  = $request->displayName;
+        $query['InstanceId']   = $request->instanceId;
+        $query['SkillGroupId'] = $request->skillGroupId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifySkillGroup',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifySkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifySkillGroupRequest $request
+     *
+     * @return ModifySkillGroupResponse
+     */
+    public function modifySkillGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySkillGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifySkillLevelsOfUserRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifySkillLevelsOfUserResponse
+     */
+    public function modifySkillLevelsOfUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                   = [];
+        $query['InstanceId']     = $request->instanceId;
+        $query['SkillLevelList'] = $request->skillLevelList;
+        $query['UserId']         = $request->userId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifySkillLevelsOfUser',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifySkillLevelsOfUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifySkillLevelsOfUserRequest $request
+     *
+     * @return ModifySkillLevelsOfUserResponse
+     */
+    public function modifySkillLevelsOfUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySkillLevelsOfUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyUserRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ModifyUserResponse
+     */
+    public function modifyUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['InstanceId'] = $request->instanceId;
+        $query['Mobile']     = $request->mobile;
+        $query['RoleId']     = $request->roleId;
+        $query['UserId']     = $request->userId;
+        $query['WorkMode']   = $request->workMode;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyUser',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyUserRequest $request
+     *
+     * @return ModifyUserResponse
+     */
+    public function modifyUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyUserLevelsOfSkillGroupRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyUserLevelsOfSkillGroupResponse
+     */
+    public function modifyUserLevelsOfSkillGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                  = [];
+        $query['InstanceId']    = $request->instanceId;
+        $query['SkillGroupId']  = $request->skillGroupId;
+        $query['UserLevelList'] = $request->userLevelList;
+        $req                    = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyUserLevelsOfSkillGroup',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyUserLevelsOfSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyUserLevelsOfSkillGroupRequest $request
+     *
+     * @return ModifyUserLevelsOfSkillGroupResponse
+     */
+    public function modifyUserLevelsOfSkillGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyUserLevelsOfSkillGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param MonitorCallRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return MonitorCallResponse
+     */
+    public function monitorCallWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                    = [];
+        $query['DeviceId']        = $request->deviceId;
+        $query['InstanceId']      = $request->instanceId;
+        $query['MonitoredUserId'] = $request->monitoredUserId;
+        $query['TimeoutSeconds']  = $request->timeoutSeconds;
+        $query['UserId']          = $request->userId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MonitorCall',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MonitorCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MonitorCallRequest $request
+     *
+     * @return MonitorCallResponse
+     */
+    public function monitorCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->monitorCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param MuteCallRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return MuteCallResponse
+     */
+    public function muteCallWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['ChannelId']  = $request->channelId;
+        $query['DeviceId']   = $request->deviceId;
+        $query['InstanceId'] = $request->instanceId;
+        $query['JobId']      = $request->jobId;
+        $query['UserId']     = $request->userId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MuteCall',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MuteCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param MuteCallRequest $request
+     *
+     * @return MuteCallResponse
+     */
+    public function muteCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->muteCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PauseCampaignRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return PauseCampaignResponse
+     */
+    public function pauseCampaignWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['CampaignId'] = $request->campaignId;
+        $query['InstanceId'] = $request->instanceId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PauseCampaign',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PauseCampaignResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PauseCampaignRequest $request
+     *
+     * @return PauseCampaignResponse
+     */
+    public function pauseCampaign($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pauseCampaignWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PickOutboundNumbersRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return PickOutboundNumbersResponse
+     */
+    public function pickOutboundNumbersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                     = [];
+        $query['CalledNumber']     = $request->calledNumber;
+        $query['Count']            = $request->count;
+        $query['InstanceId']       = $request->instanceId;
+        $query['SkillGroupIdList'] = $request->skillGroupIdList;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PickOutboundNumbers',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PickOutboundNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PickOutboundNumbersRequest $request
+     *
+     * @return PickOutboundNumbersResponse
+     */
+    public function pickOutboundNumbers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pickOutboundNumbersWithOptions($request, $runtime);
     }
 
     /**
@@ -2686,11 +4094,26 @@ class CCC extends OpenApiClient
     public function pollUserStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DeviceId']   = $request->deviceId;
+        $query['InstanceId'] = $request->instanceId;
+        $query['UserId']     = $request->userId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PollUserStatus',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return PollUserStatusResponse::fromMap($this->doRPCRequest('PollUserStatus', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PollUserStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2714,11 +4137,27 @@ class CCC extends OpenApiClient
     public function readyForServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                     = [];
+        $query['DeviceId']         = $request->deviceId;
+        $query['InstanceId']       = $request->instanceId;
+        $query['OutboundScenario'] = $request->outboundScenario;
+        $query['UserId']           = $request->userId;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReadyForService',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ReadyForServiceResponse::fromMap($this->doRPCRequest('ReadyForService', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReadyForServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2734,311 +4173,47 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param GetMultiChannelRecordingRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return GetMultiChannelRecordingResponse
-     */
-    public function getMultiChannelRecordingWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetMultiChannelRecordingResponse::fromMap($this->doRPCRequest('GetMultiChannelRecording', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetMultiChannelRecordingRequest $request
-     *
-     * @return GetMultiChannelRecordingResponse
-     */
-    public function getMultiChannelRecording($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getMultiChannelRecordingWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param BargeInCallRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return BargeInCallResponse
-     */
-    public function bargeInCallWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return BargeInCallResponse::fromMap($this->doRPCRequest('BargeInCall', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param BargeInCallRequest $request
-     *
-     * @return BargeInCallResponse
-     */
-    public function bargeInCall($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->bargeInCallWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListPhoneNumbersOfSkillGroupRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ListPhoneNumbersOfSkillGroupResponse
-     */
-    public function listPhoneNumbersOfSkillGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListPhoneNumbersOfSkillGroupResponse::fromMap($this->doRPCRequest('ListPhoneNumbersOfSkillGroup', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListPhoneNumbersOfSkillGroupRequest $request
-     *
-     * @return ListPhoneNumbersOfSkillGroupResponse
-     */
-    public function listPhoneNumbersOfSkillGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listPhoneNumbersOfSkillGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SignOutGroupRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return SignOutGroupResponse
-     */
-    public function signOutGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SignOutGroupResponse::fromMap($this->doRPCRequest('SignOutGroup', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SignOutGroupRequest $request
-     *
-     * @return SignOutGroupResponse
-     */
-    public function signOutGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->signOutGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SaveRTCStatsV2Request $request
+     * @param RegisterDeviceRequest $request
      * @param RuntimeOptions        $runtime
      *
-     * @return SaveRTCStatsV2Response
+     * @return RegisterDeviceResponse
      */
-    public function saveRTCStatsV2WithOptions($request, $runtime)
+    public function registerDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['DeviceId']   = $request->deviceId;
+        $query['InstanceId'] = $request->instanceId;
+        $query['Password']   = $request->password;
+        $query['UserId']     = $request->userId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RegisterDevice',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return SaveRTCStatsV2Response::fromMap($this->doRPCRequest('SaveRTCStatsV2', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RegisterDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SaveRTCStatsV2Request $request
+     * @param RegisterDeviceRequest $request
      *
-     * @return SaveRTCStatsV2Response
+     * @return RegisterDeviceResponse
      */
-    public function saveRTCStatsV2($request)
+    public function registerDevice($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->saveRTCStatsV2WithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetHistoricalCallerReportRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return GetHistoricalCallerReportResponse
-     */
-    public function getHistoricalCallerReportWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetHistoricalCallerReportResponse::fromMap($this->doRPCRequest('GetHistoricalCallerReport', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetHistoricalCallerReportRequest $request
-     *
-     * @return GetHistoricalCallerReportResponse
-     */
-    public function getHistoricalCallerReport($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getHistoricalCallerReportWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyUserLevelsOfSkillGroupRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ModifyUserLevelsOfSkillGroupResponse
-     */
-    public function modifyUserLevelsOfSkillGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyUserLevelsOfSkillGroupResponse::fromMap($this->doRPCRequest('ModifyUserLevelsOfSkillGroup', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyUserLevelsOfSkillGroupRequest $request
-     *
-     * @return ModifyUserLevelsOfSkillGroupResponse
-     */
-    public function modifyUserLevelsOfSkillGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyUserLevelsOfSkillGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SaveTerminalLogRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return SaveTerminalLogResponse
-     */
-    public function saveTerminalLogWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SaveTerminalLogResponse::fromMap($this->doRPCRequest('SaveTerminalLog', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SaveTerminalLogRequest $request
-     *
-     * @return SaveTerminalLogResponse
-     */
-    public function saveTerminalLog($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->saveTerminalLogWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListRealtimeSkillGroupStatesRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ListRealtimeSkillGroupStatesResponse
-     */
-    public function listRealtimeSkillGroupStatesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListRealtimeSkillGroupStatesResponse::fromMap($this->doRPCRequest('ListRealtimeSkillGroupStates', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListRealtimeSkillGroupStatesRequest $request
-     *
-     * @return ListRealtimeSkillGroupStatesResponse
-     */
-    public function listRealtimeSkillGroupStates($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listRealtimeSkillGroupStatesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateSkillGroupRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateSkillGroupResponse
-     */
-    public function createSkillGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateSkillGroupResponse::fromMap($this->doRPCRequest('CreateSkillGroup', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateSkillGroupRequest $request
-     *
-     * @return CreateSkillGroupResponse
-     */
-    public function createSkillGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createSkillGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param PickOutboundNumbersRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return PickOutboundNumbersResponse
-     */
-    public function pickOutboundNumbersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return PickOutboundNumbersResponse::fromMap($this->doRPCRequest('PickOutboundNumbers', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param PickOutboundNumbersRequest $request
-     *
-     * @return PickOutboundNumbersResponse
-     */
-    public function pickOutboundNumbers($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->pickOutboundNumbersWithOptions($request, $runtime);
+        return $this->registerDeviceWithOptions($request, $runtime);
     }
 
     /**
@@ -3050,11 +4225,28 @@ class CCC extends OpenApiClient
     public function releaseCallWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['ChannelId']  = $request->channelId;
+        $query['DeviceId']   = $request->deviceId;
+        $query['InstanceId'] = $request->instanceId;
+        $query['JobId']      = $request->jobId;
+        $query['UserId']     = $request->userId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleaseCall',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ReleaseCallResponse::fromMap($this->doRPCRequest('ReleaseCall', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReleaseCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3070,30 +4262,1064 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param GetLoginDetailsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param RemovePersonalNumbersFromUserRequest $request
+     * @param RuntimeOptions                       $runtime
      *
-     * @return GetLoginDetailsResponse
+     * @return RemovePersonalNumbersFromUserResponse
      */
-    public function getLoginDetailsWithOptions($request, $runtime)
+    public function removePersonalNumbersFromUserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['InstanceId'] = $request->instanceId;
+        $query['NumberList'] = $request->numberList;
+        $query['UserId']     = $request->userId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemovePersonalNumbersFromUser',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetLoginDetailsResponse::fromMap($this->doRPCRequest('GetLoginDetails', '2020-07-01', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemovePersonalNumbersFromUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetLoginDetailsRequest $request
+     * @param RemovePersonalNumbersFromUserRequest $request
      *
-     * @return GetLoginDetailsResponse
+     * @return RemovePersonalNumbersFromUserResponse
      */
-    public function getLoginDetails($request)
+    public function removePersonalNumbersFromUser($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getLoginDetailsWithOptions($request, $runtime);
+        return $this->removePersonalNumbersFromUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemovePhoneNumberFromSkillGroupsRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return RemovePhoneNumberFromSkillGroupsResponse
+     */
+    public function removePhoneNumberFromSkillGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                     = [];
+        $query['InstanceId']       = $request->instanceId;
+        $query['Number']           = $request->number;
+        $query['SkillGroupIdList'] = $request->skillGroupIdList;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemovePhoneNumberFromSkillGroups',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemovePhoneNumberFromSkillGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemovePhoneNumberFromSkillGroupsRequest $request
+     *
+     * @return RemovePhoneNumberFromSkillGroupsResponse
+     */
+    public function removePhoneNumberFromSkillGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removePhoneNumberFromSkillGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemovePhoneNumbersRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RemovePhoneNumbersResponse
+     */
+    public function removePhoneNumbersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['InstanceId'] = $request->instanceId;
+        $query['NumberList'] = $request->numberList;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemovePhoneNumbers',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemovePhoneNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemovePhoneNumbersRequest $request
+     *
+     * @return RemovePhoneNumbersResponse
+     */
+    public function removePhoneNumbers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removePhoneNumbersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemovePhoneNumbersFromSkillGroupRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return RemovePhoneNumbersFromSkillGroupResponse
+     */
+    public function removePhoneNumbersFromSkillGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                 = [];
+        $query['InstanceId']   = $request->instanceId;
+        $query['NumberList']   = $request->numberList;
+        $query['SkillGroupId'] = $request->skillGroupId;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemovePhoneNumbersFromSkillGroup',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemovePhoneNumbersFromSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemovePhoneNumbersFromSkillGroupRequest $request
+     *
+     * @return RemovePhoneNumbersFromSkillGroupResponse
+     */
+    public function removePhoneNumbersFromSkillGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removePhoneNumbersFromSkillGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveSkillGroupsFromUserRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RemoveSkillGroupsFromUserResponse
+     */
+    public function removeSkillGroupsFromUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                     = [];
+        $query['InstanceId']       = $request->instanceId;
+        $query['SkillGroupIdList'] = $request->skillGroupIdList;
+        $query['UserId']           = $request->userId;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveSkillGroupsFromUser',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveSkillGroupsFromUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemoveSkillGroupsFromUserRequest $request
+     *
+     * @return RemoveSkillGroupsFromUserResponse
+     */
+    public function removeSkillGroupsFromUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeSkillGroupsFromUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveUsersRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return RemoveUsersResponse
+     */
+    public function removeUsersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['InstanceId'] = $request->instanceId;
+        $query['UserIdList'] = $request->userIdList;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveUsers',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemoveUsersRequest $request
+     *
+     * @return RemoveUsersResponse
+     */
+    public function removeUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveUsersFromSkillGroupRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RemoveUsersFromSkillGroupResponse
+     */
+    public function removeUsersFromSkillGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                 = [];
+        $query['InstanceId']   = $request->instanceId;
+        $query['SkillGroupId'] = $request->skillGroupId;
+        $query['UserIdList']   = $request->userIdList;
+        $req                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveUsersFromSkillGroup',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveUsersFromSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemoveUsersFromSkillGroupRequest $request
+     *
+     * @return RemoveUsersFromSkillGroupResponse
+     */
+    public function removeUsersFromSkillGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeUsersFromSkillGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ResetAgentStateRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ResetAgentStateResponse
+     */
+    public function resetAgentStateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['DeviceId']   = $request->deviceId;
+        $query['InstanceId'] = $request->instanceId;
+        $query['UserId']     = $request->userId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResetAgentState',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResetAgentStateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ResetAgentStateRequest $request
+     *
+     * @return ResetAgentStateResponse
+     */
+    public function resetAgentState($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetAgentStateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ResetUserPasswordRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ResetUserPasswordResponse
+     */
+    public function resetUserPasswordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['InstanceId'] = $request->instanceId;
+        $query['Password']   = $request->password;
+        $query['UserId']     = $request->userId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResetUserPassword',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResetUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ResetUserPasswordRequest $request
+     *
+     * @return ResetUserPasswordResponse
+     */
+    public function resetUserPassword($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetUserPasswordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ResumeCampaignRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ResumeCampaignResponse
+     */
+    public function resumeCampaignWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['CampaignId'] = $request->campaignId;
+        $query['InstanceId'] = $request->instanceId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResumeCampaign',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResumeCampaignResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ResumeCampaignRequest $request
+     *
+     * @return ResumeCampaignResponse
+     */
+    public function resumeCampaign($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resumeCampaignWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RetrieveCallRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RetrieveCallResponse
+     */
+    public function retrieveCallWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['ChannelId']  = $request->channelId;
+        $query['DeviceId']   = $request->deviceId;
+        $query['InstanceId'] = $request->instanceId;
+        $query['JobId']      = $request->jobId;
+        $query['UserId']     = $request->userId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RetrieveCall',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RetrieveCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RetrieveCallRequest $request
+     *
+     * @return RetrieveCallResponse
+     */
+    public function retrieveCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->retrieveCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SaveRTCStatsV2Request $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SaveRTCStatsV2Response
+     */
+    public function saveRTCStatsV2WithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                   = [];
+        $query['CallId']         = $request->callId;
+        $query['GeneralInfo']    = $request->generalInfo;
+        $query['GoogAddress']    = $request->googAddress;
+        $query['InstanceId']     = $request->instanceId;
+        $query['ReceiverReport'] = $request->receiverReport;
+        $query['SenderReport']   = $request->senderReport;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveRTCStatsV2',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveRTCStatsV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SaveRTCStatsV2Request $request
+     *
+     * @return SaveRTCStatsV2Response
+     */
+    public function saveRTCStatsV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveRTCStatsV2WithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SaveTerminalLogRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SaveTerminalLogResponse
+     */
+    public function saveTerminalLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                    = [];
+        $query['AppName']         = $request->appName;
+        $query['CallId']          = $request->callId;
+        $query['Content']         = $request->content;
+        $query['DataType']        = $request->dataType;
+        $query['InstanceId']      = $request->instanceId;
+        $query['JobId']           = $request->jobId;
+        $query['MethodName']      = $request->methodName;
+        $query['Status']          = $request->status;
+        $query['UniqueRequestId'] = $request->uniqueRequestId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveTerminalLog',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveTerminalLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SaveTerminalLogRequest $request
+     *
+     * @return SaveTerminalLogResponse
+     */
+    public function saveTerminalLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveTerminalLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SaveWebRTCStatsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SaveWebRTCStatsResponse
+     */
+    public function saveWebRTCStatsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                   = [];
+        $query['CallId']         = $request->callId;
+        $query['GeneralInfo']    = $request->generalInfo;
+        $query['GoogAddress']    = $request->googAddress;
+        $query['InstanceId']     = $request->instanceId;
+        $query['ReceiverReport'] = $request->receiverReport;
+        $query['SenderReport']   = $request->senderReport;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveWebRTCStats',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveWebRTCStatsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SaveWebRTCStatsRequest $request
+     *
+     * @return SaveWebRTCStatsResponse
+     */
+    public function saveWebRTCStats($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveWebRTCStatsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SaveWebRtcInfoRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SaveWebRtcInfoResponse
+     */
+    public function saveWebRtcInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                = [];
+        $query['CallId']      = $request->callId;
+        $query['Content']     = $request->content;
+        $query['ContentType'] = $request->contentType;
+        $query['InstanceId']  = $request->instanceId;
+        $query['JobId']       = $request->jobId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveWebRtcInfo',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveWebRtcInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SaveWebRtcInfoRequest $request
+     *
+     * @return SaveWebRtcInfoResponse
+     */
+    public function saveWebRtcInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveWebRtcInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SendDtmfSignalingRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SendDtmfSignalingResponse
+     */
+    public function sendDtmfSignalingWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['ChannelId']  = $request->channelId;
+        $query['DeviceId']   = $request->deviceId;
+        $query['Dtmf']       = $request->dtmf;
+        $query['InstanceId'] = $request->instanceId;
+        $query['JobId']      = $request->jobId;
+        $query['UserId']     = $request->userId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SendDtmfSignaling',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SendDtmfSignalingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SendDtmfSignalingRequest $request
+     *
+     * @return SendDtmfSignalingResponse
+     */
+    public function sendDtmfSignaling($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendDtmfSignalingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SignInGroupRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SignInGroupResponse
+     */
+    public function signInGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                           = [];
+        $query['DeviceId']               = $request->deviceId;
+        $query['InstanceId']             = $request->instanceId;
+        $query['SignedSkillGroupIdList'] = $request->signedSkillGroupIdList;
+        $query['UserId']                 = $request->userId;
+        $req                             = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SignInGroup',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SignInGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SignInGroupRequest $request
+     *
+     * @return SignInGroupResponse
+     */
+    public function signInGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->signInGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SignOutGroupRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SignOutGroupResponse
+     */
+    public function signOutGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['DeviceId']   = $request->deviceId;
+        $query['InstanceId'] = $request->instanceId;
+        $query['UserId']     = $request->userId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SignOutGroup',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SignOutGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SignOutGroupRequest $request
+     *
+     * @return SignOutGroupResponse
+     */
+    public function signOutGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->signOutGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartBack2BackCallRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return StartBack2BackCallResponse
+     */
+    public function startBack2BackCallWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                     = [];
+        $query['AdditionalBroker'] = $request->additionalBroker;
+        $query['Broker']           = $request->broker;
+        $query['Callee']           = $request->callee;
+        $query['Caller']           = $request->caller;
+        $query['InstanceId']       = $request->instanceId;
+        $query['Tags']             = $request->tags;
+        $query['TimeoutSeconds']   = $request->timeoutSeconds;
+        $req                       = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartBack2BackCall',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartBack2BackCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartBack2BackCallRequest $request
+     *
+     * @return StartBack2BackCallResponse
+     */
+    public function startBack2BackCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startBack2BackCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartPredictiveCallRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return StartPredictiveCallResponse
+     */
+    public function startPredictiveCallWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                         = [];
+        $query['Callee']               = $request->callee;
+        $query['Caller']               = $request->caller;
+        $query['ContactFlowId']        = $request->contactFlowId;
+        $query['ContactFlowVariables'] = $request->contactFlowVariables;
+        $query['InstanceId']           = $request->instanceId;
+        $query['MaskedCallee']         = $request->maskedCallee;
+        $query['SkillGroupId']         = $request->skillGroupId;
+        $query['Tags']                 = $request->tags;
+        $query['TimeoutSeconds']       = $request->timeoutSeconds;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartPredictiveCall',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartPredictiveCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartPredictiveCallRequest $request
+     *
+     * @return StartPredictiveCallResponse
+     */
+    public function startPredictiveCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startPredictiveCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitCampaignRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SubmitCampaignResponse
+     */
+    public function submitCampaignWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['CampaignId'] = $request->campaignId;
+        $query['InstanceId'] = $request->instanceId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitCampaign',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitCampaignResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitCampaignRequest $request
+     *
+     * @return SubmitCampaignResponse
+     */
+    public function submitCampaign($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitCampaignWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TakeBreakRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return TakeBreakResponse
+     */
+    public function takeBreakWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['Code']       = $request->code;
+        $query['DeviceId']   = $request->deviceId;
+        $query['InstanceId'] = $request->instanceId;
+        $query['UserId']     = $request->userId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TakeBreak',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TakeBreakResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TakeBreakRequest $request
+     *
+     * @return TakeBreakResponse
+     */
+    public function takeBreak($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->takeBreakWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UnmuteCallRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UnmuteCallResponse
+     */
+    public function unmuteCallWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query               = [];
+        $query['ChannelId']  = $request->channelId;
+        $query['DeviceId']   = $request->deviceId;
+        $query['InstanceId'] = $request->instanceId;
+        $query['JobId']      = $request->jobId;
+        $query['UserId']     = $request->userId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnmuteCall',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnmuteCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UnmuteCallRequest $request
+     *
+     * @return UnmuteCallResponse
+     */
+    public function unmuteCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unmuteCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateConfigItemsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateConfigItemsResponse
+     */
+    public function updateConfigItemsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                = [];
+        $query['ConfigItems'] = $request->configItems;
+        $query['InstanceId']  = $request->instanceId;
+        $query['ObjectId']    = $request->objectId;
+        $query['ObjectType']  = $request->objectType;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateConfigItems',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateConfigItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateConfigItemsRequest $request
+     *
+     * @return UpdateConfigItemsResponse
+     */
+    public function updateConfigItems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateConfigItemsWithOptions($request, $runtime);
     }
 }

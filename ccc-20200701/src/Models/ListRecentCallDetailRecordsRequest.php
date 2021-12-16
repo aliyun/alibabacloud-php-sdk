@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListRecentCallDetailRecordsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $criteria;
+
+    /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -22,28 +37,13 @@ class ListRecentCallDetailRecordsRequest extends Model
      * @var int
      */
     public $startTime;
-
-    /**
-     * @var int
-     */
-    public $endTime;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $criteria;
     protected $_name = [
+        'criteria'   => 'Criteria',
+        'endTime'    => 'EndTime',
+        'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'startTime'  => 'StartTime',
-        'endTime'    => 'EndTime',
-        'instanceId' => 'InstanceId',
-        'criteria'   => 'Criteria',
     ];
 
     public function validate()
@@ -53,6 +53,15 @@ class ListRecentCallDetailRecordsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->criteria) {
+            $res['Criteria'] = $this->criteria;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -61,15 +70,6 @@ class ListRecentCallDetailRecordsRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->criteria) {
-            $res['Criteria'] = $this->criteria;
         }
 
         return $res;
@@ -83,6 +83,15 @@ class ListRecentCallDetailRecordsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Criteria'])) {
+            $model->criteria = $map['Criteria'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -91,15 +100,6 @@ class ListRecentCallDetailRecordsRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['Criteria'])) {
-            $model->criteria = $map['Criteria'];
         }
 
         return $model;

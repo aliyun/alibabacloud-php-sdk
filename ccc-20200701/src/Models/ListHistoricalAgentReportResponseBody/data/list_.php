@@ -14,12 +14,17 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $agentId;
+
+    /**
+     * @var string
+     */
     public $agentName;
 
     /**
      * @var string
      */
-    public $agentId;
+    public $displayId;
 
     /**
      * @var inbound
@@ -36,8 +41,9 @@ class list_ extends Model
      */
     public $overall;
     protected $_name = [
-        'agentName' => 'AgentName',
         'agentId'   => 'AgentId',
+        'agentName' => 'AgentName',
+        'displayId' => 'DisplayId',
         'inbound'   => 'Inbound',
         'outbound'  => 'Outbound',
         'overall'   => 'Overall',
@@ -50,11 +56,14 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agentId) {
+            $res['AgentId'] = $this->agentId;
+        }
         if (null !== $this->agentName) {
             $res['AgentName'] = $this->agentName;
         }
-        if (null !== $this->agentId) {
-            $res['AgentId'] = $this->agentId;
+        if (null !== $this->displayId) {
+            $res['DisplayId'] = $this->displayId;
         }
         if (null !== $this->inbound) {
             $res['Inbound'] = null !== $this->inbound ? $this->inbound->toMap() : null;
@@ -77,11 +86,14 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentId'])) {
+            $model->agentId = $map['AgentId'];
+        }
         if (isset($map['AgentName'])) {
             $model->agentName = $map['AgentName'];
         }
-        if (isset($map['AgentId'])) {
-            $model->agentId = $map['AgentId'];
+        if (isset($map['DisplayId'])) {
+            $model->displayId = $map['DisplayId'];
         }
         if (isset($map['Inbound'])) {
             $model->inbound = inbound::fromMap($map['Inbound']);

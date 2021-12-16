@@ -11,6 +11,16 @@ class ListHistoricalSkillGroupReportRequest extends Model
     /**
      * @var int
      */
+    public $endTime;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var int
+     */
     public $pageNumber;
 
     /**
@@ -27,23 +37,13 @@ class ListHistoricalSkillGroupReportRequest extends Model
      * @var int
      */
     public $startTime;
-
-    /**
-     * @var int
-     */
-    public $endTime;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
     protected $_name = [
+        'endTime'          => 'EndTime',
+        'instanceId'       => 'InstanceId',
         'pageNumber'       => 'PageNumber',
         'pageSize'         => 'PageSize',
         'skillGroupIdList' => 'SkillGroupIdList',
         'startTime'        => 'StartTime',
-        'endTime'          => 'EndTime',
-        'instanceId'       => 'InstanceId',
     ];
 
     public function validate()
@@ -53,6 +53,12 @@ class ListHistoricalSkillGroupReportRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -64,12 +70,6 @@ class ListHistoricalSkillGroupReportRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -83,6 +83,12 @@ class ListHistoricalSkillGroupReportRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -94,12 +100,6 @@ class ListHistoricalSkillGroupReportRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

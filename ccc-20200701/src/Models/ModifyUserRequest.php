@@ -16,28 +16,28 @@ class ModifyUserRequest extends Model
     /**
      * @var string
      */
-    public $userId;
-
-    /**
-     * @var string
-     */
     public $mobile;
 
     /**
      * @var string
      */
-    public $workMode;
+    public $roleId;
 
     /**
      * @var string
      */
-    public $roleId;
+    public $userId;
+
+    /**
+     * @var string
+     */
+    public $workMode;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'userId'     => 'UserId',
         'mobile'     => 'Mobile',
-        'workMode'   => 'WorkMode',
         'roleId'     => 'RoleId',
+        'userId'     => 'UserId',
+        'workMode'   => 'WorkMode',
     ];
 
     public function validate()
@@ -50,17 +50,17 @@ class ModifyUserRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
         }
-        if (null !== $this->workMode) {
-            $res['WorkMode'] = $this->workMode;
-        }
         if (null !== $this->roleId) {
             $res['RoleId'] = $this->roleId;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->workMode) {
+            $res['WorkMode'] = $this->workMode;
         }
 
         return $res;
@@ -77,17 +77,17 @@ class ModifyUserRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];
         }
-        if (isset($map['WorkMode'])) {
-            $model->workMode = $map['WorkMode'];
-        }
         if (isset($map['RoleId'])) {
             $model->roleId = $map['RoleId'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
+        }
+        if (isset($map['WorkMode'])) {
+            $model->workMode = $map['WorkMode'];
         }
 
         return $model;

@@ -11,7 +11,7 @@ class ListUnassignedNumbersRequest extends Model
     /**
      * @var string
      */
-    public $searchPattern;
+    public $instanceId;
 
     /**
      * @var int
@@ -26,12 +26,12 @@ class ListUnassignedNumbersRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $searchPattern;
     protected $_name = [
-        'searchPattern' => 'SearchPattern',
+        'instanceId'    => 'InstanceId',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
-        'instanceId'    => 'InstanceId',
+        'searchPattern' => 'SearchPattern',
     ];
 
     public function validate()
@@ -41,8 +41,8 @@ class ListUnassignedNumbersRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->searchPattern) {
-            $res['SearchPattern'] = $this->searchPattern;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -50,8 +50,8 @@ class ListUnassignedNumbersRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->searchPattern) {
+            $res['SearchPattern'] = $this->searchPattern;
         }
 
         return $res;
@@ -65,8 +65,8 @@ class ListUnassignedNumbersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SearchPattern'])) {
-            $model->searchPattern = $map['SearchPattern'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -74,8 +74,8 @@ class ListUnassignedNumbersRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['SearchPattern'])) {
+            $model->searchPattern = $map['SearchPattern'];
         }
 
         return $model;

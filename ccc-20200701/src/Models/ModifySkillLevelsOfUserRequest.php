@@ -16,16 +16,16 @@ class ModifySkillLevelsOfUserRequest extends Model
     /**
      * @var string
      */
-    public $userId;
+    public $skillLevelList;
 
     /**
      * @var string
      */
-    public $skillLevelList;
+    public $userId;
     protected $_name = [
         'instanceId'     => 'InstanceId',
-        'userId'         => 'UserId',
         'skillLevelList' => 'SkillLevelList',
+        'userId'         => 'UserId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class ModifySkillLevelsOfUserRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->skillLevelList) {
             $res['SkillLevelList'] = $this->skillLevelList;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class ModifySkillLevelsOfUserRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['SkillLevelList'])) {
             $model->skillLevelList = $map['SkillLevelList'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

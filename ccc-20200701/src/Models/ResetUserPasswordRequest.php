@@ -16,16 +16,16 @@ class ResetUserPasswordRequest extends Model
     /**
      * @var string
      */
-    public $userId;
+    public $password;
 
     /**
      * @var string
      */
-    public $password;
+    public $userId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'userId'     => 'UserId',
         'password'   => 'Password',
+        'userId'     => 'UserId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class ResetUserPasswordRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class ResetUserPasswordRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

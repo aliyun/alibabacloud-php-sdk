@@ -11,21 +11,21 @@ class SignOutGroupRequest extends Model
     /**
      * @var string
      */
+    public $deviceId;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
      * @var string
      */
     public $userId;
-
-    /**
-     * @var string
-     */
-    public $deviceId;
     protected $_name = [
+        'deviceId'   => 'DeviceId',
         'instanceId' => 'InstanceId',
         'userId'     => 'UserId',
-        'deviceId'   => 'DeviceId',
     ];
 
     public function validate()
@@ -35,14 +35,14 @@ class SignOutGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->deviceId) {
+            $res['DeviceId'] = $this->deviceId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->deviceId) {
-            $res['DeviceId'] = $this->deviceId;
         }
 
         return $res;
@@ -56,14 +56,14 @@ class SignOutGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeviceId'])) {
+            $model->deviceId = $map['DeviceId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
-        }
-        if (isset($map['DeviceId'])) {
-            $model->deviceId = $map['DeviceId'];
         }
 
         return $model;

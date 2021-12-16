@@ -11,17 +11,7 @@ class MakeCallRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $userId;
-
-    /**
-     * @var string
-     */
-    public $deviceId;
+    public $callee;
 
     /**
      * @var string
@@ -31,7 +21,22 @@ class MakeCallRequest extends Model
     /**
      * @var string
      */
-    public $callee;
+    public $deviceId;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $maskedCallee;
+
+    /**
+     * @var string
+     */
+    public $tags;
 
     /**
      * @var int
@@ -41,15 +46,16 @@ class MakeCallRequest extends Model
     /**
      * @var string
      */
-    public $tags;
+    public $userId;
     protected $_name = [
-        'instanceId'     => 'InstanceId',
-        'userId'         => 'UserId',
-        'deviceId'       => 'DeviceId',
-        'caller'         => 'Caller',
         'callee'         => 'Callee',
-        'timeoutSeconds' => 'TimeoutSeconds',
+        'caller'         => 'Caller',
+        'deviceId'       => 'DeviceId',
+        'instanceId'     => 'InstanceId',
+        'maskedCallee'   => 'MaskedCallee',
         'tags'           => 'Tags',
+        'timeoutSeconds' => 'TimeoutSeconds',
+        'userId'         => 'UserId',
     ];
 
     public function validate()
@@ -59,26 +65,29 @@ class MakeCallRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->deviceId) {
-            $res['DeviceId'] = $this->deviceId;
+        if (null !== $this->callee) {
+            $res['Callee'] = $this->callee;
         }
         if (null !== $this->caller) {
             $res['Caller'] = $this->caller;
         }
-        if (null !== $this->callee) {
-            $res['Callee'] = $this->callee;
+        if (null !== $this->deviceId) {
+            $res['DeviceId'] = $this->deviceId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->maskedCallee) {
+            $res['MaskedCallee'] = $this->maskedCallee;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
         if (null !== $this->timeoutSeconds) {
             $res['TimeoutSeconds'] = $this->timeoutSeconds;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -92,26 +101,29 @@ class MakeCallRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['DeviceId'])) {
-            $model->deviceId = $map['DeviceId'];
+        if (isset($map['Callee'])) {
+            $model->callee = $map['Callee'];
         }
         if (isset($map['Caller'])) {
             $model->caller = $map['Caller'];
         }
-        if (isset($map['Callee'])) {
-            $model->callee = $map['Callee'];
+        if (isset($map['DeviceId'])) {
+            $model->deviceId = $map['DeviceId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MaskedCallee'])) {
+            $model->maskedCallee = $map['MaskedCallee'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
         if (isset($map['TimeoutSeconds'])) {
             $model->timeoutSeconds = $map['TimeoutSeconds'];
         }
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

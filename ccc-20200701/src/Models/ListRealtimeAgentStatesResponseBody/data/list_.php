@@ -11,27 +11,7 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $extension;
-
-    /**
-     * @var string
-     */
-    public $stateCode;
-
-    /**
-     * @var string
-     */
-    public $state;
-
-    /**
-     * @var string
-     */
     public $agentId;
-
-    /**
-     * @var int
-     */
-    public $stateTime;
 
     /**
      * @var string
@@ -41,27 +21,47 @@ class list_ extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $counterParty;
 
     /**
      * @var string
      */
-    public $counterParty;
+    public $extension;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string[]
      */
     public $skillGroupIdList;
+
+    /**
+     * @var string
+     */
+    public $state;
+
+    /**
+     * @var string
+     */
+    public $stateCode;
+
+    /**
+     * @var int
+     */
+    public $stateTime;
     protected $_name = [
-        'extension'        => 'Extension',
-        'stateCode'        => 'StateCode',
-        'state'            => 'State',
         'agentId'          => 'AgentId',
-        'stateTime'        => 'StateTime',
         'agentName'        => 'AgentName',
-        'instanceId'       => 'InstanceId',
         'counterParty'     => 'CounterParty',
+        'extension'        => 'Extension',
+        'instanceId'       => 'InstanceId',
         'skillGroupIdList' => 'SkillGroupIdList',
+        'state'            => 'State',
+        'stateCode'        => 'StateCode',
+        'stateTime'        => 'StateTime',
     ];
 
     public function validate()
@@ -71,32 +71,32 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->extension) {
-            $res['Extension'] = $this->extension;
-        }
-        if (null !== $this->stateCode) {
-            $res['StateCode'] = $this->stateCode;
-        }
-        if (null !== $this->state) {
-            $res['State'] = $this->state;
-        }
         if (null !== $this->agentId) {
             $res['AgentId'] = $this->agentId;
-        }
-        if (null !== $this->stateTime) {
-            $res['StateTime'] = $this->stateTime;
         }
         if (null !== $this->agentName) {
             $res['AgentName'] = $this->agentName;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->counterParty) {
             $res['CounterParty'] = $this->counterParty;
         }
+        if (null !== $this->extension) {
+            $res['Extension'] = $this->extension;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->skillGroupIdList) {
             $res['SkillGroupIdList'] = $this->skillGroupIdList;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
+        }
+        if (null !== $this->stateCode) {
+            $res['StateCode'] = $this->stateCode;
+        }
+        if (null !== $this->stateTime) {
+            $res['StateTime'] = $this->stateTime;
         }
 
         return $res;
@@ -110,34 +110,34 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Extension'])) {
-            $model->extension = $map['Extension'];
-        }
-        if (isset($map['StateCode'])) {
-            $model->stateCode = $map['StateCode'];
-        }
-        if (isset($map['State'])) {
-            $model->state = $map['State'];
-        }
         if (isset($map['AgentId'])) {
             $model->agentId = $map['AgentId'];
-        }
-        if (isset($map['StateTime'])) {
-            $model->stateTime = $map['StateTime'];
         }
         if (isset($map['AgentName'])) {
             $model->agentName = $map['AgentName'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['CounterParty'])) {
             $model->counterParty = $map['CounterParty'];
+        }
+        if (isset($map['Extension'])) {
+            $model->extension = $map['Extension'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['SkillGroupIdList'])) {
             if (!empty($map['SkillGroupIdList'])) {
                 $model->skillGroupIdList = $map['SkillGroupIdList'];
             }
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
+        }
+        if (isset($map['StateCode'])) {
+            $model->stateCode = $map['StateCode'];
+        }
+        if (isset($map['StateTime'])) {
+            $model->stateTime = $map['StateTime'];
         }
 
         return $model;

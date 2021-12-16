@@ -14,9 +14,9 @@ class ListPersonalNumbersOfUserRequest extends Model
     public $instanceId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $userId;
+    public $isMember;
 
     /**
      * @var int
@@ -29,21 +29,21 @@ class ListPersonalNumbersOfUserRequest extends Model
     public $pageSize;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $isMember;
+    public $searchPattern;
 
     /**
      * @var string
      */
-    public $searchPattern;
+    public $userId;
     protected $_name = [
         'instanceId'    => 'InstanceId',
-        'userId'        => 'UserId',
+        'isMember'      => 'IsMember',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
-        'isMember'      => 'IsMember',
         'searchPattern' => 'SearchPattern',
+        'userId'        => 'UserId',
     ];
 
     public function validate()
@@ -56,8 +56,8 @@ class ListPersonalNumbersOfUserRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+        if (null !== $this->isMember) {
+            $res['IsMember'] = $this->isMember;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -65,11 +65,11 @@ class ListPersonalNumbersOfUserRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->isMember) {
-            $res['IsMember'] = $this->isMember;
-        }
         if (null !== $this->searchPattern) {
             $res['SearchPattern'] = $this->searchPattern;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -86,8 +86,8 @@ class ListPersonalNumbersOfUserRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['IsMember'])) {
+            $model->isMember = $map['IsMember'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -95,11 +95,11 @@ class ListPersonalNumbersOfUserRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['IsMember'])) {
-            $model->isMember = $map['IsMember'];
-        }
         if (isset($map['SearchPattern'])) {
             $model->searchPattern = $map['SearchPattern'];
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;

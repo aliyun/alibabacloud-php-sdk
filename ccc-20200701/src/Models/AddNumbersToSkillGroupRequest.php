@@ -16,16 +16,16 @@ class AddNumbersToSkillGroupRequest extends Model
     /**
      * @var string
      */
-    public $skillGroupId;
+    public $numberList;
 
     /**
      * @var string
      */
-    public $numberList;
+    public $skillGroupId;
     protected $_name = [
         'instanceId'   => 'InstanceId',
-        'skillGroupId' => 'SkillGroupId',
         'numberList'   => 'NumberList',
+        'skillGroupId' => 'SkillGroupId',
     ];
 
     public function validate()
@@ -38,11 +38,11 @@ class AddNumbersToSkillGroupRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->skillGroupId) {
-            $res['SkillGroupId'] = $this->skillGroupId;
-        }
         if (null !== $this->numberList) {
             $res['NumberList'] = $this->numberList;
+        }
+        if (null !== $this->skillGroupId) {
+            $res['SkillGroupId'] = $this->skillGroupId;
         }
 
         return $res;
@@ -59,11 +59,11 @@ class AddNumbersToSkillGroupRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['SkillGroupId'])) {
-            $model->skillGroupId = $map['SkillGroupId'];
-        }
         if (isset($map['NumberList'])) {
             $model->numberList = $map['NumberList'];
+        }
+        if (isset($map['SkillGroupId'])) {
+            $model->skillGroupId = $map['SkillGroupId'];
         }
 
         return $model;

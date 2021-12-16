@@ -11,7 +11,17 @@ class ListRealtimeAgentStatesRequest extends Model
     /**
      * @var string
      */
-    public $skillGroupId;
+    public $agentIdList;
+
+    /**
+     * @var string
+     */
+    public $agentName;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var int
@@ -26,30 +36,20 @@ class ListRealtimeAgentStatesRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $agentIdList;
+    public $skillGroupId;
 
     /**
      * @var string
      */
     public $stateList;
-
-    /**
-     * @var string
-     */
-    public $agentName;
     protected $_name = [
-        'skillGroupId' => 'SkillGroupId',
+        'agentIdList'  => 'AgentIdList',
+        'agentName'    => 'AgentName',
+        'instanceId'   => 'InstanceId',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
-        'instanceId'   => 'InstanceId',
-        'agentIdList'  => 'AgentIdList',
+        'skillGroupId' => 'SkillGroupId',
         'stateList'    => 'StateList',
-        'agentName'    => 'AgentName',
     ];
 
     public function validate()
@@ -59,8 +59,14 @@ class ListRealtimeAgentStatesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->skillGroupId) {
-            $res['SkillGroupId'] = $this->skillGroupId;
+        if (null !== $this->agentIdList) {
+            $res['AgentIdList'] = $this->agentIdList;
+        }
+        if (null !== $this->agentName) {
+            $res['AgentName'] = $this->agentName;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -68,17 +74,11 @@ class ListRealtimeAgentStatesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->agentIdList) {
-            $res['AgentIdList'] = $this->agentIdList;
+        if (null !== $this->skillGroupId) {
+            $res['SkillGroupId'] = $this->skillGroupId;
         }
         if (null !== $this->stateList) {
             $res['StateList'] = $this->stateList;
-        }
-        if (null !== $this->agentName) {
-            $res['AgentName'] = $this->agentName;
         }
 
         return $res;
@@ -92,8 +92,14 @@ class ListRealtimeAgentStatesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SkillGroupId'])) {
-            $model->skillGroupId = $map['SkillGroupId'];
+        if (isset($map['AgentIdList'])) {
+            $model->agentIdList = $map['AgentIdList'];
+        }
+        if (isset($map['AgentName'])) {
+            $model->agentName = $map['AgentName'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -101,17 +107,11 @@ class ListRealtimeAgentStatesRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['AgentIdList'])) {
-            $model->agentIdList = $map['AgentIdList'];
+        if (isset($map['SkillGroupId'])) {
+            $model->skillGroupId = $map['SkillGroupId'];
         }
         if (isset($map['StateList'])) {
             $model->stateList = $map['StateList'];
-        }
-        if (isset($map['AgentName'])) {
-            $model->agentName = $map['AgentName'];
         }
 
         return $model;

@@ -11,12 +11,17 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $displayName;
 
     /**
      * @var string
      */
-    public $description;
+    public $instanceId;
 
     /**
      * @var int
@@ -37,19 +42,14 @@ class list_ extends Model
      * @var int
      */
     public $userCount;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
     protected $_name = [
-        'displayName'      => 'DisplayName',
         'description'      => 'Description',
+        'displayName'      => 'DisplayName',
+        'instanceId'       => 'InstanceId',
         'phoneNumberCount' => 'PhoneNumberCount',
         'skillGroupId'     => 'SkillGroupId',
         'skillGroupName'   => 'SkillGroupName',
         'userCount'        => 'UserCount',
-        'instanceId'       => 'InstanceId',
     ];
 
     public function validate()
@@ -59,11 +59,14 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->phoneNumberCount) {
             $res['PhoneNumberCount'] = $this->phoneNumberCount;
@@ -77,9 +80,6 @@ class list_ extends Model
         if (null !== $this->userCount) {
             $res['UserCount'] = $this->userCount;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
 
         return $res;
     }
@@ -92,11 +92,14 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['PhoneNumberCount'])) {
             $model->phoneNumberCount = $map['PhoneNumberCount'];
@@ -109,9 +112,6 @@ class list_ extends Model
         }
         if (isset($map['UserCount'])) {
             $model->userCount = $map['UserCount'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

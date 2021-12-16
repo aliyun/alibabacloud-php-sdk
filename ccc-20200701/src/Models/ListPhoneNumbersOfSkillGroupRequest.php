@@ -9,14 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ListPhoneNumbersOfSkillGroupRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $active;
+
+    /**
      * @var string
      */
     public $instanceId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $skillGroupId;
+    public $isMember;
 
     /**
      * @var int
@@ -29,27 +34,22 @@ class ListPhoneNumbersOfSkillGroupRequest extends Model
     public $pageSize;
 
     /**
-     * @var bool
-     */
-    public $isMember;
-
-    /**
      * @var string
      */
     public $searchPattern;
 
     /**
-     * @var bool
+     * @var string
      */
-    public $active;
+    public $skillGroupId;
     protected $_name = [
+        'active'        => 'Active',
         'instanceId'    => 'InstanceId',
-        'skillGroupId'  => 'SkillGroupId',
+        'isMember'      => 'IsMember',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
-        'isMember'      => 'IsMember',
         'searchPattern' => 'SearchPattern',
-        'active'        => 'Active',
+        'skillGroupId'  => 'SkillGroupId',
     ];
 
     public function validate()
@@ -59,11 +59,14 @@ class ListPhoneNumbersOfSkillGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->active) {
+            $res['Active'] = $this->active;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->skillGroupId) {
-            $res['SkillGroupId'] = $this->skillGroupId;
+        if (null !== $this->isMember) {
+            $res['IsMember'] = $this->isMember;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -71,14 +74,11 @@ class ListPhoneNumbersOfSkillGroupRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->isMember) {
-            $res['IsMember'] = $this->isMember;
-        }
         if (null !== $this->searchPattern) {
             $res['SearchPattern'] = $this->searchPattern;
         }
-        if (null !== $this->active) {
-            $res['Active'] = $this->active;
+        if (null !== $this->skillGroupId) {
+            $res['SkillGroupId'] = $this->skillGroupId;
         }
 
         return $res;
@@ -92,11 +92,14 @@ class ListPhoneNumbersOfSkillGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Active'])) {
+            $model->active = $map['Active'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['SkillGroupId'])) {
-            $model->skillGroupId = $map['SkillGroupId'];
+        if (isset($map['IsMember'])) {
+            $model->isMember = $map['IsMember'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -104,14 +107,11 @@ class ListPhoneNumbersOfSkillGroupRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['IsMember'])) {
-            $model->isMember = $map['IsMember'];
-        }
         if (isset($map['SearchPattern'])) {
             $model->searchPattern = $map['SearchPattern'];
         }
-        if (isset($map['Active'])) {
-            $model->active = $map['Active'];
+        if (isset($map['SkillGroupId'])) {
+            $model->skillGroupId = $map['SkillGroupId'];
         }
 
         return $model;

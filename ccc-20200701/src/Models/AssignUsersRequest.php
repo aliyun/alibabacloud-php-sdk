@@ -16,6 +16,11 @@ class AssignUsersRequest extends Model
     /**
      * @var string
      */
+    public $ramIdList;
+
+    /**
+     * @var string
+     */
     public $roleId;
 
     /**
@@ -26,17 +31,12 @@ class AssignUsersRequest extends Model
     /**
      * @var string
      */
-    public $ramIdList;
-
-    /**
-     * @var string
-     */
     public $workMode;
     protected $_name = [
         'instanceId'     => 'InstanceId',
+        'ramIdList'      => 'RamIdList',
         'roleId'         => 'RoleId',
         'skillLevelList' => 'SkillLevelList',
-        'ramIdList'      => 'RamIdList',
         'workMode'       => 'WorkMode',
     ];
 
@@ -50,14 +50,14 @@ class AssignUsersRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->ramIdList) {
+            $res['RamIdList'] = $this->ramIdList;
+        }
         if (null !== $this->roleId) {
             $res['RoleId'] = $this->roleId;
         }
         if (null !== $this->skillLevelList) {
             $res['SkillLevelList'] = $this->skillLevelList;
-        }
-        if (null !== $this->ramIdList) {
-            $res['RamIdList'] = $this->ramIdList;
         }
         if (null !== $this->workMode) {
             $res['WorkMode'] = $this->workMode;
@@ -77,14 +77,14 @@ class AssignUsersRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['RamIdList'])) {
+            $model->ramIdList = $map['RamIdList'];
+        }
         if (isset($map['RoleId'])) {
             $model->roleId = $map['RoleId'];
         }
         if (isset($map['SkillLevelList'])) {
             $model->skillLevelList = $map['SkillLevelList'];
-        }
-        if (isset($map['RamIdList'])) {
-            $model->ramIdList = $map['RamIdList'];
         }
         if (isset($map['WorkMode'])) {
             $model->workMode = $map['WorkMode'];

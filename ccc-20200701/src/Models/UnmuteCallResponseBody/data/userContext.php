@@ -9,24 +9,9 @@ use AlibabaCloud\Tea\Model;
 class userContext extends Model
 {
     /**
-     * @var int
-     */
-    public $heartbeat;
-
-    /**
      * @var string
      */
-    public $extension;
-
-    /**
-     * @var string
-     */
-    public $workMode;
-
-    /**
-     * @var string
-     */
-    public $mobile;
+    public $breakCode;
 
     /**
      * @var string
@@ -36,7 +21,37 @@ class userContext extends Model
     /**
      * @var string
      */
+    public $extension;
+
+    /**
+     * @var int
+     */
+    public $heartbeat;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $jobId;
+
+    /**
+     * @var string
+     */
+    public $mobile;
+
+    /**
+     * @var bool
+     */
+    public $outboundScenario;
+
+    /**
+     * @var string[]
+     */
+    public $signedSkillGroupIdList;
 
     /**
      * @var string
@@ -46,40 +61,25 @@ class userContext extends Model
     /**
      * @var string
      */
-    public $breakCode;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var bool
-     */
-    public $outboundScenario;
-
-    /**
-     * @var string
-     */
     public $userState;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $signedSkillGroupIdList;
+    public $workMode;
     protected $_name = [
-        'heartbeat'              => 'Heartbeat',
-        'extension'              => 'Extension',
-        'workMode'               => 'WorkMode',
-        'mobile'                 => 'Mobile',
-        'deviceId'               => 'DeviceId',
-        'jobId'                  => 'JobId',
-        'userId'                 => 'UserId',
         'breakCode'              => 'BreakCode',
+        'deviceId'               => 'DeviceId',
+        'extension'              => 'Extension',
+        'heartbeat'              => 'Heartbeat',
         'instanceId'             => 'InstanceId',
+        'jobId'                  => 'JobId',
+        'mobile'                 => 'Mobile',
         'outboundScenario'       => 'OutboundScenario',
-        'userState'              => 'UserState',
         'signedSkillGroupIdList' => 'SignedSkillGroupIdList',
+        'userId'                 => 'UserId',
+        'userState'              => 'UserState',
+        'workMode'               => 'WorkMode',
     ];
 
     public function validate()
@@ -89,41 +89,41 @@ class userContext extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->heartbeat) {
-            $res['Heartbeat'] = $this->heartbeat;
-        }
-        if (null !== $this->extension) {
-            $res['Extension'] = $this->extension;
-        }
-        if (null !== $this->workMode) {
-            $res['WorkMode'] = $this->workMode;
-        }
-        if (null !== $this->mobile) {
-            $res['Mobile'] = $this->mobile;
+        if (null !== $this->breakCode) {
+            $res['BreakCode'] = $this->breakCode;
         }
         if (null !== $this->deviceId) {
             $res['DeviceId'] = $this->deviceId;
         }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
+        if (null !== $this->extension) {
+            $res['Extension'] = $this->extension;
         }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
-        }
-        if (null !== $this->breakCode) {
-            $res['BreakCode'] = $this->breakCode;
+        if (null !== $this->heartbeat) {
+            $res['Heartbeat'] = $this->heartbeat;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
+        }
+        if (null !== $this->mobile) {
+            $res['Mobile'] = $this->mobile;
+        }
         if (null !== $this->outboundScenario) {
             $res['OutboundScenario'] = $this->outboundScenario;
+        }
+        if (null !== $this->signedSkillGroupIdList) {
+            $res['SignedSkillGroupIdList'] = $this->signedSkillGroupIdList;
+        }
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
         if (null !== $this->userState) {
             $res['UserState'] = $this->userState;
         }
-        if (null !== $this->signedSkillGroupIdList) {
-            $res['SignedSkillGroupIdList'] = $this->signedSkillGroupIdList;
+        if (null !== $this->workMode) {
+            $res['WorkMode'] = $this->workMode;
         }
 
         return $res;
@@ -137,43 +137,43 @@ class userContext extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Heartbeat'])) {
-            $model->heartbeat = $map['Heartbeat'];
-        }
-        if (isset($map['Extension'])) {
-            $model->extension = $map['Extension'];
-        }
-        if (isset($map['WorkMode'])) {
-            $model->workMode = $map['WorkMode'];
-        }
-        if (isset($map['Mobile'])) {
-            $model->mobile = $map['Mobile'];
+        if (isset($map['BreakCode'])) {
+            $model->breakCode = $map['BreakCode'];
         }
         if (isset($map['DeviceId'])) {
             $model->deviceId = $map['DeviceId'];
         }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
+        if (isset($map['Extension'])) {
+            $model->extension = $map['Extension'];
         }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
-        }
-        if (isset($map['BreakCode'])) {
-            $model->breakCode = $map['BreakCode'];
+        if (isset($map['Heartbeat'])) {
+            $model->heartbeat = $map['Heartbeat'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
+        }
+        if (isset($map['Mobile'])) {
+            $model->mobile = $map['Mobile'];
+        }
         if (isset($map['OutboundScenario'])) {
             $model->outboundScenario = $map['OutboundScenario'];
-        }
-        if (isset($map['UserState'])) {
-            $model->userState = $map['UserState'];
         }
         if (isset($map['SignedSkillGroupIdList'])) {
             if (!empty($map['SignedSkillGroupIdList'])) {
                 $model->signedSkillGroupIdList = $map['SignedSkillGroupIdList'];
             }
+        }
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
+        }
+        if (isset($map['UserState'])) {
+            $model->userState = $map['UserState'];
+        }
+        if (isset($map['WorkMode'])) {
+            $model->workMode = $map['WorkMode'];
         }
 
         return $model;

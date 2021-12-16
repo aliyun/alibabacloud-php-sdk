@@ -11,7 +11,7 @@ class StartPredictiveCallRequest extends Model
     /**
      * @var string
      */
-    public $instanceId;
+    public $callee;
 
     /**
      * @var string
@@ -21,17 +21,27 @@ class StartPredictiveCallRequest extends Model
     /**
      * @var string
      */
-    public $callee;
-
-    /**
-     * @var int
-     */
-    public $timeoutSeconds;
+    public $contactFlowId;
 
     /**
      * @var string
      */
-    public $contactFlowId;
+    public $contactFlowVariables;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $maskedCallee;
+
+    /**
+     * @var string
+     */
+    public $skillGroupId;
 
     /**
      * @var string
@@ -39,17 +49,19 @@ class StartPredictiveCallRequest extends Model
     public $tags;
 
     /**
-     * @var string
+     * @var int
      */
-    public $contactFlowVariables;
+    public $timeoutSeconds;
     protected $_name = [
-        'instanceId'           => 'InstanceId',
-        'caller'               => 'Caller',
         'callee'               => 'Callee',
-        'timeoutSeconds'       => 'TimeoutSeconds',
+        'caller'               => 'Caller',
         'contactFlowId'        => 'ContactFlowId',
-        'tags'                 => 'Tags',
         'contactFlowVariables' => 'ContactFlowVariables',
+        'instanceId'           => 'InstanceId',
+        'maskedCallee'         => 'MaskedCallee',
+        'skillGroupId'         => 'SkillGroupId',
+        'tags'                 => 'Tags',
+        'timeoutSeconds'       => 'TimeoutSeconds',
     ];
 
     public function validate()
@@ -59,26 +71,32 @@ class StartPredictiveCallRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->callee) {
+            $res['Callee'] = $this->callee;
         }
         if (null !== $this->caller) {
             $res['Caller'] = $this->caller;
         }
-        if (null !== $this->callee) {
-            $res['Callee'] = $this->callee;
-        }
-        if (null !== $this->timeoutSeconds) {
-            $res['TimeoutSeconds'] = $this->timeoutSeconds;
-        }
         if (null !== $this->contactFlowId) {
             $res['ContactFlowId'] = $this->contactFlowId;
+        }
+        if (null !== $this->contactFlowVariables) {
+            $res['ContactFlowVariables'] = $this->contactFlowVariables;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->maskedCallee) {
+            $res['MaskedCallee'] = $this->maskedCallee;
+        }
+        if (null !== $this->skillGroupId) {
+            $res['SkillGroupId'] = $this->skillGroupId;
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
         }
-        if (null !== $this->contactFlowVariables) {
-            $res['ContactFlowVariables'] = $this->contactFlowVariables;
+        if (null !== $this->timeoutSeconds) {
+            $res['TimeoutSeconds'] = $this->timeoutSeconds;
         }
 
         return $res;
@@ -92,26 +110,32 @@ class StartPredictiveCallRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['Callee'])) {
+            $model->callee = $map['Callee'];
         }
         if (isset($map['Caller'])) {
             $model->caller = $map['Caller'];
         }
-        if (isset($map['Callee'])) {
-            $model->callee = $map['Callee'];
-        }
-        if (isset($map['TimeoutSeconds'])) {
-            $model->timeoutSeconds = $map['TimeoutSeconds'];
-        }
         if (isset($map['ContactFlowId'])) {
             $model->contactFlowId = $map['ContactFlowId'];
+        }
+        if (isset($map['ContactFlowVariables'])) {
+            $model->contactFlowVariables = $map['ContactFlowVariables'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['MaskedCallee'])) {
+            $model->maskedCallee = $map['MaskedCallee'];
+        }
+        if (isset($map['SkillGroupId'])) {
+            $model->skillGroupId = $map['SkillGroupId'];
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
         }
-        if (isset($map['ContactFlowVariables'])) {
-            $model->contactFlowVariables = $map['ContactFlowVariables'];
+        if (isset($map['TimeoutSeconds'])) {
+            $model->timeoutSeconds = $map['TimeoutSeconds'];
         }
 
         return $model;

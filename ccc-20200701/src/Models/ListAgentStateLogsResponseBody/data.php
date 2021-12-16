@@ -11,27 +11,27 @@ class data extends Model
     /**
      * @var int
      */
+    public $duration;
+
+    /**
+     * @var int
+     */
     public $startTime;
 
     /**
      * @var string
      */
-    public $stateCode;
-
-    /**
-     * @var int
-     */
-    public $duration;
+    public $state;
 
     /**
      * @var string
      */
-    public $state;
+    public $stateCode;
     protected $_name = [
-        'startTime' => 'StartTime',
-        'stateCode' => 'StateCode',
         'duration'  => 'Duration',
+        'startTime' => 'StartTime',
         'state'     => 'State',
+        'stateCode' => 'StateCode',
     ];
 
     public function validate()
@@ -41,17 +41,17 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
-        if (null !== $this->stateCode) {
-            $res['StateCode'] = $this->stateCode;
-        }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
         if (null !== $this->state) {
             $res['State'] = $this->state;
+        }
+        if (null !== $this->stateCode) {
+            $res['StateCode'] = $this->stateCode;
         }
 
         return $res;
@@ -65,17 +65,17 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
-        if (isset($map['StateCode'])) {
-            $model->stateCode = $map['StateCode'];
-        }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
         if (isset($map['State'])) {
             $model->state = $map['State'];
+        }
+        if (isset($map['StateCode'])) {
+            $model->stateCode = $map['StateCode'];
         }
 
         return $model;

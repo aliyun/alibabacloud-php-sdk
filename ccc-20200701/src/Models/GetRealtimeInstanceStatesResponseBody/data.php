@@ -11,7 +11,22 @@ class data extends Model
     /**
      * @var int
      */
-    public $workingAgents;
+    public $breakingAgents;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var int
+     */
+    public $interactiveCalls;
+
+    /**
+     * @var int
+     */
+    public $loggedInAgents;
 
     /**
      * @var int
@@ -21,7 +36,12 @@ class data extends Model
     /**
      * @var int
      */
-    public $loggedInAgents;
+    public $readyAgents;
+
+    /**
+     * @var int
+     */
+    public $talkingAgents;
 
     /**
      * @var int
@@ -36,38 +56,18 @@ class data extends Model
     /**
      * @var int
      */
-    public $breakingAgents;
-
-    /**
-     * @var int
-     */
-    public $talkingAgents;
-
-    /**
-     * @var int
-     */
-    public $interactiveCalls;
-
-    /**
-     * @var int
-     */
-    public $readyAgents;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
+    public $workingAgents;
     protected $_name = [
-        'workingAgents'      => 'WorkingAgents',
-        'longestWaitingTime' => 'LongestWaitingTime',
+        'breakingAgents'     => 'BreakingAgents',
+        'instanceId'         => 'InstanceId',
+        'interactiveCalls'   => 'InteractiveCalls',
         'loggedInAgents'     => 'LoggedInAgents',
+        'longestWaitingTime' => 'LongestWaitingTime',
+        'readyAgents'        => 'ReadyAgents',
+        'talkingAgents'      => 'TalkingAgents',
         'totalAgents'        => 'TotalAgents',
         'waitingCalls'       => 'WaitingCalls',
-        'breakingAgents'     => 'BreakingAgents',
-        'talkingAgents'      => 'TalkingAgents',
-        'interactiveCalls'   => 'InteractiveCalls',
-        'readyAgents'        => 'ReadyAgents',
-        'instanceId'         => 'InstanceId',
+        'workingAgents'      => 'WorkingAgents',
     ];
 
     public function validate()
@@ -77,14 +77,26 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->workingAgents) {
-            $res['WorkingAgents'] = $this->workingAgents;
+        if (null !== $this->breakingAgents) {
+            $res['BreakingAgents'] = $this->breakingAgents;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->interactiveCalls) {
+            $res['InteractiveCalls'] = $this->interactiveCalls;
+        }
+        if (null !== $this->loggedInAgents) {
+            $res['LoggedInAgents'] = $this->loggedInAgents;
         }
         if (null !== $this->longestWaitingTime) {
             $res['LongestWaitingTime'] = $this->longestWaitingTime;
         }
-        if (null !== $this->loggedInAgents) {
-            $res['LoggedInAgents'] = $this->loggedInAgents;
+        if (null !== $this->readyAgents) {
+            $res['ReadyAgents'] = $this->readyAgents;
+        }
+        if (null !== $this->talkingAgents) {
+            $res['TalkingAgents'] = $this->talkingAgents;
         }
         if (null !== $this->totalAgents) {
             $res['TotalAgents'] = $this->totalAgents;
@@ -92,20 +104,8 @@ class data extends Model
         if (null !== $this->waitingCalls) {
             $res['WaitingCalls'] = $this->waitingCalls;
         }
-        if (null !== $this->breakingAgents) {
-            $res['BreakingAgents'] = $this->breakingAgents;
-        }
-        if (null !== $this->talkingAgents) {
-            $res['TalkingAgents'] = $this->talkingAgents;
-        }
-        if (null !== $this->interactiveCalls) {
-            $res['InteractiveCalls'] = $this->interactiveCalls;
-        }
-        if (null !== $this->readyAgents) {
-            $res['ReadyAgents'] = $this->readyAgents;
-        }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->workingAgents) {
+            $res['WorkingAgents'] = $this->workingAgents;
         }
 
         return $res;
@@ -119,14 +119,26 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['WorkingAgents'])) {
-            $model->workingAgents = $map['WorkingAgents'];
+        if (isset($map['BreakingAgents'])) {
+            $model->breakingAgents = $map['BreakingAgents'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InteractiveCalls'])) {
+            $model->interactiveCalls = $map['InteractiveCalls'];
+        }
+        if (isset($map['LoggedInAgents'])) {
+            $model->loggedInAgents = $map['LoggedInAgents'];
         }
         if (isset($map['LongestWaitingTime'])) {
             $model->longestWaitingTime = $map['LongestWaitingTime'];
         }
-        if (isset($map['LoggedInAgents'])) {
-            $model->loggedInAgents = $map['LoggedInAgents'];
+        if (isset($map['ReadyAgents'])) {
+            $model->readyAgents = $map['ReadyAgents'];
+        }
+        if (isset($map['TalkingAgents'])) {
+            $model->talkingAgents = $map['TalkingAgents'];
         }
         if (isset($map['TotalAgents'])) {
             $model->totalAgents = $map['TotalAgents'];
@@ -134,20 +146,8 @@ class data extends Model
         if (isset($map['WaitingCalls'])) {
             $model->waitingCalls = $map['WaitingCalls'];
         }
-        if (isset($map['BreakingAgents'])) {
-            $model->breakingAgents = $map['BreakingAgents'];
-        }
-        if (isset($map['TalkingAgents'])) {
-            $model->talkingAgents = $map['TalkingAgents'];
-        }
-        if (isset($map['InteractiveCalls'])) {
-            $model->interactiveCalls = $map['InteractiveCalls'];
-        }
-        if (isset($map['ReadyAgents'])) {
-            $model->readyAgents = $map['ReadyAgents'];
-        }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['WorkingAgents'])) {
+            $model->workingAgents = $map['WorkingAgents'];
         }
 
         return $model;
