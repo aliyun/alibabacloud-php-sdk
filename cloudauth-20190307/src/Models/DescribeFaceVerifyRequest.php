@@ -19,12 +19,18 @@ class DescribeFaceVerifyRequest extends Model
     public $pictureReturnType;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $sceneId;
     protected $_name = [
         'certifyId'         => 'CertifyId',
         'pictureReturnType' => 'PictureReturnType',
+        'regionId'          => 'RegionId',
         'sceneId'           => 'SceneId',
     ];
 
@@ -40,6 +46,9 @@ class DescribeFaceVerifyRequest extends Model
         }
         if (null !== $this->pictureReturnType) {
             $res['PictureReturnType'] = $this->pictureReturnType;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
@@ -61,6 +70,9 @@ class DescribeFaceVerifyRequest extends Model
         }
         if (isset($map['PictureReturnType'])) {
             $model->pictureReturnType = $map['PictureReturnType'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];

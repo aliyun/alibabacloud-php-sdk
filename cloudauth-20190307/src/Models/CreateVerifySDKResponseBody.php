@@ -16,9 +16,15 @@ class CreateVerifySDKResponseBody extends Model
     /**
      * @var string
      */
+    public $sdkUrl;
+
+    /**
+     * @var string
+     */
     public $taskId;
     protected $_name = [
         'requestId' => 'RequestId',
+        'sdkUrl'    => 'SdkUrl',
         'taskId'    => 'TaskId',
     ];
 
@@ -31,6 +37,9 @@ class CreateVerifySDKResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->sdkUrl) {
+            $res['SdkUrl'] = $this->sdkUrl;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -49,6 +58,9 @@ class CreateVerifySDKResponseBody extends Model
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SdkUrl'])) {
+            $model->sdkUrl = $map['SdkUrl'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

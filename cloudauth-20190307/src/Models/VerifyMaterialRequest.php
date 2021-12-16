@@ -46,6 +46,11 @@ class VerifyMaterialRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $userId;
     protected $_name = [
         'bizId'               => 'BizId',
@@ -55,6 +60,7 @@ class VerifyMaterialRequest extends Model
         'idCardFrontImageUrl' => 'IdCardFrontImageUrl',
         'idCardNumber'        => 'IdCardNumber',
         'name'                => 'Name',
+        'regionId'            => 'RegionId',
         'userId'              => 'UserId',
     ];
 
@@ -85,6 +91,9 @@ class VerifyMaterialRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -121,6 +130,9 @@ class VerifyMaterialRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

@@ -24,6 +24,11 @@ class CompareFaceVerifyRequest extends Model
     public $productCode;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $sceneId;
@@ -81,6 +86,7 @@ class CompareFaceVerifyRequest extends Model
         'crop'                         => 'Crop',
         'outerOrderNo'                 => 'OuterOrderNo',
         'productCode'                  => 'ProductCode',
+        'regionId'                     => 'RegionId',
         'sceneId'                      => 'SceneId',
         'sourceCertifyId'              => 'SourceCertifyId',
         'sourceFaceContrastPicture'    => 'SourceFaceContrastPicture',
@@ -109,6 +115,9 @@ class CompareFaceVerifyRequest extends Model
         }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
@@ -163,6 +172,9 @@ class CompareFaceVerifyRequest extends Model
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];

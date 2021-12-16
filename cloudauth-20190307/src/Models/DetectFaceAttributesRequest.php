@@ -17,9 +17,15 @@ class DetectFaceAttributesRequest extends Model
      * @var string
      */
     public $materialValue;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'bizType'       => 'BizType',
         'materialValue' => 'MaterialValue',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class DetectFaceAttributesRequest extends Model
         }
         if (null !== $this->materialValue) {
             $res['MaterialValue'] = $this->materialValue;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class DetectFaceAttributesRequest extends Model
         }
         if (isset($map['MaterialValue'])) {
             $model->materialValue = $map['MaterialValue'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

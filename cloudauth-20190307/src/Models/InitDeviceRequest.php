@@ -66,6 +66,11 @@ class InitDeviceRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $uaToken;
 
     /**
@@ -84,6 +89,7 @@ class InitDeviceRequest extends Model
         'outerOrderNo'     => 'OuterOrderNo',
         'produceNode'      => 'ProduceNode',
         'productName'      => 'ProductName',
+        'regionId'         => 'RegionId',
         'uaToken'          => 'UaToken',
         'webUmidToken'     => 'WebUmidToken',
     ];
@@ -127,6 +133,9 @@ class InitDeviceRequest extends Model
         }
         if (null !== $this->productName) {
             $res['ProductName'] = $this->productName;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->uaToken) {
             $res['UaToken'] = $this->uaToken;
@@ -178,6 +187,9 @@ class InitDeviceRequest extends Model
         }
         if (isset($map['ProductName'])) {
             $model->productName = $map['ProductName'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['UaToken'])) {
             $model->uaToken = $map['UaToken'];

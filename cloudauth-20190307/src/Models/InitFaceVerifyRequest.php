@@ -101,6 +101,11 @@ class InitFaceVerifyRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $returnUrl;
 
     /**
@@ -131,6 +136,7 @@ class InitFaceVerifyRequest extends Model
         'ossObjectName'          => 'OssObjectName',
         'outerOrderNo'           => 'OuterOrderNo',
         'productCode'            => 'ProductCode',
+        'regionId'               => 'RegionId',
         'returnUrl'              => 'ReturnUrl',
         'sceneId'                => 'SceneId',
         'userId'                 => 'UserId',
@@ -196,6 +202,9 @@ class InitFaceVerifyRequest extends Model
         }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->returnUrl) {
             $res['ReturnUrl'] = $this->returnUrl;
@@ -271,6 +280,9 @@ class InitFaceVerifyRequest extends Model
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ReturnUrl'])) {
             $model->returnUrl = $map['ReturnUrl'];
