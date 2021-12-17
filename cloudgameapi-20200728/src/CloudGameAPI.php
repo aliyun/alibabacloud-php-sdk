@@ -38,6 +38,8 @@ use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\DispatchGameSlotRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\DispatchGameSlotResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\GetGameCcuRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\GetGameCcuResponse;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\GetGameStatusRequest;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\GetGameStatusResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\GetGameStockRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\GetGameStockResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\GetGameTrialSurplusDurationRequest;
@@ -54,6 +56,8 @@ use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\GetSessionRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\GetSessionResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\GetStopGameTokenRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\GetStopGameTokenResponse;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\KickPlayerRequest;
+use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\KickPlayerResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListBoughtGamesRequest;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListBoughtGamesResponse;
 use AlibabaCloud\SDK\CloudGameAPI\V20200728\Models\ListContainerStatusRequest;
@@ -150,7 +154,6 @@ class CloudGameAPI extends OpenApiClient
         $query['VersionId']  = $request->versionId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AdaptGameVersion',
@@ -160,7 +163,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -193,7 +196,6 @@ class CloudGameAPI extends OpenApiClient
         $query['ProjectId'] = $request->projectId;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddGameToProject',
@@ -203,7 +205,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -231,8 +233,12 @@ class CloudGameAPI extends OpenApiClient
     public function batchDispatchGameSlotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->queueUserList)) {
+            $body['QueueUserList'] = $request->queueUserList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'BatchDispatchGameSlot',
@@ -279,7 +285,6 @@ class CloudGameAPI extends OpenApiClient
         $query['TrackInfo'] = $request->trackInfo;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'BatchStopGameSessions',
@@ -289,7 +294,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -323,7 +328,6 @@ class CloudGameAPI extends OpenApiClient
         $query['OrderId']        = $request->orderId;
         $req                     = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CloseOrder',
@@ -333,7 +337,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -367,7 +371,6 @@ class CloudGameAPI extends OpenApiClient
         $query['PlatformType'] = $request->platformType;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateGame',
@@ -377,7 +380,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -418,7 +421,6 @@ class CloudGameAPI extends OpenApiClient
         $query['VersionName']  = $request->versionName;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateGameDeployWorkflow',
@@ -428,7 +430,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -467,7 +469,6 @@ class CloudGameAPI extends OpenApiClient
         $query['SkuId']           = $request->skuId;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateOrder',
@@ -477,7 +478,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -510,7 +511,6 @@ class CloudGameAPI extends OpenApiClient
         $query['ProjectName'] = $request->projectName;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateProject',
@@ -520,7 +520,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -554,7 +554,6 @@ class CloudGameAPI extends OpenApiClient
         $query['Session']      = $request->session;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateToken',
@@ -564,7 +563,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -596,7 +595,6 @@ class CloudGameAPI extends OpenApiClient
         $query['GameId'] = $request->gameId;
         $req             = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteGame',
@@ -606,7 +604,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -638,7 +636,6 @@ class CloudGameAPI extends OpenApiClient
         $query['VersionId'] = $request->versionId;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteGameVersion',
@@ -648,7 +645,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -680,7 +677,6 @@ class CloudGameAPI extends OpenApiClient
         $query['ProjectId'] = $request->projectId;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteProject',
@@ -690,7 +686,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -724,7 +720,6 @@ class CloudGameAPI extends OpenApiClient
         $query['OrderId']        = $request->orderId;
         $req                     = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeliveryOrder',
@@ -734,7 +729,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -762,8 +757,51 @@ class CloudGameAPI extends OpenApiClient
     public function dispatchGameSlotWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accessKey)) {
+            $body['AccessKey'] = $request->accessKey;
+        }
+        if (!Utils::isUnset($request->bizParam)) {
+            $body['BizParam'] = $request->bizParam;
+        }
+        if (!Utils::isUnset($request->cancel)) {
+            $body['Cancel'] = $request->cancel;
+        }
+        if (!Utils::isUnset($request->clientIp)) {
+            $body['ClientIp'] = $request->clientIp;
+        }
+        if (!Utils::isUnset($request->gameCommand)) {
+            $body['GameCommand'] = $request->gameCommand;
+        }
+        if (!Utils::isUnset($request->gameId)) {
+            $body['GameId'] = $request->gameId;
+        }
+        if (!Utils::isUnset($request->gameSession)) {
+            $body['GameSession'] = $request->gameSession;
+        }
+        if (!Utils::isUnset($request->gameStartParam)) {
+            $body['GameStartParam'] = $request->gameStartParam;
+        }
+        if (!Utils::isUnset($request->reconnect)) {
+            $body['Reconnect'] = $request->reconnect;
+        }
+        if (!Utils::isUnset($request->regionName)) {
+            $body['RegionName'] = $request->regionName;
+        }
+        if (!Utils::isUnset($request->systemInfo)) {
+            $body['SystemInfo'] = $request->systemInfo;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $body['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userLevel)) {
+            $body['UserLevel'] = $request->userLevel;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DispatchGameSlot',
@@ -807,7 +845,6 @@ class CloudGameAPI extends OpenApiClient
         $query['RegionName'] = $request->regionName;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetGameCcu',
@@ -817,7 +854,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -837,6 +874,47 @@ class CloudGameAPI extends OpenApiClient
     }
 
     /**
+     * @param GetGameStatusRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetGameStatusResponse
+     */
+    public function getGameStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                = [];
+        $query['GameSession'] = $request->gameSession;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetGameStatus',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetGameStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetGameStatusRequest $request
+     *
+     * @return GetGameStatusResponse
+     */
+    public function getGameStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGameStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetGameStockRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -851,7 +929,6 @@ class CloudGameAPI extends OpenApiClient
         $query['UserLevel'] = $request->userLevel;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetGameStock',
@@ -861,7 +938,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -895,7 +972,6 @@ class CloudGameAPI extends OpenApiClient
         $query['ProjectId'] = $request->projectId;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetGameTrialSurplusDuration',
@@ -905,7 +981,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -937,7 +1013,6 @@ class CloudGameAPI extends OpenApiClient
         $query['VersionId'] = $request->versionId;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetGameVersion',
@@ -947,7 +1022,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -979,7 +1054,6 @@ class CloudGameAPI extends OpenApiClient
         $query['TaskId'] = $request->taskId;
         $req             = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetGameVersionProgress',
@@ -989,7 +1063,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1021,7 +1095,6 @@ class CloudGameAPI extends OpenApiClient
         $query['ItemId'] = $request->itemId;
         $req             = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetItem',
@@ -1031,7 +1104,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1065,7 +1138,6 @@ class CloudGameAPI extends OpenApiClient
         $query['OutAccountType'] = $request->outAccountType;
         $req                     = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetOutAccountBindDetail',
@@ -1075,7 +1147,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1107,7 +1179,6 @@ class CloudGameAPI extends OpenApiClient
         $query['Token'] = $request->token;
         $req            = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetSession',
@@ -1117,7 +1188,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1150,7 +1221,6 @@ class CloudGameAPI extends OpenApiClient
         $query['GameId']    = $request->gameId;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetStopGameToken',
@@ -1160,7 +1230,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1180,6 +1250,48 @@ class CloudGameAPI extends OpenApiClient
     }
 
     /**
+     * @param KickPlayerRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return KickPlayerResponse
+     */
+    public function kickPlayerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                    = [];
+        $query['GameSession']     = $request->gameSession;
+        $query['KickedAccountId'] = $request->kickedAccountId;
+        $req                      = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'KickPlayer',
+            'version'     => '2020-07-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return KickPlayerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param KickPlayerRequest $request
+     *
+     * @return KickPlayerResponse
+     */
+    public function kickPlayer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->kickPlayerWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListBoughtGamesRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1195,7 +1307,6 @@ class CloudGameAPI extends OpenApiClient
         $query['PageSize']      = $request->pageSize;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListBoughtGames',
@@ -1205,7 +1316,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1237,7 +1348,6 @@ class CloudGameAPI extends OpenApiClient
         $query['GameSessionIdList'] = $request->gameSessionIdList;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListContainerStatus',
@@ -1247,7 +1357,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1282,7 +1392,6 @@ class CloudGameAPI extends OpenApiClient
         $query['VersionId']  = $request->versionId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListDeployableInstances',
@@ -1292,7 +1401,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1326,7 +1435,6 @@ class CloudGameAPI extends OpenApiClient
         $query['NextToken']  = $request->nextToken;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListGameVersions',
@@ -1336,7 +1444,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1369,7 +1477,6 @@ class CloudGameAPI extends OpenApiClient
         $query['NextToken']  = $request->nextToken;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListGames',
@@ -1379,7 +1486,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1415,7 +1522,6 @@ class CloudGameAPI extends OpenApiClient
         $query['StartTime']         = $request->startTime;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListHistoryContainerStatus',
@@ -1425,7 +1531,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1458,7 +1564,6 @@ class CloudGameAPI extends OpenApiClient
         $query['NextToken']  = $request->nextToken;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListProjects',
@@ -1468,7 +1573,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1503,7 +1608,6 @@ class CloudGameAPI extends OpenApiClient
         $query['TenantId']  = $request->tenantId;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryGame',
@@ -1513,7 +1617,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1546,7 +1650,6 @@ class CloudGameAPI extends OpenApiClient
         $query['PageSize']   = $request->pageSize;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryItems',
@@ -1556,7 +1659,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1590,7 +1693,6 @@ class CloudGameAPI extends OpenApiClient
         $query['OrderId']        = $request->orderId;
         $req                     = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryOrder',
@@ -1600,7 +1702,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1634,7 +1736,6 @@ class CloudGameAPI extends OpenApiClient
         $query['GameId']        = $request->gameId;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryOutAccountBindStatus',
@@ -1644,7 +1745,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1679,7 +1780,6 @@ class CloudGameAPI extends OpenApiClient
         $query['TenantId']  = $request->tenantId;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryProject',
@@ -1689,7 +1789,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1723,7 +1823,6 @@ class CloudGameAPI extends OpenApiClient
         $query['Param']    = $request->param;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryTenant',
@@ -1733,7 +1832,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1766,7 +1865,6 @@ class CloudGameAPI extends OpenApiClient
         $query['ProjectId'] = $request->projectId;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RemoveGameFromProject',
@@ -1776,7 +1874,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1808,7 +1906,6 @@ class CloudGameAPI extends OpenApiClient
         $query['GameSessionId'] = $request->gameSessionId;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SkipTrialPolicy',
@@ -1818,7 +1915,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1846,8 +1943,27 @@ class CloudGameAPI extends OpenApiClient
     public function stopGameSessionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accessKey)) {
+            $body['AccessKey'] = $request->accessKey;
+        }
+        if (!Utils::isUnset($request->bizParam)) {
+            $body['BizParam'] = $request->bizParam;
+        }
+        if (!Utils::isUnset($request->gameId)) {
+            $body['GameId'] = $request->gameId;
+        }
+        if (!Utils::isUnset($request->gameSession)) {
+            $body['GameSession'] = $request->gameSession;
+        }
+        if (!Utils::isUnset($request->reason)) {
+            $body['Reason'] = $request->reason;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'StopGameSession',
@@ -1893,7 +2009,6 @@ class CloudGameAPI extends OpenApiClient
         $query['VersionId']            = $request->versionId;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitDeployment',
@@ -1903,7 +2018,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1953,7 +2068,6 @@ class CloudGameAPI extends OpenApiClient
         $query['UserActivationRate']               = $request->userActivationRate;
         $req                                       = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitInternalPurchaseChargeData',
@@ -1963,7 +2077,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1995,7 +2109,6 @@ class CloudGameAPI extends OpenApiClient
         $query['OrderList'] = $request->orderList;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitInternalPurchaseOrders',
@@ -2005,7 +2118,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2041,7 +2154,6 @@ class CloudGameAPI extends OpenApiClient
         $query['Status']          = $request->status;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitInternalPurchaseReadyFlag',
@@ -2051,7 +2163,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2088,7 +2200,6 @@ class CloudGameAPI extends OpenApiClient
         $query['VersionName']  = $request->versionName;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UploadGameVersionByDownload',
@@ -2098,7 +2209,7 @@ class CloudGameAPI extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 

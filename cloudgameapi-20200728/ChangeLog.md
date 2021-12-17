@@ -1,3 +1,7 @@
+2021-12-17 Version: 1.0.1
+- Add KickPlayer.
+- Add GetGameStatus.
+
 2021-12-10 Version: 1.1.1
 - GetGameTrialSurplusDuration support.
 
