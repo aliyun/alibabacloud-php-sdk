@@ -26,8 +26,6 @@ use AlibabaCloud\SDK\CS\V20151215\Models\CreateTemplateRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateTemplateResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateTriggerRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateTriggerResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactGroupResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\DeleteAlertContactResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterNodepoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterNodesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DeleteClusterNodesResponse;
@@ -137,17 +135,14 @@ use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleOutClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleOutClusterResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\StartAlertResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\StartWorkflowRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\StartWorkflowResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\StopAlertResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UnInstallClusterAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UnInstallClusterAddonsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UntagResourcesResponse;
-use AlibabaCloud\SDK\CS\V20151215\Models\UpdateContactGroupForAlertResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateK8sClusterUserConfigExpireResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateTemplateRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateTemplateResponse;
@@ -259,43 +254,43 @@ class CS extends OpenApiClient
         $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
         $body      = [];
         if (!Utils::isUnset($request->cpuPolicy)) {
-            @$body['cpu_policy'] = $request->cpuPolicy;
+            $body['cpu_policy'] = $request->cpuPolicy;
         }
         if (!Utils::isUnset($request->formatDisk)) {
-            @$body['format_disk'] = $request->formatDisk;
+            $body['format_disk'] = $request->formatDisk;
         }
         if (!Utils::isUnset($request->imageId)) {
-            @$body['image_id'] = $request->imageId;
+            $body['image_id'] = $request->imageId;
         }
         if (!Utils::isUnset($request->instances)) {
-            @$body['instances'] = $request->instances;
+            $body['instances'] = $request->instances;
         }
         if (!Utils::isUnset($request->isEdgeWorker)) {
-            @$body['is_edge_worker'] = $request->isEdgeWorker;
+            $body['is_edge_worker'] = $request->isEdgeWorker;
         }
         if (!Utils::isUnset($request->keepInstanceName)) {
-            @$body['keep_instance_name'] = $request->keepInstanceName;
+            $body['keep_instance_name'] = $request->keepInstanceName;
         }
         if (!Utils::isUnset($request->keyPair)) {
-            @$body['key_pair'] = $request->keyPair;
+            $body['key_pair'] = $request->keyPair;
         }
         if (!Utils::isUnset($request->nodepoolId)) {
-            @$body['nodepool_id'] = $request->nodepoolId;
+            $body['nodepool_id'] = $request->nodepoolId;
         }
         if (!Utils::isUnset($request->password)) {
-            @$body['password'] = $request->password;
+            $body['password'] = $request->password;
         }
         if (!Utils::isUnset($request->rdsInstances)) {
-            @$body['rds_instances'] = $request->rdsInstances;
+            $body['rds_instances'] = $request->rdsInstances;
         }
         if (!Utils::isUnset($request->runtime)) {
-            @$body['runtime'] = $request->runtime;
+            $body['runtime'] = $request->runtime;
         }
         if (!Utils::isUnset($request->tags)) {
-            @$body['tags'] = $request->tags;
+            $body['tags'] = $request->tags;
         }
         if (!Utils::isUnset($request->userData)) {
-            @$body['user_data'] = $request->userData;
+            $body['user_data'] = $request->userData;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -429,7 +424,7 @@ class CS extends OpenApiClient
         $workflowName = OpenApiUtilClient::getEncodeParam($workflowName);
         $body         = [];
         if (!Utils::isUnset($request->action)) {
-            @$body['action'] = $request->action;
+            $body['action'] = $request->action;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -478,19 +473,19 @@ class CS extends OpenApiClient
         $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
         $body      = [];
         if (!Utils::isUnset($request->coolDownDuration)) {
-            @$body['cool_down_duration'] = $request->coolDownDuration;
+            $body['cool_down_duration'] = $request->coolDownDuration;
         }
         if (!Utils::isUnset($request->gpuUtilizationThreshold)) {
-            @$body['gpu_utilization_threshold'] = $request->gpuUtilizationThreshold;
+            $body['gpu_utilization_threshold'] = $request->gpuUtilizationThreshold;
         }
         if (!Utils::isUnset($request->scanInterval)) {
-            @$body['scan_interval'] = $request->scanInterval;
+            $body['scan_interval'] = $request->scanInterval;
         }
         if (!Utils::isUnset($request->unneededDuration)) {
-            @$body['unneeded_duration'] = $request->unneededDuration;
+            $body['unneeded_duration'] = $request->unneededDuration;
         }
         if (!Utils::isUnset($request->utilizationThreshold)) {
-            @$body['utilization_threshold'] = $request->utilizationThreshold;
+            $body['utilization_threshold'] = $request->utilizationThreshold;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -536,253 +531,253 @@ class CS extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->addons)) {
-            @$body['addons'] = $request->addons;
+            $body['addons'] = $request->addons;
         }
         if (!Utils::isUnset($request->apiAudiences)) {
-            @$body['api_audiences'] = $request->apiAudiences;
+            $body['api_audiences'] = $request->apiAudiences;
         }
         if (!Utils::isUnset($request->cisEnabled)) {
-            @$body['cis_enabled'] = $request->cisEnabled;
+            $body['cis_enabled'] = $request->cisEnabled;
         }
         if (!Utils::isUnset($request->cloudMonitorFlags)) {
-            @$body['cloud_monitor_flags'] = $request->cloudMonitorFlags;
+            $body['cloud_monitor_flags'] = $request->cloudMonitorFlags;
         }
         if (!Utils::isUnset($request->clusterDomain)) {
-            @$body['cluster_domain'] = $request->clusterDomain;
+            $body['cluster_domain'] = $request->clusterDomain;
         }
         if (!Utils::isUnset($request->clusterSpec)) {
-            @$body['cluster_spec'] = $request->clusterSpec;
+            $body['cluster_spec'] = $request->clusterSpec;
         }
         if (!Utils::isUnset($request->clusterType)) {
-            @$body['cluster_type'] = $request->clusterType;
+            $body['cluster_type'] = $request->clusterType;
         }
         if (!Utils::isUnset($request->containerCidr)) {
-            @$body['container_cidr'] = $request->containerCidr;
+            $body['container_cidr'] = $request->containerCidr;
         }
         if (!Utils::isUnset($request->controlplaneLogComponents)) {
-            @$body['controlplane_log_components'] = $request->controlplaneLogComponents;
+            $body['controlplane_log_components'] = $request->controlplaneLogComponents;
         }
         if (!Utils::isUnset($request->controlplaneLogProject)) {
-            @$body['controlplane_log_project'] = $request->controlplaneLogProject;
+            $body['controlplane_log_project'] = $request->controlplaneLogProject;
         }
         if (!Utils::isUnset($request->controlplaneLogTtl)) {
-            @$body['controlplane_log_ttl'] = $request->controlplaneLogTtl;
+            $body['controlplane_log_ttl'] = $request->controlplaneLogTtl;
         }
         if (!Utils::isUnset($request->cpuPolicy)) {
-            @$body['cpu_policy'] = $request->cpuPolicy;
+            $body['cpu_policy'] = $request->cpuPolicy;
         }
         if (!Utils::isUnset($request->customSan)) {
-            @$body['custom_san'] = $request->customSan;
+            $body['custom_san'] = $request->customSan;
         }
         if (!Utils::isUnset($request->deletionProtection)) {
-            @$body['deletion_protection'] = $request->deletionProtection;
+            $body['deletion_protection'] = $request->deletionProtection;
         }
         if (!Utils::isUnset($request->disableRollback)) {
-            @$body['disable_rollback'] = $request->disableRollback;
+            $body['disable_rollback'] = $request->disableRollback;
         }
         if (!Utils::isUnset($request->enableRrsa)) {
-            @$body['enable_rrsa'] = $request->enableRrsa;
+            $body['enable_rrsa'] = $request->enableRrsa;
         }
         if (!Utils::isUnset($request->encryptionProviderKey)) {
-            @$body['encryption_provider_key'] = $request->encryptionProviderKey;
+            $body['encryption_provider_key'] = $request->encryptionProviderKey;
         }
         if (!Utils::isUnset($request->endpointPublicAccess)) {
-            @$body['endpoint_public_access'] = $request->endpointPublicAccess;
+            $body['endpoint_public_access'] = $request->endpointPublicAccess;
         }
         if (!Utils::isUnset($request->formatDisk)) {
-            @$body['format_disk'] = $request->formatDisk;
+            $body['format_disk'] = $request->formatDisk;
         }
         if (!Utils::isUnset($request->imageId)) {
-            @$body['image_id'] = $request->imageId;
+            $body['image_id'] = $request->imageId;
         }
         if (!Utils::isUnset($request->imageType)) {
-            @$body['image_type'] = $request->imageType;
+            $body['image_type'] = $request->imageType;
         }
         if (!Utils::isUnset($request->instances)) {
-            @$body['instances'] = $request->instances;
+            $body['instances'] = $request->instances;
         }
         if (!Utils::isUnset($request->isEnterpriseSecurityGroup)) {
-            @$body['is_enterprise_security_group'] = $request->isEnterpriseSecurityGroup;
+            $body['is_enterprise_security_group'] = $request->isEnterpriseSecurityGroup;
         }
         if (!Utils::isUnset($request->keepInstanceName)) {
-            @$body['keep_instance_name'] = $request->keepInstanceName;
+            $body['keep_instance_name'] = $request->keepInstanceName;
         }
         if (!Utils::isUnset($request->keyPair)) {
-            @$body['key_pair'] = $request->keyPair;
+            $body['key_pair'] = $request->keyPair;
         }
         if (!Utils::isUnset($request->kubernetesVersion)) {
-            @$body['kubernetes_version'] = $request->kubernetesVersion;
+            $body['kubernetes_version'] = $request->kubernetesVersion;
         }
         if (!Utils::isUnset($request->loadBalancerSpec)) {
-            @$body['load_balancer_spec'] = $request->loadBalancerSpec;
+            $body['load_balancer_spec'] = $request->loadBalancerSpec;
         }
         if (!Utils::isUnset($request->loggingType)) {
-            @$body['logging_type'] = $request->loggingType;
+            $body['logging_type'] = $request->loggingType;
         }
         if (!Utils::isUnset($request->loginPassword)) {
-            @$body['login_password'] = $request->loginPassword;
+            $body['login_password'] = $request->loginPassword;
         }
         if (!Utils::isUnset($request->masterAutoRenew)) {
-            @$body['master_auto_renew'] = $request->masterAutoRenew;
+            $body['master_auto_renew'] = $request->masterAutoRenew;
         }
         if (!Utils::isUnset($request->masterAutoRenewPeriod)) {
-            @$body['master_auto_renew_period'] = $request->masterAutoRenewPeriod;
+            $body['master_auto_renew_period'] = $request->masterAutoRenewPeriod;
         }
         if (!Utils::isUnset($request->masterCount)) {
-            @$body['master_count'] = $request->masterCount;
+            $body['master_count'] = $request->masterCount;
         }
         if (!Utils::isUnset($request->masterInstanceChargeType)) {
-            @$body['master_instance_charge_type'] = $request->masterInstanceChargeType;
+            $body['master_instance_charge_type'] = $request->masterInstanceChargeType;
         }
         if (!Utils::isUnset($request->masterInstanceTypes)) {
-            @$body['master_instance_types'] = $request->masterInstanceTypes;
+            $body['master_instance_types'] = $request->masterInstanceTypes;
         }
         if (!Utils::isUnset($request->masterPeriod)) {
-            @$body['master_period'] = $request->masterPeriod;
+            $body['master_period'] = $request->masterPeriod;
         }
         if (!Utils::isUnset($request->masterPeriodUnit)) {
-            @$body['master_period_unit'] = $request->masterPeriodUnit;
+            $body['master_period_unit'] = $request->masterPeriodUnit;
         }
         if (!Utils::isUnset($request->masterSystemDiskCategory)) {
-            @$body['master_system_disk_category'] = $request->masterSystemDiskCategory;
+            $body['master_system_disk_category'] = $request->masterSystemDiskCategory;
         }
         if (!Utils::isUnset($request->masterSystemDiskPerformanceLevel)) {
-            @$body['master_system_disk_performance_level'] = $request->masterSystemDiskPerformanceLevel;
+            $body['master_system_disk_performance_level'] = $request->masterSystemDiskPerformanceLevel;
         }
         if (!Utils::isUnset($request->masterSystemDiskSize)) {
-            @$body['master_system_disk_size'] = $request->masterSystemDiskSize;
+            $body['master_system_disk_size'] = $request->masterSystemDiskSize;
         }
         if (!Utils::isUnset($request->masterSystemDiskSnapshotPolicyId)) {
-            @$body['master_system_disk_snapshot_policy_id'] = $request->masterSystemDiskSnapshotPolicyId;
+            $body['master_system_disk_snapshot_policy_id'] = $request->masterSystemDiskSnapshotPolicyId;
         }
         if (!Utils::isUnset($request->masterVswitchIds)) {
-            @$body['master_vswitch_ids'] = $request->masterVswitchIds;
+            $body['master_vswitch_ids'] = $request->masterVswitchIds;
         }
         if (!Utils::isUnset($request->name)) {
-            @$body['name'] = $request->name;
+            $body['name'] = $request->name;
         }
         if (!Utils::isUnset($request->natGateway)) {
-            @$body['nat_gateway'] = $request->natGateway;
+            $body['nat_gateway'] = $request->natGateway;
         }
         if (!Utils::isUnset($request->nodeCidrMask)) {
-            @$body['node_cidr_mask'] = $request->nodeCidrMask;
+            $body['node_cidr_mask'] = $request->nodeCidrMask;
         }
         if (!Utils::isUnset($request->nodeNameMode)) {
-            @$body['node_name_mode'] = $request->nodeNameMode;
+            $body['node_name_mode'] = $request->nodeNameMode;
         }
         if (!Utils::isUnset($request->nodePortRange)) {
-            @$body['node_port_range'] = $request->nodePortRange;
+            $body['node_port_range'] = $request->nodePortRange;
         }
         if (!Utils::isUnset($request->numOfNodes)) {
-            @$body['num_of_nodes'] = $request->numOfNodes;
+            $body['num_of_nodes'] = $request->numOfNodes;
         }
         if (!Utils::isUnset($request->osType)) {
-            @$body['os_type'] = $request->osType;
+            $body['os_type'] = $request->osType;
         }
         if (!Utils::isUnset($request->platform)) {
-            @$body['platform'] = $request->platform;
+            $body['platform'] = $request->platform;
         }
         if (!Utils::isUnset($request->podVswitchIds)) {
-            @$body['pod_vswitch_ids'] = $request->podVswitchIds;
+            $body['pod_vswitch_ids'] = $request->podVswitchIds;
         }
         if (!Utils::isUnset($request->profile)) {
-            @$body['profile'] = $request->profile;
+            $body['profile'] = $request->profile;
         }
         if (!Utils::isUnset($request->proxyMode)) {
-            @$body['proxy_mode'] = $request->proxyMode;
+            $body['proxy_mode'] = $request->proxyMode;
         }
         if (!Utils::isUnset($request->rdsInstances)) {
-            @$body['rds_instances'] = $request->rdsInstances;
+            $body['rds_instances'] = $request->rdsInstances;
         }
         if (!Utils::isUnset($request->regionId)) {
-            @$body['region_id'] = $request->regionId;
+            $body['region_id'] = $request->regionId;
         }
         if (!Utils::isUnset($request->runtime)) {
-            @$body['runtime'] = $request->runtime;
+            $body['runtime'] = $request->runtime;
         }
         if (!Utils::isUnset($request->securityGroupId)) {
-            @$body['security_group_id'] = $request->securityGroupId;
+            $body['security_group_id'] = $request->securityGroupId;
         }
         if (!Utils::isUnset($request->serviceAccountIssuer)) {
-            @$body['service_account_issuer'] = $request->serviceAccountIssuer;
+            $body['service_account_issuer'] = $request->serviceAccountIssuer;
         }
         if (!Utils::isUnset($request->serviceCidr)) {
-            @$body['service_cidr'] = $request->serviceCidr;
+            $body['service_cidr'] = $request->serviceCidr;
         }
         if (!Utils::isUnset($request->serviceDiscoveryTypes)) {
-            @$body['service_discovery_types'] = $request->serviceDiscoveryTypes;
+            $body['service_discovery_types'] = $request->serviceDiscoveryTypes;
         }
         if (!Utils::isUnset($request->snatEntry)) {
-            @$body['snat_entry'] = $request->snatEntry;
+            $body['snat_entry'] = $request->snatEntry;
         }
         if (!Utils::isUnset($request->socEnabled)) {
-            @$body['soc_enabled'] = $request->socEnabled;
+            $body['soc_enabled'] = $request->socEnabled;
         }
         if (!Utils::isUnset($request->sshFlags)) {
-            @$body['ssh_flags'] = $request->sshFlags;
+            $body['ssh_flags'] = $request->sshFlags;
         }
         if (!Utils::isUnset($request->tags)) {
-            @$body['tags'] = $request->tags;
+            $body['tags'] = $request->tags;
         }
         if (!Utils::isUnset($request->taints)) {
-            @$body['taints'] = $request->taints;
+            $body['taints'] = $request->taints;
         }
         if (!Utils::isUnset($request->timeoutMins)) {
-            @$body['timeout_mins'] = $request->timeoutMins;
+            $body['timeout_mins'] = $request->timeoutMins;
         }
         if (!Utils::isUnset($request->timezone)) {
-            @$body['timezone'] = $request->timezone;
+            $body['timezone'] = $request->timezone;
         }
         if (!Utils::isUnset($request->userCa)) {
-            @$body['user_ca'] = $request->userCa;
+            $body['user_ca'] = $request->userCa;
         }
         if (!Utils::isUnset($request->userData)) {
-            @$body['user_data'] = $request->userData;
+            $body['user_data'] = $request->userData;
         }
         if (!Utils::isUnset($request->vpcid)) {
-            @$body['vpcid'] = $request->vpcid;
+            $body['vpcid'] = $request->vpcid;
         }
         if (!Utils::isUnset($request->vswitchIds)) {
-            @$body['vswitch_ids'] = $request->vswitchIds;
+            $body['vswitch_ids'] = $request->vswitchIds;
         }
         if (!Utils::isUnset($request->workerAutoRenew)) {
-            @$body['worker_auto_renew'] = $request->workerAutoRenew;
+            $body['worker_auto_renew'] = $request->workerAutoRenew;
         }
         if (!Utils::isUnset($request->workerAutoRenewPeriod)) {
-            @$body['worker_auto_renew_period'] = $request->workerAutoRenewPeriod;
+            $body['worker_auto_renew_period'] = $request->workerAutoRenewPeriod;
         }
         if (!Utils::isUnset($request->workerDataDisks)) {
-            @$body['worker_data_disks'] = $request->workerDataDisks;
+            $body['worker_data_disks'] = $request->workerDataDisks;
         }
         if (!Utils::isUnset($request->workerInstanceChargeType)) {
-            @$body['worker_instance_charge_type'] = $request->workerInstanceChargeType;
+            $body['worker_instance_charge_type'] = $request->workerInstanceChargeType;
         }
         if (!Utils::isUnset($request->workerInstanceTypes)) {
-            @$body['worker_instance_types'] = $request->workerInstanceTypes;
+            $body['worker_instance_types'] = $request->workerInstanceTypes;
         }
         if (!Utils::isUnset($request->workerPeriod)) {
-            @$body['worker_period'] = $request->workerPeriod;
+            $body['worker_period'] = $request->workerPeriod;
         }
         if (!Utils::isUnset($request->workerPeriodUnit)) {
-            @$body['worker_period_unit'] = $request->workerPeriodUnit;
+            $body['worker_period_unit'] = $request->workerPeriodUnit;
         }
         if (!Utils::isUnset($request->workerSystemDiskCategory)) {
-            @$body['worker_system_disk_category'] = $request->workerSystemDiskCategory;
+            $body['worker_system_disk_category'] = $request->workerSystemDiskCategory;
         }
         if (!Utils::isUnset($request->workerSystemDiskPerformanceLevel)) {
-            @$body['worker_system_disk_performance_level'] = $request->workerSystemDiskPerformanceLevel;
+            $body['worker_system_disk_performance_level'] = $request->workerSystemDiskPerformanceLevel;
         }
         if (!Utils::isUnset($request->workerSystemDiskSize)) {
-            @$body['worker_system_disk_size'] = $request->workerSystemDiskSize;
+            $body['worker_system_disk_size'] = $request->workerSystemDiskSize;
         }
         if (!Utils::isUnset($request->workerSystemDiskSnapshotPolicyId)) {
-            @$body['worker_system_disk_snapshot_policy_id'] = $request->workerSystemDiskSnapshotPolicyId;
+            $body['worker_system_disk_snapshot_policy_id'] = $request->workerSystemDiskSnapshotPolicyId;
         }
         if (!Utils::isUnset($request->workerVswitchIds)) {
-            @$body['worker_vswitch_ids'] = $request->workerVswitchIds;
+            $body['worker_vswitch_ids'] = $request->workerVswitchIds;
         }
         if (!Utils::isUnset($request->zoneId)) {
-            @$body['zone_id'] = $request->zoneId;
+            $body['zone_id'] = $request->zoneId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -831,34 +826,34 @@ class CS extends OpenApiClient
         $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
         $body      = [];
         if (!Utils::isUnset($request->autoScaling)) {
-            @$body['auto_scaling'] = $request->autoScaling;
+            $body['auto_scaling'] = $request->autoScaling;
         }
         if (!Utils::isUnset($request->count)) {
-            @$body['count'] = $request->count;
+            $body['count'] = $request->count;
         }
         if (!Utils::isUnset($request->interconnectConfig)) {
-            @$body['interconnect_config'] = $request->interconnectConfig;
+            $body['interconnect_config'] = $request->interconnectConfig;
         }
         if (!Utils::isUnset($request->interconnectMode)) {
-            @$body['interconnect_mode'] = $request->interconnectMode;
+            $body['interconnect_mode'] = $request->interconnectMode;
         }
         if (!Utils::isUnset($request->kubernetesConfig)) {
-            @$body['kubernetes_config'] = $request->kubernetesConfig;
+            $body['kubernetes_config'] = $request->kubernetesConfig;
         }
         if (!Utils::isUnset($request->management)) {
-            @$body['management'] = $request->management;
+            $body['management'] = $request->management;
         }
         if (!Utils::isUnset($request->maxNodes)) {
-            @$body['max_nodes'] = $request->maxNodes;
+            $body['max_nodes'] = $request->maxNodes;
         }
         if (!Utils::isUnset($request->nodepoolInfo)) {
-            @$body['nodepool_info'] = $request->nodepoolInfo;
+            $body['nodepool_info'] = $request->nodepoolInfo;
         }
         if (!Utils::isUnset($request->scalingGroup)) {
-            @$body['scaling_group'] = $request->scalingGroup;
+            $body['scaling_group'] = $request->scalingGroup;
         }
         if (!Utils::isUnset($request->teeConfig)) {
-            @$body['tee_config'] = $request->teeConfig;
+            $body['tee_config'] = $request->teeConfig;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -904,13 +899,13 @@ class CS extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->hostname)) {
-            @$body['hostname'] = $request->hostname;
+            $body['hostname'] = $request->hostname;
         }
         if (!Utils::isUnset($request->model)) {
-            @$body['model'] = $request->model;
+            $body['model'] = $request->model;
         }
         if (!Utils::isUnset($request->sn)) {
-            @$body['sn'] = $request->sn;
+            $body['sn'] = $request->sn;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -956,16 +951,16 @@ class CS extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->action)) {
-            @$body['action'] = $request->action;
+            $body['action'] = $request->action;
         }
         if (!Utils::isUnset($request->clusterId)) {
-            @$body['cluster_id'] = $request->clusterId;
+            $body['cluster_id'] = $request->clusterId;
         }
         if (!Utils::isUnset($request->projectId)) {
-            @$body['project_id'] = $request->projectId;
+            $body['project_id'] = $request->projectId;
         }
         if (!Utils::isUnset($request->type)) {
-            @$body['type'] = $request->type;
+            $body['type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1011,19 +1006,19 @@ class CS extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->description)) {
-            @$body['description'] = $request->description;
+            $body['description'] = $request->description;
         }
         if (!Utils::isUnset($request->name)) {
-            @$body['name'] = $request->name;
+            $body['name'] = $request->name;
         }
         if (!Utils::isUnset($request->tags)) {
-            @$body['tags'] = $request->tags;
+            $body['tags'] = $request->tags;
         }
         if (!Utils::isUnset($request->template)) {
-            @$body['template'] = $request->template;
+            $body['template'] = $request->template;
         }
         if (!Utils::isUnset($request->templateType)) {
-            @$body['template_type'] = $request->templateType;
+            $body['template_type'] = $request->templateType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1072,16 +1067,16 @@ class CS extends OpenApiClient
         $clusterId = OpenApiUtilClient::getEncodeParam($clusterId);
         $body      = [];
         if (!Utils::isUnset($request->action)) {
-            @$body['action'] = $request->action;
+            $body['action'] = $request->action;
         }
         if (!Utils::isUnset($request->clusterId)) {
-            @$body['cluster_id'] = $request->clusterId;
+            $body['cluster_id'] = $request->clusterId;
         }
         if (!Utils::isUnset($request->projectId)) {
-            @$body['project_id'] = $request->projectId;
+            $body['project_id'] = $request->projectId;
         }
         if (!Utils::isUnset($request->type)) {
-            @$body['type'] = $request->type;
+            $body['type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1100,80 +1095,6 @@ class CS extends OpenApiClient
         ]);
 
         return CreateTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @return DeleteAlertContactResponse
-     */
-    public function deleteAlertContact()
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->deleteAlertContactWithOptions($headers, $runtime);
-    }
-
-    /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return DeleteAlertContactResponse
-     */
-    public function deleteAlertContactWithOptions($headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteAlertContact',
-            'version'     => '2015-12-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/alert/contacts',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return DeleteAlertContactResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @return DeleteAlertContactGroupResponse
-     */
-    public function deleteAlertContactGroup()
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->deleteAlertContactGroupWithOptions($headers, $runtime);
-    }
-
-    /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return DeleteAlertContactGroupResponse
-     */
-    public function deleteAlertContactGroupWithOptions($headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteAlertContactGroup',
-            'version'     => '2015-12-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/alert/contact_groups',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return DeleteAlertContactGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1209,13 +1130,13 @@ class CS extends OpenApiClient
         }
         $query = [];
         if (!Utils::isUnset($request->keepSlb)) {
-            @$query['keep_slb'] = $request->keepSlb;
+            $query['keep_slb'] = $request->keepSlb;
         }
         if (!Utils::isUnset($request->retainAllResources)) {
-            @$query['retain_all_resources'] = $request->retainAllResources;
+            $query['retain_all_resources'] = $request->retainAllResources;
         }
         if (!Utils::isUnset($request->retainResourcesShrink)) {
-            @$query['retain_resources'] = $request->retainResourcesShrink;
+            $query['retain_resources'] = $request->retainResourcesShrink;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1308,13 +1229,13 @@ class CS extends OpenApiClient
         $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
         $body      = [];
         if (!Utils::isUnset($request->drainNode)) {
-            @$body['drain_node'] = $request->drainNode;
+            $body['drain_node'] = $request->drainNode;
         }
         if (!Utils::isUnset($request->nodes)) {
-            @$body['nodes'] = $request->nodes;
+            $body['nodes'] = $request->nodes;
         }
         if (!Utils::isUnset($request->releaseNode)) {
-            @$body['release_node'] = $request->releaseNode;
+            $body['release_node'] = $request->releaseNode;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1363,7 +1284,7 @@ class CS extends OpenApiClient
         $edgeMachineid = OpenApiUtilClient::getEncodeParam($edgeMachineid);
         $query         = [];
         if (!Utils::isUnset($request->force)) {
-            @$query['force'] = $request->force;
+            $query['force'] = $request->force;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1456,7 +1377,7 @@ class CS extends OpenApiClient
         $policyName = OpenApiUtilClient::getEncodeParam($policyName);
         $query      = [];
         if (!Utils::isUnset($request->instanceName)) {
-            @$query['instance_name'] = $request->instanceName;
+            $query['instance_name'] = $request->instanceName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1593,13 +1514,13 @@ class CS extends OpenApiClient
         $policyName = OpenApiUtilClient::getEncodeParam($policyName);
         $body       = [];
         if (!Utils::isUnset($request->action)) {
-            @$body['action'] = $request->action;
+            $body['action'] = $request->action;
         }
         if (!Utils::isUnset($request->namespace_)) {
-            @$body['namespace_'] = $request->namespace_;
+            $body['namespace'] = $request->namespace_;
         }
         if (!Utils::isUnset($request->parameters)) {
-            @$body['parameters'] = $request->parameters;
+            $body['parameters'] = $request->parameters;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1686,10 +1607,10 @@ class CS extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clusterType)) {
-            @$query['cluster_type'] = $request->clusterType;
+            $query['cluster_type'] = $request->clusterType;
         }
         if (!Utils::isUnset($request->region)) {
-            @$query['region'] = $request->region;
+            $query['region'] = $request->region;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1834,7 +1755,7 @@ class CS extends OpenApiClient
         }
         $query = [];
         if (!Utils::isUnset($request->componentIdsShrink)) {
-            @$query['componentIds'] = $request->componentIdsShrink;
+            $query['componentIds'] = $request->componentIdsShrink;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1924,22 +1845,22 @@ class CS extends OpenApiClient
         $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
         $body      = [];
         if (!Utils::isUnset($request->arch)) {
-            @$body['arch'] = $request->arch;
+            $body['arch'] = $request->arch;
         }
         if (!Utils::isUnset($request->formatDisk)) {
-            @$body['format_disk'] = $request->formatDisk;
+            $body['format_disk'] = $request->formatDisk;
         }
         if (!Utils::isUnset($request->keepInstanceName)) {
-            @$body['keep_instance_name'] = $request->keepInstanceName;
+            $body['keep_instance_name'] = $request->keepInstanceName;
         }
         if (!Utils::isUnset($request->nodepoolId)) {
-            @$body['nodepool_id'] = $request->nodepoolId;
+            $body['nodepool_id'] = $request->nodepoolId;
         }
         if (!Utils::isUnset($request->options)) {
-            @$body['options'] = $request->options;
+            $body['options'] = $request->options;
         }
         if (!Utils::isUnset($request->rdsInstances)) {
-            @$body['rds_instances'] = $request->rdsInstances;
+            $body['rds_instances'] = $request->rdsInstances;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2196,19 +2117,19 @@ class CS extends OpenApiClient
         $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
         $query     = [];
         if (!Utils::isUnset($request->instanceIds)) {
-            @$query['instanceIds'] = $request->instanceIds;
+            $query['instanceIds'] = $request->instanceIds;
         }
         if (!Utils::isUnset($request->nodepoolId)) {
-            @$query['nodepool_id'] = $request->nodepoolId;
+            $query['nodepool_id'] = $request->nodepoolId;
         }
         if (!Utils::isUnset($request->pageNumber)) {
-            @$query['pageNumber'] = $request->pageNumber;
+            $query['pageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$query['pageSize'] = $request->pageSize;
+            $query['pageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->state)) {
-            @$query['state'] = $request->state;
+            $query['state'] = $request->state;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2298,10 +2219,10 @@ class CS extends OpenApiClient
         $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
         $query     = [];
         if (!Utils::isUnset($request->privateIpAddress)) {
-            @$query['PrivateIpAddress'] = $request->privateIpAddress;
+            $query['PrivateIpAddress'] = $request->privateIpAddress;
         }
         if (!Utils::isUnset($request->temporaryDurationMinutes)) {
-            @$query['TemporaryDurationMinutes'] = $request->temporaryDurationMinutes;
+            $query['TemporaryDurationMinutes'] = $request->temporaryDurationMinutes;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2350,7 +2271,7 @@ class CS extends OpenApiClient
         $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
         $query     = [];
         if (!Utils::isUnset($request->privateIpAddress)) {
-            @$query['PrivateIpAddress'] = $request->privateIpAddress;
+            $query['PrivateIpAddress'] = $request->privateIpAddress;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2396,10 +2317,10 @@ class CS extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clusterType)) {
-            @$query['clusterType'] = $request->clusterType;
+            $query['clusterType'] = $request->clusterType;
         }
         if (!Utils::isUnset($request->name)) {
-            @$query['name'] = $request->name;
+            $query['name'] = $request->name;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2445,22 +2366,22 @@ class CS extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clusterSpec)) {
-            @$query['cluster_spec'] = $request->clusterSpec;
+            $query['cluster_spec'] = $request->clusterSpec;
         }
         if (!Utils::isUnset($request->clusterType)) {
-            @$query['cluster_type'] = $request->clusterType;
+            $query['cluster_type'] = $request->clusterType;
         }
         if (!Utils::isUnset($request->name)) {
-            @$query['name'] = $request->name;
+            $query['name'] = $request->name;
         }
         if (!Utils::isUnset($request->pageNumber)) {
-            @$query['page_number'] = $request->pageNumber;
+            $query['page_number'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$query['page_size'] = $request->pageSize;
+            $query['page_size'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->profile)) {
-            @$query['profile'] = $request->profile;
+            $query['profile'] = $request->profile;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2625,22 +2546,22 @@ class CS extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->hostname)) {
-            @$query['hostname'] = $request->hostname;
+            $query['hostname'] = $request->hostname;
         }
         if (!Utils::isUnset($request->lifeState)) {
-            @$query['life_state'] = $request->lifeState;
+            $query['life_state'] = $request->lifeState;
         }
         if (!Utils::isUnset($request->model)) {
-            @$query['model'] = $request->model;
+            $query['model'] = $request->model;
         }
         if (!Utils::isUnset($request->onlineState)) {
-            @$query['online_state'] = $request->onlineState;
+            $query['online_state'] = $request->onlineState;
         }
         if (!Utils::isUnset($request->pageNumber)) {
-            @$query['page_number'] = $request->pageNumber;
+            $query['page_number'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$query['page_size'] = $request->pageSize;
+            $query['page_size'] = $request->pageSize;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2686,16 +2607,16 @@ class CS extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clusterId)) {
-            @$query['cluster_id'] = $request->clusterId;
+            $query['cluster_id'] = $request->clusterId;
         }
         if (!Utils::isUnset($request->pageNumber)) {
-            @$query['page_number'] = $request->pageNumber;
+            $query['page_number'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$query['page_size'] = $request->pageSize;
+            $query['page_size'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->type)) {
-            @$query['type'] = $request->type;
+            $query['type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2744,7 +2665,7 @@ class CS extends OpenApiClient
         $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
         $query     = [];
         if (!Utils::isUnset($request->privateIpAddress)) {
-            @$query['PrivateIpAddress'] = $request->privateIpAddress;
+            $query['PrivateIpAddress'] = $request->privateIpAddress;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2790,16 +2711,19 @@ class CS extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->clusterType)) {
-            @$query['ClusterType'] = $request->clusterType;
+            $query['ClusterType'] = $request->clusterType;
         }
         if (!Utils::isUnset($request->kubernetesVersion)) {
-            @$query['KubernetesVersion'] = $request->kubernetesVersion;
+            $query['KubernetesVersion'] = $request->kubernetesVersion;
         }
         if (!Utils::isUnset($request->profile)) {
-            @$query['Profile'] = $request->profile;
+            $query['Profile'] = $request->profile;
         }
         if (!Utils::isUnset($request->region)) {
-            @$query['Region'] = $request->region;
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->runtime)) {
+            $query['runtime'] = $request->runtime;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2967,10 +2891,10 @@ class CS extends OpenApiClient
         $clusterId = OpenApiUtilClient::getEncodeParam($clusterId);
         $query     = [];
         if (!Utils::isUnset($request->instanceName)) {
-            @$query['instance_name'] = $request->instanceName;
+            $query['instance_name'] = $request->instanceName;
         }
         if (!Utils::isUnset($request->policyName)) {
-            @$query['policy_name'] = $request->policyName;
+            $query['policy_name'] = $request->policyName;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3101,7 +3025,7 @@ class CS extends OpenApiClient
         $TemplateId = OpenApiUtilClient::getEncodeParam($TemplateId);
         $query      = [];
         if (!Utils::isUnset($request->templateType)) {
-            @$query['template_type'] = $request->templateType;
+            $query['template_type'] = $request->templateType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3147,13 +3071,13 @@ class CS extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->pageNum)) {
-            @$query['page_num'] = $request->pageNum;
+            $query['page_num'] = $request->pageNum;
         }
         if (!Utils::isUnset($request->pageSize)) {
-            @$query['page_size'] = $request->pageSize;
+            $query['page_size'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->templateType)) {
-            @$query['template_type'] = $request->templateType;
+            $query['template_type'] = $request->templateType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3202,16 +3126,16 @@ class CS extends OpenApiClient
         $clusterId = OpenApiUtilClient::getEncodeParam($clusterId);
         $query     = [];
         if (!Utils::isUnset($request->name)) {
-            @$query['Name'] = $request->name;
+            $query['Name'] = $request->name;
         }
         if (!Utils::isUnset($request->namespace_)) {
-            @$query['Namespace_'] = $request->namespace_;
+            $query['Namespace'] = $request->namespace_;
         }
         if (!Utils::isUnset($request->type)) {
-            @$query['Type'] = $request->type;
+            $query['Type'] = $request->type;
         }
         if (!Utils::isUnset($request->action)) {
-            @$query['action'] = $request->action;
+            $query['action'] = $request->action;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3378,13 +3302,13 @@ class CS extends OpenApiClient
         $edgeMachineid = OpenApiUtilClient::getEncodeParam($edgeMachineid);
         $body          = [];
         if (!Utils::isUnset($request->expired)) {
-            @$body['expired'] = $request->expired;
+            $body['expired'] = $request->expired;
         }
         if (!Utils::isUnset($request->nodepoolId)) {
-            @$body['nodepool_id'] = $request->nodepoolId;
+            $body['nodepool_id'] = $request->nodepoolId;
         }
         if (!Utils::isUnset($request->options)) {
-            @$body['options'] = $request->options;
+            $body['options'] = $request->options;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3433,16 +3357,16 @@ class CS extends OpenApiClient
         $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
         $query     = [];
         if (!Utils::isUnset($request->name)) {
-            @$query['Name'] = $request->name;
+            $query['Name'] = $request->name;
         }
         if (!Utils::isUnset($request->namespace_)) {
-            @$query['Namespace_'] = $request->namespace_;
+            $query['Namespace'] = $request->namespace_;
         }
         if (!Utils::isUnset($request->type)) {
-            @$query['Type'] = $request->type;
+            $query['Type'] = $request->type;
         }
         if (!Utils::isUnset($request->action)) {
-            @$query['action'] = $request->action;
+            $query['action'] = $request->action;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3627,19 +3551,19 @@ class CS extends OpenApiClient
         }
         $query = [];
         if (!Utils::isUnset($request->nextToken)) {
-            @$query['next_token'] = $request->nextToken;
+            $query['next_token'] = $request->nextToken;
         }
         if (!Utils::isUnset($request->regionId)) {
-            @$query['region_id'] = $request->regionId;
+            $query['region_id'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceIdsShrink)) {
-            @$query['resource_ids'] = $request->resourceIdsShrink;
+            $query['resource_ids'] = $request->resourceIdsShrink;
         }
         if (!Utils::isUnset($request->resourceType)) {
-            @$query['resource_type'] = $request->resourceType;
+            $query['resource_type'] = $request->resourceType;
         }
         if (!Utils::isUnset($request->tagsShrink)) {
-            @$query['tags'] = $request->tagsShrink;
+            $query['tags'] = $request->tagsShrink;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3729,31 +3653,31 @@ class CS extends OpenApiClient
         $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
         $body      = [];
         if (!Utils::isUnset($request->apiServerEip)) {
-            @$body['api_server_eip'] = $request->apiServerEip;
+            $body['api_server_eip'] = $request->apiServerEip;
         }
         if (!Utils::isUnset($request->apiServerEipId)) {
-            @$body['api_server_eip_id'] = $request->apiServerEipId;
+            $body['api_server_eip_id'] = $request->apiServerEipId;
         }
         if (!Utils::isUnset($request->deletionProtection)) {
-            @$body['deletion_protection'] = $request->deletionProtection;
+            $body['deletion_protection'] = $request->deletionProtection;
         }
         if (!Utils::isUnset($request->enableRrsa)) {
-            @$body['enable_rrsa'] = $request->enableRrsa;
+            $body['enable_rrsa'] = $request->enableRrsa;
         }
         if (!Utils::isUnset($request->ingressDomainRebinding)) {
-            @$body['ingress_domain_rebinding'] = $request->ingressDomainRebinding;
+            $body['ingress_domain_rebinding'] = $request->ingressDomainRebinding;
         }
         if (!Utils::isUnset($request->ingressLoadbalancerId)) {
-            @$body['ingress_loadbalancer_id'] = $request->ingressLoadbalancerId;
+            $body['ingress_loadbalancer_id'] = $request->ingressLoadbalancerId;
         }
         if (!Utils::isUnset($request->instanceDeletionProtection)) {
-            @$body['instance_deletion_protection'] = $request->instanceDeletionProtection;
+            $body['instance_deletion_protection'] = $request->instanceDeletionProtection;
         }
         if (!Utils::isUnset($request->maintenanceWindow)) {
-            @$body['maintenance_window'] = $request->maintenanceWindow;
+            $body['maintenance_window'] = $request->maintenanceWindow;
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
-            @$body['resource_group_id'] = $request->resourceGroupId;
+            $body['resource_group_id'] = $request->resourceGroupId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3805,7 +3729,7 @@ class CS extends OpenApiClient
         $componentId = OpenApiUtilClient::getEncodeParam($componentId);
         $body        = [];
         if (!Utils::isUnset($request->config)) {
-            @$body['config'] = $request->config;
+            $body['config'] = $request->config;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3854,7 +3778,7 @@ class CS extends OpenApiClient
         $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
         $body      = [];
         if (!Utils::isUnset($request->customizeConfig)) {
-            @$body['customize_config'] = $request->customizeConfig;
+            $body['customize_config'] = $request->customizeConfig;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3906,25 +3830,25 @@ class CS extends OpenApiClient
         $NodepoolId = OpenApiUtilClient::getEncodeParam($NodepoolId);
         $body       = [];
         if (!Utils::isUnset($request->autoScaling)) {
-            @$body['auto_scaling'] = $request->autoScaling;
+            $body['auto_scaling'] = $request->autoScaling;
         }
         if (!Utils::isUnset($request->kubernetesConfig)) {
-            @$body['kubernetes_config'] = $request->kubernetesConfig;
+            $body['kubernetes_config'] = $request->kubernetesConfig;
         }
         if (!Utils::isUnset($request->management)) {
-            @$body['management'] = $request->management;
+            $body['management'] = $request->management;
         }
         if (!Utils::isUnset($request->nodepoolInfo)) {
-            @$body['nodepool_info'] = $request->nodepoolInfo;
+            $body['nodepool_info'] = $request->nodepoolInfo;
         }
         if (!Utils::isUnset($request->scalingGroup)) {
-            @$body['scaling_group'] = $request->scalingGroup;
+            $body['scaling_group'] = $request->scalingGroup;
         }
         if (!Utils::isUnset($request->teeConfig)) {
-            @$body['tee_config'] = $request->teeConfig;
+            $body['tee_config'] = $request->teeConfig;
         }
         if (!Utils::isUnset($request->updateNodes)) {
-            @$body['update_nodes'] = $request->updateNodes;
+            $body['update_nodes'] = $request->updateNodes;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4021,16 +3945,16 @@ class CS extends OpenApiClient
         $policyName = OpenApiUtilClient::getEncodeParam($policyName);
         $body       = [];
         if (!Utils::isUnset($request->action)) {
-            @$body['action'] = $request->action;
+            $body['action'] = $request->action;
         }
         if (!Utils::isUnset($request->instanceName)) {
-            @$body['instance_name'] = $request->instanceName;
+            $body['instance_name'] = $request->instanceName;
         }
         if (!Utils::isUnset($request->namespace_)) {
-            @$body['namespace_'] = $request->namespace_;
+            $body['namespace'] = $request->namespace_;
         }
         if (!Utils::isUnset($request->parameters)) {
-            @$body['parameters'] = $request->parameters;
+            $body['parameters'] = $request->parameters;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4076,7 +4000,7 @@ class CS extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->type)) {
-            @$query['type'] = $request->type;
+            $query['type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4210,13 +4134,13 @@ class CS extends OpenApiClient
         $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
         $body      = [];
         if (!Utils::isUnset($request->drainNode)) {
-            @$body['drain_node'] = $request->drainNode;
+            $body['drain_node'] = $request->drainNode;
         }
         if (!Utils::isUnset($request->nodes)) {
-            @$body['nodes'] = $request->nodes;
+            $body['nodes'] = $request->nodes;
         }
         if (!Utils::isUnset($request->releaseNode)) {
-            @$body['release_node'] = $request->releaseNode;
+            $body['release_node'] = $request->releaseNode;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4391,61 +4315,61 @@ class CS extends OpenApiClient
         $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
         $body      = [];
         if (!Utils::isUnset($request->cloudMonitorFlags)) {
-            @$body['cloud_monitor_flags'] = $request->cloudMonitorFlags;
+            $body['cloud_monitor_flags'] = $request->cloudMonitorFlags;
         }
         if (!Utils::isUnset($request->count)) {
-            @$body['count'] = $request->count;
+            $body['count'] = $request->count;
         }
         if (!Utils::isUnset($request->cpuPolicy)) {
-            @$body['cpu_policy'] = $request->cpuPolicy;
+            $body['cpu_policy'] = $request->cpuPolicy;
         }
         if (!Utils::isUnset($request->disableRollback)) {
-            @$body['disable_rollback'] = $request->disableRollback;
+            $body['disable_rollback'] = $request->disableRollback;
         }
         if (!Utils::isUnset($request->keyPair)) {
-            @$body['key_pair'] = $request->keyPair;
+            $body['key_pair'] = $request->keyPair;
         }
         if (!Utils::isUnset($request->loginPassword)) {
-            @$body['login_password'] = $request->loginPassword;
+            $body['login_password'] = $request->loginPassword;
         }
         if (!Utils::isUnset($request->tags)) {
-            @$body['tags'] = $request->tags;
+            $body['tags'] = $request->tags;
         }
         if (!Utils::isUnset($request->taints)) {
-            @$body['taints'] = $request->taints;
+            $body['taints'] = $request->taints;
         }
         if (!Utils::isUnset($request->vswitchIds)) {
-            @$body['vswitch_ids'] = $request->vswitchIds;
+            $body['vswitch_ids'] = $request->vswitchIds;
         }
         if (!Utils::isUnset($request->workerAutoRenew)) {
-            @$body['worker_auto_renew'] = $request->workerAutoRenew;
+            $body['worker_auto_renew'] = $request->workerAutoRenew;
         }
         if (!Utils::isUnset($request->workerAutoRenewPeriod)) {
-            @$body['worker_auto_renew_period'] = $request->workerAutoRenewPeriod;
+            $body['worker_auto_renew_period'] = $request->workerAutoRenewPeriod;
         }
         if (!Utils::isUnset($request->workerDataDisk)) {
-            @$body['worker_data_disk'] = $request->workerDataDisk;
+            $body['worker_data_disk'] = $request->workerDataDisk;
         }
         if (!Utils::isUnset($request->workerDataDisks)) {
-            @$body['worker_data_disks'] = $request->workerDataDisks;
+            $body['worker_data_disks'] = $request->workerDataDisks;
         }
         if (!Utils::isUnset($request->workerInstanceChargeType)) {
-            @$body['worker_instance_charge_type'] = $request->workerInstanceChargeType;
+            $body['worker_instance_charge_type'] = $request->workerInstanceChargeType;
         }
         if (!Utils::isUnset($request->workerInstanceTypes)) {
-            @$body['worker_instance_types'] = $request->workerInstanceTypes;
+            $body['worker_instance_types'] = $request->workerInstanceTypes;
         }
         if (!Utils::isUnset($request->workerPeriod)) {
-            @$body['worker_period'] = $request->workerPeriod;
+            $body['worker_period'] = $request->workerPeriod;
         }
         if (!Utils::isUnset($request->workerPeriodUnit)) {
-            @$body['worker_period_unit'] = $request->workerPeriodUnit;
+            $body['worker_period_unit'] = $request->workerPeriodUnit;
         }
         if (!Utils::isUnset($request->workerSystemDiskCategory)) {
-            @$body['worker_system_disk_category'] = $request->workerSystemDiskCategory;
+            $body['worker_system_disk_category'] = $request->workerSystemDiskCategory;
         }
         if (!Utils::isUnset($request->workerSystemDiskSize)) {
-            @$body['worker_system_disk_size'] = $request->workerSystemDiskSize;
+            $body['worker_system_disk_size'] = $request->workerSystemDiskSize;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4497,7 +4421,7 @@ class CS extends OpenApiClient
         $NodepoolId = OpenApiUtilClient::getEncodeParam($NodepoolId);
         $body       = [];
         if (!Utils::isUnset($request->count)) {
-            @$body['count'] = $request->count;
+            $body['count'] = $request->count;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4546,67 +4470,67 @@ class CS extends OpenApiClient
         $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
         $body      = [];
         if (!Utils::isUnset($request->cloudMonitorFlags)) {
-            @$body['cloud_monitor_flags'] = $request->cloudMonitorFlags;
+            $body['cloud_monitor_flags'] = $request->cloudMonitorFlags;
         }
         if (!Utils::isUnset($request->count)) {
-            @$body['count'] = $request->count;
+            $body['count'] = $request->count;
         }
         if (!Utils::isUnset($request->cpuPolicy)) {
-            @$body['cpu_policy'] = $request->cpuPolicy;
+            $body['cpu_policy'] = $request->cpuPolicy;
         }
         if (!Utils::isUnset($request->imageId)) {
-            @$body['image_id'] = $request->imageId;
+            $body['image_id'] = $request->imageId;
         }
         if (!Utils::isUnset($request->keyPair)) {
-            @$body['key_pair'] = $request->keyPair;
+            $body['key_pair'] = $request->keyPair;
         }
         if (!Utils::isUnset($request->loginPassword)) {
-            @$body['login_password'] = $request->loginPassword;
+            $body['login_password'] = $request->loginPassword;
         }
         if (!Utils::isUnset($request->rdsInstances)) {
-            @$body['rds_instances'] = $request->rdsInstances;
+            $body['rds_instances'] = $request->rdsInstances;
         }
         if (!Utils::isUnset($request->runtime)) {
-            @$body['runtime'] = $request->runtime;
+            $body['runtime'] = $request->runtime;
         }
         if (!Utils::isUnset($request->tags)) {
-            @$body['tags'] = $request->tags;
+            $body['tags'] = $request->tags;
         }
         if (!Utils::isUnset($request->taints)) {
-            @$body['taints'] = $request->taints;
+            $body['taints'] = $request->taints;
         }
         if (!Utils::isUnset($request->userData)) {
-            @$body['user_data'] = $request->userData;
+            $body['user_data'] = $request->userData;
         }
         if (!Utils::isUnset($request->vswitchIds)) {
-            @$body['vswitch_ids'] = $request->vswitchIds;
+            $body['vswitch_ids'] = $request->vswitchIds;
         }
         if (!Utils::isUnset($request->workerAutoRenew)) {
-            @$body['worker_auto_renew'] = $request->workerAutoRenew;
+            $body['worker_auto_renew'] = $request->workerAutoRenew;
         }
         if (!Utils::isUnset($request->workerAutoRenewPeriod)) {
-            @$body['worker_auto_renew_period'] = $request->workerAutoRenewPeriod;
+            $body['worker_auto_renew_period'] = $request->workerAutoRenewPeriod;
         }
         if (!Utils::isUnset($request->workerDataDisks)) {
-            @$body['worker_data_disks'] = $request->workerDataDisks;
+            $body['worker_data_disks'] = $request->workerDataDisks;
         }
         if (!Utils::isUnset($request->workerInstanceChargeType)) {
-            @$body['worker_instance_charge_type'] = $request->workerInstanceChargeType;
+            $body['worker_instance_charge_type'] = $request->workerInstanceChargeType;
         }
         if (!Utils::isUnset($request->workerInstanceTypes)) {
-            @$body['worker_instance_types'] = $request->workerInstanceTypes;
+            $body['worker_instance_types'] = $request->workerInstanceTypes;
         }
         if (!Utils::isUnset($request->workerPeriod)) {
-            @$body['worker_period'] = $request->workerPeriod;
+            $body['worker_period'] = $request->workerPeriod;
         }
         if (!Utils::isUnset($request->workerPeriodUnit)) {
-            @$body['worker_period_unit'] = $request->workerPeriodUnit;
+            $body['worker_period_unit'] = $request->workerPeriodUnit;
         }
         if (!Utils::isUnset($request->workerSystemDiskCategory)) {
-            @$body['worker_system_disk_category'] = $request->workerSystemDiskCategory;
+            $body['worker_system_disk_category'] = $request->workerSystemDiskCategory;
         }
         if (!Utils::isUnset($request->workerSystemDiskSize)) {
-            @$body['worker_system_disk_size'] = $request->workerSystemDiskSize;
+            $body['worker_system_disk_size'] = $request->workerSystemDiskSize;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4625,47 +4549,6 @@ class CS extends OpenApiClient
         ]);
 
         return ScaleOutClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param string $ClusterId
-     *
-     * @return StartAlertResponse
-     */
-    public function startAlert($ClusterId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->startAlertWithOptions($ClusterId, $headers, $runtime);
-    }
-
-    /**
-     * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return StartAlertResponse
-     */
-    public function startAlertWithOptions($ClusterId, $headers, $runtime)
-    {
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $req       = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'StartAlert',
-            'version'     => '2015-12-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/alert/' . $ClusterId . '/alert_rule/start',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return StartAlertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4693,61 +4576,61 @@ class CS extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->mappingBamOutFilename)) {
-            @$body['mapping_bam_out_filename'] = $request->mappingBamOutFilename;
+            $body['mapping_bam_out_filename'] = $request->mappingBamOutFilename;
         }
         if (!Utils::isUnset($request->mappingBamOutPath)) {
-            @$body['mapping_bam_out_path'] = $request->mappingBamOutPath;
+            $body['mapping_bam_out_path'] = $request->mappingBamOutPath;
         }
         if (!Utils::isUnset($request->mappingBucketName)) {
-            @$body['mapping_bucket_name'] = $request->mappingBucketName;
+            $body['mapping_bucket_name'] = $request->mappingBucketName;
         }
         if (!Utils::isUnset($request->mappingFastqFirstFilename)) {
-            @$body['mapping_fastq_first_filename'] = $request->mappingFastqFirstFilename;
+            $body['mapping_fastq_first_filename'] = $request->mappingFastqFirstFilename;
         }
         if (!Utils::isUnset($request->mappingFastqPath)) {
-            @$body['mapping_fastq_path'] = $request->mappingFastqPath;
+            $body['mapping_fastq_path'] = $request->mappingFastqPath;
         }
         if (!Utils::isUnset($request->mappingFastqSecondFilename)) {
-            @$body['mapping_fastq_second_filename'] = $request->mappingFastqSecondFilename;
+            $body['mapping_fastq_second_filename'] = $request->mappingFastqSecondFilename;
         }
         if (!Utils::isUnset($request->mappingIsMarkDup)) {
-            @$body['mapping_is_mark_dup'] = $request->mappingIsMarkDup;
+            $body['mapping_is_mark_dup'] = $request->mappingIsMarkDup;
         }
         if (!Utils::isUnset($request->mappingOssRegion)) {
-            @$body['mapping_oss_region'] = $request->mappingOssRegion;
+            $body['mapping_oss_region'] = $request->mappingOssRegion;
         }
         if (!Utils::isUnset($request->mappingReferencePath)) {
-            @$body['mapping_reference_path'] = $request->mappingReferencePath;
+            $body['mapping_reference_path'] = $request->mappingReferencePath;
         }
         if (!Utils::isUnset($request->service)) {
-            @$body['service'] = $request->service;
+            $body['service'] = $request->service;
         }
         if (!Utils::isUnset($request->wgsBucketName)) {
-            @$body['wgs_bucket_name'] = $request->wgsBucketName;
+            $body['wgs_bucket_name'] = $request->wgsBucketName;
         }
         if (!Utils::isUnset($request->wgsFastqFirstFilename)) {
-            @$body['wgs_fastq_first_filename'] = $request->wgsFastqFirstFilename;
+            $body['wgs_fastq_first_filename'] = $request->wgsFastqFirstFilename;
         }
         if (!Utils::isUnset($request->wgsFastqPath)) {
-            @$body['wgs_fastq_path'] = $request->wgsFastqPath;
+            $body['wgs_fastq_path'] = $request->wgsFastqPath;
         }
         if (!Utils::isUnset($request->wgsFastqSecondFilename)) {
-            @$body['wgs_fastq_second_filename'] = $request->wgsFastqSecondFilename;
+            $body['wgs_fastq_second_filename'] = $request->wgsFastqSecondFilename;
         }
         if (!Utils::isUnset($request->wgsOssRegion)) {
-            @$body['wgs_oss_region'] = $request->wgsOssRegion;
+            $body['wgs_oss_region'] = $request->wgsOssRegion;
         }
         if (!Utils::isUnset($request->wgsReferencePath)) {
-            @$body['wgs_reference_path'] = $request->wgsReferencePath;
+            $body['wgs_reference_path'] = $request->wgsReferencePath;
         }
         if (!Utils::isUnset($request->wgsVcfOutFilename)) {
-            @$body['wgs_vcf_out_filename'] = $request->wgsVcfOutFilename;
+            $body['wgs_vcf_out_filename'] = $request->wgsVcfOutFilename;
         }
         if (!Utils::isUnset($request->wgsVcfOutPath)) {
-            @$body['wgs_vcf_out_path'] = $request->wgsVcfOutPath;
+            $body['wgs_vcf_out_path'] = $request->wgsVcfOutPath;
         }
         if (!Utils::isUnset($request->workflowType)) {
-            @$body['workflow_type'] = $request->workflowType;
+            $body['workflow_type'] = $request->workflowType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4766,47 +4649,6 @@ class CS extends OpenApiClient
         ]);
 
         return StartWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param string $ClusterId
-     *
-     * @return StopAlertResponse
-     */
-    public function stopAlert($ClusterId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->stopAlertWithOptions($ClusterId, $headers, $runtime);
-    }
-
-    /**
-     * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return StopAlertResponse
-     */
-    public function stopAlertWithOptions($ClusterId, $headers, $runtime)
-    {
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $req       = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'StopAlert',
-            'version'     => '2015-12-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/alert/' . $ClusterId . '/alert_rule/stop',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return StopAlertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4834,16 +4676,16 @@ class CS extends OpenApiClient
         Utils::validateModel($request);
         $body = [];
         if (!Utils::isUnset($request->regionId)) {
-            @$body['region_id'] = $request->regionId;
+            $body['region_id'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceIds)) {
-            @$body['resource_ids'] = $request->resourceIds;
+            $body['resource_ids'] = $request->resourceIds;
         }
         if (!Utils::isUnset($request->resourceType)) {
-            @$body['resource_type'] = $request->resourceType;
+            $body['resource_type'] = $request->resourceType;
         }
         if (!Utils::isUnset($request->tags)) {
-            @$body['tags'] = $request->tags;
+            $body['tags'] = $request->tags;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4934,19 +4776,19 @@ class CS extends OpenApiClient
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->all)) {
-            @$query['all'] = $request->all;
+            $query['all'] = $request->all;
         }
         if (!Utils::isUnset($request->regionId)) {
-            @$query['region_id'] = $request->regionId;
+            $query['region_id'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceIds)) {
-            @$query['resource_ids'] = $request->resourceIds;
+            $query['resource_ids'] = $request->resourceIds;
         }
         if (!Utils::isUnset($request->resourceType)) {
-            @$query['resource_type'] = $request->resourceType;
+            $query['resource_type'] = $request->resourceType;
         }
         if (!Utils::isUnset($request->tagKeys)) {
-            @$query['tag_keys'] = $request->tagKeys;
+            $query['tag_keys'] = $request->tagKeys;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -4965,47 +4807,6 @@ class CS extends OpenApiClient
         ]);
 
         return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param string $ClusterId
-     *
-     * @return UpdateContactGroupForAlertResponse
-     */
-    public function updateContactGroupForAlert($ClusterId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->updateContactGroupForAlertWithOptions($ClusterId, $headers, $runtime);
-    }
-
-    /**
-     * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return UpdateContactGroupForAlertResponse
-     */
-    public function updateContactGroupForAlertWithOptions($ClusterId, $headers, $runtime)
-    {
-        $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
-        $req       = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateContactGroupForAlert',
-            'version'     => '2015-12-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/alert/' . $ClusterId . '/alert_rule/contact_groups',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'none',
-        ]);
-
-        return UpdateContactGroupForAlertResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5077,19 +4878,19 @@ class CS extends OpenApiClient
         $TemplateId = OpenApiUtilClient::getEncodeParam($TemplateId);
         $body       = [];
         if (!Utils::isUnset($request->description)) {
-            @$body['description'] = $request->description;
+            $body['description'] = $request->description;
         }
         if (!Utils::isUnset($request->name)) {
-            @$body['name'] = $request->name;
+            $body['name'] = $request->name;
         }
         if (!Utils::isUnset($request->tags)) {
-            @$body['tags'] = $request->tags;
+            $body['tags'] = $request->tags;
         }
         if (!Utils::isUnset($request->template)) {
-            @$body['template'] = $request->template;
+            $body['template'] = $request->template;
         }
         if (!Utils::isUnset($request->templateType)) {
-            @$body['template_type'] = $request->templateType;
+            $body['template_type'] = $request->templateType;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -5138,13 +4939,13 @@ class CS extends OpenApiClient
         $ClusterId = OpenApiUtilClient::getEncodeParam($ClusterId);
         $body      = [];
         if (!Utils::isUnset($request->componentName)) {
-            @$body['component_name'] = $request->componentName;
+            $body['component_name'] = $request->componentName;
         }
         if (!Utils::isUnset($request->nextVersion)) {
-            @$body['next_version'] = $request->nextVersion;
+            $body['next_version'] = $request->nextVersion;
         }
         if (!Utils::isUnset($request->version)) {
-            @$body['version'] = $request->version;
+            $body['version'] = $request->version;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,

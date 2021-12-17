@@ -32,6 +32,13 @@ class kubernetesConfig extends Model
     public $labels;
 
     /**
+     * @description 自定义节点名称
+     *
+     * @var string
+     */
+    public $nodeNameMode;
+
+    /**
      * @description 容器运行时。
      *
      * @var string
@@ -62,6 +69,7 @@ class kubernetesConfig extends Model
         'cmsEnabled'     => 'cms_enabled',
         'cpuPolicy'      => 'cpu_policy',
         'labels'         => 'labels',
+        'nodeNameMode'   => 'node_name_mode',
         'runtime'        => 'runtime',
         'runtimeVersion' => 'runtime_version',
         'taints'         => 'taints',
@@ -89,6 +97,9 @@ class kubernetesConfig extends Model
                     $res['labels'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->nodeNameMode) {
+            $res['node_name_mode'] = $this->nodeNameMode;
         }
         if (null !== $this->runtime) {
             $res['runtime'] = $this->runtime;
@@ -134,6 +145,9 @@ class kubernetesConfig extends Model
                     $model->labels[$n++] = null !== $item ? Tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['node_name_mode'])) {
+            $model->nodeNameMode = $map['node_name_mode'];
         }
         if (isset($map['runtime'])) {
             $model->runtime = $map['runtime'];

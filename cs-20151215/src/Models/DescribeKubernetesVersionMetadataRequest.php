@@ -35,11 +35,19 @@ class DescribeKubernetesVersionMetadataRequest extends Model
      * @var string
      */
     public $region;
+
+    /**
+     * @description 运行时。
+     *
+     * @var string
+     */
+    public $runtime;
     protected $_name = [
         'clusterType'       => 'ClusterType',
         'kubernetesVersion' => 'KubernetesVersion',
         'profile'           => 'Profile',
         'region'            => 'Region',
+        'runtime'           => 'runtime',
     ];
 
     public function validate()
@@ -60,6 +68,9 @@ class DescribeKubernetesVersionMetadataRequest extends Model
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+        if (null !== $this->runtime) {
+            $res['runtime'] = $this->runtime;
         }
 
         return $res;
@@ -84,6 +95,9 @@ class DescribeKubernetesVersionMetadataRequest extends Model
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+        if (isset($map['runtime'])) {
+            $model->runtime = $map['runtime'];
         }
 
         return $model;

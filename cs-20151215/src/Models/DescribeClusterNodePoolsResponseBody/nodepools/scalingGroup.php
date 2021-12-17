@@ -40,6 +40,13 @@ class scalingGroup extends Model
     public $dataDisks;
 
     /**
+     * @description 部署集ID。
+     *
+     * @var string
+     */
+    public $deploymentsetId;
+
+    /**
      * @description 镜像ID
      *
      * @var string
@@ -239,6 +246,7 @@ class scalingGroup extends Model
         'autoRenewPeriod'                     => 'auto_renew_period',
         'compensateWithOnDemand'              => 'compensate_with_on_demand',
         'dataDisks'                           => 'data_disks',
+        'deploymentsetId'                     => 'deploymentset_id',
         'imageId'                             => 'image_id',
         'instanceChargeType'                  => 'instance_charge_type',
         'instanceTypes'                       => 'instance_types',
@@ -293,6 +301,9 @@ class scalingGroup extends Model
                     $res['data_disks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->deploymentsetId) {
+            $res['deploymentset_id'] = $this->deploymentsetId;
         }
         if (null !== $this->imageId) {
             $res['image_id'] = $this->imageId;
@@ -419,6 +430,9 @@ class scalingGroup extends Model
                     $model->dataDisks[$n++] = null !== $item ? DataDisk::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['deploymentset_id'])) {
+            $model->deploymentsetId = $map['deploymentset_id'];
         }
         if (isset($map['image_id'])) {
             $model->imageId = $map['image_id'];
