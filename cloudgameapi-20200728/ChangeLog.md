@@ -1,3 +1,6 @@
+2021-12-17 Version: 1.1.2
+- Mod Ver.
+
 2021-12-17 Version: 1.0.1
 - Add KickPlayer.
 - Add GetGameStatus.
