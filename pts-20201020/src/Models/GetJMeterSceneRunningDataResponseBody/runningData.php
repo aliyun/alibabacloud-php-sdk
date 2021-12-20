@@ -44,6 +44,13 @@ class runningData extends Model
     public $hasReport;
 
     /**
+     * @description 压测计划持续时间，单位s
+     *
+     * @var int
+     */
+    public $holdFor;
+
+    /**
      * @description 是否是调试
      *
      * @var bool
@@ -79,6 +86,13 @@ class runningData extends Model
     public $stageName;
 
     /**
+     * @description 压测计划开始时间戳，单位ms
+     *
+     * @var int
+     */
+    public $startTimeTS;
+
+    /**
      * @description 状态
      *
      * @var string
@@ -97,11 +111,13 @@ class runningData extends Model
         'allSampleStat'  => 'AllSampleStat',
         'concurrency'    => 'Concurrency',
         'hasReport'      => 'HasReport',
+        'holdFor'        => 'HoldFor',
         'isDebugging'    => 'IsDebugging',
         'sampleStatList' => 'SampleStatList',
         'sceneId'        => 'SceneId',
         'sceneName'      => 'SceneName',
         'stageName'      => 'StageName',
+        'startTimeTS'    => 'StartTimeTS',
         'status'         => 'Status',
         'vum'            => 'Vum',
     ];
@@ -128,6 +144,9 @@ class runningData extends Model
         if (null !== $this->hasReport) {
             $res['HasReport'] = $this->hasReport;
         }
+        if (null !== $this->holdFor) {
+            $res['HoldFor'] = $this->holdFor;
+        }
         if (null !== $this->isDebugging) {
             $res['IsDebugging'] = $this->isDebugging;
         }
@@ -142,6 +161,9 @@ class runningData extends Model
         }
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
+        }
+        if (null !== $this->startTimeTS) {
+            $res['StartTimeTS'] = $this->startTimeTS;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -178,6 +200,9 @@ class runningData extends Model
         if (isset($map['HasReport'])) {
             $model->hasReport = $map['HasReport'];
         }
+        if (isset($map['HoldFor'])) {
+            $model->holdFor = $map['HoldFor'];
+        }
         if (isset($map['IsDebugging'])) {
             $model->isDebugging = $map['IsDebugging'];
         }
@@ -194,6 +219,9 @@ class runningData extends Model
         }
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];
+        }
+        if (isset($map['StartTimeTS'])) {
+            $model->startTimeTS = $map['StartTimeTS'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

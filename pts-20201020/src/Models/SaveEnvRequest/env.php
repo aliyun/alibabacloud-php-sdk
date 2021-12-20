@@ -32,24 +32,16 @@ class env extends Model
     public $files;
 
     /**
-     * @description jmeter插件的环境标签
-     *
-     * @var string
-     */
-    public $jmeterPluginLabel;
-
-    /**
      * @description jmeter属性
      *
      * @var properties[]
      */
     public $properties;
     protected $_name = [
-        'envId'             => 'EnvId',
-        'envName'           => 'EnvName',
-        'files'             => 'Files',
-        'jmeterPluginLabel' => 'JmeterPluginLabel',
-        'properties'        => 'Properties',
+        'envId'      => 'EnvId',
+        'envName'    => 'EnvName',
+        'files'      => 'Files',
+        'properties' => 'Properties',
     ];
 
     public function validate()
@@ -73,9 +65,6 @@ class env extends Model
                     $res['Files'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->jmeterPluginLabel) {
-            $res['JmeterPluginLabel'] = $this->jmeterPluginLabel;
         }
         if (null !== $this->properties) {
             $res['Properties'] = [];
@@ -112,9 +101,6 @@ class env extends Model
                     $model->files[$n++] = null !== $item ? files::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['JmeterPluginLabel'])) {
-            $model->jmeterPluginLabel = $map['JmeterPluginLabel'];
         }
         if (isset($map['Properties'])) {
             if (!empty($map['Properties'])) {

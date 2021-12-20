@@ -75,13 +75,6 @@ class openJMeterScene extends Model
     public $JMeterProperties;
 
     /**
-     * @description jmeter插件的环境标签
-     *
-     * @var string
-     */
-    public $jmeterPluginLabel;
-
-    /**
      * @description 预热时间
      *
      * @var int
@@ -160,7 +153,6 @@ class openJMeterScene extends Model
         'fileList'                    => 'FileList',
         'isVpcTest'                   => 'IsVpcTest',
         'JMeterProperties'            => 'JMeterProperties',
-        'jmeterPluginLabel'           => 'JmeterPluginLabel',
         'rampUp'                      => 'RampUp',
         'regionId'                    => 'RegionId',
         'sceneId'                     => 'SceneId',
@@ -218,9 +210,6 @@ class openJMeterScene extends Model
                     $res['JMeterProperties'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->jmeterPluginLabel) {
-            $res['JmeterPluginLabel'] = $this->jmeterPluginLabel;
         }
         if (null !== $this->rampUp) {
             $res['RampUp'] = $this->rampUp;
@@ -302,9 +291,6 @@ class openJMeterScene extends Model
                     $model->JMeterProperties[$n++] = null !== $item ? JMeterProperties::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['JmeterPluginLabel'])) {
-            $model->jmeterPluginLabel = $map['JmeterPluginLabel'];
         }
         if (isset($map['RampUp'])) {
             $model->rampUp = $map['RampUp'];

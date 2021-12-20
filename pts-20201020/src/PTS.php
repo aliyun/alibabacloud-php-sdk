@@ -131,7 +131,6 @@ class PTS extends OpenApiClient
         $query['Scene'] = $request->scene;
         $req            = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreatePtsScene',
@@ -141,7 +140,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -174,7 +173,6 @@ class PTS extends OpenApiClient
         $query['SceneId']  = $request->sceneId;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreatePtsSceneBaseLineFromReport',
@@ -184,7 +182,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -216,7 +214,6 @@ class PTS extends OpenApiClient
         $query['SceneId'] = $request->sceneId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeletePtsScene',
@@ -226,7 +223,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -258,7 +255,6 @@ class PTS extends OpenApiClient
         $query['SceneId'] = $request->sceneId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeletePtsSceneBaseLine',
@@ -268,7 +264,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -305,7 +301,6 @@ class PTS extends OpenApiClient
         $query['SceneIds'] = $request->sceneIdsShrink;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeletePtsScenes',
@@ -315,7 +310,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -355,7 +350,6 @@ class PTS extends OpenApiClient
         $query['Thread']     = $request->thread;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetJMeterLogs',
@@ -365,7 +359,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -400,7 +394,6 @@ class PTS extends OpenApiClient
         $query['SamplerId'] = $request->samplerId;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetJMeterSampleMetrics',
@@ -410,7 +403,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -454,7 +447,6 @@ class PTS extends OpenApiClient
         $query['Thread']       = $request->thread;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetJMeterSamplingLogs',
@@ -464,7 +456,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -496,7 +488,6 @@ class PTS extends OpenApiClient
         $query['SceneId'] = $request->sceneId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetJMeterSceneRunningData',
@@ -506,7 +497,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -538,7 +529,6 @@ class PTS extends OpenApiClient
         $query['SceneId'] = $request->sceneId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetOpenJMeterScene',
@@ -548,7 +538,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -581,7 +571,6 @@ class PTS extends OpenApiClient
         $query['SceneId'] = $request->sceneId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetPtsReportDetails',
@@ -591,7 +580,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -625,7 +614,6 @@ class PTS extends OpenApiClient
         $query['SceneId']    = $request->sceneId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetPtsReportsBySceneId',
@@ -635,7 +623,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -667,7 +655,6 @@ class PTS extends OpenApiClient
         $query['SceneId'] = $request->sceneId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetPtsScene',
@@ -677,7 +664,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -709,7 +696,6 @@ class PTS extends OpenApiClient
         $query['SceneId'] = $request->sceneId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetPtsSceneBaseLine',
@@ -719,7 +705,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -752,7 +738,6 @@ class PTS extends OpenApiClient
         $query['SceneId'] = $request->sceneId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetPtsSceneRunningData',
@@ -762,7 +747,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -794,7 +779,6 @@ class PTS extends OpenApiClient
         $query['SceneId'] = $request->sceneId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetPtsSceneRunningStatus',
@@ -804,7 +788,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -839,7 +823,6 @@ class PTS extends OpenApiClient
         $query['PageSize']   = $request->pageSize;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListEnvs',
@@ -849,7 +832,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -887,7 +870,6 @@ class PTS extends OpenApiClient
         $query['SceneId']    = $request->sceneId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListJMeterReports',
@@ -897,7 +879,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -932,7 +914,6 @@ class PTS extends OpenApiClient
         $query['SceneName']  = $request->sceneName;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListOpenJMeterScenes',
@@ -942,7 +923,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -976,7 +957,6 @@ class PTS extends OpenApiClient
         $query['PageSize']   = $request->pageSize;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListPtsScene',
@@ -986,7 +966,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1018,7 +998,6 @@ class PTS extends OpenApiClient
         $query['Scene'] = $request->scene;
         $req            = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyPtsScene',
@@ -1028,7 +1007,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1060,7 +1039,6 @@ class PTS extends OpenApiClient
         $query['EnvId'] = $request->envId;
         $req            = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RemoveEnv',
@@ -1070,7 +1048,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1102,7 +1080,6 @@ class PTS extends OpenApiClient
         $query['SceneId'] = $request->sceneId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RemoveOpenJMeterScene',
@@ -1112,7 +1089,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1149,7 +1126,6 @@ class PTS extends OpenApiClient
         $query['Env'] = $request->envShrink;
         $req          = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SaveEnv',
@@ -1159,7 +1135,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1196,7 +1172,6 @@ class PTS extends OpenApiClient
         $query['OpenJMeterScene'] = $request->openJMeterSceneShrink;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SaveOpenJMeterScene',
@@ -1206,7 +1181,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1238,7 +1213,6 @@ class PTS extends OpenApiClient
         $query['SceneId'] = $request->sceneId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'StartDebugPtsScene',
@@ -1248,7 +1222,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1280,7 +1254,6 @@ class PTS extends OpenApiClient
         $query['SceneId'] = $request->sceneId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'StartDebuggingJMeterScene',
@@ -1290,7 +1263,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1322,7 +1295,6 @@ class PTS extends OpenApiClient
         $query['SceneId'] = $request->sceneId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'StartPtsScene',
@@ -1332,7 +1304,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1364,7 +1336,6 @@ class PTS extends OpenApiClient
         $query['SceneId'] = $request->sceneId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'StartTestingJMeterScene',
@@ -1374,7 +1345,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1407,7 +1378,6 @@ class PTS extends OpenApiClient
         $query['SceneId'] = $request->sceneId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'StopDebugPtsScene',
@@ -1417,7 +1387,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1449,7 +1419,6 @@ class PTS extends OpenApiClient
         $query['SceneId'] = $request->sceneId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'StopDebuggingJMeterScene',
@@ -1459,7 +1428,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1491,7 +1460,6 @@ class PTS extends OpenApiClient
         $query['SceneId'] = $request->sceneId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'StopPtsScene',
@@ -1501,7 +1469,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1533,7 +1501,6 @@ class PTS extends OpenApiClient
         $query['SceneId'] = $request->sceneId;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'StopTestingJMeterScene',
@@ -1543,7 +1510,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1585,7 +1552,6 @@ class PTS extends OpenApiClient
         $query['SceneId']       = $request->sceneId;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdatePtsSceneBaseLine',
@@ -1595,7 +1561,7 @@ class PTS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
