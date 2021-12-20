@@ -21,6 +21,11 @@ class permissions extends Model
     /**
      * @var string
      */
+    public $shareSource;
+
+    /**
+     * @var string
+     */
     public $templateVersion;
 
     /**
@@ -30,6 +35,7 @@ class permissions extends Model
     protected $_name = [
         'accountId'       => 'AccountId',
         'shareOption'     => 'ShareOption',
+        'shareSource'     => 'ShareSource',
         'templateVersion' => 'TemplateVersion',
         'versionOption'   => 'VersionOption',
     ];
@@ -46,6 +52,9 @@ class permissions extends Model
         }
         if (null !== $this->shareOption) {
             $res['ShareOption'] = $this->shareOption;
+        }
+        if (null !== $this->shareSource) {
+            $res['ShareSource'] = $this->shareSource;
         }
         if (null !== $this->templateVersion) {
             $res['TemplateVersion'] = $this->templateVersion;
@@ -70,6 +79,9 @@ class permissions extends Model
         }
         if (isset($map['ShareOption'])) {
             $model->shareOption = $map['ShareOption'];
+        }
+        if (isset($map['ShareSource'])) {
+            $model->shareSource = $map['ShareSource'];
         }
         if (isset($map['TemplateVersion'])) {
             $model->templateVersion = $map['TemplateVersion'];

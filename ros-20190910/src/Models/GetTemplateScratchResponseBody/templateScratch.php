@@ -8,6 +8,7 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateScratchResponseBody\templat
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateScratchResponseBody\templateScratch\sourceResourceGroup;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateScratchResponseBody\templateScratch\sourceResources;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateScratchResponseBody\templateScratch\sourceTag;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateScratchResponseBody\templateScratch\stackProvision;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateScratchResponseBody\templateScratch\stacks;
 use AlibabaCloud\Tea\Model;
 
@@ -54,6 +55,11 @@ class templateScratch extends Model
     public $sourceTag;
 
     /**
+     * @var stackProvision
+     */
+    public $stackProvision;
+
+    /**
      * @var stacks[]
      */
     public $stacks;
@@ -96,6 +102,7 @@ class templateScratch extends Model
         'sourceResourceGroup'  => 'SourceResourceGroup',
         'sourceResources'      => 'SourceResources',
         'sourceTag'            => 'SourceTag',
+        'stackProvision'       => 'StackProvision',
         'stacks'               => 'Stacks',
         'status'               => 'Status',
         'statusReason'         => 'StatusReason',
@@ -147,6 +154,9 @@ class templateScratch extends Model
         }
         if (null !== $this->sourceTag) {
             $res['SourceTag'] = null !== $this->sourceTag ? $this->sourceTag->toMap() : null;
+        }
+        if (null !== $this->stackProvision) {
+            $res['StackProvision'] = null !== $this->stackProvision ? $this->stackProvision->toMap() : null;
         }
         if (null !== $this->stacks) {
             $res['Stacks'] = [];
@@ -222,6 +232,9 @@ class templateScratch extends Model
         }
         if (isset($map['SourceTag'])) {
             $model->sourceTag = sourceTag::fromMap($map['SourceTag']);
+        }
+        if (isset($map['StackProvision'])) {
+            $model->stackProvision = stackProvision::fromMap($map['StackProvision']);
         }
         if (isset($map['Stacks'])) {
             if (!empty($map['Stacks'])) {

@@ -365,28 +365,29 @@ class ROS extends OpenApiClient
     public function createStackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                       = [];
-        $query['ClientToken']        = $request->clientToken;
-        $query['CreateOption']       = $request->createOption;
-        $query['DeletionProtection'] = $request->deletionProtection;
-        $query['DisableRollback']    = $request->disableRollback;
-        $query['NotificationURLs']   = $request->notificationURLs;
-        $query['Parallelism']        = $request->parallelism;
-        $query['Parameters']         = $request->parameters;
-        $query['RamRoleName']        = $request->ramRoleName;
-        $query['RegionId']           = $request->regionId;
-        $query['ResourceGroupId']    = $request->resourceGroupId;
-        $query['StackName']          = $request->stackName;
-        $query['StackPolicyBody']    = $request->stackPolicyBody;
-        $query['StackPolicyURL']     = $request->stackPolicyURL;
-        $query['Tags']               = $request->tags;
-        $query['TemplateBody']       = $request->templateBody;
-        $query['TemplateId']         = $request->templateId;
-        $query['TemplateScratchId']  = $request->templateScratchId;
-        $query['TemplateURL']        = $request->templateURL;
-        $query['TemplateVersion']    = $request->templateVersion;
-        $query['TimeoutInMinutes']   = $request->timeoutInMinutes;
-        $req                         = new OpenApiRequest([
+        $query                            = [];
+        $query['ClientToken']             = $request->clientToken;
+        $query['CreateOption']            = $request->createOption;
+        $query['DeletionProtection']      = $request->deletionProtection;
+        $query['DisableRollback']         = $request->disableRollback;
+        $query['NotificationURLs']        = $request->notificationURLs;
+        $query['Parallelism']             = $request->parallelism;
+        $query['Parameters']              = $request->parameters;
+        $query['RamRoleName']             = $request->ramRoleName;
+        $query['RegionId']                = $request->regionId;
+        $query['ResourceGroupId']         = $request->resourceGroupId;
+        $query['StackName']               = $request->stackName;
+        $query['StackPolicyBody']         = $request->stackPolicyBody;
+        $query['StackPolicyURL']          = $request->stackPolicyURL;
+        $query['Tags']                    = $request->tags;
+        $query['TemplateBody']            = $request->templateBody;
+        $query['TemplateId']              = $request->templateId;
+        $query['TemplateScratchId']       = $request->templateScratchId;
+        $query['TemplateScratchRegionId'] = $request->templateScratchRegionId;
+        $query['TemplateURL']             = $request->templateURL;
+        $query['TemplateVersion']         = $request->templateVersion;
+        $query['TimeoutInMinutes']        = $request->timeoutInMinutes;
+        $req                              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1806,16 +1807,17 @@ class ROS extends OpenApiClient
     public function getTemplateEstimateCostWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['ClientToken']       = $request->clientToken;
-        $query['Parameters']        = $request->parameters;
-        $query['RegionId']          = $request->regionId;
-        $query['TemplateBody']      = $request->templateBody;
-        $query['TemplateId']        = $request->templateId;
-        $query['TemplateScratchId'] = $request->templateScratchId;
-        $query['TemplateURL']       = $request->templateURL;
-        $query['TemplateVersion']   = $request->templateVersion;
-        $req                        = new OpenApiRequest([
+        $query                            = [];
+        $query['ClientToken']             = $request->clientToken;
+        $query['Parameters']              = $request->parameters;
+        $query['RegionId']                = $request->regionId;
+        $query['TemplateBody']            = $request->templateBody;
+        $query['TemplateId']              = $request->templateId;
+        $query['TemplateScratchId']       = $request->templateScratchId;
+        $query['TemplateScratchRegionId'] = $request->templateScratchRegionId;
+        $query['TemplateURL']             = $request->templateURL;
+        $query['TemplateVersion']         = $request->templateVersion;
+        $req                              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2801,22 +2803,23 @@ class ROS extends OpenApiClient
     public function previewStackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                      = [];
-        $query['ClientToken']       = $request->clientToken;
-        $query['DisableRollback']   = $request->disableRollback;
-        $query['Parallelism']       = $request->parallelism;
-        $query['Parameters']        = $request->parameters;
-        $query['RegionId']          = $request->regionId;
-        $query['StackName']         = $request->stackName;
-        $query['StackPolicyBody']   = $request->stackPolicyBody;
-        $query['StackPolicyURL']    = $request->stackPolicyURL;
-        $query['TemplateBody']      = $request->templateBody;
-        $query['TemplateId']        = $request->templateId;
-        $query['TemplateScratchId'] = $request->templateScratchId;
-        $query['TemplateURL']       = $request->templateURL;
-        $query['TemplateVersion']   = $request->templateVersion;
-        $query['TimeoutInMinutes']  = $request->timeoutInMinutes;
-        $req                        = new OpenApiRequest([
+        $query                            = [];
+        $query['ClientToken']             = $request->clientToken;
+        $query['DisableRollback']         = $request->disableRollback;
+        $query['Parallelism']             = $request->parallelism;
+        $query['Parameters']              = $request->parameters;
+        $query['RegionId']                = $request->regionId;
+        $query['StackName']               = $request->stackName;
+        $query['StackPolicyBody']         = $request->stackPolicyBody;
+        $query['StackPolicyURL']          = $request->stackPolicyURL;
+        $query['TemplateBody']            = $request->templateBody;
+        $query['TemplateId']              = $request->templateId;
+        $query['TemplateScratchId']       = $request->templateScratchId;
+        $query['TemplateScratchRegionId'] = $request->templateScratchRegionId;
+        $query['TemplateURL']             = $request->templateURL;
+        $query['TemplateVersion']         = $request->templateVersion;
+        $query['TimeoutInMinutes']        = $request->timeoutInMinutes;
+        $req                              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([

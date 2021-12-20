@@ -17,9 +17,15 @@ class stacks extends Model
      * @var string
      */
     public $stackId;
+
+    /**
+     * @var string
+     */
+    public $usageType;
     protected $_name = [
-        'regionId' => 'RegionId',
-        'stackId'  => 'StackId',
+        'regionId'  => 'RegionId',
+        'stackId'   => 'StackId',
+        'usageType' => 'UsageType',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class stacks extends Model
         }
         if (null !== $this->stackId) {
             $res['StackId'] = $this->stackId;
+        }
+        if (null !== $this->usageType) {
+            $res['UsageType'] = $this->usageType;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class stacks extends Model
         }
         if (isset($map['StackId'])) {
             $model->stackId = $map['StackId'];
+        }
+        if (isset($map['UsageType'])) {
+            $model->usageType = $map['UsageType'];
         }
 
         return $model;

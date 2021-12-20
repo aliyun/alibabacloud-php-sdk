@@ -67,6 +67,11 @@ class PreviewStackRequest extends Model
     /**
      * @var string
      */
+    public $templateScratchRegionId;
+
+    /**
+     * @var string
+     */
     public $templateURL;
 
     /**
@@ -79,20 +84,21 @@ class PreviewStackRequest extends Model
      */
     public $timeoutInMinutes;
     protected $_name = [
-        'clientToken'       => 'ClientToken',
-        'disableRollback'   => 'DisableRollback',
-        'parallelism'       => 'Parallelism',
-        'parameters'        => 'Parameters',
-        'regionId'          => 'RegionId',
-        'stackName'         => 'StackName',
-        'stackPolicyBody'   => 'StackPolicyBody',
-        'stackPolicyURL'    => 'StackPolicyURL',
-        'templateBody'      => 'TemplateBody',
-        'templateId'        => 'TemplateId',
-        'templateScratchId' => 'TemplateScratchId',
-        'templateURL'       => 'TemplateURL',
-        'templateVersion'   => 'TemplateVersion',
-        'timeoutInMinutes'  => 'TimeoutInMinutes',
+        'clientToken'             => 'ClientToken',
+        'disableRollback'         => 'DisableRollback',
+        'parallelism'             => 'Parallelism',
+        'parameters'              => 'Parameters',
+        'regionId'                => 'RegionId',
+        'stackName'               => 'StackName',
+        'stackPolicyBody'         => 'StackPolicyBody',
+        'stackPolicyURL'          => 'StackPolicyURL',
+        'templateBody'            => 'TemplateBody',
+        'templateId'              => 'TemplateId',
+        'templateScratchId'       => 'TemplateScratchId',
+        'templateScratchRegionId' => 'TemplateScratchRegionId',
+        'templateURL'             => 'TemplateURL',
+        'templateVersion'         => 'TemplateVersion',
+        'timeoutInMinutes'        => 'TimeoutInMinutes',
     ];
 
     public function validate()
@@ -140,6 +146,9 @@ class PreviewStackRequest extends Model
         }
         if (null !== $this->templateScratchId) {
             $res['TemplateScratchId'] = $this->templateScratchId;
+        }
+        if (null !== $this->templateScratchRegionId) {
+            $res['TemplateScratchRegionId'] = $this->templateScratchRegionId;
         }
         if (null !== $this->templateURL) {
             $res['TemplateURL'] = $this->templateURL;
@@ -200,6 +209,9 @@ class PreviewStackRequest extends Model
         }
         if (isset($map['TemplateScratchId'])) {
             $model->templateScratchId = $map['TemplateScratchId'];
+        }
+        if (isset($map['TemplateScratchRegionId'])) {
+            $model->templateScratchRegionId = $map['TemplateScratchRegionId'];
         }
         if (isset($map['TemplateURL'])) {
             $model->templateURL = $map['TemplateURL'];
