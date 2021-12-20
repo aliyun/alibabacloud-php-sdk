@@ -19,12 +19,18 @@ class CreateLogicDatabaseRequest extends Model
     public $databaseIds;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $tid;
     protected $_name = [
         'alias'       => 'Alias',
         'databaseIds' => 'DatabaseIds',
+        'regionId'    => 'RegionId',
         'tid'         => 'Tid',
     ];
 
@@ -40,6 +46,9 @@ class CreateLogicDatabaseRequest extends Model
         }
         if (null !== $this->databaseIds) {
             $res['DatabaseIds'] = $this->databaseIds;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -63,6 +72,9 @@ class CreateLogicDatabaseRequest extends Model
             if (!empty($map['DatabaseIds'])) {
                 $model->databaseIds = $map['DatabaseIds'];
             }
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

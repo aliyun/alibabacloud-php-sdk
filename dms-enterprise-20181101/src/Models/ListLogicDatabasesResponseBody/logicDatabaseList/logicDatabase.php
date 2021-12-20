@@ -13,6 +13,11 @@ class logicDatabase extends Model
     /**
      * @var string
      */
+    public $alias;
+
+    /**
+     * @var string
+     */
     public $databaseId;
 
     /**
@@ -50,6 +55,7 @@ class logicDatabase extends Model
      */
     public $searchName;
     protected $_name = [
+        'alias'         => 'Alias',
         'databaseId'    => 'DatabaseId',
         'dbType'        => 'DbType',
         'envType'       => 'EnvType',
@@ -67,6 +73,9 @@ class logicDatabase extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->alias) {
+            $res['Alias'] = $this->alias;
+        }
         if (null !== $this->databaseId) {
             $res['DatabaseId'] = $this->databaseId;
         }
@@ -103,6 +112,9 @@ class logicDatabase extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Alias'])) {
+            $model->alias = $map['Alias'];
+        }
         if (isset($map['DatabaseId'])) {
             $model->databaseId = $map['DatabaseId'];
         }

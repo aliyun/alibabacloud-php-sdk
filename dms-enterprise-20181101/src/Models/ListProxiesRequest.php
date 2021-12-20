@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListProxiesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $tid;
     protected $_name = [
-        'tid' => 'Tid',
+        'regionId' => 'RegionId',
+        'tid'      => 'Tid',
     ];
 
     public function validate()
@@ -23,6 +29,9 @@ class ListProxiesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -38,6 +47,9 @@ class ListProxiesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

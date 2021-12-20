@@ -26,6 +26,11 @@ class ListSensitiveColumnsDetailRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $schemaName;
 
     /**
@@ -41,6 +46,7 @@ class ListSensitiveColumnsDetailRequest extends Model
         'columnName' => 'ColumnName',
         'dbId'       => 'DbId',
         'logic'      => 'Logic',
+        'regionId'   => 'RegionId',
         'schemaName' => 'SchemaName',
         'tableName'  => 'TableName',
         'tid'        => 'Tid',
@@ -61,6 +67,9 @@ class ListSensitiveColumnsDetailRequest extends Model
         }
         if (null !== $this->logic) {
             $res['Logic'] = $this->logic;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
@@ -91,6 +100,9 @@ class ListSensitiveColumnsDetailRequest extends Model
         }
         if (isset($map['Logic'])) {
             $model->logic = $map['Logic'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];

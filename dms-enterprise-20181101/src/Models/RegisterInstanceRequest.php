@@ -91,6 +91,11 @@ class RegisterInstanceRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $safeRule;
 
     /**
@@ -134,6 +139,7 @@ class RegisterInstanceRequest extends Model
         'networkType'      => 'NetworkType',
         'port'             => 'Port',
         'queryTimeout'     => 'QueryTimeout',
+        'regionId'         => 'RegionId',
         'safeRule'         => 'SafeRule',
         'sid'              => 'Sid',
         'skipTest'         => 'SkipTest',
@@ -196,6 +202,9 @@ class RegisterInstanceRequest extends Model
         }
         if (null !== $this->queryTimeout) {
             $res['QueryTimeout'] = $this->queryTimeout;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->safeRule) {
             $res['SafeRule'] = $this->safeRule;
@@ -274,6 +283,9 @@ class RegisterInstanceRequest extends Model
         }
         if (isset($map['QueryTimeout'])) {
             $model->queryTimeout = $map['QueryTimeout'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SafeRule'])) {
             $model->safeRule = $map['SafeRule'];

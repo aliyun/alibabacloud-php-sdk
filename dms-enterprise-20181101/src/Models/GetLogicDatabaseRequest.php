@@ -14,12 +14,18 @@ class GetLogicDatabaseRequest extends Model
     public $dbId;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $tid;
     protected $_name = [
-        'dbId' => 'DbId',
-        'tid'  => 'Tid',
+        'dbId'     => 'DbId',
+        'regionId' => 'RegionId',
+        'tid'      => 'Tid',
     ];
 
     public function validate()
@@ -31,6 +37,9 @@ class GetLogicDatabaseRequest extends Model
         $res = [];
         if (null !== $this->dbId) {
             $res['DbId'] = $this->dbId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -49,6 +58,9 @@ class GetLogicDatabaseRequest extends Model
         $model = new self();
         if (isset($map['DbId'])) {
             $model->dbId = $map['DbId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

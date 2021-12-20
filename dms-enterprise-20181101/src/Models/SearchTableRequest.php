@@ -29,6 +29,11 @@ class SearchTableRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var bool
      */
     public $returnGuid;
@@ -57,6 +62,7 @@ class SearchTableRequest extends Model
         'envType'      => 'EnvType',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
+        'regionId'     => 'RegionId',
         'returnGuid'   => 'ReturnGuid',
         'searchKey'    => 'SearchKey',
         'searchRange'  => 'SearchRange',
@@ -82,6 +88,9 @@ class SearchTableRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->returnGuid) {
             $res['ReturnGuid'] = $this->returnGuid;
@@ -121,6 +130,9 @@ class SearchTableRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ReturnGuid'])) {
             $model->returnGuid = $map['ReturnGuid'];

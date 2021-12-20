@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DBTaskSQLJobDetailList extends Model
 {
     /**
+     * @var int
+     */
+    public $affectRows;
+
+    /**
      * @var string
      */
     public $currentSql;
@@ -17,6 +22,11 @@ class DBTaskSQLJobDetailList extends Model
      * @var int
      */
     public $dbId;
+
+    /**
+     * @var string
+     */
+    public $endTime;
 
     /**
      * @var int
@@ -56,10 +66,22 @@ class DBTaskSQLJobDetailList extends Model
     /**
      * @var string
      */
+    public $startTime;
+
+    /**
+     * @var string
+     */
     public $status;
+
+    /**
+     * @var int
+     */
+    public $timeDelay;
     protected $_name = [
+        'affectRows'   => 'AffectRows',
         'currentSql'   => 'CurrentSql',
         'dbId'         => 'DbId',
+        'endTime'      => 'EndTime',
         'executeCount' => 'ExecuteCount',
         'jobDetailId'  => 'JobDetailId',
         'jobId'        => 'JobId',
@@ -67,7 +89,9 @@ class DBTaskSQLJobDetailList extends Model
         'logic'        => 'Logic',
         'skip'         => 'Skip',
         'sqlType'      => 'SqlType',
+        'startTime'    => 'StartTime',
         'status'       => 'Status',
+        'timeDelay'    => 'TimeDelay',
     ];
 
     public function validate()
@@ -77,11 +101,17 @@ class DBTaskSQLJobDetailList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->affectRows) {
+            $res['AffectRows'] = $this->affectRows;
+        }
         if (null !== $this->currentSql) {
             $res['CurrentSql'] = $this->currentSql;
         }
         if (null !== $this->dbId) {
             $res['DbId'] = $this->dbId;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->executeCount) {
             $res['ExecuteCount'] = $this->executeCount;
@@ -104,8 +134,14 @@ class DBTaskSQLJobDetailList extends Model
         if (null !== $this->sqlType) {
             $res['SqlType'] = $this->sqlType;
         }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->timeDelay) {
+            $res['TimeDelay'] = $this->timeDelay;
         }
 
         return $res;
@@ -119,11 +155,17 @@ class DBTaskSQLJobDetailList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AffectRows'])) {
+            $model->affectRows = $map['AffectRows'];
+        }
         if (isset($map['CurrentSql'])) {
             $model->currentSql = $map['CurrentSql'];
         }
         if (isset($map['DbId'])) {
             $model->dbId = $map['DbId'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['ExecuteCount'])) {
             $model->executeCount = $map['ExecuteCount'];
@@ -146,8 +188,14 @@ class DBTaskSQLJobDetailList extends Model
         if (isset($map['SqlType'])) {
             $model->sqlType = $map['SqlType'];
         }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TimeDelay'])) {
+            $model->timeDelay = $map['TimeDelay'];
         }
 
         return $model;

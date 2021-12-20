@@ -11,6 +11,11 @@ class DeleteLogicTableRouteConfigRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $routeKey;
 
     /**
@@ -23,6 +28,7 @@ class DeleteLogicTableRouteConfigRequest extends Model
      */
     public $tid;
     protected $_name = [
+        'regionId' => 'RegionId',
         'routeKey' => 'RouteKey',
         'tableId'  => 'TableId',
         'tid'      => 'Tid',
@@ -35,6 +41,9 @@ class DeleteLogicTableRouteConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->routeKey) {
             $res['RouteKey'] = $this->routeKey;
         }
@@ -56,6 +65,9 @@ class DeleteLogicTableRouteConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['RouteKey'])) {
             $model->routeKey = $map['RouteKey'];
         }

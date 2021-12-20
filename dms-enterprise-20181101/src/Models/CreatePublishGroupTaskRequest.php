@@ -34,6 +34,11 @@ class CreatePublishGroupTaskRequest extends Model
     public $publishStrategy;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $tid;
@@ -43,6 +48,7 @@ class CreatePublishGroupTaskRequest extends Model
         'orderId'         => 'OrderId',
         'planTime'        => 'PlanTime',
         'publishStrategy' => 'PublishStrategy',
+        'regionId'        => 'RegionId',
         'tid'             => 'Tid',
     ];
 
@@ -67,6 +73,9 @@ class CreatePublishGroupTaskRequest extends Model
         }
         if (null !== $this->publishStrategy) {
             $res['PublishStrategy'] = $this->publishStrategy;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -97,6 +106,9 @@ class CreatePublishGroupTaskRequest extends Model
         }
         if (isset($map['PublishStrategy'])) {
             $model->publishStrategy = $map['PublishStrategy'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

@@ -290,7 +290,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']       = $request->tid;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddLogicTableRouteConfig',
@@ -300,7 +299,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -335,7 +334,6 @@ class Dmsenterprise extends OpenApiClient
         $query['WorkflowInstanceId'] = $request->workflowInstanceId;
         $req                         = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ApproveOrder',
@@ -345,7 +343,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -383,7 +381,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']        = $request->tid;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ChangeColumnSecLevel',
@@ -393,7 +390,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -427,7 +424,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']         = $request->tid;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CloseOrder',
@@ -437,7 +433,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -481,7 +477,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']             = $request->tid;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateDataCorrectOrder',
@@ -491,7 +486,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -535,7 +530,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']             = $request->tid;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateDataCronClearOrder',
@@ -545,7 +539,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -589,7 +583,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']             = $request->tid;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateDataImportOrder',
@@ -599,7 +592,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -643,7 +636,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']             = $request->tid;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateFreeLockCorrectOrder',
@@ -653,7 +645,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -692,7 +684,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']         = $request->tid;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateLogicDatabase',
@@ -702,7 +693,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -741,9 +732,13 @@ class Dmsenterprise extends OpenApiClient
         $query['PluginType']      = $request->pluginType;
         $query['RelatedUserList'] = $request->relatedUserList;
         $query['Tid']             = $request->tid;
-        $req                      = new OpenApiRequest([
+        $body                     = [];
+        if (!Utils::isUnset($request->pluginParamShrink)) {
+            $body['PluginParam'] = $request->pluginParamShrink;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateOrder',
@@ -788,7 +783,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Username']   = $request->username;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateProxy',
@@ -798,7 +792,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -834,7 +828,6 @@ class Dmsenterprise extends OpenApiClient
         $query['UserId']        = $request->userId;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateProxyAccess',
@@ -844,7 +837,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -881,7 +874,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']             = $request->tid;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreatePublishGroupTask',
@@ -891,7 +883,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -934,7 +926,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']             = $request->tid;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateSQLReviewOrder',
@@ -944,7 +935,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -988,7 +979,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']             = $request->tid;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateStructSyncOrder',
@@ -998,7 +988,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1033,7 +1023,6 @@ class Dmsenterprise extends OpenApiClient
         $query['UploadURL']  = $request->uploadURL;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateUploadFileJob',
@@ -1043,7 +1032,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1083,7 +1072,6 @@ class Dmsenterprise extends OpenApiClient
         $query['UploadTarget'] = $request->uploadTargetShrink;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateUploadOSSFileJob',
@@ -1093,7 +1081,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1128,7 +1116,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']  = $request->tid;
         $req           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteInstance',
@@ -1138,7 +1125,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1171,7 +1158,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']       = $request->tid;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteLogicDatabase',
@@ -1181,7 +1167,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1215,7 +1201,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']      = $request->tid;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteLogicTableRouteConfig',
@@ -1225,7 +1210,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1258,7 +1243,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']     = $request->tid;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteProxy',
@@ -1268,7 +1252,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1301,7 +1285,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']           = $request->tid;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteProxyAccess',
@@ -1311,7 +1294,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1344,7 +1327,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Uid'] = $request->uid;
         $req          = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteUser',
@@ -1354,7 +1336,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1387,7 +1369,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Uid'] = $request->uid;
         $req          = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DisableUser',
@@ -1397,7 +1378,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1437,7 +1418,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']         = $request->tid;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'EditLogicDatabase',
@@ -1447,7 +1427,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1480,7 +1460,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Uid'] = $request->uid;
         $req          = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'EnableUser',
@@ -1490,7 +1469,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1529,7 +1508,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']          = $request->tid;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ExecuteDataCorrect',
@@ -1539,7 +1517,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1578,7 +1556,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']          = $request->tid;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ExecuteDataExport',
@@ -1588,7 +1565,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1623,7 +1600,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']    = $request->tid;
         $req             = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ExecuteScript',
@@ -1633,7 +1609,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1666,7 +1642,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']     = $request->tid;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ExecuteStructSync',
@@ -1676,7 +1651,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1709,7 +1684,6 @@ class Dmsenterprise extends OpenApiClient
         $query['WorkflowInstanceId'] = $request->workflowInstanceId;
         $req                         = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetApprovalDetail',
@@ -1719,7 +1693,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1752,7 +1726,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']   = $request->tid;
         $req            = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetDBTaskSQLJobLog',
@@ -1762,7 +1735,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1795,7 +1768,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']       = $request->tid;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetDBTopology',
@@ -1805,7 +1777,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1844,7 +1816,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']          = $request->tid;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetDataCorrectBackupFiles',
@@ -1854,7 +1825,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1887,7 +1858,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']     = $request->tid;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetDataCorrectOrderDetail',
@@ -1897,7 +1867,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1930,7 +1900,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']     = $request->tid;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetDataCorrectSQLFile',
@@ -1940,7 +1909,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1973,7 +1942,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']     = $request->tid;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetDataCorrectTaskDetail',
@@ -1983,7 +1951,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2018,7 +1986,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']        = $request->tid;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetDataCronClearTaskDetailList',
@@ -2028,7 +1995,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2061,7 +2028,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']     = $request->tid;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetDataExportDownloadURL',
@@ -2071,7 +2037,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2101,9 +2067,13 @@ class Dmsenterprise extends OpenApiClient
         Utils::validateModel($request);
         $query        = [];
         $query['Tid'] = $request->tid;
-        $req          = new OpenApiRequest([
+        $body         = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $body['OrderId'] = $request->orderId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetDataExportOrderDetail',
@@ -2149,7 +2119,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']        = $request->tid;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetDatabase',
@@ -2159,7 +2128,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2194,7 +2163,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']  = $request->tid;
         $req           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetInstance',
@@ -2204,7 +2172,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2237,7 +2205,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']  = $request->tid;
         $req           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetLogicDatabase',
@@ -2247,7 +2214,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2280,7 +2247,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']       = $request->tid;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetMetaTableColumn',
@@ -2290,7 +2256,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2323,7 +2289,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']       = $request->tid;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetMetaTableDetailInfo',
@@ -2333,7 +2298,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2370,7 +2335,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']        = $request->tid;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetOpLog',
@@ -2380,7 +2344,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2413,7 +2377,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']     = $request->tid;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetOrderBaseInfo',
@@ -2423,7 +2386,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2456,7 +2419,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']     = $request->tid;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetOwnerApplyOrderDetail',
@@ -2466,7 +2428,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2499,7 +2461,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']     = $request->tid;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetPermApplyOrderDetail',
@@ -2509,7 +2470,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2542,7 +2503,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']  = $request->tid;
         $req           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetPhysicalDatabase',
@@ -2552,7 +2512,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2586,7 +2546,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']        = $request->tid;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetProxy',
@@ -2596,7 +2555,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2629,7 +2588,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']     = $request->tid;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetSQLReviewCheckResultStatus',
@@ -2639,7 +2597,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2672,7 +2630,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']               = $request->tid;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetSQLReviewOptimizeDetail',
@@ -2682,7 +2639,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2717,7 +2674,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']        = $request->tid;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetStructSyncExecSqlDetail',
@@ -2727,7 +2683,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2763,7 +2719,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']         = $request->tid;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetStructSyncJobAnalyzeResult',
@@ -2773,7 +2728,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2806,7 +2761,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']     = $request->tid;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetStructSyncJobDetail',
@@ -2816,7 +2770,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2849,7 +2803,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']     = $request->tid;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetStructSyncOrderDetail',
@@ -2859,7 +2812,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2892,7 +2845,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']       = $request->tid;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetTableDBTopology',
@@ -2902,7 +2854,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2935,7 +2887,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']       = $request->tid;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetTableTopology',
@@ -2945,7 +2896,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -2979,7 +2930,6 @@ class Dmsenterprise extends OpenApiClient
         $query['UserId'] = $request->userId;
         $req             = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetUser',
@@ -2989,7 +2939,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3021,7 +2971,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid'] = $request->tid;
         $req          = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetUserActiveTenant',
@@ -3031,7 +2980,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3064,7 +3013,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']    = $request->tid;
         $req             = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetUserUploadFileJob',
@@ -3074,7 +3022,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3115,7 +3063,6 @@ class Dmsenterprise extends OpenApiClient
         $query['UserId']     = $request->userId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GrantUserPermission',
@@ -3125,7 +3072,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3158,7 +3105,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']           = $request->tid;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'InspectProxyAccessSecret',
@@ -3168,7 +3114,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3202,7 +3148,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']     = $request->tid;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListColumns',
@@ -3212,7 +3157,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3247,7 +3192,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']           = $request->tid;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListDBTaskSQLJob',
@@ -3257,7 +3201,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3292,7 +3236,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']        = $request->tid;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListDBTaskSQLJobDetail',
@@ -3302,7 +3245,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3335,7 +3278,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']     = $request->tid;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListDDLPublishRecords',
@@ -3345,7 +3287,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3380,7 +3322,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']        = $request->tid;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListDataCorrectPreCheckDB',
@@ -3390,7 +3331,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3426,7 +3367,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']        = $request->tid;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListDataCorrectPreCheckSQL',
@@ -3436,7 +3376,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3474,7 +3414,6 @@ class Dmsenterprise extends OpenApiClient
         $query['UserName']   = $request->userName;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListDatabaseUserPermssions',
@@ -3484,7 +3423,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3519,7 +3458,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']        = $request->tid;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListDatabases',
@@ -3529,7 +3467,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3563,7 +3501,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']     = $request->tid;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListIndexes',
@@ -3573,7 +3510,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3611,7 +3548,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']        = $request->tid;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListInstanceLoginAuditLog',
@@ -3621,7 +3557,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3657,7 +3593,6 @@ class Dmsenterprise extends OpenApiClient
         $query['UserName']   = $request->userName;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListInstanceUserPermissions',
@@ -3667,7 +3602,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3707,7 +3642,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']            = $request->tid;
         $req                     = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListInstances',
@@ -3717,7 +3651,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3751,7 +3685,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']        = $request->tid;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListLogicDatabases',
@@ -3761,7 +3694,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3794,7 +3727,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']     = $request->tid;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListLogicTableRouteConfig',
@@ -3804,7 +3736,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3841,7 +3773,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']        = $request->tid;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListLogicTables',
@@ -3851,7 +3782,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3892,7 +3823,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']             = $request->tid;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListOrders',
@@ -3902,7 +3832,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3934,7 +3864,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid'] = $request->tid;
         $req          = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListProxies',
@@ -3944,7 +3873,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -3977,7 +3906,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']     = $request->tid;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListProxyAccesses',
@@ -3987,7 +3915,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4027,7 +3955,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']        = $request->tid;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListProxySQLExecAuditLog',
@@ -4037,7 +3964,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4077,7 +4004,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']        = $request->tid;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListSQLExecAuditLog',
@@ -4087,7 +4013,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4126,7 +4052,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']               = $request->tid;
         $req                        = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListSQLReviewOriginSQL',
@@ -4136,7 +4061,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4176,7 +4101,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']           = $request->tid;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListSensitiveColumns',
@@ -4186,7 +4110,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4223,7 +4147,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']        = $request->tid;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListSensitiveColumnsDetail',
@@ -4233,7 +4156,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4270,7 +4193,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']        = $request->tid;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListTables',
@@ -4280,7 +4202,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4321,7 +4243,6 @@ class Dmsenterprise extends OpenApiClient
         $query['UserId']       = $request->userId;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListUserPermissions',
@@ -4331,7 +4252,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4363,7 +4284,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid'] = $request->tid;
         $req          = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListUserTenants',
@@ -4373,7 +4293,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4410,7 +4330,6 @@ class Dmsenterprise extends OpenApiClient
         $query['UserState']  = $request->userState;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListUsers',
@@ -4420,7 +4339,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4453,7 +4372,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']        = $request->tid;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListWorkFlowNodes',
@@ -4463,7 +4381,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4496,7 +4414,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']        = $request->tid;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListWorkFlowTemplates',
@@ -4506,7 +4423,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4540,7 +4457,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']     = $request->tid;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyDataCorrectExecSQL',
@@ -4550,7 +4466,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4603,7 +4519,6 @@ class Dmsenterprise extends OpenApiClient
         $query['VpcId']            = $request->vpcId;
         $req                       = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RegisterInstance',
@@ -4613,7 +4528,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4649,7 +4564,6 @@ class Dmsenterprise extends OpenApiClient
         $query['UserNick']  = $request->userNick;
         $req                = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RegisterUser',
@@ -4659,7 +4573,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4692,7 +4606,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']     = $request->tid;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RetryDataCorrectPreCheck',
@@ -4702,7 +4615,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4743,7 +4656,6 @@ class Dmsenterprise extends OpenApiClient
         $query['UserId']       = $request->userId;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RevokeUserPermission',
@@ -4753,7 +4665,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4792,7 +4704,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']          = $request->tid;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SearchDatabase',
@@ -4802,7 +4713,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4842,7 +4753,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']          = $request->tid;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SearchTable',
@@ -4852,7 +4762,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4887,7 +4797,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']        = $request->tid;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SetOwners',
@@ -4897,7 +4806,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4930,7 +4839,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']     = $request->tid;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitOrderApproval',
@@ -4940,7 +4848,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -4973,7 +4881,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']     = $request->tid;
         $req              = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SubmitStructSyncOrderApproval',
@@ -4983,7 +4890,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5017,7 +4924,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']   = $request->tid;
         $req            = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SyncDatabaseMeta',
@@ -5027,7 +4933,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5061,7 +4967,6 @@ class Dmsenterprise extends OpenApiClient
         $query['Tid']         = $request->tid;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'SyncInstanceMeta',
@@ -5071,7 +4976,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5124,7 +5029,6 @@ class Dmsenterprise extends OpenApiClient
         $query['VpcId']            = $request->vpcId;
         $req                       = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateInstance',
@@ -5134,7 +5038,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -5172,7 +5076,6 @@ class Dmsenterprise extends OpenApiClient
         $query['UserNick']        = $request->userNick;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'UpdateUser',
@@ -5182,7 +5085,7 @@ class Dmsenterprise extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 

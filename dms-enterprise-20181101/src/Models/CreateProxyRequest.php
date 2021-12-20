@@ -19,6 +19,11 @@ class CreateProxyRequest extends Model
     public $password;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $tid;
@@ -30,6 +35,7 @@ class CreateProxyRequest extends Model
     protected $_name = [
         'instanceId' => 'InstanceId',
         'password'   => 'Password',
+        'regionId'   => 'RegionId',
         'tid'        => 'Tid',
         'username'   => 'Username',
     ];
@@ -46,6 +52,9 @@ class CreateProxyRequest extends Model
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -70,6 +79,9 @@ class CreateProxyRequest extends Model
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

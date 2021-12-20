@@ -19,12 +19,18 @@ class SyncInstanceMetaRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $tid;
     protected $_name = [
         'ignoreTable' => 'IgnoreTable',
         'instanceId'  => 'InstanceId',
+        'regionId'    => 'RegionId',
         'tid'         => 'Tid',
     ];
 
@@ -40,6 +46,9 @@ class SyncInstanceMetaRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -61,6 +70,9 @@ class SyncInstanceMetaRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

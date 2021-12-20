@@ -19,13 +19,19 @@ class SyncDatabaseMetaRequest extends Model
     public $logic;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $tid;
     protected $_name = [
-        'dbId'  => 'DbId',
-        'logic' => 'Logic',
-        'tid'   => 'Tid',
+        'dbId'     => 'DbId',
+        'logic'    => 'Logic',
+        'regionId' => 'RegionId',
+        'tid'      => 'Tid',
     ];
 
     public function validate()
@@ -40,6 +46,9 @@ class SyncDatabaseMetaRequest extends Model
         }
         if (null !== $this->logic) {
             $res['Logic'] = $this->logic;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -61,6 +70,9 @@ class SyncDatabaseMetaRequest extends Model
         }
         if (isset($map['Logic'])) {
             $model->logic = $map['Logic'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

@@ -19,12 +19,18 @@ class CreateLogicDatabaseShrinkRequest extends Model
     public $databaseIdsShrink;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $tid;
     protected $_name = [
         'alias'             => 'Alias',
         'databaseIdsShrink' => 'DatabaseIds',
+        'regionId'          => 'RegionId',
         'tid'               => 'Tid',
     ];
 
@@ -40,6 +46,9 @@ class CreateLogicDatabaseShrinkRequest extends Model
         }
         if (null !== $this->databaseIdsShrink) {
             $res['DatabaseIds'] = $this->databaseIdsShrink;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -61,6 +70,9 @@ class CreateLogicDatabaseShrinkRequest extends Model
         }
         if (isset($map['DatabaseIds'])) {
             $model->databaseIdsShrink = $map['DatabaseIds'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

@@ -19,6 +19,11 @@ class ApproveOrderRequest extends Model
     public $comment;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $tid;
@@ -30,6 +35,7 @@ class ApproveOrderRequest extends Model
     protected $_name = [
         'approvalType'       => 'ApprovalType',
         'comment'            => 'Comment',
+        'regionId'           => 'RegionId',
         'tid'                => 'Tid',
         'workflowInstanceId' => 'WorkflowInstanceId',
     ];
@@ -46,6 +52,9 @@ class ApproveOrderRequest extends Model
         }
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -70,6 +79,9 @@ class ApproveOrderRequest extends Model
         }
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

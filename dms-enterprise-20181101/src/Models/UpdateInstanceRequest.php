@@ -91,6 +91,11 @@ class UpdateInstanceRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $safeRuleId;
 
     /**
@@ -134,6 +139,7 @@ class UpdateInstanceRequest extends Model
         'instanceType'     => 'InstanceType',
         'port'             => 'Port',
         'queryTimeout'     => 'QueryTimeout',
+        'regionId'         => 'RegionId',
         'safeRuleId'       => 'SafeRuleId',
         'sid'              => 'Sid',
         'skipTest'         => 'SkipTest',
@@ -196,6 +202,9 @@ class UpdateInstanceRequest extends Model
         }
         if (null !== $this->queryTimeout) {
             $res['QueryTimeout'] = $this->queryTimeout;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->safeRuleId) {
             $res['SafeRuleId'] = $this->safeRuleId;
@@ -274,6 +283,9 @@ class UpdateInstanceRequest extends Model
         }
         if (isset($map['QueryTimeout'])) {
             $model->queryTimeout = $map['QueryTimeout'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SafeRuleId'])) {
             $model->safeRuleId = $map['SafeRuleId'];

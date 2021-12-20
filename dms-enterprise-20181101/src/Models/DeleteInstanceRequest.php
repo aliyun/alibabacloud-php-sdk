@@ -21,6 +21,11 @@ class DeleteInstanceRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $sid;
 
     /**
@@ -28,10 +33,11 @@ class DeleteInstanceRequest extends Model
      */
     public $tid;
     protected $_name = [
-        'host' => 'Host',
-        'port' => 'Port',
-        'sid'  => 'Sid',
-        'tid'  => 'Tid',
+        'host'     => 'Host',
+        'port'     => 'Port',
+        'regionId' => 'RegionId',
+        'sid'      => 'Sid',
+        'tid'      => 'Tid',
     ];
 
     public function validate()
@@ -46,6 +52,9 @@ class DeleteInstanceRequest extends Model
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->sid) {
             $res['Sid'] = $this->sid;
@@ -70,6 +79,9 @@ class DeleteInstanceRequest extends Model
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Sid'])) {
             $model->sid = $map['Sid'];

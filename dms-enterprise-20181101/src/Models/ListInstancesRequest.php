@@ -46,6 +46,11 @@ class ListInstancesRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $searchKey;
 
     /**
@@ -60,6 +65,7 @@ class ListInstancesRequest extends Model
         'netType'        => 'NetType',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
+        'regionId'       => 'RegionId',
         'searchKey'      => 'SearchKey',
         'tid'            => 'Tid',
     ];
@@ -91,6 +97,9 @@ class ListInstancesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->searchKey) {
             $res['SearchKey'] = $this->searchKey;
@@ -130,6 +139,9 @@ class ListInstancesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SearchKey'])) {
             $model->searchKey = $map['SearchKey'];

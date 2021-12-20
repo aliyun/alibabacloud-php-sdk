@@ -19,13 +19,19 @@ class ModifyDataCorrectExecSQLRequest extends Model
     public $orderId;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $tid;
     protected $_name = [
-        'execSQL' => 'ExecSQL',
-        'orderId' => 'OrderId',
-        'tid'     => 'Tid',
+        'execSQL'  => 'ExecSQL',
+        'orderId'  => 'OrderId',
+        'regionId' => 'RegionId',
+        'tid'      => 'Tid',
     ];
 
     public function validate()
@@ -40,6 +46,9 @@ class ModifyDataCorrectExecSQLRequest extends Model
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -61,6 +70,9 @@ class ModifyDataCorrectExecSQLRequest extends Model
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

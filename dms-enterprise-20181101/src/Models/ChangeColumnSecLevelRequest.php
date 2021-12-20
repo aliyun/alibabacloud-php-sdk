@@ -33,6 +33,11 @@ class ChangeColumnSecLevelRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $schemaName;
 
     /**
@@ -49,6 +54,7 @@ class ChangeColumnSecLevelRequest extends Model
         'dbId'       => 'DbId',
         'isLogic'    => 'IsLogic',
         'newLevel'   => 'NewLevel',
+        'regionId'   => 'RegionId',
         'schemaName' => 'SchemaName',
         'tableName'  => 'TableName',
         'tid'        => 'Tid',
@@ -72,6 +78,9 @@ class ChangeColumnSecLevelRequest extends Model
         }
         if (null !== $this->newLevel) {
             $res['NewLevel'] = $this->newLevel;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
@@ -105,6 +114,9 @@ class ChangeColumnSecLevelRequest extends Model
         }
         if (isset($map['NewLevel'])) {
             $model->newLevel = $map['NewLevel'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];

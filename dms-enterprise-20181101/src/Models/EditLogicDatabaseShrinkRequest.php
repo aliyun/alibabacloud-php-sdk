@@ -24,6 +24,11 @@ class EditLogicDatabaseShrinkRequest extends Model
     public $logicDbId;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var int
      */
     public $tid;
@@ -31,6 +36,7 @@ class EditLogicDatabaseShrinkRequest extends Model
         'alias'             => 'Alias',
         'databaseIdsShrink' => 'DatabaseIds',
         'logicDbId'         => 'LogicDbId',
+        'regionId'          => 'RegionId',
         'tid'               => 'Tid',
     ];
 
@@ -49,6 +55,9 @@ class EditLogicDatabaseShrinkRequest extends Model
         }
         if (null !== $this->logicDbId) {
             $res['LogicDbId'] = $this->logicDbId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -73,6 +82,9 @@ class EditLogicDatabaseShrinkRequest extends Model
         }
         if (isset($map['LogicDbId'])) {
             $model->logicDbId = $map['LogicDbId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

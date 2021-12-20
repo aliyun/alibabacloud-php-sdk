@@ -36,6 +36,11 @@ class ListSensitiveColumnsRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $schemaName;
 
     /**
@@ -58,6 +63,7 @@ class ListSensitiveColumnsRequest extends Model
         'logic'         => 'Logic',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
+        'regionId'      => 'RegionId',
         'schemaName'    => 'SchemaName',
         'securityLevel' => 'SecurityLevel',
         'tableName'     => 'TableName',
@@ -85,6 +91,9 @@ class ListSensitiveColumnsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
@@ -124,6 +133,9 @@ class ListSensitiveColumnsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];
