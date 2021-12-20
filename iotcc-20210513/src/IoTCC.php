@@ -5,6 +5,11 @@
 namespace AlibabaCloud\SDK\IoTCC\V20210513;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\AddCidrToConnectionPoolRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\AddCidrToConnectionPoolResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\AddIoTCloudConnectorToGroupRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\AddIoTCloudConnectorToGroupResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\AssociateIpWithConnectionPoolRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\AssociateIpWithConnectionPoolResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\AssociateVSwitchWithIoTCloudConnectorRequest;
@@ -13,6 +18,10 @@ use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateAuthorizationRuleRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateAuthorizationRuleResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateConnectionPoolRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateConnectionPoolResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateGroupAuthorizationRuleRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateGroupAuthorizationRuleResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateIoTCloudConnectorGroupRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateIoTCloudConnectorGroupResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateIoTCloudConnectorRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateIoTCloudConnectorResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\CreateServiceEntryRequest;
@@ -23,6 +32,10 @@ use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteAuthorizationRuleRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteAuthorizationRuleResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteConnectionPoolRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteConnectionPoolResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteGroupAuthorizationRuleRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteGroupAuthorizationRuleResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteIoTCloudConnectorGroupRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteIoTCloudConnectorGroupResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteIoTCloudConnectorRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteIoTCloudConnectorResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\DeleteServiceEntryRequest;
@@ -49,12 +62,18 @@ use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListAPNsRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListAPNsResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListAuthorizationRulesRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListAuthorizationRulesResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListConnectionPoolAllIpsRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListConnectionPoolAllIpsResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListConnectionPoolIpsRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListConnectionPoolIpsResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListConnectionPoolsRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListConnectionPoolsResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListGroupAuthorizationRulesRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListGroupAuthorizationRulesResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListIoTCloudConnectorAvailableZonesRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListIoTCloudConnectorAvailableZonesResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListIoTCloudConnectorGroupsRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListIoTCloudConnectorGroupsResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListIoTCloudConnectorsRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListIoTCloudConnectorsResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListRegionsRequest;
@@ -65,12 +84,18 @@ use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListServiceRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\ListServiceResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\OpenIoTCloudConnectorServiceRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\OpenIoTCloudConnectorServiceResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\RemoveIoTCloudConnectorFromGroupRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\RemoveIoTCloudConnectorFromGroupResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateAuthorizationRuleAttributeRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateAuthorizationRuleAttributeResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateConnectionPoolAttributeRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateConnectionPoolAttributeResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateGroupAuthorizationRuleAttributeRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateGroupAuthorizationRuleAttributeResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateIoTCloudConnectorAttributeRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateIoTCloudConnectorAttributeResponse;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateIoTCloudConnectorGroupAttributeRequest;
+use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateIoTCloudConnectorGroupAttributeResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateServiceAttributeRequest;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateServiceAttributeResponse;
 use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateServiceEntryAttributeRequest;
@@ -78,6 +103,7 @@ use AlibabaCloud\SDK\IoTCC\V20210513\Models\UpdateServiceEntryAttributeResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class IoTCC extends OpenApiClient
@@ -114,6 +140,97 @@ class IoTCC extends OpenApiClient
     }
 
     /**
+     * @param AddCidrToConnectionPoolRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return AddCidrToConnectionPoolResponse
+     */
+    public function addCidrToConnectionPoolWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                        = [];
+        $query['Cidrs']               = $request->cidrs;
+        $query['ClientToken']         = $request->clientToken;
+        $query['ConnectionPoolId']    = $request->connectionPoolId;
+        $query['DryRun']              = $request->dryRun;
+        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        $query['RegionId']            = $request->regionId;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddCidrToConnectionPool',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddCidrToConnectionPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddCidrToConnectionPoolRequest $request
+     *
+     * @return AddCidrToConnectionPoolResponse
+     */
+    public function addCidrToConnectionPool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addCidrToConnectionPoolWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddIoTCloudConnectorToGroupRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return AddIoTCloudConnectorToGroupResponse
+     */
+    public function addIoTCloudConnectorToGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                             = [];
+        $query['ClientToken']              = $request->clientToken;
+        $query['DryRun']                   = $request->dryRun;
+        $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
+        $query['IoTCloudConnectorId']      = $request->ioTCloudConnectorId;
+        $query['RegionId']                 = $request->regionId;
+        $req                               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddIoTCloudConnectorToGroup',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddIoTCloudConnectorToGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddIoTCloudConnectorToGroupRequest $request
+     *
+     * @return AddIoTCloudConnectorToGroupResponse
+     */
+    public function addIoTCloudConnectorToGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addIoTCloudConnectorToGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param AssociateIpWithConnectionPoolRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -122,11 +239,30 @@ class IoTCC extends OpenApiClient
     public function associateIpWithConnectionPoolWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['ClientToken']         = $request->clientToken;
+        $query['ConnectionPoolId']    = $request->connectionPoolId;
+        $query['DryRun']              = $request->dryRun;
+        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        $query['Ips']                 = $request->ips;
+        $query['IpsFilePath']         = $request->ipsFilePath;
+        $query['RegionId']            = $request->regionId;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AssociateIpWithConnectionPool',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AssociateIpWithConnectionPoolResponse::fromMap($this->doRPCRequest('AssociateIpWithConnectionPool', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AssociateIpWithConnectionPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -150,11 +286,29 @@ class IoTCC extends OpenApiClient
     public function associateVSwitchWithIoTCloudConnectorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['ClientToken']         = $request->clientToken;
+        $query['DryRun']              = $request->dryRun;
+        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        $query['RegionId']            = $request->regionId;
+        $query['VSwitchList']         = $request->vSwitchList;
+        $query['VpcId']               = $request->vpcId;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AssociateVSwitchWithIoTCloudConnector',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return AssociateVSwitchWithIoTCloudConnectorResponse::fromMap($this->doRPCRequest('AssociateVSwitchWithIoTCloudConnector', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AssociateVSwitchWithIoTCloudConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -178,11 +332,33 @@ class IoTCC extends OpenApiClient
     public function createAuthorizationRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                                 = [];
+        $query['AuthorizationRuleDescription'] = $request->authorizationRuleDescription;
+        $query['AuthorizationRuleName']        = $request->authorizationRuleName;
+        $query['ClientToken']                  = $request->clientToken;
+        $query['Destination']                  = $request->destination;
+        $query['DestinationType']              = $request->destinationType;
+        $query['DryRun']                       = $request->dryRun;
+        $query['IoTCloudConnectorId']          = $request->ioTCloudConnectorId;
+        $query['Policy']                       = $request->policy;
+        $query['RegionId']                     = $request->regionId;
+        $query['SourceCidrs']                  = $request->sourceCidrs;
+        $req                                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAuthorizationRule',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateAuthorizationRuleResponse::fromMap($this->doRPCRequest('CreateAuthorizationRule', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -206,11 +382,31 @@ class IoTCC extends OpenApiClient
     public function createConnectionPoolWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                              = [];
+        $query['Cidrs']                     = $request->cidrs;
+        $query['ClientToken']               = $request->clientToken;
+        $query['ConnectionPoolDescription'] = $request->connectionPoolDescription;
+        $query['ConnectionPoolName']        = $request->connectionPoolName;
+        $query['Count']                     = $request->count;
+        $query['DryRun']                    = $request->dryRun;
+        $query['IoTCloudConnectorId']       = $request->ioTCloudConnectorId;
+        $query['RegionId']                  = $request->regionId;
+        $req                                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateConnectionPool',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateConnectionPoolResponse::fromMap($this->doRPCRequest('CreateConnectionPool', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateConnectionPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -226,6 +422,56 @@ class IoTCC extends OpenApiClient
     }
 
     /**
+     * @param CreateGroupAuthorizationRuleRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateGroupAuthorizationRuleResponse
+     */
+    public function createGroupAuthorizationRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                                 = [];
+        $query['AuthorizationRuleDescription'] = $request->authorizationRuleDescription;
+        $query['AuthorizationRuleName']        = $request->authorizationRuleName;
+        $query['ClientToken']                  = $request->clientToken;
+        $query['Destination']                  = $request->destination;
+        $query['DestinationType']              = $request->destinationType;
+        $query['DryRun']                       = $request->dryRun;
+        $query['IoTCloudConnectorGroupId']     = $request->ioTCloudConnectorGroupId;
+        $query['Policy']                       = $request->policy;
+        $query['RegionId']                     = $request->regionId;
+        $query['SourceCidrs']                  = $request->sourceCidrs;
+        $req                                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGroupAuthorizationRule',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateGroupAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateGroupAuthorizationRuleRequest $request
+     *
+     * @return CreateGroupAuthorizationRuleResponse
+     */
+    public function createGroupAuthorizationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGroupAuthorizationRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateIoTCloudConnectorRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -234,11 +480,32 @@ class IoTCC extends OpenApiClient
     public function createIoTCloudConnectorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                                 = [];
+        $query['APN']                          = $request->APN;
+        $query['ClientToken']                  = $request->clientToken;
+        $query['DryRun']                       = $request->dryRun;
+        $query['ISP']                          = $request->ISP;
+        $query['IoTCloudConnectorDescription'] = $request->ioTCloudConnectorDescription;
+        $query['IoTCloudConnectorName']        = $request->ioTCloudConnectorName;
+        $query['RegionId']                     = $request->regionId;
+        $query['ResourceUid']                  = $request->resourceUid;
+        $query['WildcardDomainEnabled']        = $request->wildcardDomainEnabled;
+        $req                                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateIoTCloudConnector',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateIoTCloudConnectorResponse::fromMap($this->doRPCRequest('CreateIoTCloudConnector', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateIoTCloudConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -254,6 +521,51 @@ class IoTCC extends OpenApiClient
     }
 
     /**
+     * @param CreateIoTCloudConnectorGroupRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateIoTCloudConnectorGroupResponse
+     */
+    public function createIoTCloudConnectorGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                = [];
+        $query['ClientToken'] = $request->clientToken;
+        $query['Description'] = $request->description;
+        $query['DryRun']      = $request->dryRun;
+        $query['Name']        = $request->name;
+        $query['RegionId']    = $request->regionId;
+        $req                  = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateIoTCloudConnectorGroup',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateIoTCloudConnectorGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateIoTCloudConnectorGroupRequest $request
+     *
+     * @return CreateIoTCloudConnectorGroupResponse
+     */
+    public function createIoTCloudConnectorGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createIoTCloudConnectorGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateServiceRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -262,11 +574,29 @@ class IoTCC extends OpenApiClient
     public function createServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['ClientToken']         = $request->clientToken;
+        $query['DryRun']              = $request->dryRun;
+        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        $query['RegionId']            = $request->regionId;
+        $query['ServiceDescription']  = $request->serviceDescription;
+        $query['ServiceName']         = $request->serviceName;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateService',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateServiceResponse::fromMap($this->doRPCRequest('CreateService', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -290,11 +620,32 @@ class IoTCC extends OpenApiClient
     public function createServiceEntryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                            = [];
+        $query['ClientToken']             = $request->clientToken;
+        $query['DryRun']                  = $request->dryRun;
+        $query['IoTCloudConnectorId']     = $request->ioTCloudConnectorId;
+        $query['RegionId']                = $request->regionId;
+        $query['ServiceEntryDescription'] = $request->serviceEntryDescription;
+        $query['ServiceEntryName']        = $request->serviceEntryName;
+        $query['ServiceId']               = $request->serviceId;
+        $query['Target']                  = $request->target;
+        $query['TargetType']              = $request->targetType;
+        $req                              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateServiceEntry',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateServiceEntryResponse::fromMap($this->doRPCRequest('CreateServiceEntry', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateServiceEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -318,11 +669,28 @@ class IoTCC extends OpenApiClient
     public function deleteAuthorizationRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['AuthorizationRuleId'] = $request->authorizationRuleId;
+        $query['ClientToken']         = $request->clientToken;
+        $query['DryRun']              = $request->dryRun;
+        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        $query['RegionId']            = $request->regionId;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAuthorizationRule',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteAuthorizationRuleResponse::fromMap($this->doRPCRequest('DeleteAuthorizationRule', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -346,11 +714,28 @@ class IoTCC extends OpenApiClient
     public function deleteConnectionPoolWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['ClientToken']         = $request->clientToken;
+        $query['ConnectionPoolId']    = $request->connectionPoolId;
+        $query['DryRun']              = $request->dryRun;
+        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        $query['RegionId']            = $request->regionId;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteConnectionPool',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteConnectionPoolResponse::fromMap($this->doRPCRequest('DeleteConnectionPool', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteConnectionPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -366,6 +751,51 @@ class IoTCC extends OpenApiClient
     }
 
     /**
+     * @param DeleteGroupAuthorizationRuleRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteGroupAuthorizationRuleResponse
+     */
+    public function deleteGroupAuthorizationRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                             = [];
+        $query['AuthorizationRuleId']      = $request->authorizationRuleId;
+        $query['ClientToken']              = $request->clientToken;
+        $query['DryRun']                   = $request->dryRun;
+        $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
+        $query['RegionId']                 = $request->regionId;
+        $req                               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteGroupAuthorizationRule',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteGroupAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteGroupAuthorizationRuleRequest $request
+     *
+     * @return DeleteGroupAuthorizationRuleResponse
+     */
+    public function deleteGroupAuthorizationRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGroupAuthorizationRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteIoTCloudConnectorRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -374,11 +804,27 @@ class IoTCC extends OpenApiClient
     public function deleteIoTCloudConnectorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['ClientToken']         = $request->clientToken;
+        $query['DryRun']              = $request->dryRun;
+        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        $query['RegionId']            = $request->regionId;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteIoTCloudConnector',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteIoTCloudConnectorResponse::fromMap($this->doRPCRequest('DeleteIoTCloudConnector', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteIoTCloudConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -394,6 +840,50 @@ class IoTCC extends OpenApiClient
     }
 
     /**
+     * @param DeleteIoTCloudConnectorGroupRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteIoTCloudConnectorGroupResponse
+     */
+    public function deleteIoTCloudConnectorGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                             = [];
+        $query['ClientToken']              = $request->clientToken;
+        $query['DryRun']                   = $request->dryRun;
+        $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
+        $query['RegionId']                 = $request->regionId;
+        $req                               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteIoTCloudConnectorGroup',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteIoTCloudConnectorGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteIoTCloudConnectorGroupRequest $request
+     *
+     * @return DeleteIoTCloudConnectorGroupResponse
+     */
+    public function deleteIoTCloudConnectorGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteIoTCloudConnectorGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteServiceRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -402,11 +892,28 @@ class IoTCC extends OpenApiClient
     public function deleteServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['ClientToken']         = $request->clientToken;
+        $query['DryRun']              = $request->dryRun;
+        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        $query['RegionId']            = $request->regionId;
+        $query['ServiceId']           = $request->serviceId;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteService',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteServiceResponse::fromMap($this->doRPCRequest('DeleteService', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -430,11 +937,29 @@ class IoTCC extends OpenApiClient
     public function deleteServiceEntryWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['ClientToken']         = $request->clientToken;
+        $query['DryRun']              = $request->dryRun;
+        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        $query['RegionId']            = $request->regionId;
+        $query['ServiceEntryId']      = $request->serviceEntryId;
+        $query['ServiceId']           = $request->serviceId;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteServiceEntry',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteServiceEntryResponse::fromMap($this->doRPCRequest('DeleteServiceEntry', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteServiceEntryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -458,11 +983,27 @@ class IoTCC extends OpenApiClient
     public function disableIoTCloudConnectorAccessLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['ClientToken']         = $request->clientToken;
+        $query['DryRun']              = $request->dryRun;
+        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        $query['RegionId']            = $request->regionId;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableIoTCloudConnectorAccessLog',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DisableIoTCloudConnectorAccessLogResponse::fromMap($this->doRPCRequest('DisableIoTCloudConnectorAccessLog', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableIoTCloudConnectorAccessLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -486,11 +1027,30 @@ class IoTCC extends OpenApiClient
     public function dissociateIpFromConnectionPoolWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['ClientToken']         = $request->clientToken;
+        $query['ConnectionPoolId']    = $request->connectionPoolId;
+        $query['DryRun']              = $request->dryRun;
+        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        $query['Ips']                 = $request->ips;
+        $query['IpsFilePath']         = $request->ipsFilePath;
+        $query['RegionId']            = $request->regionId;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DissociateIpFromConnectionPool',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DissociateIpFromConnectionPoolResponse::fromMap($this->doRPCRequest('DissociateIpFromConnectionPool', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DissociateIpFromConnectionPoolResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -514,11 +1074,27 @@ class IoTCC extends OpenApiClient
     public function dissociateVSwitchFromIoTCloudConnectorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['ClientToken']         = $request->clientToken;
+        $query['DryRun']              = $request->dryRun;
+        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        $query['RegionId']            = $request->regionId;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DissociateVSwitchFromIoTCloudConnector',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DissociateVSwitchFromIoTCloudConnectorResponse::fromMap($this->doRPCRequest('DissociateVSwitchFromIoTCloudConnector', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DissociateVSwitchFromIoTCloudConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -542,11 +1118,29 @@ class IoTCC extends OpenApiClient
     public function enableIoTCloudConnectorAccessLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['AccessLogSlsLogStore'] = $request->accessLogSlsLogStore;
+        $query['AccessLogSlsProject']  = $request->accessLogSlsProject;
+        $query['ClientToken']          = $request->clientToken;
+        $query['DryRun']               = $request->dryRun;
+        $query['IoTCloudConnectorId']  = $request->ioTCloudConnectorId;
+        $query['RegionId']             = $request->regionId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableIoTCloudConnectorAccessLog',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return EnableIoTCloudConnectorAccessLogResponse::fromMap($this->doRPCRequest('EnableIoTCloudConnectorAccessLog', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return EnableIoTCloudConnectorAccessLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -570,11 +1164,27 @@ class IoTCC extends OpenApiClient
     public function getConnectionPoolIpOperationResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['ConnectionPoolId']    = $request->connectionPoolId;
+        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        $query['QueryRequestId']      = $request->queryRequestId;
+        $query['RegionId']            = $request->regionId;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetConnectionPoolIpOperationResult',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetConnectionPoolIpOperationResultResponse::fromMap($this->doRPCRequest('GetConnectionPoolIpOperationResult', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetConnectionPoolIpOperationResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -598,11 +1208,27 @@ class IoTCC extends OpenApiClient
     public function getIoTCloudConnectorAccessLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['ClientToken']         = $request->clientToken;
+        $query['DryRun']              = $request->dryRun;
+        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        $query['RegionId']            = $request->regionId;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetIoTCloudConnectorAccessLog',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetIoTCloudConnectorAccessLogResponse::fromMap($this->doRPCRequest('GetIoTCloudConnectorAccessLog', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetIoTCloudConnectorAccessLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -626,11 +1252,29 @@ class IoTCC extends OpenApiClient
     public function getStsInfoAndOssPathWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['ClientToken']         = $request->clientToken;
+        $query['ConnectionPoolId']    = $request->connectionPoolId;
+        $query['DryRun']              = $request->dryRun;
+        $query['FileName']            = $request->fileName;
+        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        $query['RegionId']            = $request->regionId;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetStsInfoAndOssPath',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetStsInfoAndOssPathResponse::fromMap($this->doRPCRequest('GetStsInfoAndOssPath', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetStsInfoAndOssPathResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -654,11 +1298,25 @@ class IoTCC extends OpenApiClient
     public function grantVirtualBorderRouterWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                          = [];
+        $query['RegionId']              = $request->regionId;
+        $query['VirtualBorderRouterId'] = $request->virtualBorderRouterId;
+        $req                            = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GrantVirtualBorderRouter',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GrantVirtualBorderRouterResponse::fromMap($this->doRPCRequest('GrantVirtualBorderRouter', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GrantVirtualBorderRouterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -682,11 +1340,28 @@ class IoTCC extends OpenApiClient
     public function listAPNsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query               = [];
+        $query['APN']        = $request->APN;
+        $query['ISP']        = $request->ISP;
+        $query['MaxResults'] = $request->maxResults;
+        $query['NextToken']  = $request->nextToken;
+        $query['RegionId']   = $request->regionId;
+        $req                 = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAPNs',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAPNsResponse::fromMap($this->doRPCRequest('ListAPNs', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAPNsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -710,11 +1385,33 @@ class IoTCC extends OpenApiClient
     public function listAuthorizationRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                            = [];
+        $query['AuthorizationRuleIds']    = $request->authorizationRuleIds;
+        $query['AuthorizationRuleName']   = $request->authorizationRuleName;
+        $query['AuthorizationRuleStatus'] = $request->authorizationRuleStatus;
+        $query['Destination']             = $request->destination;
+        $query['DestinationType']         = $request->destinationType;
+        $query['IoTCloudConnectorId']     = $request->ioTCloudConnectorId;
+        $query['MaxResults']              = $request->maxResults;
+        $query['NextToken']               = $request->nextToken;
+        $query['Policy']                  = $request->policy;
+        $query['RegionId']                = $request->regionId;
+        $req                              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAuthorizationRules',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListAuthorizationRulesResponse::fromMap($this->doRPCRequest('ListAuthorizationRules', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAuthorizationRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -730,6 +1427,53 @@ class IoTCC extends OpenApiClient
     }
 
     /**
+     * @param ListConnectionPoolAllIpsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListConnectionPoolAllIpsResponse
+     */
+    public function listConnectionPoolAllIpsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                        = [];
+        $query['ConnectionPoolId']    = $request->connectionPoolId;
+        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        $query['Ip']                  = $request->ip;
+        $query['MaxResults']          = $request->maxResults;
+        $query['NextToken']           = $request->nextToken;
+        $query['RegionId']            = $request->regionId;
+        $query['Type']                = $request->type;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListConnectionPoolAllIps',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListConnectionPoolAllIpsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListConnectionPoolAllIpsRequest $request
+     *
+     * @return ListConnectionPoolAllIpsResponse
+     */
+    public function listConnectionPoolAllIps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listConnectionPoolAllIpsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListConnectionPoolIpsRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -738,11 +1482,29 @@ class IoTCC extends OpenApiClient
     public function listConnectionPoolIpsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['ConnectionPoolId']    = $request->connectionPoolId;
+        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        $query['Ip']                  = $request->ip;
+        $query['MaxResults']          = $request->maxResults;
+        $query['NextToken']           = $request->nextToken;
+        $query['RegionId']            = $request->regionId;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListConnectionPoolIps',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListConnectionPoolIpsResponse::fromMap($this->doRPCRequest('ListConnectionPoolIps', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListConnectionPoolIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -766,11 +1528,30 @@ class IoTCC extends OpenApiClient
     public function listConnectionPoolsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                         = [];
+        $query['ConnectionPoolIds']    = $request->connectionPoolIds;
+        $query['ConnectionPoolName']   = $request->connectionPoolName;
+        $query['ConnectionPoolStatus'] = $request->connectionPoolStatus;
+        $query['IoTCloudConnectorId']  = $request->ioTCloudConnectorId;
+        $query['MaxResults']           = $request->maxResults;
+        $query['NextToken']            = $request->nextToken;
+        $query['RegionId']             = $request->regionId;
+        $req                           = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListConnectionPools',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListConnectionPoolsResponse::fromMap($this->doRPCRequest('ListConnectionPools', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListConnectionPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -786,6 +1567,56 @@ class IoTCC extends OpenApiClient
     }
 
     /**
+     * @param ListGroupAuthorizationRulesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListGroupAuthorizationRulesResponse
+     */
+    public function listGroupAuthorizationRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                             = [];
+        $query['AuthorizationRuleIds']     = $request->authorizationRuleIds;
+        $query['AuthorizationRuleName']    = $request->authorizationRuleName;
+        $query['AuthorizationRuleStatus']  = $request->authorizationRuleStatus;
+        $query['Destination']              = $request->destination;
+        $query['DestinationType']          = $request->destinationType;
+        $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
+        $query['MaxResults']               = $request->maxResults;
+        $query['NextToken']                = $request->nextToken;
+        $query['Policy']                   = $request->policy;
+        $query['RegionId']                 = $request->regionId;
+        $req                               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGroupAuthorizationRules',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListGroupAuthorizationRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListGroupAuthorizationRulesRequest $request
+     *
+     * @return ListGroupAuthorizationRulesResponse
+     */
+    public function listGroupAuthorizationRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listGroupAuthorizationRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListIoTCloudConnectorAvailableZonesRequest $request
      * @param RuntimeOptions                             $runtime
      *
@@ -794,11 +1625,25 @@ class IoTCC extends OpenApiClient
     public function listIoTCloudConnectorAvailableZonesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        $query['RegionId']            = $request->regionId;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIoTCloudConnectorAvailableZones',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListIoTCloudConnectorAvailableZonesResponse::fromMap($this->doRPCRequest('ListIoTCloudConnectorAvailableZones', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListIoTCloudConnectorAvailableZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -814,6 +1659,52 @@ class IoTCC extends OpenApiClient
     }
 
     /**
+     * @param ListIoTCloudConnectorGroupsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListIoTCloudConnectorGroupsResponse
+     */
+    public function listIoTCloudConnectorGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                                 = [];
+        $query['IoTCloudConnectorGroupIds']    = $request->ioTCloudConnectorGroupIds;
+        $query['IoTCloudConnectorGroupName']   = $request->ioTCloudConnectorGroupName;
+        $query['IoTCloudConnectorGroupStatus'] = $request->ioTCloudConnectorGroupStatus;
+        $query['MaxResults']                   = $request->maxResults;
+        $query['NextToken']                    = $request->nextToken;
+        $query['RegionId']                     = $request->regionId;
+        $req                                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIoTCloudConnectorGroups',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListIoTCloudConnectorGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListIoTCloudConnectorGroupsRequest $request
+     *
+     * @return ListIoTCloudConnectorGroupsResponse
+     */
+    public function listIoTCloudConnectorGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIoTCloudConnectorGroupsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListIoTCloudConnectorsRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -822,11 +1713,33 @@ class IoTCC extends OpenApiClient
     public function listIoTCloudConnectorsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                            = [];
+        $query['APN']                     = $request->APN;
+        $query['ISP']                     = $request->ISP;
+        $query['IoTCloudConnectorIds']    = $request->ioTCloudConnectorIds;
+        $query['IoTCloudConnectorName']   = $request->ioTCloudConnectorName;
+        $query['IoTCloudConnectorStatus'] = $request->ioTCloudConnectorStatus;
+        $query['IsInGroup']               = $request->isInGroup;
+        $query['MaxResults']              = $request->maxResults;
+        $query['NextToken']               = $request->nextToken;
+        $query['RegionId']                = $request->regionId;
+        $query['VpcId']                   = $request->vpcId;
+        $req                              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIoTCloudConnectors',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListIoTCloudConnectorsResponse::fromMap($this->doRPCRequest('ListIoTCloudConnectors', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListIoTCloudConnectorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -850,11 +1763,25 @@ class IoTCC extends OpenApiClient
     public function listRegionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                   = [];
+        $query['AcceptLanguage'] = $request->acceptLanguage;
+        $query['RegionId']       = $request->regionId;
+        $req                     = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRegions',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListRegionsResponse::fromMap($this->doRPCRequest('ListRegions', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -878,11 +1805,30 @@ class IoTCC extends OpenApiClient
     public function listServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        $query['MaxResults']          = $request->maxResults;
+        $query['NextToken']           = $request->nextToken;
+        $query['RegionId']            = $request->regionId;
+        $query['ResourceStatuses']    = $request->resourceStatuses;
+        $query['ServiceIds']          = $request->serviceIds;
+        $query['ServiceNames']        = $request->serviceNames;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListService',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListServiceResponse::fromMap($this->doRPCRequest('ListService', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -906,11 +1852,33 @@ class IoTCC extends OpenApiClient
     public function listServiceEntriesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        $query['MaxResults']          = $request->maxResults;
+        $query['NextToken']           = $request->nextToken;
+        $query['RegionId']            = $request->regionId;
+        $query['ServiceEntryIds']     = $request->serviceEntryIds;
+        $query['ServiceEntryName']    = $request->serviceEntryName;
+        $query['ServiceEntryStatus']  = $request->serviceEntryStatus;
+        $query['ServiceId']           = $request->serviceId;
+        $query['Target']              = $request->target;
+        $query['TargetType']          = $request->targetType;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListServiceEntries',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListServiceEntriesResponse::fromMap($this->doRPCRequest('ListServiceEntries', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListServiceEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -934,11 +1902,24 @@ class IoTCC extends OpenApiClient
     public function openIoTCloudConnectorServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query             = [];
+        $query['RegionId'] = $request->regionId;
+        $req               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OpenIoTCloudConnectorService',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return OpenIoTCloudConnectorServiceResponse::fromMap($this->doRPCRequest('OpenIoTCloudConnectorService', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return OpenIoTCloudConnectorServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -954,6 +1935,51 @@ class IoTCC extends OpenApiClient
     }
 
     /**
+     * @param RemoveIoTCloudConnectorFromGroupRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return RemoveIoTCloudConnectorFromGroupResponse
+     */
+    public function removeIoTCloudConnectorFromGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                             = [];
+        $query['ClientToken']              = $request->clientToken;
+        $query['DryRun']                   = $request->dryRun;
+        $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
+        $query['IoTCloudConnectorId']      = $request->ioTCloudConnectorId;
+        $query['RegionId']                 = $request->regionId;
+        $req                               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveIoTCloudConnectorFromGroup',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveIoTCloudConnectorFromGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemoveIoTCloudConnectorFromGroupRequest $request
+     *
+     * @return RemoveIoTCloudConnectorFromGroupResponse
+     */
+    public function removeIoTCloudConnectorFromGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeIoTCloudConnectorFromGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateAuthorizationRuleAttributeRequest $request
      * @param RuntimeOptions                          $runtime
      *
@@ -962,11 +1988,34 @@ class IoTCC extends OpenApiClient
     public function updateAuthorizationRuleAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                                 = [];
+        $query['AuthorizationRuleDescription'] = $request->authorizationRuleDescription;
+        $query['AuthorizationRuleId']          = $request->authorizationRuleId;
+        $query['AuthorizationRuleName']        = $request->authorizationRuleName;
+        $query['ClientToken']                  = $request->clientToken;
+        $query['Destination']                  = $request->destination;
+        $query['DestinationType']              = $request->destinationType;
+        $query['DryRun']                       = $request->dryRun;
+        $query['IoTCloudConnectorId']          = $request->ioTCloudConnectorId;
+        $query['Policy']                       = $request->policy;
+        $query['RegionId']                     = $request->regionId;
+        $query['SourceCidrs']                  = $request->sourceCidrs;
+        $req                                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAuthorizationRuleAttribute',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateAuthorizationRuleAttributeResponse::fromMap($this->doRPCRequest('UpdateAuthorizationRuleAttribute', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateAuthorizationRuleAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -990,11 +2039,32 @@ class IoTCC extends OpenApiClient
     public function updateConnectionPoolAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                              = [];
+        $query['Cidrs']                     = $request->cidrs;
+        $query['ClientToken']               = $request->clientToken;
+        $query['ConnectionPoolDescription'] = $request->connectionPoolDescription;
+        $query['ConnectionPoolId']          = $request->connectionPoolId;
+        $query['ConnectionPoolName']        = $request->connectionPoolName;
+        $query['Count']                     = $request->count;
+        $query['DryRun']                    = $request->dryRun;
+        $query['IoTCloudConnectorId']       = $request->ioTCloudConnectorId;
+        $query['RegionId']                  = $request->regionId;
+        $req                                = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateConnectionPoolAttribute',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateConnectionPoolAttributeResponse::fromMap($this->doRPCRequest('UpdateConnectionPoolAttribute', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateConnectionPoolAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1010,6 +2080,57 @@ class IoTCC extends OpenApiClient
     }
 
     /**
+     * @param UpdateGroupAuthorizationRuleAttributeRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return UpdateGroupAuthorizationRuleAttributeResponse
+     */
+    public function updateGroupAuthorizationRuleAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                                 = [];
+        $query['AuthorizationRuleDescription'] = $request->authorizationRuleDescription;
+        $query['AuthorizationRuleId']          = $request->authorizationRuleId;
+        $query['AuthorizationRuleName']        = $request->authorizationRuleName;
+        $query['ClientToken']                  = $request->clientToken;
+        $query['Destination']                  = $request->destination;
+        $query['DestinationType']              = $request->destinationType;
+        $query['DryRun']                       = $request->dryRun;
+        $query['IoTCloudConnectorGroupId']     = $request->ioTCloudConnectorGroupId;
+        $query['Policy']                       = $request->policy;
+        $query['RegionId']                     = $request->regionId;
+        $query['SourceCidrs']                  = $request->sourceCidrs;
+        $req                                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGroupAuthorizationRuleAttribute',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateGroupAuthorizationRuleAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGroupAuthorizationRuleAttributeRequest $request
+     *
+     * @return UpdateGroupAuthorizationRuleAttributeResponse
+     */
+    public function updateGroupAuthorizationRuleAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGroupAuthorizationRuleAttributeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateIoTCloudConnectorAttributeRequest $request
      * @param RuntimeOptions                          $runtime
      *
@@ -1018,11 +2139,30 @@ class IoTCC extends OpenApiClient
     public function updateIoTCloudConnectorAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                                 = [];
+        $query['ClientToken']                  = $request->clientToken;
+        $query['DryRun']                       = $request->dryRun;
+        $query['IoTCloudConnectorDescription'] = $request->ioTCloudConnectorDescription;
+        $query['IoTCloudConnectorId']          = $request->ioTCloudConnectorId;
+        $query['IoTCloudConnectorName']        = $request->ioTCloudConnectorName;
+        $query['RegionId']                     = $request->regionId;
+        $query['WildcardDomainEnabled']        = $request->wildcardDomainEnabled;
+        $req                                   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateIoTCloudConnectorAttribute',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateIoTCloudConnectorAttributeResponse::fromMap($this->doRPCRequest('UpdateIoTCloudConnectorAttribute', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateIoTCloudConnectorAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1038,6 +2178,52 @@ class IoTCC extends OpenApiClient
     }
 
     /**
+     * @param UpdateIoTCloudConnectorGroupAttributeRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return UpdateIoTCloudConnectorGroupAttributeResponse
+     */
+    public function updateIoTCloudConnectorGroupAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query                             = [];
+        $query['ClientToken']              = $request->clientToken;
+        $query['Description']              = $request->description;
+        $query['DryRun']                   = $request->dryRun;
+        $query['IoTCloudConnectorGroupId'] = $request->ioTCloudConnectorGroupId;
+        $query['Name']                     = $request->name;
+        $query['RegionId']                 = $request->regionId;
+        $req                               = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateIoTCloudConnectorGroupAttribute',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateIoTCloudConnectorGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateIoTCloudConnectorGroupAttributeRequest $request
+     *
+     * @return UpdateIoTCloudConnectorGroupAttributeResponse
+     */
+    public function updateIoTCloudConnectorGroupAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateIoTCloudConnectorGroupAttributeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateServiceAttributeRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -1046,11 +2232,30 @@ class IoTCC extends OpenApiClient
     public function updateServiceAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                        = [];
+        $query['ClientToken']         = $request->clientToken;
+        $query['DryRun']              = $request->dryRun;
+        $query['IoTCloudConnectorId'] = $request->ioTCloudConnectorId;
+        $query['RegionId']            = $request->regionId;
+        $query['ServiceDescription']  = $request->serviceDescription;
+        $query['ServiceId']           = $request->serviceId;
+        $query['ServiceName']         = $request->serviceName;
+        $req                          = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateServiceAttribute',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateServiceAttributeResponse::fromMap($this->doRPCRequest('UpdateServiceAttribute', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateServiceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1074,11 +2279,31 @@ class IoTCC extends OpenApiClient
     public function updateServiceEntryAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+        $query                            = [];
+        $query['ClientToken']             = $request->clientToken;
+        $query['DryRun']                  = $request->dryRun;
+        $query['IoTCloudConnectorId']     = $request->ioTCloudConnectorId;
+        $query['RegionId']                = $request->regionId;
+        $query['ServiceEntryDescription'] = $request->serviceEntryDescription;
+        $query['ServiceEntryId']          = $request->serviceEntryId;
+        $query['ServiceEntryName']        = $request->serviceEntryName;
+        $query['ServiceId']               = $request->serviceId;
+        $req                              = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateServiceEntryAttribute',
+            'version'     => '2021-05-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateServiceEntryAttributeResponse::fromMap($this->doRPCRequest('UpdateServiceEntryAttribute', '2021-05-13', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateServiceEntryAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

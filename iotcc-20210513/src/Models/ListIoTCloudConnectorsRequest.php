@@ -34,6 +34,11 @@ class ListIoTCloudConnectorsRequest extends Model
     public $ioTCloudConnectorStatus;
 
     /**
+     * @var bool
+     */
+    public $isInGroup;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -58,6 +63,7 @@ class ListIoTCloudConnectorsRequest extends Model
         'ioTCloudConnectorIds'    => 'IoTCloudConnectorIds',
         'ioTCloudConnectorName'   => 'IoTCloudConnectorName',
         'ioTCloudConnectorStatus' => 'IoTCloudConnectorStatus',
+        'isInGroup'               => 'IsInGroup',
         'maxResults'              => 'MaxResults',
         'nextToken'               => 'NextToken',
         'regionId'                => 'RegionId',
@@ -85,6 +91,9 @@ class ListIoTCloudConnectorsRequest extends Model
         }
         if (null !== $this->ioTCloudConnectorStatus) {
             $res['IoTCloudConnectorStatus'] = $this->ioTCloudConnectorStatus;
+        }
+        if (null !== $this->isInGroup) {
+            $res['IsInGroup'] = $this->isInGroup;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -134,6 +143,9 @@ class ListIoTCloudConnectorsRequest extends Model
             if (!empty($map['IoTCloudConnectorStatus'])) {
                 $model->ioTCloudConnectorStatus = $map['IoTCloudConnectorStatus'];
             }
+        }
+        if (isset($map['IsInGroup'])) {
+            $model->isInGroup = $map['IsInGroup'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];

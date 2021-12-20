@@ -36,6 +36,11 @@ class ioTCloudConnectors extends Model
     /**
      * @var string
      */
+    public $ioTCloudConnectorGroupId;
+
+    /**
+     * @var string
+     */
     public $ioTCloudConnectorId;
 
     /**
@@ -78,6 +83,7 @@ class ioTCloudConnectors extends Model
         'ISP'                             => 'ISP',
         'ioTCloudConnectorBusinessStatus' => 'IoTCloudConnectorBusinessStatus',
         'ioTCloudConnectorDescription'    => 'IoTCloudConnectorDescription',
+        'ioTCloudConnectorGroupId'        => 'IoTCloudConnectorGroupId',
         'ioTCloudConnectorId'             => 'IoTCloudConnectorId',
         'ioTCloudConnectorName'           => 'IoTCloudConnectorName',
         'ioTCloudConnectorStatus'         => 'IoTCloudConnectorStatus',
@@ -109,6 +115,9 @@ class ioTCloudConnectors extends Model
         }
         if (null !== $this->ioTCloudConnectorDescription) {
             $res['IoTCloudConnectorDescription'] = $this->ioTCloudConnectorDescription;
+        }
+        if (null !== $this->ioTCloudConnectorGroupId) {
+            $res['IoTCloudConnectorGroupId'] = $this->ioTCloudConnectorGroupId;
         }
         if (null !== $this->ioTCloudConnectorId) {
             $res['IoTCloudConnectorId'] = $this->ioTCloudConnectorId;
@@ -160,6 +169,9 @@ class ioTCloudConnectors extends Model
         }
         if (isset($map['IoTCloudConnectorDescription'])) {
             $model->ioTCloudConnectorDescription = $map['IoTCloudConnectorDescription'];
+        }
+        if (isset($map['IoTCloudConnectorGroupId'])) {
+            $model->ioTCloudConnectorGroupId = $map['IoTCloudConnectorGroupId'];
         }
         if (isset($map['IoTCloudConnectorId'])) {
             $model->ioTCloudConnectorId = $map['IoTCloudConnectorId'];
