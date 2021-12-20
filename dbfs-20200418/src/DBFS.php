@@ -44,8 +44,6 @@ use AlibabaCloud\SDK\DBFS\V20200418\Models\ListTagKeysRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ListTagKeysResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ListTagValuesRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ListTagValuesResponse;
-use AlibabaCloud\SDK\DBFS\V20200418\Models\ListTaskRequest;
-use AlibabaCloud\SDK\DBFS\V20200418\Models\ListTaskResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\RenameDbfsRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\RenameDbfsResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ResetDbfsRequest;
@@ -54,8 +52,6 @@ use AlibabaCloud\SDK\DBFS\V20200418\Models\ResizeDbfsRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\ResizeDbfsResponse;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\TagDbfsRequest;
 use AlibabaCloud\SDK\DBFS\V20200418\Models\TagDbfsResponse;
-use AlibabaCloud\SDK\DBFS\V20200418\Models\UpdateTaskRequest;
-use AlibabaCloud\SDK\DBFS\V20200418\Models\UpdateTaskResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -150,7 +146,6 @@ class DBFS extends OpenApiClient
         $query['Tags']        = $request->tags;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AddTagsBatch',
@@ -160,7 +155,7 @@ class DBFS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -197,7 +192,6 @@ class DBFS extends OpenApiClient
         $query['ServerUrl']     = $request->serverUrl;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'AttachDbfs',
@@ -207,7 +201,7 @@ class DBFS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -253,7 +247,6 @@ class DBFS extends OpenApiClient
         $query['ZoneId']               = $request->zoneId;
         $req                           = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateDbfs',
@@ -263,7 +256,7 @@ class DBFS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -296,7 +289,6 @@ class DBFS extends OpenApiClient
         $query['RegionId']    = $request->regionId;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateServiceLinkedRole',
@@ -306,7 +298,7 @@ class DBFS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -343,7 +335,6 @@ class DBFS extends OpenApiClient
         $query['SnapshotName']  = $request->snapshotName;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateSnapshot',
@@ -353,7 +344,7 @@ class DBFS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -386,7 +377,6 @@ class DBFS extends OpenApiClient
         $query['RegionId'] = $request->regionId;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteDbfs',
@@ -396,7 +386,7 @@ class DBFS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -430,7 +420,6 @@ class DBFS extends OpenApiClient
         $query['SnapshotId'] = $request->snapshotId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteSnapshot',
@@ -440,7 +429,7 @@ class DBFS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -474,7 +463,6 @@ class DBFS extends OpenApiClient
         $query['Tags']     = $request->tags;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteTagsBatch',
@@ -484,7 +472,7 @@ class DBFS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -518,7 +506,6 @@ class DBFS extends OpenApiClient
         $query['RegionId']        = $request->regionId;
         $req                      = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDbfsSpecifications',
@@ -528,7 +515,7 @@ class DBFS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -560,7 +547,6 @@ class DBFS extends OpenApiClient
         $query['RegionId'] = $request->regionId;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstanceTypes',
@@ -570,7 +556,7 @@ class DBFS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -604,7 +590,6 @@ class DBFS extends OpenApiClient
         $query['RegionId']      = $request->regionId;
         $req                    = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DetachDbfs',
@@ -614,7 +599,7 @@ class DBFS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -647,7 +632,6 @@ class DBFS extends OpenApiClient
         $query['RegionId'] = $request->regionId;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetDbfs',
@@ -657,7 +641,7 @@ class DBFS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -689,7 +673,6 @@ class DBFS extends OpenApiClient
         $query['RegionId'] = $request->regionId;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'GetServiceLinkedRole',
@@ -699,7 +682,7 @@ class DBFS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -738,7 +721,6 @@ class DBFS extends OpenApiClient
         $query['Tags']        = $request->tags;
         $req                  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListDbfs',
@@ -748,7 +730,7 @@ class DBFS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -780,7 +762,6 @@ class DBFS extends OpenApiClient
         $query['RegionId'] = $request->regionId;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListDbfsAttachableEcsInstances',
@@ -790,7 +771,7 @@ class DBFS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -823,7 +804,6 @@ class DBFS extends OpenApiClient
         $query['RegionId'] = $request->regionId;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListDbfsAttachedEcsInstances',
@@ -833,7 +813,7 @@ class DBFS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -876,7 +856,6 @@ class DBFS extends OpenApiClient
         $query['Status']       = $request->status;
         $req                   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListSnapshot',
@@ -886,7 +865,7 @@ class DBFS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -918,7 +897,6 @@ class DBFS extends OpenApiClient
         $query['RegionId'] = $request->regionId;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListTagKeys',
@@ -928,7 +906,7 @@ class DBFS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -961,7 +939,6 @@ class DBFS extends OpenApiClient
         $query['TagKey']   = $request->tagKey;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ListTagValues',
@@ -971,7 +948,7 @@ class DBFS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -991,54 +968,6 @@ class DBFS extends OpenApiClient
     }
 
     /**
-     * @param ListTaskRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return ListTaskResponse
-     */
-    public function listTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query                = [];
-        $query['FilterKey']   = $request->filterKey;
-        $query['FilterValue'] = $request->filterValue;
-        $query['PageNumber']  = $request->pageNumber;
-        $query['PageSize']    = $request->pageSize;
-        $query['RegionId']    = $request->regionId;
-        $query['SortKey']     = $request->sortKey;
-        $query['SortType']    = $request->sortType;
-        $req                  = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'ListTask',
-            'version'     => '2020-04-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListTaskRequest $request
-     *
-     * @return ListTaskResponse
-     */
-    public function listTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listTaskWithOptions($request, $runtime);
-    }
-
-    /**
      * @param RenameDbfsRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -1053,7 +982,6 @@ class DBFS extends OpenApiClient
         $query['RegionId'] = $request->regionId;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RenameDbfs',
@@ -1063,7 +991,7 @@ class DBFS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1097,7 +1025,6 @@ class DBFS extends OpenApiClient
         $query['SnapshotId'] = $request->snapshotId;
         $req                 = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ResetDbfs',
@@ -1107,7 +1034,7 @@ class DBFS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1141,7 +1068,6 @@ class DBFS extends OpenApiClient
         $query['RegionId'] = $request->regionId;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ResizeDbfs',
@@ -1151,7 +1077,7 @@ class DBFS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1185,7 +1111,6 @@ class DBFS extends OpenApiClient
         $query['Tags']     = $request->tags;
         $req               = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'TagDbfs',
@@ -1195,7 +1120,7 @@ class DBFS extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1212,49 +1137,5 @@ class DBFS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->tagDbfsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateTaskRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return UpdateTaskResponse
-     */
-    public function updateTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query                 = [];
-        $query['RegionId']     = $request->regionId;
-        $query['TaskIds']      = $request->taskIds;
-        $query['TaskProgress'] = $request->taskProgress;
-        $req                   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateTask',
-            'version'     => '2020-04-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UpdateTaskRequest $request
-     *
-     * @return UpdateTaskResponse
-     */
-    public function updateTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateTaskWithOptions($request, $runtime);
     }
 }
